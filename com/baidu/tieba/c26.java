@@ -42,13 +42,13 @@ public class c26 {
 
         /* renamed from: com.baidu.tieba.c26$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0241a extends BdRunnable {
+        public class C0239a extends BdRunnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ JSONObject c;
             public final /* synthetic */ a d;
 
-            public C0241a(a aVar, JSONObject jSONObject) {
+            public C0239a(a aVar, JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -309,7 +309,7 @@ public class c26 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, jSONObject)) == null) {
-            if (xi8.f(map)) {
+            if (yi8.f(map)) {
                 return jSONObject;
             }
             for (Map.Entry<String, String> entry : map.entrySet()) {

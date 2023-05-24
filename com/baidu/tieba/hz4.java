@@ -52,34 +52,34 @@ public class hz4 implements Comparable<hz4> {
         this.b = i2;
     }
 
-    public static hz4 b(TbLinkSpanGroup tbLinkSpanGroup, po7 po7Var) {
+    public static hz4 b(TbLinkSpanGroup tbLinkSpanGroup, qo7 qo7Var) {
         InterceptResult invokeLL;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tbLinkSpanGroup, po7Var)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tbLinkSpanGroup, qo7Var)) == null) {
             if (tbLinkSpanGroup == null) {
                 return null;
             }
             hz4 hz4Var = new hz4(tbLinkSpanGroup.e(), 2);
-            if (po7Var == null) {
+            if (qo7Var == null) {
                 return hz4Var;
             }
-            if (TextUtils.isEmpty(po7Var.f())) {
+            if (TextUtils.isEmpty(qo7Var.f())) {
                 str = TbadkCoreApplication.getInst().getString(R.string.web_page_link);
             } else {
-                str = po7Var.f() + TbadkCoreApplication.getInst().getString(R.string.commodity_link);
+                str = qo7Var.f() + TbadkCoreApplication.getInst().getString(R.string.commodity_link);
             }
             hz4Var.d = str;
-            hz4Var.c = po7Var.c();
-            hz4Var.m = po7Var.a();
-            if (!ListUtils.isEmpty(po7Var.b()) && po7Var.b().get(0) != null) {
-                hz4Var.e = po7Var.b().get(0).a();
+            hz4Var.c = qo7Var.c();
+            hz4Var.m = qo7Var.a();
+            if (!ListUtils.isEmpty(qo7Var.b()) && qo7Var.b().get(0) != null) {
+                hz4Var.e = qo7Var.b().get(0).a();
             }
-            hz4Var.l = po7Var.f();
-            hz4Var.f = po7Var.d();
-            if (po7Var.e() != null) {
-                hz4Var.j = po7Var.e().a();
-                hz4Var.k = po7Var.e().b();
+            hz4Var.l = qo7Var.f();
+            hz4Var.f = qo7Var.d();
+            if (qo7Var.e() != null) {
+                hz4Var.j = qo7Var.e().a();
+                hz4Var.k = qo7Var.e().b();
             }
             tbLinkSpanGroup.B(hz4Var);
             return hz4Var;

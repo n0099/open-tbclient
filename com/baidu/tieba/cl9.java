@@ -1,27 +1,38 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityNeedContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class cl9 {
+public class cl9 implements ILokiIdentityNeedContext {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile bl9 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized bl9 a() {
+    @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityNeedContext
+    public String getAppName() {
         InterceptResult invokeV;
-        bl9 bl9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (cl9.class) {
-                if (a == null) {
-                    a = new bl9();
-                }
-                bl9Var = a;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "tieba" : (String) invokeV.objValue;
+    }
+
+    public cl9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return bl9Var;
         }
-        return (bl9) invokeV.objValue;
     }
 }

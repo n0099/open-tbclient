@@ -1,209 +1,468 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobstat.Config;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.cert.CertificateParsingException;
-import java.security.cert.X509Certificate;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.LinkedList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import com.huawei.hms.common.internal.TransactionIdCreater;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import java.util.Locale;
-import java.util.regex.Pattern;
-import javax.net.ssl.SSLException;
-import okhttp3.CertificatePinner;
+import javax.security.auth.x500.X500Principal;
+import org.apache.commons.codec.net.RFC1522Codec;
 /* loaded from: classes5.dex */
 public class h3b {
     public static /* synthetic */ Interceptable $ic;
-    public static final Pattern a;
-    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public char[] g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947774194, "Lcom/baidu/tieba/h3b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947774194, "Lcom/baidu/tieba/h3b;");
+    public h3b(X500Principal x500Principal) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {x500Principal};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = Pattern.compile("^(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}$");
-        String[] strArr = {"ac", "co", "com", Config.EVENT_PATH_MAPPING, "edu", "go", "gouv", "gov", "info", "lg", "ne", "net", "or", "org"};
-        b = strArr;
-        Arrays.sort(strArr);
+        String name = x500Principal.getName("RFC2253");
+        this.a = name;
+        this.b = name.length();
     }
 
-    public static final void a(String str, X509Certificate x509Certificate, boolean z) throws SSLException {
+    public final int a(int i) {
+        InterceptResult invokeI;
+        int i2;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65537, null, str, x509Certificate, z) == null) {
-            String[] d = d(x509Certificate);
-            String[] f = f(x509Certificate);
-            n3b.b("", "cn is : " + Arrays.toString(d));
-            n3b.b("", "san is : " + Arrays.toString(f));
-            b(str, d, f, z);
-        }
-    }
-
-    public static final void b(String str, String[] strArr, String[] strArr2, boolean z) throws SSLException {
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, strArr, strArr2, Boolean.valueOf(z)}) == null) {
-            LinkedList linkedList = new LinkedList();
-            if (strArr != null && strArr.length > 0 && strArr[0] != null) {
-                linkedList.add(strArr[0]);
-            }
-            if (strArr2 != null) {
-                for (String str2 : strArr2) {
-                    if (str2 != null) {
-                        linkedList.add(str2);
-                    }
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            int i4 = i + 1;
+            if (i4 < this.b) {
+                char c = this.g[i];
+                if (c >= '0' && c <= '9') {
+                    i2 = c - TransactionIdCreater.FILL_BYTE;
+                } else if (c >= 'a' && c <= 'f') {
+                    i2 = c - 'W';
+                } else if (c >= 'A' && c <= 'F') {
+                    i2 = c - '7';
+                } else {
+                    throw new IllegalStateException("Malformed DN: " + this.a);
                 }
+                char c2 = this.g[i4];
+                if (c2 >= '0' && c2 <= '9') {
+                    i3 = c2 - TransactionIdCreater.FILL_BYTE;
+                } else if (c2 >= 'a' && c2 <= 'f') {
+                    i3 = c2 - 'W';
+                } else if (c2 >= 'A' && c2 <= 'F') {
+                    i3 = c2 - '7';
+                } else {
+                    throw new IllegalStateException("Malformed DN: " + this.a);
+                }
+                return (i2 << 4) + i3;
             }
-            if (!linkedList.isEmpty()) {
-                StringBuffer stringBuffer = new StringBuffer();
-                String lowerCase = str.trim().toLowerCase(Locale.ENGLISH);
-                Iterator it = linkedList.iterator();
-                boolean z3 = false;
-                while (it.hasNext()) {
-                    String lowerCase2 = ((String) it.next()).toLowerCase(Locale.ENGLISH);
-                    stringBuffer.append(" <");
-                    stringBuffer.append(lowerCase2);
-                    stringBuffer.append('>');
-                    if (it.hasNext()) {
-                        stringBuffer.append(" OR");
-                    }
-                    if (lowerCase2.startsWith(CertificatePinner.Pin.WILDCARD) && lowerCase2.indexOf(46, 2) != -1 && c(lowerCase2) && !g(str)) {
-                        z2 = true;
-                    } else {
-                        z2 = false;
-                    }
-                    if (z2) {
-                        boolean endsWith = lowerCase.endsWith(lowerCase2.substring(1));
-                        if (endsWith && z) {
-                            if (e(lowerCase) == e(lowerCase2)) {
-                                z3 = true;
-                                continue;
+            throw new IllegalStateException("Malformed DN: " + this.a);
+        }
+        return invokeI.intValue;
+    }
+
+    public List<String> d(String str) {
+        InterceptResult invokeL;
+        String h;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            this.c = 0;
+            this.d = 0;
+            this.e = 0;
+            this.f = 0;
+            this.g = this.a.toCharArray();
+            List<String> emptyList = Collections.emptyList();
+            String g = g();
+            if (g == null) {
+                return emptyList;
+            }
+            do {
+                int i = this.c;
+                if (i < this.b) {
+                    char c = this.g[i];
+                    if (c != '\"') {
+                        if (c != '#') {
+                            if (c != '+' && c != ',' && c != ';') {
+                                h = b();
                             } else {
-                                z3 = false;
-                                continue;
+                                h = "";
                             }
                         } else {
-                            z3 = endsWith;
-                            continue;
+                            h = f();
                         }
                     } else {
-                        z3 = lowerCase.equals(lowerCase2);
-                        continue;
+                        h = h();
                     }
-                    if (z3) {
+                    if (str.equalsIgnoreCase(g)) {
+                        if (emptyList.isEmpty()) {
+                            emptyList = new ArrayList<>();
+                        }
+                        emptyList.add(h);
+                    }
+                    int i2 = this.c;
+                    if (i2 < this.b) {
+                        char[] cArr = this.g;
+                        if (cArr[i2] != ',' && cArr[i2] != ';' && cArr[i2] != '+') {
+                            throw new IllegalStateException("Malformed DN: " + this.a);
+                        }
+                        this.c++;
+                        g = g();
+                    }
+                }
+                return emptyList;
+            } while (g != null);
+            throw new IllegalStateException("Malformed DN: " + this.a);
+        }
+        return (List) invokeL.objValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x00ab, code lost:
+        return new java.lang.String(r1, r2, r8.f - r2);
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int i = this.c;
+            this.d = i;
+            this.e = i;
+            while (true) {
+                int i2 = this.c;
+                if (i2 >= this.b) {
+                    char[] cArr = this.g;
+                    int i3 = this.d;
+                    return new String(cArr, i3, this.e - i3);
+                }
+                char[] cArr2 = this.g;
+                char c = cArr2[i2];
+                if (c != ' ') {
+                    if (c == ';') {
+                        break;
+                    } else if (c != '\\') {
+                        if (c == '+' || c == ',') {
+                            break;
+                        }
+                        int i4 = this.e;
+                        this.e = i4 + 1;
+                        cArr2[i4] = cArr2[i2];
+                        this.c = i2 + 1;
+                    } else {
+                        int i5 = this.e;
+                        this.e = i5 + 1;
+                        cArr2[i5] = c();
+                        this.c++;
+                    }
+                } else {
+                    int i6 = this.e;
+                    this.f = i6;
+                    this.c = i2 + 1;
+                    this.e = i6 + 1;
+                    cArr2[i6] = WebvttCueParser.CHAR_SPACE;
+                    while (true) {
+                        int i7 = this.c;
+                        if (i7 >= this.b) {
+                            break;
+                        }
+                        char[] cArr3 = this.g;
+                        if (cArr3[i7] != ' ') {
+                            break;
+                        }
+                        int i8 = this.e;
+                        this.e = i8 + 1;
+                        cArr3[i8] = WebvttCueParser.CHAR_SPACE;
+                        this.c = i7 + 1;
+                    }
+                    int i9 = this.c;
+                    if (i9 == this.b) {
+                        break;
+                    }
+                    char[] cArr4 = this.g;
+                    if (cArr4[i9] == ',' || cArr4[i9] == '+' || cArr4[i9] == ';') {
                         break;
                     }
                 }
-                if (z3) {
-                    return;
-                }
-                throw new SSLException("hostname in certificate didn't match: <" + str + "> !=" + ((Object) stringBuffer));
             }
-            throw new SSLException("Certificate for <" + str + "> doesn't contain CN or DNS subjectAlt");
+            char[] cArr5 = this.g;
+            int i10 = this.d;
+            return new String(cArr5, i10, this.e - i10);
         }
+        return (String) invokeV.objValue;
     }
 
-    public static boolean c(String str) {
-        InterceptResult invokeL;
+    public final char c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            int length = str.length();
-            if (length < 7 || length > 9) {
-                return true;
-            }
-            int i = length - 3;
-            if (str.charAt(i) != '.') {
-                return true;
-            }
-            if (Arrays.binarySearch(b, str.substring(2, i)) < 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String[] d(X509Certificate x509Certificate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, x509Certificate)) == null) {
-            List<String> d = new g3b(x509Certificate.getSubjectX500Principal()).d("cn");
-            if (!d.isEmpty()) {
-                String[] strArr = new String[d.size()];
-                d.toArray(strArr);
-                return strArr;
-            }
-            return null;
-        }
-        return (String[]) invokeL.objValue;
-    }
-
-    public static int e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            int i = 0;
-            for (int i2 = 0; i2 < str.length(); i2++) {
-                if (str.charAt(i2) == '.') {
-                    i++;
-                }
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public static boolean g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            return a.matcher(str).matches();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String[] f(X509Certificate x509Certificate) {
-        InterceptResult invokeL;
-        Collection<List<?>> collection;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, x509Certificate)) == null) {
-            LinkedList linkedList = new LinkedList();
-            try {
-                collection = x509Certificate.getSubjectAlternativeNames();
-            } catch (CertificateParsingException e) {
-                n3b.c("", "Error parsing certificate.", e);
-                collection = null;
-            }
-            if (collection != null) {
-                for (List<?> list : collection) {
-                    if (((Integer) list.get(0)).intValue() == 2) {
-                        linkedList.add((String) list.get(1));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int i = this.c + 1;
+            this.c = i;
+            if (i != this.b) {
+                char[] cArr = this.g;
+                char c = cArr[i];
+                if (c != ' ' && c != '%' && c != '\\' && c != '_' && c != '\"' && c != '#') {
+                    switch (c) {
+                        case '*':
+                        case '+':
+                        case ',':
+                            break;
+                        default:
+                            switch (c) {
+                                case ';':
+                                case '<':
+                                case '=':
+                                case '>':
+                                    break;
+                                default:
+                                    return e();
+                            }
                     }
                 }
+                return cArr[i];
             }
-            if (linkedList.isEmpty()) {
+            throw new IllegalStateException("Unexpected end of DN: " + this.a);
+        }
+        return invokeV.charValue;
+    }
+
+    public final char e() {
+        InterceptResult invokeV;
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int a = a(this.c);
+            this.c++;
+            if (a < 128) {
+                return (char) a;
+            }
+            if (a < 192 || a > 247) {
+                return RFC1522Codec.SEP;
+            }
+            if (a <= 223) {
+                i2 = a & 31;
+                i = 1;
+            } else if (a <= 239) {
+                i = 2;
+                i2 = a & 15;
+            } else {
+                i = 3;
+                i2 = a & 7;
+            }
+            for (int i3 = 0; i3 < i; i3++) {
+                int i4 = this.c + 1;
+                this.c = i4;
+                if (i4 == this.b || this.g[i4] != '\\') {
+                    return RFC1522Codec.SEP;
+                }
+                int i5 = i4 + 1;
+                this.c = i5;
+                int a2 = a(i5);
+                this.c++;
+                if ((a2 & 192) != 128) {
+                    return RFC1522Codec.SEP;
+                }
+                i2 = (i2 << 6) + (a2 & 63);
+            }
+            return (char) i2;
+        }
+        return invokeV.charValue;
+    }
+
+    public final String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            int i = this.c + 1;
+            this.c = i;
+            this.d = i;
+            this.e = i;
+            while (true) {
+                int i2 = this.c;
+                if (i2 != this.b) {
+                    char[] cArr = this.g;
+                    if (cArr[i2] == '\"') {
+                        this.c = i2 + 1;
+                        while (true) {
+                            int i3 = this.c;
+                            if (i3 >= this.b || this.g[i3] != ' ') {
+                                break;
+                            }
+                            this.c = i3 + 1;
+                        }
+                        char[] cArr2 = this.g;
+                        int i4 = this.d;
+                        return new String(cArr2, i4, this.e - i4);
+                    }
+                    if (cArr[i2] == '\\') {
+                        cArr[this.e] = c();
+                    } else {
+                        cArr[this.e] = cArr[i2];
+                    }
+                    this.c++;
+                    this.e++;
+                } else {
+                    throw new IllegalStateException("Unexpected end of DN: " + this.a);
+                }
+            }
+        } else {
+            return (String) invokeV.objValue;
+        }
+    }
+
+    public final String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int i = this.c;
+            if (i + 4 < this.b) {
+                this.d = i;
+                this.c = i + 1;
+                while (true) {
+                    int i2 = this.c;
+                    if (i2 == this.b) {
+                        break;
+                    }
+                    char[] cArr = this.g;
+                    if (cArr[i2] == '+' || cArr[i2] == ',' || cArr[i2] == ';') {
+                        break;
+                    } else if (cArr[i2] == ' ') {
+                        this.e = i2;
+                        this.c = i2 + 1;
+                        while (true) {
+                            int i3 = this.c;
+                            if (i3 >= this.b || this.g[i3] != ' ') {
+                                break;
+                            }
+                            this.c = i3 + 1;
+                        }
+                    } else {
+                        if (cArr[i2] >= 'A' && cArr[i2] <= 'F') {
+                            cArr[i2] = (char) (cArr[i2] + WebvttCueParser.CHAR_SPACE);
+                        }
+                        this.c++;
+                    }
+                }
+                this.e = this.c;
+                int i4 = this.e;
+                int i5 = this.d;
+                int i6 = i4 - i5;
+                if (i6 >= 5 && (i6 & 1) != 0) {
+                    int i7 = i6 / 2;
+                    byte[] bArr = new byte[i7];
+                    int i8 = i5 + 1;
+                    for (int i9 = 0; i9 < i7; i9++) {
+                        bArr[i9] = (byte) a(i8);
+                        i8 += 2;
+                    }
+                    return new String(this.g, this.d, i6);
+                }
+                throw new IllegalStateException("Unexpected end of DN: " + this.a);
+            }
+            throw new IllegalStateException("Unexpected end of DN: " + this.a);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            while (true) {
+                int i = this.c;
+                if (i >= this.b || this.g[i] != ' ') {
+                    break;
+                }
+                this.c = i + 1;
+            }
+            int i2 = this.c;
+            if (i2 == this.b) {
                 return null;
             }
-            String[] strArr = new String[linkedList.size()];
-            linkedList.toArray(strArr);
-            return strArr;
+            this.d = i2;
+            this.c = i2 + 1;
+            while (true) {
+                int i3 = this.c;
+                if (i3 >= this.b) {
+                    break;
+                }
+                char[] cArr = this.g;
+                if (cArr[i3] == '=' || cArr[i3] == ' ') {
+                    break;
+                }
+                this.c = i3 + 1;
+            }
+            int i4 = this.c;
+            if (i4 < this.b) {
+                this.e = i4;
+                if (this.g[i4] == ' ') {
+                    while (true) {
+                        int i5 = this.c;
+                        if (i5 >= this.b) {
+                            break;
+                        }
+                        char[] cArr2 = this.g;
+                        if (cArr2[i5] == '=' || cArr2[i5] != ' ') {
+                            break;
+                        }
+                        this.c = i5 + 1;
+                    }
+                    char[] cArr3 = this.g;
+                    int i6 = this.c;
+                    if (cArr3[i6] != '=' || i6 == this.b) {
+                        throw new IllegalStateException("Unexpected end of DN: " + this.a);
+                    }
+                }
+                this.c++;
+                while (true) {
+                    int i7 = this.c;
+                    if (i7 >= this.b || this.g[i7] != ' ') {
+                        break;
+                    }
+                    this.c = i7 + 1;
+                }
+                int i8 = this.e;
+                int i9 = this.d;
+                if (i8 - i9 > 4) {
+                    char[] cArr4 = this.g;
+                    if (cArr4[i9 + 3] == '.' && (cArr4[i9] == 'O' || cArr4[i9] == 'o')) {
+                        char[] cArr5 = this.g;
+                        int i10 = this.d + 1;
+                        if (cArr5[i10] == 'I' || cArr5[i10] == 'i') {
+                            char[] cArr6 = this.g;
+                            int i11 = this.d + 2;
+                            if (cArr6[i11] == 'D' || cArr6[i11] == 'd') {
+                                this.d += 4;
+                            }
+                        }
+                    }
+                }
+                char[] cArr7 = this.g;
+                int i12 = this.d;
+                return new String(cArr7, i12, this.e - i12);
+            }
+            throw new IllegalStateException("Unexpected end of DN: " + this.a);
         }
-        return (String[]) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

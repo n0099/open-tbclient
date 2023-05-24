@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.tieba.gm5;
 import com.baidu.tieba.rn;
-import com.baidu.tieba.su6;
+import com.baidu.tieba.tu6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ import tbclient.Tabfeedlist.TabfeedlistResIdl;
 public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage implements gm5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public su6 enterForumTabFeedData;
+    public tu6 enterForumTabFeedData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabFeedListSocketResponsedMessage() {
@@ -80,9 +80,9 @@ public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage i
             if (tabfeedlistResIdl.data == null) {
                 return tabfeedlistResIdl;
             }
-            su6 su6Var = new su6();
-            this.enterForumTabFeedData = su6Var;
-            su6Var.g(tabfeedlistResIdl.data);
+            tu6 tu6Var = new tu6();
+            this.enterForumTabFeedData = tu6Var;
+            tu6Var.g(tabfeedlistResIdl.data);
             return tabfeedlistResIdl;
         }
         return invokeIL.objValue;

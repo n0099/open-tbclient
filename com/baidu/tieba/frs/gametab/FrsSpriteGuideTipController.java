@@ -14,11 +14,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.an6;
 import com.baidu.tieba.bj5;
+import com.baidu.tieba.bn6;
 import com.baidu.tieba.core.widget.SpriteBottomTipView;
 import com.baidu.tieba.frs.gametab.FrsSpriteGuideTipController;
-import com.baidu.tieba.qn6;
+import com.baidu.tieba.rn6;
 import com.baidu.tieba.sprite.FunnySpriteResDownloadUtil;
 import com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +39,7 @@ public final class FrsSpriteGuideTipController {
     public final Activity a;
     public final SpriteAnimationTipManager b;
     public a c;
-    public an6.e d;
+    public bn6.e d;
     public boolean e;
 
     /* loaded from: classes5.dex */
@@ -131,13 +131,13 @@ public final class FrsSpriteGuideTipController {
         } else {
             str = "funny_sprite_appear_dark";
         }
-        qn6 a2 = bj5.a(FunnySpriteResDownloadUtil.i(str, "see_res", true), false, 2);
+        rn6 a2 = bj5.a(FunnySpriteResDownloadUtil.i(str, "see_res", true), false, 2);
         if (z) {
             str2 = "funny_sprite_show_day";
         } else {
             str2 = "funny_sprite_show_dark";
         }
-        qn6 a3 = bj5.a(FunnySpriteResDownloadUtil.i(str2, "see_res", true), true, 2);
+        rn6 a3 = bj5.a(FunnySpriteResDownloadUtil.i(str2, "see_res", true), true, 2);
         if (z) {
             str3 = "funny_sprite_exit_day";
         } else {
@@ -148,7 +148,7 @@ public final class FrsSpriteGuideTipController {
         this.b.y(4000L);
         this.b.s(UtilHelper.getDimenPixelSize(R.dimen.tbds120), UtilHelper.getDimenPixelSize(R.dimen.tbds239));
         this.b.t(c());
-        this.b.v(new View.OnClickListener() { // from class: com.baidu.tieba.df7
+        this.b.v(new View.OnClickListener() { // from class: com.baidu.tieba.ef7
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -199,7 +199,7 @@ public final class FrsSpriteGuideTipController {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                     this.this$0.k(false);
-                    an6.e f = this.this$0.f();
+                    bn6.e f = this.this$0.f();
                     if (f != null) {
                         f.onDismiss();
                     }
@@ -225,7 +225,7 @@ public final class FrsSpriteGuideTipController {
         }
     }
 
-    public final void j(an6.e eVar) {
+    public final void j(bn6.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, eVar) == null) {
             this.d = eVar;
@@ -260,13 +260,13 @@ public final class FrsSpriteGuideTipController {
         return (a) invokeV.objValue;
     }
 
-    public final an6.e f() {
+    public final bn6.e f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.d;
         }
-        return (an6.e) invokeV.objValue;
+        return (bn6.e) invokeV.objValue;
     }
 
     public final void g() {
@@ -275,7 +275,7 @@ public final class FrsSpriteGuideTipController {
             DefaultLog.getInstance().c("FrsGuide", "精灵动画提示控件：隐藏吧引导");
             this.b.p();
             this.e = false;
-            an6.e eVar = this.d;
+            bn6.e eVar = this.d;
             if (eVar != null) {
                 eVar.onDismiss();
             }

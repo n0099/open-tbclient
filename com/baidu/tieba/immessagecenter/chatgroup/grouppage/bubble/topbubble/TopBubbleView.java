@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.j88;
+import com.baidu.tieba.k88;
 import com.baidu.tieba.p45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -205,7 +205,7 @@ public class TopBubbleView extends FrameLayout {
                 } else {
                     this.a.g.setVisibility(8);
                 }
-            } else if (!j88.a(topBubbleData.getVersionKey())) {
+            } else if (!k88.a(topBubbleData.getVersionKey())) {
                 this.a.g.setVisibility(0);
                 this.a.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f0805ed);
             } else {

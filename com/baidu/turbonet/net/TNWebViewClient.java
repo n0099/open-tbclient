@@ -11,7 +11,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hfa;
+import com.baidu.tieba.ifa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -70,26 +70,26 @@ public class TNWebViewClient extends WebViewClient {
                 return null;
             }
             Log.d("tn_TNWebViewClient", "Intercept request and send " + webResourceRequest.getUrl().toString());
-            hfa hfaVar = new hfa(new URL(webResourceRequest.getUrl().toString()), this.a);
-            hfaVar.setRequestMethod(webResourceRequest.getMethod());
+            ifa ifaVar = new ifa(new URL(webResourceRequest.getUrl().toString()), this.a);
+            ifaVar.setRequestMethod(webResourceRequest.getMethod());
             Map<String, String> requestHeaders = webResourceRequest.getRequestHeaders();
             if (requestHeaders != null) {
                 for (Map.Entry<String, String> entry : requestHeaders.entrySet()) {
-                    hfaVar.setRequestProperty(entry.getKey(), entry.getValue());
+                    ifaVar.setRequestProperty(entry.getKey(), entry.getValue());
                 }
             }
             CookieManager cookieManager = CookieManager.getInstance();
             String cookie = cookieManager.getCookie(webResourceRequest.getUrl().toString());
             if (!TextUtils.isEmpty(cookie)) {
-                hfaVar.setRequestProperty("Cookie", cookie);
+                ifaVar.setRequestProperty("Cookie", cookie);
             }
-            int responseCode = hfaVar.getResponseCode();
+            int responseCode = ifaVar.getResponseCode();
             if (responseCode >= 100 && responseCode <= 599 && (responseCode <= 299 || responseCode >= 400)) {
-                String headerField = hfaVar.getHeaderField("Set-Cookie");
+                String headerField = ifaVar.getHeaderField("Set-Cookie");
                 if (!TextUtils.isEmpty(headerField)) {
-                    cookieManager.setCookie(hfaVar.getURL().toString(), headerField);
+                    cookieManager.setCookie(ifaVar.getURL().toString(), headerField);
                 }
-                String headerField2 = hfaVar.getHeaderField("Content-Type");
+                String headerField2 = ifaVar.getHeaderField("Content-Type");
                 String str3 = "UTF-8";
                 if (headerField2 == null || (length = (split = headerField2.split(ParamableElem.DIVIDE_PARAM)).length) <= 0) {
                     str = "UTF-8";
@@ -105,7 +105,7 @@ public class TNWebViewClient extends WebViewClient {
                     str = str3;
                     str2 = str4;
                 }
-                Map<String, List<String>> headerFields = hfaVar.getHeaderFields();
+                Map<String, List<String>> headerFields = ifaVar.getHeaderFields();
                 if (headerFields != null) {
                     HashMap hashMap = new HashMap();
                     for (Map.Entry<String, List<String>> entry2 : headerFields.entrySet()) {
@@ -119,10 +119,10 @@ public class TNWebViewClient extends WebViewClient {
                         }
                         hashMap.put(entry2.getKey(), sb.toString());
                     }
-                    if (!TextUtils.isEmpty(hfaVar.getResponseMessage())) {
-                        return new WebResourceResponse(str2, str, hfaVar.getResponseCode(), hfaVar.getResponseMessage(), hashMap, hfaVar.getInputStream());
+                    if (!TextUtils.isEmpty(ifaVar.getResponseMessage())) {
+                        return new WebResourceResponse(str2, str, ifaVar.getResponseCode(), ifaVar.getResponseMessage(), hashMap, ifaVar.getInputStream());
                     }
-                    return new WebResourceResponse(str2, str, hfaVar.getInputStream());
+                    return new WebResourceResponse(str2, str, ifaVar.getInputStream());
                 }
                 return null;
             }

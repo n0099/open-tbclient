@@ -15,11 +15,11 @@ public class q08 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, imMessageCenterPojo)) == null) {
-            if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -7) {
+            if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -8) {
                 if (imMessageCenterPojo.getUnread_count() <= 0) {
                     return imMessageCenterPojo;
                 }
-                return b(imMessageCenterPojo, j38.n().l());
+                return b(imMessageCenterPojo, k38.n().k());
             }
             return imMessageCenterPojo;
         }
@@ -35,7 +35,6 @@ public class q08 {
             imMessageCenterPojo2.setGroup_name(imMessageCenterPojo.getGroup_name());
             imMessageCenterPojo2.setNameShow(imMessageCenterPojo.getNameShow());
             imMessageCenterPojo2.setGroup_head(imMessageCenterPojo.getGroup_head());
-            imMessageCenterPojo2.setBjhAvatar(imMessageCenterPojo.getBjhAvatar());
             imMessageCenterPojo2.setIs_hidden(imMessageCenterPojo.getIs_hidden());
             imMessageCenterPojo2.setUnread_count(imMessageCenterPojo.getUnread_count());
             imMessageCenterPojo2.setLast_rid(imMessageCenterPojo.getLast_rid());
@@ -49,20 +48,18 @@ public class q08 {
             imMessageCenterPojo2.setFollowStatus(imMessageCenterPojo.getFollowStatus());
             imMessageCenterPojo2.setCustomGroupType(imMessageCenterPojo.getCustomGroupType());
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            boolean z = true;
             for (ImMessageCenterPojo imMessageCenterPojo3 : list) {
-                if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == 2 && imMessageCenterPojo3.getIsFriend() == 0) {
+                if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == 4) {
                     if (!k48.j().c(currentAccount, imMessageCenterPojo3.getGid())) {
                         imMessageCenterPojo2.setUnread_count(imMessageCenterPojo2.getUnread_count() - imMessageCenterPojo3.getUnread_count());
                     } else {
-                        l48.a().c(true);
-                        z = false;
+                        j48.a().c(true);
                     }
                 }
             }
-            if (z) {
+            if (imMessageCenterPojo2.getUnread_count() <= 0) {
                 imMessageCenterPojo2.setUnread_count(1);
-                l48.a().c(false);
+                j48.a().c(false);
             }
             return imMessageCenterPojo2;
         }

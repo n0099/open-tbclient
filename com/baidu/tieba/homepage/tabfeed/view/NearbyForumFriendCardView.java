@@ -17,10 +17,10 @@ import com.baidu.tbadk.abtest.helper.HomeGroupUbsUIHelper;
 import com.baidu.tbadk.core.atomData.NearbyFriendsActivityConfig;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.iw7;
+import com.baidu.tieba.jw7;
 import com.baidu.tieba.p45;
-import com.baidu.tieba.ps8;
 import com.baidu.tieba.qs8;
+import com.baidu.tieba.rs8;
 import com.baidu.tieba.tx;
 import com.baidu.tieba.ux;
 import com.baidu.tieba.vd5;
@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 /* loaded from: classes5.dex */
-public class NearbyForumFriendCardView extends LinearLayout implements ux, tx<qs8>, View.OnClickListener {
+public class NearbyForumFriendCardView extends LinearLayout implements ux, tx<rs8>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -42,8 +42,8 @@ public class NearbyForumFriendCardView extends LinearLayout implements ux, tx<qs
     public View g;
     public LinearLayout h;
     public BdTypeRecyclerView i;
-    public ps8 j;
-    public qs8 k;
+    public qs8 j;
+    public rs8 k;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NearbyForumFriendCardView(Context context) {
@@ -69,18 +69,18 @@ public class NearbyForumFriendCardView extends LinearLayout implements ux, tx<qs
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.tx
     /* renamed from: d */
-    public void a(qs8 qs8Var) {
+    public void a(rs8 rs8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, qs8Var) == null) {
-            this.k = qs8Var;
-            ps8 ps8Var = this.j;
-            if (ps8Var != null) {
-                ps8Var.D(qs8Var.a);
+        if (interceptable == null || interceptable.invokeL(1048579, this, rs8Var) == null) {
+            this.k = rs8Var;
+            qs8 qs8Var = this.j;
+            if (qs8Var != null) {
+                qs8Var.D(rs8Var.a);
             }
-            this.i.setData(qs8Var.b);
-            if (qs8Var.c) {
+            this.i.setData(rs8Var.b);
+            if (rs8Var.c) {
                 this.d.setVisibility(0);
-                iw7.q();
+                jw7.q();
                 return;
             }
             this.d.setVisibility(4);
@@ -92,7 +92,7 @@ public class NearbyForumFriendCardView extends LinearLayout implements ux, tx<qs
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f09184d && getContext() != null && this.k != null) {
             new NearbyFriendsActivityConfig(getContext(), this.k.a).start();
-            iw7.j();
+            jw7.j();
         }
     }
 
@@ -143,7 +143,7 @@ public class NearbyForumFriendCardView extends LinearLayout implements ux, tx<qs
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.j = new ps8(context, vd5.l, 1);
+            this.j = new qs8(context, vd5.l, 1);
             LinkedList linkedList = new LinkedList();
             linkedList.add(this.j);
             this.i.addAdapters(linkedList);
@@ -153,13 +153,13 @@ public class NearbyForumFriendCardView extends LinearLayout implements ux, tx<qs
     public void setNeedCompleteProfile(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            qs8 qs8Var = this.k;
-            if (qs8Var != null) {
-                qs8Var.a = z;
+            rs8 rs8Var = this.k;
+            if (rs8Var != null) {
+                rs8Var.a = z;
             }
-            ps8 ps8Var = this.j;
-            if (ps8Var != null) {
-                ps8Var.D(z);
+            qs8 qs8Var = this.j;
+            if (qs8Var != null) {
+                qs8Var.D(z);
             }
         }
     }

@@ -11,12 +11,12 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a87;
 import com.baidu.tieba.mz4;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.s45;
 import com.baidu.tieba.t45;
-import com.baidu.tieba.xf9;
-import com.baidu.tieba.z77;
+import com.baidu.tieba.yf9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -163,7 +163,7 @@ public class CoverFlowAdapter<T extends t45> extends PagerAdapter {
                     this.f.get(i);
                 }
                 if (this.b.get(i) != null && tbImageView != null) {
-                    if (this.b.get(i) instanceof z77) {
+                    if (this.b.get(i) instanceof a87) {
                         tbImageView.setImageDrawable(SkinManager.getDrawable(Integer.valueOf(this.b.get(i).getPicUrl()).intValue()));
                     } else {
                         tbImageView.N(this.b.get(i).getPicUrl(), 10, false);
@@ -171,7 +171,7 @@ public class CoverFlowAdapter<T extends t45> extends PagerAdapter {
                     tbImageView.setOnClickListener(this.d);
                     if ((this.b.get(i) instanceof mz4) && !((mz4) this.b.get(i)).n()) {
                         mz4 mz4Var = (mz4) this.b.get(i);
-                        xf9.k(mz4Var.j(), tbImageView2, mz4Var.k(), ri.g(this.c, R.dimen.obfuscated_res_0x7f0701e8));
+                        yf9.k(mz4Var.j(), tbImageView2, mz4Var.k(), ri.g(this.c, R.dimen.obfuscated_res_0x7f0701e8));
                     }
                 }
             }

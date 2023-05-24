@@ -42,10 +42,10 @@ import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ev4;
-import com.baidu.tieba.f59;
+import com.baidu.tieba.g59;
 import com.baidu.tieba.hd5;
-import com.baidu.tieba.nz9;
 import com.baidu.tieba.o65;
+import com.baidu.tieba.oz9;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.qi;
 import com.baidu.tieba.ri;
@@ -78,7 +78,7 @@ public class PbFallingView extends FrameLayout {
     public View c;
     public View d;
     public TextView e;
-    public final List<f59> f;
+    public final List<g59> f;
     public final Context g;
     public int h;
     public int i;
@@ -448,7 +448,7 @@ public class PbFallingView extends FrameLayout {
     }
 
     /* loaded from: classes7.dex */
-    public class j implements f59.c {
+    public class j implements g59.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Random a;
@@ -473,7 +473,7 @@ public class PbFallingView extends FrameLayout {
             this.a = random;
         }
 
-        @Override // com.baidu.tieba.f59.c
+        @Override // com.baidu.tieba.g59.c
         public float a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -521,7 +521,7 @@ public class PbFallingView extends FrameLayout {
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a != null && (hd5Var = this.b) != null) {
                 if (!UtilHelper.isMatchScheme(this.a.getPageActivity(), hd5Var.g(), this.b.f())) {
                     TbPageContext tbPageContext = this.a;
-                    nz9.a(tbPageContext, ev4.a + qi.getUrlEncode(this.b.h()));
+                    oz9.a(tbPageContext, ev4.a + qi.getUrlEncode(this.b.h()));
                 }
                 TiebaStatic.log(new StatisticItem("c14126").param("obj_type", this.c).param("obj_locate", this.d.B).param("uid", TbadkCoreApplication.getCurrentAccount()));
                 ThirdStatisticHelper.sendReq(this.b.c());
@@ -789,9 +789,9 @@ public class PbFallingView extends FrameLayout {
         }
     }
 
-    public final void o(f59 f59Var, int i2) {
+    public final void o(g59 g59Var, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, f59Var, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048581, this, g59Var, i2) == null) {
             if (this.h == 0) {
                 this.h = ri.l(this.g);
             }
@@ -800,9 +800,9 @@ public class PbFallingView extends FrameLayout {
             }
             this.f.clear();
             for (int i3 = 0; i3 < i2; i3++) {
-                f59 f59Var2 = new f59(f59Var.i, this.h, this.i);
-                f59Var2.e = (-i3) * 180;
-                this.f.add(f59Var2);
+                g59 g59Var2 = new g59(g59Var.i, this.h, this.i);
+                g59Var2.e = (-i3) * 180;
+                this.f.add(g59Var2);
             }
         }
     }
@@ -960,13 +960,13 @@ public class PbFallingView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, hd5Var, bitmap, i2) == null) {
             Random random = new Random();
-            f59.b bVar = new f59.b(bitmap);
+            g59.b bVar = new g59.b(bitmap);
             bVar.o(ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds8), true);
             bVar.n(ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds200), ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds200), true);
             bVar.l(ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds100), ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds100));
             bVar.m(new j(this, random));
             bVar.p(true, true);
-            f59 k2 = bVar.k();
+            g59 k2 = bVar.k();
             this.A = i2;
             o(k2, 19);
             postDelayed(this.y, BoxAccountManager.GET_SHARE_LOGIN_INFO_DEFAULT_TIMEOUT);

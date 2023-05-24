@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.aj5;
-import com.baidu.tieba.i97;
-import com.baidu.tieba.sr7;
+import com.baidu.tieba.j97;
+import com.baidu.tieba.tr7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,19 +24,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class GameVideoFragment extends BaseFragment implements i97 {
+public class GameVideoFragment extends BaseFragment implements j97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sr7 a;
+    public tr7 a;
 
-    @Override // com.baidu.tieba.i97
+    @Override // com.baidu.tieba.j97
     public void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.i97
+    @Override // com.baidu.tieba.j97
     public void a0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -64,7 +64,7 @@ public class GameVideoFragment extends BaseFragment implements i97 {
         }
     }
 
-    @Override // com.baidu.tieba.i97
+    @Override // com.baidu.tieba.j97
     public void h0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -74,10 +74,10 @@ public class GameVideoFragment extends BaseFragment implements i97 {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void notifyColourHeaderData() {
-        sr7 sr7Var;
+        tr7 tr7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (sr7Var = this.a) != null) {
-            sr7Var.v();
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (tr7Var = this.a) != null) {
+            tr7Var.v();
         }
     }
 
@@ -86,9 +86,9 @@ public class GameVideoFragment extends BaseFragment implements i97 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onDestroy();
-            sr7 sr7Var = this.a;
-            if (sr7Var != null) {
-                sr7Var.w();
+            tr7 tr7Var = this.a;
+            if (tr7Var != null) {
+                tr7Var.w();
             }
             aj5.e().b();
         }
@@ -99,9 +99,9 @@ public class GameVideoFragment extends BaseFragment implements i97 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onLazyLoad();
-            sr7 sr7Var = this.a;
-            if (sr7Var != null) {
-                sr7Var.t();
+            tr7 tr7Var = this.a;
+            if (tr7Var != null) {
+                tr7Var.t();
             }
         }
     }
@@ -111,19 +111,19 @@ public class GameVideoFragment extends BaseFragment implements i97 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onPause();
-            sr7 sr7Var = this.a;
-            if (sr7Var != null) {
-                sr7Var.x();
+            tr7 tr7Var = this.a;
+            if (tr7Var != null) {
+                tr7Var.x();
             }
         }
     }
 
-    @Override // com.baidu.tieba.i97
+    @Override // com.baidu.tieba.j97
     public void y() {
-        sr7 sr7Var;
+        tr7 tr7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (sr7Var = this.a) != null) {
-            sr7Var.y();
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (tr7Var = this.a) != null) {
+            tr7Var.y();
         }
     }
 
@@ -154,9 +154,9 @@ public class GameVideoFragment extends BaseFragment implements i97 {
             if (isPrimary()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, Boolean.FALSE));
             }
-            sr7 sr7Var = this.a;
-            if (sr7Var != null) {
-                sr7Var.z(isPrimary());
+            tr7 tr7Var = this.a;
+            if (tr7Var != null) {
+                tr7Var.z(isPrimary());
             }
         }
     }
@@ -166,9 +166,9 @@ public class GameVideoFragment extends BaseFragment implements i97 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             super.onChangeSkinType(i);
-            sr7 sr7Var = this.a;
-            if (sr7Var != null) {
-                sr7Var.n();
+            tr7 tr7Var = this.a;
+            if (tr7Var != null) {
+                tr7Var.n();
             }
         }
     }
@@ -180,7 +180,7 @@ public class GameVideoFragment extends BaseFragment implements i97 {
             SpeedStatsManager.getInstance().addStatsTimeStamp(5042);
             super.onCreate(bundle);
             if (this.a == null) {
-                this.a = new sr7(this, getPageContext(), getUniqueId());
+                this.a = new tr7(this, getPageContext(), getUniqueId());
             }
             this.a.s();
             SpeedStatsManager.getInstance().addStatsTimeStamp(5043);
@@ -195,8 +195,8 @@ public class GameVideoFragment extends BaseFragment implements i97 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(5044);
-            sr7 sr7Var = this.a;
-            if (sr7Var != null && sr7Var.r() != null) {
+            tr7 tr7Var = this.a;
+            if (tr7Var != null && tr7Var.r() != null) {
                 if (this.a.r().getParent() instanceof ViewGroup) {
                     ((ViewGroup) this.a.r().getParent()).removeView(this.a.r());
                 }

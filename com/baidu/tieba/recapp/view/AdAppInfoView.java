@@ -24,7 +24,7 @@ import com.baidu.tieba.e21;
 import com.baidu.tieba.ly4;
 import com.baidu.tieba.q06;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.xf9;
+import com.baidu.tieba.yf9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -168,7 +168,7 @@ public class AdAppInfoView extends FrameLayout {
                     str = "";
                     str2 = str;
                 }
-                xf9.a(this.a.getContext(), str3, null, null, str);
+                yf9.a(this.a.getContext(), str3, null, null, str);
                 this.a.d(str2);
             }
         };

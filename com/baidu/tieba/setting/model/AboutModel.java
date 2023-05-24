@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.be9;
+import com.baidu.tieba.ce9;
 import com.baidu.tieba.f9;
 import com.baidu.tieba.fb5;
 import com.baidu.tieba.g9;
@@ -28,7 +28,7 @@ import com.baidu.tieba.rk;
 import com.baidu.tieba.setting.more.AboutActivity;
 import com.baidu.tieba.ti;
 import com.baidu.tieba.xb5;
-import com.baidu.tieba.yk8;
+import com.baidu.tieba.zk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -100,13 +100,13 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
                 xb5 xb5Var = null;
                 try {
                     this.a = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/sync");
-                    if (be9.b()) {
+                    if (ce9.b()) {
                         this.a.addPostData(HttpRequest.OS_VERSION, ti.k());
                     } else {
-                        this.a.addPostData(HttpRequest.NEED_DECRYPT, be9.c());
-                        String g = be9.g(HttpRequest.OS_VERSION);
+                        this.a.addPostData(HttpRequest.NEED_DECRYPT, ce9.c());
+                        String g = ce9.g(HttpRequest.OS_VERSION);
                         if (!TextUtils.isEmpty(g)) {
-                            this.a.addPostData(g, be9.j());
+                            this.a.addPostData(g, ce9.j());
                         }
                     }
                     StringBuffer stringBuffer = new StringBuffer(15);
@@ -159,14 +159,14 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
                             if (e != null && !TextUtils.isEmpty(e.c())) {
                                 o65.m().B("sync_ad_privacy_url", e.c());
                             }
-                            yk8 a = rk.a();
+                            zk8 a = rk.a();
                             a.c(Config.DEVICE_PART, "sync success from about page: " + postNetData);
                             return xb5Var2;
                         } catch (Exception e2) {
                             e = e2;
                             xb5Var = xb5Var2;
                             BdLog.e(e.getMessage());
-                            yk8 a2 = rk.a();
+                            zk8 a2 = rk.a();
                             a2.b(Config.DEVICE_PART, "sync exception from about page: " + e.getMessage());
                             return xb5Var;
                         }

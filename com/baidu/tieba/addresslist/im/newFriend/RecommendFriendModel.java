@@ -66,12 +66,12 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
 
         /* renamed from: com.baidu.tieba.addresslist.im.newFriend.RecommendFriendModel$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0219a extends et5<Void> {
+        public class C0221a extends et5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ List a;
 
-            public C0219a(a aVar, List list) {
+            public C0221a(a aVar, List list) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -174,7 +174,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
                     RecommendFriendResponseMessage recommendFriendResponseMessage = (RecommendFriendResponseMessage) httpResponsedMessage;
                     String errMsg = recommendFriendResponseMessage.getErrMsg();
                     if (recommendFriendResponseMessage.getError() == 0) {
-                        it5.c(new C0219a(this, recommendFriendResponseMessage.getDatas()), new b(this, errMsg));
+                        it5.c(new C0221a(this, recommendFriendResponseMessage.getDatas()), new b(this, errMsg));
                     } else if (this.a.a != null) {
                         this.a.a.i(errMsg);
                     }

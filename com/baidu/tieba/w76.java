@@ -17,14 +17,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class w76 extends wi6<u66> {
+public class w76 extends xi6<u66> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View i;
     public TabLiveStageLiveView j;
     public int k;
 
-    @Override // com.baidu.tieba.wi6
+    @Override // com.baidu.tieba.xi6
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public class w76 extends wi6<u66> {
         r();
     }
 
-    @Override // com.baidu.tieba.wi6
+    @Override // com.baidu.tieba.xi6
     public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
@@ -95,7 +95,7 @@ public class w76 extends wi6<u66> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wi6
+    @Override // com.baidu.tieba.xi6
     /* renamed from: s */
     public void i(u66 u66Var) {
         SdkLiveInfoData sdkLiveInfoData;

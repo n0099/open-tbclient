@@ -6,7 +6,7 @@ import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.tbadk.core.log.YunDialogLog;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.switchs.QuickWebViewSwitch;
-import com.baidu.tieba.te9;
+import com.baidu.tieba.ue9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -42,17 +42,17 @@ public class ow4 {
         return invokeL.booleanValue;
     }
 
-    public static te9.g b(String str, String str2) {
+    public static ue9.g b(String str, String str2) {
         InterceptResult invokeLL;
         FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            File file = new File(te9.g + "bdtbNWCache");
+            File file = new File(ue9.g + "bdtbNWCache");
             FileInputStream fileInputStream2 = null;
             if (TextUtils.isEmpty(str2) || !file.exists()) {
                 return null;
             }
-            te9.g gVar = new te9.g();
+            ue9.g gVar = new ue9.g();
             File file2 = new File(file.getAbsolutePath() + "/" + str + "/" + str2 + "/");
             gVar.a = file.getAbsolutePath();
             gVar.c = str2;
@@ -86,25 +86,25 @@ public class ow4 {
                 th = th2;
             }
         } else {
-            return (te9.g) invokeLL.objValue;
+            return (ue9.g) invokeLL.objValue;
         }
     }
 
     public static boolean c(String str) {
         InterceptResult invokeL;
-        ve9 d;
+        we9 d;
         File file;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (QuickWebViewSwitch.getInOn() && !te9.s(str)) {
+            if (QuickWebViewSwitch.getInOn() && !ue9.s(str)) {
                 try {
-                    d = ue9.a().d(new URL(str).getPath());
+                    d = ve9.a().d(new URL(str).getPath());
                 } catch (MalformedURLException | Exception unused) {
                 }
                 if (d != null && d.e) {
-                    String p = te9.n().p(d.b);
+                    String p = ue9.n().p(d.b);
                     if (!TextUtils.isEmpty(d.b) && !TextUtils.isEmpty(d.c) && !TextUtils.isEmpty(p)) {
-                        String str2 = te9.n().m() + "/" + d.b + "/" + p + "/";
+                        String str2 = ue9.n().m() + "/" + d.b + "/" + p + "/";
                         if (!d.c.endsWith(DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION)) {
                             file = new File(str2, d.c + DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION);
                         } else {
@@ -144,29 +144,29 @@ public class ow4 {
 
     public static void d(Set<String> set) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, set) == null) && !yh6.a(set)) {
-            te9.f fVar = new te9.f();
+        if ((interceptable == null || interceptable.invokeL(65539, null, set) == null) && !zh6.a(set)) {
+            ue9.f fVar = new ue9.f();
             fVar.a = new HashMap();
             fVar.b = new HashMap<>();
             for (String str : set) {
-                te9.g b = b(str, te9.n().p(str));
-                if (b != null && !TextUtils.isEmpty(b.a) && !yh6.b(b.b)) {
+                ue9.g b = b(str, ue9.n().p(str));
+                if (b != null && !TextUtils.isEmpty(b.a) && !zh6.b(b.b)) {
                     fVar.a.put(str, b);
                     fVar.b.putAll(b.b);
                 }
             }
-            if (!yh6.b(fVar.b)) {
-                ue9.a().i(fVar.b);
+            if (!zh6.b(fVar.b)) {
+                ve9.a().i(fVar.b);
             }
         }
     }
 
-    public static HashMap<String, ve9> f(InputStream inputStream) {
+    public static HashMap<String, we9> f(InputStream inputStream) {
         InterceptResult invokeL;
         InputStreamReader inputStreamReader;
         Throwable th;
         BufferedReader bufferedReader;
-        HashMap<String, ve9> hashMap;
+        HashMap<String, we9> hashMap;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, inputStream)) == null) {
             InputStreamReader inputStreamReader2 = null;
@@ -239,7 +239,7 @@ public class ow4 {
         return (HashMap) invokeL.objValue;
     }
 
-    public static void e(JSONObject jSONObject, HashMap<String, ve9> hashMap) {
+    public static void e(JSONObject jSONObject, HashMap<String, we9> hashMap) {
         String str;
         String str2;
         String str3;
@@ -285,34 +285,34 @@ public class ow4 {
                             }
                             String optString = jSONObject3.optString("staticPrePath", "");
                             int optInt = jSONObject3.optInt("proxyMode");
-                            ue9.a().j(next, next);
-                            ue9.a().k(next, str2);
+                            ve9.a().j(next, next);
+                            ve9.a().k(next, str2);
                             Iterator<String> it = arrayList2.iterator();
                             while (it.hasNext()) {
                                 String next2 = it.next();
                                 if (!TextUtils.isEmpty(next2)) {
-                                    ue9 a = ue9.a();
+                                    ve9 a = ve9.a();
                                     String str6 = str5;
                                     a.j(optString + "/" + next2, next);
-                                    ue9 a2 = ue9.a();
+                                    ve9 a2 = ve9.a();
                                     a2.k(optString + "/" + next2, next2);
                                     str5 = str6;
                                 }
                             }
                             String str7 = str5;
-                            ve9 ve9Var = new ve9();
-                            ve9Var.a = arrayList;
-                            ve9Var.b = str;
-                            ve9Var.c = str2;
-                            ve9Var.d = arrayList2;
+                            we9 we9Var = new we9();
+                            we9Var.a = arrayList;
+                            we9Var.b = str;
+                            we9Var.c = str2;
+                            we9Var.d = arrayList2;
                             if (optInt == 1) {
                                 z = true;
                             } else {
                                 z = false;
                             }
-                            ve9Var.f = z;
-                            ve9Var.e = true;
-                            hashMap.put(next, ve9Var);
+                            we9Var.f = z;
+                            we9Var.e = true;
+                            hashMap.put(next, we9Var);
                             jSONObject2 = jSONObject;
                             str4 = str3;
                             str5 = str7;

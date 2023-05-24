@@ -30,13 +30,13 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.d25;
-import com.baidu.tieba.eo7;
+import com.baidu.tieba.fo7;
 import com.baidu.tieba.gift.giftTab.GiftTabView;
 import com.baidu.tieba.gift.send.SendGiftModel;
-import com.baidu.tieba.go7;
-import com.baidu.tieba.io7;
+import com.baidu.tieba.ho7;
 import com.baidu.tieba.jo7;
-import com.baidu.tieba.oo7;
+import com.baidu.tieba.ko7;
+import com.baidu.tieba.po7;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.tbadkCore.data.PaymentConfirmRequestData;
 import com.baidu.tieba.u65;
@@ -53,7 +53,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public GiftTabView a;
-    public jo7 b;
+    public ko7 b;
     public SendGiftModel c;
     public String d;
     public boolean e;
@@ -65,7 +65,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public int k;
     public String l;
     public uz4 m;
-    public oo7 n;
+    public po7 n;
     public int o;
     public int p;
     public boolean q;
@@ -74,8 +74,8 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public View.OnClickListener t;
     public GiftTabView.o u;
     public GiftTabView.n v;
-    public jo7.d w;
-    public jo7.e x;
+    public ko7.d w;
+    public ko7.e x;
     public SendGiftModel.c y;
     public CustomMessageListener z;
 
@@ -392,7 +392,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     }
 
     /* loaded from: classes5.dex */
-    public class i implements jo7.d {
+    public class i implements ko7.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GiftTabActivity a;
@@ -415,7 +415,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
             this.a = giftTabActivity;
         }
 
-        @Override // com.baidu.tieba.jo7.d
+        @Override // com.baidu.tieba.ko7.d
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
@@ -428,7 +428,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     }
 
     /* loaded from: classes5.dex */
-    public class j implements jo7.e {
+    public class j implements ko7.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GiftTabActivity a;
@@ -451,8 +451,8 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
             this.a = giftTabActivity;
         }
 
-        @Override // com.baidu.tieba.jo7.e
-        public void a(int i, String str, boolean z, String str2, int i2, vz4 vz4Var, ArrayList<go7> arrayList, ArrayList<eo7> arrayList2, ArrayList<io7> arrayList3) {
+        @Override // com.baidu.tieba.ko7.e
+        public void a(int i, String str, boolean z, String str2, int i2, vz4 vz4Var, ArrayList<ho7> arrayList, ArrayList<fo7> arrayList2, ArrayList<jo7> arrayList3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z), str2, Integer.valueOf(i2), vz4Var, arrayList, arrayList2, arrayList3}) == null) {
                 if (i != 0 && !StringUtils.isNull(str)) {
@@ -494,9 +494,9 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
         }
 
         @Override // com.baidu.tieba.gift.send.SendGiftModel.c
-        public void a(int i, String str, oo7 oo7Var) {
+        public void a(int i, String str, po7 po7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, oo7Var) == null) {
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, po7Var) == null) {
                 this.a.a.G();
                 if (i != 0) {
                     if (StringUtils.isNull(str)) {
@@ -504,9 +504,9 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                     } else {
                         this.a.showToast(str);
                     }
-                } else if (oo7Var != null) {
-                    this.a.n = oo7Var;
-                    PaymentConfirmRequestData a = oo7Var.a();
+                } else if (po7Var != null) {
+                    this.a.n = po7Var;
+                    PaymentConfirmRequestData a = po7Var.a();
                     a.setTerminal(PaymentConfirmRequestData.TERMINAL_ANDROID);
                     this.a.sendMessage(new CustomMessage(2002001, new PaymentConfirmActivityConfig(this.a.getPageContext().getPageActivity(), a, this.a.r, this.a.s)));
                 }
@@ -893,12 +893,12 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
-        jo7 jo7Var;
+        ko7 ko7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onResume();
-            if (this.q && (jo7Var = this.b) != null) {
-                jo7Var.n(this.d);
+            if (this.q && (ko7Var = this.b) != null) {
+                ko7Var.n(this.d);
             }
         }
     }
@@ -937,9 +937,9 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
             textView.setText(String.format(string, objArr));
             this.a.P(this.u);
             this.a.Q(this.v);
-            jo7 jo7Var = new jo7(getPageContext());
-            this.b = jo7Var;
-            jo7Var.s(this.x);
+            ko7 ko7Var = new ko7(getPageContext());
+            this.b = ko7Var;
+            ko7Var.s(this.x);
             this.b.r(this.w);
             SendGiftModel sendGiftModel = new SendGiftModel(getPageContext());
             this.c = sendGiftModel;

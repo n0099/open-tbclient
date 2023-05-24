@@ -17,7 +17,7 @@ public class o69 extends en<k79, CardViewHolder<d89>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public vj6<k79> b;
+    public d89 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o69(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -48,17 +48,25 @@ public class o69 extends en<k79, CardViewHolder<d89>> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            d89 d89Var = new d89(this.a);
-            d89Var.n(this.b);
-            return new CardViewHolder<>(d89Var);
+            this.b = new d89(this.a);
+            return new CardViewHolder<>(this.b);
         }
         return (CardViewHolder) invokeL.objValue;
     }
 
-    public void u(vj6<k79> vj6Var) {
+    public void u(boolean z) {
+        d89 d89Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, vj6Var) == null) {
-            this.b = vj6Var;
+        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && (d89Var = this.b) != null) {
+            d89Var.u(z);
+        }
+    }
+
+    public void x(boolean z) {
+        d89 d89Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (d89Var = this.b) != null) {
+            d89Var.x(z);
         }
     }
 

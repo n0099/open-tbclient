@@ -136,7 +136,7 @@ public class by2 extends db3 {
     }
 
     /* loaded from: classes5.dex */
-    public class c implements v7b<File> {
+    public class c implements w7b<File> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CallbackHandler a;
@@ -166,7 +166,7 @@ public class by2 extends db3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.v7b
+        @Override // com.baidu.tieba.w7b
         public void call(File file) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, file) == null) {
@@ -186,7 +186,7 @@ public class by2 extends db3 {
     }
 
     /* loaded from: classes5.dex */
-    public class d implements z7b<File, File> {
+    public class d implements a8b<File, File> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -212,7 +212,7 @@ public class by2 extends db3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.z7b
+        @Override // com.baidu.tieba.a8b
         public File call(File file) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -436,7 +436,7 @@ public class by2 extends db3 {
                 callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "can not save to album : " + file).toString());
                 return;
             }
-            h7b.h(file).j(new d(this, context)).A(Schedulers.io()).m(r7b.b()).y(new c(this, callbackHandler, str, context));
+            i7b.h(file).j(new d(this, context)).A(Schedulers.io()).m(s7b.b()).y(new c(this, callbackHandler, str, context));
         }
     }
 }

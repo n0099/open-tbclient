@@ -8,19 +8,19 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.template.base.BaseTemplateFragment;
 import com.baidu.tieba.br5;
-import com.baidu.tieba.bx7;
-import com.baidu.tieba.cp7;
+import com.baidu.tieba.cx7;
 import com.baidu.tieba.d15;
 import com.baidu.tieba.dp7;
-import com.baidu.tieba.i97;
-import com.baidu.tieba.iw7;
+import com.baidu.tieba.ep7;
 import com.baidu.tieba.iz4;
+import com.baidu.tieba.j97;
+import com.baidu.tieba.jw7;
 import com.baidu.tieba.jy4;
 import com.baidu.tieba.lp5;
-import com.baidu.tieba.mw7;
 import com.baidu.tieba.nw7;
+import com.baidu.tieba.ow7;
 import com.baidu.tieba.rn5;
-import com.baidu.tieba.xw7;
+import com.baidu.tieba.yw7;
 import com.baidu.tieba.zw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class ActivityPageFragment extends BaseTemplateFragment implements i97 {
+public class ActivityPageFragment extends BaseTemplateFragment implements j97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int d;
@@ -37,14 +37,14 @@ public class ActivityPageFragment extends BaseTemplateFragment implements i97 {
     public String f;
     public zw4<jy4> g;
 
-    @Override // com.baidu.tieba.i97
+    @Override // com.baidu.tieba.j97
     public void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.i97
+    @Override // com.baidu.tieba.j97
     public void a0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -81,7 +81,7 @@ public class ActivityPageFragment extends BaseTemplateFragment implements i97 {
         public void c(View view2, jy4 jy4Var, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, jy4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                iw7.r(jy4Var, this.a.e);
+                jw7.r(jy4Var, this.a.e);
                 br5.b("----曝光统计----position = " + i);
             }
         }
@@ -92,7 +92,7 @@ public class ActivityPageFragment extends BaseTemplateFragment implements i97 {
         public void d(View view2, jy4 jy4Var, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, jy4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                iw7.k(view2, jy4Var, this.a.e);
+                jw7.k(view2, jy4Var, this.a.e);
                 br5.b("----点击统计----position = " + i);
             }
         }
@@ -123,16 +123,16 @@ public class ActivityPageFragment extends BaseTemplateFragment implements i97 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new nw7(getPageContext(), d15.e));
-            arrayList.add(new mw7(getPageContext(), iz4.b));
-            arrayList.add(new xw7(getPageContext()));
-            arrayList.add(new bx7(getPageContext()));
+            arrayList.add(new ow7(getPageContext(), d15.e));
+            arrayList.add(new nw7(getPageContext(), iz4.b));
+            arrayList.add(new yw7(getPageContext()));
+            arrayList.add(new cx7(getPageContext()));
             lp5.c cVar = new lp5.c();
             cVar.m(309655);
             cVar.i(CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST);
             cVar.j(TbConfig.URL_TAB_ACTIVITY_TAB);
-            cVar.k(new cp7(this.e, this.f));
-            cVar.l(new dp7());
+            cVar.k(new dp7(this.e, this.f));
+            cVar.l(new ep7());
             cVar.d(this.g);
             cVar.c(new ActivityPageHeaderView(getActivity(), this.e, this.f));
             cVar.b(arrayList);
@@ -168,7 +168,7 @@ public class ActivityPageFragment extends BaseTemplateFragment implements i97 {
         return (rn5) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.i97
+    @Override // com.baidu.tieba.j97
     public void h0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -176,7 +176,7 @@ public class ActivityPageFragment extends BaseTemplateFragment implements i97 {
         }
     }
 
-    @Override // com.baidu.tieba.i97
+    @Override // com.baidu.tieba.j97
     public void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {

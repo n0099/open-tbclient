@@ -31,14 +31,14 @@ import com.baidu.tbadk.widget.TbCornersImageView;
 import com.baidu.tbadk.widget.richText.TbRichText;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d78;
-import com.baidu.tieba.i78;
+import com.baidu.tieba.e78;
 import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
+import com.baidu.tieba.j78;
 import com.baidu.tieba.lk5;
 import com.baidu.tieba.p45;
-import com.baidu.tieba.r78;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.s08;
+import com.baidu.tieba.s78;
+import com.baidu.tieba.t08;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -63,11 +63,11 @@ public class ChatItemViewHolder extends BaseItemViewHolder {
     public TextView k;
     public TbRichTextView l;
     public TextView m;
-    public r78 n;
+    public s78 n;
     public LinearLayout o;
     public TextView p;
     public long q;
-    public i78 r;
+    public j78 r;
     public View s;
     public CustomMessageListener t;
 
@@ -100,12 +100,12 @@ public class ChatItemViewHolder extends BaseItemViewHolder {
 
         /* renamed from: onMessage  reason: avoid collision after fix types in other method */
         public void onMessage2(CustomResponsedMessage customResponsedMessage) {
-            r78 r78Var;
+            s78 s78Var;
             ChatRoomInfo chatRoomInfo;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921766 && (customResponsedMessage.getData() instanceof Map)) {
                 Map map = (Map) customResponsedMessage.getData();
-                if (!map.isEmpty() && (r78Var = this.a.n) != null && r78Var.a() != null && (chatRoomInfo = (ChatRoomInfo) map.get(Long.valueOf(this.a.n.a().getRoomId()))) != null) {
+                if (!map.isEmpty() && (s78Var = this.a.n) != null && s78Var.a() != null && (chatRoomInfo = (ChatRoomInfo) map.get(Long.valueOf(this.a.n.a().getRoomId()))) != null) {
                     this.a.n.c(chatRoomInfo);
                     ChatItemViewHolder chatItemViewHolder = this.a;
                     chatItemViewHolder.o(chatRoomInfo, chatItemViewHolder.n.b());
@@ -151,8 +151,8 @@ public class ChatItemViewHolder extends BaseItemViewHolder {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.r != null) {
-                    r78 r78Var = this.a.n;
-                    if (r78Var != null && r78Var.a() != null) {
+                    s78 s78Var = this.a.n;
+                    if (s78Var != null && s78Var.a() != null) {
                         j = this.a.n.a().getRoomId();
                     } else {
                         j = this.a.q;
@@ -192,13 +192,13 @@ public class ChatItemViewHolder extends BaseItemViewHolder {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ChatItemViewHolder(@NonNull View view2, i78 i78Var) {
+    public ChatItemViewHolder(@NonNull View view2, j78 j78Var) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, i78Var};
+            Object[] objArr = {view2, j78Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -210,7 +210,7 @@ public class ChatItemViewHolder extends BaseItemViewHolder {
             }
         }
         this.t = new a(this, 2921766);
-        this.r = i78Var;
+        this.r = j78Var;
         this.s = view2;
         this.f = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e5d);
         this.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e59);
@@ -249,7 +249,7 @@ public class ChatItemViewHolder extends BaseItemViewHolder {
                 if (!TextUtils.isEmpty(chatRoomInfo.getNewMessage().getContent())) {
                     str = str + chatRoomInfo.getNewMessage().getContent();
                 }
-                this.l.setText(new TbRichText(s08.c(str, 1)));
+                this.l.setText(new TbRichText(t08.c(str, 1)));
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
                 layoutParams.topMargin = ri.g(TbadkApplication.getInst(), R.dimen.M_H_X003);
                 this.k.setLayoutParams(layoutParams);
@@ -320,12 +320,12 @@ public class ChatItemViewHolder extends BaseItemViewHolder {
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder
     @SuppressLint({"ResourceAsColor"})
-    public void d(@NonNull d78 d78Var, @NonNull TbPageContext tbPageContext, int i) {
+    public void d(@NonNull e78 e78Var, @NonNull TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d78Var, tbPageContext, i) == null) && (d78Var instanceof r78)) {
-            r78 r78Var = (r78) d78Var;
-            this.n = r78Var;
-            if (r78Var != null && r78Var.a() != null) {
+        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e78Var, tbPageContext, i) == null) && (e78Var instanceof s78)) {
+            s78 s78Var = (s78) e78Var;
+            this.n = s78Var;
+            if (s78Var != null && s78Var.a() != null) {
                 ChatRoomInfo a2 = this.n.a();
                 if (a2.getName() != null) {
                     this.k.setText(MeasureTextLength.fitTextLabel(a2.getName(), StringHelper.STRING_MORE, MeasureTextLength.spaceLength(u), this.k.getPaint(), ""));
@@ -374,8 +374,8 @@ public class ChatItemViewHolder extends BaseItemViewHolder {
             d.C(R.string.F_X01);
             d.w(R.color.CAM_X0105);
             this.l.setTextColor(SkinManager.getColor(R.color.CAM_X0108));
-            r78 r78Var = this.n;
-            if (r78Var != null && r78Var.a() != null && this.n.a().isLocationScrolled()) {
+            s78 s78Var = this.n;
+            if (s78Var != null && s78Var.a() != null && this.n.a().isLocationScrolled()) {
                 i2 = R.color.CAM_X0313;
                 i = R.string.A_X03;
             } else {

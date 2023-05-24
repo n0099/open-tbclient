@@ -55,8 +55,8 @@ import com.baidu.tieba.d25;
 import com.baidu.tieba.fi5;
 import com.baidu.tieba.g9;
 import com.baidu.tieba.kg;
-import com.baidu.tieba.l4a;
 import com.baidu.tieba.lg;
+import com.baidu.tieba.m4a;
 import com.baidu.tieba.m9;
 import com.baidu.tieba.ne5;
 import com.baidu.tieba.o65;
@@ -1014,7 +1014,7 @@ public class UrlDragImageView extends RelativeLayout {
                 dragImageView2.setVisibility(8);
             }
             sg.a().removeCallbacks(this.f0);
-            l4a.a().d(-1);
+            m4a.a().d(-1);
             ImageUrlData imageUrlData = this.K;
             if (imageUrlData != null) {
                 oe5.k().f(TbMd5.getNameMd5FromUrl(imageUrlData.originalUrl), 13);

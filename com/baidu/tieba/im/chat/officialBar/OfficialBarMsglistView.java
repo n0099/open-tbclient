@@ -21,7 +21,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.df5;
 import com.baidu.tieba.dh5;
 import com.baidu.tieba.ef5;
-import com.baidu.tieba.f28;
+import com.baidu.tieba.g28;
 import com.baidu.tieba.im.chat.AbsMsglistView;
 import com.baidu.tieba.im.chat.CommonPersonalMsglistView;
 import com.baidu.tieba.im.chat.ISendVoiceView;
@@ -29,8 +29,8 @@ import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.chat.TalkableActivity;
 import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
 import com.baidu.tieba.im.view.OfficialSecondMenuPopupWindow;
-import com.baidu.tieba.o18;
 import com.baidu.tieba.of5;
+import com.baidu.tieba.p18;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.pf5;
 import com.baidu.tieba.se5;
@@ -402,13 +402,13 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
         }
     }
 
-    public void J(List<f28> list) {
+    public void J(List<g28> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048582, this, list) == null) && list != null && list.size() == 3) {
             for (int i = 0; i < 3; i++) {
-                f28 f28Var = list.get(i);
-                this.g[i].c.setText(f28Var.d());
-                if (f28Var.a() != 0) {
+                g28 g28Var = list.get(i);
+                this.g[i].c.setText(g28Var.d());
+                if (g28Var.a() != 0) {
                     this.g[i].d.setVisibility(8);
                 }
             }
@@ -553,7 +553,7 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
             dh5Var.g(R.string.send_msg);
             this.mTool.d(dh5Var);
             if (this.h) {
-                this.mTool.d(new o18(talkableActivity.getActivity()));
+                this.mTool.d(new p18(talkableActivity.getActivity()));
             }
             this.mTool.setBarLauncherType(7);
             this.mTool.f();

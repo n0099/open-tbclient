@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes8.dex */
 public interface x6a {
-    void g(String str);
+    void c(int i, int i2);
 
-    void k(String str);
+    void f();
 
-    void n();
+    void setDragMode(int i, int i2);
 }

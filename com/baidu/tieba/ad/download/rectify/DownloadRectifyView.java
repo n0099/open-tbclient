@@ -16,7 +16,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ly4;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.xf9;
+import com.baidu.tieba.yf9;
 import com.baidu.tieba.z16;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -69,7 +69,7 @@ public class DownloadRectifyView extends RelativeLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 Context context = this.b.getContext();
                 ly4.b bVar = this.a;
-                xf9.a(context, bVar.b, null, null, bVar.c);
+                yf9.a(context, bVar.b, null, null, bVar.c);
             }
         }
     }
@@ -106,7 +106,7 @@ public class DownloadRectifyView extends RelativeLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 Context context = this.b.getContext();
                 ly4.a aVar = this.a;
-                xf9.a(context, aVar.b, null, null, aVar.c);
+                yf9.a(context, aVar.b, null, null, aVar.c);
             }
         }
     }

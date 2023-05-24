@@ -8,10 +8,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tieba.mx5;
 import com.baidu.tieba.px5;
-import com.baidu.tieba.s5a;
 import com.baidu.tieba.sx5;
+import com.baidu.tieba.t5a;
 import com.baidu.tieba.tk;
-import com.baidu.tieba.u5a;
+import com.baidu.tieba.v5a;
 import com.baidu.tieba.vx5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -42,8 +42,8 @@ public class TbRichTextData extends OrmObject {
     public TbRichTextTiebaPlusInfo o;
     public List<vx5> p;
     public px5 q;
-    public s5a r;
-    public u5a s;
+    public t5a r;
+    public v5a s;
 
     public void x0(TbRichTextLinkButtonInfo tbRichTextLinkButtonInfo) {
         Interceptable interceptable = $ic;
@@ -209,10 +209,10 @@ public class TbRichTextData extends OrmObject {
         this.n = tbRichTextEvaluateItemInfo;
     }
 
-    public void s0(s5a s5aVar) {
+    public void s0(t5a t5aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, s5aVar) == null) {
-            this.r = s5aVar;
+        if (interceptable == null || interceptable.invokeL(1048606, this, t5aVar) == null) {
+            this.r = t5aVar;
         }
     }
 
@@ -223,10 +223,10 @@ public class TbRichTextData extends OrmObject {
         }
     }
 
-    public void t0(u5a u5aVar) {
+    public void t0(v5a v5aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048608, this, u5aVar) == null) {
-            this.s = u5aVar;
+        if (interceptable == null || interceptable.invokeL(1048608, this, v5aVar) == null) {
+            this.s = v5aVar;
         }
     }
 
@@ -342,22 +342,22 @@ public class TbRichTextData extends OrmObject {
         return (TbRichTextEvaluateItemInfo) invokeV.objValue;
     }
 
-    public s5a Z() {
+    public t5a Z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.r;
         }
-        return (s5a) invokeV.objValue;
+        return (t5a) invokeV.objValue;
     }
 
-    public u5a a0() {
+    public v5a a0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.s;
         }
-        return (u5a) invokeV.objValue;
+        return (v5a) invokeV.objValue;
     }
 
     public int b0() {

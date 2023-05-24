@@ -32,7 +32,7 @@ import com.baidu.tieba.is5;
 import com.baidu.tieba.it5;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.qi;
-import com.baidu.tieba.wp9;
+import com.baidu.tieba.xp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -639,7 +639,7 @@ public class AddLinkActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             int color = SkinManager.getColor(R.color.CAM_X0302);
-            this.e.setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{wp9.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), wp9.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
+            this.e.setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{xp9.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), xp9.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
         }
     }
 

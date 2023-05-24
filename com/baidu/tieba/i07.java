@@ -1,49 +1,92 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.m27;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.FeedKV;
-import tbclient.FeedLayout;
 /* loaded from: classes5.dex */
 public final class i07 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<String, ? extends j37> a;
+    public final vz6 b;
+    public final r07 c;
+    public Map<String, String> d;
 
-    public static final void a(h07 h07Var, FeedLayout feedLayout) {
+    public i07() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, h07Var, feedLayout) == null) {
-            Intrinsics.checkNotNullParameter(h07Var, "<this>");
-            Intrinsics.checkNotNullParameter(feedLayout, "feedLayout");
-            uz6 a = h07Var.a();
-            m27.a aVar = m27.a;
-            List<FeedKV> list = feedLayout.business_info;
-            Intrinsics.checkNotNullExpressionValue(list, "feedLayout.business_info");
-            a.b(aVar.a(list));
-            q07 b = h07Var.b();
-            m27.a aVar2 = m27.a;
-            List<FeedKV> list2 = feedLayout.log_info;
-            Intrinsics.checkNotNullExpressionValue(list2, "feedLayout.log_info");
-            b.b(aVar2.a(list2));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap();
+        this.b = new vz6();
+        this.c = new r07();
+        this.d = new HashMap();
+    }
+
+    public final vz6 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (vz6) invokeV.objValue;
+    }
+
+    public final r07 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (r07) invokeV.objValue;
+    }
+
+    public final Map<String, String> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: java.util.Map<java.lang.String, ? extends com.baidu.tieba.j37>, java.util.Map<java.lang.String, com.baidu.tieba.j37> */
+    public final Map<String, j37> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public final void e(Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
+            Intrinsics.checkNotNullParameter(map, "<set-?>");
+            this.d = map;
         }
     }
 
-    public static final y07 b(h07 h07Var, String statStrategyKey) {
-        InterceptResult invokeLL;
+    public final void f(Map<String, ? extends j37> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, h07Var, statStrategyKey)) == null) {
-            Intrinsics.checkNotNullParameter(h07Var, "<this>");
-            Intrinsics.checkNotNullParameter(statStrategyKey, "statStrategyKey");
-            y07 y07Var = new y07(null, null, null, 7, null);
-            i37 i37Var = h07Var.d().get(statStrategyKey);
-            if (i37Var != null) {
-                return new y07(i37Var.getKey(), i37Var.a(h07Var.a()), h07Var.b().a());
-            }
-            return y07Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, map) == null) {
+            Intrinsics.checkNotNullParameter(map, "<set-?>");
+            this.a = map;
         }
-        return (y07) invokeLL.objValue;
     }
 }

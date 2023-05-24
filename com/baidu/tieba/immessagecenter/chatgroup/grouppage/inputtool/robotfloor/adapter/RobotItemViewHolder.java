@@ -12,7 +12,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d78;
+import com.baidu.tieba.e78;
 import com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder;
 import com.baidu.tieba.p45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -75,10 +75,10 @@ public class RobotItemViewHolder extends BaseItemViewHolder {
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder
-    public void d(@NonNull d78 d78Var, @NonNull TbPageContext tbPageContext, int i) {
+    public void d(@NonNull e78 e78Var, @NonNull TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d78Var, tbPageContext, i) == null) && (d78Var instanceof RobotItem)) {
-            RobotItem robotItem = (RobotItem) d78Var;
+        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e78Var, tbPageContext, i) == null) && (e78Var instanceof RobotItem)) {
+            RobotItem robotItem = (RobotItem) e78Var;
             this.i = robotItem;
             if (!TextUtils.isEmpty(robotItem.getRoboatName())) {
                 this.g.setText(this.i.getRoboatName());

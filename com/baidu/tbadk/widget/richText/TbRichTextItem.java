@@ -38,7 +38,7 @@ import com.baidu.tieba.qx5;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.sh5;
 import com.baidu.tieba.sx5;
-import com.baidu.tieba.wp9;
+import com.baidu.tieba.xp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -664,7 +664,7 @@ public class TbRichTextItem extends OrmObject {
                 ox5Var.n(i2);
                 ox5Var.m(i3);
                 if (this.a == 2 && (tbRichTextCommInfo2 = this.b) != null && !TextUtils.isEmpty(tbRichTextCommInfo2.W())) {
-                    ox5Var.l(wp9.d(TbadkCoreApplication.getInst(), this.b.W()));
+                    ox5Var.l(xp9.d(TbadkCoreApplication.getInst(), this.b.W()));
                 } else if (i2 == 1) {
                     ox5Var.l(R.color.CAM_X0109);
                 } else {

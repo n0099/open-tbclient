@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class bb4 extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

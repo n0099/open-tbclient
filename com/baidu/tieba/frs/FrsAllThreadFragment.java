@@ -19,22 +19,22 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.in5;
-import com.baidu.tieba.k97;
-import com.baidu.tieba.m87;
+import com.baidu.tieba.l97;
+import com.baidu.tieba.n87;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class FrsAllThreadFragment extends BaseFragment implements k97 {
+public class FrsAllThreadFragment extends BaseFragment implements l97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
     public RecyclerView b;
     public String c;
 
-    @Override // com.baidu.tieba.k97
+    @Override // com.baidu.tieba.l97
     public void p0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
@@ -55,7 +55,7 @@ public class FrsAllThreadFragment extends BaseFragment implements k97 {
         }
     }
 
-    @Override // com.baidu.tieba.k97
+    @Override // com.baidu.tieba.l97
     public void C1() {
         RecyclerView recyclerView;
         Interceptable interceptable = $ic;
@@ -81,15 +81,15 @@ public class FrsAllThreadFragment extends BaseFragment implements k97 {
         return (in5) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.k97
+    @Override // com.baidu.tieba.l97
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             C1();
-            m87 m87Var = new m87();
-            m87Var.a = 1;
-            m87Var.b = true;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, m87Var));
+            n87 n87Var = new n87();
+            n87Var.a = 1;
+            n87Var.b = true;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, n87Var));
         }
     }
 

@@ -38,9 +38,9 @@ import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cu9;
 import com.baidu.tieba.dj5;
 import com.baidu.tieba.du9;
+import com.baidu.tieba.eu9;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.xi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -743,7 +743,7 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
         LinearLayout linearLayout;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (linearLayout = this.l) != null && linearLayout.getVisibility() != 8) {
-            cu9.a("FragmentTabHost hideTabWidget");
+            du9.a("FragmentTabHost hideTabWidget");
             this.l.setVisibility(8);
         }
     }
@@ -768,7 +768,7 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
         LinearLayout linearLayout;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048621, this) == null) && (linearLayout = this.l) != null && linearLayout.getVisibility() != 0) {
-            cu9.a("FragmentTabHost showTabWidget");
+            du9.a("FragmentTabHost showTabWidget");
             this.l.setVisibility(0);
         }
     }
@@ -776,7 +776,7 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
     public void k(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            cu9.a("FragmentTabHost initViewPager");
+            du9.a("FragmentTabHost initViewPager");
             CustomViewPager customViewPager = this.i;
             if (customViewPager != null) {
                 customViewPager.setOnPageChangeListener(null);
@@ -786,7 +786,7 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
             CustomViewPager customViewPager2 = new CustomViewPager(this.a);
             this.i = customViewPager2;
             customViewPager2.setId(R.id.tab_content);
-            du9.c(this.i, 2);
+            eu9.c(this.i, 2);
             e(i);
             addView(this.i);
             removeView(this.l);
@@ -860,7 +860,7 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            cu9.a("FragmentTabHost initViewPagerWithNoType");
+            du9.a("FragmentTabHost initViewPagerWithNoType");
             CustomViewPager customViewPager = this.i;
             if (customViewPager != null) {
                 removeView(customViewPager);
@@ -955,7 +955,7 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
         if ((interceptable != null && interceptable.invokeI(1048616, this, i) != null) || this.b == null) {
             return;
         }
-        cu9.a("FragmentTabHost setTabWidgetViewHeight height:" + i);
+        du9.a("FragmentTabHost setTabWidgetViewHeight height:" + i);
         this.b.getLayoutParams().height = i;
         this.b.requestLayout();
         this.l.getLayoutParams().height = i;

@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import android.graphics.SurfaceTexture;
+import android.graphics.Bitmap;
 /* loaded from: classes8.dex */
 public interface wma {
-    void a(qma qmaVar, SurfaceTexture surfaceTexture);
+    void a(Bitmap bitmap);
 }

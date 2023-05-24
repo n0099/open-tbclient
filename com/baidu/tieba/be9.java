@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
@@ -42,7 +41,7 @@ public final class be9 {
             }
         }
         a = new be9();
-        b = MapsKt__MapsKt.hashMapOf(TuplesKt.to(HttpRequest.PHONE_IMEI, HttpRequest.PHONE_IMEI_REVERSAL), TuplesKt.to(HttpRequest.ANDROID_ID, HttpRequest.ANDROID_ID_REVERSAL), TuplesKt.to("model", "ledom"), TuplesKt.to("oaid", "diao"), TuplesKt.to(HttpRequest.OS_VERSION, "noisrev_so"), TuplesKt.to("brand", "dnarb"), TuplesKt.to(HttpRequest.UH, "hu"), TuplesKt.to("ut", "tu"));
+        b = MapsKt__MapsKt.hashMapOf(TuplesKt.to("mac", HttpRequest.MAC_REVERSAL));
     }
 
     public be9() {
@@ -64,10 +63,13 @@ public final class be9 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (PrivacyParamType.f() && PrivacyParamType.a() != 0) {
-                return false;
+            if (PrivacyParamType.e()) {
+                return true;
             }
-            return true;
+            if (PrivacyParamType.c() != 1 && PrivacyParamType.c() != 2) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
@@ -77,20 +79,10 @@ public final class be9 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (!PrivacyParamType.f() || PrivacyParamType.a() != 1) {
+            if (PrivacyParamType.e() || PrivacyParamType.c() != 1) {
                 return "0";
             }
             return "1";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @JvmStatic
-    public static final String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return a(TbadkCoreApplication.getInst().getAndroidId());
         }
         return (String) invokeV.objValue;
     }
@@ -100,53 +92,7 @@ public final class be9 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return a(Build.BRAND);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @JvmStatic
-    public static final String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return a(TbadkCoreApplication.getInst().getImei());
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @JvmStatic
-    public static final String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            String g = ti.g();
-            Intrinsics.checkNotNullExpressionValue(g, "getModel()");
-            return a(g);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @JvmStatic
-    public static final String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
-            Intrinsics.checkNotNullExpressionValue(lastCachedOid, "getLastCachedOid(TbadkCoreApplication.getInst())");
-            return lastCachedOid;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @JvmStatic
-    public static final String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            String k = ti.k();
-            Intrinsics.checkNotNullExpressionValue(k, "getOsVersion()");
-            return a(k);
+            return a(PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst()));
         }
         return (String) invokeV.objValue;
     }
@@ -165,12 +111,12 @@ public final class be9 {
             if (z) {
                 return "";
             }
-            if (!PrivacyParamType.f()) {
+            if (PrivacyParamType.e()) {
                 return str;
             }
-            int a2 = PrivacyParamType.a();
-            if (a2 != 1) {
-                if (a2 == 2) {
+            int c = PrivacyParamType.c();
+            if (c != 1) {
+                if (c == 2) {
                     return "";
                 }
                 return str;
@@ -187,17 +133,17 @@ public final class be9 {
     }
 
     @JvmStatic
-    public static final String g(String key) {
+    public static final String d(String key) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, key)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, key)) == null) {
             Intrinsics.checkNotNullParameter(key, "key");
-            if (!PrivacyParamType.f()) {
+            if (PrivacyParamType.e()) {
                 return key;
             }
-            int a2 = PrivacyParamType.a();
-            if (a2 != 1) {
-                if (a2 == 2) {
+            int c = PrivacyParamType.c();
+            if (c != 1) {
+                if (c == 2) {
                     return "";
                 }
                 return key;

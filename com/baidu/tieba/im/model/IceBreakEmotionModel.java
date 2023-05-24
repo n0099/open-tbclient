@@ -11,8 +11,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.c28;
 import com.baidu.tieba.d28;
+import com.baidu.tieba.e28;
 import com.baidu.tieba.g9;
 import com.baidu.tieba.im.message.IceBreakHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ public class IceBreakEmotionModel extends BdBaseModel<IceBreakEmotionModel> {
 
     /* loaded from: classes6.dex */
     public interface IceBreakRequestCallback {
-        void onSuccess(List<d28> list);
+        void onSuccess(List<e28> list);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -113,12 +113,12 @@ public class IceBreakEmotionModel extends BdBaseModel<IceBreakEmotionModel> {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                    c28 c28Var;
+                    d28 d28Var;
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 != null && interceptable2.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof IceBreakHttpResponsedMessage) || httpResponsedMessage.getError() != 0 || (c28Var = ((IceBreakHttpResponsedMessage) httpResponsedMessage).data) == null) {
+                    if ((interceptable2 != null && interceptable2.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof IceBreakHttpResponsedMessage) || httpResponsedMessage.getError() != 0 || (d28Var = ((IceBreakHttpResponsedMessage) httpResponsedMessage).data) == null) {
                         return;
                     }
-                    List<d28> a = c28Var.a();
+                    List<e28> a = d28Var.a();
                     if (!ListUtils.isEmpty(a) && this.this$0.mCallback != null) {
                         this.this$0.mCallback.onSuccess(a);
                     }

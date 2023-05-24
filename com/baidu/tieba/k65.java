@@ -147,19 +147,19 @@ public class k65 {
         }
     }
 
-    public void d(AgreeData agreeData, hr9 hr9Var) {
+    public void d(AgreeData agreeData, ir9 ir9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, agreeData, hr9Var) == null) {
-            hr9Var.b = agreeData;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, agreeData, ir9Var) == null) {
+            ir9Var.b = agreeData;
             if (agreeData.isInThread) {
                 BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
                 if (baijiahaoData != null) {
                     agreeData.nid = baijiahaoData.oriUgcNid;
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, hr9Var));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, ir9Var));
                 a(agreeData, AgreeEvent.IS_THREAD);
             } else if (agreeData.isInPost) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016530, hr9Var));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016530, ir9Var));
                 a(agreeData, AgreeEvent.IS_POST);
             }
         }

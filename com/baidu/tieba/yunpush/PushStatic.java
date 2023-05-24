@@ -18,8 +18,8 @@ import com.baidu.tbadk.switchs.YunPushOppoproxyEnableSwitch;
 import com.baidu.tieba.hb;
 import com.baidu.tieba.o65;
 import com.baidu.tieba.pb5;
-import com.baidu.tieba.uea;
-import com.baidu.tieba.wn6;
+import com.baidu.tieba.vea;
+import com.baidu.tieba.xn6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,11 +47,11 @@ public class PushStatic {
 
         /* renamed from: com.baidu.tieba.yunpush.PushStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC0512a implements Runnable {
+        public class RunnableC0509a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0512a(a aVar) {
+            public RunnableC0509a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,7 +103,7 @@ public class PushStatic {
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || !TbadkCoreApplication.getInst().isMainProcess(false) || !PermissionUtil.isAgreePrivacyPolicy()) {
                 return;
             }
-            wn6.a(new RunnableC0512a(this), "processPushBySwitch", 3);
+            xn6.a(new RunnableC0509a(this), "processPushBySwitch", 3);
         }
     }
 
@@ -545,7 +545,7 @@ public class PushStatic {
             PushManager.enableMeizuProxy(context, true, "111848", "39e9cd05b2294f848dd1c10993e76b59");
             PushManager.enableVivoProxy(context, true);
             PushManager.enableHonorProxy(context, true);
-            PushManager.startWork(context, 0, uea.a(context, "api_key"));
+            PushManager.startWork(context, 0, vea.a(context, "api_key"));
             e();
             NotificationHelper.createIMChannel4Oppo(context);
         }

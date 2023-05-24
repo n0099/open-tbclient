@@ -24,7 +24,7 @@ public interface fw0 {
 
         /* renamed from: com.baidu.tieba.fw0$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0304a implements hw0 {
+        public class C0300a implements hw0 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -80,7 +80,7 @@ public interface fw0 {
                 }
             }
 
-            public C0304a(a aVar) {
+            public C0300a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,7 +117,7 @@ public interface fw0 {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, map, obj)) == null) {
-                return new C0304a(this);
+                return new C0300a(this);
             }
             return (hw0) invokeLL.objValue;
         }

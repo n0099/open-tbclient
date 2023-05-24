@@ -15,10 +15,10 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.by7;
+import com.baidu.tieba.cy7;
 import com.baidu.tieba.homepage.topic.topictab.view.TopicPkView;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.xx7;
+import com.baidu.tieba.yx7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -128,42 +128,42 @@ public class TopicDetailHeadView extends RelativeLayout {
         }
     }
 
-    public void setData(xx7 xx7Var) {
+    public void setData(yx7 yx7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, xx7Var) == null) {
-            if (xx7Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, yx7Var) == null) {
+            if (yx7Var == null) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            if (xx7Var.e == null && StringUtils.isNull(xx7Var.c)) {
+            if (yx7Var.e == null && StringUtils.isNull(yx7Var.c)) {
                 ((LinearLayout.LayoutParams) this.c.getLayoutParams()).bottomMargin = ri.g(getContext(), R.dimen.tbds130);
             }
-            this.c.setText(xx7Var.b);
-            if (StringUtils.isNull(xx7Var.c)) {
+            this.c.setText(yx7Var.b);
+            if (StringUtils.isNull(yx7Var.c)) {
                 this.d.setVisibility(8);
                 this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081472);
             } else {
                 this.d.setVisibility(0);
-                this.e.N(xx7Var.c, 10, false);
+                this.e.N(yx7Var.c, 10, false);
                 this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081473);
             }
-            if (xx7Var.e == null) {
+            if (yx7Var.e == null) {
                 this.f.setVisibility(8);
                 this.g.setVisibility(8);
             } else {
                 this.f.setVisibility(0);
                 this.g.setVisibility(0);
-                this.g.setData(xx7Var.e);
+                this.g.setData(yx7Var.e);
             }
-            by7 by7Var = xx7Var.f;
-            if (by7Var != null && !ListUtils.isEmpty(by7Var.b)) {
+            cy7 cy7Var = yx7Var.f;
+            if (cy7Var != null && !ListUtils.isEmpty(cy7Var.b)) {
                 this.h.setVisibility(0);
-                this.h.setData(xx7Var.f);
+                this.h.setData(yx7Var.f);
             } else {
                 this.h.setVisibility(8);
             }
-            this.b.N(xx7Var.d, 10, false);
+            this.b.N(yx7Var.d, 10, false);
         }
     }
 

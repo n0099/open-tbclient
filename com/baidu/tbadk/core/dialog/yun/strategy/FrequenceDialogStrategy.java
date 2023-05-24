@@ -10,7 +10,7 @@ import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.j45;
 import com.baidu.tieba.jx4;
 import com.baidu.tieba.y35;
-import com.baidu.tieba.yk8;
+import com.baidu.tieba.zk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -96,12 +96,12 @@ public class FrequenceDialogStrategy implements y35 {
                         z = true;
                     }
                     if (!z) {
-                        yk8 yunDialogLog = YunDialogLog.getInstance();
+                        zk8 yunDialogLog = YunDialogLog.getInstance();
                         yunDialogLog.c("YunDialogManager", "云弹窗 " + data.dialogName + " 命中频次超限限制，当前已展示次数：" + n + "，配置展现次数：" + data.frequence);
                     }
                     return z;
                 }
-                yk8 yunDialogLog2 = YunDialogLog.getInstance();
+                zk8 yunDialogLog2 = YunDialogLog.getInstance();
                 yunDialogLog2.c("YunDialogManager", "云弹窗 " + data.dialogName + " 命中频次时间限制，当前时间戳：" + currentTimeMillis + " 配置时间：" + data.startTimestamp + " - " + data.endTimestamp);
                 return false;
             } catch (Exception e) {

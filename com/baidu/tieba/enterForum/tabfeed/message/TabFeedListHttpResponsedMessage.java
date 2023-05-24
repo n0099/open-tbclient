@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.gm5;
 import com.baidu.tieba.rn;
-import com.baidu.tieba.su6;
+import com.baidu.tieba.tu6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ import tbclient.Tabfeedlist.TabfeedlistResIdl;
 public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage implements gm5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public su6 enterForumTabFeedData;
+    public tu6 enterForumTabFeedData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabFeedListHttpResponsedMessage() {
@@ -76,9 +76,9 @@ public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage impl
             if (getError() != 0 || tabfeedlistResIdl.data == null) {
                 return;
             }
-            su6 su6Var = new su6();
-            this.enterForumTabFeedData = su6Var;
-            su6Var.g(tabfeedlistResIdl.data);
+            tu6 tu6Var = new tu6();
+            this.enterForumTabFeedData = tu6Var;
+            tu6Var.g(tabfeedlistResIdl.data);
         }
     }
 }

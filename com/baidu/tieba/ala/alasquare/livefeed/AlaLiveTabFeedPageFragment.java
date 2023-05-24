@@ -28,14 +28,14 @@ import com.baidu.tieba.a86;
 import com.baidu.tieba.aj5;
 import com.baidu.tieba.bj5;
 import com.baidu.tieba.eb0;
-import com.baidu.tieba.i97;
+import com.baidu.tieba.j97;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class AlaLiveTabFeedPageFragment extends BaseFragment implements i97 {
+public class AlaLiveTabFeedPageFragment extends BaseFragment implements j97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ILiveFeedPageView a;
@@ -103,7 +103,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements i97 {
         this.f = new a(this, 2921774);
     }
 
-    @Override // com.baidu.tieba.i97
+    @Override // com.baidu.tieba.j97
     public void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -111,7 +111,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements i97 {
         }
     }
 
-    @Override // com.baidu.tieba.i97
+    @Override // com.baidu.tieba.j97
     public void a0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -130,7 +130,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements i97 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.i97
+    @Override // com.baidu.tieba.j97
     public void h0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -196,7 +196,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements i97 {
         }
     }
 
-    @Override // com.baidu.tieba.i97
+    @Override // com.baidu.tieba.j97
     public void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {

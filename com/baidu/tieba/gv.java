@@ -46,14 +46,14 @@ public final class gv extends et<dq> {
 
         /* renamed from: com.baidu.tieba.gv$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static final class C0315a implements hv.a {
+        public static final class C0312a implements hv.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ TaskToastViewData b;
             public final /* synthetic */ a c;
 
-            public C0315a(String str, TaskToastViewData taskToastViewData, a aVar, TaskToastViewData taskToastViewData2) {
+            public C0312a(String str, TaskToastViewData taskToastViewData, a aVar, TaskToastViewData taskToastViewData2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -158,7 +158,7 @@ public final class gv extends et<dq> {
                 }
                 String backBtnSchema = taskToastViewData.getBackBtnSchema();
                 if (backBtnSchema != null) {
-                    this.a.a.c(new C0315a(backBtnSchema, taskToastViewData, this, taskToastViewData));
+                    this.a.a.c(new C0312a(backBtnSchema, taskToastViewData, this, taskToastViewData));
                 }
                 String backBtnTxt = taskToastViewData.getBackBtnTxt();
                 if (backBtnTxt != null) {

@@ -26,13 +26,13 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ab7;
+import com.baidu.tieba.bb7;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.va7;
-import com.baidu.tieba.xa7;
+import com.baidu.tieba.wa7;
 import com.baidu.tieba.y65;
 import com.baidu.tieba.ya7;
 import com.baidu.tieba.z65;
+import com.baidu.tieba.za7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class VideoAggregationFragment extends BaseFragment implements View.OnClickListener, va7 {
+public class VideoAggregationFragment extends BaseFragment implements View.OnClickListener, wa7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -50,17 +50,17 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
     public BdTypeListView e;
     public z65 f;
     public PbListView g;
-    public xa7 h;
-    public ab7 i;
+    public ya7 h;
+    public bb7 i;
     public NavigationBar j;
     public FrameLayout k;
     public NoNetworkView l;
     public NoDataView m;
-    public List<ya7> n;
+    public List<za7> n;
     public CustomMessageListener o;
     public CustomMessageListener p;
 
-    @Override // com.baidu.tieba.va7
+    @Override // com.baidu.tieba.wa7
     public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
@@ -310,10 +310,10 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
     }
 
     public void N1(int i) {
-        xa7 xa7Var;
+        ya7 ya7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && this.e != null && (xa7Var = this.h) != null) {
-            if (i == 1 && xa7Var.e()) {
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && this.e != null && (ya7Var = this.h) != null) {
+            if (i == 1 && ya7Var.e()) {
                 this.h.k();
             }
             if (i == 2) {
@@ -326,11 +326,11 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            xa7 xa7Var = this.h;
-            if (xa7Var == null) {
+            ya7 ya7Var = this.h;
+            if (ya7Var == null) {
                 return false;
             }
-            return xa7Var.j(i);
+            return ya7Var.j(i);
         }
         return invokeI.booleanValue;
     }
@@ -356,9 +356,9 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
             } else {
                 this.j.setVisibility(0);
             }
-            xa7 xa7Var = this.h;
-            if (xa7Var != null) {
-                xa7Var.h(configuration);
+            ya7 ya7Var = this.h;
+            if (ya7Var != null) {
+                ya7Var.h(configuration);
             }
         }
     }
@@ -396,7 +396,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         }
     }
 
-    @Override // com.baidu.tieba.va7
+    @Override // com.baidu.tieba.wa7
     public void hideLoadingView() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || this.k == null) {
@@ -411,18 +411,18 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onDestroy();
-            ab7 ab7Var = this.i;
-            if (ab7Var != null) {
-                ab7Var.c();
+            bb7 bb7Var = this.i;
+            if (bb7Var != null) {
+                bb7Var.c();
             }
-            xa7 xa7Var = this.h;
-            if (xa7Var != null) {
-                xa7Var.i();
+            ya7 ya7Var = this.h;
+            if (ya7Var != null) {
+                ya7Var.i();
             }
         }
     }
 
-    @Override // com.baidu.tieba.va7
+    @Override // com.baidu.tieba.wa7
     public void onLoadFail() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && ListUtils.isEmpty(this.n)) {
@@ -503,13 +503,13 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
             this.g.S();
             this.e.setNextPage(this.g);
             this.e.setOnScrollListener(new b(this));
-            this.h = new xa7(getPageContext(), this.e, VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.b));
+            this.h = new ya7(getPageContext(), this.e, VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.b));
             P1();
         }
     }
 
-    @Override // com.baidu.tieba.va7
-    public void Z0(List<ya7> list, boolean z, boolean z2) {
+    @Override // com.baidu.tieba.wa7
+    public void Z0(List<za7> list, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(1048582, this, new Object[]{list, Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || list == null) {
             return;
@@ -547,9 +547,9 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
                 this.c = arguments.getString("st_type");
                 this.d = arguments.getString("yuelaou_locate");
             }
-            ab7 ab7Var = new ab7(getPageContext(), this);
-            this.i = ab7Var;
-            ab7Var.g(this.a);
+            bb7 bb7Var = new bb7(getPageContext(), this);
+            this.i = bb7Var;
+            bb7Var.g(this.a);
             this.i.f(this.b);
             this.i.i(this.c);
             this.i.h(this.d);

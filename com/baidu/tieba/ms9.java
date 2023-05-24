@@ -1,26 +1,27 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.webkit.WebView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.h5power.DescriptionTableInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ms9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<hs9> a;
+    public String a;
+    public String b;
+    public JSONObject c;
+    public String d;
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+        }
+    }
 
     public ms9() {
         Interceptable interceptable = $ic;
@@ -32,111 +33,83 @@ public class ms9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList<>();
-    }
-
-    public void a(hs9 hs9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hs9Var) == null) {
-            this.a.add(hs9Var);
-        }
-    }
-
-    public final void b(WebView webView, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2) == null) {
-            yk8 hybridLog = HybridLog.getInstance();
-            hybridLog.c("JsBridge", "callJsMethod methodName:" + str + " param:" + str2);
-            if (webView != null && !qi.isEmpty(str) && !qi.isEmpty(str2)) {
-                if (Build.VERSION.SDK_INT >= 19) {
-                    webView.evaluateJavascript("javascript:" + str + "&&" + str + "('" + str2 + "')", null);
-                    return;
-                }
-                webView.loadUrl("javascript:" + str + "&&" + str + "('" + str2 + "')");
             }
         }
     }
 
-    public js9 c(ls9 ls9Var, js9 js9Var) {
-        InterceptResult invokeLL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, ls9Var, js9Var)) == null) {
-            if (js9Var == null) {
-                js9Var = new js9();
-            }
-            if ("notification".equals(ls9Var.c()) && "addObserver".equals(ls9Var.a())) {
-                Iterator<hs9> it = this.a.iterator();
-                while (it.hasNext()) {
-                    js9Var = it.next().addObserver(ls9Var.d(), js9Var, true);
-                    if (js9Var.j()) {
-                        return js9Var;
-                    }
-                }
-                if (!js9Var.j()) {
-                    js9Var.z(202);
-                    js9Var.v(TbadkCoreApplication.getInst().getString(R.string.can_find_notification_name));
-                }
-            } else {
-                String c = ls9Var.c();
-                if (!qi.isEmpty(c) && DescriptionTableInfo.getModuleSet() != null && !DescriptionTableInfo.getModuleSet().contains(c)) {
-                    js9Var.z(201);
-                    return js9Var;
-                }
-                Iterator<hs9> it2 = this.a.iterator();
-                while (it2.hasNext()) {
-                    js9Var = it2.next().dispatch(ls9Var, js9Var);
-                    if (js9Var.i()) {
-                        return js9Var;
-                    }
-                }
-                if (!js9Var.i()) {
-                    js9Var.z(202);
-                }
-            }
-            return js9Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (js9) invokeLL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void d(WebView webView, js9 js9Var) {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048579, this, webView, js9Var) != null) || webView == null || js9Var == null || !js9Var.k()) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
-        b(webView, js9Var.c(), js9Var.d());
+        return (String) invokeV.objValue;
     }
 
-    public void e(WebView webView, List<js9> list) {
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, webView, list) == null) && webView != null && !ListUtils.isEmpty(list)) {
-            for (js9 js9Var : list) {
-                if (js9Var != null && js9Var.k()) {
-                    b(webView, js9Var.c(), js9Var.d());
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public JSONObject e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (qi.isEmpty(this.b)) {
+                return this.a;
             }
+            return this.b + "/" + this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.a = str;
         }
     }
 
-    public List<js9> f(WebView webView, String str, HashMap hashMap) {
-        InterceptResult invokeLLL;
+    public void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, webView, str, hashMap)) == null) {
-            List<js9> list = null;
-            if (qi.isEmpty(str)) {
-                return null;
-            }
-            Iterator<hs9> it = this.a.iterator();
-            while (it.hasNext()) {
-                list = it.next().processNotification(webView, str, hashMap);
-                if (!ListUtils.isEmpty(list)) {
-                    break;
-                }
-            }
-            return list;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.b = str;
         }
-        return (List) invokeLLL.objValue;
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.d = str;
+        }
+    }
+
+    public void j(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
+            this.c = jSONObject;
+        }
     }
 }

@@ -78,14 +78,14 @@ public class VideoPlatformStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                iz9.h().o();
-                fz9.d().k();
+                jz9.h().o();
+                gz9.d().k();
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class b implements CustomMessageTask.CustomRunnable<vr8> {
+    public static class b implements CustomMessageTask.CustomRunnable<wr8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -105,11 +105,11 @@ public class VideoPlatformStatic {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<vr8> run(CustomMessage<vr8> customMessage) {
+        public CustomResponsedMessage<wr8> run(CustomMessage<wr8> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                return new CustomResponsedMessage<>(2921309, new wr8());
+                return new CustomResponsedMessage<>(2921309, new xr8());
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }

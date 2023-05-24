@@ -189,9 +189,9 @@ public class vc5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048589, this, i, i2) == null) {
             if (i == 0) {
-                oz9.d(this.d, i2);
+                pz9.d(this.d, i2);
             } else {
-                oz9.b(this.d, i2);
+                pz9.b(this.d, i2);
             }
         }
     }

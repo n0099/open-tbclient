@@ -4,10 +4,9 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.frs.gametabs.NewSpecialFrsWebFragment;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,33 +27,22 @@ public class nf7 extends xi5 {
         return invokeV.booleanValue;
     }
 
-    public nf7(int i, String str) {
+    public nf7(FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
+            Object[] objArr = {frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        yi5 yi5Var = this.a;
-        yi5Var.e = i;
-        NewSpecialFrsWebFragment newSpecialFrsWebFragment = (NewSpecialFrsWebFragment) yi5Var.a;
-        newSpecialFrsWebFragment.v2(i);
-        if (str != null && !str.contains("&_client_version=") && !str.contains("?_client_version=")) {
-            if (str.contains("&ufanS=1")) {
-                str = str + "&_client_version=" + TbConfig.getVersion();
-            } else if (str.contains("?ufanS=1")) {
-                str = str + "&_client_version=" + TbConfig.getVersion();
-            }
-        }
-        newSpecialFrsWebFragment.O1(str);
+        b().a = frsFragment;
     }
 
     @Override // com.baidu.tieba.xi5
@@ -63,8 +51,8 @@ public class nf7 extends xi5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             yi5 yi5Var = new yi5();
-            yi5Var.a = new NewSpecialFrsWebFragment();
-            yi5Var.e = 101;
+            yi5Var.e = 1;
+            yi5Var.b = R.string.chosen_pb_title;
             yi5Var.i = yi5.k;
             return yi5Var;
         }
@@ -82,5 +70,13 @@ public class nf7 extends xi5 {
             return this.b;
         }
         return (TbFragmentTabIndicator) invokeL.objValue;
+    }
+
+    public void g(d97 d97Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, d97Var) != null) || d97Var == null || !d97Var.h(1)) {
+            return;
+        }
+        d97Var.a(this);
     }
 }

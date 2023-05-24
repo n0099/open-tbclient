@@ -1,9 +1,9 @@
 package rx.internal.util;
 
-import com.baidu.tieba.j7b;
+import com.baidu.tieba.k7b;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes10.dex */
-public final class BackpressureDrainManager extends AtomicLong implements j7b {
+public final class BackpressureDrainManager extends AtomicLong implements k7b {
     public static final long serialVersionUID = 2826241102729529449L;
     public final a actual;
     public boolean emitting;
@@ -186,7 +186,7 @@ public final class BackpressureDrainManager extends AtomicLong implements j7b {
         drain();
     }
 
-    @Override // com.baidu.tieba.j7b
+    @Override // com.baidu.tieba.k7b
     public void request(long j) {
         boolean z;
         if (j == 0) {

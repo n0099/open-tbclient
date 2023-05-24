@@ -197,12 +197,12 @@ public class l34 implements k34 {
 
         /* renamed from: com.baidu.tieba.l34$e$e  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0368e implements wf4 {
+        public class C0367e implements wf4 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ e a;
 
-            public C0368e(e eVar) {
+            public C0367e(e eVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -261,7 +261,7 @@ public class l34 implements k34 {
                     this.b.a.setOnCompletionListener(this.b.e, new b(this));
                     this.b.a.setOnSeekCompleteListener(this.b.e, new c(this));
                     this.b.a.setOnErrorListener(this.b.e, new d(this));
-                    this.b.a.setOnPauseListener(this.b.e, new C0368e(this));
+                    this.b.a.setOnPauseListener(this.b.e, new C0367e(this));
                     this.b.a.prepare(this.b.e);
                 }
             }

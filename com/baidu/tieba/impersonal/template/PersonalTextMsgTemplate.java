@@ -28,19 +28,19 @@ import com.baidu.tieba.g9;
 import com.baidu.tieba.hi;
 import com.baidu.tieba.impersonal.template.PersonalTextMsgTemplate;
 import com.baidu.tieba.impersonal.typewriter.TextTypeWriter;
-import com.baidu.tieba.in6;
-import com.baidu.tieba.jg8;
+import com.baidu.tieba.jn6;
 import com.baidu.tieba.jx5;
 import com.baidu.tieba.k25;
+import com.baidu.tieba.kg8;
 import com.baidu.tieba.m25;
 import com.baidu.tieba.m9;
-import com.baidu.tieba.me8;
+import com.baidu.tieba.ne8;
 import com.baidu.tieba.o25;
 import com.baidu.tieba.ox5;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.ve8;
-import com.baidu.tieba.xe8;
+import com.baidu.tieba.we8;
+import com.baidu.tieba.ye8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -61,7 +61,7 @@ import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONArray;
 @Metadata(d1 = {"\u00006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0003\u0018\u00002\u0014\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00040\u0001B\r\u0012\u0006\u0010\u0005\u001a\u00020\u0006¢\u0006\u0002\u0010\u0007J\u001a\u0010\u000e\u001a\u00020\u000f2\b\u0010\u0010\u001a\u0004\u0018\u00010\u00032\u0006\u0010\u0011\u001a\u00020\u0004H\u0016J\u001a\u0010\u0012\u001a\u00020\u000f2\b\u0010\u0010\u001a\u0004\u0018\u00010\u00032\u0006\u0010\u0011\u001a\u00020\u0004H\u0002J\u001a\u0010\u0013\u001a\u00020\u000f2\b\u0010\u0010\u001a\u0004\u0018\u00010\u00032\u0006\u0010\u0011\u001a\u00020\u0004H\u0002J\u001a\u0010\u0014\u001a\u00020\u000f2\b\u0010\u0010\u001a\u0004\u0018\u00010\u00032\u0006\u0010\u0011\u001a\u00020\u0004H\u0002J\u0010\u0010\u0015\u001a\u00020\u000f2\u0006\u0010\u0016\u001a\u00020\u0017H\u0016J\u0010\u0010\u0018\u001a\u00020\u00032\u0006\u0010\u0019\u001a\u00020\u0017H\u0016R\u001b\u0010\b\u001a\u00020\t8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\f\u0010\r\u001a\u0004\b\n\u0010\u000b¨\u0006\u001a"}, d2 = {"Lcom/baidu/tieba/impersonal/template/PersonalTextMsgTemplate;", "Lcom/baidu/tieba/impersonal/template/BasePersonalMsgTemplate;", "Lcom/baidu/tieba/impersonal/data/TextMsgContent;", "Landroid/widget/LinearLayout;", "Lcom/baidu/tieba/impersonal/components/uistate/PersonalTextMsgUiState;", "name", "", "(Ljava/lang/String;)V", "textTypeWriter", "Lcom/baidu/tieba/impersonal/typewriter/TextTypeWriter;", "getTextTypeWriter", "()Lcom/baidu/tieba/impersonal/typewriter/TextTypeWriter;", "textTypeWriter$delegate", "Lkotlin/Lazy;", "bindChild", "", MapBundleKey.OfflineMapKey.OFFLINE_CHILD, "data", "bindCopy", "bindRichText", "bindText", "configContainer", "container", "Landroid/view/ViewGroup;", "createChild", "parent", "im-personal_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class PersonalTextMsgTemplate extends jg8<ve8, LinearLayout, me8> {
+public final class PersonalTextMsgTemplate extends kg8<we8, LinearLayout, ne8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Lazy b;
@@ -74,13 +74,13 @@ public final class PersonalTextMsgTemplate extends jg8<ve8, LinearLayout, me8> {
 
         /* renamed from: com.baidu.tieba.impersonal.template.PersonalTextMsgTemplate$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static final class C0345a extends SimpleTarget<Drawable> {
+        public static final class C0343a extends SimpleTarget<Drawable> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ EMRichTextAnyIconSpan a;
             public final /* synthetic */ TextView b;
 
-            public C0345a(EMRichTextAnyIconSpan eMRichTextAnyIconSpan, TextView textView) {
+            public C0343a(EMRichTextAnyIconSpan eMRichTextAnyIconSpan, TextView textView) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -192,7 +192,7 @@ public final class PersonalTextMsgTemplate extends jg8<ve8, LinearLayout, me8> {
                             eMRichTextAnyIconSpan.f(EMRichTextAnyIconSpan.IconType.NET);
                             eMRichTextAnyIconSpan.g(UtilHelper.getDimenPixelSize(R.dimen.M_W_X004));
                             eMRichTextAnyIconSpan.j(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
-                            Glide.with(TbadkCoreApplication.getInst()).load(eMRichTextAnyIconSpan.b()).into((RequestBuilder<Drawable>) new C0345a(eMRichTextAnyIconSpan, textView));
+                            Glide.with(TbadkCoreApplication.getInst()).load(eMRichTextAnyIconSpan.b()).into((RequestBuilder<Drawable>) new C0343a(eMRichTextAnyIconSpan, textView));
                         }
                     }
                 }
@@ -207,7 +207,7 @@ public final class PersonalTextMsgTemplate extends jg8<ve8, LinearLayout, me8> {
                     runnable = (Runnable) tag;
                 }
                 linearLayout.removeCallbacks(runnable);
-                Runnable runnable2 = new Runnable() { // from class: com.baidu.tieba.fg8
+                Runnable runnable2 = new Runnable() { // from class: com.baidu.tieba.gg8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -223,7 +223,7 @@ public final class PersonalTextMsgTemplate extends jg8<ve8, LinearLayout, me8> {
                 this.a.postDelayed(runnable2, 500L);
                 if (ox5VarArr != null) {
                     for (ox5 ox5Var : ox5VarArr) {
-                        ox5Var.i(new ox5.b() { // from class: com.baidu.tieba.eg8
+                        ox5Var.i(new ox5.b() { // from class: com.baidu.tieba.fg8
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
@@ -263,7 +263,7 @@ public final class PersonalTextMsgTemplate extends jg8<ve8, LinearLayout, me8> {
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                in6.b().b(new xe8(i));
+                jn6.b().b(new ye8(i));
             }
         }
 
@@ -298,7 +298,7 @@ public final class PersonalTextMsgTemplate extends jg8<ve8, LinearLayout, me8> {
         this.b = LazyKt__LazyJVMKt.lazy(PersonalTextMsgTemplate$textTypeWriter$2.INSTANCE);
     }
 
-    public static final boolean m(LinearLayout linearLayout, final me8 data, View view2) {
+    public static final boolean m(LinearLayout linearLayout, final ne8 data, View view2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, linearLayout, data, view2)) == null) {
@@ -312,7 +312,7 @@ public final class PersonalTextMsgTemplate extends jg8<ve8, LinearLayout, me8> {
                 return true;
             }
             final m25 m25Var = new m25(a2, o25Var);
-            o25Var.q(new o25.f() { // from class: com.baidu.tieba.hg8
+            o25Var.q(new o25.f() { // from class: com.baidu.tieba.ig8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -330,14 +330,14 @@ public final class PersonalTextMsgTemplate extends jg8<ve8, LinearLayout, me8> {
         return invokeLLL.booleanValue;
     }
 
-    public static final void n(m25 dialog, me8 data, o25 o25Var, int i, View view2) {
+    public static final void n(m25 dialog, ne8 data, o25 o25Var, int i, View view2) {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{dialog, data, o25Var, Integer.valueOf(i), view2}) == null) {
             Intrinsics.checkNotNullParameter(dialog, "$dialog");
             Intrinsics.checkNotNullParameter(data, "$data");
             dialog.dismiss();
-            ve8 f = data.c().f();
+            we8 f = data.c().f();
             if (f != null) {
                 str = f.a();
             } else {
@@ -348,9 +348,9 @@ public final class PersonalTextMsgTemplate extends jg8<ve8, LinearLayout, me8> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jg8
+    @Override // com.baidu.tieba.kg8
     /* renamed from: k */
-    public void d(LinearLayout linearLayout, me8 data) {
+    public void d(LinearLayout linearLayout, ne8 data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, linearLayout, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
@@ -360,10 +360,10 @@ public final class PersonalTextMsgTemplate extends jg8<ve8, LinearLayout, me8> {
         }
     }
 
-    public final void l(final LinearLayout linearLayout, final me8 me8Var) {
+    public final void l(final LinearLayout linearLayout, final ne8 ne8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, linearLayout, me8Var) == null) && linearLayout != null && linearLayout.getContext() != null) {
-            linearLayout.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.gg8
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, linearLayout, ne8Var) == null) && linearLayout != null && linearLayout.getContext() != null) {
+            linearLayout.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.hg8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -371,13 +371,13 @@ public final class PersonalTextMsgTemplate extends jg8<ve8, LinearLayout, me8> {
                 public final boolean onLongClick(View view2) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view2)) == null) ? PersonalTextMsgTemplate.m(linearLayout, me8Var, view2) : invokeL.booleanValue;
+                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view2)) == null) ? PersonalTextMsgTemplate.m(linearLayout, ne8Var, view2) : invokeL.booleanValue;
                 }
             });
         }
     }
 
-    @Override // com.baidu.tieba.jg8
+    @Override // com.baidu.tieba.kg8
     public void f(ViewGroup container) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, container) == null) {
@@ -395,7 +395,7 @@ public final class PersonalTextMsgTemplate extends jg8<ve8, LinearLayout, me8> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jg8
+    @Override // com.baidu.tieba.kg8
     /* renamed from: q */
     public LinearLayout g(ViewGroup parent) {
         InterceptResult invokeL;
@@ -409,17 +409,17 @@ public final class PersonalTextMsgTemplate extends jg8<ve8, LinearLayout, me8> {
         return (LinearLayout) invokeL.objValue;
     }
 
-    public final void o(LinearLayout linearLayout, me8 me8Var) {
+    public final void o(LinearLayout linearLayout, ne8 ne8Var) {
         JSONArray jSONArray;
         JSONArray jSONArray2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048581, this, linearLayout, me8Var) != null) || linearLayout == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048581, this, linearLayout, ne8Var) != null) || linearLayout == null) {
             return;
         }
         TbRichTextView tbRichTextView = (TbRichTextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091b7f);
         JSONArray jSONArray3 = null;
         if (tbRichTextView != null) {
-            ve8 f = me8Var.c().f();
+            we8 f = ne8Var.c().f();
             if (f != null) {
                 jSONArray2 = f.b();
             } else {
@@ -431,7 +431,7 @@ public final class PersonalTextMsgTemplate extends jg8<ve8, LinearLayout, me8> {
             }
         }
         if (tbRichTextView == null) {
-            ve8 f2 = me8Var.c().f();
+            we8 f2 = ne8Var.c().f();
             if (f2 != null) {
                 jSONArray = f2.b();
             } else {
@@ -451,7 +451,7 @@ public final class PersonalTextMsgTemplate extends jg8<ve8, LinearLayout, me8> {
             }
         }
         if (tbRichTextView != null) {
-            ve8 f3 = me8Var.c().f();
+            we8 f3 = ne8Var.c().f();
             if (f3 != null) {
                 jSONArray3 = f3.b();
             }
@@ -459,17 +459,17 @@ public final class PersonalTextMsgTemplate extends jg8<ve8, LinearLayout, me8> {
         }
     }
 
-    public final void p(LinearLayout linearLayout, final me8 me8Var) {
+    public final void p(LinearLayout linearLayout, final ne8 ne8Var) {
         String str;
         String str2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048582, this, linearLayout, me8Var) != null) || linearLayout == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048582, this, linearLayout, ne8Var) != null) || linearLayout == null) {
             return;
         }
         TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091b80);
         String str3 = null;
         if (textView != null) {
-            ve8 f = me8Var.c().f();
+            we8 f = ne8Var.c().f();
             if (f != null) {
                 str2 = f.c();
             } else {
@@ -481,7 +481,7 @@ public final class PersonalTextMsgTemplate extends jg8<ve8, LinearLayout, me8> {
             }
         }
         if (textView == null) {
-            ve8 f2 = me8Var.c().f();
+            we8 f2 = ne8Var.c().f();
             if (f2 != null) {
                 str = f2.c();
             } else {
@@ -502,12 +502,12 @@ public final class PersonalTextMsgTemplate extends jg8<ve8, LinearLayout, me8> {
                 linearLayout.addView(textView, new LinearLayout.LayoutParams(-2, -2));
             }
         }
-        if (me8Var.j()) {
+        if (ne8Var.j()) {
             TextTypeWriter r = r();
-            ve8 f3 = me8Var.c().f();
-            r.n(textView, (f3 == null || (r0 = f3.c()) == null) ? "" : "", new b(), new Function0<Unit>(me8Var) { // from class: com.baidu.tieba.impersonal.template.PersonalTextMsgTemplate$bindText$2
+            we8 f3 = ne8Var.c().f();
+            r.n(textView, (f3 == null || (r0 = f3.c()) == null) ? "" : "", new b(), new Function0<Unit>(ne8Var) { // from class: com.baidu.tieba.impersonal.template.PersonalTextMsgTemplate$bindText$2
                 public static /* synthetic */ Interceptable $ic;
-                public final /* synthetic */ me8 $data;
+                public final /* synthetic */ ne8 $data;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -517,7 +517,7 @@ public final class PersonalTextMsgTemplate extends jg8<ve8, LinearLayout, me8> {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {me8Var};
+                        Object[] objArr = {ne8Var};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -528,7 +528,7 @@ public final class PersonalTextMsgTemplate extends jg8<ve8, LinearLayout, me8> {
                             return;
                         }
                     }
-                    this.$data = me8Var;
+                    this.$data = ne8Var;
                 }
 
                 /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
@@ -548,7 +548,7 @@ public final class PersonalTextMsgTemplate extends jg8<ve8, LinearLayout, me8> {
                 }
             });
         } else if (textView != null) {
-            ve8 f4 = me8Var.c().f();
+            we8 f4 = ne8Var.c().f();
             if (f4 != null) {
                 str3 = f4.c();
             }

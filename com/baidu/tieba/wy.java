@@ -169,11 +169,11 @@ public class wy extends hx {
     }
 
     @Override // com.baidu.tieba.ax
-    public void p(vj6<jy4> vj6Var) {
+    public void p(wj6<jy4> wj6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, vj6Var) == null) {
-            super.p(vj6Var);
-            this.m.setOnCardSubClickListener(vj6Var);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, wj6Var) == null) {
+            super.p(wj6Var);
+            this.m.setOnCardSubClickListener(wj6Var);
         }
     }
 

@@ -50,12 +50,12 @@ public class fz1 extends dz1 {
 
         /* renamed from: com.baidu.tieba.fz1$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0308a implements zn3<je3<JSONObject>> {
+        public class C0305a implements zn3<je3<JSONObject>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ix1.b a;
 
-            public C0308a(a aVar, ix1.b bVar) {
+            public C0305a(a aVar, ix1.b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -130,7 +130,7 @@ public class fz1 extends dz1 {
                     return new g12(10002, "network_error");
                 }
                 oe3 e = f93.K().x().a().b().e(this.e.getContext());
-                e.o(new C0308a(this, bVar));
+                e.o(new C0305a(this, bVar));
                 e.call();
                 return new g12(0);
             }

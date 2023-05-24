@@ -174,9 +174,9 @@ public class l95 {
             int n = o65.m().n("pref_key_fun_ad_first_floor_min", 2);
             int n2 = o65.m().n("pref_key_fun_ad_first_floor_max", 3);
             if (n < n2) {
-                a = cz7.a(n, n2);
+                a = dz7.a(n, n2);
             } else {
-                a = cz7.a(n2, n);
+                a = dz7.a(n2, n);
             }
             if (a < 0) {
                 a = 2;

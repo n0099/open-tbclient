@@ -35,7 +35,7 @@ import com.baidu.tieba.qi;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.sg;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.tieba.ws9;
+import com.baidu.tieba.xs9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -251,10 +251,10 @@ public class CandidateSearchActivity extends BaseActivity {
                     }
                 }
             } else if (error == 3250023) {
-                ws9.b(error, "", null);
+                xs9.b(error, "", null);
             } else if (error == 3250021) {
                 if (httpResponsedMessage instanceof CommitVoteResMsg) {
-                    ws9.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
+                    xs9.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
                 }
             } else if (error != 3250002 && error != 3250004) {
                 ri.Q(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());

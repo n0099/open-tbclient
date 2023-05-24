@@ -44,13 +44,13 @@ public class gn3 {
 
         /* renamed from: com.baidu.tieba.gn3$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0313a implements Runnable {
+        public class RunnableC0311a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Activity a;
             public final /* synthetic */ a b;
 
-            public RunnableC0313a(a aVar, Activity activity) {
+            public RunnableC0311a(a aVar, Activity activity) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -145,11 +145,11 @@ public class gn3 {
             }
             super.onActivityCreated(activity, bundle);
             if (activity != null && activity.getIntent() != null) {
-                RunnableC0313a runnableC0313a = new RunnableC0313a(this, activity);
+                RunnableC0311a runnableC0311a = new RunnableC0311a(this, activity);
                 if (nl3.a()) {
-                    runnableC0313a.run();
+                    runnableC0311a.run();
                 } else {
-                    am3.j(runnableC0313a, "moveTaskToFront");
+                    am3.j(runnableC0311a, "moveTaskToFront");
                 }
             }
         }

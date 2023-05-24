@@ -14,7 +14,7 @@ import kotlin.jvm.internal.Intrinsics;
 public interface ek5 {
     public static final a a = a.a;
 
-    qn6 a();
+    rn6 a();
 
     String b();
 

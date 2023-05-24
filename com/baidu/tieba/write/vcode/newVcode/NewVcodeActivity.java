@@ -12,10 +12,10 @@ import com.baidu.tieba.bb5;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.u8a;
 import com.baidu.tieba.v8a;
 import com.baidu.tieba.w8a;
 import com.baidu.tieba.x8a;
+import com.baidu.tieba.y8a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public NewWriteModel a;
     public NewVcodeView b;
-    public v8a c;
+    public w8a c;
     public WriteData d;
     public int e;
     public NewWriteModel.d f;
@@ -150,22 +150,22 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
         }
     }
 
-    public final v8a I1() {
+    public final w8a I1() {
         InterceptResult invokeV;
-        v8a w8aVar;
+        w8a x8aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.e == pg.e("5", 0)) {
-                w8aVar = new u8a(this.b, this.a);
+                x8aVar = new v8a(this.b, this.a);
             } else if (this.e == pg.e("4", 0)) {
-                w8aVar = new x8a(this.b, this.a);
+                x8aVar = new y8a(this.b, this.a);
             } else {
-                w8aVar = new w8a(this.b, this.a);
+                x8aVar = new x8a(this.b, this.a);
             }
-            w8aVar.c(this.f);
-            return w8aVar;
+            x8aVar.c(this.f);
+            return x8aVar;
         }
-        return (v8a) invokeV.objValue;
+        return (w8a) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
@@ -215,7 +215,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                 }
                 newWriteModel2.q0(z);
             }
-            v8a I1 = I1();
+            w8a I1 = I1();
             this.c = I1;
             this.b.setPresenter(I1);
             this.c.a(this.g);

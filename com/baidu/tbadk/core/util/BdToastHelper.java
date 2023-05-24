@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.sg;
-import com.baidu.tieba.wp9;
+import com.baidu.tieba.xp9;
 import com.baidu.tieba.yu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -98,7 +98,7 @@ public class BdToastHelper {
                 if (contentBean2 != null) {
                     if (TbadkApplication.getInst().getSkinType() == 4) {
                         if (StringUtils.isNotNull(contentBean2.getTextColorDark())) {
-                            foregroundColorSpan = new ForegroundColorSpan(wp9.f(contentBean2.getTextColorDark()));
+                            foregroundColorSpan = new ForegroundColorSpan(xp9.f(contentBean2.getTextColorDark()));
                         } else {
                             if (contentBean2.getHasColor() == 1) {
                                 foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305));
@@ -113,7 +113,7 @@ public class BdToastHelper {
                         }
                     } else {
                         if (StringUtils.isNotNull(contentBean2.getTextColor())) {
-                            foregroundColorSpan = new ForegroundColorSpan(wp9.f(contentBean2.getTextColor()));
+                            foregroundColorSpan = new ForegroundColorSpan(xp9.f(contentBean2.getTextColor()));
                         } else {
                             if (contentBean2.getHasColor() == 1) {
                                 foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305));
@@ -251,7 +251,7 @@ public class BdToastHelper {
             if (toastSpannableString != null) {
                 BdToast b = BdToast.b(TbadkCoreApplication.getInst().getContext(), toastSpannableString);
                 setToastIcon(b, bdToastData);
-                int f = wp9.f(bdToastData.getBackground());
+                int f = xp9.f(bdToastData.getBackground());
                 if (f != 0 && f != Integer.MAX_VALUE) {
                     b.c(f);
                 }

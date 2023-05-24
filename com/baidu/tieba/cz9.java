@@ -1,89 +1,186 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
-import com.baidu.tbadk.TbSingleton;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LcUpdateDialogActivityConfig;
-import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
-import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tbadk.switchs.LooperBlockSwitch;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Date;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cz9 {
+public final class cz9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
+    public xb5 a;
+    public ez9 b;
 
-    public static void a(ClientUpdateInfo clientUpdateInfo, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, clientUpdateInfo, str) == null) && clientUpdateInfo != null && !TextUtils.isEmpty(str)) {
-            if (!LooperBlockSwitch.getIsOn()) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LcUpdateDialogActivityConfig(TbadkCoreApplication.getInst().getApp(), clientUpdateInfo, str)));
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947692199, "Lcom/baidu/tieba/cz9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947692199, "Lcom/baidu/tieba/cz9;");
                 return;
             }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("is_force_update", clientUpdateInfo.mIsForceUpdate);
-                jSONObject.put("status", clientUpdateInfo.mStatus);
-                jSONObject.put("reverson", clientUpdateInfo.mReverson);
-                jSONObject.put("content_url", clientUpdateInfo.mContentUrl);
-                jSONObject.put("apk_md5_rsa", str);
-            } catch (Exception e) {
-                BdLog.e(e);
+        }
+        c = new a(null);
+    }
+
+    public /* synthetic */ cz9(DefaultConstructorMarker defaultConstructorMarker) {
+        this();
+    }
+
+    @JvmStatic
+    public static final cz9 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c.a() : (cz9) invokeV.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            a35.p(TbadkCoreApplication.getInst().getApp(), "lcUpdateDialog", jSONObject);
+        }
+
+        @JvmStatic
+        public final cz9 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b.a.a();
+            }
+            return (cz9) invokeV.objValue;
         }
     }
 
-    public static void b(xb5 xb5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, xb5Var) != null) || xb5Var == null) {
-            return;
-        }
-        VersionData u = xb5Var.u();
-        TbadkCoreApplication.getInst().setVersionData(u);
-        TbadkCoreApplication.getInst().refreshNewVersion(true);
-        if (u.forceUpdate()) {
-            if (xb5Var.k() != null && TbadkCoreApplication.getInst().getResumeNum() > 0 && !LooperBlockSwitch.getIsOn()) {
-                TbSingleton.getInstance();
-                TbSingleton.setExceptInsertAdDiaShow(true);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), u, xb5Var.j())));
-                return;
+    /* loaded from: classes5.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final b a;
+        public static final cz9 b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-873556823, "Lcom/baidu/tieba/cz9$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-873556823, "Lcom/baidu/tieba/cz9$b;");
+                    return;
+                }
             }
-            return;
+            a = new b();
+            b = new cz9(null);
         }
-        Long valueOf = Long.valueOf(TbadkCoreApplication.getInst().getUpdateNotifyTime());
-        Long valueOf2 = Long.valueOf(new Date().getTime());
-        if (valueOf2.longValue() - valueOf.longValue() > 86400000 && u.getStrategy() == 0 && xb5Var.k() != null && TbadkCoreApplication.getInst().getResumeNum() > 0) {
-            TbSingleton.getInstance().setSyncModel(xb5Var);
-            if (TbSingleton.getInstance().hasPerformedFirstLoginTest() && !LooperBlockSwitch.getIsOn()) {
-                TbSingleton.getInstance();
-                TbSingleton.setExceptInsertAdDiaShow(true);
-                w06.d();
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
             }
-            TbadkCoreApplication.getInst().setUpdateNotifyTime(valueOf2.longValue());
+        }
+
+        public final cz9 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b;
+            }
+            return (cz9) invokeV.objValue;
         }
     }
 
-    public static void c(VersionData versionData, ClientUpdateInfo clientUpdateInfo, String str, boolean z) {
+    public cz9() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{versionData, clientUpdateInfo, str, Boolean.valueOf(z)}) != null) || versionData == null) {
-            return;
-        }
-        TbadkCoreApplication.getInst().setVersionData(versionData);
-        TbadkCoreApplication.getInst().refreshNewVersion(true);
-        if (TbadkCoreApplication.getInst().getResumeNum() > 0) {
-            if (versionData.forceUpdate()) {
-                a(clientUpdateInfo, str);
-            } else if ((Long.valueOf(new Date().getTime()).longValue() - Long.valueOf(TbadkCoreApplication.getInst().getUpdateNotifyTime()).longValue() > 86400000 || z) && versionData.getStrategy() == 0) {
-                a(clientUpdateInfo, str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
+        }
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ez9 ez9Var = this.b;
+            if (ez9Var != null) {
+                dz9.c(ez9Var.c(), ez9Var.b(), ez9Var.a(), ez9Var.d());
+            }
+            this.b = null;
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (LooperBlockSwitch.getIsOn()) {
+                a35.p(TbadkCoreApplication.getInst(), "updateDialog", new JSONObject());
+                return;
+            }
+            xb5 xb5Var = this.a;
+            if (xb5Var != null) {
+                dz9.b(xb5Var);
+            }
+            this.a = null;
+        }
+    }
+
+    public final void d(ez9 ez9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ez9Var) == null) {
+            this.b = ez9Var;
+        }
+    }
+
+    public final void e(xb5 xb5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, xb5Var) == null) {
+            this.a = xb5Var;
         }
     }
 }

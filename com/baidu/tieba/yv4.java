@@ -12,16 +12,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class yv4 implements jh6 {
+public class yv4 implements kh6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.jh6
+    @Override // com.baidu.tieba.kh6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        ih6.a(this, webView, str, jSONObject);
+        jh6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.jh6
+    @Override // com.baidu.tieba.kh6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -31,9 +31,9 @@ public class yv4 implements jh6 {
         return invokeLLLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.jh6
+    @Override // com.baidu.tieba.kh6
     public /* synthetic */ void onDestroy() {
-        ih6.b(this);
+        jh6.b(this);
     }
 
     public yv4() {
@@ -50,22 +50,22 @@ public class yv4 implements jh6 {
         }
     }
 
-    public js9 c(WebView webView, String str) {
+    public ks9 c(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str)) == null) {
-            return new js9();
+            return new ks9();
         }
-        return (js9) invokeLL.objValue;
+        return (ks9) invokeLL.objValue;
     }
 
-    public js9 d(WebView webView, HashMap hashMap) {
+    public ks9 d(WebView webView, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, hashMap)) == null) {
             a(webView, CommonTbJsBridge.OPEN_VIP_SUCCESS, new JSONObject());
-            return new js9();
+            return new ks9();
         }
-        return (js9) invokeLL.objValue;
+        return (ks9) invokeLL.objValue;
     }
 }

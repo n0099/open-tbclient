@@ -1,16 +1,38 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.live.imp.LiveUserSecurityBehaviorServiceImpl;
-import com.baidu.searchbox.live.interfaces.service.LiveUserSecurityBehaviorService;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.service.AbConfigService;
+import com.baidu.searchbox.live.nps.util.PluginUtils;
+import com.baidu.searchbox.live.pluginmanager.MiniPluginManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class um8 extends jk1<LiveUserSecurityBehaviorService> {
+public class um8 implements AbConfigService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AbConfigService
+    public Object getSwitch(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return null;
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AbConfigService
+    public String getSwitch(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
 
     public um8() {
         Interceptable interceptable = $ic;
@@ -26,15 +48,25 @@ public final class um8 extends jk1<LiveUserSecurityBehaviorService> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jk1
-    /* renamed from: a */
-    public LiveUserSecurityBehaviorService createService() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.live.interfaces.service.AbConfigService
+    public boolean getSwitch(String str, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new LiveUserSecurityBehaviorServiceImpl();
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z)) == null) {
+            if ("android_live_enable_nps_multi_plugin_online".equals(str)) {
+                return true;
+            }
+            if ("android_live_enable_nps_multi_plugin".equals(str)) {
+                if (PluginUtils.isLivenpsMatchMultiNps()) {
+                    return true;
+                }
+                return false;
+            } else if (!MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH.equals(str) && !"android_live_media_pre_inflate_queue".equals(str) && !"live_android_mixview_pager".equals(str)) {
+                return true;
+            } else {
+                return false;
+            }
         }
-        return (LiveUserSecurityBehaviorService) invokeV.objValue;
+        return invokeLZ.booleanValue;
     }
 }

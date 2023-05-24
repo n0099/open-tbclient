@@ -1,444 +1,192 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.frame.PageInfo;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.abtest.group.AbsGroupUbsABTest;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.homepage.concern.message.ConcernPageHttpResMessage;
-import com.baidu.tieba.homepage.concern.message.ConcernPageRequestMessage;
-import com.baidu.tieba.homepage.concern.message.ConcernPageSocketResMessage;
-import com.baidu.tieba.m37;
+import com.baidu.tieba.feed.component.uistate.CardUiStateKt;
+import com.baidu.tieba.n27;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringNumberConversionsKt;
+import tbclient.ComponentFactory;
+import tbclient.FeedContentText;
+import tbclient.FeedFeedback;
+import tbclient.FeedKV;
 import tbclient.LayoutFactory;
-import tbclient.Userlike.ConcernData;
-import tbclient.Userlike.DataRes;
-import tbclient.Userlike.PageData;
+import tbclient.SidewayLayout;
+import tbclient.SidewayRecomComponent;
 /* loaded from: classes8.dex */
-public class yl6 extends m37 {
+public final class yl6 implements e17<LayoutFactory>, i37 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g07 c;
-    public String d;
-    public final Map<String, i37> e;
-    public Map<String, String> f;
-    public boolean g;
-    public fb h;
+    public Map<String, ? extends j37> a;
 
-    /* loaded from: classes8.dex */
-    public class a extends fb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yl6 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(yl6 yl6Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yl6Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yl6Var;
-        }
-
-        /* JADX WARN: Code restructure failed: missing block: B:12:0x0026, code lost:
-            if (((com.baidu.tieba.homepage.concern.message.ConcernPageRequestMessage) r0).getLoadType() == 1) goto L13;
-         */
-        @Override // com.baidu.tieba.fb
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.g = false;
-                if (responsedMessage == null) {
-                    return;
-                }
-                if (responsedMessage.getOrginalMessage() != null) {
-                    Object extra = responsedMessage.getOrginalMessage().getExtra();
-                    if (extra instanceof ConcernPageRequestMessage) {
-                        z = true;
-                    }
-                }
-                z = false;
-                if (responsedMessage.getError() != 0) {
-                    this.a.c.c = responsedMessage.getError();
-                    this.a.c.d = responsedMessage.getErrorString();
-                } else {
-                    this.a.c.c = 0;
-                    DataRes dataRes = null;
-                    if (responsedMessage instanceof ConcernPageSocketResMessage) {
-                        dataRes = ((ConcernPageSocketResMessage) responsedMessage).getResultData();
-                    } else if (responsedMessage instanceof ConcernPageHttpResMessage) {
-                        dataRes = ((ConcernPageHttpResMessage) responsedMessage).getResultData();
-                    }
-                    this.a.p(dataRes, z);
-                }
-                if (this.a.b != null) {
-                    this.a.b.a(this.a.c);
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yl6(Context context) {
-        super(context);
+    public yl6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new HashMap();
-        this.f = new HashMap();
-        this.g = false;
-        this.h = new a(this, CmdConfigHttp.CMD_CONCERN_PAGE, 309474);
-        this.c = new g07();
-        q();
-        r();
-        MessageManager.getInstance().registerListener(this.h);
-        s();
-        m();
+        this.a = new HashMap();
     }
 
-    @Override // com.baidu.tieba.m37
-    public void c(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            try {
-                f37<?> b = m07.a().get("fake_wall").b(obj);
-                int i = 0;
-                for (f37<?> f37Var : this.c.a) {
-                    if (!(f37Var.b() instanceof dy6) || !(((dy6) f37Var.b()).a().a instanceof zj6)) {
-                        break;
-                    }
-                    i++;
-                }
-                this.c.a.add(i, b);
-                if (this.b != null) {
-                    this.b.a(this.c);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-                if (!jx4.e()) {
-                    return;
-                }
-                throw e;
-            }
-        }
-    }
-
-    public final void n(@Nullable f37<?> f37Var, @NonNull Map<String, ThreadData> map) {
-        rz6 rz6Var;
-        vz6<?> vz6Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, f37Var, map) == null) && (f37Var instanceof rz6) && (vz6Var = (rz6Var = (rz6) f37Var).c) != null) {
-            String e = vz6Var.e();
-            if (!TextUtils.isEmpty(e)) {
-                rz6Var.c.h(map.get(e));
-            }
-        }
-    }
-
-    public static boolean o(ThreadData threadData) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.e17
+    /* renamed from: a */
+    public g37<?> b(LayoutFactory layoutFactory) {
         InterceptResult invokeL;
+        SidewayLayout sidewayLayout;
+        boolean z;
+        String str;
+        String str2;
+        SidewayRecomComponent sidewayRecomComponent;
+        Integer num;
+        a17 a17Var;
+        a17 a17Var2;
+        String str3;
+        int i;
+        String str4;
+        String str5;
+        String a;
+        String a2;
+        String a3;
+        Integer intOrNull;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, threadData)) == null) {
-            if (threadData == null || threadData.isShareThread || threadData.itemData != null || threadData.itemStarData != null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, layoutFactory)) == null) {
+            k07 k07Var = null;
+            if (layoutFactory != null) {
+                sidewayLayout = layoutFactory.sideway;
+            } else {
+                sidewayLayout = null;
             }
-            int i = threadData.threadType;
-            if (i != 0 && i != 11 && i != 40) {
-                return threadData.isUgcThreadType();
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.m37
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Iterator<f37<?>> it = this.c.a.iterator();
-            while (it.hasNext()) {
-                f37<?> next = it.next();
-                if (next != null && (next.b() instanceof mz6)) {
-                    mz6 mz6Var = (mz6) next.b();
-                    if (mz6Var.d() != null && "recommend_user".equals(mz6Var.d().getType())) {
-                        it.remove();
-                    }
+            if (sidewayLayout != null) {
+                List<ComponentFactory> list = layoutFactory.sideway.components;
+                int i2 = 1;
+                if (list != null && !list.isEmpty()) {
+                    z = false;
+                } else {
+                    z = true;
                 }
-            }
-            m37.a aVar = this.b;
-            if (aVar != null) {
-                aVar.a(this.c);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.m37
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.m37
-    public void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !this.g) {
-            this.g = true;
-            ConcernPageRequestMessage concernPageRequestMessage = new ConcernPageRequestMessage();
-            concernPageRequestMessage.setPageTag("0");
-            concernPageRequestMessage.setLoadType(1);
-            concernPageRequestMessage.setIsNewFeed(1);
-            MessageManager.getInstance().sendMessage(concernPageRequestMessage);
-        }
-    }
-
-    @Override // com.baidu.tieba.m37
-    public void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && !this.g) {
-            this.g = true;
-            ConcernPageRequestMessage concernPageRequestMessage = new ConcernPageRequestMessage();
-            concernPageRequestMessage.setPageTag(this.d);
-            concernPageRequestMessage.setLoadType(2);
-            concernPageRequestMessage.setIsNewFeed(1);
-            MessageManager.getInstance().sendMessage(concernPageRequestMessage);
-        }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f.put("page_from", ImageViewerConfig.FROM_CONCERN);
-        }
-    }
-
-    public final void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_PAGE, zq9.a(TbConfig.URL_CONCERN_PAGE, 309474));
-            tbHttpMessageTask.setIsNeedAddCommenParam(true);
-            tbHttpMessageTask.setResponsedClass(ConcernPageHttpResMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            ip5 ip5Var = new ip5(309474);
-            ip5Var.setResponsedClass(ConcernPageSocketResMessage.class);
-            ip5Var.g(true);
-            MessageManager.getInstance().registerTask(ip5Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.m37
-    public boolean g(@NonNull String str) {
-        InterceptResult invokeL;
-        vz6<?> vz6Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            Iterator<f37<?>> it = this.c.a.iterator();
-            while (it.hasNext()) {
-                f37<?> next = it.next();
-                if ((next instanceof rz6) && (vz6Var = ((rz6) next).c) != null && str.equals(vz6Var.f())) {
-                    it.remove();
-                }
-            }
-            m37.a aVar = this.b;
-            if (aVar != null) {
-                aVar.a(this.c);
-            }
-            if (this.c.a.size() < 9) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @NonNull
-    public final Map<String, ThreadData> l(@Nullable List<ConcernData> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, list)) == null) {
-            HashMap hashMap = new HashMap();
-            if (TbSingleton.getInstance().isPbPreloadSwitchOn() && list != null) {
-                for (ConcernData concernData : list) {
-                    if (concernData.thread_list != null) {
-                        ThreadData threadData = new ThreadData();
-                        threadData.setFromConcern(true);
-                        AbsGroupUbsABTest.setCardInfoUbsABTest(threadData);
-                        threadData.parserProtobuf(concernData.thread_list);
-                        if (o(threadData)) {
-                            hashMap.put(threadData.tid, threadData);
+                if (!z) {
+                    vz6 vz6Var = new vz6();
+                    n27.a aVar = n27.a;
+                    List<FeedKV> list2 = layoutFactory.sideway.business_info;
+                    Intrinsics.checkNotNullExpressionValue(list2, "originData.sideway.business_info");
+                    vz6Var.b(aVar.a(list2));
+                    z07 d = d("concern_reco_show", vz6Var);
+                    t07 t07Var = new t07();
+                    for (ComponentFactory componentFactory : layoutFactory.sideway.components) {
+                        if (Intrinsics.areEqual("sideway_recom", componentFactory.component) && (sidewayRecomComponent = componentFactory.sideway_recom) != null && (num = sidewayRecomComponent.type) != null && num.intValue() == i2) {
+                            vz6 vz6Var2 = new vz6();
+                            n27.a aVar2 = n27.a;
+                            List<FeedKV> list3 = componentFactory.sideway_recom.business_info;
+                            Intrinsics.checkNotNullExpressionValue(list3, "data.sideway_recom.business_info");
+                            vz6Var2.b(aVar2.a(list3));
+                            z07 d2 = d("concern_reco_click_head", vz6Var2);
+                            z07 d3 = d("concern_reco_follow_btn", vz6Var2);
+                            z07 d4 = d("concern_reco_unfollow_btn", vz6Var2);
+                            List<g37<?>> list4 = t07Var.a;
+                            String str6 = componentFactory.sideway_recom.img_url;
+                            Intrinsics.checkNotNullExpressionValue(str6, "data.sideway_recom.img_url");
+                            yz6 yz6Var = new yz6(str6, 1, null, null, componentFactory.sideway_recom.corner_url, false);
+                            FeedContentText feedContentText = componentFactory.sideway_recom.title;
+                            if (feedContentText != null) {
+                                a17Var = h17.c(feedContentText);
+                            } else {
+                                a17Var = null;
+                            }
+                            FeedContentText feedContentText2 = componentFactory.sideway_recom.desc;
+                            if (feedContentText2 != null) {
+                                a17Var2 = h17.c(feedContentText2);
+                            } else {
+                                a17Var2 = null;
+                            }
+                            SidewayRecomComponent sidewayRecomComponent2 = componentFactory.sideway_recom;
+                            String str7 = sidewayRecomComponent2.schema;
+                            List<FeedKV> list5 = sidewayRecomComponent2.business_info;
+                            if (list5 != null) {
+                                str3 = l17.a(list5, "is_like");
+                            } else {
+                                str3 = null;
+                            }
+                            boolean areEqual = Intrinsics.areEqual("1", str3);
+                            List<FeedKV> list6 = componentFactory.sideway_recom.business_info;
+                            if (list6 != null && (a3 = l17.a(list6, "like_status")) != null && (intOrNull = StringsKt__StringNumberConversionsKt.toIntOrNull(a3)) != null) {
+                                i = intOrNull.intValue();
+                            } else {
+                                i = 0;
+                            }
+                            List<FeedKV> list7 = componentFactory.sideway_recom.business_info;
+                            if (list7 == null || (a2 = l17.a(list7, "user_id")) == null) {
+                                str4 = "";
+                            } else {
+                                str4 = a2;
+                            }
+                            List<FeedKV> list8 = componentFactory.sideway_recom.business_info;
+                            if (list8 == null || (a = l17.a(list8, "portrait")) == null) {
+                                str5 = "";
+                            } else {
+                                str5 = a;
+                            }
+                            list4.add(new h37(new oz6(yz6Var, a17Var, a17Var2, str7, new c57(new v07(areEqual, i, str4, str5, d3, d4), null, CardUiStateKt.b(), null, null, 24, null), d2, null, null, 192, null), "recommend_card_person_attention"));
+                            i2 = 1;
                         }
                     }
-                }
-            }
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    public final void p(Message message, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048585, this, message, z) != null) || !(message instanceof DataRes)) {
-            return;
-        }
-        if (z) {
-            this.c.a.clear();
-        }
-        DataRes dataRes = (DataRes) message;
-        PageData pageData = dataRes.page_data;
-        if (pageData != null && !ListUtils.isEmpty(pageData.feed_list)) {
-            Map<String, ThreadData> l = l(dataRes.thread_info);
-            boolean z2 = false;
-            try {
-                for (LayoutFactory layoutFactory : dataRes.page_data.feed_list) {
-                    if (layoutFactory != null) {
-                        d17 d17Var = m07.a().get(layoutFactory.layout);
-                        if (d17Var != null) {
-                            if (d17Var instanceof h37) {
-                                ((h37) d17Var).c(this.e);
-                            }
-                            if (d17Var instanceof l27) {
-                                ((l27) d17Var).a(this.f);
-                            }
-                            f37<?> b = d17Var.b(layoutFactory);
-                            n(b, l);
-                            if (b != null) {
-                                this.c.a.add(b);
-                            }
-                        } else {
-                            BdLog.e("no layout for " + layoutFactory.layout);
-                        }
+                    t07Var.b = d;
+                    ComponentFactory componentFactory2 = layoutFactory.sideway.title;
+                    if (componentFactory2 != null) {
+                        str = componentFactory2.base_text;
+                    } else {
+                        str = null;
                     }
-                }
-                if (z && dataRes.user_follow_live != null && !ListUtils.isEmpty(dataRes.user_follow_live.user_follow_live)) {
-                    this.c.a.add(0, m07.a().get("ala_live_attention").b(dataRes.user_follow_live));
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-                if (jx4.e()) {
-                    throw e;
-                }
-            }
-            g07 g07Var = this.c;
-            if (dataRes.has_more.intValue() == 1) {
-                z2 = true;
-            }
-            g07Var.b = z2;
-            this.d = dataRes.page_tag;
-            if (this.c.a.size() > 1) {
-                i37 i37Var = this.e.get("concern_reco_show");
-                if (i37Var instanceof em6) {
-                    ((em6) i37Var).b("1");
+                    if (str == null) {
+                        str2 = "";
+                    } else {
+                        str2 = str;
+                    }
+                    FeedFeedback feedFeedback = layoutFactory.sideway.feedback;
+                    if (feedFeedback != null) {
+                        k07Var = v17.a(feedFeedback, new i07());
+                    }
+                    return new h37(new nz6(str2, R.color.CAM_X0105, t07Var, k07Var, null, 16, null), "sideway_card");
                 }
             }
+            return null;
+        }
+        return (g37) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.i37
+    public void c(Map<String, ? extends j37> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
+            Intrinsics.checkNotNullParameter(map, "map");
+            this.a = map;
         }
     }
 
-    public final void s() {
+    public final z07 d(String str, vz6 vz6Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.e.put(PageInfo.KEY, new km6());
-            this.e.put("image_click", new hm6());
-            Map<String, i37> map = this.e;
-            zl6 zl6Var = new zl6();
-            zl6Var.b("1");
-            map.put("user_info_click2", zl6Var);
-            Map<String, i37> map2 = this.e;
-            zl6 zl6Var2 = new zl6();
-            zl6Var2.b("4");
-            map2.put("video_click", zl6Var2);
-            Map<String, i37> map3 = this.e;
-            zl6 zl6Var3 = new zl6();
-            zl6Var3.b("5");
-            map3.put("rich_text_at_click", zl6Var3);
-            Map<String, i37> map4 = this.e;
-            zl6 zl6Var4 = new zl6();
-            zl6Var4.b("6");
-            map4.put("origin_card_click", zl6Var4);
-            Map<String, i37> map5 = this.e;
-            zl6 zl6Var5 = new zl6();
-            zl6Var5.b("8");
-            map5.put("comment_btn_click", zl6Var5);
-            this.e.put("enter_forum_btn_click", new gm6());
-            this.e.put("live_head_show", new jm6());
-            this.e.put("live_head_click", new im6());
-            this.e.put("user_info_click", new om6());
-            this.e.put("rich_text_topic_click", new mm6());
-            this.e.put("rich_text_item_click", new lm6());
-            this.e.put("rich_text_video_topic_click", new nm6());
-            this.e.put("concern_reco_show", new em6());
-            this.e.put("concern_reco_click_head", new bm6());
-            this.e.put("concern_reco_follow_btn", new cm6());
-            this.e.put("concern_reco_unfollow_btn", new dm6());
-            Map<String, i37> map6 = this.e;
-            pm6 pm6Var = new pm6();
-            pm6Var.c("2");
-            pm6Var.b("6");
-            map6.put("virtual_head_show", pm6Var);
-            Map<String, i37> map7 = this.e;
-            pm6 pm6Var2 = new pm6();
-            pm6Var2.c("1");
-            pm6Var2.b("6");
-            map7.put("virtual_head_click", pm6Var2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, vz6Var)) == null) {
+            j37 j37Var = this.a.get(str);
+            if (j37Var != null) {
+                return new z07(j37Var.getKey(), j37Var.a(vz6Var), new HashMap());
+            }
+            return null;
         }
+        return (z07) invokeLL.objValue;
     }
 }

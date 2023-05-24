@@ -20,7 +20,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.r75;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.view.RoundRelativeLayout;
-import com.baidu.tieba.wp9;
+import com.baidu.tieba.xp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -227,7 +227,7 @@ public class HeadCustomImageView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048593, this, str) == null) && (tbImageView = this.a) != null && tbImageView.getVisibility() == 0 && this.n != null && this.d != null) {
             this.a.setDefaultBgResource(R.color.transparent);
-            this.a.setBackgroundColor(wp9.a(wp9.f(str), 0.3f));
+            this.a.setBackgroundColor(xp9.a(xp9.f(str), 0.3f));
         }
     }
 

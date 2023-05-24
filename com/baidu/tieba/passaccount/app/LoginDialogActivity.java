@@ -27,6 +27,7 @@ import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.aw8;
 import com.baidu.tieba.bw8;
+import com.baidu.tieba.cw8;
 import com.baidu.tieba.d65;
 import com.baidu.tieba.ep5;
 import com.baidu.tieba.gy4;
@@ -36,7 +37,6 @@ import com.baidu.tieba.ux4;
 import com.baidu.tieba.vg;
 import com.baidu.tieba.wx4;
 import com.baidu.tieba.yu4;
-import com.baidu.tieba.zv8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +48,7 @@ public class LoginDialogActivity extends SuspendedActivity implements ep5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup k;
-    public zv8 l;
+    public aw8 l;
     public BdAsyncTask<?, ?, ?> m;
     public String n;
     public String o;
@@ -276,9 +276,9 @@ public class LoginDialogActivity extends SuspendedActivity implements ep5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            zv8 zv8Var = this.l;
-            if (zv8Var != null) {
-                return zv8Var.getResultIntent();
+            aw8 aw8Var = this.l;
+            if (aw8Var != null) {
+                return aw8Var.getResultIntent();
             }
             return null;
         }
@@ -298,9 +298,9 @@ public class LoginDialogActivity extends SuspendedActivity implements ep5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
             this.k.setBackgroundResource(R.color.transparent);
-            zv8 zv8Var = this.l;
-            if (zv8Var != null) {
-                zv8Var.p(i);
+            aw8 aw8Var = this.l;
+            if (aw8Var != null) {
+                aw8Var.p(i);
             }
         }
     }
@@ -425,9 +425,9 @@ public class LoginDialogActivity extends SuspendedActivity implements ep5 {
             }
             O1();
             if (TextUtils.isEmpty(this.n)) {
-                this.l = new aw8(this.o, this.p, this.q);
+                this.l = new bw8(this.o, this.p, this.q);
             } else {
-                this.l = new bw8(this.n);
+                this.l = new cw8(this.n);
             }
             this.l.a(this, linearLayout);
             return this;

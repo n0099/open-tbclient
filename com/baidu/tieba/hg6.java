@@ -1,29 +1,69 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import android.webkit.URLUtil;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.tieba.browser.core.webview.flyweight.FlyWeightConfig;
+import com.baidu.tieba.browser.core.webview.flyweight.loader.ImageLoader;
+import com.baidu.tieba.browser.log.HybridLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayInputStream;
+import java.util.Map;
+import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 /* loaded from: classes5.dex */
-public class hg6 {
+public class hg6 implements jg6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WebResourceResponse a;
-    public final ByteArrayInputStream b;
-    public final int c;
+    public final gg6 a;
 
-    public hg6(WebResourceResponse webResourceResponse, byte[] bArr) {
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public gg6 a;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public jg6 b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new hg6(this);
+            }
+            return (jg6) invokeV.objValue;
+        }
+
+        public void c(gg6 gg6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gg6Var) == null) {
+                this.a = gg6Var;
+            }
+        }
+    }
+
+    public hg6(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {webResourceResponse, bArr};
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,71 +73,82 @@ public class hg6 {
                 return;
             }
         }
-        this.a = webResourceResponse;
-        if (bArr != null) {
-            this.c = bArr.length;
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-            this.b = byteArrayInputStream;
-            byteArrayInputStream.mark(0);
-            return;
-        }
-        this.c = 0;
-        this.b = null;
+        this.a = aVar.a;
     }
 
-    public WebResourceResponse a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.jg6
+    public WebResourceResponse a(String str, WebResourceRequest webResourceRequest) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.b != null && c()) {
-                this.b.reset();
-                this.a.setData(this.b);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, webResourceRequest)) == null) {
+            if (webResourceRequest == null || !TextUtils.equals("GET", webResourceRequest.getMethod())) {
+                return null;
             }
-            return this.a;
-        }
-        return (WebResourceResponse) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.a != null && this.b != null && d() > 0) {
-                return true;
+            String uri = webResourceRequest.getUrl().toString();
+            if (!URLUtil.isNetworkUrl(uri)) {
+                return null;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            WebResourceResponse webResourceResponse = this.a;
-            if (webResourceResponse != null && !yh6.b(webResourceResponse.getResponseHeaders())) {
-                return TextUtils.equals(this.a.getResponseHeaders().get("tieba-response-via"), PrefetchEvent.MODULE);
+            if (qf6.isOn() && !uri.contains("tieba-ares.cdn") && !uri.contains("bdstatic.com") && !uri.contains(PublicSuffixDatabase.BAIDU_TLD_PLUS_ONE) && !uri.contains("tieba.com")) {
+                zk8 hybridLog = HybridLog.getInstance();
+                hybridLog.c("ResourceProxyImpl", "非贴吧url，不代理网络请求：" + uri);
+                return null;
             }
-            return false;
+            gg6 gg6Var = this.a;
+            if (gg6Var != null && !gg6Var.a(str)) {
+                return null;
+            }
+            return c(str, uri, webResourceRequest.getRequestHeaders());
         }
-        return invokeV.booleanValue;
+        return (WebResourceResponse) invokeLL.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public final WebResourceResponse b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "WebResourceResponseWrap{size='" + this.c + "', isSuccessful='" + c() + "', isPrefetchData='" + b() + "'}";
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            ig6 ig6Var = wf6.b().get(str);
+            if (ig6Var != null) {
+                zk8 hybridLog = HybridLog.getInstance();
+                hybridLog.c("ResourceProxyImpl", "命中预请求缓存，返回数据：" + ig6Var);
+                if (ig6Var.b()) {
+                    wf6.b().remove(str);
+                }
+                if (ig6Var.c()) {
+                    return ig6Var.a();
+                }
+                wf6.b().remove(str);
+                return null;
+            }
+            return null;
         }
-        return (String) invokeV.objValue;
+        return (WebResourceResponse) invokeL.objValue;
+    }
+
+    public final WebResourceResponse c(String str, String str2, Map<String, String> map) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, map)) == null) {
+            if (xf6.b().c(str2)) {
+                long currentTimeMillis = System.currentTimeMillis();
+                xf6.b().d(str2, 5000L);
+                xh6.b("newHybrid", "fetch-url: waitTime = " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
+                return b(str2);
+            } else if (wf6.b().contains(str2)) {
+                return b(str2);
+            } else {
+                if (FlyWeightConfig.c(str2, map)) {
+                    String c = ei6.c(str2);
+                    if (wf6.b().contains(c)) {
+                        return b(c);
+                    }
+                    return dg6.g().b(str, str2, map);
+                } else if (FlyWeightConfig.a(str2)) {
+                    return ImageLoader.c(str, str2, map);
+                } else {
+                    return null;
+                }
+            }
+        }
+        return (WebResourceResponse) invokeLLL.objValue;
     }
 }

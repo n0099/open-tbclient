@@ -37,13 +37,13 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 import com.baidu.tbadk.data.MembershipUserInfo;
 import com.baidu.tieba.fe5;
-import com.baidu.tieba.lv6;
+import com.baidu.tieba.mv6;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.redtip.PersonRedTipManager;
-import com.baidu.tieba.ua9;
+import com.baidu.tieba.va9;
 import com.baidu.tieba.wallet.CurrencyJumpHelper;
-import com.baidu.tieba.y99;
 import com.baidu.tieba.yu4;
+import com.baidu.tieba.z99;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,19 +57,19 @@ import java.util.Map;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
 /* loaded from: classes7.dex */
-public class PersonPolymericEventController extends ua9 {
+public class PersonPolymericEventController extends va9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public y99 e;
+    public z99 e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonPolymericEventController(TbPageContext tbPageContext, y99 y99Var) {
+    public PersonPolymericEventController(TbPageContext tbPageContext, z99 z99Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, y99Var};
+            Object[] objArr = {tbPageContext, z99Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -80,23 +80,23 @@ public class PersonPolymericEventController extends ua9 {
                 return;
             }
         }
-        this.e = y99Var;
+        this.e = z99Var;
     }
 
-    @Override // com.baidu.tieba.ua9, com.baidu.tieba.n4a
-    public void a(View view2, lv6 lv6Var) {
+    @Override // com.baidu.tieba.va9, com.baidu.tieba.o4a
+    public void a(View view2, mv6 mv6Var) {
         UserData userData;
         String str;
         int i;
         MembershipUserInfo membershipUserInfo;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, lv6Var) == null) {
-            super.a(view2, lv6Var);
-            if (lv6Var == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, mv6Var) == null) {
+            super.a(view2, mv6Var);
+            if (mv6Var == null) {
                 return;
             }
-            Bundle bundle = lv6Var.b;
+            Bundle bundle = mv6Var.b;
             String str3 = null;
             if (bundle != null) {
                 userData = (UserData) bundle.getSerializable(UserData.TYPE_USER);
@@ -104,7 +104,7 @@ public class PersonPolymericEventController extends ua9 {
                 userData = null;
             }
             int i2 = 1;
-            switch (lv6Var.a) {
+            switch (mv6Var.a) {
                 case 1:
                     if (userData == null) {
                         return;
@@ -141,8 +141,8 @@ public class PersonPolymericEventController extends ua9 {
                     this.a.getPageActivity().finish();
                     return;
                 case 9:
-                    y99 y99Var = this.e;
-                    if (y99Var != null && y99Var.l() != null) {
+                    z99 z99Var = this.e;
+                    if (z99Var != null && z99Var.l() != null) {
                         TiebaStatic.log("c12207");
                         this.e.l().e();
                         return;
@@ -185,7 +185,7 @@ public class PersonPolymericEventController extends ua9 {
                         personChangeData.setCanModifyAvatar(userData.canModifyAvatar());
                         personChangeData.setCantModifyAvatarDesc(userData.getCantModifyAvatarDesc());
                         personChangeData.setTiebaId(userData.getmTiebaUid());
-                        Bundle bundle2 = lv6Var.b;
+                        Bundle bundle2 = mv6Var.b;
                         if (bundle2 != null) {
                             personChangeData.setNickNameLeftDays(bundle2.getInt(UserData.TYPE_USER_NICKNAME_LEFT_DAYS, -1));
                         }
@@ -273,7 +273,7 @@ public class PersonPolymericEventController extends ua9 {
                     return;
                 case 31:
                     b(9);
-                    UrlManager.getInstance().dealOneLink(this.a, new String[]{lv6Var.b.getString("book_jump_link")}, true);
+                    UrlManager.getInstance().dealOneLink(this.a, new String[]{mv6Var.b.getString("book_jump_link")}, true);
                     return;
                 case 32:
                     if (!ViewHelper.checkUpIsLogin(this.a.getPageActivity())) {

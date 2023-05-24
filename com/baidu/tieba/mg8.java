@@ -1,124 +1,122 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.BIMManager;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.TbadkApplication;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.impersonal.sprite.SpriteMsgProcessor;
+import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView;
+import com.baidu.tieba.impersonal.data.VoiceMsgContent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class mg8<SdkMsg extends ChatMsg, T> implements pg8<SdkMsg, ue8<T>> {
+public final class mg8 extends kg8<VoiceMsgContent, ChatVoiceView, oe8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int b;
+    public final int c;
+    public final int d;
 
-    public abstract int c();
-
-    public abstract SdkMsg e(T t);
-
-    public abstract T g(SdkMsg sdkmsg);
-
-    public mg8() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mg8(String name) {
+        super(name);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {name};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        Intrinsics.checkNotNullParameter(name, "name");
+        this.b = ri.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
+        this.c = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds38);
+        this.d = ri.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
+    }
+
+    public static final boolean l(oe8 data, View it) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, data, it)) == null) {
+            Intrinsics.checkNotNullParameter(data, "$data");
+            Function2<View, ve8<VoiceMsgContent>, Unit> d = data.d();
+            if (d != null) {
+                Intrinsics.checkNotNullExpressionValue(it, "it");
+                d.invoke(it, data.c());
+                return true;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.kg8
+    public void f(ViewGroup container) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, container) == null) {
+            Intrinsics.checkNotNullParameter(container, "container");
+            int i = this.b;
+            int i2 = this.d;
+            container.setPadding(i, i2, this.c, i2);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pg8
-    /* renamed from: d */
-    public SdkMsg b(ue8<T> msg) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.kg8
+    /* renamed from: k */
+    public void d(ChatVoiceView chatVoiceView, final oe8 data) {
+        VoiceData.VoiceModel d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, msg)) == null) {
-            Intrinsics.checkNotNullParameter(msg, "msg");
-            SdkMsg e = e(msg.f());
-            e.setSenderUid(BIMManager.getBdUidFromBdUK(String.valueOf(SpriteMsgProcessor.m.a())));
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("type", c());
-            jSONObject.put("from", "android");
-            e.setContentExtra(jSONObject.toString());
-            return e;
-        }
-        return (SdkMsg) invokeL.objValue;
-    }
+        if (interceptable == null || interceptable.invokeLL(1048579, this, chatVoiceView, data) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            if (chatVoiceView != null) {
+                chatVoiceView.j(true, !data.c().e().d());
+                VoiceMsgContent f = data.c().f();
+                if (f != null && (d = f.d()) != null) {
+                    chatVoiceView.setData(d);
+                }
+                chatVoiceView.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.dg8
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pg8
-    /* renamed from: f */
-    public ue8<T> a(SdkMsg msg) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, msg)) == null) {
-            Intrinsics.checkNotNullParameter(msg, "msg");
-            ue8<T> ue8Var = new ue8<>();
-            ue8Var.i(g(msg));
-            ue8Var.c(msg.getMsgId());
-            String msgKey = msg.getMsgKey();
-            Intrinsics.checkNotNullExpressionValue(msgKey, "msg.msgKey");
-            ue8Var.d(msgKey);
-            ue8Var.e().l(msg.getContacterUk());
-            ue8Var.e().k(jna.c(msg.getSenderUid(), 0L));
-            ue8Var.e().i(msg.getStatus());
-            ue8Var.j(msg);
-            boolean isSelf = msg.isSelf(TbadkApplication.getInst());
-            ue8Var.e().h(isSelf);
-            if (!isSelf) {
-                ue8Var.e().g(TbSingleton.getInstance().getFunnySpriteAvatar());
-                ue8Var.e().f(TbSingleton.getInstance().getFunnySpriteName());
-            } else {
-                ue8Var.e().g(TbadkCoreApplication.getCurrentPortrait());
-                ue8Var.e().f(TbadkCoreApplication.getCurrentAccountNameShow());
-            }
-            if (!StringUtils.isNull(msg.getContentExtra())) {
-                try {
-                    JSONObject jSONObject = new JSONObject(msg.getContentExtra());
-                    ue8Var.e().j(jSONObject.optInt("type"));
-                    ue8Var.e().e(jSONObject.optString("from"));
-                } catch (JSONException e) {
-                    if (!TbadkApplication.getInst().isDebugMode()) {
-                        e.printStackTrace();
-                    } else {
-                        throw e;
+                    @Override // android.view.View.OnLongClickListener
+                    public final boolean onLongClick(View view2) {
+                        InterceptResult invokeL;
+                        Interceptable interceptable2 = $ic;
+                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view2)) == null) ? mg8.l(oe8.this, view2) : invokeL.booleanValue;
                     }
-                }
+                });
             }
-            String msgContent = msg.getMsgContent();
-            if (msgContent == null) {
-                msgContent = "";
-            } else {
-                Intrinsics.checkNotNullExpressionValue(msgContent, "msg.msgContent ?: \"\"");
-            }
-            if (!qi.isEmpty(msgContent)) {
-                try {
-                    JSONObject jSONObject2 = new JSONObject(msgContent);
-                    te8 g = ue8Var.g();
-                    String optString = jSONObject2.optString("origin_msg_key");
-                    Intrinsics.checkNotNullExpressionValue(optString, "msgContentObj.optString(\"origin_msg_key\")");
-                    g.b(optString);
-                } catch (JSONException e2) {
-                    BdLog.e(e2);
-                }
-            }
-            return ue8Var;
         }
-        return (ue8) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kg8
+    /* renamed from: m */
+    public ChatVoiceView g(ViewGroup parent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, parent)) == null) {
+            Intrinsics.checkNotNullParameter(parent, "parent");
+            ChatVoiceView chatVoiceView = new ChatVoiceView(parent.getContext(), true);
+            chatVoiceView.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
+            chatVoiceView.setId(R.id.obfuscated_res_0x7f090e7c);
+            chatVoiceView.setOnClickListener(chatVoiceView);
+            return chatVoiceView;
+        }
+        return (ChatVoiceView) invokeL.objValue;
     }
 }

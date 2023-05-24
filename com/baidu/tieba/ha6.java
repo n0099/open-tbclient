@@ -16,13 +16,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class ha6 extends c87<zp9, FrsPageAlaInsertRecLiveHolder> implements tj6 {
+public class ha6 extends d87<aq9, FrsPageAlaInsertRecLiveHolder> implements uj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String l;
     public sa6 m;
 
-    @Override // com.baidu.tieba.tj6
+    @Override // com.baidu.tieba.uj6
     public void p(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
@@ -70,7 +70,7 @@ public class ha6 extends c87<zp9, FrsPageAlaInsertRecLiveHolder> implements tj6 
         return (FrsPageAlaInsertRecLiveHolder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.tj6
+    @Override // com.baidu.tieba.uj6
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -78,34 +78,34 @@ public class ha6 extends c87<zp9, FrsPageAlaInsertRecLiveHolder> implements tj6 
         }
     }
 
-    public View H(int i, View view2, ViewGroup viewGroup, zp9 zp9Var, FrsPageAlaInsertRecLiveHolder frsPageAlaInsertRecLiveHolder) {
+    public View H(int i, View view2, ViewGroup viewGroup, aq9 aq9Var, FrsPageAlaInsertRecLiveHolder frsPageAlaInsertRecLiveHolder) {
         InterceptResult invokeCommon;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, zp9Var, frsPageAlaInsertRecLiveHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) zp9Var, (zp9) frsPageAlaInsertRecLiveHolder);
-            if (zp9Var != null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, aq9Var, frsPageAlaInsertRecLiveHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) aq9Var, (aq9) frsPageAlaInsertRecLiveHolder);
+            if (aq9Var != null) {
                 FrsViewData frsViewData = this.b;
                 if (frsViewData != null) {
                     i2 = frsViewData.getTopThreadSize();
                 } else {
                     i2 = 0;
                 }
-                List<ThreadData> list = zp9Var.a;
+                List<ThreadData> list = aq9Var.a;
                 if (list != null && list.get(0) != null) {
-                    zp9Var.a.get(0).statFloor = (i + 1) - i2;
+                    aq9Var.a.get(0).statFloor = (i + 1) - i2;
                 }
                 frsPageAlaInsertRecLiveHolder.a.a(this.l);
-                frsPageAlaInsertRecLiveHolder.a.i(zp9Var);
+                frsPageAlaInsertRecLiveHolder.a.i(aq9Var);
             }
             return view2;
         }
         return (View) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.c87, com.baidu.tieba.en
+    @Override // com.baidu.tieba.d87, com.baidu.tieba.en
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        H(i, view2, viewGroup, (zp9) obj, (FrsPageAlaInsertRecLiveHolder) viewHolder);
+        H(i, view2, viewGroup, (aq9) obj, (FrsPageAlaInsertRecLiveHolder) viewHolder);
         return view2;
     }
 }

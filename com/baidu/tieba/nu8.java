@@ -1,9 +1,69 @@
 package com.baidu.tieba;
+
+import android.widget.ListAdapter;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.faceshop.EmotionPackageData;
+import com.baidu.tieba.newfaceshop.nativemotionmanager.managers.SingleThreadEmotionHorizontalAdater;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public interface nu8<E> {
-    void V0();
+public class nu8 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public SingleThreadEmotionHorizontalAdater a;
+    public BdListView b;
+    public tu8 c;
+    public List<EmotionPackageData> d;
 
-    void onFail();
+    public void update() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
 
-    void onSuccess(E e);
+    public nu8(TbPageContext<?> tbPageContext, BdListView bdListView) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdListView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = bdListView;
+        tu8 tu8Var = new tu8(tbPageContext);
+        this.c = tu8Var;
+        tu8Var.c(TbadkCoreApplication.getInst().getSkinType());
+        this.b.addHeaderView(this.c.b());
+        this.d = new ArrayList();
+        SingleThreadEmotionHorizontalAdater singleThreadEmotionHorizontalAdater = new SingleThreadEmotionHorizontalAdater(this.d, tbPageContext);
+        this.a = singleThreadEmotionHorizontalAdater;
+        this.b.setAdapter((ListAdapter) singleThreadEmotionHorizontalAdater);
+    }
+
+    public void update(List<EmotionPackageData> list) {
+        tu8 tu8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && list != null && (tu8Var = this.c) != null && this.a != null) {
+            tu8Var.update(Integer.valueOf(list.size()));
+            this.d.clear();
+            if (list != null) {
+                this.d.addAll(list);
+            }
+            this.a.notifyDataSetChanged();
+        }
+    }
 }

@@ -1,24 +1,28 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public class c28 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<d28> a;
-    public List<d28> b;
+    public String a;
+    public String b;
+    public String c;
+    public boolean d;
+    public int e;
 
     public c28() {
         Interceptable interceptable = $ic;
@@ -34,51 +38,157 @@ public class c28 {
         }
     }
 
-    @NonNull
-    public List<d28> a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (!ListUtils.isEmpty(this.a)) {
-                arrayList.addAll(this.a);
-            }
-            if (!ListUtils.isEmpty(this.b)) {
-                arrayList.addAll(this.b);
-            }
-            return arrayList;
+            return this.c;
         }
-        return (List) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void b(@Nullable JSONObject jSONObject) {
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
         }
-        this.a = c(jSONObject, "tieba_memes");
-        this.b = c(jSONObject, "outer_memes");
+        return invokeV.intValue;
     }
 
-    @Nullable
-    public final List<d28> c(@NonNull JSONObject jSONObject, @NonNull String str) {
-        InterceptResult invokeLL;
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str)) == null) {
-            JSONArray optJSONArray = jSONObject.optJSONArray(str);
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    d28 d28Var = new d28();
-                    d28Var.a(optJSONArray.optJSONObject(i));
-                    if (d28Var.isValid()) {
-                        arrayList.add(d28Var);
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.c)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            String str = this.a;
+            if (str != null) {
+                return str.hashCode();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public static c28 g(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, obj)) == null) {
+            if (obj instanceof Map) {
+                Map map = (Map) obj;
+                c28 c28Var = new c28();
+                try {
+                    c28Var.a = (String) map.get("user_id");
+                    c28Var.b = (String) map.get("username");
+                    c28Var.c = (String) map.get("avatar");
+                    c28Var.d = ((Boolean) map.get("is_free")).booleanValue();
+                    c28Var.e = ((Integer) map.get("pos")).intValue();
+                } catch (Exception unused) {
+                    Log.d("GameMatchUser", "Flutter Data Parser Error!");
                 }
-                return arrayList;
+                if (c28Var.f()) {
+                    return c28Var;
+                }
+                return null;
             }
             return null;
         }
-        return (List) invokeLL.objValue;
+        return (c28) invokeL.objValue;
+    }
+
+    @NonNull
+    public static List<c28> h(HashMap hashMap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, hashMap)) == null) {
+            ArrayList arrayList = new ArrayList();
+            Object obj = hashMap.get("imUserList");
+            if (obj instanceof List) {
+                int i = 0;
+                while (true) {
+                    List list = (List) obj;
+                    if (i >= list.size()) {
+                        break;
+                    }
+                    c28 g = g(list.get(i));
+                    if (g != null) {
+                        arrayList.add(g);
+                    }
+                    i++;
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || c28.class != obj.getClass()) {
+                return false;
+            }
+            String str = this.a;
+            String str2 = ((c28) obj).a;
+            if (str != null) {
+                return str.equals(str2);
+            }
+            if (str2 == null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "GameMatchUser{userId='" + this.a + "', showName='" + this.b + "', avatar='" + this.c + "', isFree='" + this.d + "', pos='" + this.e + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

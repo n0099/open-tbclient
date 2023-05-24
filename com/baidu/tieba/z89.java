@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class z89 extends en<ka9, CardViewHolder<mb9>> {
+public class z89 extends en<sa9, CardViewHolder<vb9>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
@@ -44,11 +44,11 @@ public class z89 extends en<ka9, CardViewHolder<mb9>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.en
     /* renamed from: s */
-    public CardViewHolder<mb9> onCreateViewHolder(ViewGroup viewGroup) {
+    public CardViewHolder<vb9> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new CardViewHolder<>(new mb9(this.a));
+            return new CardViewHolder<>(new vb9(this.a));
         }
         return (CardViewHolder) invokeL.objValue;
     }
@@ -63,12 +63,12 @@ public class z89 extends en<ka9, CardViewHolder<mb9>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.en
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ka9 ka9Var, CardViewHolder<mb9> cardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, sa9 sa9Var, CardViewHolder<vb9> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ka9Var, cardViewHolder})) == null) {
-            if (cardViewHolder != null && cardViewHolder.a() != null && ka9Var != null) {
-                cardViewHolder.a().i(ka9Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, sa9Var, cardViewHolder})) == null) {
+            if (sa9Var != null && cardViewHolder != null && cardViewHolder.a() != null) {
+                cardViewHolder.a().i(sa9Var);
                 if (cardViewHolder.a().h() != null) {
                     cardViewHolder.a().h().setOnClickListener(this.b);
                 }

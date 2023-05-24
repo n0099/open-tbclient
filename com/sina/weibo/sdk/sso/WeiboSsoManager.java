@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.a5b;
-import com.baidu.tieba.y4b;
+import com.baidu.tieba.b5b;
 import com.baidu.tieba.z4b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -91,7 +91,7 @@ public final class WeiboSsoManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             try {
-                WeiboSsoSdk.i().m(new z4b(this) { // from class: com.sina.weibo.sdk.sso.WeiboSsoManager.1
+                WeiboSsoSdk.i().m(new a5b(this) { // from class: com.sina.weibo.sdk.sso.WeiboSsoManager.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ WeiboSsoManager this$0;
@@ -114,7 +114,7 @@ public final class WeiboSsoManager {
                         this.this$0 = this;
                     }
 
-                    @Override // com.baidu.tieba.z4b
+                    @Override // com.baidu.tieba.a5b
                     public void handler(WeiboSsoSdk.d dVar) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, dVar) == null) {
@@ -137,7 +137,7 @@ public final class WeiboSsoManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            return y4b.n(context);
+            return z4b.n(context);
         }
         return (String) invokeL.objValue;
     }
@@ -159,12 +159,12 @@ public final class WeiboSsoManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str) == null) {
             LogUtil.d(TAG, "init config");
-            a5b a5bVar = new a5b();
-            a5bVar.j(context);
-            a5bVar.i(str);
-            a5bVar.k("1478195010");
-            a5bVar.l("1000_0001");
-            WeiboSsoSdk.j(a5bVar);
+            b5b b5bVar = new b5b();
+            b5bVar.j(context);
+            b5bVar.i(str);
+            b5bVar.k("1478195010");
+            b5bVar.l("1000_0001");
+            WeiboSsoSdk.j(b5bVar);
             initAid();
         }
     }

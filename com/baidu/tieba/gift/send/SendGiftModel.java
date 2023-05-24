@@ -5,12 +5,12 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.ar9;
 import com.baidu.tieba.fb;
 import com.baidu.tieba.g9;
 import com.baidu.tieba.gift.giftTab.GiftTabActivity;
-import com.baidu.tieba.oo7;
+import com.baidu.tieba.po7;
 import com.baidu.tieba.uz4;
-import com.baidu.tieba.zq9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
 
     /* loaded from: classes5.dex */
     public interface c {
-        void a(int i, String str, oo7 oo7Var);
+        void a(int i, String str, po7 po7Var);
 
         void b();
 
@@ -141,14 +141,14 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
             if (!z && !(responsedMessage instanceof PlaceOrderSocketResponse)) {
                 return;
             }
-            oo7 oo7Var = null;
+            po7 po7Var = null;
             if (z) {
-                oo7Var = ((PlaceOrderHttpResponse) responsedMessage).getOrderInfo();
+                po7Var = ((PlaceOrderHttpResponse) responsedMessage).getOrderInfo();
             } else if (responsedMessage instanceof PlaceOrderSocketResponse) {
-                oo7Var = ((PlaceOrderSocketResponse) responsedMessage).getOrderInfo();
+                po7Var = ((PlaceOrderSocketResponse) responsedMessage).getOrderInfo();
             }
             if (this.a.a != null) {
-                this.a.a.a(responsedMessage.getError(), responsedMessage.getErrorString(), oo7Var);
+                this.a.a.a(responsedMessage.getError(), responsedMessage.getErrorString(), po7Var);
             }
         }
     }
@@ -173,10 +173,10 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
         }
         this.b = new a(this, CmdConfigHttp.CMD_SEND_FREE_GIFT, 309050);
         this.c = new b(this, CmdConfigHttp.CMD_GIFT_PALCE_ORDER, 309051);
-        zq9.h(309050, SendFreeGiftSocketResponse.class, false, false);
-        zq9.c(309050, CmdConfigHttp.CMD_SEND_FREE_GIFT, TbConfig.SEND_FREE_GIFT, SendFreeGiftHttpResponse.class, false, false, false, false);
-        zq9.h(309051, PlaceOrderSocketResponse.class, false, false);
-        zq9.c(309051, CmdConfigHttp.CMD_GIFT_PALCE_ORDER, TbConfig.GIFT_PLACE_ORDER, PlaceOrderHttpResponse.class, false, false, false, false);
+        ar9.h(309050, SendFreeGiftSocketResponse.class, false, false);
+        ar9.c(309050, CmdConfigHttp.CMD_SEND_FREE_GIFT, TbConfig.SEND_FREE_GIFT, SendFreeGiftHttpResponse.class, false, false, false, false);
+        ar9.h(309051, PlaceOrderSocketResponse.class, false, false);
+        ar9.c(309051, CmdConfigHttp.CMD_GIFT_PALCE_ORDER, TbConfig.GIFT_PLACE_ORDER, PlaceOrderHttpResponse.class, false, false, false, false);
         registerListener(this.b);
         registerListener(this.c);
     }

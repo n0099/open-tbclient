@@ -3,7 +3,7 @@ package com.baidu.tieba.forumMember.bawu;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.o57;
+import com.baidu.tieba.p57;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,7 +57,7 @@ public class BawuTeamSocketResponseMessage extends SocketResponsedMessage {
         if (bawuTeamRequestMessage != null) {
             this.cacheKey = "" + bawuTeamRequestMessage.getForumId();
         }
-        new o57().c(this.cacheKey, bArr);
+        new p57().c(this.cacheKey, bArr);
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage

@@ -1,29 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.chatmessage.messages.TextMsg;
+import android.util.SparseArray;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class rg8 extends mg8<TextMsg, ve8> {
+public final class rg8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.mg8
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
+    public final SparseArray<qg8<ChatMsg, ve8<?>>> a;
+    public final HashMap<Class<? extends ChatMsg>, Integer> b;
 
     public rg8() {
         Interceptable interceptable = $ic;
@@ -35,55 +27,57 @@ public final class rg8 extends mg8<TextMsg, ve8> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new SparseArray<>();
+        this.b = new HashMap<>();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mg8
-    /* renamed from: h */
-    public TextMsg e(ve8 ve8Var) {
-        InterceptResult invokeL;
+    public final void a(int i, qg8<ChatMsg, ve8<?>> converter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, ve8Var)) == null) {
-            TextMsg textMsg = new TextMsg();
-            textMsg.setText((ve8Var == null || (r5 = ve8Var.c()) == null) ? "" : "");
-            return textMsg;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, converter) == null) {
+            Intrinsics.checkNotNullParameter(converter, "converter");
+            this.a.put(i, converter);
         }
-        return (TextMsg) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mg8
-    /* renamed from: i */
-    public ve8 g(TextMsg sdkMsg) {
-        InterceptResult invokeL;
+    public final void b(Class<? extends ChatMsg> sdkMsg, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sdkMsg)) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sdkMsg, i) == null) {
             Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
-            ve8 ve8Var = new ve8();
-            String msgContent = sdkMsg.getMsgContent();
-            if (msgContent == null) {
-                msgContent = "";
-            } else {
-                Intrinsics.checkNotNullExpressionValue(msgContent, "sdkMsg.msgContent ?: \"\"");
+            this.b.put(sdkMsg, Integer.valueOf(i));
+        }
+    }
+
+    public final ChatMsg c(ve8<?> tbMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbMsg)) == null) {
+            Intrinsics.checkNotNullParameter(tbMsg, "tbMsg");
+            qg8<ChatMsg, ve8<?>> qg8Var = this.a.get(tbMsg.e().getType());
+            if (qg8Var == null) {
+                return null;
             }
-            if (!qi.isEmpty(msgContent)) {
-                try {
-                    ve8Var.e(new JSONObject(msgContent).optJSONArray("struct_data"));
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                }
+            return qg8Var.b(tbMsg);
+        }
+        return (ChatMsg) invokeL.objValue;
+    }
+
+    public final ve8<?> d(ChatMsg sdkMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sdkMsg)) == null) {
+            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
+            Integer num = this.b.get(sdkMsg.getClass());
+            if (num == null) {
+                return null;
             }
-            if (ve8Var.b() == null) {
-                String text = sdkMsg.getText();
-                Intrinsics.checkNotNullExpressionValue(text, "sdkMsg.getText()");
-                ve8Var.f(text);
+            qg8<ChatMsg, ve8<?>> qg8Var = this.a.get(num.intValue());
+            if (qg8Var == null) {
+                return null;
             }
-            String text2 = sdkMsg.getText();
-            Intrinsics.checkNotNullExpressionValue(text2, "sdkMsg.getText()");
-            ve8Var.d(text2);
-            return ve8Var;
+            return qg8Var.a(sdkMsg);
         }
         return (ve8) invokeL.objValue;
     }

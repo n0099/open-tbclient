@@ -17,7 +17,7 @@ public final class rx extends hx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public jy4 h;
-    public vj6<jy4> i;
+    public wj6<jy4> i;
     public CustomFitFrameCard j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -58,9 +58,9 @@ public final class rx extends hx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            vj6<jy4> vj6Var = this$0.i;
-            if (vj6Var != null) {
-                vj6Var.a(view2, this$0.h);
+            wj6<jy4> wj6Var = this$0.i;
+            if (wj6Var != null) {
+                wj6Var.a(view2, this$0.h);
             }
         }
     }
@@ -101,10 +101,10 @@ public final class rx extends hx {
     }
 
     @Override // com.baidu.tieba.ax
-    public void p(vj6<jy4> vj6Var) {
+    public void p(wj6<jy4> wj6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, vj6Var) == null) {
-            this.i = vj6Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, wj6Var) == null) {
+            this.i = wj6Var;
         }
     }
 

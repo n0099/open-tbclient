@@ -1,15 +1,11 @@
 package com.baidu.tieba;
 
-import java.util.List;
+import com.baidu.tieba.lego.activity.LegoListFragment;
 /* loaded from: classes7.dex */
 public interface uh8 {
-    void a(List<oj8> list);
+    kj8 i1();
 
-    void b();
+    fj8 k0();
 
-    void c(long j, String str);
-
-    void d(String str, String str2, String str3, List<pj8> list);
-
-    void e(long j, String str, int i, String str2);
+    LegoListFragment r0();
 }

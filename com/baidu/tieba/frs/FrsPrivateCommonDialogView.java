@@ -19,7 +19,7 @@ import com.baidu.tieba.o65;
 import com.baidu.tieba.oh5;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.rn6;
+import com.baidu.tieba.sn6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -187,7 +187,7 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
                     this.f.setText(R.string.frs_private_create_button);
                     h();
                     SkinManager.setImageResource(this.c, R.drawable.pic_frs_private_create_success);
-                    Glide.with(this.a).load(rn6.b("pic_frs_private_create_success_bg.webp", "pic_frs_private_create_success_bg")).into(this.a);
+                    Glide.with(this.a).load(sn6.b("pic_frs_private_create_success_bg.webp", "pic_frs_private_create_success_bg")).into(this.a);
                 }
             } else {
                 this.f.setText(R.string.frs_private_fail_button);

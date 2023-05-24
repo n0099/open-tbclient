@@ -201,7 +201,7 @@ public class yu4 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            return fh6.e(str);
+            return gh6.e(str);
         }
         return invokeL.booleanValue;
     }
@@ -314,7 +314,7 @@ public class yu4 {
             }
             Context context2 = context;
             if (b(str2)) {
-                dh6.c(str2);
+                eh6.c(str2);
                 return new TbWebContainerActivityConfig(context2, str, str2, z, z2, z3);
             }
             return new TbWebViewActivityConfig(context2, str, str2, z, z2, z3);
@@ -414,13 +414,13 @@ public class yu4 {
             sb2.append(ParamableElem.DIVIDE_PARAM);
             cookieManager.setCookie(".baidu.com", sb2.toString());
             cookieManager.setCookie(".baidu.com", "DNARBBT=" + ParamableElem.DIVIDE_PARAM);
-            if (zd9.b()) {
+            if (ae9.b()) {
                 cookieManager.setCookie(".baidu.com", "TBBRAND=" + ti.g() + ParamableElem.DIVIDE_PARAM);
             } else {
-                cookieManager.setCookie(".baidu.com", "need_cookie_decrypt=" + zd9.c() + ParamableElem.DIVIDE_PARAM);
-                String d = zd9.d("TBBRAND");
+                cookieManager.setCookie(".baidu.com", "need_cookie_decrypt=" + ae9.c() + ParamableElem.DIVIDE_PARAM);
+                String d = ae9.d("TBBRAND");
                 if (!TextUtils.isEmpty(d)) {
-                    cookieManager.setCookie(".baidu.com", d + "=" + zd9.e() + ParamableElem.DIVIDE_PARAM);
+                    cookieManager.setCookie(".baidu.com", d + "=" + ae9.e() + ParamableElem.DIVIDE_PARAM);
                 }
             }
             cookieManager.setCookie(".baidu.com", "BAIDUZID=" + TbadkCoreApplication.getInst().getZid() + ParamableElem.DIVIDE_PARAM);

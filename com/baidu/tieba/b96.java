@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class b96 extends wi6<x86> {
+public class b96 extends xi6<x86> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c96 i;
     public c96 j;
 
-    @Override // com.baidu.tieba.wi6
+    @Override // com.baidu.tieba.xi6
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class b96 extends wi6<x86> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wi6
+    @Override // com.baidu.tieba.xi6
     /* renamed from: r */
     public void i(x86 x86Var) {
         Interceptable interceptable = $ic;
@@ -77,7 +77,7 @@ public class b96 extends wi6<x86> {
         }
     }
 
-    @Override // com.baidu.tieba.wi6
+    @Override // com.baidu.tieba.xi6
     public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {

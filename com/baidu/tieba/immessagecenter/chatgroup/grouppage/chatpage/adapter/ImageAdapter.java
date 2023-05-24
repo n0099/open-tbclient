@@ -16,13 +16,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a18;
+import com.baidu.tieba.b18;
 import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.CommonMsgField;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.BaseImageMsg;
 import com.baidu.tieba.pg;
-import com.baidu.tieba.z08;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ import java.util.List;
 public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public z08 j;
+    public a18 j;
     public String k;
 
     /* loaded from: classes6.dex */
@@ -122,7 +122,7 @@ public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
                 CommonMsgField commonMsgField = this.a.getCommonMsgField();
                 long roomId = commonMsgField.getRoomId();
                 long forumId = commonMsgField.getForumId();
-                this.b.j = new z08(this.b.mContext, this.b.k, forumId, null, roomId, false);
+                this.b.j = new a18(this.b.mContext, this.b.k, forumId, null, roomId, false);
                 this.b.j.execute(new String[0]);
             }
         }
@@ -201,7 +201,7 @@ public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
                 } else {
                     chatImageWithTailView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 }
-                baseImageMsg.setThumbSize(a18.d(chatImageWithTailView, thumbUrl, d0.second, R.drawable.icon_pic_im_image_default));
+                baseImageMsg.setThumbSize(b18.d(chatImageWithTailView, thumbUrl, d0.second, R.drawable.icon_pic_im_image_default));
             }
         }
     }

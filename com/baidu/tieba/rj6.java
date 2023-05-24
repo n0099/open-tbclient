@@ -5,25 +5,32 @@ import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
+import com.baidu.tbadk.core.data.MediaData;
+import com.baidu.tbadk.core.data.OriginalForumInfo;
 import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
-import com.baidu.tbadk.widget.layout.FrsBaseVideoView;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.widget.layout.ConstrainImageGroup;
+import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class rj6 extends wi6<ThreadData> implements b16 {
+public class rj6 extends xi6<ThreadData> implements b16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final View i;
@@ -33,8 +40,8 @@ public class rj6 extends wi6<ThreadData> implements b16 {
     public TextView m;
     public TextView n;
     public ThreadData o;
-    public pj6 p;
-    public FrsBaseVideoView q;
+    public qj6 p;
+    public ConstrainImageGroup q;
 
     @Override // com.baidu.tieba.b16
     public void b(String str) {
@@ -43,11 +50,11 @@ public class rj6 extends wi6<ThreadData> implements b16 {
         }
     }
 
-    @Override // com.baidu.tieba.wi6
+    @Override // com.baidu.tieba.xi6
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.frs_hottopic_video_card : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.frs_hot_topic_card_layout : invokeV.intValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -79,24 +86,44 @@ public class rj6 extends wi6<ThreadData> implements b16 {
         this.l = (TextView) h.findViewById(R.id.card_topic_name);
         this.n = (TextView) h.findViewById(R.id.card_thread_title);
         this.m = (TextView) h.findViewById(R.id.card_reply_time);
+        this.q = (ConstrainImageGroup) h.findViewById(R.id.card_img_layout);
         this.i = h.findViewById(R.id.card_divider_line);
-        FrsBaseVideoView frsBaseVideoView = (FrsBaseVideoView) h.findViewById(R.id.base_video_view);
-        this.q = frsBaseVideoView;
-        frsBaseVideoView.setClickListener(this);
+        this.q.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20));
+        kw5 kw5Var = new kw5(3);
+        kw5Var.d(1.0d);
+        this.q.setImageProcessor(kw5Var);
+        this.q.setSinglePicUseStyleV10(true);
+        this.q.setFromCDN(true);
+        this.q.setClickable(false);
     }
 
-    @Override // com.baidu.tieba.wi6
+    public void t(gg<TbImageView> ggVar) {
+        ConstrainImageGroup constrainImageGroup;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, ggVar) == null) && (constrainImageGroup = this.q) != null) {
+            constrainImageGroup.setImageViewPool(ggVar);
+        }
+    }
+
+    public void u(gg<ConstrainImageLayout> ggVar) {
+        ConstrainImageGroup constrainImageGroup;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ggVar) == null) && (constrainImageGroup = this.q) != null) {
+            constrainImageGroup.setConstrainLayoutPool(ggVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.xi6
     public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
             this.k.invalidate();
             SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0109);
             SkinManager.setBackgroundResource(h(), R.drawable.addresslist_item_bg);
             SkinManager.setBackgroundColor(this.i, R.color.CAM_X0204);
-            FrsBaseVideoView frsBaseVideoView = this.q;
-            if (frsBaseVideoView != null) {
-                frsBaseVideoView.h(i);
-            }
+            this.q.b();
+            this.k.setDefaultBgResource(i);
         }
     }
 
@@ -109,15 +136,23 @@ public class rj6 extends wi6<ThreadData> implements b16 {
         if (e() != null) {
             e().b(view2, this.o, this.p);
         }
-        hj6.a(this.o.getTid());
-        hj6.l(this.n, this.o.getTid(), R.color.CAM_X0105, R.color.CAM_X0109);
-        r();
+        if (view2 == h()) {
+            ij6.a(this.o.getTid());
+            ij6.l(this.n, this.o.getTid(), R.color.CAM_X0105, R.color.CAM_X0109);
+            r();
+        }
     }
 
     public final void r() {
         ThreadData threadData;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (threadData = this.o) != null && threadData.getAuthor() != null && this.o.getAuthor().getName_show() != null) {
+            long fid = this.o.getFid();
+            OriginalForumInfo originalForumInfo = this.o.mOriginalForumInfo;
+            if (originalForumInfo != null) {
+                fid = pg.g(originalForumInfo.id, 0L);
+            }
+            long j = fid;
             String name_show = this.o.getAuthor().getName_show();
             if (NewWebHotTopicPageSwitch.isOn()) {
                 us5.e(this.j, null, name_show);
@@ -125,13 +160,13 @@ public class rj6 extends wi6<ThreadData> implements b16 {
             }
             HotTopicActivityConfig hotTopicActivityConfig = new HotTopicActivityConfig(getContext());
             HotTopicActivityConfig createNormalConfig = hotTopicActivityConfig.createNormalConfig("", name_show + "", "3");
-            createNormalConfig.setExtra(this.o.getFid(), this.o.getFirstClassName(), this.o.getSecondClassName(), pg.g(this.o.getTid(), 0L));
+            createNormalConfig.setExtra(j, this.o.getFirstClassName(), this.o.getSecondClassName(), pg.g(this.o.getTid(), 0L));
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createNormalConfig));
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wi6
+    @Override // com.baidu.tieba.xi6
     /* renamed from: s */
     public void i(ThreadData threadData) {
         Interceptable interceptable = $ic;
@@ -148,10 +183,6 @@ public class rj6 extends wi6<ThreadData> implements b16 {
                 h().setVisibility(0);
                 h().setOnClickListener(this);
             }
-            FrsBaseVideoView frsBaseVideoView = this.q;
-            if (frsBaseVideoView != null) {
-                frsBaseVideoView.g(this.o, threadData.getHotTopicInfo());
-            }
             if (threadData.getAuthor() != null) {
                 this.l.setText(threadData.getAuthor().getName_show());
             }
@@ -161,7 +192,25 @@ public class rj6 extends wi6<ThreadData> implements b16 {
             spannableStringBuilder.append((CharSequence) threadData.parseTitleOrAbstractForFrsNew(false, true));
             spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), 0, str.length(), 33);
             this.n.setText(spannableStringBuilder);
-            hj6.l(this.n, this.o.getTid(), R.color.CAM_X0105, R.color.CAM_X0109);
+            ArrayList<MediaData> medias = threadData.getMedias();
+            if (rx4.c().g() && ListUtils.getCount(medias) != 0) {
+                ArrayList arrayList = new ArrayList();
+                for (int i = 0; i < medias.size(); i++) {
+                    MediaData mediaData = (MediaData) ListUtils.getItem(medias, i);
+                    if (mediaData != null && mediaData.getType() == 3) {
+                        arrayList.add(mediaData);
+                    }
+                }
+                if (ListUtils.getCount(arrayList) > 0) {
+                    this.q.setVisibility(0);
+                    this.q.setImageMediaList(arrayList);
+                } else {
+                    this.q.setVisibility(8);
+                }
+            } else {
+                this.q.setVisibility(8);
+            }
+            ij6.l(this.n, this.o.getTid(), R.color.CAM_X0105, R.color.CAM_X0109);
             j(this.j, TbadkCoreApplication.getInst().getSkinType());
         }
     }

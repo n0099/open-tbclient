@@ -1,119 +1,319 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import androidx.annotation.Nullable;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.VideoRecommentPlayActivityConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.immessagecenter.mention.agree.message.AgreeMeHTTPResponseMessage;
+import com.baidu.tieba.immessagecenter.mention.agree.message.AgreeMeRequestMessage;
+import com.baidu.tieba.immessagecenter.mention.agree.message.AgreeMeSocketResponseMessage;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Wire;
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import tbclient.AgreeList;
+import tbclient.AgreeMe.AgreeMeResIdl;
 /* loaded from: classes6.dex */
 public class kd8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdTypeRecyclerView a;
-    public ArrayList<rn> b;
-    public List<en> c;
-    public md8 d;
-    public md8 e;
-    public md8 f;
+    public boolean a;
+    public BdUniqueId b;
+    public long c;
+    public c d;
+    public ArrayList<rn> e;
+    public boolean f;
+    public fb g;
+    @Nullable
+    public BdAsyncTask<Void, Void, ArrayList<md8>> h;
 
-    public kd8(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
+    /* loaded from: classes6.dex */
+    public interface c {
+        void i(ArrayList<rn> arrayList);
+
+        void onFailed(String str);
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends fb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kd8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(kd8 kd8Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kd8Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = kd8Var;
+        }
+
+        @Override // com.baidu.tieba.fb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
+                return;
+            }
+            if (responsedMessage.hasError()) {
+                if (this.a.d != null) {
+                    this.a.d.onFailed(responsedMessage.getErrorString());
+                    return;
+                }
+                return;
+            }
+            boolean z = false;
+            if (responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof AgreeMeRequestMessage) && ((AgreeMeRequestMessage) responsedMessage.getOrginalMessage().getExtra()).id == 0) {
+                z = true;
+            }
+            if (responsedMessage instanceof AgreeMeHTTPResponseMessage) {
+                AgreeMeHTTPResponseMessage agreeMeHTTPResponseMessage = (AgreeMeHTTPResponseMessage) responsedMessage;
+                this.a.j(agreeMeHTTPResponseMessage.datas, z);
+                this.a.f = agreeMeHTTPResponseMessage.hasMore;
+            } else if (responsedMessage instanceof AgreeMeSocketResponseMessage) {
+                AgreeMeSocketResponseMessage agreeMeSocketResponseMessage = (AgreeMeSocketResponseMessage) responsedMessage;
+                this.a.j(agreeMeSocketResponseMessage.datas, z);
+                this.a.f = agreeMeSocketResponseMessage.hasMore;
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends BdAsyncTask<Void, Void, ArrayList<md8>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kd8 a;
+
+        public b(kd8 kd8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kd8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = kd8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(ArrayList<md8> arrayList) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
+                super.onPostExecute(arrayList);
+                if (arrayList == null) {
+                    return;
+                }
+                this.a.i(arrayList);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public ArrayList<md8> doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
+            byte[] bArr;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
+                ArrayList<md8> arrayList = new ArrayList<>();
+                c25.d();
+                se<byte[]> c = c25.c("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName());
+                if (c != null && (bArr = c.get("agree_me_cache_key")) != null) {
+                    try {
+                        boolean z = false;
+                        AgreeMeResIdl agreeMeResIdl = (AgreeMeResIdl) new Wire(new Class[0]).parseFrom(bArr, AgreeMeResIdl.class);
+                        if (agreeMeResIdl.data != null) {
+                            kd8 kd8Var = this.a;
+                            if (agreeMeResIdl.data.has_more.intValue() == 1) {
+                                z = true;
+                            }
+                            kd8Var.f = z;
+                            for (AgreeList agreeList : agreeMeResIdl.data.agree_list) {
+                                if (agreeList != null) {
+                                    md8 md8Var = new md8();
+                                    md8Var.D(agreeList);
+                                    arrayList.add(md8Var);
+                                }
+                            }
+                            return arrayList;
+                        }
+                        return arrayList;
+                    } catch (Exception unused) {
+                        return null;
+                    }
+                }
+                return arrayList;
+            }
+            return (ArrayList) invokeL.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947909354, "Lcom/baidu/tieba/kd8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947909354, "Lcom/baidu/tieba/kd8;");
+                return;
+            }
+        }
+        ar9.h(309593, AgreeMeSocketResponseMessage.class, false, false);
+        ar9.c(309593, CmdConfigHttp.AGREE_ME_HTTP_CMD, "c/u/feed/agreeme", AgreeMeHTTPResponseMessage.class, false, false, false, false);
+    }
+
+    public kd8(TbPageContext tbPageContext, c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {tbPageContext, cVar};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = new LinkedList();
-        if (tbPageContext != null && bdTypeRecyclerView != null) {
-            this.a = bdTypeRecyclerView;
-            b(tbPageContext);
+        this.a = false;
+        this.c = 0L;
+        this.g = new a(this, CmdConfigHttp.AGREE_ME_HTTP_CMD, 309593);
+        if (tbPageContext != null) {
+            this.b = tbPageContext.getUniqueId();
+            tbPageContext.registerListener(this.g);
+            this.d = cVar;
         }
     }
 
-    public void a(int i) {
-        BdTypeRecyclerView bdTypeRecyclerView;
+    public final void j(ArrayList<md8> arrayList, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (bdTypeRecyclerView = this.a) != null) {
-            bdTypeRecyclerView.removeItem(i);
-        }
-    }
-
-    public void d(bo boVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, boVar) == null) {
-            for (en enVar : this.c) {
-                if (enVar != null) {
-                    enVar.setOnAdapterItemClickListener(boVar);
-                }
+        if (interceptable == null || interceptable.invokeLZ(1048582, this, arrayList, z) == null) {
+            this.a = true;
+            if (ListUtils.isEmpty(this.e)) {
+                this.e = new ArrayList<>();
+            }
+            if (!z) {
+                this.e.addAll(arrayList);
+            } else {
+                this.e.clear();
+                this.e.addAll(0, arrayList);
+            }
+            ArrayList<rn> arrayList2 = this.e;
+            rn rnVar = (rn) ListUtils.getItem(arrayList2, arrayList2.size() - 1);
+            if (rnVar instanceof md8) {
+                this.c = ((md8) rnVar).i();
+            }
+            c cVar = this.d;
+            if (cVar != null) {
+                cVar.i(this.e);
             }
         }
     }
 
-    public void e(ArrayList<rn> arrayList) {
+    public void d() {
+        BdAsyncTask<Void, Void, ArrayList<md8>> bdAsyncTask;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
-            this.a.setData(arrayList);
-            this.b = arrayList;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bdAsyncTask = this.h) != null) {
+            bdAsyncTask.cancel();
         }
     }
 
-    public void f(co coVar) {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, coVar) == null) {
-            for (en enVar : this.c) {
-                if (enVar != null) {
-                    enVar.setOnAdapterItemLongClickListener(coVar);
-                }
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            f();
+            g();
         }
     }
 
-    public void g(vj6 vj6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, vj6Var) == null) {
-            this.f.x(vj6Var);
-            this.e.x(vj6Var);
-            this.d.x(vj6Var);
-        }
-    }
-
-    public final void b(TbPageContext tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) {
-            md8 md8Var = new md8(tbPageContext, ld8.H);
-            this.d = md8Var;
-            md8Var.u(VideoRecommentPlayActivityConfig.FROM_AT_PAGE);
-            md8 md8Var2 = new md8(tbPageContext, ld8.G);
-            this.e = md8Var2;
-            md8Var2.u(VideoRecommentPlayActivityConfig.FROM_AT_PAGE);
-            md8 md8Var3 = new md8(tbPageContext, ld8.F);
-            this.f = md8Var3;
-            md8Var3.u(VideoRecommentPlayActivityConfig.FROM_AT_PAGE);
-            this.c.add(this.f);
-            this.c.add(this.e);
-            this.c.add(this.d);
-            this.a.addAdapters(this.c);
-        }
-    }
-
-    public void c() {
+    public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.getAdapter().notifyDataSetChanged();
+            this.h = new b(this).execute(new Void[0]);
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            AgreeMeRequestMessage agreeMeRequestMessage = new AgreeMeRequestMessage();
+            agreeMeRequestMessage.id = this.c;
+            agreeMeRequestMessage.setTag(this.b);
+            MessageManager.getInstance().sendMessage(agreeMeRequestMessage);
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            g();
+        }
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.c = 0L;
+            g();
+        }
+    }
+
+    public final void i(ArrayList<md8> arrayList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, arrayList) != null) || this.a) {
+            return;
+        }
+        if (ListUtils.isEmpty(this.e)) {
+            this.e = new ArrayList<>();
+        } else {
+            this.e.clear();
+        }
+        this.e.addAll(arrayList);
+        ArrayList<rn> arrayList2 = this.e;
+        rn rnVar = (rn) ListUtils.getItem(arrayList2, arrayList2.size() - 1);
+        if (rnVar instanceof md8) {
+            this.c = ((md8) rnVar).i();
+        }
+        if (this.d != null && !ListUtils.isEmpty(this.e)) {
+            this.d.i(this.e);
         }
     }
 }

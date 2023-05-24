@@ -126,14 +126,14 @@ public class tc5 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                to9 to9Var = new to9();
+                uo9 uo9Var = new uo9();
                 PostWriteCallBackData postWriteCallBackData = this.a;
                 if (postWriteCallBackData != null) {
                     IconStampData iconStampData = postWriteCallBackData.getIconStampData();
-                    to9Var.f(iconStampData.stampType);
-                    to9Var.h(iconStampData.stampTitle);
+                    uo9Var.f(iconStampData.stampType);
+                    uo9Var.h(iconStampData.stampTitle);
                 }
-                new so9(this.b.getPageActivity(), to9Var).a();
+                new to9(this.b.getPageActivity(), uo9Var).a();
                 tc5.f();
             }
         }

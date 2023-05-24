@@ -19,7 +19,7 @@ import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cy8;
+import com.baidu.tieba.dy8;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -278,7 +278,7 @@ public class SubPbView extends LinearLayout {
                             this.g = rawY;
                             this.p = 1.0f - ((rawY - this.f) / ri.j(getContext()));
                             if ((this.m || this.n) && this.b.getTop() == 0 && this.d.getFirstVisiblePosition() == 0 && !this.i) {
-                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new cy8(this.g, this.f, this.k, this.p, this.i)));
+                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new dy8(this.g, this.f, this.k, this.p, this.i)));
                             }
                         }
                     }
@@ -297,7 +297,7 @@ public class SubPbView extends LinearLayout {
                     this.i = z2;
                     if (z2) {
                         if (this.m || this.n) {
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new cy8(this.g, this.f, this.k, this.p, this.i)));
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new dy8(this.g, this.f, this.k, this.p, this.i)));
                         }
                         this.j.setIntValues((int) (this.g - this.f), ri.j(getContext()));
                         this.j.setDuration(300L);
@@ -307,7 +307,7 @@ public class SubPbView extends LinearLayout {
                         this.f = 0.0f;
                         this.g = 0.0f;
                         if (this.m || this.n) {
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new cy8(this.g, this.f, this.k, this.p, this.i)));
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new dy8(this.g, this.f, this.k, this.p, this.i)));
                         }
                         requestLayout();
                     }
@@ -375,7 +375,7 @@ public class SubPbView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.i = true;
             if (this.m || this.n) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new cy8(this.g, this.f, this.k, this.p, this.i)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new dy8(this.g, this.f, this.k, this.p, this.i)));
             }
             this.j.setIntValues(0, ri.j(getContext()));
             this.j.setDuration(300L);
@@ -410,19 +410,19 @@ public class SubPbView extends LinearLayout {
         }
     }
 
-    public void setSubPbViewData(cy8 cy8Var) {
+    public void setSubPbViewData(dy8 dy8Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048591, this, cy8Var) != null) || cy8Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048591, this, dy8Var) != null) || dy8Var == null) {
             return;
         }
-        this.p = cy8Var.d;
-        float f = cy8Var.b;
+        this.p = dy8Var.d;
+        float f = dy8Var.b;
         this.f = f;
-        float f2 = cy8Var.a;
+        float f2 = dy8Var.a;
         this.g = f2;
-        this.k = cy8Var.c;
-        this.i = cy8Var.e;
+        this.k = dy8Var.c;
+        this.i = dy8Var.e;
         if (f2 > f) {
             z = true;
         } else {

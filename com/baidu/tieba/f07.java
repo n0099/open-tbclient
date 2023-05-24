@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import android.graphics.Paint;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.d07;
+import com.baidu.tieba.e07;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,25 +10,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class f07 implements d07 {
+public final class f07 implements e07 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
-    public final b07 b;
-    public final String c;
+    public final String b;
+    public final int c;
     public final int d;
-    public final boolean e;
-    public final Integer f;
+    public final int e;
+    public final boolean f;
     public final String g;
     public final Integer h;
-    public int i;
-    public boolean j;
-    public boolean k;
-    public String l;
-    public int m;
+    public final Integer i;
+    public final Integer j;
+    public int k;
+    public boolean l;
+    public boolean m;
     public String n;
-    public String o;
-    public b07 p;
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
@@ -40,42 +37,36 @@ public final class f07 implements d07 {
             }
             if (obj instanceof f07) {
                 f07 f07Var = (f07) obj;
-                return Intrinsics.areEqual(this.a, f07Var.a) && Intrinsics.areEqual(this.b, f07Var.b) && Intrinsics.areEqual(this.c, f07Var.c) && this.d == f07Var.d && this.e == f07Var.e && Intrinsics.areEqual(this.f, f07Var.f) && Intrinsics.areEqual(this.g, f07Var.g) && Intrinsics.areEqual(this.h, f07Var.h);
+                return Intrinsics.areEqual(this.a, f07Var.a) && Intrinsics.areEqual(this.b, f07Var.b) && this.c == f07Var.c && this.d == f07Var.d && this.e == f07Var.e && this.f == f07Var.f && Intrinsics.areEqual(this.g, f07Var.g) && Intrinsics.areEqual(this.h, f07Var.h) && Intrinsics.areEqual(this.i, f07Var.i) && Intrinsics.areEqual(this.j, f07Var.j);
             }
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    public final void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-        }
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r1v8, resolved type: boolean */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v7, resolved type: boolean */
     /* JADX WARN: Multi-variable type inference failed */
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             int hashCode = this.a.hashCode() * 31;
-            b07 b07Var = this.b;
-            int hashCode2 = (hashCode + (b07Var == null ? 0 : b07Var.hashCode())) * 31;
-            String str = this.c;
-            int hashCode3 = (((hashCode2 + (str == null ? 0 : str.hashCode())) * 31) + this.d) * 31;
-            boolean z = this.e;
+            String str = this.b;
+            int hashCode2 = (((((((hashCode + (str == null ? 0 : str.hashCode())) * 31) + this.c) * 31) + this.d) * 31) + this.e) * 31;
+            boolean z = this.f;
             int i = z;
             if (z != 0) {
                 i = 1;
             }
-            int i2 = (hashCode3 + i) * 31;
-            Integer num = this.f;
-            int hashCode4 = (i2 + (num == null ? 0 : num.hashCode())) * 31;
+            int i2 = (hashCode2 + i) * 31;
             String str2 = this.g;
-            int hashCode5 = (hashCode4 + (str2 == null ? 0 : str2.hashCode())) * 31;
-            Integer num2 = this.h;
-            return hashCode5 + (num2 != null ? num2.hashCode() : 0);
+            int hashCode3 = (i2 + (str2 == null ? 0 : str2.hashCode())) * 31;
+            Integer num = this.h;
+            int hashCode4 = (hashCode3 + (num == null ? 0 : num.hashCode())) * 31;
+            Integer num2 = this.i;
+            int hashCode5 = (hashCode4 + (num2 == null ? 0 : num2.hashCode())) * 31;
+            Integer num3 = this.j;
+            return hashCode5 + (num3 != null ? num3.hashCode() : 0);
         }
         return invokeV.intValue;
     }
@@ -83,206 +74,250 @@ public final class f07 implements d07 {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return "EnableDegradeTextData(text=" + this.a + ", textColor=" + this.b + ", schema=" + this.c + ", priority=" + this.d + ", degradeEnable=" + this.e + ", degradeLength=" + this.f + ", degradeSuffix=" + this.g + ", degradePriority=" + this.h + ')';
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return "EnableDegradeIconData(url=" + this.a + ", schema=" + this.b + ", width=" + this.c + ", height=" + this.d + ", priority=" + this.e + ", degradeEnable=" + this.f + ", degradeUrl=" + this.g + ", degradeWidth=" + this.h + ", degradeHeight=" + this.i + ", degradePriority=" + this.j + ')';
         }
         return (String) invokeV.objValue;
     }
 
-    public f07(String text, b07 b07Var, String str, int i, boolean z, Integer num, String str2, Integer num2) {
+    public f07(String url, String str, int i, int i2, int i3, boolean z, String str2, Integer num, Integer num2, Integer num3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {text, b07Var, str, Integer.valueOf(i), Boolean.valueOf(z), num, str2, num2};
+            Object[] objArr = {url, str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), str2, num, num2, num3};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(text, "text");
-        this.a = text;
-        this.b = b07Var;
-        this.c = str;
-        this.d = i;
-        this.e = z;
-        this.f = num;
+        Intrinsics.checkNotNullParameter(url, "url");
+        this.a = url;
+        this.b = str;
+        this.c = i;
+        this.d = i2;
+        this.e = i3;
+        this.f = z;
         this.g = str2;
-        this.h = num2;
-        this.i = i;
-        this.j = z;
-        this.k = true;
-        this.l = text;
-        this.m = text.length();
+        this.h = num;
+        this.i = num2;
+        this.j = num3;
+        this.k = i3;
+        this.l = z;
+        this.m = true;
         reset();
     }
 
-    @Override // com.baidu.tieba.d07
+    @Override // com.baidu.tieba.e07
     public boolean D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.j;
+            return this.l;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.d07
+    @Override // com.baidu.tieba.e07
     public boolean E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.k;
+            return this.m;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.d07
+    @Override // com.baidu.tieba.e07
     public String I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+            return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    public final String b() {
+    @Override // com.baidu.tieba.e07
+    public boolean Q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Integer num = this.j;
+            Intrinsics.checkNotNull(num);
+            this.k = num.intValue();
+            this.l = false;
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.n;
+            return this.l;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final b07 c() {
+    public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.p;
+            return this.m;
         }
-        return (b07) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final String d() {
+    public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.o;
+            return this.f;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final boolean e() {
+    public final Integer e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.k;
+            return this.i;
         }
-        return invokeV.booleanValue;
+        return (Integer) invokeV.objValue;
     }
 
     public final String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.l;
+            return this.g;
         }
         return (String) invokeV.objValue;
     }
 
-    public final b07 g() {
+    public final Integer g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.b;
+            return this.h;
         }
-        return (b07) invokeV.objValue;
+        return (Integer) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.d07
+    @Override // com.baidu.tieba.e07
     public int getPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.i;
+            return this.k;
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.d07
+    public final int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.e07
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.k = false;
+            this.m = false;
         }
     }
 
-    @Override // com.baidu.tieba.d07
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.i = this.d;
-            this.j = this.e;
-            this.k = true;
-            String str = this.a;
-            this.l = str;
-            this.m = str.length();
-        }
-    }
-
-    @Override // com.baidu.tieba.d07
-    public boolean Q() {
+    public final String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            this.m--;
-            StringBuilder sb = new StringBuilder();
-            String substring = this.a.substring(0, this.m);
-            Intrinsics.checkNotNullExpressionValue(substring, "this as java.lang.String…ing(startIndex, endIndex)");
-            sb.append(substring);
-            sb.append(this.g);
-            this.l = sb.toString();
-            int i = this.m;
-            Integer num = this.f;
-            Intrinsics.checkNotNull(num);
-            if (i > num.intValue()) {
-                return false;
-            }
-            Integer num2 = this.h;
-            Intrinsics.checkNotNull(num2);
-            this.i = num2.intValue();
-            this.j = false;
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.n;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
+    }
+
+    public final String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.e07
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+            this.k = this.e;
+            this.l = this.f;
+            this.m = true;
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     /* renamed from: a */
-    public int compareTo(d07 d07Var) {
+    public int compareTo(e07 e07Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, d07Var)) == null) {
-            return d07.a.a(this, d07Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, e07Var)) == null) {
+            return e07.a.a(this, e07Var);
         }
         return invokeL.intValue;
     }
 
-    @Override // com.baidu.tieba.d07
+    public final void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+            this.n = str;
+        }
+    }
+
+    @Override // com.baidu.tieba.e07
     public int n(int i, int i2) {
         InterceptResult invokeII;
+        float f;
+        int i3;
+        Integer num;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048593, this, i, i2)) == null) {
-            Paint paint = new Paint();
-            paint.setTextSize(i);
-            return (int) paint.measureText(this.l);
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048597, this, i, i2)) == null) {
+            if (this.f) {
+                if (this.l) {
+                    f = i2 * this.c;
+                    i3 = this.d;
+                } else {
+                    float f2 = i2;
+                    Intrinsics.checkNotNull(this.h);
+                    f = f2 * num.intValue();
+                    Integer num2 = this.i;
+                    Intrinsics.checkNotNull(num2);
+                    i3 = num2.intValue();
+                }
+            } else {
+                f = i2 * this.c;
+                i3 = this.d;
+            }
+            return (int) (f / i3);
         }
         return invokeII.intValue;
     }

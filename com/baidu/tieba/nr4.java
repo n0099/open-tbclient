@@ -125,8 +125,8 @@ public class nr4 {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            zq9.h(309608, GetTokenSocketResponsedMessage.class, false, false);
-            zq9.c(309608, CmdConfigHttp.CMD_GET_TOKEN, TbConfig.URL_GET_TOKEN, GetTokenHttpResponsedMessage.class, false, false, false, false);
+            ar9.h(309608, GetTokenSocketResponsedMessage.class, false, false);
+            ar9.c(309608, CmdConfigHttp.CMD_GET_TOKEN, TbConfig.URL_GET_TOKEN, GetTokenHttpResponsedMessage.class, false, false, false, false);
         }
     }
 

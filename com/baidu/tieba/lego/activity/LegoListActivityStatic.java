@@ -6,17 +6,17 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import com.baidu.tieba.di8;
 import com.baidu.tieba.ei8;
 import com.baidu.tieba.fi8;
 import com.baidu.tieba.gi8;
 import com.baidu.tieba.hi8;
 import com.baidu.tieba.ii8;
-import com.baidu.tieba.li8;
+import com.baidu.tieba.ji8;
 import com.baidu.tieba.lt4;
 import com.baidu.tieba.mi8;
 import com.baidu.tieba.mt4;
-import com.baidu.tieba.uj8;
+import com.baidu.tieba.ni8;
+import com.baidu.tieba.vj8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -75,19 +75,19 @@ public class LegoListActivityStatic {
                 return;
             }
         }
-        uj8.a.set(new di8());
+        vj8.a.set(new ei8());
         TbConfig.setLegoLibVersion("3.0.0");
-        li8.h().g(mi8.f());
+        mi8.h().g(ni8.f());
         CustomMessageTask customMessageTask = new CustomMessageTask(2016447, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
         MessageManager.getInstance().registerStickyMode(2016470);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016470, Boolean.TRUE));
+        gi8.a().b(new ji8());
+        fi8.a().b(new hi8());
         fi8.a().b(new ii8());
-        ei8.a().b(new gi8());
-        ei8.a().b(new hi8());
-        mt4.a.set(fi8.a());
-        lt4.a.set(ei8.a());
+        mt4.a.set(gi8.a());
+        lt4.a.set(fi8.a());
     }
 
     public LegoListActivityStatic() {

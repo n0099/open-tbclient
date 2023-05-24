@@ -31,7 +31,7 @@ import com.baidu.tieba.o65;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.qi;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.wp9;
+import com.baidu.tieba.xp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -630,7 +630,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public final void u() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048607, this) == null) && this.k != null) {
-            int f = wp9.f(getDynamicTextColor());
+            int f = xp9.f(getDynamicTextColor());
             if (f == 0 || f == Integer.MAX_VALUE) {
                 if (this.y) {
                     f = SkinManager.getColor(R.color.CAM_X0622);

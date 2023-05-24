@@ -1,46 +1,119 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.danmu.data.ItemState;
-import com.baidu.tieba.danmu.data.state.DrawState;
-import com.baidu.tieba.fq6;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
+import java.util.Map;
+import kotlin.Pair;
+import kotlin.collections.MapsKt__MapsKt;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class dq6 implements fq6.a {
+public class dq6 implements zp6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final zp6 a;
+    public final Map<Integer, zp6> b;
 
-    public dq6() {
+    public dq6(zp6 defaultLayouter, Pair<Integer, ? extends zp6>... layouter) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {defaultLayouter, layouter};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(defaultLayouter, "defaultLayouter");
+        Intrinsics.checkNotNullParameter(layouter, "layouter");
+        this.a = defaultLayouter;
+        this.b = MapsKt__MapsKt.mutableMapOf((Pair[]) Arrays.copyOf(layouter, layouter.length));
     }
 
-    @Override // com.baidu.tieba.fq6.a
-    public void a(ko6 item, long j, kq6 displayer, eo6 config) {
+    @Override // com.baidu.tieba.zp6
+    public void a(lo6 item, long j, lq6 displayer, fo6 config) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{item, Long.valueOf(j), displayer, config}) == null) {
             Intrinsics.checkNotNullParameter(item, "item");
             Intrinsics.checkNotNullParameter(displayer, "displayer");
             Intrinsics.checkNotNullParameter(config, "config");
-            DrawState f = item.f();
-            if (item.i().compareTo(ItemState.Measured) >= 0) {
-                f.A((displayer.getWidth() - f.q()) * 0.5f);
-                f.H(true);
-                return;
+            f(item).a(item, j, displayer, config);
+        }
+    }
+
+    @Override // com.baidu.tieba.zp6
+    public boolean d(lo6 item, long j, lq6 displayer, fo6 config) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{item, Long.valueOf(j), displayer, config})) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(displayer, "displayer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            return f(item).d(item, j, displayer, config);
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.zp6
+    public void b(lo6 item) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            f(item).b(item);
+        }
+    }
+
+    public int e(lo6 item) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, item)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            return item.e().j();
+        }
+        return invokeL.intValue;
+    }
+
+    public final zp6 f(lo6 lo6Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, lo6Var)) == null) {
+            zp6 zp6Var = this.b.get(Integer.valueOf(e(lo6Var)));
+            if (zp6Var == null) {
+                return this.a;
             }
-            f.H(false);
+            return zp6Var;
+        }
+        return (zp6) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.zp6
+    public void c(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            this.a.c(i, i2);
+            for (zp6 zp6Var : this.b.values()) {
+                zp6Var.c(i, i2);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.zp6
+    public void clear() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.clear();
+            for (zp6 zp6Var : this.b.values()) {
+                zp6Var.clear();
+            }
         }
     }
 }

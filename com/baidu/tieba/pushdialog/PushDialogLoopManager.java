@@ -34,7 +34,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.c9;
 import com.baidu.tieba.fb;
 import com.baidu.tieba.hb;
-import com.baidu.tieba.ji9;
+import com.baidu.tieba.ki9;
 import com.baidu.tieba.o65;
 import com.baidu.tieba.pushdialog.data.PullTidHttpRespMessage;
 import com.baidu.tieba.pushdialog.data.PullTidReqNetMessage;
@@ -169,7 +169,7 @@ public class PushDialogLoopManager {
                     return;
                 }
                 this.a.b = str;
-                if (ji9.j().d.c()) {
+                if (ki9.j().d.c()) {
                     this.a.c = true;
                 } else {
                     this.a.p(str);
@@ -365,7 +365,7 @@ public class PushDialogLoopManager {
 
     public final void j() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c && ji9.j().g() && !this.d) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c && ki9.j().g() && !this.d) {
             if (Build.VERSION.SDK_INT >= 21 && this.e) {
                 try {
                     ((JobScheduler) TbadkCoreApplication.getInst().getSystemService("jobscheduler")).schedule(new JobInfo.Builder(29467, new ComponentName(TbadkCoreApplication.getInst(), PushDialogJobService.class)).setMinimumLatency(TbSingleton.getInstance().getPushDialogShowTime()).setOverrideDeadline(TbSingleton.getInstance().getPushDialogShowTime()).setRequiredNetworkType(1).setRequiresCharging(false).setRequiresDeviceIdle(false).build());
@@ -400,7 +400,7 @@ public class PushDialogLoopManager {
 
     public final void p(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || ji9.j().d.c() || TbSingleton.getInstance().getLastResumeTime() > UtilHelper.getTodayZeroTime()) {
+        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || ki9.j().d.c() || TbSingleton.getInstance().getLastResumeTime() > UtilHelper.getTodayZeroTime()) {
             return;
         }
         Activity b2 = c9.f().b();

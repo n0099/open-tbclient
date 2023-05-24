@@ -7,9 +7,9 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ea7;
+import com.baidu.tieba.fa7;
 import com.baidu.tieba.frs.itemtab.view.FrsItemAcceleratorView;
-import com.baidu.tieba.rg7;
+import com.baidu.tieba.sg7;
 import com.baidu.tieba.v75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -116,11 +116,11 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
         this.b = bdUniqueId;
     }
 
-    public void b(rg7 rg7Var) {
+    public void b(sg7 sg7Var) {
         FrsItemAcceleratorView frsItemAcceleratorView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, rg7Var) == null) && (frsItemAcceleratorView = this.a) != null) {
-            frsItemAcceleratorView.setBtnColor(rg7Var.b());
+        if ((interceptable == null || interceptable.invokeL(1048576, this, sg7Var) == null) && (frsItemAcceleratorView = this.a) != null) {
+            frsItemAcceleratorView.setBtnColor(sg7Var.b());
             this.a.setBtnImgClickListener(new a(this));
             this.a.setBtnDescClickListener(new b(this));
         }
@@ -129,7 +129,7 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
     public final void f(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921662, new ea7(i));
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921662, new fa7(i));
             CustomMessage customMessage = new CustomMessage(2921662);
             customMessage.setTag(this.b);
             customResponsedMessage.setOrginalMessage(customMessage);

@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.MonitorType;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class bd0 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String d = "bd0";

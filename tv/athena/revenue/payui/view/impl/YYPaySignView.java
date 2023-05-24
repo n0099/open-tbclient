@@ -12,11 +12,11 @@ import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cgb;
-import com.baidu.tieba.dfb;
-import com.baidu.tieba.jgb;
-import com.baidu.tieba.nfb;
-import com.baidu.tieba.sgb;
+import com.baidu.tieba.dgb;
+import com.baidu.tieba.efb;
+import com.baidu.tieba.kgb;
+import com.baidu.tieba.ofb;
+import com.baidu.tieba.tgb;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import java.text.DecimalFormat;
@@ -24,30 +24,30 @@ import tv.athena.revenue.api.MiddleRevenueConfig;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.view.WindowParams;
 /* loaded from: classes2.dex */
-public class YYPaySignView extends LinearLayout implements sgb {
+public class YYPaySignView extends LinearLayout implements tgb {
     public Activity a;
-    public sgb.b b;
-    public sgb.a c;
+    public tgb.b b;
+    public tgb.a c;
     public PayUIKitConfig d;
     public TextView e;
     public int f;
     public int g;
     public long h;
 
-    @Override // com.baidu.tieba.ogb
+    @Override // com.baidu.tieba.pgb
     public void attachWindow(Window window) {
     }
 
-    @Override // com.baidu.tieba.ogb
+    @Override // com.baidu.tieba.pgb
     public View getContentView() {
         return this;
     }
 
-    @Override // com.baidu.tieba.ogb
+    @Override // com.baidu.tieba.pgb
     public void refreshView() {
     }
 
-    @Override // com.baidu.tieba.ogb
+    @Override // com.baidu.tieba.pgb
     public void refreshWindow(WindowParams windowParams) {
     }
 
@@ -73,7 +73,7 @@ public class YYPaySignView extends LinearLayout implements sgb {
 
         @Override // android.widget.CompoundButton.OnCheckedChangeListener
         public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-            nfb.b(YYPaySignView.this.f, YYPaySignView.this.g, PayUVEventType.PAY_SIGN_DIALOG_DONT_REMIND_CLICK, "", "", "");
+            ofb.b(YYPaySignView.this.f, YYPaySignView.this.g, PayUVEventType.PAY_SIGN_DIALOG_DONT_REMIND_CLICK, "", "", "");
         }
     }
 
@@ -91,13 +91,13 @@ public class YYPaySignView extends LinearLayout implements sgb {
                 YYPaySignView.this.c.b();
             }
             Context applicationContext = YYPaySignView.this.a.getApplicationContext();
-            cgb.b(applicationContext, YYPaySignView.this.h + "").c("pay_sp_key_sign_pay_skip_remind", this.a.isChecked());
+            dgb.b(applicationContext, YYPaySignView.this.h + "").c("pay_sp_key_sign_pay_skip_remind", this.a.isChecked());
             RLog.info("YYPaySignView", "click remind. uid=" + YYPaySignView.this.h + ", is skip remind=" + this.a.isChecked());
-            nfb.b(YYPaySignView.this.f, YYPaySignView.this.g, PayUVEventType.PAY_SIGN_DIALOG_CONFIRM_BTN_CLICK, "", "", "");
+            ofb.b(YYPaySignView.this.f, YYPaySignView.this.g, PayUVEventType.PAY_SIGN_DIALOG_CONFIRM_BTN_CLICK, "", "", "");
         }
     }
 
-    public YYPaySignView(Activity activity, sgb.b bVar, PayUIKitConfig payUIKitConfig, int i, int i2) {
+    public YYPaySignView(Activity activity, tgb.b bVar, PayUIKitConfig payUIKitConfig, int i, int i2) {
         super(activity);
         MiddleRevenueConfig middleRevenueConfig;
         this.h = 0L;
@@ -115,40 +115,40 @@ public class YYPaySignView extends LinearLayout implements sgb {
             this.h = middleRevenueConfig.getUid();
         }
         h();
-        nfb.b(this.f, this.g, PayUVEventType.PAY_SIGN_DIALOG_SHOW, "", "", "");
+        ofb.b(this.f, this.g, PayUVEventType.PAY_SIGN_DIALOG_SHOW, "", "", "");
     }
 
-    @Override // com.baidu.tieba.sgb
-    public void setCallback(sgb.a aVar) {
+    @Override // com.baidu.tieba.tgb
+    public void setCallback(tgb.a aVar) {
         this.c = aVar;
     }
 
     public final void h() {
-        LayoutInflater.from(new ContextThemeWrapper(this.a, jgb.a.a(this.d))).inflate(R.layout.pay_ui_layout_sign_pay_view, (ViewGroup) this, true);
+        LayoutInflater.from(new ContextThemeWrapper(this.a, kgb.a.a(this.d))).inflate(R.layout.pay_ui_layout_sign_pay_view, (ViewGroup) this, true);
         this.e = (TextView) findViewById(R.id.btn_confirm_recharge);
         View findViewById = findViewById(R.id.ll_check_remind);
         CheckBox checkBox = (CheckBox) findViewById(R.id.btn_check_remind);
         i();
-        sgb.b bVar = this.b;
+        tgb.b bVar = this.b;
         if (bVar != null && bVar.a) {
             findViewById.setVisibility(8);
         } else {
             findViewById.setVisibility(0);
             findViewById.setOnClickListener(new a(checkBox));
             Context applicationContext = this.a.getApplicationContext();
-            checkBox.setChecked(cgb.b(applicationContext, this.h + "").a("pay_sp_key_sign_pay_skip_remind", true));
+            checkBox.setChecked(dgb.b(applicationContext, this.h + "").a("pay_sp_key_sign_pay_skip_remind", true));
             checkBox.setOnCheckedChangeListener(new b());
         }
         this.e.setOnClickListener(new c(checkBox));
     }
 
     public final void i() {
-        dfb dfbVar;
+        efb efbVar;
         boolean z;
         String format;
-        sgb.b bVar = this.b;
-        if (bVar != null && (dfbVar = bVar.b) != null) {
-            double c2 = dfbVar.c();
+        tgb.b bVar = this.b;
+        if (bVar != null && (efbVar = bVar.b) != null) {
+            double c2 = efbVar.c();
             if (c2 == ((long) c2)) {
                 z = true;
             } else {

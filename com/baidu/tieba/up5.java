@@ -26,10 +26,10 @@ public class up5 extends pp5<o15, AutoVideoCardViewHolder<o15>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public xy g;
-    public vj6<o15> h;
+    public wj6<o15> h;
 
     /* loaded from: classes7.dex */
-    public class a extends vj6<o15> {
+    public class a extends wj6<o15> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ up5 b;
@@ -53,7 +53,7 @@ public class up5 extends pp5<o15, AutoVideoCardViewHolder<o15>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vj6
+        @Override // com.baidu.tieba.wj6
         /* renamed from: d */
         public void a(View view2, o15 o15Var) {
             Interceptable interceptable = $ic;
@@ -167,41 +167,41 @@ public class up5 extends pp5<o15, AutoVideoCardViewHolder<o15>> {
         this.h = new a(this);
     }
 
-    public final rc9 R(ThreadData threadData) {
+    public final sc9 R(ThreadData threadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, threadData)) == null) {
             if (threadData != null) {
-                rc9 rc9Var = new rc9();
-                rc9Var.a = PayUVEventType.PAY_WALLET_BANNER_SHOW;
-                rc9Var.c = threadData.tid;
-                rc9Var.f = threadData.mRecomSource;
-                rc9Var.g = threadData.mRecomAbTag;
-                rc9Var.h = threadData.mRecomWeight;
-                rc9Var.i = "14";
-                rc9Var.q = String.valueOf(threadData.statFloor);
+                sc9 sc9Var = new sc9();
+                sc9Var.a = PayUVEventType.PAY_WALLET_BANNER_SHOW;
+                sc9Var.c = threadData.tid;
+                sc9Var.f = threadData.mRecomSource;
+                sc9Var.g = threadData.mRecomAbTag;
+                sc9Var.h = threadData.mRecomWeight;
+                sc9Var.i = "14";
+                sc9Var.q = String.valueOf(threadData.statFloor);
                 if (threadData.getThreadVideoChannelInfo() != null) {
-                    rc9Var.k = String.valueOf(threadData.getThreadVideoChannelInfo().a);
+                    sc9Var.k = String.valueOf(threadData.getThreadVideoChannelInfo().a);
                 }
                 if (threadData.getThreadData() != null) {
-                    rc9Var.d = String.valueOf(threadData.getThreadData().getFid());
-                    rc9Var.v = threadData.getThreadData().getNid();
+                    sc9Var.d = String.valueOf(threadData.getThreadData().getFid());
+                    sc9Var.v = threadData.getThreadData().getNid();
                     if (threadData.getThreadData().getThreadVideoInfo() != null) {
-                        rc9Var.m = threadData.getThreadData().getThreadVideoInfo().video_md5;
-                        rc9Var.p = String.valueOf(threadData.getThreadData().getThreadVideoInfo().is_vertical);
+                        sc9Var.m = threadData.getThreadData().getThreadVideoInfo().video_md5;
+                        sc9Var.p = String.valueOf(threadData.getThreadData().getThreadVideoInfo().is_vertical);
                     }
                 }
-                rc9Var.e = TbadkCoreApplication.getCurrentAccount();
+                sc9Var.e = TbadkCoreApplication.getCurrentAccount();
                 if (threadData.getThreadData() != null && threadData.getThreadData().getBaijiahaoData() != null) {
-                    rc9Var.t = threadData.getThreadData().getBaijiahaoData().oriUgcNid;
-                    rc9Var.u = threadData.getThreadData().getBaijiahaoData().oriUgcVid;
-                    return rc9Var;
+                    sc9Var.t = threadData.getThreadData().getBaijiahaoData().oriUgcNid;
+                    sc9Var.u = threadData.getThreadData().getBaijiahaoData().oriUgcVid;
+                    return sc9Var;
                 }
-                return rc9Var;
+                return sc9Var;
             }
             return null;
         }
-        return (rc9) invokeL.objValue;
+        return (sc9) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

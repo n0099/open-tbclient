@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.ae5;
-import com.baidu.tieba.e0a;
+import com.baidu.tieba.f0a;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.tieba.lg;
 import com.baidu.tieba.qi;
@@ -87,7 +87,7 @@ public class SpriteTipHttpResponseMessage extends TbHttpResponsedMessage {
         if ((interceptable != null && interceptable.invokeV(65537, this) != null) || (ae5Var = this.bgUrlTheme) == null) {
             return;
         }
-        String g = e0a.g(ae5Var);
+        String g = f0a.g(ae5Var);
         if (!qi.isEmpty(g)) {
             wg.c(new a(this, g));
         }

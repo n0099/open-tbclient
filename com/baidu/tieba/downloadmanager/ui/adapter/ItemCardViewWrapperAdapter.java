@@ -22,8 +22,8 @@ import com.baidu.tbadk.core.view.ItemCardView;
 import com.baidu.tbadk.core.view.itemcard.ItemCardHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.en;
-import com.baidu.tieba.gr6;
 import com.baidu.tieba.hr6;
+import com.baidu.tieba.ir6;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ItemCardViewWrapperAdapter extends en<hr6, ItemCardViewWrapperViewHolder> {
+public class ItemCardViewWrapperAdapter extends en<ir6, ItemCardViewWrapperViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -55,15 +55,15 @@ public class ItemCardViewWrapperAdapter extends en<hr6, ItemCardViewWrapperViewH
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
-            public final /* synthetic */ hr6 b;
+            public final /* synthetic */ ir6 b;
             public final /* synthetic */ ItemCardViewWrapperViewHolder c;
 
-            public a(ItemCardViewWrapperViewHolder itemCardViewWrapperViewHolder, int i, hr6 hr6Var) {
+            public a(ItemCardViewWrapperViewHolder itemCardViewWrapperViewHolder, int i, ir6 ir6Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {itemCardViewWrapperViewHolder, Integer.valueOf(i), hr6Var};
+                    Object[] objArr = {itemCardViewWrapperViewHolder, Integer.valueOf(i), ir6Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -75,7 +75,7 @@ public class ItemCardViewWrapperAdapter extends en<hr6, ItemCardViewWrapperViewH
                 }
                 this.c = itemCardViewWrapperViewHolder;
                 this.a = i;
-                this.b = hr6Var;
+                this.b = ir6Var;
             }
 
             @Override // android.view.View.OnClickListener
@@ -84,8 +84,8 @@ public class ItemCardViewWrapperAdapter extends en<hr6, ItemCardViewWrapperViewH
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                     int i = this.c.e.b;
                     int i2 = this.a;
-                    hr6 hr6Var = this.b;
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001440, new gr6(i, i2, hr6Var.b, hr6Var.a.mTitle, view2)));
+                    ir6 ir6Var = this.b;
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001440, new hr6(i, i2, ir6Var.b, ir6Var.a.mTitle, view2)));
                 }
             }
         }
@@ -94,16 +94,16 @@ public class ItemCardViewWrapperAdapter extends en<hr6, ItemCardViewWrapperViewH
         public class b implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ hr6 a;
+            public final /* synthetic */ ir6 a;
             public final /* synthetic */ int b;
             public final /* synthetic */ ItemCardViewWrapperViewHolder c;
 
-            public b(ItemCardViewWrapperViewHolder itemCardViewWrapperViewHolder, hr6 hr6Var, int i) {
+            public b(ItemCardViewWrapperViewHolder itemCardViewWrapperViewHolder, ir6 ir6Var, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {itemCardViewWrapperViewHolder, hr6Var, Integer.valueOf(i)};
+                    Object[] objArr = {itemCardViewWrapperViewHolder, ir6Var, Integer.valueOf(i)};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -114,7 +114,7 @@ public class ItemCardViewWrapperAdapter extends en<hr6, ItemCardViewWrapperViewH
                     }
                 }
                 this.c = itemCardViewWrapperViewHolder;
-                this.a = hr6Var;
+                this.a = ir6Var;
                 this.b = i;
             }
 
@@ -176,15 +176,15 @@ public class ItemCardViewWrapperAdapter extends en<hr6, ItemCardViewWrapperViewH
             }
         }
 
-        public void c(hr6 hr6Var) {
+        public void c(ir6 ir6Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hr6Var) == null) {
-                if (!hr6Var.d) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ir6Var) == null) {
+                if (!ir6Var.d) {
                     this.d.setVisibility(8);
                 } else {
                     this.d.setVisibility(0);
                 }
-                if (hr6Var.a == null) {
+                if (ir6Var.a == null) {
                     this.e.a = getLayoutPosition();
                     this.a.setVisibility(8);
                     this.c.setVisibility(0);
@@ -207,24 +207,24 @@ public class ItemCardViewWrapperAdapter extends en<hr6, ItemCardViewWrapperViewH
                 }
                 this.c.setVisibility(8);
                 this.a.setVisibility(0);
-                this.a.setSource(hr6Var.b);
-                int i = hr6Var.b;
+                this.a.setSource(ir6Var.b);
+                int i = ir6Var.b;
                 if (i == 1) {
-                    this.a.setData(hr6Var.a, 10, true, this.e.b, layoutPosition);
+                    this.a.setData(ir6Var.a, 10, true, this.e.b, layoutPosition);
                 } else if (i == 2) {
-                    this.a.setData(hr6Var.a, 10, true, hr6Var.c, this.e.b, layoutPosition);
+                    this.a.setData(ir6Var.a, 10, true, ir6Var.c, this.e.b, layoutPosition);
                 } else {
-                    this.a.setData(hr6Var.a, 10, true, this.e.b, layoutPosition);
+                    this.a.setData(ir6Var.a, 10, true, this.e.b, layoutPosition);
                 }
-                this.a.setOnClickListenerOfRightBtn(new a(this, layoutPosition, hr6Var));
-                this.a.setOnClickListener(new b(this, hr6Var, layoutPosition));
-                if (hr6Var.a != null) {
+                this.a.setOnClickListenerOfRightBtn(new a(this, layoutPosition, ir6Var));
+                this.a.setOnClickListener(new b(this, ir6Var, layoutPosition));
+                if (ir6Var.a != null) {
                     StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_DOWNLOAD_MANAGER_SHOW);
                     statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
                     statisticItem.addParam("obj_locate", this.e.b);
                     statisticItem.addParam("obj_source", this.e.c);
-                    statisticItem.addParam("obj_name", hr6Var.a.itemId);
-                    statisticItem.addParam("obj_type", this.a.z(hr6Var.a));
+                    statisticItem.addParam("obj_name", ir6Var.a.itemId);
+                    statisticItem.addParam("obj_type", this.a.z(ir6Var.a));
                     TiebaStatic.log(statisticItem);
                 }
             }
@@ -291,12 +291,12 @@ public class ItemCardViewWrapperAdapter extends en<hr6, ItemCardViewWrapperViewH
         return (ItemCardViewWrapperViewHolder) invokeL.objValue;
     }
 
-    public View B(int i, View view2, ViewGroup viewGroup, hr6 hr6Var, ItemCardViewWrapperViewHolder itemCardViewWrapperViewHolder) {
+    public View B(int i, View view2, ViewGroup viewGroup, ir6 ir6Var, ItemCardViewWrapperViewHolder itemCardViewWrapperViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, hr6Var, itemCardViewWrapperViewHolder})) == null) {
-            if (hr6Var != null) {
-                itemCardViewWrapperViewHolder.c(hr6Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ir6Var, itemCardViewWrapperViewHolder})) == null) {
+            if (ir6Var != null) {
+                itemCardViewWrapperViewHolder.c(ir6Var);
             }
             itemCardViewWrapperViewHolder.b();
             return view2;
@@ -306,8 +306,8 @@ public class ItemCardViewWrapperAdapter extends en<hr6, ItemCardViewWrapperViewH
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
     @Override // com.baidu.tieba.en
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, hr6 hr6Var, ItemCardViewWrapperViewHolder itemCardViewWrapperViewHolder) {
-        B(i, view2, viewGroup, hr6Var, itemCardViewWrapperViewHolder);
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ir6 ir6Var, ItemCardViewWrapperViewHolder itemCardViewWrapperViewHolder) {
+        B(i, view2, viewGroup, ir6Var, itemCardViewWrapperViewHolder);
         return view2;
     }
 }

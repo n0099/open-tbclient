@@ -39,13 +39,13 @@ public class nq3 extends jx1 {
 
         /* renamed from: com.baidu.tieba.nq3$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0392a implements zn3<je3<le3.e>> {
+        public class C0393a implements zn3<je3<le3.e>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ix1.b a;
             public final /* synthetic */ a b;
 
-            public C0392a(a aVar, ix1.b bVar) {
+            public C0393a(a aVar, ix1.b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public class nq3 extends jx1 {
                 if (b0 == null) {
                     return new g12(1001, "null swan runtime");
                 }
-                b0.e0().g(f93.K(), "mapp_i_get_bduss", new C0392a(this, bVar));
+                b0.e0().g(f93.K(), "mapp_i_get_bduss", new C0393a(this, bVar));
                 return g12.f();
             }
             return (g12) invokeLL.objValue;

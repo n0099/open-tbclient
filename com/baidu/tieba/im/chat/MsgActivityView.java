@@ -15,7 +15,7 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.jf;
 import com.baidu.tieba.kf;
 import com.baidu.tieba.pg;
-import com.baidu.tieba.x08;
+import com.baidu.tieba.y08;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ import java.util.Calendar;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class MsgActivityView extends x08 {
+public class MsgActivityView extends y08 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HeadImageView H;
@@ -176,7 +176,7 @@ public class MsgActivityView extends x08 {
         x().setOnLongClickListener(new b(this));
     }
 
-    @Override // com.baidu.tieba.x08
+    @Override // com.baidu.tieba.y08
     public void S(jf jfVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jfVar) == null) {
@@ -184,7 +184,7 @@ public class MsgActivityView extends x08 {
         }
     }
 
-    @Override // com.baidu.tieba.x08
+    @Override // com.baidu.tieba.y08
     public void T(kf kfVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kfVar) == null) {
@@ -192,7 +192,7 @@ public class MsgActivityView extends x08 {
         }
     }
 
-    @Override // com.baidu.tieba.x08
+    @Override // com.baidu.tieba.y08
     public void U(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {

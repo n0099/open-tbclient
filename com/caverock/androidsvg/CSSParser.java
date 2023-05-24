@@ -12,7 +12,7 @@ import com.baidu.searchbox.security.WarmTipsManager;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.sqa;
+import com.baidu.tieba.tqa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -117,7 +117,7 @@ public class CSSParser {
         public final a D() throws CSSParseException {
             InterceptResult invokeV;
             int i;
-            sqa sqaVar;
+            tqa tqaVar;
             int d;
             a aVar;
             Interceptable interceptable = $ic;
@@ -143,16 +143,16 @@ public class CSSParser {
                         } else {
                             i = 1;
                         }
-                        sqa c = sqa.c(this.a, this.b, this.c, false);
+                        tqa c = tqa.c(this.a, this.b, this.c, false);
                         if (c != null) {
                             this.b = c.a();
                         }
                         if (!f('n') && !f('N')) {
-                            sqaVar = c;
+                            tqaVar = c;
                             c = null;
                         } else {
                             if (c == null) {
-                                c = new sqa(1L, this.b);
+                                c = new tqa(1L, this.b);
                             }
                             A();
                             boolean f = f('+');
@@ -161,15 +161,15 @@ public class CSSParser {
                             }
                             if (f) {
                                 A();
-                                sqaVar = sqa.c(this.a, this.b, this.c, false);
-                                if (sqaVar != null) {
-                                    this.b = sqaVar.a();
+                                tqaVar = tqa.c(this.a, this.b, this.c, false);
+                                if (tqaVar != null) {
+                                    this.b = tqaVar.a();
                                 } else {
                                     this.b = i2;
                                     return null;
                                 }
                             } else {
-                                sqaVar = null;
+                                tqaVar = null;
                             }
                             int i5 = i3;
                             i3 = i;
@@ -180,8 +180,8 @@ public class CSSParser {
                         } else {
                             d = i3 * c.d();
                         }
-                        if (sqaVar != null) {
-                            i4 = i * sqaVar.d();
+                        if (tqaVar != null) {
+                            i4 = i * tqaVar.d();
                         }
                         aVar = new a(d, i4);
                     }

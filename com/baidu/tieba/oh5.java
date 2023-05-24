@@ -163,7 +163,7 @@ public class oh5 {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            wn6.a(new a(this), "sendGetUserInfoForDau", 3);
+            xn6.a(new a(this), "sendGetUserInfoForDau", 3);
         }
     }
 
@@ -197,8 +197,8 @@ public class oh5 {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            zq9.h(303024, GetUserInfoSocketResponseMessage.class, false, false);
-            TbHttpMessageTask c2 = zq9.c(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, true, false);
+            ar9.h(303024, GetUserInfoSocketResponseMessage.class, false, false);
+            TbHttpMessageTask c2 = ar9.c(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, true, false);
             this.b = c2;
             c2.setTimeOut(ob.d().b());
             this.b.setRetry(ob.d().a());

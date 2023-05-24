@@ -27,8 +27,8 @@ import com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.qi;
 import com.baidu.tieba.rn;
-import com.baidu.tieba.sx7;
-import com.baidu.tieba.wx7;
+import com.baidu.tieba.tx7;
+import com.baidu.tieba.xx7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,7 +44,7 @@ import org.apache.commons.codec.language.bm.ResourceConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements sx7 {
+public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements tx7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TopicDetailModel a;
@@ -147,7 +147,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.baidu.tieba.sx7
+    @Override // com.baidu.tieba.tx7
     public void L0(int i, boolean z, List<rn> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), list}) == null) {
@@ -167,7 +167,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.baidu.tieba.sx7
+    @Override // com.baidu.tieba.tx7
     public void a() {
         int i;
         String substring;
@@ -277,14 +277,14 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.baidu.tieba.sx7
-    public void t(int i, wx7 wx7Var) {
+    @Override // com.baidu.tieba.tx7
+    public void t(int i, xx7 xx7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048586, this, i, wx7Var) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048586, this, i, xx7Var) == null) {
             this.b.r();
-            if (i == 0 && wx7Var != null && !ListUtils.isEmpty(wx7Var.f)) {
+            if (i == 0 && xx7Var != null && !ListUtils.isEmpty(xx7Var.f)) {
                 this.b.s();
-                this.b.setData(wx7Var);
+                this.b.setData(xx7Var);
                 return;
             }
             this.b.D(true);

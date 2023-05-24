@@ -49,8 +49,8 @@ import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.videoplay.model.JumpYYLiveHttpResponseMessage;
 import com.baidu.tieba.videoplay.view.VideoChannelHeaderLayout;
 import com.baidu.tieba.videoplay.view.VideoChannelViewPager;
-import com.baidu.tieba.y3a;
 import com.baidu.tieba.yi5;
+import com.baidu.tieba.z3a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -61,7 +61,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.VideoRedIcon.RedIcon;
 /* loaded from: classes7.dex */
-public abstract class AbsVideoChannelFragment extends BaseFragment implements y3a {
+public abstract class AbsVideoChannelFragment extends BaseFragment implements z3a {
     public static /* synthetic */ Interceptable $ic;
     public static String w;
     public transient /* synthetic */ FieldHolder $fh;
@@ -782,9 +782,9 @@ public abstract class AbsVideoChannelFragment extends BaseFragment implements y3
         }
     }
 
-    @Override // com.baidu.tieba.y3a
+    @Override // com.baidu.tieba.z3a
     public void K0() {
-        y3a O1;
+        z3a O1;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (O1 = O1()) != null) {
             O1.K0();
@@ -816,12 +816,12 @@ public abstract class AbsVideoChannelFragment extends BaseFragment implements y3
         return (TbPageTag) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.y3a
+    @Override // com.baidu.tieba.z3a
     public long l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            y3a O1 = O1();
+            z3a O1 = O1();
             if (O1 != null) {
                 return O1.l();
             }
@@ -854,12 +854,12 @@ public abstract class AbsVideoChannelFragment extends BaseFragment implements y3
         }
     }
 
-    @Override // com.baidu.tieba.y3a
+    @Override // com.baidu.tieba.z3a
     public boolean q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            y3a O1 = O1();
+            z3a O1 = O1();
             if (O1 != null) {
                 return O1.q();
             }
@@ -868,21 +868,21 @@ public abstract class AbsVideoChannelFragment extends BaseFragment implements y3
         return invokeV.booleanValue;
     }
 
-    public final y3a O1() {
+    public final z3a O1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             FragmentAdapter fragmentAdapter = this.g;
             if (fragmentAdapter != null && fragmentAdapter.b != -1) {
                 Fragment item = this.g.getItem(this.g.b);
-                if (item instanceof y3a) {
-                    return (y3a) item;
+                if (item instanceof z3a) {
+                    return (z3a) item;
                 }
                 return null;
             }
             return null;
         }
-        return (y3a) invokeV.objValue;
+        return (z3a) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -971,9 +971,9 @@ public abstract class AbsVideoChannelFragment extends BaseFragment implements y3
         }
     }
 
-    @Override // com.baidu.tieba.y3a
+    @Override // com.baidu.tieba.z3a
     public void o(int i2, int i3, Intent intent) {
-        y3a O1;
+        z3a O1;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIIL(1048591, this, i2, i3, intent) == null) && (O1 = O1()) != null) {
             O1.o(i2, i3, intent);

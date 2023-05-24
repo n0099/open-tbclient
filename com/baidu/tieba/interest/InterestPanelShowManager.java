@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.TimeHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ch8;
 import com.baidu.tieba.dh8;
 import com.baidu.tieba.eh8;
+import com.baidu.tieba.fh8;
 import com.baidu.tieba.ma5;
 import com.baidu.tieba.o65;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -30,7 +30,7 @@ public class InterestPanelShowManager {
     public static /* synthetic */ Interceptable $ic;
     public static volatile InterestPanelShowManager c;
     public transient /* synthetic */ FieldHolder $fh;
-    public eh8 a;
+    public fh8 a;
     public boolean b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -148,10 +148,10 @@ public class InterestPanelShowManager {
         return invokeJ.booleanValue;
     }
 
-    public void c(eh8 eh8Var) {
+    public void c(fh8 fh8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eh8Var) == null) {
-            this.a = eh8Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fh8Var) == null) {
+            this.a = fh8Var;
         }
     }
 
@@ -187,14 +187,14 @@ public class InterestPanelShowManager {
 
     public final InterestPanelShowState f() {
         InterceptResult invokeV;
-        eh8 eh8Var;
+        fh8 fh8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!TimeHelper.isSameDay(o65.m().o("key_interest_panel_show_time", 0L), System.currentTimeMillis()) && (eh8Var = this.a) != null && eh8Var.b() != null && this.a.a() != null) {
+            if (!TimeHelper.isSameDay(o65.m().o("key_interest_panel_show_time", 0L), System.currentTimeMillis()) && (fh8Var = this.a) != null && fh8Var.b() != null && this.a.a() != null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 int registerTime = (int) (((currentTimeMillis - (this.a.b().getRegisterTime() * 1000)) / 86400000) + 1);
-                ch8 a = this.a.a();
-                List<dh8> b = a.b();
+                dh8 a = this.a.a();
+                List<eh8> b = a.b();
                 if (ListUtils.isEmpty(b)) {
                     return null;
                 }

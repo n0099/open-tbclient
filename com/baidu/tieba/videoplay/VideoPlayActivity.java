@@ -30,8 +30,8 @@ import com.baidu.tieba.c9;
 import com.baidu.tieba.d06;
 import com.baidu.tieba.eu5;
 import com.baidu.tieba.lr4;
-import com.baidu.tieba.mn7;
 import com.baidu.tieba.mr4;
+import com.baidu.tieba.nn7;
 import com.baidu.tieba.qi;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.video.VideoItemData;
@@ -186,10 +186,10 @@ public class VideoPlayActivity extends BaseFragmentActivity {
                 d06Var.h();
             }
             if (UbsABTestHelper.isVideoAdDrawABTestA()) {
-                mn7.m().d("6061002332-203360688");
+                nn7.m().d("6061002332-203360688");
             }
             if (UbsABTestHelper.isVideoAdDrawABTestB()) {
-                mn7.m().c(mn7.s());
+                nn7.m().c(nn7.s());
             }
         }
     }

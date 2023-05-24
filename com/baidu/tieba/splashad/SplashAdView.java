@@ -7,7 +7,7 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.gm9;
+import com.baidu.tieba.hm9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class SplashAdView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gm9 a;
+    public hm9 a;
     public BaseFragmentActivity b;
     public int c;
 
@@ -45,18 +45,18 @@ public class SplashAdView extends FrameLayout {
     }
 
     public void a() {
-        gm9 gm9Var;
+        hm9 hm9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (gm9Var = this.a) != null) {
-            gm9Var.e();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (hm9Var = this.a) != null) {
+            hm9Var.e();
         }
     }
 
     public void b() {
-        gm9 gm9Var;
+        hm9 hm9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (gm9Var = this.a) != null) {
-            gm9Var.f();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (hm9Var = this.a) != null) {
+            hm9Var.f();
         }
     }
 
@@ -65,9 +65,9 @@ public class SplashAdView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onAttachedToWindow();
-            gm9 gm9Var = new gm9();
-            this.a = gm9Var;
-            gm9Var.a(this.b, this, this.c);
+            hm9 hm9Var = new hm9();
+            this.a = hm9Var;
+            hm9Var.a(this.b, this, this.c);
         }
     }
 
@@ -76,9 +76,9 @@ public class SplashAdView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDetachedFromWindow();
-            gm9 gm9Var = this.a;
-            if (gm9Var != null) {
-                gm9Var.g();
+            hm9 hm9Var = this.a;
+            if (hm9Var != null) {
+                hm9Var.g();
             }
             this.a = null;
         }
@@ -86,10 +86,10 @@ public class SplashAdView extends FrameLayout {
 
     @Override // android.view.View
     public void onConfigurationChanged(@NonNull Configuration configuration) {
-        gm9 gm9Var;
+        hm9 hm9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, configuration) == null) && (gm9Var = this.a) != null) {
-            gm9Var.d(configuration);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, configuration) == null) && (hm9Var = this.a) != null) {
+            hm9Var.d(configuration);
         }
     }
 }

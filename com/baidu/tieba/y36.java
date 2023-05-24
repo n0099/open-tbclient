@@ -134,7 +134,7 @@ public class y36 {
                 if (next instanceof i36) {
                     i36 i36Var = (i36) next;
                     boolean z = i36Var.z();
-                    cu9.a("AdSdkStretagyManager failSplashAd isBearAdReady:" + z);
+                    du9.a("AdSdkStretagyManager failSplashAd isBearAdReady:" + z);
                     if (z && BearTimeoutTryShowSwitch.isOn()) {
                         int i = 1;
                         StatisticItem param = StatisticItem.make(TbadkCoreStatisticKey.SHOW_AD_TIME).param("obj_source", (int) e(next)).param("obj_type", "a064").param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param("obj_param1", 1);
@@ -329,7 +329,7 @@ public class y36 {
                             if (String.valueOf((int) e(next)).equals(e46.c)) {
                                 BaseVM.m(28);
                             }
-                            du9.a(MainTabScheduleStrategy.UNSCHEDULE);
+                            eu9.a(MainTabScheduleStrategy.UNSCHEDULE);
                             if (this.f != null) {
                                 String str = null;
                                 if (next instanceof j36) {

@@ -36,13 +36,13 @@ public class j02 extends f02 {
 
         /* renamed from: com.baidu.tieba.j02$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0349a implements zn3<je3<le3.e>> {
+        public class C0346a implements zn3<je3<le3.e>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ix1.b a;
             public final /* synthetic */ a b;
 
-            public C0349a(a aVar, ix1.b bVar) {
+            public C0346a(a aVar, ix1.b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -108,7 +108,7 @@ public class j02 extends f02 {
                 if (b0 == null) {
                     return new g12(1001, "null swan runtime");
                 }
-                b0.e0().g(f93.K(), "mapp_i_get_common_sys_info", new C0349a(this, bVar));
+                b0.e0().g(f93.K(), "mapp_i_get_common_sys_info", new C0346a(this, bVar));
                 return new g12(0);
             }
             return (g12) invokeLL.objValue;

@@ -2,7 +2,7 @@ package com.baidu.tieba.forumsearch.message;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.n77;
+import com.baidu.tieba.o77;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.SearchPostForum.SearchPostForumResIdl;
 public class SearchPostForumHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public n77 mSearchData;
+    public o77 mSearchData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SearchPostForumHttpResponseMessage(int i) {
@@ -49,19 +49,19 @@ public class SearchPostForumHttpResponseMessage extends TbHttpResponsedMessage {
                 setErrorString(searchPostForumResIdl.error.usermsg);
             }
             if (getError() == 0 && getOrginalMessage() != null && (getOrginalMessage().getExtra() instanceof SearchPostForumRequestMessage) && searchPostForumResIdl.data != null) {
-                n77 n77Var = new n77(((SearchPostForumRequestMessage) getOrginalMessage().getExtra()).get_word());
-                this.mSearchData = n77Var;
-                n77Var.b(searchPostForumResIdl.data);
+                o77 o77Var = new o77(((SearchPostForumRequestMessage) getOrginalMessage().getExtra()).get_word());
+                this.mSearchData = o77Var;
+                o77Var.b(searchPostForumResIdl.data);
             }
         }
     }
 
-    public n77 getSearchData() {
+    public o77 getSearchData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mSearchData;
         }
-        return (n77) invokeV.objValue;
+        return (o77) invokeV.objValue;
     }
 }

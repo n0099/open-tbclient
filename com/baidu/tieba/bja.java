@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 
+import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -8,45 +10,60 @@ public final class bja {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
+    public static void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            d().edit().putBoolean(str, true).apply();
+        }
+    }
+
+    public static boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (str != null && str.length() != 0) {
-                char[] charArray = str.toCharArray();
-                StringBuilder sb = new StringBuilder();
-                for (char c : charArray) {
-                    String binaryString = Integer.toBinaryString(c);
-                    while (binaryString.length() < 8) {
-                        binaryString = "0" + binaryString;
-                    }
-                    sb.append(binaryString);
-                }
-                while (sb.length() % 6 != 0) {
-                    sb.append("0");
-                }
-                String valueOf = String.valueOf(sb);
-                int length = valueOf.length() / 6;
-                char[] cArr = new char[length];
-                for (int i = 0; i < length; i++) {
-                    int parseInt = Integer.parseInt(valueOf.substring(0, 6), 2);
-                    valueOf = valueOf.substring(6);
-                    cArr[i] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt(parseInt);
-                }
-                StringBuilder sb2 = new StringBuilder(String.valueOf(cArr));
-                if (str.length() % 3 == 1) {
-                    sb2.append("==");
-                } else if (str.length() % 3 == 2) {
-                    sb2.append("=");
-                }
-                for (int i2 = 76; i2 < sb2.length(); i2 += 76) {
-                    sb2.insert(i2, "\r\n");
-                }
-                sb2.append("\r\n");
-                return String.valueOf(sb2);
-            }
-            return str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return d().getBoolean(str, false);
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static long c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return d().getLong(str, 0L);
+        }
+        return invokeL.longValue;
+    }
+
+    public static SharedPreferences d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return xha.h().getContext().getSharedPreferences("baidu_ab_general_config", 0);
+        }
+        return (SharedPreferences) invokeV.objValue;
+    }
+
+    public static String e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            return d().getString(str, str2);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void f(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
+            d().edit().putString(str, str2).apply();
+        }
+    }
+
+    public static void g(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(65542, null, str, j) == null) {
+            d().edit().putLong(str, j).apply();
+        }
     }
 }

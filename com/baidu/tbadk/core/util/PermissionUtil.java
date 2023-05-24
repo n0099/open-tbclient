@@ -25,10 +25,10 @@ import com.baidu.tieba.is5;
 import com.baidu.tieba.it5;
 import com.baidu.tieba.o65;
 import com.baidu.tieba.ti;
-import com.baidu.tieba.tz9;
+import com.baidu.tieba.uz9;
 import com.baidu.tieba.wr5;
-import com.baidu.tieba.xz9;
 import com.baidu.tieba.yk5;
+import com.baidu.tieba.yz9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -152,7 +152,7 @@ public class PermissionUtil {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        xz9.b();
+                        yz9.b();
                         return null;
                     }
                     return invokeV.objValue;
@@ -180,7 +180,7 @@ public class PermissionUtil {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
                         PermissionUtil.setIsAgreePrivacyPolicy(true);
-                        tz9.b(true);
+                        uz9.b(true);
                     }
                 }
             });

@@ -21,7 +21,7 @@ import com.baidu.tieba.pg;
 import com.baidu.tieba.s65;
 import com.baidu.tieba.sg;
 import com.baidu.tieba.u65;
-import com.baidu.tieba.v8a;
+import com.baidu.tieba.w8a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ public class NewVcodeView {
     public transient /* synthetic */ FieldHolder $fh;
     public BaseActivity a;
     public int b;
-    public v8a c;
+    public w8a c;
     public BaseWebView d;
     public View e;
     public s65 f;
@@ -144,10 +144,10 @@ public class NewVcodeView {
         }
     }
 
-    public void setPresenter(v8a v8aVar) {
+    public void setPresenter(w8a w8aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, v8aVar) == null) {
-            this.c = v8aVar;
+        if (interceptable == null || interceptable.invokeL(1048581, this, w8aVar) == null) {
+            this.c = w8aVar;
             this.i = false;
         }
     }

@@ -26,7 +26,7 @@ import com.baidu.tieba.jy4;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.us5;
-import com.baidu.tieba.wp9;
+import com.baidu.tieba.xp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -256,7 +256,7 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
     public void m(ThemeElement themeElement) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048588, this, themeElement) == null) && j(themeElement)) {
-            this.n.setTextColor(wp9.f(themeElement.common_color));
+            this.n.setTextColor(xp9.f(themeElement.common_color));
         }
     }
 
@@ -505,16 +505,16 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048587, this, themeElement, themeElement2, themeElement3, themeElement4) == null) {
             if (j(themeElement)) {
-                this.g.setTextColor(wp9.f(themeElement.common_color));
+                this.g.setTextColor(xp9.f(themeElement.common_color));
             }
             if (j(themeElement2)) {
-                this.h.setBackgroundColor(wp9.f(themeElement2.common_color));
+                this.h.setBackgroundColor(xp9.f(themeElement2.common_color));
             }
             if (j(themeElement3)) {
-                this.i.setTextColor(wp9.f(themeElement3.common_color));
+                this.i.setTextColor(xp9.f(themeElement3.common_color));
             }
             if (j(themeElement4)) {
-                this.r.h(wp9.f(themeElement4.common_color));
+                this.r.h(xp9.f(themeElement4.common_color));
             }
         }
     }

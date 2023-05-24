@@ -44,10 +44,10 @@ import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.cp5;
 import com.baidu.tieba.dv4;
 import com.baidu.tieba.fj5;
-import com.baidu.tieba.i97;
 import com.baidu.tieba.iv4;
+import com.baidu.tieba.j97;
 import com.baidu.tieba.jt4;
-import com.baidu.tieba.kh6;
+import com.baidu.tieba.lh6;
 import com.baidu.tieba.rn5;
 import com.baidu.tieba.yu4;
 import com.baidu.tieba.z25;
@@ -62,7 +62,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class NewTabWebFragment extends BaseWebViewFragment implements i97 {
+public class NewTabWebFragment extends BaseWebViewFragment implements j97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String e;
@@ -81,14 +81,14 @@ public class NewTabWebFragment extends BaseWebViewFragment implements i97 {
     public final CustomMessageListener r;
     public final View.OnClickListener s;
 
-    @Override // com.baidu.tieba.i97
+    @Override // com.baidu.tieba.j97
     public void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.i97
+    @Override // com.baidu.tieba.j97
     public void a0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -181,7 +181,7 @@ public class NewTabWebFragment extends BaseWebViewFragment implements i97 {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                kh6.a().d(this.a.j, "writePostSuccess", new HashMap<>());
+                lh6.a().d(this.a.j, "writePostSuccess", new HashMap<>());
             }
         }
     }
@@ -502,7 +502,7 @@ public class NewTabWebFragment extends BaseWebViewFragment implements i97 {
         this.s = new d(this);
     }
 
-    @Override // com.baidu.tieba.i97
+    @Override // com.baidu.tieba.j97
     public void h0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -510,7 +510,7 @@ public class NewTabWebFragment extends BaseWebViewFragment implements i97 {
             if (this.j != null) {
                 LinkedHashMap linkedHashMap = new LinkedHashMap();
                 linkedHashMap.put("skin", SkinManager.getCurrentSkinTypeString());
-                kh6.a().d(this.j, CommonTbJsBridge.CHANGE_SKIN_TYPE, linkedHashMap);
+                lh6.a().d(this.j, CommonTbJsBridge.CHANGE_SKIN_TYPE, linkedHashMap);
                 this.j.setWebViewSkinOverly(this.g, R.color.CAM_X0503);
             }
         }
@@ -726,7 +726,7 @@ public class NewTabWebFragment extends BaseWebViewFragment implements i97 {
         }
     }
 
-    @Override // com.baidu.tieba.i97
+    @Override // com.baidu.tieba.j97
     public void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
@@ -821,7 +821,7 @@ public class NewTabWebFragment extends BaseWebViewFragment implements i97 {
                     initData();
                 }
                 l2();
-                kh6.a().d(this.j, CommonTbJsBridge.RE_SHOW, null);
+                lh6.a().d(this.j, CommonTbJsBridge.RE_SHOW, null);
                 this.j.setWebViewSkinOverly(this.g, R.color.CAM_X0503);
             } else {
                 MessageManager.getInstance().unRegisterTask(2016568);

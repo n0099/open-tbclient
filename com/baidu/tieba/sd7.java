@@ -1,13 +1,19 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
+import android.text.SpannableStringBuilder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -18,7 +24,10 @@ public class sd7 {
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public View b;
-    public EMTextView c;
+    public RelativeLayout c;
+    public EMTextView d;
+    public EMTextView e;
+    public final int f;
 
     public sd7(Context context) {
         Interceptable interceptable = $ic;
@@ -35,41 +44,34 @@ public class sd7 {
                 return;
             }
         }
+        this.f = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds21);
         this.a = context;
         b(context);
     }
 
     public void a(BdTypeRecyclerView bdTypeRecyclerView) {
-        View view2;
+        RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, bdTypeRecyclerView) == null) && bdTypeRecyclerView != null && (view2 = this.b) != null) {
-            view2.setVisibility(0);
-            bdTypeRecyclerView.addHeaderView(this.b);
-        }
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            p45 d = p45.d(this.c);
-            d.C(R.string.F_X02);
-            d.w(R.color.CAM_X0105);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, bdTypeRecyclerView) == null) && bdTypeRecyclerView != null && (relativeLayout = this.c) != null) {
+            relativeLayout.setVisibility(0);
+            bdTypeRecyclerView.addHeaderView(this.c);
         }
     }
 
     public void d(BdTypeRecyclerView bdTypeRecyclerView) {
-        View view2;
+        RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, bdTypeRecyclerView) == null) && bdTypeRecyclerView != null && (view2 = this.b) != null) {
-            view2.setVisibility(8);
-            bdTypeRecyclerView.removeHeaderView(this.b);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, bdTypeRecyclerView) == null) && bdTypeRecyclerView != null && (relativeLayout = this.c) != null) {
+            relativeLayout.setVisibility(8);
+            bdTypeRecyclerView.removeHeaderView(this.c);
         }
     }
 
     public void e(String str) {
+        EMTextView eMTextView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.c.setText(str);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (eMTextView = this.e) != null) {
+            eMTextView.setText(str);
         }
     }
 
@@ -78,9 +80,30 @@ public class sd7 {
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) != null) || this.b != null) {
             return;
         }
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02f7, (ViewGroup) null);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02f8, (ViewGroup) null);
         this.b = inflate;
-        this.c = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090bdf);
+        this.c = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0926dc);
+        this.d = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f0926de);
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(context.getResources().getString(R.string.obfuscated_res_0x7f0f078f));
+        EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.icon_pure_barrules_careful12, R.color.CAM_X0109, EMRichTextAnyIconSpan.IconType.WEBP);
+        eMRichTextAnyIconSpan.g(ri.g(context, R.dimen.tbds0));
+        eMRichTextAnyIconSpan.j(ri.g(context, R.dimen.M_W_X002));
+        spannableStringBuilder.setSpan(eMRichTextAnyIconSpan, 0, 1, 33);
+        this.d.setText(spannableStringBuilder);
+        this.e = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f0926dd);
         c(TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{DrawableSelector.make().setShape(0).radius(this.f).gradientLinear(DrawableSelector.TL_BR, R.color.CAM_X0212, R.color.CAM_X0212).build(), DrawableSelector.make().setShape(0).radius(this.f).defaultColor("#4D000000").build()});
+            if (layerDrawable.getDrawable(1) != null) {
+                layerDrawable.getDrawable(1).setAlpha(0);
+            }
+            this.c.setBackgroundDrawable(layerDrawable);
+            p45.d(this.d).w(R.color.CAM_X0109);
+            p45.d(this.e).w(R.color.CAM_X0109);
+        }
     }
 }

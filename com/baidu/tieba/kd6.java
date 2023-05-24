@@ -63,12 +63,12 @@ public class kd6 implements md6 {
 
         /* renamed from: com.baidu.tieba.kd6$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0367a implements Camera.PictureCallback {
+        public class C0363a implements Camera.PictureCallback {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0367a(a aVar) {
+            public C0363a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,7 +124,7 @@ public class kd6 implements md6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.b.g.takePicture(null, null, new C0367a(this));
+                    this.b.g.takePicture(null, null, new C0363a(this));
                 } catch (Exception e) {
                     e.printStackTrace();
                     this.b.J(false);

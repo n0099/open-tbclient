@@ -98,7 +98,7 @@ public class ka4 implements vq1 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, xz9.b);
+            return new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, yz9.b);
         }
         return (File) invokeV.objValue;
     }

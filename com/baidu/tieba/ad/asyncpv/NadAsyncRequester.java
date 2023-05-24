@@ -34,7 +34,7 @@ import com.baidu.tieba.sr5;
 import com.baidu.tieba.tj0;
 import com.baidu.tieba.ux4;
 import com.baidu.tieba.vx4;
-import com.baidu.tieba.xi8;
+import com.baidu.tieba.yi8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -280,7 +280,7 @@ public class NadAsyncRequester {
                 }
             }
             jSONArray.put(e(AdExtParam.KEY_NAD_CORE_VERSION, "5.11.0.5"));
-            if (!xi8.f(map)) {
+            if (!yi8.f(map)) {
                 for (Map.Entry<String, String> entry : map.entrySet()) {
                     jSONArray.put(e(entry.getKey(), entry.getValue()));
                 }

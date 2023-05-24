@@ -1,12 +1,12 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
+import android.content.Context;
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.log.DefaultLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TimeHelper;
+import com.baidu.tbadk.core.view.breathetip.BreatheTipWidget;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,122 +14,138 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class k39 {
+public class k39 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
+    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Activity a;
-    public View b;
-    public TBLottieAnimationView c;
-    public TextView d;
+
+    /* loaded from: classes6.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ View b;
+
+        public a(Context context, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = view2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || BreatheTipWidget.f() || this.a == null) {
+                return;
+            }
+            g75 g75Var = new g75();
+            g75Var.b = R.raw.lottie_bubble_breath_tip;
+            g75Var.a = BreatheTipWidget.PointType.LOTTIE;
+            g75Var.c = ri.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds130);
+            h75 h75Var = new h75();
+            h75Var.a = o19.t(R.string.obfuscated_res_0x7f0f0597, new Object[0]);
+            h75Var.b = o19.t(R.string.agree_tip_content, new Object[0]);
+            h75Var.e = R.drawable.pic_guidecard;
+            h75Var.f = ri.g(this.a, R.dimen.tbds156);
+            h75Var.g = ri.g(this.a, R.dimen.tbds489);
+            h75Var.h = ri.g(this.a, R.dimen.tbds286);
+            if (this.b == null) {
+                return;
+            }
+            BreatheTipWidget breatheTipWidget = new BreatheTipWidget(this.a);
+            breatheTipWidget.i(this.b);
+            breatheTipWidget.g(h75Var, g75Var);
+            if (breatheTipWidget.j((Activity) this.a, 4000L)) {
+                o65 m = o65.m();
+                m.w("key_pb_double_click_agree_" + TbadkCoreApplication.getCurrentAccount(), true);
+                oc5.c("c14828");
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947862296, "Lcom/baidu/tieba/k39;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947862296, "Lcom/baidu/tieba/k39;");
-        }
-    }
-
-    public k39(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947862296, "Lcom/baidu/tieba/k39;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947862296, "Lcom/baidu/tieba/k39;");
                 return;
             }
         }
-        this.a = activity;
+        a = o65.q("key_show_god_agree_tips_count");
+        b = o65.q("key_show_god_agree_tips_timestamp");
     }
 
-    public final void b(int i) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            TBLottieAnimationView tBLottieAnimationView = this.c;
-            if (tBLottieAnimationView != null) {
-                SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.lottie_full_screen_refresh);
-            }
-            TextView textView = this.d;
-            if (textView != null) {
-                p45.d(textView).w(R.color.CAM_X0108);
-            }
+        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && !b()) {
+            o65.m().A(b, System.currentTimeMillis());
+            o65.m().z(a, 0);
         }
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TBLottieAnimationView tBLottieAnimationView = this.c;
-            if (tBLottieAnimationView != null && tBLottieAnimationView.isAnimating()) {
-                tBLottieAnimationView.cancelAnimation();
-            }
-            View view2 = this.b;
-            if (view2 != null) {
-                view2.setVisibility(8);
-            }
-            DefaultLog.getInstance().c("PbFragmentLoadingManager", "隐藏最上层loading");
-        }
-    }
-
-    public final Activity getActivity() {
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            long o = o65.m().o(b, 0L);
+            if (o >= 0) {
+                return TimeHelper.isSameDay(currentTimeMillis, o);
+            }
+            return false;
         }
-        return (Activity) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final void c(View view2) {
+    public static boolean c(mx8 mx8Var) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            TBLottieAnimationView tBLottieAnimationView = this.c;
-            if (tBLottieAnimationView != null) {
-                Intrinsics.checkNotNull(tBLottieAnimationView);
-                if (tBLottieAnimationView.isAnimating()) {
-                    return;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, mx8Var)) == null) {
+            if (mx8Var == null || mx8Var.M() == null || !TbadkCoreApplication.isLogin() || !mx8Var.M().isExcellentThread() || mx8Var.M().getHasAgree() == 1) {
+                return false;
             }
-            if (view2 != null) {
-                this.b = view2;
-                if (view2 != null) {
-                    view2.setVisibility(0);
-                }
-                TBLottieAnimationView tBLottieAnimationView2 = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f092700);
-                this.c = tBLottieAnimationView2;
-                if (tBLottieAnimationView2 != null) {
-                    SkinManager.setLottieAnimation(tBLottieAnimationView2, R.raw.lottie_full_screen_refresh);
-                    TBLottieAnimationView tBLottieAnimationView3 = this.c;
-                    if (tBLottieAnimationView3 != null) {
-                        tBLottieAnimationView3.setRepeatCount(-1);
-                    }
-                    TBLottieAnimationView tBLottieAnimationView4 = this.c;
-                    if (tBLottieAnimationView4 != null) {
-                        tBLottieAnimationView4.setSpeed(1.2f);
-                    }
-                    TBLottieAnimationView tBLottieAnimationView5 = this.c;
-                    if (tBLottieAnimationView5 != null) {
-                        tBLottieAnimationView5.playAnimation();
-                    }
-                }
-                this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092701);
+            if (b()) {
+                i = o65.m().n(a, 0);
+            } else {
+                i = 0;
             }
-            DefaultLog.getInstance().c("PbFragmentLoadingManager", "显示最上层loading");
+            if (i >= 2) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void d(Context context, View view2, mx8 mx8Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, view2, mx8Var) != null) || c(mx8Var)) {
+            return;
+        }
+        o65 m = o65.m();
+        if (!m.i("key_pb_double_click_agree_" + TbadkCoreApplication.getCurrentAccount(), false)) {
+            sg.a().postDelayed(new a(context, view2), 500L);
         }
     }
 }

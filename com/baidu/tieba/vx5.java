@@ -32,10 +32,10 @@ public class vx5 {
     public int k;
 
     @NonNull
-    public vx5 a(@Nullable rr9 rr9Var) {
+    public vx5 a(@Nullable sr9 sr9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, rr9Var)) == null) ? this : (vx5) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sr9Var)) == null) ? this : (vx5) invokeL.objValue;
     }
 
     /* loaded from: classes8.dex */

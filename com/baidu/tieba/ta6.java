@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes7.dex */
-public class ta6 extends wi6<ThreadData> implements tj6 {
+public class ta6 extends xi6<ThreadData> implements uj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> i;
@@ -36,14 +36,14 @@ public class ta6 extends wi6<ThreadData> implements tj6 {
     public RelativeLayout r;
     public final View.OnClickListener s;
 
-    @Override // com.baidu.tieba.tj6
+    @Override // com.baidu.tieba.uj6
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.wi6
+    @Override // com.baidu.tieba.xi6
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class ta6 extends wi6<ThreadData> implements tj6 {
         }
     }
 
-    @Override // com.baidu.tieba.tj6
+    @Override // com.baidu.tieba.uj6
     public void p(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
@@ -130,7 +130,7 @@ public class ta6 extends wi6<ThreadData> implements tj6 {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wi6
+    @Override // com.baidu.tieba.xi6
     /* renamed from: s */
     public void i(ThreadData threadData) {
         Interceptable interceptable = $ic;
@@ -147,7 +147,7 @@ public class ta6 extends wi6<ThreadData> implements tj6 {
         }
     }
 
-    @Override // com.baidu.tieba.wi6
+    @Override // com.baidu.tieba.xi6
     public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) && this.a != i) {

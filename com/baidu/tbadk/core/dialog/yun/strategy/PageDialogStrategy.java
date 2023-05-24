@@ -9,7 +9,7 @@ import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.b;
 import com.baidu.tieba.y35;
-import com.baidu.tieba.yk8;
+import com.baidu.tieba.zk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -91,7 +91,7 @@ public class PageDialogStrategy implements y35 {
                 if (Build.VERSION.SDK_INT >= 26) {
                     obj = b.a(",", data.pageNameList);
                 }
-                yk8 yunDialogLog = YunDialogLog.getInstance();
+                zk8 yunDialogLog = YunDialogLog.getInstance();
                 yunDialogLog.c("YunDialogManager", "云弹窗命中页面限制策略，当前页面：" + data.currentPageName + "，配置限制页面：" + obj);
             }
             return contains;

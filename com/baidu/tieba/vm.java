@@ -27,7 +27,7 @@ import java.security.MessageDigest;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class vm {
     public static /* synthetic */ Interceptable $ic;
     public static volatile boolean a;
@@ -48,7 +48,7 @@ public class vm {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a extends pm.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public class vm {
                 try {
                     try {
                         if (jSONObject == null) {
-                            yk8 defaultLog = DefaultLog.getInstance();
+                            zk8 defaultLog = DefaultLog.getInstance();
                             defaultLog.b(TitanDownloadService.TAG, "response parse fail:" + this.b);
                             this.a.onResult(this.b, -1, null);
                             synchronized (vm.class) {
@@ -95,11 +95,11 @@ public class vm {
                             }
                             return;
                         }
-                        yk8 defaultLog2 = DefaultLog.getInstance();
+                        zk8 defaultLog2 = DefaultLog.getInstance();
                         defaultLog2.c(TitanDownloadService.TAG, "onResponse " + jSONObject);
                         PackageInfo j = vm.j(this.c, jSONObject);
                         if (j.errNo != 0) {
-                            yk8 defaultLog3 = DefaultLog.getInstance();
+                            zk8 defaultLog3 = DefaultLog.getInstance();
                             defaultLog3.b(TitanDownloadService.TAG, "return fail, result errno = " + j.errNo);
                             this.a.onResult(this.b, -1, null);
                             synchronized (vm.class) {
@@ -113,7 +113,7 @@ public class vm {
                             boolean unused3 = vm.a = false;
                         }
                     } catch (Exception e) {
-                        yk8 defaultLog4 = DefaultLog.getInstance();
+                        zk8 defaultLog4 = DefaultLog.getInstance();
                         defaultLog4.b(TitanDownloadService.TAG, "TitanRequester onResponse Exception:" + e);
                         this.a.onResult(this.b, -1, null);
                         synchronized (vm.class) {
@@ -130,7 +130,7 @@ public class vm {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class b implements pm.b<InputStream> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -203,7 +203,7 @@ public class vm {
                         messageDigest.update(bArr, 0, read);
                     }
                     String d = vm.d(messageDigest.digest());
-                    yk8 defaultLog = DefaultLog.getInstance();
+                    zk8 defaultLog = DefaultLog.getInstance();
                     defaultLog.c(TitanDownloadService.TAG, "download file md5 = " + d);
                     if (!TextUtils.equals(this.b, d)) {
                         DefaultLog.getInstance().b(TitanDownloadService.TAG, "patch md5 not match");
@@ -294,7 +294,7 @@ public class vm {
                 }
                 a = true;
                 String z = qm.p().z(h());
-                yk8 defaultLog = DefaultLog.getInstance();
+                zk8 defaultLog = DefaultLog.getInstance();
                 defaultLog.c(TitanDownloadService.TAG, "start require patch data, url = " + z);
                 HashMap hashMap = new HashMap();
                 hashMap.put("Content-Type", "application/json");
@@ -347,16 +347,16 @@ public class vm {
                 jSONObject5.put("device_ua", "android");
                 jSONObject.put("pubparam", jSONObject5);
             } catch (JSONException e) {
-                yk8 defaultLog = DefaultLog.getInstance();
+                zk8 defaultLog = DefaultLog.getInstance();
                 defaultLog.b(TitanDownloadService.TAG, "getCcsPostContent JSONException:" + e);
             }
             try {
                 String jSONObject6 = jSONObject.toString();
-                yk8 defaultLog2 = DefaultLog.getInstance();
+                zk8 defaultLog2 = DefaultLog.getInstance();
                 defaultLog2.c(TitanDownloadService.TAG, "getCcsContent = " + jSONObject6);
                 return jSONObject6.getBytes("UTF-8");
             } catch (UnsupportedEncodingException e2) {
-                yk8 defaultLog3 = DefaultLog.getInstance();
+                zk8 defaultLog3 = DefaultLog.getInstance();
                 defaultLog3.b(TitanDownloadService.TAG, "getCcsPostContent UnsupportedEncodingException:" + e2);
                 return null;
             }
@@ -372,7 +372,7 @@ public class vm {
             int optInt = jSONObject.optInt("errno", -1);
             packageInfo.errNo = optInt;
             if (optInt != 0) {
-                yk8 defaultLog = DefaultLog.getInstance();
+                zk8 defaultLog = DefaultLog.getInstance();
                 defaultLog.b(TitanDownloadService.TAG, "response errno = " + optInt);
                 return packageInfo;
             }

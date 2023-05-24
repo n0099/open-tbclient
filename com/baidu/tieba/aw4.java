@@ -31,20 +31,20 @@ import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class aw4 implements jh6 {
+public class aw4 implements kh6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ShareItem a;
     public PermissionJudgePolicy b;
 
-    @Override // com.baidu.tieba.jh6
+    @Override // com.baidu.tieba.kh6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        ih6.a(this, webView, str, jSONObject);
+        jh6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.jh6
+    @Override // com.baidu.tieba.kh6
     public /* synthetic */ void onDestroy() {
-        ih6.b(this);
+        jh6.b(this);
     }
 
     /* loaded from: classes4.dex */
@@ -119,7 +119,7 @@ public class aw4 implements jh6 {
         }
     }
 
-    @Override // com.baidu.tieba.jh6
+    @Override // com.baidu.tieba.kh6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -150,12 +150,12 @@ public class aw4 implements jh6 {
         return invokeLLLLL.booleanValue;
     }
 
-    public js9 d(WebView webView, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i, String str9) {
+    public ks9 d(WebView webView, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i, String str9) {
         InterceptResult invokeCommon;
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{webView, str, str2, str3, str4, str5, str6, str7, str8, Integer.valueOf(i), str9})) == null) {
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("title", str);
@@ -181,29 +181,29 @@ public class aw4 implements jh6 {
             try {
                 JSONObject jSONObject3 = new JSONObject();
                 jSONObject3.put("resultCode", i2);
-                js9Var.o(jSONObject3.toString());
-                return js9Var;
+                ks9Var.o(jSONObject3.toString());
+                return ks9Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return js9Var;
+                return ks9Var;
             }
         }
-        return (js9) invokeCommon.objValue;
+        return (ks9) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r3v10, resolved type: boolean */
     /* JADX DEBUG: Multi-variable search result rejected for r3v7, resolved type: boolean */
     /* JADX DEBUG: Multi-variable search result rejected for r3v8, resolved type: boolean */
     /* JADX WARN: Multi-variable type inference failed */
-    public js9 f(WebView webView, int i, int i2, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i3, String str9, int i4, String str10, String str11, long j, int i5, int i6, long j2, String str12, String str13, String str14, String str15, JSONObject jSONObject) {
+    public ks9 f(WebView webView, int i, int i2, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i3, String str9, int i4, String str10, String str11, long j, int i5, int i6, long j2, String str12, String str13, String str14, String str15, JSONObject jSONObject) {
         InterceptResult invokeCommon;
         int i7;
         CustomResponsedMessage runTask;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{webView, Integer.valueOf(i), Integer.valueOf(i2), str, str2, str3, str4, str5, str6, str7, str8, Integer.valueOf(i3), str9, Integer.valueOf(i4), str10, str11, Long.valueOf(j), Integer.valueOf(i5), Integer.valueOf(i6), Long.valueOf(j2), str12, str13, str14, str15, jSONObject})) == null) {
-            js9 js9Var = new js9();
-            Activity a2 = yg6.a(webView.getContext());
+            ks9 ks9Var = new ks9();
+            Activity a2 = zg6.a(webView.getContext());
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.put("channel", i);
@@ -244,16 +244,16 @@ public class aw4 implements jh6 {
                 }
                 if (shareItem != null && shareItem.j()) {
                     i(a2, shareItem, i5);
-                    js9Var.o("");
-                    return js9Var;
+                    ks9Var.o("");
+                    return ks9Var;
                 } else if (shareItem != null && shareItem.i()) {
                     i(a2, shareItem, i5);
-                    js9Var.o("");
-                    return js9Var;
+                    ks9Var.o("");
+                    return ks9Var;
                 } else if (shareItem != null && shareItem.k()) {
                     i(a2, shareItem, i5);
-                    js9Var.o("");
-                    return js9Var;
+                    ks9Var.o("");
+                    return ks9Var;
                 } else if ("1".equals(str2) && shareItem != null) {
                     shareItem.A = str;
                     shareItem.x = str3;
@@ -264,9 +264,9 @@ public class aw4 implements jh6 {
                     }
                     ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) a2, shareItem, true, (SparseArray<String>) null);
                     shareDialogConfig.mShowMoreForumShare = true;
-                    bn6.c().l(shareDialogConfig);
-                    js9Var.o("");
-                    return js9Var;
+                    cn6.c().l(shareDialogConfig);
+                    ks9Var.o("");
+                    return ks9Var;
                 } else if (i == 0) {
                     if (shareItem != null && !qi.isEmpty(str) && i2 == 1) {
                         e(shareItem);
@@ -294,14 +294,14 @@ public class aw4 implements jh6 {
             try {
                 JSONObject jSONObject4 = new JSONObject();
                 jSONObject4.put("resultCode", i7);
-                js9Var.o(jSONObject4.toString());
-                return js9Var;
+                ks9Var.o(jSONObject4.toString());
+                return ks9Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return js9Var;
+                return ks9Var;
             }
         }
-        return (js9) invokeCommon.objValue;
+        return (ks9) invokeCommon.objValue;
     }
 
     public final void g(Context context, String str, int i) {
@@ -343,11 +343,11 @@ public class aw4 implements jh6 {
         MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
     }
 
-    public js9 h(WebView webView, HashMap hashMap) {
+    public ks9 h(WebView webView, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, webView, hashMap)) == null) {
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             int intValue = ((Integer) hashMap.get("shareChannel")).intValue();
             int intValue2 = ((Integer) hashMap.get("shareStatus")).intValue();
             if (intValue2 != 3 && intValue2 != 2) {
@@ -368,13 +368,13 @@ public class aw4 implements jh6 {
                     e.printStackTrace();
                 }
                 a(webView, CommonTbJsBridge.SHARE_SUCCCESS_NOTIFICATION, jSONObject);
-                js9Var.o(jSONObject.toString());
+                ks9Var.o(jSONObject.toString());
             } else {
-                js9Var.p();
+                ks9Var.p();
             }
-            return js9Var;
+            return ks9Var;
         }
-        return (js9) invokeLL.objValue;
+        return (ks9) invokeLL.objValue;
     }
 
     public void i(Context context, ShareItem shareItem, int i) {
@@ -390,10 +390,10 @@ public class aw4 implements jh6 {
         }
         shareItem.M0 = z;
         shareItem.o0 = true;
-        bn6.c().l(new ShareDialogConfig(context, shareItem, true, (SparseArray<String>) null));
+        cn6.c().l(new ShareDialogConfig(context, shareItem, true, (SparseArray<String>) null));
         if (shareItem.j()) {
             shareItem.R = 11;
-            k58.b(shareItem.L0);
+            l58.b(shareItem.L0);
         }
     }
 }

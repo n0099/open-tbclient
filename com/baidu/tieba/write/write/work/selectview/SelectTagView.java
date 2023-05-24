@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.AutoChangeLineView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fea;
+import com.baidu.tieba.gea;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.write.write.work.selectview.SelectTagView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -66,7 +66,7 @@ public final class SelectTagView extends RelativeLayout {
             }
         }
         this.h = new ArrayList<>();
-        this.k = fea.a;
+        this.k = gea.a;
         b();
     }
 
@@ -106,7 +106,7 @@ public final class SelectTagView extends RelativeLayout {
             }
         }
         this.h = new ArrayList<>();
-        this.k = fea.a;
+        this.k = gea.a;
         b();
     }
 
@@ -130,7 +130,7 @@ public final class SelectTagView extends RelativeLayout {
             }
         }
         this.h = new ArrayList<>();
-        this.k = fea.a;
+        this.k = gea.a;
         b();
     }
 
@@ -200,7 +200,7 @@ public final class SelectTagView extends RelativeLayout {
             Intrinsics.checkNotNullExpressionValue(findViewById6, "findViewById(R.id.content_bottom_line)");
             setMBottomLine(findViewById6);
             e();
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.iea
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.jea
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

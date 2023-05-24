@@ -1,21 +1,28 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.TimeHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tieba.raa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class qca extends jca {
+public class qca extends kca {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public daa V;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
@@ -45,32 +52,67 @@ public class qca extends jca {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.a.o0()) {
-                    this.a.e.U0(9, false);
-                    this.a.p0(1);
+                yu4.x(this.a.a.getPageActivity(), "", ri.T(TbConfig.QUESTION_THREAD_RULE, "refer=3"), true, true, true);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements raa.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ raa a;
+        public final /* synthetic */ qca b;
+
+        public b(qca qcaVar, raa raaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qcaVar, raaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                qca qcaVar = this.a;
-                qcaVar.e.c(qcaVar.a.getString(R.string.obfuscated_res_0x7f0f05d6));
-                this.a.p0(0);
+            }
+            this.b = qcaVar;
+            this.a = raaVar;
+        }
+
+        @Override // com.baidu.tieba.raa.b
+        public void onClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                naa naaVar = this.b.D;
+                if (naaVar != null) {
+                    naaVar.P(0);
+                }
+                if (this.b.V != null) {
+                    this.b.V.z(8);
+                }
+                this.a.B(8);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qca(@NonNull TbPageContext<?> tbPageContext, @NonNull NavigationBar navigationBar, @NonNull LinearLayout linearLayout, @NonNull EditorTools editorTools, @NonNull vaa vaaVar, boolean z) {
-        super(tbPageContext, navigationBar, linearLayout, editorTools, vaaVar, z);
+    public qca(@NonNull TbPageContext<?> tbPageContext, @NonNull NavigationBar navigationBar, @NonNull LinearLayout linearLayout, @NonNull EditorTools editorTools, @NonNull waa waaVar, boolean z) {
+        super(tbPageContext, navigationBar, linearLayout, editorTools, waaVar, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, navigationBar, linearLayout, editorTools, vaaVar, Boolean.valueOf(z)};
+            Object[] objArr = {tbPageContext, navigationBar, linearLayout, editorTools, waaVar, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (NavigationBar) objArr2[1], (LinearLayout) objArr2[2], (EditorTools) objArr2[3], (vaa) objArr2[4], ((Boolean) objArr2[5]).booleanValue());
+                super((TbPageContext) objArr2[0], (NavigationBar) objArr2[1], (LinearLayout) objArr2[2], (EditorTools) objArr2[3], (waa) objArr2[4], ((Boolean) objArr2[5]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -78,61 +120,137 @@ public class qca extends jca {
         }
     }
 
-    @Override // com.baidu.tieba.jca, com.baidu.tieba.kca
-    public void M(@NonNull List<waa<?>> list) {
+    @Override // com.baidu.tieba.kca, com.baidu.tieba.lca
+    public void U(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            eaa f = zba.f(this.a);
-            list.add(f);
-            faa g = zba.g(this.a);
-            f.w(g);
-            list.add(g);
-            list.add(zba.o(this.a));
-            maa n = zba.n(this.a, this, this.s, this.J);
-            this.D = n;
-            list.add(n);
-            laa m = zba.m(this.a, this, this.d, this.C, this.s, this.J);
-            this.F = m;
-            f.w(m);
-            list.add(this.F);
+        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
+            super.U(bundle);
+            this.p.setQuestionThread(true);
         }
     }
 
-    @Override // com.baidu.tieba.jca, com.baidu.tieba.kca
+    public final void A0(@NonNull List<xaa<?>> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, list) == null) && B0()) {
+            raa r = aca.r(this.a);
+            r.A(new b(this, r));
+            list.add(r);
+            naa naaVar = this.D;
+            if (naaVar != null) {
+                naaVar.P(8);
+            }
+            daa d = aca.d(this.a);
+            this.V = d;
+            list.add(d);
+            C0();
+        }
+    }
+
+    @Override // com.baidu.tieba.kca, com.baidu.tieba.lca
     public void O(@NonNull EditorTools editorTools) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editorTools) == null) {
-            editorTools.setBarMaxLauCount(3);
-            editorTools.setMoreButtonAtEnd(true);
-            editorTools.setMoreVipIcon(true);
-            editorTools.setBarLauncherType(1);
+        if (interceptable == null || interceptable.invokeL(1048580, this, editorTools) == null) {
+            editorTools.setMoreButtonAtEnd(false);
+            editorTools.setBarLauncherType(8);
             editorTools.E(true);
             editorTools.F(false);
             editorTools.setBackgroundColorId(R.color.CAM_X0201);
-            bca.h(this.a, editorTools, this);
-            bca.d(editorTools, this);
-            bca.a(this.a, editorTools, this);
-            bca.b(this.a, editorTools, this);
-            bca.i(this.a, editorTools);
-            bca.m(this.a, editorTools, this.p.getCallFrom(), this);
+            cca.m(this.a, editorTools, this.p.getCallFrom(), this).n(false);
             editorTools.f();
             super.O(editorTools);
         }
     }
 
-    @Override // com.baidu.tieba.jca, com.baidu.tieba.kca
+    @Override // com.baidu.tieba.kca, com.baidu.tieba.lca
     public void P(@NonNull NavigationBar navigationBar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, navigationBar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, navigationBar) == null) {
             super.P(navigationBar);
-            if (this.q) {
-                navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f11cc));
-                r0(0, 0);
-                s0(R.drawable.obfuscated_res_0x7f080b5f, R.dimen.tbds31, R.dimen.tbds31, R.dimen.tbds0);
-                this.j.setOnClickListener(new a(this));
+            navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f109a));
+            r0(0, ri.g(this.a.getPageActivity(), R.dimen.M_W_X002));
+            s0(R.drawable.obfuscated_res_0x7f080b7e, R.dimen.tbds42, R.dimen.tbds42, R.dimen.tbds3);
+            this.j.setOnClickListener(new a(this));
+        }
+    }
+
+    public final boolean B0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return !TimeHelper.isSameDay(System.currentTimeMillis(), o65.m().o("key_question_write_guide_time", 0L));
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void C0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            o65.m().A("key_question_write_guide_time", System.currentTimeMillis());
+        }
+    }
+
+    @Override // com.baidu.tieba.kca, com.baidu.tieba.lca
+    public void Y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            vq9.q(this.p.getForumId(), this);
+        }
+    }
+
+    @Override // com.baidu.tieba.kca, com.baidu.tieba.lca
+    public void c0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            super.c0();
+            vq9.A(this.p.getForumId(), this.p, false);
+        }
+    }
+
+    @Override // com.baidu.tieba.kca, com.baidu.tieba.lca, com.baidu.tieba.zaa
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            super.j();
+            vq9.A(this.p.getForumId(), this.p, true);
+        }
+    }
+
+    @Override // com.baidu.tieba.kca, com.baidu.tieba.lca
+    public void M(@NonNull List<xaa<?>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            list.add(aca.o(this.a));
+            naa n = aca.n(this.a, this, this.s, this.J);
+            this.D = n;
+            n.Q(false);
+            list.add(this.D);
+            A0(list);
+            caa c = aca.c(this.a, this, this.d, this.s, this.J);
+            this.E = c;
+            list.add(c);
+            list.add(aca.h(this.a, this.C));
+            kaa k = aca.k(this.a);
+            k.w(this.E);
+            list.add(k);
+            laa l = aca.l(this.a);
+            k.w(l);
+            list.add(l);
+        }
+    }
+
+    @Override // com.baidu.tieba.kca, com.baidu.tieba.lca, com.baidu.tieba.taa
+    public void q(@NonNull yaa yaaVar, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048586, this, yaaVar, z) == null) {
+            super.q(yaaVar, z);
+            if (this.a.getPageActivity() == null) {
                 return;
             }
-            navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f1085));
+            if (z) {
+                this.a.getPageActivity().getWindow().setSoftInputMode(16);
+            } else {
+                this.a.getPageActivity().getWindow().setSoftInputMode(48);
+            }
         }
     }
 }

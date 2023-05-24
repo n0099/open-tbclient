@@ -34,13 +34,13 @@ public class lw2 extends db3 {
 
         /* renamed from: com.baidu.tieba.lw2$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0376a implements Runnable {
+        public class RunnableC0378a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ a b;
 
-            public RunnableC0376a(a aVar, String str) {
+            public RunnableC0378a(a aVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,7 +99,7 @@ public class lw2 extends db3 {
                 if (TextUtils.isEmpty(str)) {
                     mg3.b("audio", 3001, "cloud url is null", -1, "");
                 }
-                an3.e0(new RunnableC0376a(this, str));
+                an3.e0(new RunnableC0378a(this, str));
             }
         }
     }

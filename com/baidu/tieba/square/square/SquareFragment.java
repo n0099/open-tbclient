@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ko9;
-import com.baidu.tieba.mo9;
+import com.baidu.tieba.lo9;
+import com.baidu.tieba.no9;
 import com.baidu.tieba.square.square.SquareModel;
 import com.baidu.tieba.y65;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -30,7 +30,7 @@ public class SquareFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public static boolean l;
     public transient /* synthetic */ FieldHolder $fh;
-    public mo9 a;
+    public no9 a;
     public SquareModel b;
     public boolean c;
     public boolean d;
@@ -82,13 +82,13 @@ public class SquareFragment extends BaseFragment {
         }
 
         @Override // com.baidu.tieba.square.square.SquareModel.a
-        public void a(boolean z, String str, ko9 ko9Var) {
+        public void a(boolean z, String str, lo9 lo9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, ko9Var}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, lo9Var}) == null) {
                 this.a.a.z(true, "");
                 SquareFragment squareFragment = this.a;
                 squareFragment.hideLoadingView(squareFragment.a.A());
-                if (z && ko9Var != null && !ko9Var.g()) {
+                if (z && lo9Var != null && !lo9Var.g()) {
                     this.a.a.D(this.a.b.d0());
                     this.a.c = true;
                     this.a.a.B();
@@ -289,9 +289,9 @@ public class SquareFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             super.onChangeSkinType(i);
-            mo9 mo9Var = this.a;
-            if (mo9Var != null) {
-                mo9Var.onChangeSkinType(i);
+            no9 no9Var = this.a;
+            if (no9Var != null) {
+                no9Var.onChangeSkinType(i);
             }
         }
     }
@@ -313,9 +313,9 @@ public class SquareFragment extends BaseFragment {
     public final void W1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            mo9 mo9Var = new mo9(this.f, getUniqueId(), this.g, this.j);
-            this.a = mo9Var;
-            mo9Var.F(this.k);
+            no9 no9Var = new no9(this.f, getUniqueId(), this.g, this.j);
+            this.a = no9Var;
+            no9Var.F(this.k);
         }
     }
 

@@ -1,26 +1,26 @@
 package rx.internal.operators;
 
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.j7b;
-import com.baidu.tieba.n7b;
+import com.baidu.tieba.k7b;
 import com.baidu.tieba.o7b;
-import com.baidu.tieba.t8b;
+import com.baidu.tieba.p7b;
+import com.baidu.tieba.u8b;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes10.dex */
-public final class OperatorPublish$InnerProducer<T> extends AtomicLong implements j7b, o7b {
+public final class OperatorPublish$InnerProducer<T> extends AtomicLong implements k7b, p7b {
     public static final long NOT_REQUESTED = -4611686018427387904L;
     public static final long UNSUBSCRIBED = Long.MIN_VALUE;
     public static final long serialVersionUID = -4453897557930727610L;
-    public final n7b<? super T> child;
-    public final t8b<T> parent;
+    public final o7b<? super T> child;
+    public final u8b<T> parent;
 
-    public OperatorPublish$InnerProducer(t8b<T> t8bVar, n7b<? super T> n7bVar) {
-        this.parent = t8bVar;
-        this.child = n7bVar;
+    public OperatorPublish$InnerProducer(u8b<T> u8bVar, o7b<? super T> o7bVar) {
+        this.parent = u8bVar;
+        this.child = o7bVar;
         lazySet(-4611686018427387904L);
     }
 
-    @Override // com.baidu.tieba.o7b
+    @Override // com.baidu.tieba.p7b
     public boolean isUnsubscribed() {
         if (get() == Long.MIN_VALUE) {
             return true;
@@ -28,7 +28,7 @@ public final class OperatorPublish$InnerProducer<T> extends AtomicLong implement
         return false;
     }
 
-    @Override // com.baidu.tieba.o7b
+    @Override // com.baidu.tieba.p7b
     public void unsubscribe() {
         if (get() != Long.MIN_VALUE && getAndSet(Long.MIN_VALUE) != Long.MIN_VALUE) {
             this.parent.h(this);
@@ -59,7 +59,7 @@ public final class OperatorPublish$InnerProducer<T> extends AtomicLong implement
         throw new IllegalArgumentException("Cant produce zero or less");
     }
 
-    @Override // com.baidu.tieba.j7b
+    @Override // com.baidu.tieba.k7b
     public void request(long j) {
         long j2;
         long j3;

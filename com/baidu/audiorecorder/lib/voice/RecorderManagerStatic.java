@@ -8,7 +8,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tieba.ap;
 import com.baidu.tieba.df5;
-import com.baidu.tieba.jt9;
+import com.baidu.tieba.kt9;
 import com.baidu.tieba.wo;
 import com.baidu.tieba.yo;
 import com.baidu.tieba.zo;
@@ -44,7 +44,7 @@ public class RecorderManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<jt9> run(CustomMessage<Activity> customMessage) {
+        public CustomResponsedMessage<kt9> run(CustomMessage<Activity> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {

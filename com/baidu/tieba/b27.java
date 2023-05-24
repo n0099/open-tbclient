@@ -2,6 +2,7 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.text.SpannableString;
+import android.text.TextUtils;
 import android.text.style.ClickableSpan;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,8 +10,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes4.dex */
-public final class b27 implements v17 {
+public final class b27 implements w17 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,17 +30,28 @@ public final class b27 implements v17 {
         }
     }
 
-    @Override // com.baidu.tieba.v17
-    public SpannableString b(Context context, w07 richTextData, ClickableSpan clickableSpan) {
+    @Override // com.baidu.tieba.w17
+    public SpannableString b(Context context, x07 richTextData, ClickableSpan clickableSpan) {
         InterceptResult invokeLLL;
+        c07 b;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, richTextData, clickableSpan)) == null) {
             Intrinsics.checkNotNullParameter(context, "context");
             Intrinsics.checkNotNullParameter(richTextData, "richTextData");
             Intrinsics.checkNotNullParameter(clickableSpan, "clickableSpan");
-            SpannableString j = nx5.j(richTextData.b());
-            Intrinsics.checkNotNullExpressionValue(j, "getFaceSpannableString(richTextData.emoji)");
-            return j;
+            a17 f = richTextData.f();
+            SpannableString spannableString = new SpannableString(f.c());
+            if (!TextUtils.isEmpty(richTextData.d()) && f.b() != null) {
+                if ((clickableSpan instanceof x17) && (b = f.b()) != null) {
+                    ((x17) clickableSpan).a(m47.a.a(b));
+                }
+                int length = f.c().length();
+                if (StringsKt__StringsJVMKt.endsWith$default(f.c(), " ", false, 2, null)) {
+                    length = f.c().length() - 1;
+                }
+                spannableString.setSpan(clickableSpan, 0, length, 33);
+            }
+            return spannableString;
         }
         return (SpannableString) invokeLLL.objValue;
     }

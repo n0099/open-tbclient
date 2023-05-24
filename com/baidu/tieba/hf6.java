@@ -30,10 +30,10 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class hf6 implements hh6 {
+public class hf6 implements ih6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<jh6> b;
+    public final ArrayList<kh6> b;
     public final if6 c;
 
     public hf6() {
@@ -53,7 +53,7 @@ public class hf6 implements hh6 {
         this.c = new if6();
     }
 
-    @Override // com.baidu.tieba.hh6
+    @Override // com.baidu.tieba.ih6
     public void a(List<Pair<String, String>> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
@@ -61,11 +61,11 @@ public class hf6 implements hh6 {
         }
     }
 
-    @Override // com.baidu.tieba.hh6
+    @Override // com.baidu.tieba.ih6
     public void b(String str, HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, hashMap) == null) {
-            for (WeakReference<WebView> weakReference : lh6.b().a()) {
+            for (WeakReference<WebView> weakReference : mh6.b().a()) {
                 if (weakReference != null && weakReference.get() != null) {
                     try {
                         d(weakReference.get(), str, hashMap);
@@ -77,7 +77,7 @@ public class hf6 implements hh6 {
         }
     }
 
-    @Override // com.baidu.tieba.hh6
+    @Override // com.baidu.tieba.ih6
     public boolean c(WebView webView, String str, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -91,7 +91,7 @@ public class hf6 implements hh6 {
         return invokeLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.hh6
+    @Override // com.baidu.tieba.ih6
     public void e(View view2, String str, ValueCallback<String> valueCallback) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(1048580, this, view2, str, valueCallback) == null) && !TextUtils.isEmpty(str)) {
@@ -125,21 +125,21 @@ public class hf6 implements hh6 {
         }
     }
 
-    public final boolean l(TbPageContext<?> tbPageContext, String str, js9 js9Var) {
+    public final boolean l(TbPageContext<?> tbPageContext, String str, ks9 ks9Var) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, tbPageContext, str, js9Var)) == null) {
-            if (js9Var == null || js9Var.i() || !SchemeActionManager.getInstance().doSchemeAction(tbPageContext, str)) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, tbPageContext, str, ks9Var)) == null) {
+            if (ks9Var == null || ks9Var.i() || !SchemeActionManager.getInstance().doSchemeAction(tbPageContext, str)) {
                 return false;
             }
-            js9Var.s(true);
-            js9Var.z(0);
+            ks9Var.s(true);
+            ks9Var.z(0);
             return true;
         }
         return invokeLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.hh6
+    @Override // com.baidu.tieba.ih6
     public void d(View view2, String str, @Nullable HashMap<String, Object> hashMap) {
         WebView webView;
         Interceptable interceptable = $ic;
@@ -155,22 +155,22 @@ public class hf6 implements hh6 {
             if (webView != null) {
                 i(webView.getUrl(), str, str);
                 if (this.c.e(webView, this.c.g(webView, str, hashMap))) {
-                    wh6.c("newHybrid", "端能力 执行成功 " + str + " 耗时:" + (System.currentTimeMillis() - currentTimeMillis));
+                    xh6.c("newHybrid", "端能力 执行成功 " + str + " 耗时:" + (System.currentTimeMillis() - currentTimeMillis));
                     return;
                 }
-                wh6.d("newHybrid", "端能力 执行失败 " + str + " 耗时:" + (System.currentTimeMillis() - currentTimeMillis));
+                xh6.d("newHybrid", "端能力 执行失败 " + str + " 耗时:" + (System.currentTimeMillis() - currentTimeMillis));
                 return;
             }
-            wh6.b("newHybrid", "端能力 执行失败 view类型不匹配！" + view2);
+            xh6.b("newHybrid", "端能力 执行失败 view类型不匹配！" + view2);
         }
     }
 
-    @Override // com.baidu.tieba.hh6
-    public void f(jh6 jh6Var, Object obj) {
+    @Override // com.baidu.tieba.ih6
+    public void f(kh6 kh6Var, Object obj) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, jh6Var, obj) == null) && (obj instanceof hs9)) {
-            this.b.add(jh6Var);
-            this.c.a((hs9) obj);
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, kh6Var, obj) == null) && (obj instanceof is9)) {
+            this.b.add(kh6Var);
+            this.c.a((is9) obj);
         }
     }
 
@@ -178,9 +178,9 @@ public class hf6 implements hh6 {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            Iterator<jh6> it = this.b.iterator();
+            Iterator<kh6> it = this.b.iterator();
             while (it.hasNext()) {
-                jh6 next = it.next();
+                kh6 next = it.next();
                 if (next != null && next.b(webView, str, str2, str3, jsPromptResult)) {
                     return false;
                 }
@@ -198,12 +198,12 @@ public class hf6 implements hh6 {
                 return false;
             }
             try {
-                yk8 hybridLog = HybridLog.getInstance();
+                zk8 hybridLog = HybridLog.getInstance();
                 hybridLog.c("JsBridge", "processJSON json:" + str);
                 JSONObject jSONObject = new JSONObject(str);
                 return g(webView, jSONObject.optString("interfaceName", ""), jSONObject.optString("methodName", ""), jSONObject.optString("param", ""), jsPromptResult);
             } catch (JSONException e) {
-                yk8 hybridLog2 = HybridLog.getInstance();
+                zk8 hybridLog2 = HybridLog.getInstance();
                 hybridLog2.b("JsBridge", "processJSON JSONException:" + e);
                 return false;
             }
@@ -215,33 +215,33 @@ public class hf6 implements hh6 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, webView, str)) == null) {
-            yk8 hybridLog = HybridLog.getInstance();
+            zk8 hybridLog = HybridLog.getInstance();
             hybridLog.c("JsBridge", "processScheme scheme:" + str);
-            ls9 ls9Var = new ls9();
-            String a = ns9.a(str);
-            String d = ns9.d(str);
-            String b = ns9.b(str);
-            ls9Var.f(a);
-            ls9Var.h(d);
-            js9 js9Var = new js9();
-            js9Var.w(b);
+            ms9 ms9Var = new ms9();
+            String a = os9.a(str);
+            String d = os9.d(str);
+            String b = os9.b(str);
+            ms9Var.f(a);
+            ms9Var.h(d);
+            ks9 ks9Var = new ks9();
+            ks9Var.w(b);
             if (qi.isEmpty(a) || qi.isEmpty(d) || qi.isEmpty(b)) {
-                js9Var.z(101);
+                ks9Var.z(101);
             }
             try {
-                ls9Var.j(ns9.f(str));
+                ms9Var.j(os9.f(str));
             } catch (JSONException unused) {
-                ls9Var.j(new JSONObject());
-                js9Var.z(101);
+                ms9Var.j(new JSONObject());
+                ks9Var.z(101);
             }
-            ls9Var.i(ns9.e(str));
-            ls9Var.g(ns9.c(str));
-            js9 c = this.c.c(webView, ls9Var, js9Var);
+            ms9Var.i(os9.e(str));
+            ms9Var.g(os9.c(str));
+            ks9 c = this.c.c(webView, ms9Var, ks9Var);
             if (c.g()) {
                 this.c.d(webView, c);
                 return false;
             }
-            l(up9.a(webView.getContext()), str, c);
+            l(vp9.a(webView.getContext()), str, c);
             return false;
         }
         return invokeLL.booleanValue;

@@ -1,18 +1,51 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.p2b;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
 /* loaded from: classes6.dex */
-public class j2b {
+public final class j2b {
     public static /* synthetic */ Interceptable $ic;
-    public static p2b a;
+    public static final j2b d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Executor a;
+    public final ExecutorService b;
+    public final Executor c;
+
+    /* loaded from: classes6.dex */
+    public static final class a implements Executor {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.util.concurrent.Executor
+        public final void execute(Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+                runnable.run();
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -27,35 +60,42 @@ public class j2b {
                 return;
             }
         }
-        a = new p2b();
+        d = new j2b();
     }
 
-    public static <TResult> TResult a(g2b<TResult> g2bVar) throws ExecutionException, InterruptedException {
-        InterceptResult invokeL;
+    public j2b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, g2bVar)) == null) {
-            p2b.c("await must not be called on the UI thread");
-            if (g2bVar.g()) {
-                return (TResult) p2b.b(g2bVar);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            p2b.b bVar = new p2b.b();
-            g2bVar.c(bVar);
-            g2bVar.b(bVar);
-            bVar.a.await();
-            return (TResult) p2b.b(g2bVar);
         }
-        return (TResult) invokeL.objValue;
+        this.b = l2b.a();
+        this.a = new a();
+        this.c = l2b.b();
     }
 
-    public static <TResult> g2b<TResult> b(Callable<TResult> callable) {
-        InterceptResult invokeL;
+    public static ExecutorService a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, callable)) == null) ? a.a(i2b.a(), callable) : (g2b) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? d.b : (ExecutorService) invokeV.objValue;
     }
 
-    public static <TResult> g2b<TResult> call(Callable<TResult> callable) {
-        InterceptResult invokeL;
+    public static Executor b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, callable)) == null) ? a.a(i2b.b(), callable) : (g2b) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? d.a : (Executor) invokeV.objValue;
+    }
+
+    public static Executor c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? d.c : (Executor) invokeV.objValue;
     }
 }

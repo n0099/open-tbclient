@@ -41,15 +41,15 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.bubble.adapter.Excell
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.tieba.immessagecenter.slice.Slice;
-import com.baidu.tieba.j88;
+import com.baidu.tieba.k88;
 import com.baidu.tieba.m25;
 import com.baidu.tieba.o25;
 import com.baidu.tieba.o65;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.sg;
-import com.baidu.tieba.sha;
-import com.baidu.tieba.tb8;
+import com.baidu.tieba.tha;
+import com.baidu.tieba.ub8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -258,7 +258,7 @@ public class TopBubbleSlice extends Slice {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && this.a.t != null && this.a.t.isNotice()) {
                 boolean z = true;
-                j88.b(this.a.t.getVersionKey(), true);
+                k88.b(this.a.t.getVersionKey(), true);
                 this.a.m.remove(this.a.t);
                 if (this.a.m.size() > 0) {
                     TopBubbleSlice topBubbleSlice = this.a;
@@ -421,7 +421,7 @@ public class TopBubbleSlice extends Slice {
             if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || (topBubbleData = this.a.n.get(i)) == null) {
                 return;
             }
-            j88.b(topBubbleData.getVersionKey(), true);
+            k88.b(topBubbleData.getVersionKey(), true);
             this.a.l.e1(topBubbleData);
             this.a.l.Z0(topBubbleData.getMsgId(), topBubbleData.getMsgKey());
             this.a.u.dismiss();
@@ -500,7 +500,7 @@ public class TopBubbleSlice extends Slice {
                     this.b.Q0();
                     this.a.dismiss();
                 } else if (!StringUtils.isNull(this.b.p) && !StringUtils.isNull(this.b.s)) {
-                    UrlManager.getInstance().dealOneLink(this.b.j, new String[]{TopBubbleSlice.J0(sha.a(sha.a(TbConfig.URL_EXCELLENT_ROOM, "roomId", this.b.s), "forumId", this.b.p))});
+                    UrlManager.getInstance().dealOneLink(this.b.j, new String[]{TopBubbleSlice.J0(tha.a(tha.a(TbConfig.URL_EXCELLENT_ROOM, "roomId", this.b.s), "forumId", this.b.p))});
                     this.a.dismiss();
                 }
             }
@@ -538,7 +538,7 @@ public class TopBubbleSlice extends Slice {
                 return;
             }
             this.a.G0();
-            tb8.a(this.a.j.getPageActivity());
+            ub8.a(this.a.j.getPageActivity());
         }
     }
 
@@ -789,7 +789,7 @@ public class TopBubbleSlice extends Slice {
                 if (topBubbleData != null) {
                     boolean isNotice = topBubbleData.isNotice();
                     this.v = isNotice;
-                    if (isNotice && j88.a(this.t.getVersionKey())) {
+                    if (isNotice && k88.a(this.t.getVersionKey())) {
                         this.m.remove(this.t);
                         if (this.m.size() > 0) {
                             this.v = false;
@@ -859,8 +859,8 @@ public class TopBubbleSlice extends Slice {
             this.o.b.setExcellentRead();
             TopBubbleData topBubbleData2 = this.t;
             if (topBubbleData2 != null) {
-                if (!j88.a(topBubbleData2.getVersionKey())) {
-                    j88.b(this.t.getVersionKey(), true);
+                if (!k88.a(topBubbleData2.getVersionKey())) {
+                    k88.b(this.t.getVersionKey(), true);
                 }
                 this.l.Z0(this.t.getMsgId(), this.t.getMsgKey());
             }

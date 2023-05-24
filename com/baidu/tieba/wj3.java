@@ -54,12 +54,12 @@ public class wj3 extends jx1 {
 
         /* renamed from: com.baidu.tieba.wj3$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0486a implements zn3<gk3<fk3>> {
+        public class C0485a implements zn3<gk3<fk3>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0486a(a aVar) {
+            public C0485a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -134,7 +134,7 @@ public class wj3 extends jx1 {
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                dk3.s(this.a).a(this.b, new C0486a(this));
+                dk3.s(this.a).a(this.b, new C0485a(this));
             }
         }
 

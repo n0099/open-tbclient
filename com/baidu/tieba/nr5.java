@@ -290,14 +290,14 @@ public class nr5 {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, str, i)) == null) {
-            List<ln7> j = mn7.m().j(str);
+            List<mn7> j = nn7.m().j(str);
             JSONArray jSONArray = new JSONArray();
-            for (ln7 ln7Var : j) {
-                for (int i2 = 0; i2 < ln7Var.e && jSONArray.length() < i; i2++) {
+            for (mn7 mn7Var : j) {
+                for (int i2 = 0; i2 < mn7Var.e && jSONArray.length() < i; i2++) {
                     try {
                         JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("id", ln7Var.d + i2);
-                        jSONObject.put("ecpm", String.valueOf(ln7Var.f));
+                        jSONObject.put("id", mn7Var.d + i2);
+                        jSONObject.put("ecpm", String.valueOf(mn7Var.f));
                         jSONArray.put(jSONObject);
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -400,22 +400,22 @@ public class nr5 {
 
     public static boolean p(Object obj) {
         InterceptResult invokeL;
-        pr9 pr9Var;
+        qr9 qr9Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, obj)) == null) {
             if (obj instanceof zz4) {
                 return true;
             }
             if (obj instanceof o15) {
-                pr9Var = ((o15) obj).t.funAdData;
+                qr9Var = ((o15) obj).t.funAdData;
             } else if (obj instanceof ThreadData) {
-                pr9Var = ((ThreadData) obj).funAdData;
-            } else if (obj instanceof rr9) {
-                pr9Var = ((rr9) obj).w0;
+                qr9Var = ((ThreadData) obj).funAdData;
+            } else if (obj instanceof sr9) {
+                qr9Var = ((sr9) obj).w0;
             } else {
-                pr9Var = null;
+                qr9Var = null;
             }
-            if (pr9Var != null) {
+            if (qr9Var != null) {
                 return true;
             }
             return false;
@@ -428,8 +428,8 @@ public class nr5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
             int i = 0;
-            for (ln7 ln7Var : mn7.m().j(str)) {
-                i += ln7Var.e;
+            for (mn7 mn7Var : nn7.m().j(str)) {
+                i += mn7Var.e;
             }
             return i;
         }

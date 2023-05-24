@@ -13,14 +13,14 @@ import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b6a;
+import com.baidu.tieba.c6a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class CaptureRecordButton extends FrameLayout implements b6a {
+public class CaptureRecordButton extends FrameLayout implements c6a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -143,7 +143,7 @@ public class CaptureRecordButton extends FrameLayout implements b6a {
         }
     }
 
-    @Override // com.baidu.tieba.b6a
+    @Override // com.baidu.tieba.c6a
     public void setMaxDuration(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
@@ -151,7 +151,7 @@ public class CaptureRecordButton extends FrameLayout implements b6a {
         }
     }
 
-    @Override // com.baidu.tieba.b6a
+    @Override // com.baidu.tieba.c6a
     public void setMinDuration(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
@@ -159,15 +159,15 @@ public class CaptureRecordButton extends FrameLayout implements b6a {
         }
     }
 
-    @Override // com.baidu.tieba.b6a
-    public void setOnProgressListener(b6a.a aVar) {
+    @Override // com.baidu.tieba.c6a
+    public void setOnProgressListener(c6a.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, aVar) == null) {
             this.d.setOnProgressListener(aVar);
         }
     }
 
-    @Override // com.baidu.tieba.b6a
+    @Override // com.baidu.tieba.c6a
     public void setProgress(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
@@ -175,7 +175,7 @@ public class CaptureRecordButton extends FrameLayout implements b6a {
         }
     }
 
-    @Override // com.baidu.tieba.b6a
+    @Override // com.baidu.tieba.c6a
     public void setShowDeleteLastTip(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
@@ -183,7 +183,7 @@ public class CaptureRecordButton extends FrameLayout implements b6a {
         }
     }
 
-    @Override // com.baidu.tieba.b6a
+    @Override // com.baidu.tieba.c6a
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -191,7 +191,7 @@ public class CaptureRecordButton extends FrameLayout implements b6a {
         }
     }
 
-    @Override // com.baidu.tieba.b6a
+    @Override // com.baidu.tieba.c6a
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -248,7 +248,7 @@ public class CaptureRecordButton extends FrameLayout implements b6a {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.b6a
+    @Override // com.baidu.tieba.c6a
     public int getMaxDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -267,7 +267,7 @@ public class CaptureRecordButton extends FrameLayout implements b6a {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.b6a
+    @Override // com.baidu.tieba.c6a
     public float getProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -277,7 +277,7 @@ public class CaptureRecordButton extends FrameLayout implements b6a {
         return invokeV.floatValue;
     }
 
-    @Override // com.baidu.tieba.b6a
+    @Override // com.baidu.tieba.c6a
     public int getSlideNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -287,7 +287,7 @@ public class CaptureRecordButton extends FrameLayout implements b6a {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.b6a
+    @Override // com.baidu.tieba.c6a
     public void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
@@ -295,7 +295,7 @@ public class CaptureRecordButton extends FrameLayout implements b6a {
         }
     }
 
-    @Override // com.baidu.tieba.b6a
+    @Override // com.baidu.tieba.c6a
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
@@ -303,7 +303,7 @@ public class CaptureRecordButton extends FrameLayout implements b6a {
         }
     }
 
-    @Override // com.baidu.tieba.b6a
+    @Override // com.baidu.tieba.c6a
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {

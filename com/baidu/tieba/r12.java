@@ -21,7 +21,7 @@ public class r12 extends q12 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public n7b c;
+    public o7b c;
 
     /* loaded from: classes7.dex */
     public class a implements zn3<je3<le3.e>> {
@@ -174,7 +174,7 @@ public class r12 extends q12 {
                 return false;
             }
             a22 a22Var = (a22) r(unitedSchemeEntity);
-            n7b w = new f52(context, a22Var).w();
+            o7b w = new f52(context, a22Var).w();
             this.c = w;
             if (w == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -198,12 +198,12 @@ public class r12 extends q12 {
                 String str = a22Var.b;
                 mz2 mz2Var = a22Var.h;
                 if (!TextUtils.isEmpty(str) && mz2Var != null && mz2Var.h()) {
-                    n7b n7bVar = this.c;
-                    if (n7bVar == null) {
+                    o7b o7bVar = this.c;
+                    if (o7bVar == null) {
                         z52.a("SwanAppCameraManager", "executionInstruction with a null subscriber");
                         return false;
                     }
-                    n7bVar.onCompleted();
+                    o7bVar.onCompleted();
                     g62.i("SwanAppCameraManager", "handle insert camera instruction end");
                     return true;
                 }

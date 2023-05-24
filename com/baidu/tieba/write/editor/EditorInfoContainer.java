@@ -27,7 +27,7 @@ import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
 import com.baidu.tieba.d25;
 import com.baidu.tieba.ef5;
-import com.baidu.tieba.f8a;
+import com.baidu.tieba.g8a;
 import com.baidu.tieba.n75;
 import com.baidu.tieba.o65;
 import com.baidu.tieba.p45;
@@ -144,7 +144,7 @@ public class EditorInfoContainer extends LinearLayout implements ef5 {
                         }
                         this.a.b.B(i);
                         if ("2".equals(this.a.b.h)) {
-                            f8a.b(this.a.b.j, i);
+                            g8a.b(this.a.b.j, i);
                         }
                     }
                 }
@@ -410,7 +410,7 @@ public class EditorInfoContainer extends LinearLayout implements ef5 {
     }
 
     /* loaded from: classes8.dex */
-    public class h implements f8a.c {
+    public class h implements g8a.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EditorInfoContainer a;
@@ -433,7 +433,7 @@ public class EditorInfoContainer extends LinearLayout implements ef5 {
             this.a = editorInfoContainer;
         }
 
-        @Override // com.baidu.tieba.f8a.c
+        @Override // com.baidu.tieba.g8a.c
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
@@ -634,7 +634,7 @@ public class EditorInfoContainer extends LinearLayout implements ef5 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048596, this, str, i2) == null) && "2".equals(this.h)) {
             this.j = str;
-            f8a.a(str, i2, new h(this));
+            g8a.a(str, i2, new h(this));
         }
     }
 

@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.view.NoPressedLinearLayout;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ef5;
-import com.baidu.tieba.jq8;
 import com.baidu.tieba.kq8;
 import com.baidu.tieba.lq8;
-import com.baidu.tieba.nq8;
+import com.baidu.tieba.mq8;
+import com.baidu.tieba.oq8;
 import com.baidu.tieba.se5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -26,9 +26,9 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements ef5 
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public jq8 b;
-    public lq8 c;
-    public nq8 d;
+    public kq8 b;
+    public mq8 c;
+    public oq8 d;
     public EditorTools e;
     public View.OnClickListener f;
 
@@ -79,14 +79,14 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements ef5 
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            kq8 kq8Var;
+            lq8 lq8Var;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || (kq8Var = (kq8) view2.getTag()) == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || (lq8Var = (lq8) view2.getTag()) == null) {
                 return;
             }
-            this.a.c.c(kq8Var.b());
+            this.a.c.c(lq8Var.b());
             this.a.b.notifyDataSetChanged();
-            this.a.e.C(new se5(26, -1, kq8Var.b()));
+            this.a.e.C(new se5(26, -1, lq8Var.b()));
         }
     }
 
@@ -168,13 +168,13 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements ef5 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, tbPageContext, str) == null) {
             LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0905, (ViewGroup) this, true);
-            this.d = new nq8(this);
-            lq8 lq8Var = new lq8(tbPageContext);
-            this.c = lq8Var;
-            lq8Var.c(str);
-            jq8 jq8Var = new jq8(tbPageContext, this.c, this.f);
-            this.b = jq8Var;
-            this.d.a(jq8Var);
+            this.d = new oq8(this);
+            mq8 mq8Var = new mq8(tbPageContext);
+            this.c = mq8Var;
+            mq8Var.c(str);
+            kq8 kq8Var = new kq8(tbPageContext, this.c, this.f);
+            this.b = kq8Var;
+            this.d.a(kq8Var);
         }
     }
 }

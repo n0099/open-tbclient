@@ -1,10 +1,5 @@
 package com.baidu.tieba;
-
-import android.view.ViewTreeObserver;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public class hr7 implements ViewTreeObserver.OnGlobalLayoutListener {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface hr7 {
+    void a(int i);
 }

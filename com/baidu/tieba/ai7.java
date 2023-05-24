@@ -1,11 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.util.PriorityOrganizer;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.kk5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,6 +16,7 @@ public class ai7 extends PriorityOrganizer.Task {
     public transient /* synthetic */ FieldHolder $fh;
     public FrsFragment m;
     public FrsActivity n;
+    public kk5.b o;
 
     public ai7(FrsActivity frsActivity, FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
@@ -38,28 +38,19 @@ public class ai7 extends PriorityOrganizer.Task {
     }
 
     @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public boolean u() {
+    public boolean w() {
         InterceptResult invokeV;
+        kk5.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             FrsFragment frsFragment = this.m;
-            if (frsFragment != null && !frsFragment.I3()) {
-                return true;
+            if (frsFragment != null) {
+                this.o = frsFragment.O3();
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public boolean w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (a35.j()) {
+            if (o65.m().i("key_chat_group_guide_show", false) || (bVar = this.o) == null || !bVar.n0()) {
                 return false;
             }
-            return !o65.m().i("has_guide_popup_window_been_shown", false);
+            return true;
         }
         return invokeV.booleanValue;
     }
@@ -67,9 +58,11 @@ public class ai7 extends PriorityOrganizer.Task {
     @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
     public void z() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921476));
-            this.m.P4(true);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            kk5.b bVar = this.o;
+            if (bVar != null) {
+                bVar.X0();
+            }
             t();
         }
     }

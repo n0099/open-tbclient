@@ -19,7 +19,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.cn;
 import com.baidu.tieba.hx4;
 import com.baidu.tieba.js5;
-import com.baidu.tieba.mw6;
+import com.baidu.tieba.nw6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -192,7 +192,7 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
             if (!TextUtils.isEmpty(this.h)) {
                 this.c.N(this.h, 10, false);
             } else {
-                Bitmap f = mw6.f(this.f, "panel.png");
+                Bitmap f = nw6.f(this.f, "panel.png");
                 if (f != null) {
                     new cn(f, false).h(this.c);
                 }

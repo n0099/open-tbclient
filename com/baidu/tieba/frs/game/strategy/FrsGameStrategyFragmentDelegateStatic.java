@@ -11,7 +11,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c97;
+import com.baidu.tieba.d97;
 import com.baidu.tieba.xi5;
 import com.baidu.tieba.yi5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -69,14 +69,14 @@ public class FrsGameStrategyFragmentDelegateStatic extends xi5 {
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2001616 || customResponsedMessage.getData() == null) {
                 return;
             }
-            c97 c97Var = (c97) customResponsedMessage.getData();
+            d97 d97Var = (d97) customResponsedMessage.getData();
             FrsGameStrategyFragmentDelegateStatic frsGameStrategyFragmentDelegateStatic = new FrsGameStrategyFragmentDelegateStatic();
-            c97Var.a(frsGameStrategyFragmentDelegateStatic);
-            if (c97Var.getContext() == null || (b = frsGameStrategyFragmentDelegateStatic.b()) == null) {
+            d97Var.a(frsGameStrategyFragmentDelegateStatic);
+            if (d97Var.getContext() == null || (b = frsGameStrategyFragmentDelegateStatic.b()) == null) {
                 return;
             }
             Bundle bundle = new Bundle();
-            bundle.putString("name", c97Var.d());
+            bundle.putString("name", d97Var.d());
             bundle.putString("from", "game_frs");
             bundle.putBoolean("back_special", false);
             bundle.putLong("TibaStatic.StartTime", System.currentTimeMillis());

@@ -4,14 +4,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardMultiLinkView;
+import com.baidu.tieba.feed.component.CardMountView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class u37 extends p27<CardMultiLinkView, ez6> {
+public class u37 extends q27<CardMountView, ez6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,26 +35,26 @@ public class u37 extends p27<CardMultiLinkView, ez6> {
         }
     }
 
-    @Override // com.baidu.tieba.p27, com.baidu.tieba.e37
+    @Override // com.baidu.tieba.q27, com.baidu.tieba.f37
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View a = super.a(viewGroup);
-            m47.j(a);
+            n47.j(a);
             return a;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.e37
+    @Override // com.baidu.tieba.f37
     /* renamed from: e */
-    public void b(@NonNull CardMultiLinkView cardMultiLinkView, @NonNull ez6 ez6Var) {
+    public void b(@NonNull CardMountView cardMountView, @NonNull ez6 ez6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardMultiLinkView, ez6Var) == null) {
-            cardMultiLinkView.a(ez6Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardMountView, ez6Var) == null) {
+            cardMountView.a(ez6Var);
         }
     }
 }

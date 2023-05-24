@@ -1,5 +1,8 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,19 +12,22 @@ import java.io.UnsupportedEncodingException;
 import java.security.GeneralSecurityException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.crypto.SecretKey;
 /* loaded from: classes7.dex */
-public class q1b implements r1b {
+public class q1b implements s1b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SecretKey a;
+    public final p1b a;
+    public SecretKey b;
 
-    public q1b(String str, String str2, String str3, String str4) throws InvalidKeySpecException, NoSuchAlgorithmException, IllegalArgumentException {
+    public q1b(p1b p1bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, str4};
+            Object[] objArr = {p1bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,26 +37,72 @@ public class q1b implements r1b {
                 return;
             }
         }
-        if (str == null || str2 == null || str3 == null || str4 == null) {
-            return;
-        }
-        this.a = t1b.a(j1b.b(str), j1b.b(str2), j1b.b(str3), j1b.b(str4), 5000);
+        this.a = p1bVar;
+        b();
     }
 
-    @Override // com.baidu.tieba.r1b
-    public String a(String str, String str2) {
-        InterceptResult invokeLL;
+    public static boolean c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (this.a == null) {
-                return str;
-            }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? !TextUtils.isEmpty(str) && Pattern.matches("^\\[!([A-Fa-f0-9]*)]", str) : invokeL.booleanValue;
+    }
+
+    public static String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             try {
-                return new String(t1b.b(this.a, j1b.b(str)), "UTF-8");
-            } catch (UnsupportedEncodingException | IllegalArgumentException | GeneralSecurityException unused) {
-                return str2;
+                Matcher matcher = Pattern.compile("^\\[!([A-Fa-f0-9]*)]").matcher(str);
+                return matcher.find() ? matcher.group(1) : "";
+            } catch (IllegalStateException | IndexOutOfBoundsException unused) {
+                Log.e("ExclamationMark", "getRawString exception");
+                return "";
             }
         }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.s1b
+    public String a(String str, String str2) {
+        InterceptResult invokeLL;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (this.b == null) {
+                str3 = "mKey is null, return default value";
+            } else if (!c(str)) {
+                return str2;
+            } else {
+                try {
+                    return new String(u1b.b(this.b, k1b.b(d(str))), "UTF-8");
+                } catch (UnsupportedEncodingException | IllegalArgumentException | GeneralSecurityException unused) {
+                    str3 = "UnsupportedEncodingException||GeneralSecurityException||IllegalArgumentException";
+                }
+            }
+            Log.e("ExclamationMark", str3);
+            return str2;
+        }
         return (String) invokeLL.objValue;
+    }
+
+    public final SecretKey b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            try {
+                String a = this.a.a("/code/code1", null);
+                String a2 = this.a.a("/code/code2", null);
+                String a3 = this.a.a("/code/code3", null);
+                String a4 = this.a.a("/code/code4", null);
+                if (a != null && a2 != null && a3 != null && a4 != null) {
+                    this.b = u1b.a(k1b.b(a), k1b.b(a2), k1b.b(a3), k1b.b(a4), 10000);
+                }
+            } catch (IllegalArgumentException | NoSuchAlgorithmException | InvalidKeySpecException unused) {
+                Log.e("ExclamationMark", "Exception when reading the 'K&I' for 'Config'.");
+                this.b = null;
+            }
+            return this.b;
+        }
+        return (SecretKey) invokeV.objValue;
     }
 }

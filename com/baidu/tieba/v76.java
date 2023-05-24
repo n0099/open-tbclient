@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class v76 extends wi6<r66> {
+public class v76 extends xi6<r66> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AlaBannerRecyclerView i;
@@ -39,7 +39,7 @@ public class v76 extends wi6<r66> {
     public boolean q;
     public h96 r;
 
-    @Override // com.baidu.tieba.wi6
+    @Override // com.baidu.tieba.xi6
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public class v76 extends wi6<r66> {
 
         /* renamed from: com.baidu.tieba.v76$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0474a extends AlaBannerViewHolder<SdkLiveInfoData> {
+        public class C0471a extends AlaBannerViewHolder<SdkLiveInfoData> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public View a;
@@ -72,7 +72,7 @@ public class v76 extends wi6<r66> {
             public final /* synthetic */ a f;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0474a(a aVar, View view2) {
+            public C0471a(a aVar, View view2) {
                 super(view2);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -204,7 +204,7 @@ public class v76 extends wi6<r66> {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
-                return new C0474a(this, LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08f0, viewGroup, false));
+                return new C0471a(this, LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08f0, viewGroup, false));
             }
             return (AlaBannerViewHolder) invokeLI.objValue;
         }
@@ -240,7 +240,7 @@ public class v76 extends wi6<r66> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wi6
+    @Override // com.baidu.tieba.xi6
     /* renamed from: A */
     public void i(r66 r66Var) {
         s66 s66Var;
@@ -296,7 +296,7 @@ public class v76 extends wi6<r66> {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.wi6
+    @Override // com.baidu.tieba.xi6
     public void j(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {

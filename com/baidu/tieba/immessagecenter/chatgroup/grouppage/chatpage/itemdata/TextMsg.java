@@ -11,12 +11,12 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.es5;
-import com.baidu.tieba.hw6;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.Action;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.TaskInfo;
-import com.baidu.tieba.o98;
+import com.baidu.tieba.iw6;
+import com.baidu.tieba.p98;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -65,7 +65,7 @@ public class TextMsg extends BaseChatMsg<com.baidu.android.imsdk.chatmessage.mes
     }
 
     /* loaded from: classes6.dex */
-    public class a implements hw6.i {
+    public class a implements iw6.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TextMsg a;
@@ -88,7 +88,7 @@ public class TextMsg extends BaseChatMsg<com.baidu.android.imsdk.chatmessage.mes
             this.a = textMsg;
         }
 
-        @Override // com.baidu.tieba.hw6.i
+        @Override // com.baidu.tieba.iw6.i
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) && this.a.thumbnailText.length() <= 0) {
@@ -258,7 +258,7 @@ public class TextMsg extends BaseChatMsg<com.baidu.android.imsdk.chatmessage.mes
                 return spannableStringBuilder;
             }
             this.thumbnailText = new SpannableStringBuilder();
-            hw6.d(TbadkApplication.getInst(), this.text, UtilHelper.getDimenPixelSize(R.dimen.T_X03), new a(this));
+            iw6.d(TbadkApplication.getInst(), this.text, UtilHelper.getDimenPixelSize(R.dimen.T_X03), new a(this));
             if (this.thumbnailText.length() <= 0) {
                 this.thumbnailText.append((CharSequence) this.text);
             }
@@ -278,7 +278,7 @@ public class TextMsg extends BaseChatMsg<com.baidu.android.imsdk.chatmessage.mes
                 return null;
             }
             String originMsgKey = taskInfo.getOriginMsgKey();
-            if (TextUtils.isEmpty(originMsgKey) || !taskInfo.isComplete() || !getCommonMsgField().compareVersion() || !o98.a.a(taskInfo.getTaskType())) {
+            if (TextUtils.isEmpty(originMsgKey) || !taskInfo.isComplete() || !getCommonMsgField().compareVersion() || !p98.a.a(taskInfo.getTaskType())) {
                 return null;
             }
             return Action.a(taskInfo.getOriginMsgId(), originMsgKey, Action.Op.DELETE, null);

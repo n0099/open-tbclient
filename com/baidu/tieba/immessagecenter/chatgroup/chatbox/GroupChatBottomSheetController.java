@@ -42,24 +42,24 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b78;
 import com.baidu.tieba.c78;
 import com.baidu.tieba.d78;
-import com.baidu.tieba.i78;
+import com.baidu.tieba.e78;
 import com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.ChatRoomRecycleAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
+import com.baidu.tieba.j78;
 import com.baidu.tieba.p45;
-import com.baidu.tieba.q78;
 import com.baidu.tieba.r78;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.ri5;
-import com.baidu.tieba.rn6;
-import com.baidu.tieba.rq9;
+import com.baidu.tieba.s78;
 import com.baidu.tieba.sg;
 import com.baidu.tieba.si5;
-import com.baidu.tieba.t78;
+import com.baidu.tieba.sn6;
+import com.baidu.tieba.sq9;
+import com.baidu.tieba.u78;
 import com.baidu.tieba.view.TbImageAutoSwitch;
-import com.baidu.tieba.y68;
+import com.baidu.tieba.z68;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -89,8 +89,8 @@ public class GroupChatBottomSheetController {
     public int C;
     public int D;
     public TextView E;
-    public r78 F;
-    public q78 G;
+    public s78 F;
+    public r78 G;
     public RecyclerView H;
     public String I;
     public List<String> J;
@@ -114,14 +114,14 @@ public class GroupChatBottomSheetController {
     public si5 a0;
     public final TbPageContext b;
     @Nullable
-    public y68 b0;
+    public z68 b0;
     public RelativeLayout c;
     public ri5 c0;
     public TbImageAutoSwitch d;
     public View.OnClickListener d0;
     public HeadImageView e;
     @NonNull
-    public y68.c e0;
+    public z68.c e0;
     public BottomSheetDialog f;
     public CustomMessageListener f0;
     public FrameLayout g;
@@ -138,9 +138,9 @@ public class GroupChatBottomSheetController {
     public ImageView m;
     public RecyclerView n;
     public LinearLayoutManager o;
-    public b78 p;
+    public c78 p;
     public ChatRoomRecycleAdapter q;
-    public c78 r;
+    public d78 r;
     public View s;
     public View t;
     public View u;
@@ -370,7 +370,7 @@ public class GroupChatBottomSheetController {
     }
 
     /* loaded from: classes6.dex */
-    public class e implements i78 {
+    public class e implements j78 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GroupChatBottomSheetController a;
@@ -393,7 +393,7 @@ public class GroupChatBottomSheetController {
             this.a = groupChatBottomSheetController;
         }
 
-        @Override // com.baidu.tieba.i78
+        @Override // com.baidu.tieba.j78
         public void a(long j, int i) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) && this.a.b0 != null) {
@@ -547,7 +547,7 @@ public class GroupChatBottomSheetController {
     }
 
     /* loaded from: classes6.dex */
-    public class i implements y68.c {
+    public class i implements z68.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GroupChatBottomSheetController a;
@@ -570,7 +570,7 @@ public class GroupChatBottomSheetController {
             this.a = groupChatBottomSheetController;
         }
 
-        @Override // com.baidu.tieba.y68.c
+        @Override // com.baidu.tieba.z68.c
         public void a(List list, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, list, i) == null) {
@@ -587,10 +587,10 @@ public class GroupChatBottomSheetController {
                     if (this.a.n != null) {
                         this.a.n.setVisibility(0);
                     }
-                    if (list.get(0) instanceof t78) {
-                        t78 t78Var = (t78) list.remove(0);
-                        if (t78Var != null && t78Var.b() != null) {
-                            this.a.J = t78Var.b();
+                    if (list.get(0) instanceof u78) {
+                        u78 u78Var = (u78) list.remove(0);
+                        if (u78Var != null && u78Var.b() != null) {
+                            this.a.J = u78Var.b();
                             if (this.a.J.size() == 1) {
                                 this.a.e.setVisibility(0);
                                 this.a.d.setVisibility(8);
@@ -606,17 +606,17 @@ public class GroupChatBottomSheetController {
                             this.a.e.setVisibility(8);
                             this.a.p0();
                         }
-                        if (t78Var != null && t78Var.c() != null) {
-                            this.a.l.setText(t78Var.c());
+                        if (u78Var != null && u78Var.c() != null) {
+                            this.a.l.setText(u78Var.c());
                         }
-                        if (t78Var != null && t78Var.a() != null) {
-                            this.a.O = t78Var.a();
+                        if (u78Var != null && u78Var.a() != null) {
+                            this.a.O = u78Var.a();
                         }
-                        if (t78Var != null && t78Var.e() != null) {
-                            this.a.S = t78Var.e();
+                        if (u78Var != null && u78Var.e() != null) {
+                            this.a.S = u78Var.e();
                         }
-                        if (t78Var != null && !StringUtils.isNull(t78Var.d())) {
-                            this.a.T = t78Var.d();
+                        if (u78Var != null && !StringUtils.isNull(u78Var.d())) {
+                            this.a.T = u78Var.d();
                             if (this.a.z && this.a.T.equals(GroupChatBottomSheetController.p0)) {
                                 this.a.L.setVisibility(0);
                                 this.a.P.setVisibility(0);
@@ -753,10 +753,10 @@ public class GroupChatBottomSheetController {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001266 && (customResponsedMessage.getData() instanceof rq9)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001266 && (customResponsedMessage.getData() instanceof sq9)) {
                 GroupChatBottomSheetController groupChatBottomSheetController = this.a;
                 boolean z = true;
-                if (((rq9) customResponsedMessage.getData()).n() != 1) {
+                if (((sq9) customResponsedMessage.getData()).n() != 1) {
                     z = false;
                 }
                 groupChatBottomSheetController.y = z;
@@ -900,12 +900,12 @@ public class GroupChatBottomSheetController {
 
     public final void Z() {
         ViewGroup viewGroup;
-        r78 r78Var;
+        s78 s78Var;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (viewGroup = (ViewGroup) this.o.findViewByPosition(this.C)) != null) {
             RecyclerView recyclerView = (RecyclerView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090e74);
             this.H = recyclerView;
-            if (recyclerView != null && recyclerView.getChildAt(this.B) != null && (r78Var = this.F) != null && r78Var.a() != null) {
+            if (recyclerView != null && recyclerView.getChildAt(this.B) != null && (s78Var = this.F) != null && s78Var.a() != null) {
                 this.F.a().setLocationScrolled(true);
                 this.H.getAdapter().notifyItemChanged(this.B);
                 this.H.postDelayed(this.k0, 3000L);
@@ -918,9 +918,9 @@ public class GroupChatBottomSheetController {
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2003023, "show_ok"));
             sg.a().post(new n(this));
-            b78 b78Var = this.p;
-            if (b78Var != null) {
-                b78Var.o();
+            c78 c78Var = this.p;
+            if (c78Var != null) {
+                c78Var.o();
             }
             RecyclerView recyclerView = this.n;
             if (recyclerView != null) {
@@ -1083,10 +1083,10 @@ public class GroupChatBottomSheetController {
     }
 
     public void f0() {
-        y68 y68Var;
+        z68 z68Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && b0() && (y68Var = this.b0) != null) {
-            y68Var.f();
+        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && b0() && (z68Var = this.b0) != null) {
+            z68Var.f();
         }
     }
 
@@ -1105,10 +1105,10 @@ public class GroupChatBottomSheetController {
     }
 
     public final void i0() {
-        y68 y68Var;
+        z68 z68Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && (y68Var = this.b0) != null && this.V != BaManagerState.REQUESTING) {
-            y68Var.x(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.v));
+        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && (z68Var = this.b0) != null && this.V != BaManagerState.REQUESTING) {
+            z68Var.x(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.v));
             this.V = BaManagerState.REQUESTING;
         }
     }
@@ -1155,9 +1155,9 @@ public class GroupChatBottomSheetController {
         RecyclerView recyclerView;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            y68 y68Var = this.b0;
-            if (y68Var != null) {
-                y68Var.j();
+            z68 z68Var = this.b0;
+            if (z68Var != null) {
+                z68Var.j();
             }
             this.V = BaManagerState.NONE;
             this.U = false;
@@ -1175,9 +1175,9 @@ public class GroupChatBottomSheetController {
         if ((interceptable != null && interceptable.invokeV(1048592, this) != null) || !b0()) {
             return;
         }
-        y68 y68Var = this.b0;
-        if (y68Var != null) {
-            y68Var.k();
+        z68 z68Var = this.b0;
+        if (z68Var != null) {
+            z68Var.k();
         }
         if (this.U) {
             i0();
@@ -1200,28 +1200,28 @@ public class GroupChatBottomSheetController {
 
     public final int U() {
         InterceptResult invokeV;
-        b78 b78Var;
-        r78 r78Var;
+        c78 c78Var;
+        s78 s78Var;
         ChatRoomInfo a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.x > 0 && (b78Var = this.p) != null && !ListUtils.isEmpty(b78Var.d())) {
-                List<d78> d2 = this.p.d();
-                for (d78 d78Var : d2) {
-                    if (d78Var != null && (d78Var instanceof q78)) {
-                        q78 q78Var = (q78) d78Var;
-                        List<d78> subItems = q78Var.getSubItems();
+            if (this.x > 0 && (c78Var = this.p) != null && !ListUtils.isEmpty(c78Var.d())) {
+                List<e78> d2 = this.p.d();
+                for (e78 e78Var : d2) {
+                    if (e78Var != null && (e78Var instanceof r78)) {
+                        r78 r78Var = (r78) e78Var;
+                        List<e78> subItems = r78Var.getSubItems();
                         if (ListUtils.isEmpty(subItems)) {
                             continue;
                         } else {
-                            for (d78 d78Var2 : subItems) {
-                                if (d78Var2 != null && (d78Var2 instanceof r78) && (a2 = (r78Var = (r78) d78Var2).a()) != null && this.x == a2.getRoomId()) {
-                                    this.B = subItems.indexOf(d78Var2);
-                                    this.C = d2.indexOf(d78Var);
-                                    this.F = r78Var;
-                                    this.G = q78Var;
-                                    q78Var.g(false);
-                                    return d2.indexOf(d78Var);
+                            for (e78 e78Var2 : subItems) {
+                                if (e78Var2 != null && (e78Var2 instanceof s78) && (a2 = (s78Var = (s78) e78Var2).a()) != null && this.x == a2.getRoomId()) {
+                                    this.B = subItems.indexOf(e78Var2);
+                                    this.C = d2.indexOf(e78Var);
+                                    this.F = s78Var;
+                                    this.G = r78Var;
+                                    r78Var.g(false);
+                                    return d2.indexOf(e78Var);
                                 }
                             }
                             continue;
@@ -1255,12 +1255,12 @@ public class GroupChatBottomSheetController {
         d dVar = new d(this, this.a);
         this.o = dVar;
         this.n.setLayoutManager(dVar);
-        b78 b78Var = new b78(this.b, this.v, this.y);
-        this.p = b78Var;
-        b78Var.p(new e(this));
-        c78 c78Var = new c78(null);
-        this.r = c78Var;
-        ChatRoomRecycleAdapter chatRoomRecycleAdapter = new ChatRoomRecycleAdapter(c78Var, this.p, this.b);
+        c78 c78Var = new c78(this.b, this.v, this.y);
+        this.p = c78Var;
+        c78Var.p(new e(this));
+        d78 d78Var = new d78(null);
+        this.r = d78Var;
+        ChatRoomRecycleAdapter chatRoomRecycleAdapter = new ChatRoomRecycleAdapter(d78Var, this.p, this.b);
         this.q = chatRoomRecycleAdapter;
         this.n.setAdapter(chatRoomRecycleAdapter);
         this.n.removeOnScrollListener(this.g0);
@@ -1314,10 +1314,10 @@ public class GroupChatBottomSheetController {
         this.u.getLayoutParams().height = dimenPixelSize;
         this.Z.getLayoutParams().height = dimenPixelSize;
         this.Y.getLayoutParams().height = dimenPixelSize;
-        this.b0 = new y68(this.a, this.e0);
+        this.b0 = new z68(this.a, this.e0);
         View findViewById = this.g.findViewById(R.id.obfuscated_res_0x7f090eb2);
         if (findViewById != null) {
-            Glide.with(findViewById).load(rn6.b("group_list_head_bcg_pic.webp", "group_list_head_bcg_pic")).into((RequestBuilder<Drawable>) new f(this, findViewById));
+            Glide.with(findViewById).load(sn6.b("group_list_head_bcg_pic.webp", "group_list_head_bcg_pic")).into((RequestBuilder<Drawable>) new f(this, findViewById));
         }
     }
 

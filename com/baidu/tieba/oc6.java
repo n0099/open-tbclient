@@ -42,14 +42,14 @@ public class oc6 {
 
         /* renamed from: com.baidu.tieba.oc6$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0402a extends BdAsyncTask {
+        public class C0401a extends BdAsyncTask {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ List a;
             public final /* synthetic */ HttpResponsedMessage b;
             public final /* synthetic */ a c;
 
-            public C0402a(a aVar, List list, HttpResponsedMessage httpResponsedMessage) {
+            public C0401a(a aVar, List list, HttpResponsedMessage httpResponsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -143,7 +143,7 @@ public class oc6 {
                     this.a.b.a(alaGetEnterEffectResponsedMessage);
                     return;
                 }
-                this.a.c = new C0402a(this, effectList, httpResponsedMessage).execute(new Object[0]);
+                this.a.c = new C0401a(this, effectList, httpResponsedMessage).execute(new Object[0]);
             }
         }
     }

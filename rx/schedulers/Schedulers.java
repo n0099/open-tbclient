@@ -1,22 +1,22 @@
 package rx.schedulers;
 
-import com.baidu.tieba.g9b;
 import com.baidu.tieba.h9b;
 import com.baidu.tieba.i9b;
-import com.baidu.tieba.k7b;
-import com.baidu.tieba.l9b;
-import com.baidu.tieba.n9b;
-import com.baidu.tieba.rbb;
-import com.baidu.tieba.ubb;
+import com.baidu.tieba.j9b;
+import com.baidu.tieba.l7b;
+import com.baidu.tieba.m9b;
+import com.baidu.tieba.o9b;
+import com.baidu.tieba.sbb;
 import com.baidu.tieba.vbb;
+import com.baidu.tieba.wbb;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes10.dex */
 public final class Schedulers {
     public static final AtomicReference<Schedulers> d = new AtomicReference<>();
-    public final k7b a;
-    public final k7b b;
-    public final k7b c;
+    public final l7b a;
+    public final l7b b;
+    public final l7b c;
 
     public static Schedulers a() {
         while (true) {
@@ -32,20 +32,20 @@ public final class Schedulers {
         }
     }
 
-    public static k7b computation() {
-        return rbb.f(a().a);
+    public static l7b computation() {
+        return sbb.f(a().a);
     }
 
-    public static k7b immediate() {
-        return i9b.a;
+    public static l7b immediate() {
+        return j9b.a;
     }
 
-    public static k7b io() {
-        return rbb.k(a().b);
+    public static l7b io() {
+        return sbb.k(a().b);
     }
 
-    public static k7b newThread() {
-        return rbb.l(a().c);
+    public static l7b newThread() {
+        return sbb.l(a().c);
     }
 
     public static void reset() {
@@ -59,7 +59,7 @@ public final class Schedulers {
         Schedulers a = a();
         a.b();
         synchronized (a) {
-            h9b.d.shutdown();
+            i9b.d.shutdown();
         }
     }
 
@@ -67,7 +67,7 @@ public final class Schedulers {
         Schedulers a = a();
         a.c();
         synchronized (a) {
-            h9b.d.start();
+            i9b.d.start();
         }
     }
 
@@ -75,57 +75,57 @@ public final class Schedulers {
         return new TestScheduler();
     }
 
-    public static k7b trampoline() {
-        return n9b.a;
+    public static l7b trampoline() {
+        return o9b.a;
     }
 
     public synchronized void b() {
-        if (this.a instanceof l9b) {
-            ((l9b) this.a).shutdown();
+        if (this.a instanceof m9b) {
+            ((m9b) this.a).shutdown();
         }
-        if (this.b instanceof l9b) {
-            ((l9b) this.b).shutdown();
+        if (this.b instanceof m9b) {
+            ((m9b) this.b).shutdown();
         }
-        if (this.c instanceof l9b) {
-            ((l9b) this.c).shutdown();
+        if (this.c instanceof m9b) {
+            ((m9b) this.c).shutdown();
         }
     }
 
     public synchronized void c() {
-        if (this.a instanceof l9b) {
-            ((l9b) this.a).start();
+        if (this.a instanceof m9b) {
+            ((m9b) this.a).start();
         }
-        if (this.b instanceof l9b) {
-            ((l9b) this.b).start();
+        if (this.b instanceof m9b) {
+            ((m9b) this.b).start();
         }
-        if (this.c instanceof l9b) {
-            ((l9b) this.c).start();
+        if (this.c instanceof m9b) {
+            ((m9b) this.c).start();
         }
     }
 
     public Schedulers() {
-        vbb f = ubb.c().f();
-        k7b g = f.g();
+        wbb f = vbb.c().f();
+        l7b g = f.g();
         if (g != null) {
             this.a = g;
         } else {
-            this.a = vbb.a();
+            this.a = wbb.a();
         }
-        k7b i = f.i();
+        l7b i = f.i();
         if (i != null) {
             this.b = i;
         } else {
-            this.b = vbb.c();
+            this.b = wbb.c();
         }
-        k7b j = f.j();
+        l7b j = f.j();
         if (j != null) {
             this.c = j;
         } else {
-            this.c = vbb.e();
+            this.c = wbb.e();
         }
     }
 
-    public static k7b from(Executor executor) {
-        return new g9b(executor);
+    public static l7b from(Executor executor) {
+        return new h9b(executor);
     }
 }

@@ -9,16 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ia9 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId f;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
+    public String a;
     public String b;
     public String c;
-    public int d;
-    public int e;
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +31,7 @@ public class ia9 extends BaseCardInfo {
                 return;
             }
         }
-        f = BdUniqueId.gen();
+        d = BdUniqueId.gen();
     }
 
     public ia9() {
@@ -55,7 +53,7 @@ public class ia9 extends BaseCardInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return f;
+            return d;
         }
         return (BdUniqueId) invokeV.objValue;
     }

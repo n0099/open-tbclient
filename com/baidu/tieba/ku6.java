@@ -25,11 +25,12 @@ public class ku6 extends en<o15, ThreadCardViewHolder<ThreadData>> {
     public BdUniqueId a;
     public String b;
     public TbPageContext<?> c;
-    public xn d;
-    public vj6<ThreadData> e;
+    public boolean d;
+    public xn e;
+    public wj6<ThreadData> f;
 
     /* loaded from: classes6.dex */
-    public class a extends vj6<ThreadData> {
+    public class a extends wj6<ThreadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ku6 b;
@@ -53,13 +54,13 @@ public class ku6 extends en<o15, ThreadCardViewHolder<ThreadData>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vj6
+        @Override // com.baidu.tieba.wj6
         /* renamed from: d */
         public void a(View view2, ThreadData threadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
-                oj6.b().d(true);
-                os6.a(view2, threadData, this.b.b);
+                pj6.b().d(true);
+                ps6.a(view2, threadData, this.b.b);
             }
         }
     }
@@ -95,8 +96,8 @@ public class ku6 extends en<o15, ThreadCardViewHolder<ThreadData>> {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
                 ThreadData threadData = ((o15) rnVar).t;
                 threadData.objType = 1;
-                if (this.a.e != null) {
-                    this.a.e.a(threadCardViewHolder.getView(), threadData);
+                if (this.a.f != null) {
+                    this.a.f.a(threadCardViewHolder.getView(), threadData);
                 }
                 ThreadCardUtils.jumpToPB((jy4) threadData, view2.getContext(), 2, false);
                 threadCardViewHolder.a().p(new az.a(1));
@@ -123,7 +124,8 @@ public class ku6 extends en<o15, ThreadCardViewHolder<ThreadData>> {
                 return;
             }
         }
-        this.e = new a(this);
+        this.d = true;
+        this.f = new a(this);
         this.c = tbPageContext;
         this.a = bdUniqueId2;
         this.b = str;
@@ -132,7 +134,7 @@ public class ku6 extends en<o15, ThreadCardViewHolder<ThreadData>> {
     public void y(xn xnVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, xnVar) == null) {
-            this.d = xnVar;
+            this.e = xnVar;
         }
     }
 
@@ -144,8 +146,11 @@ public class ku6 extends en<o15, ThreadCardViewHolder<ThreadData>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             py.b bVar = new py.b(this.c.getPageActivity(), false);
-            bVar.h(new kx(this.c.getPageActivity()));
-            py k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.d);
+            dy dyVar = new dy(this.c.getPageActivity());
+            dyVar.setFrom("index");
+            dyVar.x(this.d);
+            bVar.n(dyVar);
+            py k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.e);
             k.s(2);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
             threadCardViewHolder.i(this.a);
@@ -168,7 +173,8 @@ public class ku6 extends en<o15, ThreadCardViewHolder<ThreadData>> {
                 threadCardViewHolder.a().r(i);
                 threadCardViewHolder.e(o15Var.t);
                 threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
-                threadCardViewHolder.a().q(this.e);
+                threadCardViewHolder.a().q(this.f);
+                ps6.b(o15Var, this.b);
                 return threadCardViewHolder.getView();
             }
             return null;

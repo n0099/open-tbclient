@@ -48,10 +48,10 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomD
 import com.baidu.tieba.immessagecenter.slice.Slice;
 import com.baidu.tieba.o65;
 import com.baidu.tieba.p45;
-import com.baidu.tieba.qb8;
+import com.baidu.tieba.rb8;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.sha;
-import com.baidu.tieba.tb8;
+import com.baidu.tieba.tha;
+import com.baidu.tieba.ub8;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -236,8 +236,8 @@ public class NavigationBarSlice extends Slice {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                UrlManager.getInstance().dealOneLink(this.a.j, new String[]{sha.a(sha.a(TbConfig.URL_CHAT_ROOM, "roomId", String.valueOf(this.a.r)), "forumId", String.valueOf(this.a.s))});
-                qb8.b("c15094", TbadkCoreApplication.getCurrentAccount(), this.a.s, this.a.r);
+                UrlManager.getInstance().dealOneLink(this.a.j, new String[]{tha.a(tha.a(TbConfig.URL_CHAT_ROOM, "roomId", String.valueOf(this.a.r)), "forumId", String.valueOf(this.a.s))});
+                rb8.b("c15094", TbadkCoreApplication.getCurrentAccount(), this.a.s, this.a.r);
             }
         }
     }
@@ -301,7 +301,7 @@ public class NavigationBarSlice extends Slice {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
                 dialogInterface.dismiss();
-                tb8.b((Activity) this.a);
+                ub8.b((Activity) this.a);
             }
         }
     }
@@ -571,11 +571,11 @@ public class NavigationBarSlice extends Slice {
                         z0(this.k.getActivity());
                         o65.m().w("key_group_chat_subscribe_click", true);
                     } else {
-                        tb8.b(this.k.getActivity());
+                        ub8.b(this.k.getActivity());
                     }
                 }
             } else {
-                tb8.c(this.k.getActivity());
+                ub8.c(this.k.getActivity());
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921770));
         }

@@ -23,7 +23,7 @@ import com.baidu.tieba.pg;
 import com.baidu.tieba.se;
 import com.baidu.tieba.setting.more.MoreActivity;
 import com.baidu.tieba.setting.person.PersonPostListData;
-import com.baidu.tieba.yr9;
+import com.baidu.tieba.zr9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,7 +44,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     public NicknameInfo b;
     public final Context c;
     public Handler d;
-    public yr9 e;
+    public zr9 e;
     public boolean f;
     public fb g;
 
@@ -240,7 +240,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         this.a = null;
         this.c = moreActivity.getPageContext().getContext();
         this.d = new Handler(Looper.getMainLooper());
-        this.e = new yr9("profileStat");
+        this.e = new zr9("profileStat");
         registerListener(this.g);
     }
 
@@ -335,9 +335,9 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     public final void k0() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && this.e == null) {
-            yr9 yr9Var = new yr9("profileStat");
-            this.e = yr9Var;
-            yr9Var.f();
+            zr9 zr9Var = new zr9("profileStat");
+            this.e = zr9Var;
+            zr9Var.f();
         }
     }
 

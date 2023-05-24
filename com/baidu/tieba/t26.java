@@ -33,7 +33,7 @@ public class t26 extends BaseAdapter implements View.OnClickListener {
     public static HashMap<b, Integer> f;
     public transient /* synthetic */ FieldHolder $fh;
     public NewFriendsActivity a;
-    public List<e28> b;
+    public List<f28> b;
     public c c;
 
     /* loaded from: classes7.dex */
@@ -44,7 +44,7 @@ public class t26 extends BaseAdapter implements View.OnClickListener {
 
     /* loaded from: classes7.dex */
     public interface c {
-        void a(int i, int i2, View view2, e28 e28Var);
+        void a(int i, int i2, View view2, f28 f28Var);
     }
 
     @Override // android.widget.Adapter
@@ -136,18 +136,18 @@ public class t26 extends BaseAdapter implements View.OnClickListener {
             this();
         }
 
-        public void a(e28 e28Var) {
+        public void a(f28 f28Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, e28Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, f28Var) == null) {
                 boolean z = false;
-                this.a.N(e28Var.e(), 12, false);
-                this.b.setText(e28Var.d());
-                if (!TextUtils.isEmpty(e28Var.a())) {
-                    this.c.setText(e28Var.a());
+                this.a.N(f28Var.e(), 12, false);
+                this.b.setText(f28Var.d());
+                if (!TextUtils.isEmpty(f28Var.a())) {
+                    this.c.setText(f28Var.a());
                 } else {
                     this.c.setText("");
                 }
-                int f = e28Var.f();
+                int f = f28Var.f();
                 this.d.setText(((Integer) t26.d.get(f)).intValue());
                 this.d.setEnabled((f == 0 || f == 1) ? true : true);
             }
@@ -203,7 +203,7 @@ public class t26 extends BaseAdapter implements View.OnClickListener {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            List<e28> list = this.b;
+            List<f28> list = this.b;
             if (list != null) {
                 int size = list.size();
                 for (int i = 0; i < size; i++) {
@@ -221,27 +221,27 @@ public class t26 extends BaseAdapter implements View.OnClickListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: c */
-    public e28 getItem(int i) {
+    public f28 getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             return this.b.get(i);
         }
-        return (e28) invokeI.objValue;
+        return (f28) invokeI.objValue;
     }
 
-    public synchronized void d(e28 e28Var) {
+    public synchronized void d(f28 f28Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e28Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, f28Var) == null) {
             synchronized (this) {
                 if (this.b != null) {
-                    this.b.remove(e28Var);
+                    this.b.remove(f28Var);
                 }
             }
         }
     }
 
-    public void e(List<e28> list) {
+    public void e(List<f28> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.b = list;
@@ -255,15 +255,15 @@ public class t26 extends BaseAdapter implements View.OnClickListener {
         }
     }
 
-    public void h(List<e28> list) {
+    public void h(List<f28> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
             if (this.b == null) {
                 this.b = new ArrayList();
             }
             if (list != null) {
-                for (e28 e28Var : list) {
-                    g(e28Var);
+                for (f28 f28Var : list) {
+                    g(f28Var);
                 }
             }
         }
@@ -284,7 +284,7 @@ public class t26 extends BaseAdapter implements View.OnClickListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            List<e28> list = this.b;
+            List<f28> list = this.b;
             if (list == null) {
                 return 0;
             }
@@ -293,20 +293,20 @@ public class t26 extends BaseAdapter implements View.OnClickListener {
         return invokeV.intValue;
     }
 
-    public void g(e28 e28Var) {
+    public void g(f28 f28Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, e28Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, f28Var) == null) {
             if (this.b == null) {
                 this.b = new ArrayList();
             }
-            if (e28Var != null && e28Var.b() != 0) {
-                int b2 = b(e28Var.b());
+            if (f28Var != null && f28Var.b() != 0) {
+                int b2 = b(f28Var.b());
                 if (b2 != -1) {
                     this.b.remove(b2);
-                    this.b.add(0, e28Var);
+                    this.b.add(0, f28Var);
                     return;
                 }
-                this.b.add(0, e28Var);
+                this.b.add(0, f28Var);
             }
         }
     }
@@ -330,7 +330,7 @@ public class t26 extends BaseAdapter implements View.OnClickListener {
                 dVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c07);
                 view2.setTag(dVar);
             }
-            e28 item = getItem(i);
+            f28 item = getItem(i);
             dVar.a(item);
             dVar.d.setTag(Integer.valueOf(i));
             dVar.d.setOnClickListener(this);

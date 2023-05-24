@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
+import android.os.Build;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,42 +11,28 @@ public class ic8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        InterceptResult invokeL;
+    public static boolean a(BaseFragmentActivity baseFragmentActivity, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, imMessageCenterShowItemData)) == null) {
-            if (imMessageCenterShowItemData == null) {
-                return false;
-            }
-            if (!String.valueOf(4).equals(imMessageCenterShowItemData.getOwnerName()) && !"".equals(imMessageCenterShowItemData.getOwnerName())) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, baseFragmentActivity, i)) == null) {
+            if (!TbadkCoreApplication.getInst().appResponseToCmd(i)) {
+                b(baseFragmentActivity);
                 return false;
             }
             return true;
         }
-        return invokeL.booleanValue;
+        return invokeLI.booleanValue;
     }
 
-    public static boolean b(ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        InterceptResult invokeL;
+    public static void b(BaseFragmentActivity baseFragmentActivity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, imMessageCenterShowItemData)) == null) {
-            if (imMessageCenterShowItemData == null) {
-                return false;
-            }
-            return String.valueOf(9).equals(imMessageCenterShowItemData.getOwnerName());
+        if ((interceptable != null && interceptable.invokeL(65537, null, baseFragmentActivity) != null) || baseFragmentActivity == null) {
+            return;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, imMessageCenterShowItemData)) == null) {
-            if (imMessageCenterShowItemData == null || !String.valueOf(8).equals(imMessageCenterShowItemData.getOwnerName()) || "3222425470".equals(imMessageCenterShowItemData.getFriendId()) || "801001117".equals(imMessageCenterShowItemData.getFriendId()) || "5044059141".equals(imMessageCenterShowItemData.getFriendId())) {
-                return false;
-            }
-            return true;
+        if (Build.VERSION.SDK_INT <= 10) {
+            baseFragmentActivity.showToast(R.string.plugin_not_exit_for_2_3);
+        } else {
+            baseFragmentActivity.showToast(R.string.plugin_not_exit);
         }
-        return invokeL.booleanValue;
     }
 }

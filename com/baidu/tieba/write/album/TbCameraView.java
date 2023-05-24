@@ -12,7 +12,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
 import com.baidu.tieba.sg;
-import com.baidu.tieba.wn6;
+import com.baidu.tieba.xn6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -133,7 +133,7 @@ public class TbCameraView extends TextureView {
                     tbCameraView.p = z;
                 }
                 if (this.a.p) {
-                    wn6.a(this.a.s, "mTextureAvailable", 1);
+                    xn6.a(this.a.s, "mTextureAvailable", 1);
                 }
             }
         }

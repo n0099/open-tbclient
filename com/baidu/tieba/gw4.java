@@ -77,7 +77,7 @@ public final class gw4 extends AbsJsInterface {
             try {
                 if (this.mWebView != null && (this.mWebView.getParent() instanceof TbWebView)) {
                     Map<String, qe6<JSONObject>> bizData = ((TbWebView) this.mWebView.getParent()).getBizData();
-                    if (!yh6.b(bizData)) {
+                    if (!zh6.b(bizData)) {
                         JSONObject jSONObject2 = new JSONObject();
                         for (Map.Entry<String, qe6<JSONObject>> entry : bizData.entrySet()) {
                             try {

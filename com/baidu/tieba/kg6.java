@@ -1,66 +1,69 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.hg6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class kg6 {
+public class kg6 implements jg6 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile kg6 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public jg6 a;
 
-    public static ve9 a(ug6 ug6Var) {
-        InterceptResult invokeL;
+    public kg6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, ug6Var)) == null) {
-            ve9 ve9Var = new ve9();
-            if (ug6Var != null) {
-                ve9Var.b = ug6Var.c;
-                ve9Var.e = ug6Var.g;
-                ve9Var.f = ug6Var.i;
-                ve9Var.c = ug6Var.d;
-                if (!yh6.a(ug6Var.b)) {
-                    ArrayList<String> arrayList = new ArrayList<>();
-                    ve9Var.a = arrayList;
-                    arrayList.addAll(ug6Var.b);
-                }
-                if (!yh6.a(ug6Var.f)) {
-                    ArrayList<String> arrayList2 = new ArrayList<>();
-                    ve9Var.d = arrayList2;
-                    arrayList2.addAll(ug6Var.f);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return ve9Var;
         }
-        return (ve9) invokeL.objValue;
     }
 
-    public static void b(pg6 pg6Var, String str) {
+    public static kg6 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, pg6Var, str) == null) {
-            try {
-                if (pg6Var != null) {
-                    te9.n().z(str, pg6Var.b());
-                    te9.n().x();
-                    if (!yh6.b(pg6Var.a())) {
-                        HashMap<String, ve9> hashMap = new HashMap<>();
-                        for (Map.Entry<String, ug6> entry : pg6Var.a().entrySet()) {
-                            hashMap.put(entry.getKey(), a(entry.getValue()));
-                        }
-                        ue9.a().l(str, hashMap);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (kg6.class) {
+                    if (b == null) {
+                        b = new kg6();
                     }
-                    ue9.a().h(true, str);
-                    return;
                 }
-                te9.n().h(str);
-                te9.n().x();
-                ue9.a().f(str);
-            } catch (Exception e) {
-                BdLog.e(e);
             }
+            return b;
+        }
+        return (kg6) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.jg6
+    public WebResourceResponse a(String str, WebResourceRequest webResourceRequest) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, webResourceRequest)) == null) {
+            jg6 jg6Var = this.a;
+            if (jg6Var == null) {
+                return null;
+            }
+            return jg6Var.a(str, webResourceRequest);
+        }
+        return (WebResourceResponse) invokeLL.objValue;
+    }
+
+    public void c(hg6.a aVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && aVar != null) {
+            this.a = aVar.b();
         }
     }
 }

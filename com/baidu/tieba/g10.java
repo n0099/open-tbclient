@@ -106,7 +106,7 @@ public class g10 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return qk9.a();
+            return rk9.a();
         }
         return (j10) invokeV.objValue;
     }
@@ -126,7 +126,7 @@ public class g10 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return sk9.a();
+            return tk9.a();
         }
         return (l10) invokeV.objValue;
     }

@@ -87,23 +87,23 @@ import com.baidu.tieba.hi;
 import com.baidu.tieba.hx4;
 import com.baidu.tieba.lt5;
 import com.baidu.tieba.m25;
-import com.baidu.tieba.nw8;
 import com.baidu.tieba.o25;
 import com.baidu.tieba.o65;
 import com.baidu.tieba.oh5;
+import com.baidu.tieba.ow8;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.personExtra.PersonChangeModel;
 import com.baidu.tieba.qi;
-import com.baidu.tieba.qs9;
 import com.baidu.tieba.ri;
+import com.baidu.tieba.rs9;
 import com.baidu.tieba.sg;
-import com.baidu.tieba.uo7;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.tieba.vo7;
 import com.baidu.tieba.wc5;
 import com.baidu.tieba.widget.InterestForumTagLayout;
 import com.baidu.tieba.widget.InterestForumTagView;
 import com.baidu.tieba.widget.ManualObservableScrollView;
+import com.baidu.tieba.wo7;
 import com.baidu.tieba.yu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -121,7 +121,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     public InputMethodManager A;
     public TextView A0;
     public PersonChangeModel B;
-    public uo7 B0;
+    public vo7 B0;
     public FrameLayout C;
     public boolean C0;
     public HeadImageView D;
@@ -530,7 +530,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                 }
                 this.a.postMultiNetData();
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    qs9.j();
+                    rs9.j();
                 }
                 return null;
             }
@@ -1307,7 +1307,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     }
 
     /* loaded from: classes7.dex */
-    public class u implements uo7.b {
+    public class u implements vo7.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonChangeActivity a;
@@ -1330,7 +1330,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             this.a = personChangeActivity;
         }
 
-        @Override // com.baidu.tieba.uo7.b
+        @Override // com.baidu.tieba.vo7.b
         public void a(Date date, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, date, j) == null) {
@@ -1372,7 +1372,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public void onClick(d25 d25Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, d25Var) == null) {
-                yu4.v(this.a.getPageContext().getPageActivity(), null, nw8.a(), true);
+                yu4.v(this.a.getPageContext().getPageActivity(), null, ow8.a(), true);
                 d25Var.dismiss();
             }
         }
@@ -1826,25 +1826,25 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         TiebaStatic.log(statisticItem);
     }
 
-    public final uo7 F2() {
+    public final vo7 F2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (this.B0 == null) {
-                this.B0 = new uo7(this);
+                this.B0 = new vo7(this);
             }
             return this.B0;
         }
-        return (uo7) invokeV.objValue;
+        return (vo7) invokeV.objValue;
     }
 
-    public final uo7.b G2() {
+    public final vo7.b G2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return new u(this);
         }
-        return (uo7.b) invokeV.objValue;
+        return (vo7.b) invokeV.objValue;
     }
 
     public final void I2() {
@@ -1985,7 +1985,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             if (!this.C0) {
                 TiebaStatic.log("c12204");
             } else {
-                vo7.b();
+                wo7.b();
             }
             registerListener(this.I0);
             registerListener(this.J0);
@@ -2449,7 +2449,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                             }
                             return;
                         } else if (view2 == this.A0) {
-                            vo7.a();
+                            wo7.a();
                             if (!this.M && !this.N) {
                                 finish();
                                 return;

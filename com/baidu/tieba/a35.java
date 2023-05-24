@@ -302,7 +302,7 @@ public class a35 {
         this.a.put("NA_OPERATION_STRATEGY", new f45());
         this.a.put("NA_LIVE_REMIND_STRATEGY", new e45());
         this.a.put("NA_UPDATE_STRATEGY", new g45());
-        yk8 yunDialogLog = YunDialogLog.getInstance();
+        zk8 yunDialogLog = YunDialogLog.getInstance();
         yunDialogLog.c("YunDialogManager", "strategyMap:" + this.a);
         MessageManager.getInstance().registerListener(this.g);
     }
@@ -383,7 +383,7 @@ public class a35 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, z25Var)) == null) {
             String str = null;
             if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
-                yk8 yunDialogLog = YunDialogLog.getInstance();
+                zk8 yunDialogLog = YunDialogLog.getInstance();
                 StringBuilder sb = new StringBuilder();
                 sb.append("云弹窗 ");
                 if (z25Var != null) {
@@ -394,7 +394,7 @@ public class a35 {
                 yunDialogLog.c("YunDialogManager", sb.toString());
                 return false;
             } else if (LogoActivityConfig.IS_HOT_SPLASH_SHOW) {
-                yk8 yunDialogLog2 = YunDialogLog.getInstance();
+                zk8 yunDialogLog2 = YunDialogLog.getInstance();
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append("云弹窗 ");
                 if (z25Var != null) {
@@ -405,7 +405,7 @@ public class a35 {
                 yunDialogLog2.c("YunDialogManager", sb2.toString());
                 return false;
             } else if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                yk8 yunDialogLog3 = YunDialogLog.getInstance();
+                zk8 yunDialogLog3 = YunDialogLog.getInstance();
                 StringBuilder sb3 = new StringBuilder();
                 sb3.append("云弹窗 ");
                 if (z25Var != null) {
@@ -416,7 +416,7 @@ public class a35 {
                 yunDialogLog3.c("YunDialogManager", sb3.toString());
                 return false;
             } else if (z25Var != null && z25Var.c() && h().f) {
-                yk8 yunDialogLog4 = YunDialogLog.getInstance();
+                zk8 yunDialogLog4 = YunDialogLog.getInstance();
                 yunDialogLog4.c("YunDialogManager", "云弹窗 " + z25Var.b() + " 不可显示：从云弹窗返回");
                 return false;
             } else if (TbadkCoreApplication.getInst().isInBackground()) {
@@ -432,7 +432,7 @@ public class a35 {
     public static void n(@NonNull z25 z25Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, null, z25Var) == null) {
-            yk8 yunDialogLog = YunDialogLog.getInstance();
+            zk8 yunDialogLog = YunDialogLog.getInstance();
             yunDialogLog.c("YunDialogManager", "云弹窗时机消失:" + z25Var.b());
             if (z25Var.c()) {
                 h().e = "";
@@ -464,7 +464,7 @@ public class a35 {
                 sg.a().postAtFrontOfQueue(new b(context, z25Var));
                 return;
             }
-            yk8 yunDialogLog = YunDialogLog.getInstance();
+            zk8 yunDialogLog = YunDialogLog.getInstance();
             yunDialogLog.c("YunDialogManager", "云弹窗时机触发:" + z25Var.b());
             if (z25Var.c()) {
                 h().e = z25Var.b();
@@ -494,7 +494,7 @@ public class a35 {
             this.b.add(str);
             this.c.add(str);
             w35.a(context, str, str2);
-            yk8 yunDialogLog = YunDialogLog.getInstance();
+            zk8 yunDialogLog = YunDialogLog.getInstance();
             yunDialogLog.c("YunDialogManager", "云弹窗 " + str + " 弹出显示，展示链接：" + str2);
             j45.a.c(str);
             this.d.add(str);
@@ -522,7 +522,7 @@ public class a35 {
     public final void r(@NonNull Context context, @NonNull String str, @NonNull DialogStrategiesData dialogStrategiesData, @NonNull JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048579, this, context, str, dialogStrategiesData, jSONObject) == null) {
-            yk8 yunDialogLog = YunDialogLog.getInstance();
+            zk8 yunDialogLog = YunDialogLog.getInstance();
             yunDialogLog.c("YunDialogManager", "准备显示云弹窗：" + dialogStrategiesData.getDialogName() + " ，参数：" + jSONObject);
             List<DialogStrategiesData.StrategiesConfigData> dialogStrategy = dialogStrategiesData.getDialogStrategy();
             HashMap hashMap = new HashMap();
@@ -530,7 +530,7 @@ public class a35 {
             hashMap.put("alreadyShownDialogs", this.d);
             hashMap.put("currentPageName", this.e);
             if (!TextUtils.isEmpty(dialogStrategiesData.getDialogName()) && this.b.contains(dialogStrategiesData.getDialogName())) {
-                yk8 yunDialogLog2 = YunDialogLog.getInstance();
+                zk8 yunDialogLog2 = YunDialogLog.getInstance();
                 yunDialogLog2.c("YunDialogManager", "云弹窗 " + dialogStrategiesData.getDialogName() + " 正在显示中，过滤");
                 return;
             }

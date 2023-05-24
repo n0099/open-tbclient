@@ -1,7 +1,28 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
-public interface hj8 {
-    void a(int i);
 
-    void b(float f);
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.lego.card.model.ICardInfo;
+/* loaded from: classes5.dex */
+public interface hj8<T extends ICardInfo> {
+    void d();
+
+    void e();
+
+    void f(BdUniqueId bdUniqueId);
+
+    void g();
+
+    void h();
+
+    void setAfterClickSchemeListener(li8 li8Var);
+
+    void setBusinessType(int i);
+
+    void setFromCDN(boolean z);
+
+    void setMulDel(boolean z);
+
+    void setPosition(int i);
+
+    void update(Object obj);
 }

@@ -1,40 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.esa;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdLoader;
 /* loaded from: classes5.dex */
-public class hsa implements esa.a {
+public class hsa {
     public static /* synthetic */ Interceptable $ic;
+    public static Boolean a;
+    public static final /* synthetic */ boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ bsa a;
 
-    public hsa(jsa jsaVar, bsa bsaVar) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947835667, "Lcom/baidu/tieba/hsa;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947835667, "Lcom/baidu/tieba/hsa;");
+                return;
+            }
+        }
+        b = !hsa.class.desiredAssertionStatus();
+    }
+
+    public hsa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jsaVar, bsaVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = bsaVar;
-    }
-
-    @Override // com.baidu.tieba.esa.a
-    public FunAdLoader a(pra praVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, praVar)) == null) ? new pxa(this.a, praVar) : (FunAdLoader) invokeL.objValue;
     }
 }

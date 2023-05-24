@@ -55,8 +55,8 @@ import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ex;
 import com.baidu.tieba.f85;
-import com.baidu.tieba.gh9;
 import com.baidu.tieba.gz;
+import com.baidu.tieba.hh9;
 import com.baidu.tieba.m9;
 import com.baidu.tieba.nx;
 import com.baidu.tieba.p45;
@@ -70,7 +70,7 @@ import com.baidu.tieba.t15;
 import com.baidu.tieba.tt5;
 import com.baidu.tieba.ux;
 import com.baidu.tieba.view.VirtualImageStatusTip;
-import com.baidu.tieba.wp9;
+import com.baidu.tieba.xp9;
 import com.baidu.tieba.yu4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -997,7 +997,7 @@ public class CardUserInfoLayout extends RelativeLayout implements ux {
             }
             boolean isSystemLocationProviderEnabled = UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst());
             if (z && isSystemLocationProviderEnabled) {
-                AppPosInfo c2 = gh9.e().c();
+                AppPosInfo c2 = hh9.e().c();
                 String str2 = c2.latitude;
                 String str3 = c2.longitude;
                 if ((UtilHelper.isDecimal(str2) && UtilHelper.isDecimal(str3)) ? false : false) {
@@ -1173,13 +1173,13 @@ public class CardUserInfoLayout extends RelativeLayout implements ux {
             } else {
                 f2 = t15Var.f();
             }
-            bVar.D(wp9.f(f2));
+            bVar.D(xp9.f(f2));
             if (z) {
                 b2 = t15Var.a();
             } else {
                 b2 = t15Var.b();
             }
-            bVar.q(wp9.f(b2));
+            bVar.q(xp9.f(b2));
             bVar.A(dimenPixelSize);
             bVar.x(dimenPixelSize);
             bVar.z(dimenPixelSize);

@@ -23,10 +23,10 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.SerializableItemInfo;
-import com.baidu.tieba.nt9;
 import com.baidu.tieba.ot9;
 import com.baidu.tieba.pt9;
-import com.baidu.tieba.q7a;
+import com.baidu.tieba.qt9;
+import com.baidu.tieba.r7a;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -115,8 +115,8 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
         Activity currentActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            boolean j = nt9.g().j();
-            ot9.a("发帖阻拦状态 = " + j);
+            boolean j = ot9.g().j();
+            pt9.a("发帖阻拦状态 = " + j);
             if (j && z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null) {
                 ri.Q(currentActivity, "正在发布，请稍后");
             }
@@ -137,7 +137,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public void send() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            pt9.h = new Intent(getIntent());
+            qt9.h = new Intent(getIntent());
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this));
         }
     }
@@ -321,7 +321,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
             getIntent().putExtra(IS_ARTICLE, str);
-            if (q7a.l.equals(str)) {
+            if (r7a.l.equals(str)) {
                 setType(11);
             }
             return this;

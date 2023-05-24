@@ -1,153 +1,214 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.l7b;
+import com.baidu.tieba.m7b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public final class v9b implements o7b {
+public final class v9b<T> extends m7b<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<o7b> a;
-    public volatile boolean b;
+    public final T b;
 
-    public v9b() {
+    /* loaded from: classes7.dex */
+    public class a implements m7b.c<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Object a;
+
+        public a(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {obj};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = obj;
+        }
+
+        public void call(n7b<? super T> n7bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, n7bVar) == null) {
+                n7bVar.c((Object) this.a);
+            }
+        }
+
+        @Override // com.baidu.tieba.m7b.c, com.baidu.tieba.w7b
+        public /* bridge */ /* synthetic */ void call(Object obj) {
+            call((n7b) ((n7b) obj));
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class b<T> implements m7b.c<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final g9b a;
+        public final T b;
+
+        public b(g9b g9bVar, T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g9bVar, t};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = g9bVar;
+            this.b = t;
+        }
+
+        public void call(n7b<? super T> n7bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, n7bVar) == null) {
+                n7bVar.a(this.a.a(new d(n7bVar, this.b)));
+            }
+        }
+
+        @Override // com.baidu.tieba.m7b.c, com.baidu.tieba.w7b
+        public /* bridge */ /* synthetic */ void call(Object obj) {
+            call((n7b) ((n7b) obj));
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class c<T> implements m7b.c<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final l7b a;
+        public final T b;
+
+        public c(l7b l7bVar, T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l7bVar, t};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = l7bVar;
+            this.b = t;
+        }
+
+        public void call(n7b<? super T> n7bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, n7bVar) == null) {
+                l7b.a createWorker = this.a.createWorker();
+                n7bVar.a(createWorker);
+                createWorker.b(new d(n7bVar, this.b));
+            }
+        }
+
+        @Override // com.baidu.tieba.m7b.c, com.baidu.tieba.w7b
+        public /* bridge */ /* synthetic */ void call(Object obj) {
+            call((n7b) ((n7b) obj));
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class d<T> implements v7b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final n7b<? super T> a;
+        public final T b;
+
+        public d(n7b<? super T> n7bVar, T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n7bVar, t};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = n7bVar;
+            this.b = t;
+        }
+
+        /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
+        @Override // com.baidu.tieba.v7b
+        public void call() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    this.a.c((T) this.b);
+                } catch (Throwable th) {
+                    this.a.b(th);
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v9b(T t) {
+        super(new a(t));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((m7b.c) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.o7b
-    public boolean isUnsubscribed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.o7b
-    public void unsubscribe() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !this.b) {
-            synchronized (this) {
-                if (this.b) {
-                    return;
-                }
-                this.b = true;
-                List<o7b> list = this.a;
-                this.a = null;
-                c(list);
-            }
-        }
-    }
-
-    public v9b(o7b o7bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {o7bVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        LinkedList linkedList = new LinkedList();
-        this.a = linkedList;
-        linkedList.add(o7bVar);
+        this.b = t;
     }
 
-    public static void c(Collection<o7b> collection) {
+    public static <T> v9b<T> m(T t) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, collection) != null) || collection == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, t)) == null) {
+            return new v9b<>(t);
         }
-        ArrayList arrayList = null;
-        for (o7b o7bVar : collection) {
-            try {
-                o7bVar.unsubscribe();
-            } catch (Throwable th) {
-                if (arrayList == null) {
-                    arrayList = new ArrayList();
-                }
-                arrayList.add(th);
-            }
-        }
-        t7b.d(arrayList);
+        return (v9b) invokeL.objValue;
     }
 
-    public void a(o7b o7bVar) {
+    public m7b<T> n(l7b l7bVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, o7bVar) != null) || o7bVar.isUnsubscribed()) {
-            return;
-        }
-        if (!this.b) {
-            synchronized (this) {
-                if (!this.b) {
-                    List list = this.a;
-                    if (list == null) {
-                        list = new LinkedList();
-                        this.a = list;
-                    }
-                    list.add(o7bVar);
-                    return;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, l7bVar)) == null) {
+            if (l7bVar instanceof g9b) {
+                return m7b.b(new b((g9b) l7bVar, this.b));
             }
+            return m7b.b(new c(l7bVar, this.b));
         }
-        o7bVar.unsubscribe();
-    }
-
-    public v9b(o7b... o7bVarArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {o7bVarArr};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = new LinkedList(Arrays.asList(o7bVarArr));
-    }
-
-    public void b(o7b o7bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o7bVar) == null) && !this.b) {
-            synchronized (this) {
-                List<o7b> list = this.a;
-                if (!this.b && list != null) {
-                    boolean remove = list.remove(o7bVar);
-                    if (remove) {
-                        o7bVar.unsubscribe();
-                    }
-                }
-            }
-        }
+        return (m7b) invokeL.objValue;
     }
 }

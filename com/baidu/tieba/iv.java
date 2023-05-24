@@ -45,12 +45,12 @@ public class iv {
 
             /* renamed from: com.baidu.tieba.iv$d$a$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class RunnableC0348a implements Runnable {
+            public class RunnableC0345a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public RunnableC0348a(a aVar) {
+                public RunnableC0345a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,7 +103,7 @@ public class iv {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    kt.c(new RunnableC0348a(this));
+                    kt.c(new RunnableC0345a(this));
                     return Unit.INSTANCE;
                 }
                 return (Unit) invokeV.objValue;

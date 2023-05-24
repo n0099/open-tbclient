@@ -40,7 +40,7 @@ import com.baidu.tieba.l9;
 import com.baidu.tieba.lg;
 import com.baidu.tieba.m9;
 import com.baidu.tieba.ou5;
-import com.baidu.tieba.py8;
+import com.baidu.tieba.qy8;
 import com.baidu.tieba.sk;
 import com.baidu.tieba.tk;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -78,7 +78,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     public f R;
     public h S;
     public View.OnClickListener T;
-    public py8 U;
+    public qy8 U;
     public TbRichTextView.y V;
     public boolean W;
     public RectF a0;
@@ -92,7 +92,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     public int i0;
     public int j0;
     public BdUniqueId r;
-    public py8 r0;
+    public qy8 r0;
     public boolean s;
     public boolean s0;
     public HashMap<String, e> t;
@@ -263,12 +263,12 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     }
 
     /* loaded from: classes4.dex */
-    public class c implements py8.a {
+    public class c implements qy8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbImageView a;
 
-        @Override // com.baidu.tieba.py8.a
+        @Override // com.baidu.tieba.qy8.a
         public boolean a(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -296,7 +296,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
             this.a = tbImageView;
         }
 
-        @Override // com.baidu.tieba.py8.a
+        @Override // com.baidu.tieba.qy8.a
         public boolean b(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -320,7 +320,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
             return invokeLL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.py8.a
+        @Override // com.baidu.tieba.qy8.a
         public boolean c(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -336,12 +336,12 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     }
 
     /* loaded from: classes4.dex */
-    public class d implements py8.a {
+    public class d implements qy8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbImageView a;
 
-        @Override // com.baidu.tieba.py8.a
+        @Override // com.baidu.tieba.qy8.a
         public boolean a(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -369,7 +369,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
             this.a = tbImageView;
         }
 
-        @Override // com.baidu.tieba.py8.a
+        @Override // com.baidu.tieba.qy8.a
         public boolean b(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -393,7 +393,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
             return invokeLL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.py8.a
+        @Override // com.baidu.tieba.qy8.a
         public boolean c(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -843,7 +843,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048635, this, onClickListener) == null) {
             if (this.r0 == null) {
-                this.r0 = new py8(new c(this));
+                this.r0 = new qy8(new c(this));
             }
             super.setOnTouchListener(this.r0);
             if (!isClickable()) {
@@ -934,14 +934,14 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
         }
     }
 
-    public void setTbGestureDetector(py8 py8Var) {
+    public void setTbGestureDetector(qy8 qy8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048648, this, py8Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048648, this, qy8Var) == null) {
             if (this.r0 == null) {
-                this.r0 = new py8(new d(this));
+                this.r0 = new qy8(new d(this));
             }
             super.setOnTouchListener(this.r0);
-            this.U = py8Var;
+            this.U = qy8Var;
         }
     }
 

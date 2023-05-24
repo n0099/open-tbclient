@@ -28,17 +28,17 @@ import com.baidu.tbadk.novel.NovelMemberCardView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.j09;
-import com.baidu.tieba.lx8;
-import com.baidu.tieba.n19;
+import com.baidu.tieba.k09;
+import com.baidu.tieba.mx8;
+import com.baidu.tieba.o19;
 import com.baidu.tieba.pb.ThreadSkinView;
 import com.baidu.tieba.pb.view.PbBusinessPromotionContainer;
 import com.baidu.tieba.pb.view.PbFirstFloorQuestionThreadView;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.u39;
-import com.baidu.tieba.v29;
-import com.baidu.tieba.wz8;
+import com.baidu.tieba.v39;
+import com.baidu.tieba.w29;
+import com.baidu.tieba.xz8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,7 +49,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public u39 A;
+    public v39 A;
     public VoteView B;
     public TextView C;
     public PbFirstFloorQuestionThreadView D;
@@ -83,9 +83,9 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
     public NovelMemberCardView s;
     public BaseWebView t;
     public LinearLayout u;
-    public j09 v;
+    public k09 v;
     public FrameLayout w;
-    public v29 x;
+    public w29 x;
     public ThreadForumEnterButtonContainer y;
     public PbBusinessPromotionContainer z;
 
@@ -145,12 +145,12 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
         this.b = 3;
         this.M = new a(this);
         this.a = tbPageContext;
-        this.v = new j09(view2);
+        this.v = new k09(view2);
         ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a6d);
         this.d = imageView;
         imageView.setScaleType(ImageView.ScaleType.MATRIX);
         Matrix matrix = new Matrix();
-        matrix.postTranslate(0.0f, -n19.s());
+        matrix.postTranslate(0.0f, -o19.s());
         this.d.setImageMatrix(matrix);
         this.e = view2.findViewById(R.id.obfuscated_res_0x7f090405);
         this.f = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f091e20);
@@ -158,9 +158,9 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
         this.h = (TbAlphaVideo) view2.findViewById(R.id.obfuscated_res_0x7f09015b);
         this.c = view2;
         int l = (((ri.l(TbadkCoreApplication.getInst()) - view2.getPaddingLeft()) - view2.getPaddingRight()) - this.f.getPaddingLeft()) - this.f.getPaddingRight();
-        wz8 wz8Var = new wz8(this.f.getLayoutStrategy());
-        wz8Var.J = l;
-        this.f.setLayoutStrategy(wz8Var);
+        xz8 xz8Var = new xz8(this.f.getLayoutStrategy());
+        xz8Var.J = l;
+        this.f.setLayoutStrategy(xz8Var);
         this.j = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d97);
         int min = Math.min(l - ((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f070253)), i);
         this.f.getLayoutStrategy().r(min);
@@ -188,7 +188,7 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
         ThreadForumEnterButtonContainer threadForumEnterButtonContainer = (ThreadForumEnterButtonContainer) view2.findViewById(R.id.obfuscated_res_0x7f0919fc);
         this.y = threadForumEnterButtonContainer;
         threadForumEnterButtonContainer.setFrom(1);
-        this.A = new u39(tbPageContext);
+        this.A = new v39(tbPageContext);
         this.z = (PbBusinessPromotionContainer) view2.findViewById(R.id.obfuscated_res_0x7f0919c6);
         this.w = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f09194f);
         VoteView voteView = (VoteView) view2.findViewById(R.id.vote_view);
@@ -240,26 +240,26 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
         view2.setVisibility(8);
     }
 
-    public void d(@NonNull lx8 lx8Var, boolean z, boolean z2) {
+    public void d(@NonNull mx8 mx8Var, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{lx8Var, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && this.y != null && lx8Var != null && lx8Var.k() != null) {
-            if (lx8Var.h0() && lx8Var.v0()) {
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{mx8Var, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && this.y != null && mx8Var != null && mx8Var.k() != null) {
+            if (mx8Var.h0() && mx8Var.v0()) {
                 this.y.setVisibility(8);
                 return;
             }
             this.y.setBottomPlaceHolderVisibility(z2);
             ThreadData threadData = new ThreadData();
-            threadData.setId(lx8Var.O());
-            threadData.setFid(pg.g(lx8Var.k().getId(), 0L));
-            threadData.setForum_name(lx8Var.k().getName());
-            threadData.setFirstClassName(lx8Var.k().getFirst_class());
-            threadData.setSecondClassName(lx8Var.k().getSecond_class());
-            if (lx8Var.M() != null) {
-                threadData.setThreadType(lx8Var.M().threadType);
+            threadData.setId(mx8Var.O());
+            threadData.setFid(pg.g(mx8Var.k().getId(), 0L));
+            threadData.setForum_name(mx8Var.k().getName());
+            threadData.setFirstClassName(mx8Var.k().getFirst_class());
+            threadData.setSecondClassName(mx8Var.k().getSecond_class());
+            if (mx8Var.M() != null) {
+                threadData.setThreadType(mx8Var.M().threadType);
             }
-            if (lx8Var.i) {
+            if (mx8Var.i) {
                 this.y.setVisibility(8);
-                this.z.f(threadData, lx8Var.g(), lx8Var.v0());
+                this.z.f(threadData, mx8Var.g(), mx8Var.v0());
                 return;
             }
             this.z.setVisibility(8);

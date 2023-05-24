@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
 import com.baidu.tbadk.util.AdExtParam;
-import com.baidu.tieba.jh9;
-import com.baidu.tieba.jp7;
+import com.baidu.tieba.kh9;
+import com.baidu.tieba.kp7;
 import com.baidu.tieba.o65;
 import com.baidu.tieba.qr5;
 import com.baidu.tieba.ss5;
@@ -61,14 +61,14 @@ public class ConcernPageRequestMessage extends NetMessage {
             if (isEmpty) {
                 e = 0;
             } else {
-                e = jh9.f().e("CONCERN");
+                e = kh9.f().e("CONCERN");
             }
             String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
             String str = "";
             if (isEmpty) {
                 d = "";
             } else {
-                d = jh9.f().d("CONCERN");
+                d = kh9.f().d("CONCERN");
             }
             qr5 qr5Var = this.adInfo;
             if (qr5Var != null && !isEmpty) {
@@ -93,11 +93,11 @@ public class ConcernPageRequestMessage extends NetMessage {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
                 builder.page_tag = this.pageTag;
-                if (jp7.I()) {
-                    if (!jp7.B()) {
-                        builder.page_tag = jp7.w();
+                if (kp7.I()) {
+                    if (!kp7.B()) {
+                        builder.page_tag = kp7.w();
                     } else {
-                        builder.page_tag = jp7.v();
+                        builder.page_tag = kp7.v();
                     }
                 }
                 builder.last_req_unix = Long.valueOf(o65.m().o(o65.q("concern_data_res_request_time"), 0L));

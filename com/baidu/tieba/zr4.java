@@ -55,7 +55,7 @@ public class zr4 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.a != null && customResponsedMessage != null) {
                 Object data = customResponsedMessage.getData();
-                if ((data instanceof rt9) && ((rt9) data).b) {
+                if ((data instanceof st9) && ((st9) data).b) {
                     this.a.e();
                 }
             }

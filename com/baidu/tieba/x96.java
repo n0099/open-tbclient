@@ -55,7 +55,7 @@ public class x96 {
     public View w;
     public View x;
     public r96 y;
-    public hf7 z;
+    public if7 z;
 
     public final void h() {
         Interceptable interceptable = $ic;
@@ -435,7 +435,7 @@ public class x96 {
             this.y = new r96(this.a, this.k, this.d);
             this.j.setOnClickListener(new a(this));
             if (this.e) {
-                this.z = new hf7(this.a.getPageActivity(), this.f, this.e);
+                this.z = new if7(this.a.getPageActivity(), this.f, this.e);
                 this.k.setOnTouchListener(new b(this));
             }
         }

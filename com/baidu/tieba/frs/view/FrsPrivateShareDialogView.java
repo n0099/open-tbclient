@@ -27,10 +27,10 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.d25;
 import com.baidu.tieba.qi;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.s87;
+import com.baidu.tieba.t87;
 import com.baidu.tieba.tbadkCore.FrsViewData;
-import com.baidu.tieba.ul7;
 import com.baidu.tieba.view.ImageOverlayView;
+import com.baidu.tieba.vl7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -66,8 +66,8 @@ public class FrsPrivateShareDialogView extends LinearLayout {
     public d25 t;
     public ForumActiveInfo u;
     public String v;
-    public s87 w;
-    public s87.e x;
+    public t87 w;
+    public t87.e x;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -103,7 +103,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements s87.e {
+    public class b implements t87.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsPrivateShareDialogView a;
@@ -126,7 +126,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             this.a = frsPrivateShareDialogView;
         }
 
-        @Override // com.baidu.tieba.s87.e
+        @Override // com.baidu.tieba.t87.e
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
@@ -216,7 +216,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             this.q.setVisibility(8);
         }
         if (frsViewData.getForum() != null) {
-            e(ul7.c(frsViewData.getForum()));
+            e(vl7.c(frsViewData.getForum()));
         }
         if (frsViewData.getForum() != null && frsViewData.getForum().getMember_num() > 3) {
             TextView textView2 = this.k;
@@ -304,9 +304,9 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             this.k = textView3;
             SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0106);
             if (this.w == null) {
-                s87 s87Var = new s87(this.s);
-                this.w = s87Var;
-                s87Var.o(this.b, this.m, null);
+                t87 t87Var = new t87(this.s);
+                this.w = t87Var;
+                t87Var.o(this.b, this.m, null);
                 this.w.s(this.x);
             }
             this.n = (ImageOverlayView) this.b.findViewById(R.id.obfuscated_res_0x7f090d13);

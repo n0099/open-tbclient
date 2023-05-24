@@ -1,91 +1,230 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.db.TableDefine;
+import android.view.View;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.view.RoundTbImageView;
+import com.baidu.tieba.recapp.widget.CountDownTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ph9 {
+public class ph9 extends rh9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final Context b;
-    public final ViewGroup c;
+    public RelativeLayout h;
+    public RoundTbImageView i;
+    public TextView j;
+    public TextView k;
+    public TextView l;
+    public TextView m;
+    public CountDownTextView n;
 
-    public ph9(Context context, ViewGroup viewGroup) {
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            }
+        }
+
+        public a(ph9 ph9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ph9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ph9 a;
+
+        public b(ph9 ph9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ph9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ph9Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            View.OnClickListener onClickListener;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (onClickListener = this.a.g) != null) {
+                onClickListener.onClick(view2);
+                this.a.n.c();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bh9 a;
+        public final /* synthetic */ ph9 b;
+
+        public c(ph9 ph9Var, bh9 bh9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ph9Var, bh9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ph9Var;
+            this.a = bh9Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            boolean z;
+            int i;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                bh9 bh9Var = this.a;
+                String str2 = bh9Var.d;
+                if (!yi0.n(bh9Var.j)) {
+                    z = xi0.b(this.b.e.getPageActivity(), this.b.c.p);
+                } else {
+                    z = false;
+                }
+                if (!z) {
+                    AdvertAppInfo advertAppInfo = this.b.c;
+                    String str3 = advertAppInfo.g;
+                    if (advertAppInfo.e()) {
+                        str = this.b.c.getDownloadId();
+                    } else {
+                        str = this.b.c.a;
+                    }
+                    i = yf9.b(this.b.e, str2, str, str3, this.a.j);
+                } else {
+                    i = 3;
+                }
+                if (i == 0) {
+                    return;
+                }
+                ClogBuilder clogBuilder = new ClogBuilder();
+                clogBuilder.y(ClogBuilder.LogType.CLICK).v("VIDEO_FLOW_TAIL").q(String.valueOf(this.b.c.position + 1)).p(this.b.c.g);
+                e21.b(clogBuilder);
+                ti8.c(this.b.c);
+                this.b.n.c();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ph9(View view2, String str) {
+        super(view2, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, viewGroup};
+            Object[] objArr = {view2, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((View) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.b = context;
-        this.c = viewGroup;
+        l();
     }
 
-    public final boolean a(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.rh9
+    public void j(CountDownTextView.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if ("apk_download".equals(str)) {
-                return "apk_download".equals(str2);
-            }
-            if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(str)) {
-                return TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(str2);
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
+            super.j(cVar);
+            this.n.setTimeoutListener(cVar);
         }
-        return invokeLL.booleanValue;
     }
 
-    public qh9 b(ah9 ah9Var, qh9 qh9Var) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.rh9
+    public void c(bh9 bh9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ah9Var, qh9Var)) == null) {
-            if (ah9Var == null) {
-                return qh9Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bh9Var) == null) {
+            super.c(bh9Var);
+            if (bh9Var == null) {
+                return;
             }
-            String str = ah9Var.a;
-            if (str == null) {
-                return qh9Var;
-            }
-            if (qh9Var != null && a(str, qh9Var.a)) {
-                return qh9Var;
-            }
-            ViewGroup viewGroup = this.c;
-            if (viewGroup == null) {
-                return null;
-            }
-            viewGroup.removeAllViews();
-            if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(ah9Var.a)) {
-                if (this.a == 2) {
-                    return new oh9(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0984, this.c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
-                }
-                return new mh9(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0908, this.c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
-            } else if (!"apk_download".equals(ah9Var.a)) {
-                return null;
-            } else {
-                if (this.a == 2) {
-                    return new nh9(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0983, this.c, true), "apk_download");
-                }
-                return new lh9(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0907, this.c, true), "apk_download");
-            }
+            this.i.N(bh9Var.c, 30, false);
+            this.j.setText(bh9Var.b);
+            this.k.setText(bh9Var.i);
+            this.l.setText(bh9Var.e);
+            this.m.setOnClickListener(new b(this));
+            this.n.setFormatString(this.e.getResources().getString(R.string.obfuscated_res_0x7f0f00e4));
+            this.h.setOnClickListener(new c(this, bh9Var));
         }
-        return (qh9) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.rh9
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.d();
+            this.n.update(5);
+            this.n.e();
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(ClogBuilder.LogType.FREE_SHOW).v("VIDEO_FLOW_TAIL").q(String.valueOf(this.c.position + 1)).p(this.c.g);
+            e21.b(clogBuilder);
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b.setOnClickListener(new a(this));
+            this.h = (RelativeLayout) a(R.id.obfuscated_res_0x7f0900aa);
+            this.i = (RoundTbImageView) a(R.id.user_head);
+            this.j = (TextView) a(R.id.user_name);
+            this.k = (TextView) a(R.id.obfuscated_res_0x7f09270b);
+            this.l = (TextView) a(R.id.obfuscated_res_0x7f09258f);
+            this.m = (TextView) a(R.id.replay_btn);
+            this.n = (CountDownTextView) a(R.id.obfuscated_res_0x7f0907d1);
+        }
     }
 }

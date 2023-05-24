@@ -20,12 +20,12 @@ import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ea5;
 import com.baidu.tieba.ef5;
-import com.baidu.tieba.gw6;
 import com.baidu.tieba.hw6;
+import com.baidu.tieba.iw6;
 import com.baidu.tieba.kt5;
 import com.baidu.tieba.qi;
-import com.baidu.tieba.r7a;
 import com.baidu.tieba.ri;
+import com.baidu.tieba.s7a;
 import com.baidu.tieba.se5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -65,7 +65,7 @@ public class InputView extends SpanGroupEditText implements ef5 {
 
         /* renamed from: com.baidu.tbadk.editortools.inputtool.InputView$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0212a implements hw6.i {
+        public class C0212a implements iw6.i {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -88,7 +88,7 @@ public class InputView extends SpanGroupEditText implements ef5 {
                 this.a = aVar;
             }
 
-            @Override // com.baidu.tieba.hw6.i
+            @Override // com.baidu.tieba.iw6.i
             public void a(SpannableStringBuilder spannableStringBuilder) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -125,7 +125,7 @@ public class InputView extends SpanGroupEditText implements ef5 {
                 if (kt5.a.d(editable.toString()) > this.a.m) {
                     String a = kt5.a.a(obj, this.a.m, "");
                     if (!qi.isEquals(editable.toString(), a)) {
-                        hw6.g(this.a.getContext(), a, new C0212a(this));
+                        iw6.g(this.a.getContext(), a, new C0212a(this));
                     }
                 }
                 this.a.H(new se5(4, -1, editable.toString()));
@@ -199,7 +199,7 @@ public class InputView extends SpanGroupEditText implements ef5 {
     }
 
     /* loaded from: classes4.dex */
-    public class c implements hw6.i {
+    public class c implements iw6.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ InputView a;
@@ -222,7 +222,7 @@ public class InputView extends SpanGroupEditText implements ef5 {
             this.a = inputView;
         }
 
-        @Override // com.baidu.tieba.hw6.i
+        @Override // com.baidu.tieba.iw6.i
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -268,7 +268,7 @@ public class InputView extends SpanGroupEditText implements ef5 {
         if (z) {
             setHint(context.getString(R.string.im_msg_input_hint));
         }
-        r7a.l(this, R.drawable.edittext_cursor);
+        s7a.l(this, R.drawable.edittext_cursor);
         int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.M_W_X006);
         int dimensionPixelSize2 = context.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
         setPadding(dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2);
@@ -299,9 +299,9 @@ public class InputView extends SpanGroupEditText implements ef5 {
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             SkinManager.setViewTextColor(this, R.color.CAM_X0105, 2, i);
             if (i == 0) {
-                r7a.l(this, R.drawable.edittext_cursor);
+                s7a.l(this, R.drawable.edittext_cursor);
             } else {
-                r7a.l(this, R.drawable.edittext_cursor_2);
+                s7a.l(this, R.drawable.edittext_cursor_2);
             }
             setHintTextColor(SkinManager.getColor(i, (int) R.color.CAM_X0109));
         }
@@ -448,12 +448,12 @@ public class InputView extends SpanGroupEditText implements ef5 {
                 if (TextUtils.isEmpty((String) obj6)) {
                     setText((CharSequence) null);
                 } else {
-                    hw6.g(getContext(), (String) se5Var.c, new c(this));
+                    iw6.g(getContext(), (String) se5Var.c, new c(this));
                 }
             }
         } else if (getSelectionStart() > 0) {
             String substring = getText().toString().substring(0, getSelectionStart());
-            Matcher matcher = gw6.b.matcher(substring);
+            Matcher matcher = hw6.b.matcher(substring);
             if (matcher.find()) {
                 getText().delete(getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), getSelectionStart());
             } else {
@@ -513,10 +513,10 @@ public class InputView extends SpanGroupEditText implements ef5 {
                 return;
             }
             String obj = getText().toString();
-            if (this.h && gw6.a(obj) >= 10 && getContext() != null) {
+            if (this.h && hw6.a(obj) >= 10 && getContext() != null) {
                 CustomToast.newInstance().showToast(R.string.too_many_face);
             } else {
-                hw6.b(getContext(), ea5Var, this);
+                iw6.b(getContext(), ea5Var, this);
             }
         }
     }
@@ -525,10 +525,10 @@ public class InputView extends SpanGroupEditText implements ef5 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048591, this, ea5Var) == null) && ea5Var != null && !TextUtils.isEmpty(ea5Var.d()) && !TextUtils.isEmpty(ea5Var.g())) {
             String obj = getText().toString();
-            if (this.h && gw6.a(obj) >= 10 && getContext() != null) {
+            if (this.h && hw6.a(obj) >= 10 && getContext() != null) {
                 CustomToast.newInstance().showToast(R.string.too_many_face);
             } else {
-                hw6.c(getContext(), ea5Var, this);
+                iw6.c(getContext(), ea5Var, this);
             }
         }
     }

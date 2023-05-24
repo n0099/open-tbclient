@@ -32,8 +32,8 @@ public class rt4 {
                 return;
             }
         }
-        zq9.f(309711, AdBillingLogSocketResMsg.class, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_BILLING_LOG, zq9.a(TbConfig.URL_AD_BILLING_LOG, 309711));
+        ar9.f(309711, AdBillingLogSocketResMsg.class, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_BILLING_LOG, ar9.a(TbConfig.URL_AD_BILLING_LOG, 309711));
         tbHttpMessageTask.setResponsedClass(AdBillingLogHttpResMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }

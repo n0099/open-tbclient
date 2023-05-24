@@ -20,17 +20,17 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NoPressedLinearLayout;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ar8;
 import com.baidu.tieba.br8;
 import com.baidu.tieba.cr8;
-import com.baidu.tieba.dq8;
+import com.baidu.tieba.dr8;
 import com.baidu.tieba.ef5;
+import com.baidu.tieba.eq8;
 import com.baidu.tieba.memberCenter.tail.data.TailData;
 import com.baidu.tieba.memberCenter.tail.data.TailEditActivityConfig;
 import com.baidu.tieba.o65;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.se5;
-import com.baidu.tieba.wq8;
+import com.baidu.tieba.xq8;
 import com.baidu.tieba.yu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -42,13 +42,13 @@ public class TailToolController extends NoPressedLinearLayout implements ef5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public br8 b;
-    public ar8 c;
-    public wq8 d;
+    public cr8 b;
+    public br8 c;
+    public xq8 d;
     public Context e;
     public EditorTools f;
-    public cr8<dq8> g;
-    public cr8<Integer> h;
+    public dr8<eq8> g;
+    public dr8<Integer> h;
     public CustomMessageListener i;
     public CustomMessageListener j;
     public CustomMessageListener k;
@@ -62,7 +62,7 @@ public class TailToolController extends NoPressedLinearLayout implements ef5 {
     }
 
     /* loaded from: classes6.dex */
-    public class a implements cr8<dq8> {
+    public class a implements dr8<eq8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TailToolController a;
@@ -86,11 +86,11 @@ public class TailToolController extends NoPressedLinearLayout implements ef5 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cr8
+        @Override // com.baidu.tieba.dr8
         /* renamed from: b */
-        public void a(boolean z, String str, dq8 dq8Var) {
+        public void a(boolean z, String str, eq8 eq8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, dq8Var}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, eq8Var}) == null) {
                 if (z) {
                     ri.Q(this.a.e, str);
                     return;
@@ -98,15 +98,15 @@ public class TailToolController extends NoPressedLinearLayout implements ef5 {
                 if (this.a.d != null) {
                     this.a.d.notifyDataSetChanged();
                 }
-                if (this.a.b != null && dq8Var != null) {
-                    this.a.b.e(dq8Var.b());
+                if (this.a.b != null && eq8Var != null) {
+                    this.a.b.e(eq8Var.b());
                 }
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements cr8<Integer> {
+    public class b implements dr8<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TailToolController a;
@@ -130,7 +130,7 @@ public class TailToolController extends NoPressedLinearLayout implements ef5 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cr8
+        @Override // com.baidu.tieba.dr8
         /* renamed from: b */
         public void a(boolean z, String str, Integer num) {
             Interceptable interceptable = $ic;
@@ -391,10 +391,10 @@ public class TailToolController extends NoPressedLinearLayout implements ef5 {
 
     @Override // com.baidu.tieba.ef5
     public void onChangeSkinType(int i) {
-        br8 br8Var;
+        cr8 cr8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048588, this, i) == null) && (br8Var = this.b) != null) {
-            br8Var.c(i);
+        if ((interceptable == null || interceptable.invokeI(1048588, this, i) == null) && (cr8Var = this.b) != null) {
+            cr8Var.c(i);
         }
     }
 
@@ -485,14 +485,14 @@ public class TailToolController extends NoPressedLinearLayout implements ef5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
             this.e = context;
-            this.b = new br8((ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d090c, (ViewGroup) this, true));
-            ar8 ar8Var = new ar8(context);
-            this.c = ar8Var;
-            ar8Var.n(this.h);
+            this.b = new cr8((ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d090c, (ViewGroup) this, true));
+            br8 br8Var = new br8(context);
+            this.c = br8Var;
+            br8Var.n(this.h);
             this.c.p(this.g);
-            wq8 wq8Var = new wq8(context, this.c, this.l);
-            this.d = wq8Var;
-            this.b.d(wq8Var);
+            xq8 xq8Var = new xq8(context, this.c, this.l);
+            this.d = xq8Var;
+            this.b.d(xq8Var);
         }
     }
 

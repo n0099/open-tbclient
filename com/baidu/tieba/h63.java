@@ -70,13 +70,13 @@ public final class h63 {
 
         /* renamed from: com.baidu.tieba.h63$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0316a implements zn3<d63> {
+        public class C0315a implements zn3<d63> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ f63 b;
 
-            public C0316a(a aVar, String str, f63 f63Var) {
+            public C0315a(a aVar, String str, f63 f63Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,7 +132,7 @@ public final class h63 {
                     Log.i("SwanPuppetManager", "onEvent: to=" + this.a.g.size() + " event=" + str + " client=" + f63Var.b);
                 }
                 synchronized (this.a.g) {
-                    yn3.a(f93.M(), new C0316a(this, str, f63Var), this.a.g);
+                    yn3.a(f93.M(), new C0315a(this, str, f63Var), this.a.g);
                 }
             }
         }

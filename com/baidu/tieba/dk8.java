@@ -1,156 +1,121 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.BIMManager;
-import com.baidu.android.imsdk.IMConstants;
+import com.baidu.android.imsdk.account.AccountManager;
+import com.baidu.android.imsdk.account.IConnectListener;
+import com.baidu.android.imsdk.chatmessage.IChatRoomEnterListener;
+import com.baidu.android.imsdk.chatmessage.IChatRoomExitListener;
+import com.baidu.android.imsdk.chatmessage.IFetchMsgByIdListener;
+import com.baidu.android.imsdk.chatmessage.ISendMessageListener;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import com.baidu.android.imsdk.chatmessage.request.params.FetchMsgParam;
-import com.baidu.android.imsdk.chatmessage.request.params.SendMsgParam;
-import com.baidu.android.imsdk.chatmessage.response.FetchMsgResponse;
-import com.baidu.android.imsdk.chatmessage.response.SendMsgResponse;
-import com.baidu.android.imsdk.group.BIMValueCallBack;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.mcast.IChatRoomMsgReceiveListener;
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.tbadk.module.alalivesdk.imSdkPersonService.data.PersonFetchMsgResponse;
+import com.baidu.tieba.bt5;
 import com.baidu.tieba.livesdk.AlaLiveSdkStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeSet;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 /* loaded from: classes5.dex */
-public class dk8 extends jk1<mj5> {
+public class dk8 extends jk1<jj5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a implements mj5 {
+    public class a implements jj5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: com.baidu.tieba.dk8$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C0261a implements SendMsgParam.SendMsgParamConstruct {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ pj5 a;
-            public final /* synthetic */ Context b;
-
-            public C0261a(a aVar, pj5 pj5Var, Context context) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, pj5Var, context};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = pj5Var;
-                this.b = context;
-            }
-
-            @Override // com.baidu.android.imsdk.chatmessage.request.params.SendMsgParam.SendMsgParamConstruct
-            public void construct(SendMsgParam sendMsgParam) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, sendMsgParam) == null) && sendMsgParam != null && sendMsgParam.getChatMsg() != null) {
-                    this.a.a(sendMsgParam.getChatMsg());
-                    BIMManager.sendChatMsg(this.b, sendMsgParam);
-                }
-            }
-        }
+        @NonNull
+        public final List<sj5> c;
+        @NonNull
+        public final Map<Long, tj5> d;
+        public final IChatRoomMsgReceiveListener e;
+        public final Map<Long, bt5> f;
+        public final Map<uj5, IConnectListener> g;
+        @NonNull
+        public final Map<Long, String> h;
 
         /* loaded from: classes5.dex */
-        public class b implements BIMValueCallBack<SendMsgResponse> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ pj5 a;
-
-            public b(a aVar, pj5 pj5Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, pj5Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = pj5Var;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.android.imsdk.group.BIMValueCallBack
-            /* renamed from: a */
-            public void onResult(int i, String str, SendMsgResponse sendMsgResponse) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, sendMsgResponse) == null) && str != null && sendMsgResponse != null && sendMsgResponse.msg != null) {
-                    this.a.b(i, str, sendMsgResponse);
-                }
-            }
-        }
-
-        /* loaded from: classes5.dex */
-        public class c extends BroadcastReceiver {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a this$1;
-            public final /* synthetic */ oj5 val$listener;
-
-            public c(a aVar, oj5 oj5Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, oj5Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$1 = aVar;
-                this.val$listener = oj5Var;
-            }
-
-            @Override // android.content.BroadcastReceiver
-            public void onReceive(Context context, Intent intent) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && IMConstants.MESSAGE_ACTION.equals(intent.getAction())) {
-                    this.val$listener.onReceiveMessage(0, 0, intent.getParcelableArrayListExtra(IMConstants.MESSAGE));
-                }
-            }
-        }
-
-        /* loaded from: classes5.dex */
-        public class d implements FetchMsgParam.FetchMsgParamConstruct {
+        public class b implements bt5.c<bt5.c<Void>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Context a;
+            public final /* synthetic */ Long b;
+            public final /* synthetic */ qj5 c;
+            public final /* synthetic */ a d;
 
-            public d(a aVar, Context context) {
+            /* renamed from: com.baidu.tieba.dk8$a$b$a  reason: collision with other inner class name */
+            /* loaded from: classes5.dex */
+            public class C0257a implements IChatRoomEnterListener {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ boolean a;
+                public final /* synthetic */ bt5.c b;
+                public final /* synthetic */ b c;
+
+                public C0257a(b bVar, boolean z, bt5.c cVar) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {bVar, Boolean.valueOf(z), cVar};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.c = bVar;
+                    this.a = z;
+                    this.b = cVar;
+                }
+
+                @Override // com.baidu.android.imsdk.chatmessage.IChatRoomEnterListener
+                public void onResult(int i, String str, IChatRoomEnterListener.ChatRoomInfo chatRoomInfo) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, chatRoomInfo) == null) {
+                        ok8.f(this.c.b.longValue(), i, str);
+                        if (i != 0) {
+                            if (this.a) {
+                                ok8.k("im_enter_auto_retry_", this.c.b.longValue());
+                                b bVar = this.c;
+                                bVar.c.a(bVar.b.longValue(), i, str, chatRoomInfo);
+                                return;
+                            }
+                            this.b.call(false, null);
+                            return;
+                        }
+                        ok8.k("im_enter_auto_retry_", this.c.b.longValue());
+                        this.c.d.f.remove(this.c.b);
+                        b bVar2 = this.c;
+                        bVar2.c.a(bVar2.b.longValue(), i, str, chatRoomInfo);
+                    }
+                }
+            }
+
+            public b(a aVar, Context context, Long l, qj5 qj5Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, context};
+                    Object[] objArr = {aVar, context, l, qj5Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -160,30 +125,89 @@ public class dk8 extends jk1<mj5> {
                         return;
                     }
                 }
+                this.d = aVar;
                 this.a = context;
+                this.b = l;
+                this.c = qj5Var;
             }
 
-            @Override // com.baidu.android.imsdk.chatmessage.request.params.FetchMsgParam.FetchMsgParamConstruct
-            public void construct(FetchMsgParam fetchMsgParam) {
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.bt5.c
+            public void call(boolean z, bt5.c<Void> cVar) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, fetchMsgParam) == null) {
-                    BIMManager.fetchMsg(this.a, fetchMsgParam);
+                if (interceptable == null || interceptable.invokeZL(1048576, this, z, cVar) == null) {
+                    BIMManager.enterChatRoom(this.a, this.b.longValue(), new C0257a(this, z, cVar));
                 }
             }
         }
 
         /* loaded from: classes5.dex */
-        public class e implements BIMValueCallBack<FetchMsgResponse> {
+        public class c implements bt5.c<bt5.c<Void>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ nj5 a;
+            public final /* synthetic */ Context a;
+            public final /* synthetic */ Long b;
+            public final /* synthetic */ rj5 c;
+            public final /* synthetic */ a d;
 
-            public e(a aVar, nj5 nj5Var) {
+            /* renamed from: com.baidu.tieba.dk8$a$c$a  reason: collision with other inner class name */
+            /* loaded from: classes5.dex */
+            public class C0258a implements IChatRoomExitListener {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ boolean a;
+                public final /* synthetic */ bt5.c b;
+                public final /* synthetic */ c c;
+
+                public C0258a(c cVar, boolean z, bt5.c cVar2) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {cVar, Boolean.valueOf(z), cVar2};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.c = cVar;
+                    this.a = z;
+                    this.b = cVar2;
+                }
+
+                @Override // com.baidu.android.imsdk.chatmessage.IChatRoomExitListener
+                public void onResult(int i, String str) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                        ok8.g(this.c.b.longValue(), i, str);
+                        if (i != 0) {
+                            if (this.a) {
+                                ok8.k("im_exit_auto_retry_", this.c.b.longValue());
+                                c cVar = this.c;
+                                cVar.c.a(cVar.b.longValue(), i, str);
+                                return;
+                            }
+                            this.b.call(false, null);
+                            return;
+                        }
+                        ok8.k("im_exit_auto_retry_", this.c.b.longValue());
+                        this.c.d.f.remove(this.c.b);
+                        c cVar2 = this.c;
+                        cVar2.c.a(cVar2.b.longValue(), i, str);
+                    }
+                }
+            }
+
+            public c(a aVar, Context context, Long l, rj5 rj5Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, nj5Var};
+                    Object[] objArr = {aVar, context, l, rj5Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -193,16 +217,224 @@ public class dk8 extends jk1<mj5> {
                         return;
                     }
                 }
-                this.a = nj5Var;
+                this.d = aVar;
+                this.a = context;
+                this.b = l;
+                this.c = rj5Var;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.android.imsdk.group.BIMValueCallBack
-            /* renamed from: a */
-            public void onResult(int i, String str, FetchMsgResponse fetchMsgResponse) {
+            @Override // com.baidu.tieba.bt5.c
+            public void call(boolean z, bt5.c<Void> cVar) {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, fetchMsgResponse) == null) && fetchMsgResponse != null) {
-                    this.a.a(i, str, new PersonFetchMsgResponse(fetchMsgResponse));
+                if (interceptable == null || interceptable.invokeZL(1048576, this, z, cVar) == null) {
+                    BIMManager.exitChatRoom(this.a, this.b.longValue(), new C0258a(this, z, cVar));
+                }
+            }
+        }
+
+        /* loaded from: classes5.dex */
+        public class e implements IFetchMsgByIdListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ long a;
+            public final /* synthetic */ long b;
+            public final /* synthetic */ boolean c;
+            public final /* synthetic */ boolean d;
+            public final /* synthetic */ wj5 e;
+            public final /* synthetic */ vj5 f;
+
+            /* renamed from: com.baidu.tieba.dk8$a$e$a  reason: collision with other inner class name */
+            /* loaded from: classes5.dex */
+            public class C0259a implements Function1<List<? extends ChatMsg>, Unit> {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ int a;
+                public final /* synthetic */ String b;
+                public final /* synthetic */ e c;
+
+                public C0259a(e eVar, int i, String str) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {eVar, Integer.valueOf(i), str};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.c = eVar;
+                    this.a = i;
+                    this.b = str;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // kotlin.jvm.functions.Function1
+                /* renamed from: a */
+                public Unit invoke(List<? extends ChatMsg> list) {
+                    InterceptResult invokeL;
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+                        TreeSet<ChatMsg> treeSet = new TreeSet<>(jj5.b);
+                        treeSet.addAll(list);
+                        this.c.f.a(this.a, this.b, treeSet);
+                        return null;
+                    }
+                    return (Unit) invokeL.objValue;
+                }
+            }
+
+            public e(a aVar, long j, long j2, boolean z, boolean z2, wj5 wj5Var, vj5 vj5Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z), Boolean.valueOf(z2), wj5Var, vj5Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = j;
+                this.b = j2;
+                this.c = z;
+                this.d = z2;
+                this.e = wj5Var;
+                this.f = vj5Var;
+            }
+
+            @Override // com.baidu.android.imsdk.chatmessage.IFetchMsgByIdListener
+            public void onFetchMsgByIdResult(int i, String str, String str2, int i2, long j, long j2, long j3, int i3, int i4, long j4, ArrayList<ChatMsg> arrayList) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j4), arrayList}) == null) {
+                    int size = arrayList.size();
+                    if (i != 0 || size < 2) {
+                        ok8.e(this.a, this.b, i3, this.c, this.d, i, str, size);
+                    }
+                    wj5 wj5Var = this.e;
+                    if (wj5Var != null) {
+                        wj5Var.a(this.a, arrayList, new C0259a(this, i, str));
+                        return;
+                    }
+                    TreeSet<ChatMsg> treeSet = new TreeSet<>(jj5.b);
+                    treeSet.addAll(arrayList);
+                    this.f.a(i, str, treeSet);
+                }
+            }
+        }
+
+        /* renamed from: com.baidu.tieba.dk8$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class C0256a implements IChatRoomMsgReceiveListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public C0256a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // com.baidu.android.imsdk.mcast.IChatRoomMsgReceiveListener
+            public void onReceiveMessage(int i, long j, List<ChatMsg> list) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), list}) == null) {
+                    for (sj5 sj5Var : this.a.c) {
+                        if (sj5Var.a(i, j, list)) {
+                            return;
+                        }
+                    }
+                    TreeSet<ChatMsg> treeSet = new TreeSet<>(jj5.b);
+                    treeSet.addAll(list);
+                    ((tj5) this.a.d.get(Long.valueOf(j))).a(i, j, treeSet);
+                }
+            }
+        }
+
+        /* loaded from: classes5.dex */
+        public class d implements ISendMessageListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ xj5 a;
+
+            public d(a aVar, xj5 xj5Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, xj5Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = xj5Var;
+            }
+
+            @Override // com.baidu.android.imsdk.chatmessage.ISendMessageListener
+            public void onSendMessageResult(int i, ChatMsg chatMsg) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeIL(1048576, this, i, chatMsg) == null) {
+                    this.a.onSendMessageResult(i, chatMsg);
+                }
+            }
+        }
+
+        /* loaded from: classes5.dex */
+        public class f implements IConnectListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ uj5 a;
+
+            public f(a aVar, uj5 uj5Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, uj5Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = uj5Var;
+            }
+
+            @Override // com.baidu.android.imsdk.account.IConnectListener
+            public void onResult(int i) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                    this.a.onResult(i);
                 }
             }
         }
@@ -223,43 +455,147 @@ public class dk8 extends jk1<mj5> {
                 }
             }
             AlaLiveSdkStatic.k();
+            this.c = new ArrayList();
+            this.d = new HashMap();
+            this.e = new C0256a(this);
+            this.f = new HashMap();
+            this.g = new HashMap();
+            this.h = new HashMap();
         }
 
-        @Override // com.baidu.tieba.mj5
-        public BroadcastReceiver a(@NonNull Context context, @NonNull oj5 oj5Var) {
-            InterceptResult invokeLL;
+        @Override // com.baidu.tieba.jj5
+        public void e(@NonNull uj5 uj5Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, oj5Var)) == null) {
-                IntentFilter intentFilter = new IntentFilter(IMConstants.MESSAGE_ACTION);
-                c cVar = new c(this, oj5Var);
-                context.registerReceiver(cVar, intentFilter);
-                return cVar;
-            }
-            return (BroadcastReceiver) invokeLL.objValue;
-        }
-
-        @Override // com.baidu.tieba.mj5
-        public void c(@NonNull Context context, @NonNull BroadcastReceiver broadcastReceiver) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, broadcastReceiver) == null) {
-                context.unregisterReceiver(broadcastReceiver);
+            if (interceptable == null || interceptable.invokeL(1048580, this, uj5Var) == null) {
+                f fVar = new f(this, uj5Var);
+                this.g.put(uj5Var, fVar);
+                BIMManager.registerConnectListenerToList(fVar);
             }
         }
 
-        @Override // com.baidu.tieba.mj5
-        public void b(@NonNull Context context, long j, long j2, int i, long j3, nj5 nj5Var) {
+        @Override // com.baidu.tieba.jj5
+        public void g(@NonNull uj5 uj5Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Long.valueOf(j3), nj5Var}) == null) {
-                FetchMsgParam.newInstanceByPa(context, j, j2, i, 0, j3, "", new e(this, nj5Var), new d(this, context));
+            if (interceptable == null || interceptable.invokeL(1048582, this, uj5Var) == null) {
+                BIMManager.unregisterConnectListenerFromList(this.g.remove(uj5Var));
             }
         }
 
-        @Override // com.baidu.tieba.mj5
-        public void d(@NonNull Context context, @NonNull ChatMsg chatMsg, long j, @NonNull pj5 pj5Var) {
+        @Override // com.baidu.tieba.jj5
+        public void a(@NonNull Context context, @NonNull List<Long> list, @NonNull tj5 tj5Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, chatMsg, Long.valueOf(j), pj5Var}) == null) {
-                SendMsgParam.newInstanceByPa(context, chatMsg, j, new b(this, pj5Var), new C0261a(this, pj5Var, context));
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, context, list, tj5Var) == null) {
+                for (Long l : list) {
+                    xs5.b(l);
+                    if (this.d.get(l) == tj5Var) {
+                        BIMManager.unregisterChatRoomMsgReceiveListener(context, l.longValue(), this.e);
+                        this.d.remove(l);
+                    }
+                }
             }
+        }
+
+        @Override // com.baidu.tieba.jj5
+        public void h(@NonNull Context context, @NonNull String str, @NonNull List<Long> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048583, this, context, str, list) == null) {
+                for (Long l : list) {
+                    xs5.b(l);
+                    Map<Long, String> map = this.h;
+                    map.put(l, str + context);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.jj5
+        public void b(@NonNull Context context, long j, long j2, int i, boolean z, boolean z2, @Nullable wj5 wj5Var, @NonNull vj5 vj5Var) {
+            int i2;
+            long j3;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), wj5Var, vj5Var}) == null) {
+                long j4 = 0;
+                if (z) {
+                    j3 = Long.MAX_VALUE;
+                    i2 = i * (-1);
+                } else if (z2) {
+                    j3 = j2;
+                    i2 = i * (-1);
+                } else {
+                    j4 = j2;
+                    i2 = i;
+                    j3 = Long.MAX_VALUE;
+                }
+                BIMManager.fetchChatRoomMsgRequest(context, 10773430L, AccountManager.getUK(context), 4, j, j4, j3, i2, z ? 1 : 0, new e(this, j, j4, z, z2, wj5Var, vj5Var));
+            }
+        }
+
+        @Override // com.baidu.tieba.jj5
+        public void c(@NonNull Context context, @NonNull List<Long> list, @NonNull tj5 tj5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, list, tj5Var) == null) {
+                for (Long l : list) {
+                    xs5.b(l);
+                    this.d.put(l, tj5Var);
+                    BIMManager.registerChatRoomMsgReceiveListener(context, l.longValue(), this.e);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.jj5
+        public void d(@NonNull Context context, @NonNull String str, @NonNull List<Long> list, @NonNull qj5 qj5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(1048579, this, context, str, list, qj5Var) == null) {
+                for (Long l : list) {
+                    xs5.b(l);
+                    Map<Long, String> map = this.h;
+                    map.put(l, str + context);
+                    bt5 m = m(l.longValue());
+                    ok8.d("im_enter_auto_retry_", l.longValue());
+                    m.i(new b(this, context, l, qj5Var));
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.jj5
+        public void f(@NonNull Context context, @NonNull String str, @NonNull List<Long> list, @NonNull rj5 rj5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(1048581, this, context, str, list, rj5Var) == null) {
+                for (Long l : list) {
+                    xs5.b(l);
+                    if (!TextUtils.equals(this.h.get(l), str + context)) {
+                        rj5Var.a(l.longValue(), -200, "");
+                    } else {
+                        bt5 m = m(l.longValue());
+                        ok8.d("im_exit_auto_retry_", l.longValue());
+                        m.i(new c(this, context, l, rj5Var));
+                    }
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.jj5
+        public void i(@NonNull Context context, long j, @NonNull ChatMsg chatMsg, @NonNull xj5 xj5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{context, Long.valueOf(j), chatMsg, xj5Var}) == null) {
+                BIMManager.sendMsgToChatRoom(context, j, BIMManager.getBdUKFromBdUid(chatMsg.getSenderUid()), chatMsg, new d(this, xj5Var));
+            }
+        }
+
+        @NonNull
+        public final bt5 m(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
+                bt5 bt5Var = this.f.get(Long.valueOf(j));
+                if (bt5Var == null) {
+                    bt5 g = bt5.g();
+                    this.f.put(Long.valueOf(j), g);
+                    return g;
+                }
+                bt5Var.h();
+                return bt5Var;
+            }
+            return (bt5) invokeJ.objValue;
         }
     }
 
@@ -280,12 +616,12 @@ public class dk8 extends jk1<mj5> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.jk1
     /* renamed from: a */
-    public mj5 createService() throws ServiceNotFoundException {
+    public jj5 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return new a(this);
         }
-        return (mj5) invokeV.objValue;
+        return (jj5) invokeV.objValue;
     }
 }

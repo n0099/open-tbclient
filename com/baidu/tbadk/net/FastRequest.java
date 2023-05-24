@@ -24,12 +24,12 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.CookieHelper;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ar9;
 import com.baidu.tieba.g9;
 import com.baidu.tieba.jx4;
 import com.baidu.tieba.rb;
 import com.baidu.tieba.xs5;
-import com.baidu.tieba.yh6;
-import com.baidu.tieba.zq9;
+import com.baidu.tieba.zh6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -333,7 +333,7 @@ public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements Li
         this.c = new HashMap();
         this.d = new HashMap();
         this.j = false;
-        TbHttpMessageTask e2 = zq9.e(i, str, ResponseMessage.class, false, true, true, true);
+        TbHttpMessageTask e2 = ar9.e(i, str, ResponseMessage.class, false, true, true, true);
         this.a = e2;
         this.i = e2.getUrl();
         d dVar = new d(this, i, true);
@@ -454,7 +454,7 @@ public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements Li
             }
             if (this.j) {
                 Map<String, String> b2 = CookieHelper.b();
-                if (!yh6.b(b2)) {
+                if (!zh6.b(b2)) {
                     for (Map.Entry<String, String> entry2 : b2.entrySet()) {
                         httpMessage.addCookie(entry2.getKey(), entry2.getValue());
                     }

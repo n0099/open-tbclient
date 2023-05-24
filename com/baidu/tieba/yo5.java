@@ -123,7 +123,7 @@ public class yo5 extends xa {
             httpMessage.addParam("extra", o65.m().s("key_sync_extra_field", ""));
             httpMessage.addParam("device_score", String.valueOf(ScheduleStrategy.getDeviceScore()));
             httpMessage.addParam("personalized_rec_switch", String.valueOf(TbSingleton.getInstance().getPersonalizedRecSwitch()));
-            if (be9.b()) {
+            if (ce9.b()) {
                 if (TbadkCoreApplication.getInst().getImei() != null) {
                     httpMessage.addParam(HttpRequest.PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
                 }
@@ -141,29 +141,29 @@ public class yo5 extends xa {
                     httpMessage.addParam(HttpRequest.PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
                 }
             } else {
-                httpMessage.addParam(HttpRequest.NEED_DECRYPT, be9.c());
-                String g = be9.g(HttpRequest.PHONE_IMEI);
+                httpMessage.addParam(HttpRequest.NEED_DECRYPT, ce9.c());
+                String g = ce9.g(HttpRequest.PHONE_IMEI);
                 if (!TextUtils.isEmpty(g)) {
-                    httpMessage.addParam(g, be9.f());
+                    httpMessage.addParam(g, ce9.f());
                 }
-                String g2 = be9.g("oaid");
+                String g2 = ce9.g("oaid");
                 if (!TextUtils.isEmpty(g2)) {
-                    httpMessage.addParam(g2, be9.i());
+                    httpMessage.addParam(g2, ce9.i());
                 }
-                String g3 = be9.g("model");
+                String g3 = ce9.g("model");
                 if (!TextUtils.isEmpty(g3)) {
-                    httpMessage.addParam(g3, be9.h());
+                    httpMessage.addParam(g3, ce9.h());
                 }
-                String g4 = be9.g("brand");
+                String g4 = ce9.g("brand");
                 if (!TextUtils.isEmpty(g4)) {
-                    httpMessage.addParam(g4, be9.e());
+                    httpMessage.addParam(g4, ce9.e());
                 }
-                String g5 = be9.g(HttpRequest.ANDROID_ID);
+                String g5 = ce9.g(HttpRequest.ANDROID_ID);
                 if (!TextUtils.isEmpty(g5)) {
-                    httpMessage.addParam(g5, be9.d());
+                    httpMessage.addParam(g5, ce9.d());
                 }
             }
-            if (ae9.b()) {
+            if (be9.b()) {
                 if (ComplianceParmasHelper.isNeedChange(tbHttpMessageTask.getUrl())) {
                     httpMessage.addParam(ComplianceParmasHelper.getRenameKey("mac"), ComplianceParmasHelper.getBase64Value(PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst())));
                     return;
@@ -172,10 +172,10 @@ public class yo5 extends xa {
                     return;
                 }
             }
-            httpMessage.addParam("need_cam_decrypt", ae9.c());
-            String d = ae9.d("mac");
+            httpMessage.addParam("need_cam_decrypt", be9.c());
+            String d = be9.d("mac");
             if (!TextUtils.isEmpty(d)) {
-                httpMessage.addParam(d, ae9.e());
+                httpMessage.addParam(d, be9.e());
             }
         }
     }
@@ -199,13 +199,13 @@ public class yo5 extends xa {
             httpMessage.addCookie("need_cookie_decrypt", "0");
             httpMessage.addCookie("TBBRAND", "");
             httpMessage.addCookie("DNARBBT", "");
-            if (zd9.b()) {
+            if (ae9.b()) {
                 httpMessage.addCookie("TBBRAND", ti.g());
             } else {
-                httpMessage.addCookie("need_cookie_decrypt", zd9.c());
-                String d = zd9.d("TBBRAND");
+                httpMessage.addCookie("need_cookie_decrypt", ae9.c());
+                String d = ae9.d("TBBRAND");
                 if (!TextUtils.isEmpty(d)) {
-                    httpMessage.addCookie(d, zd9.e());
+                    httpMessage.addCookie(d, ae9.e());
                 }
             }
             httpMessage.addCookie("CUID", TbadkCoreApplication.getInst().getCuid());

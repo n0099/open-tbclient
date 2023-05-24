@@ -93,12 +93,12 @@ public class dk3 extends ak3 {
 
         /* renamed from: com.baidu.tieba.dk3$b$b  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0260b implements xj3 {
+        public class C0255b implements xj3 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public C0260b(b bVar) {
+            public C0255b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -299,9 +299,9 @@ public class dk3 extends ak3 {
             this.d = new Handler(Looper.getMainLooper());
             this.e = new ReentrantLock();
             this.f = new a(this);
-            C0260b c0260b = new C0260b(this);
-            this.g = c0260b;
-            dk3Var.c.setConnectListener(c0260b);
+            C0255b c0255b = new C0255b(this);
+            this.g = c0255b;
+            dk3Var.c.setConnectListener(c0255b);
         }
 
         @Override // com.baidu.tieba.bk3

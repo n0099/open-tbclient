@@ -1,42 +1,55 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.os.Process;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ala;
 import com.baidu.tieba.bla;
-import com.baidu.tieba.cla;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.download.exception.DownloadException;
+import java.io.Closeable;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.concurrent.Executor;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.RandomAccessFile;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class hla implements bla, cla.a, ala.a {
+public abstract class hla implements bla {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public uka a;
-    public xka b;
-    public Executor c;
-    public String d;
-    public ska e;
-    public bla.a f;
-    public int g;
-    public dla h;
-    public cla i;
-    public List<ala> j;
+    public String a;
+    public final ela b;
+    public final mla c;
+    public final bla.a d;
+    public volatile int e;
+    public volatile int f;
 
-    public hla(uka ukaVar, xka xkaVar, Executor executor, String str, ska skaVar, bla.a aVar) {
+    public abstract RandomAccessFile e(File file, String str, long j) throws IOException;
+
+    public abstract Map<String, String> f(mla mlaVar);
+
+    public abstract int g();
+
+    public abstract String h();
+
+    public abstract void j(mla mlaVar);
+
+    public abstract void n(mla mlaVar);
+
+    public hla(ela elaVar, mla mlaVar, bla.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ukaVar, xkaVar, executor, str, skaVar, aVar};
+            Object[] objArr = {elaVar, mlaVar, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -46,212 +59,28 @@ public class hla implements bla, cla.a, ala.a {
                 return;
             }
         }
-        this.a = ukaVar;
-        this.b = xkaVar;
-        this.c = executor;
-        this.d = str;
-        this.e = skaVar;
-        this.f = aVar;
-        g();
-    }
-
-    @Override // com.baidu.tieba.ala.a
-    public void a(DownloadException downloadException) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, downloadException) == null) && k()) {
-            this.g = 108;
-            this.b.a(downloadException);
-            m();
+        this.f = 0;
+        this.b = elaVar;
+        this.c = mlaVar;
+        this.d = aVar;
+        String h = h();
+        this.a = h;
+        if (TextUtils.isEmpty(h)) {
+            this.a = getClass().getSimpleName();
         }
     }
 
-    @Override // com.baidu.tieba.ala.a
-    public void onDownloadCompleted(String str) {
+    public final void a() throws DownloadException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048597, this, str) == null) && j()) {
-            this.g = 105;
-            this.b.onDownloadCompleted(str);
-            m();
-        }
-    }
-
-    @Override // com.baidu.tieba.cla.a
-    public void b(DownloadException downloadException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadException) == null) {
-            if (this.i.isCanceled()) {
-                onConnectCanceled();
-            } else if (this.i.isPaused()) {
-                onDownloadPaused();
-            } else {
-                this.g = 108;
-                this.b.b(downloadException);
-                m();
-            }
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            File file = new File(this.h.a(), this.h.d());
-            if (file.exists() && file.isFile()) {
-                file.delete();
-            }
-        }
-    }
-
-    public final lla f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return new lla(0, this.d, this.a.c(), 0L);
-        }
-        return (lla) invokeV.objValue;
-    }
-
-    public final boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            for (ala alaVar : this.j) {
-                if (alaVar.isDownloading()) {
-                    return false;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.f != 107) {
+                if (this.f != 106) {
+                    return;
                 }
+                n(this.c);
+                throw new DownloadException(106, "Download paused!");
             }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.bla
-    public boolean isRunning() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            int i = this.g;
-            if (i != 101 && i != 102 && i != 103 && i != 104) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            for (ala alaVar : this.j) {
-                if (!alaVar.isComplete()) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            for (ala alaVar : this.j) {
-                if (alaVar.isDownloading()) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            for (ala alaVar : this.j) {
-                if (alaVar.isDownloading()) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.f.a(this.d, this);
-        }
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            ila ilaVar = new ila(this.a.c(), this);
-            this.i = ilaVar;
-            this.c.execute(ilaVar);
-        }
-    }
-
-    @Override // com.baidu.tieba.cla.a
-    public void onConnectCanceled() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            c();
-            this.g = 107;
-            this.b.onConnectCanceled();
-            m();
-        }
-    }
-
-    @Override // com.baidu.tieba.cla.a
-    public void onConnectPaused() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            onDownloadPaused();
-        }
-    }
-
-    @Override // com.baidu.tieba.cla.a
-    public void onConnecting() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            this.g = 102;
-            this.b.onConnecting();
-        }
-    }
-
-    @Override // com.baidu.tieba.ala.a
-    public void onDownloadCanceled() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && i()) {
-            c();
-            this.g = 107;
-            this.b.onDownloadCanceled();
-            m();
-        }
-    }
-
-    @Override // com.baidu.tieba.ala.a
-    public void onDownloadPaused() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048598, this) == null) && l()) {
-            this.g = 106;
-            this.b.onDownloadPaused();
-            m();
-        }
-    }
-
-    @Override // com.baidu.tieba.bla
-    public void start() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            this.g = 101;
-            this.b.onStarted();
-            n();
+            throw new DownloadException(107, "Download canceled!");
         }
     }
 
@@ -259,118 +88,258 @@ public class hla implements bla, cla.a, ala.a {
     public void cancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            cla claVar = this.i;
-            if (claVar != null) {
-                claVar.cancel();
-            }
-            for (ala alaVar : this.j) {
-                alaVar.cancel();
-            }
-            if (this.g != 104) {
-                onDownloadCanceled();
-            }
+            this.f = 107;
         }
     }
 
-    public final void g() {
+    @Override // com.baidu.tieba.bla
+    public boolean isComplete() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.h = new dla(this.a.b().toString(), this.a.c(), this.a.a());
-            this.j = new LinkedList();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (this.e == 105) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.bla
+    public boolean isDownloading() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (this.e == 104) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.tieba.bla
     public void pause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            cla claVar = this.i;
-            if (claVar != null) {
-                claVar.pause();
-            }
-            for (ala alaVar : this.j) {
-                alaVar.pause();
-            }
-            if (this.g != 104) {
-                onDownloadPaused();
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            this.f = 106;
+        }
+    }
+
+    public final void b(Closeable closeable) throws IOException {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, closeable) == null) && closeable != null) {
+            synchronized (hla.class) {
+                closeable.close();
             }
         }
     }
 
-    public final void d(long j, boolean z) {
+    public final String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            this.g = 104;
-            h(j, z);
-            for (ala alaVar : this.j) {
-                this.c.execute(alaVar);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b.a().getAbsolutePath() + File.separator + this.b.d();
         }
+        return (String) invokeV.objValue;
     }
 
-    public final List<lla> e(long j) {
-        InterceptResult invokeJ;
-        long j2;
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
-            ArrayList arrayList = new ArrayList();
-            int b = this.e.b();
-            for (int i = 0; i < b; i++) {
-                long j3 = j / b;
-                long j4 = j3 * i;
-                if (i == b - 1) {
-                    j2 = j;
-                } else {
-                    j2 = (j3 + j4) - 1;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            Process.setThreadPriority(10);
+            j(this.c);
+            try {
+                this.e = 104;
+                d();
+                synchronized (this.d) {
+                    this.e = 105;
+                    this.d.onDownloadCompleted(c());
                 }
-                arrayList.add(new lla(i, this.d, this.a.c(), j4, j2, 0L));
+            } catch (DownloadException e) {
+                i(e);
             }
-            return arrayList;
         }
-        return (List) invokeJ.objValue;
     }
 
-    public final void h(long j, boolean z) {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x005c */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x007a  */
+    /* JADX WARN: Type inference failed for: r2v3 */
+    /* JADX WARN: Type inference failed for: r2v6, types: [java.net.HttpURLConnection] */
+    /* JADX WARN: Type inference failed for: r2v7 */
+    /* JADX WARN: Type inference failed for: r7v0, types: [com.baidu.tieba.hla, java.lang.Object] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void d() throws DownloadException {
+        IOException e;
+        ProtocolException e2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            this.j.clear();
-            if (z) {
-                List<lla> e = e(j);
-                int i = 0;
-                for (lla llaVar : e) {
-                    i = (int) (i + llaVar.b());
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            try {
+                URL url = new URL(this.c.d());
+                ?? r2 = 0;
+                try {
+                    try {
+                        HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                        try {
+                            httpURLConnection.setConnectTimeout(4000);
+                            httpURLConnection.setReadTimeout(4000);
+                            httpURLConnection.setRequestMethod("GET");
+                            k(f(this.c), httpURLConnection);
+                            int responseCode = httpURLConnection.getResponseCode();
+                            if (responseCode == g()) {
+                                m(httpURLConnection);
+                                if (httpURLConnection != null) {
+                                    httpURLConnection.disconnect();
+                                    return;
+                                }
+                                return;
+                            }
+                            throw new DownloadException(108, "UnSupported response code:" + responseCode);
+                        } catch (ProtocolException e3) {
+                            e2 = e3;
+                            throw new DownloadException(108, "Protocol error", e2);
+                        } catch (IOException e4) {
+                            e = e4;
+                            throw new DownloadException(108, "IO error", e);
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        r2 = url;
+                        if (r2 != 0) {
+                            r2.disconnect();
+                        }
+                        throw th;
+                    }
+                } catch (ProtocolException e5) {
+                    e2 = e5;
+                } catch (IOException e6) {
+                    e = e6;
+                } catch (Throwable th2) {
+                    th = th2;
+                    if (r2 != 0) {
+                    }
+                    throw th;
                 }
-                this.h.f(i);
-                for (lla llaVar2 : e) {
-                    this.j.add(new jla(this.h, llaVar2, this));
+            } catch (MalformedURLException e7) {
+                throw new DownloadException(108, "Bad url.", e7);
+            }
+        }
+    }
+
+    public final void i(DownloadException downloadException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, downloadException) == null) {
+            switch (downloadException.getErrorCode()) {
+                case 106:
+                    synchronized (this.d) {
+                        this.e = 106;
+                        this.d.onDownloadPaused();
+                    }
+                    return;
+                case 107:
+                    synchronized (this.d) {
+                        this.e = 107;
+                        this.d.onDownloadCanceled();
+                    }
+                    return;
+                case 108:
+                    synchronized (this.d) {
+                        this.e = 108;
+                        this.d.a(downloadException);
+                    }
+                    return;
+                default:
+                    throw new IllegalArgumentException("Unknown state");
+            }
+        }
+    }
+
+    public final void k(Map<String, String> map, URLConnection uRLConnection) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048589, this, map, uRLConnection) == null) && map != null) {
+            for (String str : map.keySet()) {
+                uRLConnection.setRequestProperty(str, map.get(str));
+            }
+        }
+    }
+
+    public final void l(InputStream inputStream, RandomAccessFile randomAccessFile) throws DownloadException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048590, this, inputStream, randomAccessFile) == null) {
+            byte[] bArr = new byte[8192];
+            while (true) {
+                a();
+                try {
+                    int read = inputStream.read(bArr);
+                    if (read == -1) {
+                        return;
+                    }
+                    randomAccessFile.write(bArr, 0, read);
+                    long j = read;
+                    this.c.e(this.c.b() + j);
+                    synchronized (this.d) {
+                        this.b.f(this.b.b() + j);
+                        this.d.onDownloadProgress(this.b.b(), this.b.c());
+                    }
+                } catch (IOException e) {
+                    n(this.c);
+                    throw new DownloadException(108, e);
                 }
-                return;
             }
-            this.j.add(new kla(this.h, f(), this));
         }
     }
 
-    @Override // com.baidu.tieba.cla.a
-    public void onConnected(long j, long j2, boolean z) {
+    public final void m(HttpURLConnection httpURLConnection) throws DownloadException {
+        Closeable closeable;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
-            if (this.i.isCanceled()) {
-                onConnectCanceled();
-                return;
+        if (interceptable == null || interceptable.invokeL(1048591, this, httpURLConnection) == null) {
+            Closeable closeable2 = null;
+            try {
+                try {
+                    InputStream inputStream = httpURLConnection.getInputStream();
+                    try {
+                        long c = this.c.c() + this.c.b();
+                        try {
+                            File a = this.b.a();
+                            if (!a.exists()) {
+                                a.mkdirs();
+                            }
+                            RandomAccessFile e = e(a, this.b.d(), c);
+                            l(inputStream, e);
+                            try {
+                                b(inputStream);
+                                b(e);
+                            } catch (IOException e2) {
+                                e2.printStackTrace();
+                            }
+                        } catch (IOException e3) {
+                            throw new DownloadException(108, "File occur IOException ", e3);
+                        } catch (Exception e4) {
+                            throw new DownloadException(108, "Occur Exception ", e4);
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        closeable2 = inputStream;
+                        closeable = null;
+                        try {
+                            b(closeable2);
+                            b(closeable);
+                        } catch (IOException e5) {
+                            e5.printStackTrace();
+                        }
+                        throw th;
+                    }
+                } catch (IOException e6) {
+                    throw new DownloadException(108, "http get inputStream error", e6);
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                closeable = null;
             }
-            this.g = 103;
-            this.b.onConnected(j, j2, z);
-            this.h.e(z);
-            this.h.g(j2);
-            d(j2, z);
-        }
-    }
-
-    @Override // com.baidu.tieba.ala.a
-    public void onDownloadProgress(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            this.b.onDownloadProgress(j, j2, (int) ((100 * j) / j2));
         }
     }
 }

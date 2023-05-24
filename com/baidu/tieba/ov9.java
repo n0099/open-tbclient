@@ -1,27 +1,67 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.wordscommand.WordCommandManager;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.switchs.DuTokenNewSwitch;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Calendar;
 /* loaded from: classes6.dex */
 public class ov9 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final iu9 b;
+    public final uu9 b;
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(ov9 ov9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ov9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && DuTokenNewSwitch.isOn() && PermissionUtil.isAgreePrivacyPolicy()) {
+                WordCommandManager.setOnInitialUIReadyState(true);
+                WordCommandManager.getInstance().handleClipboardData();
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ov9(MainTabActivity mainTabActivity, iu9 iu9Var) {
-        super(2921348);
+    public ov9(MainTabActivity mainTabActivity) {
+        super(2001011);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, iu9Var};
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,19 +73,52 @@ public class ov9 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = iu9Var;
+        this.b = mainTabActivity.e;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        iu9 iu9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && (iu9Var = this.b) != null && iu9Var.y() != null) {
-            if (!((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                this.b.y().getTabWrapper().animate().translationY(this.b.y().getTabWrapper().getHeight()).setDuration(200L).start();
-            } else {
-                this.b.y().getTabWrapper().animate().translationY(0.0f).setDuration(400L).start();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            boolean z = false;
+            if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                hl.f();
+                hl.i();
+                this.a.X = UtilHelper.getCurrentDay();
+                o65.m().A("last_resume_time", TbSingleton.getInstance().getLastResumeTime());
+                MainTabActivity mainTabActivity = this.a;
+                if (!mainTabActivity.E) {
+                    uu9 uu9Var = this.b;
+                    if (uu9Var != null && uu9Var.j() != null) {
+                        this.b.j().b();
+                        return;
+                    }
+                    return;
+                }
+                mainTabActivity.E = false;
+                return;
+            }
+            wb.b().a("WORDCOMMAND", new a(this));
+            String currentDay = UtilHelper.getCurrentDay();
+            if (!StringUtils.isNull(currentDay) && !currentDay.equals(this.a.X)) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
+            }
+            MainTabActivity mainTabActivity2 = this.a;
+            if (mainTabActivity2.x == null) {
+                mainTabActivity2.x = new yy9();
+            }
+            yy9 yy9Var = this.a.x;
+            yy9Var.c(yy9Var.c);
+            this.a.x.c = TbadkCoreStatisticKey.AntiLocateValue.LOCATE_HOT_BOOT;
+            if (az5.a()) {
+                int i = Calendar.getInstance().get(11);
+                az5.a = (i >= 23 || i < 7) ? true : true;
+                uu9 uu9Var2 = this.b;
+                if (uu9Var2 != null && uu9Var2.j() != null) {
+                    this.b.j().b();
+                    this.b.j().a();
+                }
             }
         }
     }

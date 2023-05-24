@@ -19,8 +19,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.q06;
-import com.baidu.tieba.t3b;
 import com.baidu.tieba.u3b;
+import com.baidu.tieba.v3b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -296,7 +296,7 @@ public class PLA_ListView extends PLA_AbsListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, this, view2, i)) == null) {
             int i2 = i - 1;
-            t3b.c("addViewAbove:" + i);
+            u3b.c("addViewAbove:" + i);
             View obtainView = obtainView(i2, this.mIsScrap);
             setupChild(obtainView, i2, view2.getTop() - this.mDividerHeight, false, this.mListPadding.left, false, this.mIsScrap[0]);
             return obtainView;
@@ -309,7 +309,7 @@ public class PLA_ListView extends PLA_AbsListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, view2, i)) == null) {
             int i2 = i + 1;
-            t3b.c("addViewBelow:" + i);
+            u3b.c("addViewBelow:" + i);
             View obtainView = obtainView(i2, this.mIsScrap);
             setupChild(obtainView, i2, view2.getBottom() + this.mDividerHeight, true, this.mListPadding.left, false, this.mIsScrap[0]);
             return obtainView;
@@ -321,7 +321,7 @@ public class PLA_ListView extends PLA_AbsListView {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65546, this, i, i2)) == null) {
-            t3b.c("fill down: " + i);
+            u3b.c("fill down: " + i);
             int bottom = (getBottom() - getTop()) - this.mListPadding.bottom;
             while (i2 < bottom && i < this.mItemCount) {
                 makeAndAddView(i, getItemTop(i), true, false);
@@ -607,7 +607,7 @@ public class PLA_ListView extends PLA_AbsListView {
             boolean z = false;
             if (this.mFooterViewInfos.size() > 0) {
                 ListAdapter listAdapter = this.mAdapter;
-                if (listAdapter != null && ((u3b) listAdapter).d(view2)) {
+                if (listAdapter != null && ((v3b) listAdapter).d(view2)) {
                     this.mDataSetObserver.onChanged();
                     z = true;
                 }
@@ -625,7 +625,7 @@ public class PLA_ListView extends PLA_AbsListView {
             boolean z = false;
             if (this.mHeaderViewInfos.size() > 0) {
                 ListAdapter listAdapter = this.mAdapter;
-                if (listAdapter != null && ((u3b) listAdapter).e(view2)) {
+                if (listAdapter != null && ((v3b) listAdapter).e(view2)) {
                     this.mDataSetObserver.onChanged();
                     z = true;
                 }
@@ -784,7 +784,7 @@ public class PLA_ListView extends PLA_AbsListView {
             if (this.mHeaderViewInfos.size() <= 0 && this.mFooterViewInfos.size() <= 0) {
                 this.mAdapter = listAdapter;
             } else {
-                this.mAdapter = new u3b(this.mHeaderViewInfos, this.mFooterViewInfos, listAdapter);
+                this.mAdapter = new v3b(this.mHeaderViewInfos, this.mFooterViewInfos, listAdapter);
             }
             this.mOldSelectedPosition = -1;
             this.mOldSelectedRowId = Long.MIN_VALUE;
@@ -861,7 +861,7 @@ public class PLA_ListView extends PLA_AbsListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65548, this, i, i2)) == null) {
             if (this.mDataChanged) {
-                t3b.c("fill specific: " + i + ":" + i2);
+                u3b.c("fill specific: " + i + ":" + i2);
             }
             View makeAndAddView = makeAndAddView(i, i2, true, false);
             this.mFirstPosition = i;
@@ -969,7 +969,7 @@ public class PLA_ListView extends PLA_AbsListView {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65550, this, i, i2)) == null) {
-            t3b.c("fill up: " + i);
+            u3b.c("fill up: " + i);
             int i3 = this.mListPadding.top;
             while (i2 > i3 && i >= 0) {
                 makeAndAddView(i, getItemBottom(i), false, false);
@@ -993,10 +993,10 @@ public class PLA_ListView extends PLA_AbsListView {
             }
             onItemAddedToList(i, z);
             int itemLeft = getItemLeft(i);
-            t3b.c("makeAndAddView:" + i);
+            u3b.c("makeAndAddView:" + i);
             View obtainView = obtainView(i, this.mIsScrap);
             if (obtainView == null) {
-                t3b.b("child is null:" + i);
+                u3b.b("child is null:" + i);
             } else {
                 setupChild(obtainView, i, i2, z, itemLeft, z2, this.mIsScrap[0]);
             }
@@ -1485,8 +1485,8 @@ public class PLA_ListView extends PLA_AbsListView {
                 this.mHeaderViewInfos.add(aVar);
             }
             ListAdapter listAdapter = this.mAdapter;
-            if (listAdapter instanceof u3b) {
-                setAdapter(((u3b) listAdapter).getWrappedAdapter());
+            if (listAdapter instanceof v3b) {
+                setAdapter(((v3b) listAdapter).getWrappedAdapter());
             } else if (listAdapter != null) {
                 setAdapter(listAdapter);
             }
@@ -1890,14 +1890,14 @@ public class PLA_ListView extends PLA_AbsListView {
             boolean recycleOnMeasure = recycleOnMeasure();
             boolean[] zArr = this.mIsScrap;
             while (i2 <= i3) {
-                t3b.c("measureHeightOfChildren:" + i2);
+                u3b.c("measureHeightOfChildren:" + i2);
                 View obtainView = obtainView(i2, zArr);
                 measureScrapChild(obtainView, i2, i);
                 if (i2 > 0) {
                     i6 += i8;
                 }
                 if (recycleOnMeasure && hVar.n(((PLA_AbsListView.LayoutParams) obtainView.getLayoutParams()).a)) {
-                    t3b.c("measureHeightOfChildren");
+                    u3b.c("measureHeightOfChildren");
                     hVar.c(obtainView);
                 }
                 i6 += obtainView.getMeasuredHeight();

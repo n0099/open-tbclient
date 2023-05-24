@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bv8;
+import com.baidu.tieba.cv8;
 import com.baidu.tieba.m75;
 import com.baidu.tieba.newinterest.model.InterestedForumModel;
 import com.baidu.tieba.o75;
@@ -39,7 +39,7 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
     public View k;
     public LinearLayout l;
     public View m;
-    public bv8 n;
+    public cv8 n;
 
     public InterestedForumStyleAFragment() {
         Interceptable interceptable = $ic;
@@ -187,7 +187,7 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
             View view2 = new View(this.f.getContext());
             view2.setLayoutParams(new LinearLayout.LayoutParams(-2, K1(R.dimen.tbds78)));
             this.f.addHeaderView(view2);
-            this.n = new bv8(this, this.f, this.j, this.g, getPageContext(), new InterestedForumModel(getUniqueId()), this.a, this.b);
+            this.n = new cv8(this, this.f, this.j, this.g, getPageContext(), new InterestedForumModel(getUniqueId()), this.a, this.b);
         }
     }
 
@@ -209,9 +209,9 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
             p45.d(this.k).p(new int[]{R.color.CAM_X0201, R.color.CAM_X0612});
             p45.d(this.m).p(new int[]{R.color.CAM_X0612, R.color.CAM_X0201});
             this.g.k();
-            bv8 bv8Var = this.n;
-            if (bv8Var != null) {
-                bv8Var.k(i);
+            cv8 cv8Var = this.n;
+            if (cv8Var != null) {
+                cv8Var.k(i);
             }
         }
     }

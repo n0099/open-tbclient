@@ -1,433 +1,196 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.core.util.DiskEmotionOperate;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.httpNet.WebClient;
-import com.baidu.tbadk.core.util.resourceLoaderProc.DiskCancelWorker;
-import com.baidu.tbadk.imageManager.TbImageMemoryCache;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class is6 implements mg<cn> {
+public class is6 extends jf5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ak5 a;
 
-    @Override // com.baidu.tieba.mg
-    public BdAsyncTaskParallel getAsyncTaskParallel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947864125, "Lcom/baidu/tieba/is6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947864125, "Lcom/baidu/tieba/is6;");
+                return;
+            }
         }
-        return (BdAsyncTaskParallel) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.mg
-    public int getAsyncTaskPriority() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
+        jf5.a.put("video_icon", Integer.valueOf((int) R.drawable.ico_link_video));
+        HashMap<String, Integer> hashMap = jf5.a;
+        Integer valueOf = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d60);
+        hashMap.put("image_emoticon34", valueOf);
+        HashMap<String, Integer> hashMap2 = jf5.a;
+        Integer valueOf2 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d61);
+        hashMap2.put("image_emoticon35", valueOf2);
+        HashMap<String, Integer> hashMap3 = jf5.a;
+        Integer valueOf3 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d62);
+        hashMap3.put("image_emoticon36", valueOf3);
+        HashMap<String, Integer> hashMap4 = jf5.a;
+        Integer valueOf4 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d63);
+        hashMap4.put("image_emoticon37", valueOf4);
+        HashMap<String, Integer> hashMap5 = jf5.a;
+        Integer valueOf5 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d64);
+        hashMap5.put("image_emoticon38", valueOf5);
+        HashMap<String, Integer> hashMap6 = jf5.a;
+        Integer valueOf6 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d67);
+        hashMap6.put("image_emoticon40", valueOf6);
+        HashMap<String, Integer> hashMap7 = jf5.a;
+        Integer valueOf7 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d65);
+        hashMap7.put("image_emoticon39", valueOf7);
+        HashMap<String, Integer> hashMap8 = jf5.a;
+        Integer valueOf8 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d68);
+        hashMap8.put("image_emoticon41", valueOf8);
+        HashMap<String, Integer> hashMap9 = jf5.a;
+        Integer valueOf9 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d69);
+        hashMap9.put("image_emoticon42", valueOf9);
+        HashMap<String, Integer> hashMap10 = jf5.a;
+        Integer valueOf10 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d6a);
+        hashMap10.put("image_emoticon43", valueOf10);
+        HashMap<String, Integer> hashMap11 = jf5.a;
+        Integer valueOf11 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d6b);
+        hashMap11.put("image_emoticon44", valueOf11);
+        HashMap<String, Integer> hashMap12 = jf5.a;
+        Integer valueOf12 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d6c);
+        hashMap12.put("image_emoticon45", valueOf12);
+        HashMap<String, Integer> hashMap13 = jf5.a;
+        Integer valueOf13 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d6d);
+        hashMap13.put("image_emoticon46", valueOf13);
+        HashMap<String, Integer> hashMap14 = jf5.a;
+        Integer valueOf14 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d6e);
+        hashMap14.put("image_emoticon47", valueOf14);
+        HashMap<String, Integer> hashMap15 = jf5.a;
+        Integer valueOf15 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d6f);
+        hashMap15.put("image_emoticon48", valueOf15);
+        jf5.a.put("image_emoticon49", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d70));
+        jf5.a.put("image_emoticon50", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d72));
+        jf5.a.put("image_emoticon77", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d85));
+        jf5.a.put("image_emoticon78", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d86));
+        jf5.a.put("image_emoticon79", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d87));
+        jf5.a.put("image_emoticon80", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d89));
+        jf5.a.put("image_emoticon81", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d8a));
+        jf5.a.put("image_emoticon82", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d8b));
+        jf5.a.put("image_emoticon83", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d8c));
+        jf5.a.put("image_emoticon84", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d8d));
+        jf5.a.put("image_emoticon101", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d22));
+        jf5.a.put("image_emoticon102", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d23));
+        jf5.a.put("image_emoticon103", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d24));
+        jf5.a.put("image_emoticon104", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d25));
+        jf5.a.put("image_emoticon105", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d26));
+        jf5.a.put("image_emoticon106", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d27));
+        jf5.a.put("image_emoticon107", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d28));
+        jf5.a.put("image_emoticon108", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d29));
+        jf5.a.put("image_emoticon109", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d2a));
+        jf5.a.put("image_emoticon110", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d2c));
+        jf5.a.put("image_emoticon111", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d2d));
+        jf5.a.put("image_emoticon112", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d2e));
+        jf5.a.put("image_emoticon113", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d2f));
+        jf5.a.put("image_emoticon114", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d30));
+        jf5.a.put("image_emoticon115", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d31));
+        jf5.a.put("image_emoticon116", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d32));
+        jf5.a.put("image_emoticon117", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d33));
+        jf5.a.put("image_emoticon118", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d34));
+        jf5.a.put("image_emoticon119", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d35));
+        jf5.a.put("image_emoticon120", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d37));
+        jf5.a.put("image_emoticon121", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d38));
+        jf5.a.put("image_emoticon122", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d39));
+        jf5.a.put("image_emoticon123", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d3a));
+        jf5.a.put("image_emoticon124", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d3b));
+        jf5.b.add(valueOf);
+        jf5.b.add(valueOf2);
+        jf5.b.add(valueOf3);
+        jf5.b.add(valueOf4);
+        jf5.b.add(valueOf5);
+        jf5.b.add(valueOf6);
+        jf5.b.add(valueOf7);
+        jf5.b.add(valueOf8);
+        jf5.b.add(valueOf10);
+        jf5.b.add(valueOf11);
+        jf5.b.add(valueOf15);
+        jf5.b.add(valueOf14);
+        jf5.b.add(valueOf13);
+        jf5.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d72));
+        jf5.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d85));
+        jf5.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d86));
+        jf5.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d87));
+        jf5.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d89));
+        jf5.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d8a));
+        jf5.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d8b));
+        jf5.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d8c));
+        jf5.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d8d));
+        jf5.b.add(valueOf12);
+        jf5.b.add(valueOf9);
+        jf5.c.put("#(爱心)", valueOf);
+        jf5.c.put("#(心碎)", valueOf2);
+        jf5.c.put("#(玫瑰)", valueOf3);
+        jf5.c.put("#(礼物)", valueOf4);
+        jf5.c.put("#(彩虹)", valueOf5);
+        jf5.c.put("#(星星月亮)", valueOf7);
+        jf5.c.put("#(太阳)", valueOf6);
+        jf5.c.put("#(钱币)", valueOf8);
+        jf5.c.put("#(灯泡)", valueOf9);
+        jf5.c.put("#(茶杯)", valueOf10);
+        jf5.c.put("#(蛋糕)", valueOf11);
+        jf5.c.put("#(音乐)", valueOf12);
+        jf5.c.put("#(haha)", valueOf13);
+        jf5.c.put("#(胜利)", valueOf14);
+        jf5.c.put("#(大拇指)", valueOf15);
+        jf5.c.put("#(弱)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d70));
+        jf5.c.put("#(OK)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d72));
+        jf5.c.put("#(沙发)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d85));
+        jf5.c.put("#(手纸)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d86));
+        jf5.c.put("#(香蕉)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d87));
+        jf5.c.put("#(便便)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d89));
+        jf5.c.put("#(药丸)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d8a));
+        jf5.c.put("#(红领巾)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d8b));
+        jf5.c.put("#(蜡烛)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d8c));
+        jf5.c.put("#(三道杠)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d8d));
+        jf5.c.put("#(不跟丑人说话)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d22));
+        jf5.c.put("#(么么哒)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d23));
+        jf5.c.put("#(亲亲才能起来)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d24));
+        jf5.c.put("#(伦家只是宝宝)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d25));
+        jf5.c.put("#(你是我的人)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d26));
+        jf5.c.put("#(假装看不见)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d27));
+        jf5.c.put("#(单身等撩)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d28));
+        jf5.c.put("#(吓到宝宝了)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d29));
+        jf5.c.put("#(哈哈哈)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d2a));
+        jf5.c.put("#(嗯嗯)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d2c));
+        jf5.c.put("#(好幸福)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d2d));
+        jf5.c.put("#(宝宝不开心)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d2e));
+        jf5.c.put("#(小姐姐别走)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d2f));
+        jf5.c.put("#(小姐姐在吗)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d30));
+        jf5.c.put("#(小姐姐来啦)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d31));
+        jf5.c.put("#(小姐姐来玩呀)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d32));
+        jf5.c.put("#(我养你)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d33));
+        jf5.c.put("#(我是不会骗你的)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d34));
+        jf5.c.put("#(扎心了)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d35));
+        jf5.c.put("#(无聊)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d37));
+        jf5.c.put("#(月亮代表我的心)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d38));
+        jf5.c.put("#(来追我呀)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d39));
+        jf5.c.put("#(爱你的形状)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d3a));
+        jf5.c.put("#(白眼)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080d3b));
     }
 
     public is6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = ak5.b;
-    }
-
-    @Override // com.baidu.tieba.mg
-    public boolean isNeedLoad() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return rx4.c().g();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final String a(String str, boolean z) {
-        InterceptResult invokeLZ;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(str);
-            if (z) {
-                str2 = "_gif";
-            } else {
-                str2 = "";
-            }
-            sb.append(str2);
-            return sb.toString();
-        }
-        return (String) invokeLZ.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mg
-    /* renamed from: b */
-    public cn getFromLocal(String str, String str2, int i, int i2, jg jgVar, Object... objArr) {
-        InterceptResult invokeCommon;
-        String valueOf;
-        cn cnVar;
-        Bitmap f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), jgVar, objArr})) == null) {
-            cn cnVar2 = null;
-            if (objArr == null || objArr.length != 4) {
-                return null;
-            }
-            String str3 = "";
-            if (objArr[0] == null) {
-                valueOf = "";
-            } else {
-                valueOf = String.valueOf(objArr[0]);
-            }
-            if (objArr[1] != null) {
-                str3 = String.valueOf(objArr[1]);
-            }
-            Boolean valueOf2 = Boolean.valueOf(String.valueOf(objArr[2]));
-            if (valueOf == null || str3 == null || valueOf2 == null) {
-                return null;
-            }
-            g(str3);
-            ArrayList<kf5> i3 = ns6.k().i();
-            if ((ns6.k().q(str3) || ns6.k().r(str3)) && valueOf2.booleanValue() && !new File(ns6.k().g(str3, true)).exists()) {
-                valueOf2 = Boolean.FALSE;
-            }
-            boolean booleanValue = valueOf2.booleanValue();
-            if (ns6.k().o(str3) && valueOf2.booleanValue()) {
-                String g = ns6.k().g(str3, true);
-                String h = ns6.k().h(str3);
-                if (!new File(this.a.e(h, g)).exists()) {
-                    valueOf2 = Boolean.FALSE;
-                }
-                valueOf = h;
-            }
-            if (valueOf2.booleanValue()) {
-                String g2 = ns6.k().g(str3, true);
-                Iterator<kf5> it = i3.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    kf5 next = it.next();
-                    if (next.m(str3)) {
-                        if (next.j()) {
-                            cnVar2 = next.n(str3);
-                        } else {
-                            cnVar2 = e(next.f(), g2, jgVar);
-                        }
-                    }
-                }
-                if (cnVar2 == null && valueOf != null) {
-                    return e(valueOf, g2, jgVar);
-                }
-                return cnVar2;
-            }
-            String g3 = ns6.k().g(str3, false);
-            if (booleanValue && ns6.k().o(str3)) {
-                g3 = g3.replaceFirst("s_", "d_");
-            }
-            Iterator<kf5> it2 = i3.iterator();
-            cn cnVar3 = null;
-            while (true) {
-                if (it2.hasNext()) {
-                    kf5 next2 = it2.next();
-                    if (next2.m(str3)) {
-                        if (next2.j()) {
-                            cnVar3 = next2.o(str3);
-                        } else {
-                            Bitmap f2 = f(next2.f(), g3, jgVar);
-                            if (f2 == null) {
-                                return null;
-                            }
-                            cnVar = new cn(f2, false, str3);
-                        }
-                    }
-                } else {
-                    cnVar = cnVar3;
-                    break;
-                }
-            }
-            if (cnVar == null && valueOf != null && (f = f(valueOf, g3, jgVar)) != null) {
-                return new cn(f, false, str3);
-            }
-            return cnVar;
-        }
-        return (cn) invokeCommon.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mg
-    /* renamed from: d */
-    public cn getFromRemote(String str, String str2, int i, int i2, jg jgVar, Object... objArr) {
-        InterceptResult invokeCommon;
-        String valueOf;
-        String valueOf2;
-        String valueOf3;
-        cn cnVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), jgVar, objArr})) == null) {
-            if (objArr != null && objArr.length == 4) {
-                if (objArr[0] == null) {
-                    valueOf = "";
-                } else {
-                    valueOf = String.valueOf(objArr[0]);
-                }
-                if (objArr[1] == null) {
-                    valueOf2 = "";
-                } else {
-                    valueOf2 = String.valueOf(objArr[1]);
-                }
-                Boolean valueOf4 = Boolean.valueOf(String.valueOf(objArr[2]));
-                if (objArr[3] == null) {
-                    valueOf3 = "";
-                } else {
-                    valueOf3 = String.valueOf(objArr[3]);
-                }
-                if (valueOf != null && valueOf2 != null && valueOf4 != null && valueOf3 != null) {
-                    ms5.g(is6.class.getSimpleName(), valueOf3);
-                    WebClient webClient = new WebClient();
-                    byte[] downloadImageBytes = webClient.downloadImageBytes(valueOf3, false);
-                    boolean needCache = webClient.needCache();
-                    if (downloadImageBytes != null && webClient.IsRequestSuccess()) {
-                        synchronized (BitmapHelper.lockForSyncImageDecoder) {
-                            String g = ns6.k().g(valueOf2, valueOf4.booleanValue());
-                            String str3 = ".emotions/" + valueOf;
-                            if (valueOf4.booleanValue()) {
-                                cc ccVar = new cc(str3, g, DiskFileOperate.Action.WRITE);
-                                ccVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
-                                ccVar.setSubFolder(false);
-                                ccVar.setSavedCache(false);
-                                ccVar.setSdCard(false);
-                                ccVar.setData(downloadImageBytes);
-                                ac.f().call(ccVar);
-                                if (jgVar != null) {
-                                    DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
-                                    diskCancelWorker.setOperate(ccVar);
-                                    jgVar.a = diskCancelWorker;
-                                }
-                                Iterator<kf5> it = ns6.k().i().iterator();
-                                while (true) {
-                                    if (it.hasNext()) {
-                                        kf5 next = it.next();
-                                        if (next.m(valueOf2)) {
-                                            cnVar = e(next.f(), g, jgVar);
-                                            break;
-                                        }
-                                    } else {
-                                        cnVar = null;
-                                        break;
-                                    }
-                                }
-                                if (cnVar == null && valueOf != null) {
-                                    cnVar = e(valueOf, g, jgVar);
-                                }
-                                if (cnVar == null) {
-                                    return null;
-                                }
-                            } else {
-                                TbImageMemoryCache.u().s(80000);
-                                Bitmap checkBitmapSize = BitmapHelper.checkBitmapSize(BitmapHelper.Bytes2Bitmap(downloadImageBytes), i, i2);
-                                if (checkBitmapSize == null) {
-                                    return null;
-                                }
-                                cn cnVar2 = new cn(checkBitmapSize, valueOf4.booleanValue(), valueOf3);
-                                cnVar2.y(needCache);
-                                if (needCache) {
-                                    ec ecVar = new ec(str3, g, DiskFileOperate.Action.WRITE);
-                                    ecVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
-                                    ecVar.setSubFolder(false);
-                                    ecVar.setData(downloadImageBytes);
-                                    ecVar.setSavedCache(false);
-                                    ecVar.setSdCard(false);
-                                    ecVar.setGif(valueOf4.booleanValue());
-                                    ac.f().a(ecVar);
-                                    if (jgVar != null) {
-                                        DiskCancelWorker diskCancelWorker2 = new DiskCancelWorker();
-                                        diskCancelWorker2.setOperate(ecVar);
-                                        jgVar.a = diskCancelWorker2;
-                                    }
-                                }
-                                cnVar = cnVar2;
-                            }
-                            return cnVar;
-                        }
-                    }
-                }
-            }
-            return null;
-        }
-        return (cn) invokeCommon.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mg
-    /* renamed from: c */
-    public cn getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
-            return TbImageMemoryCache.u().z(a(str, Boolean.valueOf(String.valueOf(objArr[2])).booleanValue()));
-        }
-        return (cn) invokeCommon.objValue;
-    }
-
-    public cn e(String str, String str2, jg jgVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, str, str2, jgVar)) == null) {
-            String str3 = ".emotions/";
-            if (str != null) {
-                str3 = ".emotions/" + str + "/";
-            }
-            if (!UtilHelper.hasAvaiableSDCardSpace(1024)) {
-                Bitmap f = f(str, str2, jgVar);
-                if (f == null) {
-                    return null;
-                }
-                return new cn(f, false, str2);
-            }
-            byte[] bArr = new byte[0];
-            cc ccVar = new cc(str3, str2, DiskFileOperate.Action.READ);
-            ccVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
-            ccVar.setSubFolder(false);
-            ccVar.setIsFormatData(false);
-            ccVar.setSavedCache(false);
-            ccVar.setSdCard(false);
-            ccVar.setLock(bArr);
-            if (jgVar != null) {
-                DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
-                diskCancelWorker.setOperate(ccVar);
-                jgVar.a = diskCancelWorker;
-            }
-            if (!ac.f().a(ccVar)) {
-                return null;
-            }
-            int i = 2000;
-            if (BdNetTypeUtil.isWifiNet()) {
-                i = 500;
-            }
-            synchronized (bArr) {
-                try {
-                    bArr.wait(i);
-                } catch (InterruptedException e) {
-                    BdLog.detailException(e);
-                }
-            }
-            if (!ccVar.isSuccess()) {
-                return null;
-            }
-            ccVar.formatData(ccVar.getData());
-            return new cn(ccVar.a());
-        }
-        return (cn) invokeLLL.objValue;
-    }
-
-    public Bitmap f(String str, String str2, jg jgVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, str, str2, jgVar)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(".emotions/");
-            if (str == null) {
-                str = "";
-            }
-            sb.append(str);
-            byte[] bArr = new byte[0];
-            DiskEmotionOperate diskEmotionOperate = new DiskEmotionOperate(sb.toString(), str2, DiskFileOperate.Action.READ);
-            diskEmotionOperate.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
-            diskEmotionOperate.setSubFolder(false);
-            diskEmotionOperate.setIsFormatData(false);
-            diskEmotionOperate.setSavedCache(false);
-            diskEmotionOperate.setSdCard(false);
-            diskEmotionOperate.setLock(bArr);
-            if (jgVar != null) {
-                DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
-                diskCancelWorker.setOperate(diskEmotionOperate);
-                jgVar.a = diskCancelWorker;
-            }
-            if (!ac.f().a(diskEmotionOperate)) {
-                return null;
-            }
-            int i = 2000;
-            if (BdNetTypeUtil.isWifiNet()) {
-                i = 300;
-            }
-            synchronized (bArr) {
-                try {
-                    bArr.wait(i);
-                } catch (InterruptedException e) {
-                    BdLog.detailException(e);
-                }
-            }
-            if (!diskEmotionOperate.isSuccess()) {
-                return null;
-            }
-            diskEmotionOperate.formatData(diskEmotionOperate.getData());
-            return diskEmotionOperate.getBitmap();
-        }
-        return (Bitmap) invokeLLL.objValue;
-    }
-
-    public final void g(@NonNull String str) {
-        ns6 k;
-        String g;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && (g = (k = ns6.k()).g(str, true)) != null) {
-            boolean q = k.q(str);
-            boolean r = k.r(str);
-            String replace = g.replace(".gif", ".jpg");
-            if (!q && !r) {
-                g = this.a.e(k.h(str), g);
-                replace = g.replace(".gif", ".jpg");
-            }
-            if (FileHelper.isGifImage(replace)) {
-                FileHelper.renameTo(replace, g);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.mg
-    public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && obj != null && (obj instanceof cn)) {
-            cn cnVar = (cn) obj;
-            if (cnVar.u()) {
-                cnVar.A(i);
-                cnVar.z(i2);
-                TbImageMemoryCache.u().l(a(str, Boolean.valueOf(String.valueOf(objArr[2])).booleanValue()), cnVar);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }

@@ -4,7 +4,7 @@ import android.webkit.WebView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gi6;
+import com.baidu.tieba.hi6;
 import com.baidu.tieba.xe6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -77,7 +77,7 @@ public class WebViewMapper extends LinkedHashMap<String, WebView> implements Map
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, entry)) == null) {
             if (size() > 8) {
                 if (entry != null && entry.getValue() != null) {
-                    xe6.c().f(entry.getValue());
+                    xe6.f().i(entry.getValue());
                     return true;
                 }
                 return true;
@@ -102,7 +102,7 @@ public class WebViewMapper extends LinkedHashMap<String, WebView> implements Map
                     webView = remove(str);
                 }
                 if (webView != null) {
-                    gi6.d(webView);
+                    hi6.d(webView);
                 }
             }
             return webView;

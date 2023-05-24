@@ -176,7 +176,7 @@ public class na6 implements View.OnClickListener {
             this.g.o(TbadkCoreApplication.getInst().getSkinType());
             this.b.setBackgroundDrawable(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0205));
             SkinManager.setBackgroundColor(this.h, R.color.CAM_X0204);
-            if (threadData != null && hj6.k(threadData.getId())) {
+            if (threadData != null && ij6.k(threadData.getId())) {
                 SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
             } else {
                 SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
@@ -198,7 +198,7 @@ public class na6 implements View.OnClickListener {
             }
             ThreadData threadData = this.i;
             if (threadData != null) {
-                hj6.a(threadData.getId());
+                ij6.a(threadData.getId());
             }
             ra6 ra6Var2 = this.k;
             if (ra6Var2 != null) {

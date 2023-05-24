@@ -1,79 +1,91 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.SparseArray;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class z87 {
+public class z87 extends SparseArray<k97> {
     public static /* synthetic */ Interceptable $ic;
-    public static z87 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SparseArray<String> a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948313904, "Lcom/baidu/tieba/z87;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948313904, "Lcom/baidu/tieba/z87;");
-                return;
-            }
-        }
-        b = new z87();
-    }
+    public BdUniqueId a;
 
     public z87() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new SparseArray<>();
+        this.a = null;
     }
 
-    public static z87 a() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            for (int i = 0; i < size(); i++) {
+                k97 valueAt = valueAt(i);
+                if (valueAt != null) {
+                    valueAt.R(null);
+                    valueAt.s();
+                }
+            }
         }
-        return (z87) invokeV.objValue;
     }
 
-    public boolean b(int i) {
-        InterceptResult invokeI;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            for (int i = 0; i < size(); i++) {
+                k97 valueAt = valueAt(i);
+                if (valueAt != null) {
+                    valueAt.init();
+                }
+            }
+        }
+    }
+
+    public void a(int i, k97 k97Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, k97Var) == null) {
             if (i > 100) {
                 i = 100;
             }
-            return !TextUtils.isEmpty(this.a.get(i));
+            put(i, k97Var);
         }
-        return invokeI.booleanValue;
     }
 
-    public void c(int i) {
+    public k97 c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a.put(i, "1");
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (i > 100) {
+                i = 100;
+            }
+            return get(i);
+        }
+        return (k97) invokeI.objValue;
+    }
+
+    public void e(o97 o97Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, o97Var) == null) {
+            for (int i = 0; i < size(); i++) {
+                k97 valueAt = valueAt(i);
+                if (valueAt != null) {
+                    valueAt.R(o97Var);
+                }
+            }
         }
     }
 }

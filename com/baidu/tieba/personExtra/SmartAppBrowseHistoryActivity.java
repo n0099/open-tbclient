@@ -25,9 +25,9 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ds5;
 import com.baidu.tieba.h46;
-import com.baidu.tieba.i89;
-import com.baidu.tieba.o89;
+import com.baidu.tieba.j89;
 import com.baidu.tieba.p89;
+import com.baidu.tieba.q89;
 import com.baidu.tieba.qi;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.si5;
@@ -49,17 +49,17 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
     public NoDataView f;
     public TextView g;
     public SmartAppBrowseHistoryAdapter h;
-    public o89 i;
-    public p89 j;
-    public o89.b k;
-    public p89.b l;
+    public p89 i;
+    public q89 j;
+    public p89.b k;
+    public q89.b l;
     public View.OnClickListener m;
     public View.OnLongClickListener n;
     public View.OnClickListener o;
     public View.OnClickListener p;
 
     /* loaded from: classes7.dex */
-    public class a implements o89.b {
+    public class a implements p89.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SmartAppBrowseHistoryActivity a;
@@ -82,17 +82,17 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
             this.a = smartAppBrowseHistoryActivity;
         }
 
-        @Override // com.baidu.tieba.o89.b
-        public void a(boolean z, i89 i89Var) {
+        @Override // com.baidu.tieba.p89.b
+        public void a(boolean z, j89 j89Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZL(1048576, this, z, i89Var) == null) {
-                if (z && i89Var != null) {
+            if (interceptable == null || interceptable.invokeZL(1048576, this, z, j89Var) == null) {
+                if (z && j89Var != null) {
                     if (this.a.h == null) {
                         return;
                     }
-                    this.a.K1(ListUtils.isEmpty(i89Var.a()));
-                    this.a.L1(ListUtils.getCount(i89Var.a()));
-                    this.a.h.p(i89Var.a());
+                    this.a.K1(ListUtils.isEmpty(j89Var.a()));
+                    this.a.L1(ListUtils.getCount(j89Var.a()));
+                    this.a.h.p(j89Var.a());
                     this.a.h.notifyDataSetChanged();
                     return;
                 }
@@ -103,7 +103,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements p89.b {
+    public class b implements q89.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SmartAppBrowseHistoryActivity a;
@@ -126,7 +126,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
             this.a = smartAppBrowseHistoryActivity;
         }
 
-        @Override // com.baidu.tieba.p89.b
+        @Override // com.baidu.tieba.q89.b
         public void a(String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.a.h != null) {
@@ -222,7 +222,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
                 if (view2.getTag() instanceof SmartApp) {
                     SmartApp smartApp = (SmartApp) view2.getTag();
                     if (this.a.j == null) {
-                        this.a.j = new p89(this.a.getPageContext());
+                        this.a.j = new q89(this.a.getPageContext());
                         this.a.j.e();
                         this.a.j.f(this.a.l);
                     }
@@ -396,9 +396,9 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (this.i == null) {
-                o89 o89Var = new o89();
-                this.i = o89Var;
-                o89Var.h(this.k);
+                p89 p89Var = new p89();
+                this.i = p89Var;
+                p89Var.h(this.k);
             }
             this.i.g();
         }
@@ -409,9 +409,9 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
-            o89 o89Var = this.i;
-            if (o89Var != null) {
-                o89Var.c();
+            p89 p89Var = this.i;
+            if (p89Var != null) {
+                p89Var.c();
             }
         }
     }

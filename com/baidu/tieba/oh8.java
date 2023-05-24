@@ -1,11 +1,10 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.bdeventbus.Action;
 import com.baidu.searchbox.bdeventbus.BdEventBus;
+import com.baidu.tieba.ln6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,116 +12,103 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.concurrent.ConcurrentLinkedQueue;
 /* loaded from: classes6.dex */
-public class oh8 extends jk1<kn6> {
+public class oh8 extends jk1<ln6.a> {
     public static /* synthetic */ Interceptable $ic;
+    public static final Object a;
+    public static final Map<BdUniqueId, ConcurrentLinkedQueue<in6>> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a implements kn6 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final BdEventBus b;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-546660211, "Lcom/baidu/tieba/oh8$a;")) == null) {
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948032362, "Lcom/baidu/tieba/oh8;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
                 $ic = interceptable;
             }
             if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-546660211, "Lcom/baidu/tieba/oh8$a;");
+                classClinitInterceptable.invokePostClinit(1948032362, "Lcom/baidu/tieba/oh8;");
+                return;
             }
         }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.b = BdEventBus.Companion.getDefault();
-        }
-
-        @Override // com.baidu.tieba.kn6
-        public <T extends jn6> void a(@NonNull Object obj, @NonNull final ln6<T> ln6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, obj, ln6Var) == null) {
-                if (obj instanceof hn6) {
-                    hn6 hn6Var = (hn6) obj;
-                    hn6Var.a(ln6Var);
-                    nh8.a(hn6Var);
-                    this.b.unregister(obj);
-                }
-                BdEventBus bdEventBus = this.b;
-                Class<T> a = ln6Var.a();
-                ln6Var.getClass();
-                bdEventBus.register(obj, a, new Action() { // from class: com.baidu.tieba.mh8
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // com.baidu.searchbox.bdeventbus.Action
-                    public final void call(Object obj2) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj2) == null) {
-                            ln6.this.onEvent((jn6) obj2);
-                        }
-                    }
-                });
-            }
-        }
-
-        @Override // com.baidu.tieba.kn6
-        public <T extends jn6> void b(@Nullable T t) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) && t != null) {
-                this.b.post(t);
-            }
-        }
-
-        @Override // com.baidu.tieba.kn6
-        public void unregister(@NonNull Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                this.b.unregister(obj);
-            }
-        }
+        a = new Object();
+        b = new HashMap();
     }
 
     public oh8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.jk1
-    /* renamed from: a */
-    public kn6 createService() throws ServiceNotFoundException {
+    /* renamed from: c */
+    public ln6.a createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a();
+            return new ln6.a() { // from class: com.baidu.tieba.mh8
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.baidu.tieba.ln6.a
+                public final void a(BdUniqueId bdUniqueId) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, bdUniqueId) == null) {
+                        oh8.b(bdUniqueId);
+                    }
+                }
+            };
         }
-        return (kn6) invokeV.objValue;
+        return (ln6.a) invokeV.objValue;
+    }
+
+    public static void a(@NonNull in6 in6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, in6Var) == null) {
+            BdUniqueId b2 = in6Var.b();
+            ConcurrentLinkedQueue<in6> concurrentLinkedQueue = b.get(b2);
+            if (concurrentLinkedQueue == null) {
+                synchronized (a) {
+                    concurrentLinkedQueue = b.get(b2);
+                    if (concurrentLinkedQueue == null) {
+                        concurrentLinkedQueue = new ConcurrentLinkedQueue<>();
+                        b.put(b2, concurrentLinkedQueue);
+                    }
+                }
+            }
+            synchronized (a) {
+                concurrentLinkedQueue.add(in6Var);
+            }
+        }
+    }
+
+    public static void b(BdUniqueId bdUniqueId) {
+        ConcurrentLinkedQueue<in6> concurrentLinkedQueue;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, bdUniqueId) == null) && (concurrentLinkedQueue = b.get(bdUniqueId)) != null) {
+            synchronized (a) {
+                Iterator<in6> it = concurrentLinkedQueue.iterator();
+                while (it.hasNext()) {
+                    BdEventBus.Companion.getDefault().unregister(it.next());
+                }
+                concurrentLinkedQueue.clear();
+                b.remove(bdUniqueId);
+            }
+        }
     }
 }

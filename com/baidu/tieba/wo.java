@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class wo implements jt9 {
+public class wo implements kt9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public hj a;
@@ -375,7 +375,7 @@ public class wo implements jt9 {
         return (wo) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.jt9
+    @Override // com.baidu.tieba.kt9
     public void cancelRecord() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -383,7 +383,7 @@ public class wo implements jt9 {
         }
     }
 
-    @Override // com.baidu.tieba.jt9
+    @Override // com.baidu.tieba.kt9
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -396,7 +396,7 @@ public class wo implements jt9 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.jt9
+    @Override // com.baidu.tieba.kt9
     public void stopRecord() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -428,7 +428,7 @@ public class wo implements jt9 {
         this.b = new Handler();
     }
 
-    @Override // com.baidu.tieba.jt9
+    @Override // com.baidu.tieba.kt9
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -447,7 +447,7 @@ public class wo implements jt9 {
         }
     }
 
-    @Override // com.baidu.tieba.jt9
+    @Override // com.baidu.tieba.kt9
     public void a(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
@@ -455,7 +455,7 @@ public class wo implements jt9 {
         }
     }
 
-    @Override // com.baidu.tieba.jt9
+    @Override // com.baidu.tieba.kt9
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -473,7 +473,7 @@ public class wo implements jt9 {
         }
     }
 
-    @Override // com.baidu.tieba.jt9
+    @Override // com.baidu.tieba.kt9
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
@@ -486,7 +486,7 @@ public class wo implements jt9 {
         }
     }
 
-    @Override // com.baidu.tieba.jt9
+    @Override // com.baidu.tieba.kt9
     public void e(hj hjVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, hjVar) == null) {
@@ -505,11 +505,11 @@ public class wo implements jt9 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048583, this, str, i) == null) && str != null && i >= 1) {
             jj.a = 3;
-            wn6.a(new b(this, str, i), "RecorderManager", 1);
+            xn6.a(new b(this, str, i), "RecorderManager", 1);
         }
     }
 
-    @Override // com.baidu.tieba.jt9
+    @Override // com.baidu.tieba.kt9
     public boolean c(hj hjVar, int i) {
         InterceptResult invokeLI;
         TbPageContext<?> tbPageContext;

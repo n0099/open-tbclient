@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 /* loaded from: classes6.dex */
 public interface l88 {
-    void a(Drawable drawable);
-
-    void onFailed();
+    void a(BaseMsg baseMsg, int i, int i2);
 }

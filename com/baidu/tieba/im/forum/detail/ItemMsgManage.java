@@ -16,7 +16,7 @@ import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hx4;
 import com.baidu.tieba.is5;
-import com.baidu.tieba.j48;
+import com.baidu.tieba.k48;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -259,7 +259,7 @@ public class ItemMsgManage extends LinearLayout {
             } else {
                 this.e.setVisibility(8);
             }
-            j48.j().d(TbadkCoreApplication.getCurrentAccount(), String.valueOf(recommendForumInfo.forum_id), new a(this));
+            k48.j().d(TbadkCoreApplication.getCurrentAccount(), String.valueOf(recommendForumInfo.forum_id), new a(this));
         }
     }
 

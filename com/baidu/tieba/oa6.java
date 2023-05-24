@@ -25,14 +25,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class oa6 implements j97 {
+public class oa6 implements k97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId a;
     public int b;
-    public y97 c;
+    public z97 c;
     public ArrayList<rn> d;
-    public n97 e;
+    public o97 e;
     public fb f;
     public HttpMessageListener g;
 
@@ -130,17 +130,17 @@ public class oa6 implements j97 {
                     if (frsPageAlaTabResponseMessage.errCode == 0) {
                         ArrayList<rn> arrayList = frsPageAlaTabResponseMessage.mThreadList;
                         ArrayList<rn> arrayList2 = frsPageAlaTabResponseMessage.mAltList;
-                        y97 y97Var = frsPageAlaTabResponseMessage.pageInfo;
+                        z97 z97Var = frsPageAlaTabResponseMessage.pageInfo;
                         int i = frsPageAlaTabResponseMessage.alaLiveCount;
-                        this.a.c = y97Var;
-                        if (y97Var.c == 1) {
+                        this.a.c = z97Var;
+                        if (z97Var.c == 1) {
                             this.a.d.clear();
                         }
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001606, Integer.valueOf(i)));
                         if (this.a.e != null) {
                             if (arrayList != null && arrayList.size() > 0) {
                                 this.a.d.addAll(arrayList);
-                                this.a.e.a(49, this.a.b, y97Var, this.a.d);
+                                this.a.e.a(49, this.a.b, z97Var, this.a.d);
                                 return;
                             }
                             ThreadData threadData = new ThreadData();
@@ -155,7 +155,7 @@ public class oa6 implements j97 {
                                 }
                                 this.a.d.addAll(arrayList2);
                             }
-                            this.a.e.a(49, this.a.b, y97Var, this.a.d);
+                            this.a.e.a(49, this.a.b, z97Var, this.a.d);
                             return;
                         }
                         return;
@@ -189,7 +189,7 @@ public class oa6 implements j97 {
         this.g = new b(this, AlaCmdConfigHttp.FRS_ALA_LIVE_TAB_CMD);
     }
 
-    @Override // com.baidu.tieba.j97
+    @Override // com.baidu.tieba.k97
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -200,11 +200,11 @@ public class oa6 implements j97 {
         }
     }
 
-    @Override // com.baidu.tieba.j97
-    public void R(n97 n97Var) {
+    @Override // com.baidu.tieba.k97
+    public void R(o97 o97Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n97Var) == null) {
-            this.e = n97Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o97Var) == null) {
+            this.e = o97Var;
         }
     }
 
@@ -216,16 +216,16 @@ public class oa6 implements j97 {
         this.a = bdUniqueId;
     }
 
-    @Override // com.baidu.tieba.j97
-    public void M(int i, int i2, t97 t97Var) {
+    @Override // com.baidu.tieba.k97
+    public void M(int i, int i2, u97 u97Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, t97Var) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, u97Var) == null) {
             this.b = i2;
-            if (t97Var != null && !TextUtils.isEmpty(t97Var.a) && !TextUtils.isEmpty(t97Var.b)) {
-                if (t97Var.c <= 0) {
-                    t97Var.c = 1;
+            if (u97Var != null && !TextUtils.isEmpty(u97Var.a) && !TextUtils.isEmpty(u97Var.b)) {
+                if (u97Var.c <= 0) {
+                    u97Var.c = 1;
                 }
-                MessageManager.getInstance().sendMessage(new FrsPageAlaTabRequestMessage(AlaCmdConfigHttp.FRS_ALA_LIVE_TAB_CMD, t97Var.a, t97Var.b, t97Var.c));
+                MessageManager.getInstance().sendMessage(new FrsPageAlaTabRequestMessage(AlaCmdConfigHttp.FRS_ALA_LIVE_TAB_CMD, u97Var.a, u97Var.b, u97Var.c));
                 return;
             }
             this.e.a(49, this.b, null, null);
@@ -253,7 +253,7 @@ public class oa6 implements j97 {
         }
     }
 
-    @Override // com.baidu.tieba.j97
+    @Override // com.baidu.tieba.k97
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {

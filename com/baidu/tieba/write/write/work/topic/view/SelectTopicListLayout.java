@@ -20,8 +20,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i08;
-import com.baidu.tieba.l08;
+import com.baidu.tieba.j08;
+import com.baidu.tieba.m08;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.write.write.work.topic.fragment.VideoTopicListFragment;
@@ -207,12 +207,12 @@ public class SelectTopicListLayout extends LinearLayout {
         b();
     }
 
-    public void a(i08 i08Var, i08 i08Var2, i08 i08Var3) {
+    public void a(j08 j08Var, j08 j08Var2, j08 j08Var3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, i08Var, i08Var2, i08Var3) == null) {
-            if (i08Var != null && !ListUtils.isEmpty(i08Var.b())) {
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, j08Var, j08Var2, j08Var3) == null) {
+            if (j08Var != null && !ListUtils.isEmpty(j08Var.b())) {
                 this.a.setVisibility(0);
-                this.d.e(i08Var.c());
+                this.d.e(j08Var.c());
             } else {
                 this.a.setVisibility(8);
             }
@@ -221,14 +221,14 @@ public class SelectTopicListLayout extends LinearLayout {
                     int i = yi5Var.e;
                     if (i == 1) {
                         VideoTopicListFragment videoTopicListFragment = (VideoTopicListFragment) yi5Var.a;
-                        if (i08Var3 != null && i08Var3.c() != null) {
-                            l08 l08Var = new l08("", 0L, false);
-                            l08Var.n(true);
-                            i08Var3.c().add(0, l08Var);
+                        if (j08Var3 != null && j08Var3.c() != null) {
+                            m08 m08Var = new m08("", 0L, false);
+                            m08Var.n(true);
+                            j08Var3.c().add(0, m08Var);
                         }
-                        videoTopicListFragment.J1(i08Var3);
+                        videoTopicListFragment.J1(j08Var3);
                     } else if (i == 2) {
-                        ((VideoTopicListFragment) yi5Var.a).J1(i08Var2);
+                        ((VideoTopicListFragment) yi5Var.a).J1(j08Var2);
                     }
                 }
             }

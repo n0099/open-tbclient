@@ -56,12 +56,12 @@ public class gx extends xy {
     }
 
     @Override // com.baidu.tieba.xy
-    public wc9 u() {
+    public xc9 u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new xc9(this.b, this.i, this.A);
+            return new yc9(this.b, this.i, this.A);
         }
-        return (wc9) invokeV.objValue;
+        return (xc9) invokeV.objValue;
     }
 }

@@ -11,9 +11,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.model.SingleThreadEmotionModel;
-import com.baidu.tieba.nu8;
+import com.baidu.tieba.ou8;
 import com.baidu.tieba.sg;
-import com.baidu.tieba.tu8;
+import com.baidu.tieba.uu8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,14 +21,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class SingleThreadEmotionFragment extends BaseFragment implements nu8<List<EmotionPackageData>> {
+public class SingleThreadEmotionFragment extends BaseFragment implements ou8<List<EmotionPackageData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tu8 a;
+    public uu8 a;
     public SingleThreadEmotionModel b;
     public CustomMessageListener c;
 
-    @Override // com.baidu.tieba.nu8
+    @Override // com.baidu.tieba.ou8
     public void V0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -166,10 +166,10 @@ public class SingleThreadEmotionFragment extends BaseFragment implements nu8<Lis
     }
 
     public final void K1() {
-        tu8 tu8Var;
+        uu8 uu8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (tu8Var = this.a) != null) {
-            tu8Var.b();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (uu8Var = this.a) != null) {
+            uu8Var.b();
         }
     }
 
@@ -188,7 +188,7 @@ public class SingleThreadEmotionFragment extends BaseFragment implements nu8<Lis
         }
     }
 
-    @Override // com.baidu.tieba.nu8
+    @Override // com.baidu.tieba.ou8
     public void onFail() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -197,7 +197,7 @@ public class SingleThreadEmotionFragment extends BaseFragment implements nu8<Lis
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.nu8
+    @Override // com.baidu.tieba.ou8
     /* renamed from: L1 */
     public void onSuccess(List<EmotionPackageData> list) {
         Interceptable interceptable = $ic;
@@ -211,9 +211,9 @@ public class SingleThreadEmotionFragment extends BaseFragment implements nu8<Lis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.onChangeSkinType(i);
-            tu8 tu8Var = this.a;
-            if (tu8Var != null) {
-                tu8Var.d(i);
+            uu8 uu8Var = this.a;
+            if (uu8Var != null) {
+                uu8Var.d(i);
             }
         }
     }
@@ -223,7 +223,7 @@ public class SingleThreadEmotionFragment extends BaseFragment implements nu8<Lis
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.a = new tu8(getPageContext());
+            this.a = new uu8(getPageContext());
             SingleThreadEmotionModel singleThreadEmotionModel = new SingleThreadEmotionModel();
             this.b = singleThreadEmotionModel;
             singleThreadEmotionModel.c0(this);

@@ -1,168 +1,219 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.location.Location;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
-import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.atomData.PrivacyMarkActivityConfig;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.setting.im.more.PrivacySettingMessage;
+import com.baidu.tieba.setting.privacy.PrivacyMarkActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.mm.opensdk.openapi.IWXAPI;
-import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 /* loaded from: classes7.dex */
-public class pj9 {
+public class pj9 extends e9<PrivacyMarkActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public g9<?> a;
+    public View b;
+    public NavigationBar c;
+    public TextView d;
+    public TextView e;
+    public BdSwitchView f;
+    public TextView g;
+    public TextView h;
+    public BdSwitchView i;
+    public boolean j;
+    public boolean k;
+    public BdSwitchView.b l;
 
-    public pj9(Context context) {
+    /* loaded from: classes7.dex */
+    public class a implements BdSwitchView.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pj9 a;
+
+        public a(pj9 pj9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pj9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pj9Var;
+        }
+
+        @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
+        public void d0(View view2, BdSwitchView.SwitchState switchState) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, switchState) == null) {
+                int i = 3;
+                boolean z = false;
+                int i2 = 1;
+                if (view2 == this.a.f) {
+                    pj9 pj9Var = this.a;
+                    if (switchState == BdSwitchView.SwitchState.ON) {
+                        z = true;
+                    }
+                    pj9Var.k = z;
+                    if (switchState == BdSwitchView.SwitchState.ON) {
+                        i = 1;
+                    }
+                    this.a.a.sendMessage(new PrivacySettingMessage(PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE, i));
+                } else if (view2 == this.a.i) {
+                    pj9 pj9Var2 = this.a;
+                    if (switchState == BdSwitchView.SwitchState.ON) {
+                        z = true;
+                    }
+                    pj9Var2.j = z;
+                    if (switchState == BdSwitchView.SwitchState.ON) {
+                        i = 1;
+                    }
+                    this.a.a.sendMessage(new PrivacySettingMessage("bazhu_show_outside", i));
+                }
+                StatisticItem param = new StatisticItem("c14003").param("uid", TbadkCoreApplication.getCurrentAccount());
+                if (view2 != this.a.f) {
+                    i2 = 2;
+                }
+                TiebaStatic.log(param.param("obj_type", i2));
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pj9(g9<PrivacyMarkActivity> g9Var, int i) {
+        super(g9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {g9Var, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((g9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
+        this.l = new a(this);
+        this.a = g9Var;
+        C(g9Var.getPageActivity(), i);
+        a();
     }
 
-    public final String a(ShareItem shareItem) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, shareItem)) == null) {
-            String str = "【" + shareItem.v + "】 " + shareItem.w;
-            shareItem.w = str;
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final Location b() {
+    public View B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return bn6.b();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (Location) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public void c(int i, ShareItem shareItem, boolean z) {
-        Location b;
+    public void D() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), shareItem, Boolean.valueOf(z)}) != null) || shareItem == null) {
-            return;
-        }
-        if (!BdNetTypeUtil.isNetWorkAvailable()) {
-            ri.P(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
-            return;
-        }
-        if (z && (b = b()) != null) {
-            shareItem.F = b;
-        }
-        jc5 jc5Var = new jc5(this.a, null);
-        if (i == 3) {
-            IWXAPI createWXAPI = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst(), TbConfig.WEIXIN_SHARE_APP_ID);
-            if (createWXAPI != null && !createWXAPI.isWXAppInstalled()) {
-                BdToast.b(this.a, TbadkCoreApplication.getInst().getText(R.string.obfuscated_res_0x7f0f133a)).o();
-                return;
-            }
-            e(shareItem, 4);
-            jc5Var.r(shareItem);
-        } else if (i == 2) {
-            IWXAPI createWXAPI2 = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst(), TbConfig.WEIXIN_SHARE_APP_ID);
-            if (createWXAPI2 != null && !createWXAPI2.isWXAppInstalled()) {
-                BdToast.b(this.a, TbadkCoreApplication.getInst().getText(R.string.obfuscated_res_0x7f0f133a)).o();
-                return;
-            }
-            e(shareItem, 3);
-            if (shareItem.b) {
-                shareItem.w = a(shareItem);
-            }
-            jc5Var.s(shareItem);
-        } else if (i == 4) {
-            if (vq9.b(this.a, "com.tencent.mobileqq")) {
-                e(shareItem, 5);
-                jc5Var.n(shareItem);
-                return;
-            }
-            Context context = this.a;
-            BdToast.b(context, context.getText(R.string.share_qq_not_install)).o();
-        } else if (i == 5) {
-            if (!shareItem.a) {
-                shareItem.w = a(shareItem);
-            }
-            jc5Var.q(shareItem);
-        } else if (i == 6) {
-            e(shareItem, 7);
-            if (!shareItem.a) {
-                shareItem.w = a(shareItem);
-            }
-            jc5Var.p(shareItem);
-        } else if (i == 7) {
-            if (!shareItem.a) {
-                shareItem.w = a(shareItem);
-            }
-            jc5Var.o(shareItem);
-        } else if (i == 8) {
-            if (vq9.b(this.a, "com.tencent.mobileqq")) {
-                e(shareItem, 9);
-                jc5Var.m(shareItem);
-                return;
-            }
-            Context context2 = this.a;
-            BdToast.b(context2, context2.getText(R.string.share_qq_not_install)).o();
-        }
-    }
-
-    public final void d(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
-            TiebaStatic.eventStat(this.a, "pb_new_share", null, 1, "loc", Integer.valueOf(i), PbChosenActivityConfig.KEY_TID, str);
-        }
-    }
-
-    public final void e(ShareItem shareItem, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048580, this, shareItem, i) == null) && shareItem != null && shareItem.u != null) {
-            if (shareItem.b) {
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("fid", shareItem.u).param("obj_type", i));
-            } else if (!shareItem.c && !shareItem.f) {
-                if (shareItem.d) {
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_PHOTO_LIVE).param("tid", shareItem.u).param("obj_type", i));
-                } else if (shareItem.a) {
-                    d(i, shareItem.G);
-                } else if (shareItem.e) {
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("obj_param1", 7).param("obj_type", i).param("fid", shareItem.u));
-                } else if (shareItem.g) {
-                    StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("obj_type", i);
-                    param.param("obj_source", shareItem.I);
-                    if (!qi.isEmpty(shareItem.x) && shareItem.x.contains("worldcup")) {
-                        param.param("obj_param1", 9);
-                    }
-                    TiebaStatic.log(param);
-                } else if (shareItem.h) {
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("tid", shareItem.u).param("fid", shareItem.N).param("obj_type", i).param("obj_source", shareItem.I).param("obj_param1", shareItem.J).param(TiebaStatic.Params.OBJ_PARAM2, shareItem.K).param(TiebaStatic.Params.OBJ_PARAM3, shareItem.L).param("obj_locate", shareItem.M));
-                }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            boolean z = !this.k;
+            this.k = z;
+            if (z) {
+                this.f.m();
             } else {
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("tid", shareItem.u).param("obj_type", i).param("obj_source", shareItem.I).param("obj_param1", shareItem.J).param("fid", shareItem.N).param(TiebaStatic.Params.OBJ_PARAM2, shareItem.K));
+                this.f.j();
             }
+        }
+    }
+
+    public void E() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            boolean z = !this.j;
+            this.j = z;
+            if (z) {
+                this.i.m();
+            } else {
+                this.i.j();
+            }
+        }
+    }
+
+    public final void C(Context context, int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07d8, (ViewGroup) null);
+            this.b = inflate;
+            NavigationBar navigationBar = (NavigationBar) inflate.findViewById(R.id.navigation_bar);
+            this.c = navigationBar;
+            navigationBar.setCenterTextTitle(context.getString(R.string.obfuscated_res_0x7f0f10b5));
+            this.c.showBottomLine();
+            this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0910f2);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0910ef);
+            this.f = (BdSwitchView) this.b.findViewById(R.id.obfuscated_res_0x7f0910f0);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091966);
+            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091963);
+            this.i = (BdSwitchView) this.b.findViewById(R.id.obfuscated_res_0x7f091964);
+            this.d.setText(R.string.obfuscated_res_0x7f0f0bf7);
+            this.e.setText(R.string.obfuscated_res_0x7f0f0bf6);
+            this.g.setText(R.string.obfuscated_res_0x7f0f0bf8);
+            this.h.setText(R.string.obfuscated_res_0x7f0f0bf9);
+            int i2 = i & 3;
+            int i3 = (i >> 2) & 3;
+            if (i2 == 3) {
+                this.i.j();
+            } else {
+                this.i.m();
+            }
+            if (i3 == 3) {
+                this.f.j();
+            } else {
+                this.f.m();
+            }
+            boolean z2 = true;
+            if (i2 != 3) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.j = z;
+            if (i3 == 3) {
+                z2 = false;
+            }
+            this.k = z2;
+            this.f.setOnSwitchStateChangeListener(this.l);
+            this.i.setOnSwitchStateChangeListener(this.l);
+        }
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0109);
+            this.c.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 }

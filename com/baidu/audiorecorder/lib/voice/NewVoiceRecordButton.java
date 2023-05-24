@@ -26,7 +26,7 @@ import com.baidu.tieba.ef5;
 import com.baidu.tieba.fj;
 import com.baidu.tieba.g9;
 import com.baidu.tieba.hj;
-import com.baidu.tieba.jt9;
+import com.baidu.tieba.kt9;
 import com.baidu.tieba.m9;
 import com.baidu.tieba.se5;
 import com.baidu.tieba.w85;
@@ -340,7 +340,7 @@ public class NewVoiceRecordButton extends LinearLayout implements hj, ef5 {
         }
     }
 
-    public jt9 getRecorderManager() {
+    public kt9 getRecorderManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -350,7 +350,7 @@ public class NewVoiceRecordButton extends LinearLayout implements hj, ef5 {
             }
             return null;
         }
-        return (jt9) invokeV.objValue;
+        return (kt9) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.ef5
@@ -395,7 +395,7 @@ public class NewVoiceRecordButton extends LinearLayout implements hj, ef5 {
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0925fd);
             this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09268d);
             this.a.setOnTouchListener(new a(this));
-            jt9 recorderManager = getRecorderManager();
+            kt9 recorderManager = getRecorderManager();
             if (recorderManager != null) {
                 recorderManager.e(this);
                 recorderManager.d(fj.a);
@@ -433,7 +433,7 @@ public class NewVoiceRecordButton extends LinearLayout implements hj, ef5 {
             if (voiceModel != null) {
                 w85.a(w85.b(voiceModel.getVoiceId()));
             }
-            jt9 recorderManager = getRecorderManager();
+            kt9 recorderManager = getRecorderManager();
             if (recorderManager != null && recorderManager.f()) {
                 this.i = recorderManager.c(this, -1);
                 wk5.b().l(true);
@@ -467,7 +467,7 @@ public class NewVoiceRecordButton extends LinearLayout implements hj, ef5 {
             this.c.setVisibility(4);
             this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f17ad));
             this.d.setVisibility(4);
-            jt9 recorderManager = getRecorderManager();
+            kt9 recorderManager = getRecorderManager();
             if (this.i && recorderManager != null) {
                 recorderManager.stopRecord();
             }

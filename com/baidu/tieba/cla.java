@@ -1,27 +1,17 @@
 package com.baidu.tieba;
-
-import com.baidu.ugc.download.exception.DownloadException;
 /* loaded from: classes5.dex */
-public interface cla extends Runnable {
+public interface cla {
 
     /* loaded from: classes5.dex */
     public interface a {
-        void b(DownloadException downloadException);
-
-        void onConnectCanceled();
-
-        void onConnectPaused();
-
-        void onConnected(long j, long j2, boolean z);
-
-        void onConnecting();
+        void a(String str, cla claVar);
     }
 
     void cancel();
 
-    boolean isCanceled();
-
-    boolean isPaused();
+    boolean isRunning();
 
     void pause();
+
+    void start();
 }

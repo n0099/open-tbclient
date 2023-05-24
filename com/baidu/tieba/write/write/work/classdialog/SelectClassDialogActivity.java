@@ -22,10 +22,10 @@ import com.baidu.tieba.ep5;
 import com.baidu.tieba.ey5;
 import com.baidu.tieba.fb;
 import com.baidu.tieba.p45;
-import com.baidu.tieba.wda;
-import com.baidu.tieba.wp9;
 import com.baidu.tieba.write.write.work.classdialog.model.GetSelectClassHttpResMessage;
 import com.baidu.tieba.write.write.work.classdialog.model.GetSelectClassSocketResMessage;
+import com.baidu.tieba.xda;
+import com.baidu.tieba.xp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,7 +46,7 @@ public class SelectClassDialogActivity extends SuspendedActivity {
     public String s;
     public String t;
     public boolean u;
-    public wda v;
+    public xda v;
     public fb w;
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
@@ -312,7 +312,7 @@ public class SelectClassDialogActivity extends SuspendedActivity {
                     p45.d(this.a.k).z(R.color.CAM_X0302);
                 } else {
                     this.a.n = false;
-                    this.a.k.setTextColor(wp9.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+                    this.a.k.setTextColor(xp9.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
                     if (str.equals(this.a.s) && str2.equals(this.a.t)) {
                         this.a.s = "";
                         this.a.t = "";
@@ -420,7 +420,7 @@ public class SelectClassDialogActivity extends SuspendedActivity {
             if (this.n) {
                 p45.d(this.k).z(R.color.CAM_X0302);
             } else {
-                this.k.setTextColor(wp9.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+                this.k.setTextColor(xp9.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
             }
         }
     }
@@ -430,7 +430,7 @@ public class SelectClassDialogActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            this.v = new wda(getUniqueId());
+            this.v = new xda(getUniqueId());
             this.w.getHttpMessageListener().setSelfListener(true);
             this.w.getSocketMessageListener().setSelfListener(true);
             registerListener(this.w);

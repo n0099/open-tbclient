@@ -1,48 +1,21 @@
 package com.baidu.tieba;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import java.util.List;
 /* loaded from: classes8.dex */
-public interface waa<D> {
-    void a(@NonNull WriteData writeData);
+public interface waa {
+    void C();
 
-    void c(WriteData writeData);
+    void N();
 
-    void d();
+    void R();
 
-    void e(@NonNull WriteData writeData);
+    void T0(boolean z);
 
-    boolean g();
+    void U0(int i, boolean z);
 
-    void h(@Nullable String str, @NonNull WriteData writeData);
+    void c(String str);
 
-    void j(@NonNull yaa yaaVar);
+    void e();
 
-    void m(Bundle bundle, Intent intent, @NonNull WriteData writeData);
+    void finish();
 
-    boolean o();
-
-    void onActivityResult(int i, int i2, Intent intent);
-
-    void onChangeSkinType(int i);
-
-    void onPause();
-
-    void onResume();
-
-    void onSaveInstanceState(Bundle bundle);
-
-    void q(@NonNull List<waa<?>> list);
-
-    void r(se5 se5Var);
-
-    View s(@NonNull ViewGroup viewGroup);
-
-    boolean t();
+    void setResult(int i);
 }

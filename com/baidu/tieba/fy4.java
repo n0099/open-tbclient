@@ -249,7 +249,7 @@ public class fy4 extends PopupWindow {
         if (qi.isEmpty(ps4Var.p)) {
             this.b.setTextColor(context.getResources().getColor(R.color.CAM_X0107));
         } else {
-            this.b.setTextColor(yi8.b(ps4Var.p));
+            this.b.setTextColor(zi8.b(ps4Var.p));
         }
         if (qi.isEmpty(ps4Var.f)) {
             this.c.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f02ff));
@@ -259,10 +259,10 @@ public class fy4 extends PopupWindow {
         if (qi.isEmpty(ps4Var.q)) {
             this.c.setTextColor(context.getResources().getColor(R.color.CAM_X0101));
         } else {
-            this.c.setTextColor(yi8.b(ps4Var.q));
+            this.c.setTextColor(zi8.b(ps4Var.q));
         }
         if (!qi.isEmpty(ps4Var.o)) {
-            this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(ri.g(context, R.dimen.tbds120), yi8.b(ps4Var.o)));
+            this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(ri.g(context, R.dimen.tbds120), zi8.b(ps4Var.o)));
         }
         if (!qi.isEmpty(ps4Var.j)) {
             this.a.N(ps4Var.j, 10, false);

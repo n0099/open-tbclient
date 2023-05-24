@@ -55,12 +55,12 @@ public class d60 extends EventListener {
 
         /* renamed from: com.baidu.tieba.d60$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0257a implements c {
+        public class C0249a implements c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0257a(a aVar) {
+            public C0249a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,7 +132,7 @@ public class d60 extends EventListener {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.c.c(this.a.source(), new C0257a(this));
+                return this.c.c(this.a.source(), new C0249a(this));
             }
             return (BufferedSource) invokeV.objValue;
         }

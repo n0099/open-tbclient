@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.au9;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.zt9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -176,7 +176,7 @@ public final class SimpleCountDownView extends View {
         this.t = ri.g(TbadkCoreApplication.getInst(), R.dimen.T_X10);
         this.u = new Long[]{0L, 0L, 0L, 0L};
         this.v = new String[]{"天", "时", "分", "秒"};
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, zt9.SimpleCountDownView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, au9.SimpleCountDownView);
         this.p = obtainStyledAttributes.getResourceId(1, this.p);
         this.q = obtainStyledAttributes.getResourceId(7, this.q);
         this.r = obtainStyledAttributes.getResourceId(2, this.r);

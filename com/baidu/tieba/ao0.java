@@ -30,7 +30,7 @@ public class ao0 extends jk1<ko0> {
 
         /* renamed from: com.baidu.tieba.ao0$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0225a implements bs0<JSONObject> {
+        public class C0227a implements bs0<JSONObject> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ lq0 a;
@@ -45,7 +45,7 @@ public class ao0 extends jk1<ko0> {
                 }
             }
 
-            public C0225a(a aVar, lq0 lq0Var, ko0.b bVar, br0 br0Var) {
+            public C0227a(a aVar, lq0 lq0Var, ko0.b bVar, br0 br0Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -195,7 +195,7 @@ public class ao0 extends jk1<ko0> {
                 js0Var.l(d(lq0Var.g()));
                 js0Var.h(es0.c);
                 js0Var.d("User-Agent", bj0.c().a().h());
-                a.a(js0Var, new C0225a(this, lq0Var, bVar, br0Var));
+                a.a(js0Var, new C0227a(this, lq0Var, bVar, br0Var));
             }
         }
 

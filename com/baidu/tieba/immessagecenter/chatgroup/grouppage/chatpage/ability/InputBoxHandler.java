@@ -15,8 +15,8 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.CommonM
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.GroupInputViewController;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.robotfloor.data.UserReplyInfoData;
 import com.baidu.tieba.qi;
-import com.baidu.tieba.t98;
-import com.baidu.tieba.u88;
+import com.baidu.tieba.u98;
+import com.baidu.tieba.v88;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,12 +30,12 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u00008\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0005\u0018\u00002\u00020\u0001:\u0004\u0011\u0012\u0013\u0014B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\u0010\u0010\u0005\u001a\u00020\u00062\b\u0010\u0007\u001a\u0004\u0018\u00010\bJ$\u0010\t\u001a\u00020\n2\u0006\u0010\u000b\u001a\u00020\f2\b\u0010\u0007\u001a\u0004\u0018\u00010\b2\b\u0010\r\u001a\u0004\u0018\u00010\u000eH\u0016J\b\u0010\u000f\u001a\u00020\u0010H\u0016R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u0015"}, d2 = {"Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/InputBoxHandler;", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/BaseAbilityHandler;", "chatPage", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ChatPage;", "(Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ChatPage;)V", "buildReplayMessageData", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/inputtool/robotfloor/data/UserReplyInfoData;", "oriMsg", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/BaseMsg;", "doHandle", "", "abilityItem", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/AbilityItem;", "payload", "", "provideType", "", "AtData", "BanData", "Conf", "PaddingContent", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class InputBoxHandler extends u88 {
+public final class InputBoxHandler extends v88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ChatPage b;
 
-    @Override // com.baidu.tieba.u88
+    @Override // com.baidu.tieba.v88
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -724,7 +724,7 @@ public final class InputBoxHandler extends u88 {
         this.b = chatPage;
     }
 
-    @Override // com.baidu.tieba.u88
+    @Override // com.baidu.tieba.v88
     public void b(AbilityItem abilityItem, BaseMsg baseMsg, Object obj) {
         boolean z;
         Interceptable interceptable = $ic;
@@ -747,7 +747,7 @@ public final class InputBoxHandler extends u88 {
             }
             String str = "";
             l2.B1("");
-            t98 z0 = l2.z0();
+            u98 z0 = l2.z0();
             if (z0 != null) {
                 z0.G();
             }
@@ -760,12 +760,12 @@ public final class InputBoxHandler extends u88 {
                 if (conf.isAt() == 1) {
                     AtSelectData atSelectData = new AtSelectData(baseMsg.getCommonMsgField().getPortrait(), baseMsg.getCommonMsgField().getUserName(), String.valueOf(baseMsg.getCommonMsgField().getUserId()), baseMsg.getCommonMsgField().isRobot());
                     if (conf.isReply() != 1 && qi.isEmpty(conf.getInputText())) {
-                        t98 z02 = l2.z0();
+                        u98 z02 = l2.z0();
                         if (z02 != null) {
                             z02.k(atSelectData, baseMsg.getCommonMsgField().isRobot());
                         }
                     } else {
-                        t98 z03 = l2.z0();
+                        u98 z03 = l2.z0();
                         if (z03 != null) {
                             z03.k(atSelectData, false);
                         }
@@ -792,7 +792,7 @@ public final class InputBoxHandler extends u88 {
             if (!qi.isEmpty(conf.getInputText())) {
                 l2.A1(conf.getInputText());
             }
-            t98 z04 = l2.z0();
+            u98 z04 = l2.z0();
             if (z04 != null) {
                 z04.C();
             }

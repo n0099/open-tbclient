@@ -6,21 +6,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.newinterest.viewholder.InterestedForumStyleATitleViewHolder;
+import com.baidu.tieba.newinterest.viewholder.InterestedForumStyleAMoreViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class zu8 extends en<iv8, InterestedForumStyleATitleViewHolder> {
+public class zu8 extends en<iv8, InterestedForumStyleAMoreViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ov8 a;
+    public pv8 b;
 
     /* loaded from: classes8.dex */
     public class a implements bo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zu8 a;
 
         public a(zu8 zu8Var) {
             Interceptable interceptable = $ic;
@@ -34,14 +37,24 @@ public class zu8 extends en<iv8, InterestedForumStyleATitleViewHolder> {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = zu8Var;
         }
 
         @Override // com.baidu.tieba.bo
         public void b(View view2, rn rnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, rnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(rnVar instanceof iv8)) {
+                return;
+            }
+            iv8 iv8Var = (iv8) rnVar;
+            if (this.a.a != null) {
+                this.a.a.d(iv8Var.a(), iv8Var.b(), i);
+            }
+            if (this.a.b != null) {
+                this.a.b.a();
             }
         }
     }
@@ -70,55 +83,69 @@ public class zu8 extends en<iv8, InterestedForumStyleATitleViewHolder> {
         setOnAdapterItemClickListener(new a(this));
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.en
-    /* renamed from: s */
-    public InterestedForumStyleATitleViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void A(pv8 pv8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new InterestedForumStyleATitleViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0449, viewGroup, false));
+        if (interceptable == null || interceptable.invokeL(1048576, this, pv8Var) == null) {
+            this.b = pv8Var;
         }
-        return (InterestedForumStyleATitleViewHolder) invokeL.objValue;
     }
 
-    public final void x(InterestedForumStyleATitleViewHolder interestedForumStyleATitleViewHolder) {
+    public final void B(InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, interestedForumStyleATitleViewHolder) == null) {
-            p45 d = p45.d(interestedForumStyleATitleViewHolder.c);
-            d.w(R.color.CAM_X0105);
-            d.B(R.dimen.T_X06);
-            d.C(R.string.F_X02);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interestedForumStyleAMoreViewHolder) == null) {
+            p45 d = p45.d(interestedForumStyleAMoreViewHolder.c);
+            d.w(R.color.CAM_X0302);
+            d.B(R.dimen.T_X07);
+            p45.d(interestedForumStyleAMoreViewHolder.d).f(R.color.CAM_X0206);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.en
+    /* renamed from: u */
+    public InterestedForumStyleAMoreViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
+            return new InterestedForumStyleAMoreViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0448, viewGroup, false));
+        }
+        return (InterestedForumStyleAMoreViewHolder) invokeL.objValue;
+    }
+
+    public void z(ov8 ov8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, ov8Var) == null) {
+            this.a = ov8Var;
         }
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
     @Override // com.baidu.tieba.en
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, iv8 iv8Var, InterestedForumStyleATitleViewHolder interestedForumStyleATitleViewHolder) {
-        t(i, view2, viewGroup, iv8Var, interestedForumStyleATitleViewHolder);
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, iv8 iv8Var, InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder) {
+        x(i, view2, viewGroup, iv8Var, interestedForumStyleAMoreViewHolder);
         return view2;
     }
 
-    public View t(int i, View view2, ViewGroup viewGroup, iv8 iv8Var, InterestedForumStyleATitleViewHolder interestedForumStyleATitleViewHolder) {
+    public View x(int i, View view2, ViewGroup viewGroup, iv8 iv8Var, InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, iv8Var, interestedForumStyleATitleViewHolder})) == null) {
-            if (iv8Var == null) {
-                return view2;
-            }
-            x(interestedForumStyleATitleViewHolder);
-            u(interestedForumStyleATitleViewHolder, iv8Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, iv8Var, interestedForumStyleAMoreViewHolder})) == null) {
+            B(interestedForumStyleAMoreViewHolder);
+            y(interestedForumStyleAMoreViewHolder, iv8Var);
             return view2;
         }
         return (View) invokeCommon.objValue;
     }
 
-    public final void u(InterestedForumStyleATitleViewHolder interestedForumStyleATitleViewHolder, iv8 iv8Var) {
+    public final void y(InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder, iv8 iv8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, interestedForumStyleATitleViewHolder, iv8Var) == null) {
-            interestedForumStyleATitleViewHolder.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080920);
-            interestedForumStyleATitleViewHolder.b.N(iv8Var.a(), 10, false);
-            interestedForumStyleATitleViewHolder.c.setText(iv8Var.b());
+        if (interceptable == null || interceptable.invokeLL(1048582, this, interestedForumStyleAMoreViewHolder, iv8Var) == null) {
+            interestedForumStyleAMoreViewHolder.c.setText(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0a88));
+            if (iv8Var.c()) {
+                interestedForumStyleAMoreViewHolder.b.setVisibility(0);
+            } else {
+                interestedForumStyleAMoreViewHolder.b.setVisibility(8);
+            }
         }
     }
 }

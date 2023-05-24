@@ -28,10 +28,10 @@ import com.baidu.tieba.dg;
 import com.baidu.tieba.f95;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.tieba.g95;
-import com.baidu.tieba.ro7;
+import com.baidu.tieba.so7;
 import com.baidu.tieba.ux4;
 import com.baidu.tieba.yi;
-import com.baidu.tieba.yk8;
+import com.baidu.tieba.zk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -390,7 +390,7 @@ public class NetWork {
                 z2 = false;
             }
             request.mNeedSig = z2;
-            yk8 netLog = NetLog.getInstance();
+            zk8 netLog = NetLog.getInstance();
             netLog.b(TAG, "开始请求:" + this.netContext.getRequest().mUrl);
             if (i != 1) {
                 if (i != 2) {
@@ -432,13 +432,13 @@ public class NetWork {
                 NetWorkState.addStatisticsData(this.mStatisticsData);
                 NetWorkState.addErrorNumsAndGet(this.mErrorNums);
                 if (z && TextUtils.isEmpty(netString)) {
-                    yk8 netLog2 = NetLog.getInstance();
+                    zk8 netLog2 = NetLog.getInstance();
                     netLog2.b(TAG, "NetWork has error : " + this.netContext.getResponse().mErrorString + " tracecode:" + str + " mUrl:" + this.netContext.getRequest().mUrl);
                     return netErrorToString(this.netContext.getResponse());
                 }
                 return netString;
             }
-            yk8 netLog3 = NetLog.getInstance();
+            zk8 netLog3 = NetLog.getInstance();
             netLog3.b(TAG, "请求成功 tracecode:" + str + " mUrl:" + this.netContext.getRequest().mUrl);
             parseToastData(netString);
             if (this.netContext.getResponse().isRequestSuccess()) {
@@ -474,7 +474,7 @@ public class NetWork {
                     return null;
                 }
             }
-            ro7.b(this);
+            so7.b(this);
             return netString;
         }
         return (String) invokeCommon.objValue;

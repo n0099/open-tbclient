@@ -267,38 +267,38 @@ public class fd5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             UpdateClientInfoMessage updateClientInfoMessage = new UpdateClientInfoMessage();
-            if (be9.b()) {
+            if (ce9.b()) {
                 updateClientInfoMessage.addUserInfo("model", ti.g());
                 updateClientInfoMessage.addUserInfo("brand", Build.BRAND);
                 updateClientInfoMessage.addUserInfo(HttpRequest.PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
                 updateClientInfoMessage.addUserInfo(HttpRequest.OS_VERSION, ti.k());
                 updateClientInfoMessage.addUserInfo(HttpRequest.ANDROID_ID, TbadkCoreApplication.getInst().getAndroidId());
             } else {
-                updateClientInfoMessage.addUserInfo(HttpRequest.NEED_DECRYPT, be9.c());
-                String g = be9.g(HttpRequest.PHONE_IMEI);
+                updateClientInfoMessage.addUserInfo(HttpRequest.NEED_DECRYPT, ce9.c());
+                String g = ce9.g(HttpRequest.PHONE_IMEI);
                 if (!TextUtils.isEmpty(g)) {
-                    updateClientInfoMessage.addUserInfo(g, be9.f());
+                    updateClientInfoMessage.addUserInfo(g, ce9.f());
                 }
-                String g2 = be9.g("model");
+                String g2 = ce9.g("model");
                 if (!TextUtils.isEmpty(g2)) {
-                    updateClientInfoMessage.addUserInfo(g2, be9.h());
+                    updateClientInfoMessage.addUserInfo(g2, ce9.h());
                 }
-                String g3 = be9.g("brand");
+                String g3 = ce9.g("brand");
                 if (!TextUtils.isEmpty(g3)) {
-                    updateClientInfoMessage.addUserInfo(g3, be9.e());
+                    updateClientInfoMessage.addUserInfo(g3, ce9.e());
                 }
-                String g4 = be9.g(HttpRequest.ANDROID_ID);
+                String g4 = ce9.g(HttpRequest.ANDROID_ID);
                 if (!TextUtils.isEmpty(g4)) {
-                    updateClientInfoMessage.addUserInfo(g4, be9.d());
+                    updateClientInfoMessage.addUserInfo(g4, ce9.d());
                 }
             }
-            if (ae9.b()) {
+            if (be9.b()) {
                 updateClientInfoMessage.addUserInfo("mac", PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst()));
             } else {
-                updateClientInfoMessage.addUserInfo("need_cam_decrypt", ae9.c());
-                String d = ae9.d("mac");
+                updateClientInfoMessage.addUserInfo("need_cam_decrypt", be9.c());
+                String d = be9.d("mac");
                 if (!TextUtils.isEmpty(d)) {
-                    updateClientInfoMessage.addUserInfo(d, ae9.e());
+                    updateClientInfoMessage.addUserInfo(d, be9.e());
                 }
             }
             String str = "2";

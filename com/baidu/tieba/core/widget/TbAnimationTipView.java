@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.core.image.dynamic.DynamicAnimView;
 import com.baidu.tieba.core.widget.TbAnimationTipView;
-import com.baidu.tieba.qn6;
+import com.baidu.tieba.rn6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -202,7 +202,7 @@ public final class TbAnimationTipView extends LinearLayout {
             ValueAnimator alphaAnim = ValueAnimator.ofFloat(f, f2);
             alphaAnim.setDuration(j);
             alphaAnim.setInterpolator(new AccelerateInterpolator());
-            alphaAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.xn6
+            alphaAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.yn6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -270,7 +270,7 @@ public final class TbAnimationTipView extends LinearLayout {
         }
     }
 
-    public final void f(qn6 data) {
+    public final void f(rn6 data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");

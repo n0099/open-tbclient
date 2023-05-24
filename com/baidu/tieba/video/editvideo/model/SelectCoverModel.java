@@ -20,10 +20,10 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.g9;
-import com.baidu.tieba.lr8;
+import com.baidu.tieba.mr8;
 import com.baidu.tieba.og;
-import com.baidu.tieba.rr8;
-import com.baidu.tieba.s0a;
+import com.baidu.tieba.sr8;
+import com.baidu.tieba.t0a;
 import com.baidu.tieba.video.editvideo.data.PendantData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -44,10 +44,10 @@ import org.json.JSONObject;
 public class SelectCoverModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public s0a a;
+    public t0a a;
     public d b;
     public TbPageContext c;
-    public rr8 d;
+    public sr8 d;
     public final HttpMessageListener e;
     public final HttpMessageListener f;
 
@@ -391,7 +391,7 @@ public class SelectCoverModel extends BdBaseModel {
                 } catch (Exception e) {
                     e.printStackTrace();
                     if (this.c.d != null) {
-                        this.c.d.a(203, lr8.a(e));
+                        this.c.d.a(203, mr8.a(e));
                         return bitmap;
                     }
                     return bitmap;
@@ -412,13 +412,13 @@ public class SelectCoverModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectCoverModel(TbPageContext tbPageContext, s0a s0aVar, rr8 rr8Var) {
+    public SelectCoverModel(TbPageContext tbPageContext, t0a t0aVar, sr8 sr8Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, s0aVar, rr8Var};
+            Object[] objArr = {tbPageContext, t0aVar, sr8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -432,8 +432,8 @@ public class SelectCoverModel extends BdBaseModel {
         this.e = new a(this, CmdConfigHttp.CMD_VIDEO_TEXT_UEG);
         this.f = new b(this, CmdConfigHttp.CMD_VIDEO_COVER_PENDANT);
         this.c = tbPageContext;
-        this.a = s0aVar;
-        this.d = rr8Var;
+        this.a = t0aVar;
+        this.d = sr8Var;
         registerTask();
         this.e.setTag(getUniqueId());
         this.e.setSelfListener(true);
@@ -544,7 +544,7 @@ public class SelectCoverModel extends BdBaseModel {
                     try {
                         e.printStackTrace();
                         if (this.d != null) {
-                            this.d.a(202, lr8.a(e));
+                            this.d.a(202, mr8.a(e));
                         }
                         og.d(r2);
                         og.d(bufferedOutputStream2);

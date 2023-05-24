@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.im.data.MsgLocalData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
-import com.baidu.tieba.uq9;
+import com.baidu.tieba.vq9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,7 +47,7 @@ public class zf5 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return Long.valueOf(w28.w().j(this.a.a().a));
+                return Long.valueOf(x28.w().j(this.a.a().a));
             }
             return invokeV.objValue;
         }
@@ -71,14 +71,14 @@ public class zf5 {
         this.a = xf5Var;
     }
 
-    public void d(uq9.h hVar) {
+    public void d(vq9.h hVar) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048579, this, hVar) != null) || hVar == null) {
             return;
         }
         xf5 xf5Var = this.a;
         if (xf5Var != null && xf5Var.a() != null) {
-            uq9.n(this.a.a().a, hVar);
+            vq9.n(this.a.a().a, hVar);
         } else {
             hVar.a(null);
         }
@@ -88,7 +88,7 @@ public class zf5 {
         xf5 xf5Var;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (xf5Var = this.a) != null && xf5Var.a() != null) {
-            uq9.x(this.a.a().a, str);
+            vq9.x(this.a.a().a, str);
         }
     }
 
@@ -104,7 +104,7 @@ public class zf5 {
             b.setCustomGroupType(2);
             b.setMsgType(1);
             b.setContent(str);
-            long b2 = r58.b(j);
+            long b2 = s58.b(j);
             b.setMsgId(b2);
             b.setRecordId(b2);
             b.setTime(System.currentTimeMillis() / 1000);
@@ -155,7 +155,7 @@ public class zf5 {
 
     public /* synthetic */ void c(String str, Object obj) {
         if (obj instanceof Long) {
-            b48.k().t(a(str, ((Long) obj).longValue()));
+            c48.k().t(a(str, ((Long) obj).longValue()));
             e("");
         }
     }

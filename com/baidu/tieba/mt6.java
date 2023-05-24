@@ -1,32 +1,33 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.PopupWindow;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.GreyUtil;
-import com.baidu.tbadk.data.VisitedForumData;
+import com.baidu.tbadk.core.data.TransmitForumData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.enterForum.message.ForumGuideHttpResponseMessage;
+import com.baidu.tieba.enterForum.message.ForumGuideSocketResponseMessage;
+import com.baidu.tieba.enterForum.model.EnterForumModel;
+import com.baidu.tieba.wm6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes6.dex */
-public class mt6 {
+public class mt6 implements wm6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public View b;
-    public PopupWindow c;
-    public Handler d;
-    public Runnable e;
+    public EnterForumModel a;
+    public wm6.a b;
+    public final EnterForumModel.f c;
+    public fb d;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public class a implements EnterForumModel.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ mt6 a;
@@ -49,24 +50,43 @@ public class mt6 {
             this.a = mt6Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.enterForum.model.EnterForumModel.f
+        public void a(EnterForumModel.e eVar) {
+            ys6 ys6Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.c != null) {
-                ug.c(this.a.c);
+            if ((interceptable != null && interceptable.invokeL(1048576, this, eVar) != null) || this.a.b == null) {
+                return;
             }
+            if (eVar != null && eVar.b && (ys6Var = eVar.d) != null && ys6Var.e() != null) {
+                ArrayList<TransmitForumData> arrayList = new ArrayList<>();
+                ArrayList<at6> b = eVar.d.e().b();
+                if (ListUtils.getCount(b) > 0) {
+                    Iterator<at6> it = b.iterator();
+                    while (it.hasNext()) {
+                        at6 next = it.next();
+                        if (next != null && !StringUtils.isNull(next.getId()) && !StringUtils.isNull(next.k())) {
+                            TransmitForumData transmitForumData = new TransmitForumData(Long.valueOf(next.getId()).longValue(), next.k(), false, 1, next.e());
+                            transmitForumData.tabItemDatas = next.m();
+                            arrayList.add(transmitForumData);
+                        }
+                    }
+                }
+                this.a.b.a(arrayList, true, 1, 0);
+                return;
+            }
+            this.a.b.a(null, false, 1, 0);
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements Runnable {
+    public class b extends fb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ mt6 c;
+        public final /* synthetic */ mt6 a;
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(mt6 mt6Var, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,42 +96,8 @@ public class mt6 {
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
                     int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = mt6Var;
-            this.a = i;
-            this.b = i2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.c.g(this.a, this.b);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mt6 a;
-
-        public c(mt6 mt6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mt6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -120,21 +106,28 @@ public class mt6 {
             this.a = mt6Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tieba.fb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.e();
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                boolean z = responsedMessage instanceof ForumGuideSocketResponseMessage;
+                if ((!z && !(responsedMessage instanceof ForumGuideHttpResponseMessage)) || this.a.a.getUniqueId() != responsedMessage.getOrginalMessage().getTag() || responsedMessage.hasError()) {
+                    return;
+                }
+                if (z) {
+                    this.a.a.l0((ForumGuideSocketResponseMessage) responsedMessage);
+                }
+                if (responsedMessage instanceof ForumGuideHttpResponseMessage) {
+                    this.a.a.k0((ForumGuideHttpResponseMessage) responsedMessage);
+                }
             }
         }
     }
 
-    public mt6(TbPageContext<?> tbPageContext) {
+    public mt6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -144,82 +137,29 @@ public class mt6 {
                 return;
             }
         }
-        this.d = new Handler();
-        this.e = new a(this);
-        this.a = tbPageContext;
+        this.a = null;
+        this.c = new a(this);
+        this.d = new b(this, CmdConfigHttp.CMD_ENTER_FORUM_DATA, 309683);
+        EnterForumModel enterForumModel = new EnterForumModel(null);
+        this.a = enterForumModel;
+        enterForumModel.s0(this.c);
+        MessageManager.getInstance().registerListener(this.d);
     }
 
-    public final int d(LinkedList<VisitedForumData> linkedList) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.wm6
+    public void a(wm6.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linkedList)) == null) {
-            int size = linkedList.size();
-            for (int i = 0; i < 3 && i < size; i++) {
-                VisitedForumData visitedForumData = linkedList.get(i);
-                if (visitedForumData != null && visitedForumData.isAlaForum()) {
-                    return i;
-                }
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public void c(LinkedList<VisitedForumData> linkedList, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, linkedList, i) == null) {
-            if (linkedList != null && linkedList.size() >= 1) {
-                int d = d(linkedList);
-                if (d < 0) {
-                    o65.m().w("key_enter_forum_ufan_recent_visit_tip_show", true);
-                    return;
-                } else if (o65.m().i("key_enter_forum_ufan_recent_visit_tip_show", false)) {
-                    return;
-                } else {
-                    this.d.postDelayed(new b(this, i, d), 100L);
-                    return;
-                }
-            }
-            o65.m().w("key_enter_forum_ufan_recent_visit_tip_show", true);
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            this.b = aVar;
         }
     }
 
-    public void e() {
-        PopupWindow popupWindow;
+    @Override // com.baidu.tieba.wm6
+    public void b() {
+        EnterForumModel enterForumModel;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (popupWindow = this.c) != null) {
-            ug.c(popupWindow);
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.d.removeCallbacksAndMessages(null);
-        }
-    }
-
-    public final void g(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
-            o65.m().w("key_enter_forum_ufan_recent_visit_tip_show", true);
-            PopupWindow popupWindow = this.c;
-            if (popupWindow != null && popupWindow.isShowing()) {
-                return;
-            }
-            if (this.b == null) {
-                View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02ab, (ViewGroup) null);
-                this.b = inflate;
-                inflate.setOnClickListener(new c(this));
-            }
-            if (this.c == null) {
-                PopupWindow popupWindow2 = new PopupWindow(this.b, -2, -2);
-                this.c = popupWindow2;
-                popupWindow2.setOutsideTouchable(true);
-                GreyUtil.grey(this.c);
-            }
-            ug.m(this.c, this.a.getPageActivity().findViewById(16908290), 51, this.a.getResources().getDimensionPixelSize(R.dimen.tbds44) + (i2 * this.a.getResources().getDimensionPixelSize(R.dimen.tbds220)), i);
-            this.d.postDelayed(this.e, 5000L);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b != null && (enterForumModel = this.a) != null) {
+            enterForumModel.f0(true);
         }
     }
 }

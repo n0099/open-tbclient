@@ -2,13 +2,13 @@ package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardSocialBarView;
+import com.baidu.tieba.feed.component.RecommendPersonAttentionCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class i47 extends p27<CardSocialBarView, pz6> {
+public class i47 extends q27<RecommendPersonAttentionCardView, oz6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,12 +33,12 @@ public class i47 extends p27<CardSocialBarView, pz6> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.e37
+    @Override // com.baidu.tieba.f37
     /* renamed from: e */
-    public void b(@NonNull CardSocialBarView cardSocialBarView, @NonNull pz6 pz6Var) {
+    public void b(@NonNull RecommendPersonAttentionCardView recommendPersonAttentionCardView, @NonNull oz6 oz6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cardSocialBarView, pz6Var) == null) {
-            cardSocialBarView.update(pz6Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recommendPersonAttentionCardView, oz6Var) == null) {
+            recommendPersonAttentionCardView.update(oz6Var);
         }
     }
 }

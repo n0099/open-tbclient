@@ -15,7 +15,7 @@ import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.g88;
+import com.baidu.tieba.h88;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.Action;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
@@ -1090,7 +1090,7 @@ public class ChatMsgProcessor implements tj5 {
                                 z4.add(j4);
                             }
                         } catch (Exception e2) {
-                            g88.g("parse_msg_exception", j2, e2);
+                            h88.g("parse_msg_exception", j2, e2);
                         }
                     }
                 }

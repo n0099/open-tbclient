@@ -22,10 +22,10 @@ public class c76 extends en<g76, LiveTabConcernNotificationViewHolder> {
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
     public boolean b;
-    public vj6<g76> c;
+    public wj6<g76> c;
 
     /* loaded from: classes5.dex */
-    public class a extends vj6<g76> {
+    public class a extends wj6<g76> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c76 b;
@@ -49,7 +49,7 @@ public class c76 extends en<g76, LiveTabConcernNotificationViewHolder> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vj6
+        @Override // com.baidu.tieba.wj6
         /* renamed from: d */
         public void a(View view2, g76 g76Var) {
             Interceptable interceptable = $ic;

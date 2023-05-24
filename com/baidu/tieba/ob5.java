@@ -275,7 +275,7 @@ public class ob5 {
                 if (imMessageCenterPojo.getCustomGroupType() != -4 && imMessageCenterPojo.getCustomGroupType() != -7) {
                     if (imMessageCenterPojo.getCustomGroupType() == 2) {
                         if (pb5.d().w()) {
-                            PersonalSettingItemData a2 = k48.j().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+                            PersonalSettingItemData a2 = l48.j().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
                             if (a2 != null) {
                                 if (a2.isAcceptNotify()) {
                                     unread_count = imMessageCenterPojo.getUnread_count();
@@ -288,7 +288,7 @@ public class ob5 {
                     } else if (imMessageCenterPojo.getCustomGroupType() == 4) {
                         if (imMessageCenterPojo.getUserType() == 4) {
                             if (pb5.d().w()) {
-                                OfficialSettingItemData a3 = j48.j().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+                                OfficialSettingItemData a3 = k48.j().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
                                 if (a3 != null) {
                                     if (a3.isAcceptNotify()) {
                                         unread_count = imMessageCenterPojo.getUnread_count();
@@ -300,7 +300,7 @@ public class ob5 {
                             }
                         }
                     } else if (imMessageCenterPojo.getCustomGroupType() != -8) {
-                        if (imMessageCenterPojo.getCustomGroupType() == 9 && g48.b().d(Long.valueOf(pg.g(imMessageCenterPojo.getGid(), 0L))) && imMessageCenterPojo.getUnread_count() > 0) {
+                        if (imMessageCenterPojo.getCustomGroupType() == 9 && h48.b().d(Long.valueOf(pg.g(imMessageCenterPojo.getGid(), 0L))) && imMessageCenterPojo.getUnread_count() > 0) {
                             i2 += imMessageCenterPojo.getUnread_count();
                         }
                     }

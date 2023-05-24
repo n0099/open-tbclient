@@ -64,7 +64,7 @@ public class uy extends ax<jy4> {
                     this.a.h().a(this.a.i, this.a.j);
                 }
                 String id = this.a.j.getThreadData().getId();
-                hj6.a(id);
+                ij6.a(id);
                 this.a.y(id);
                 this.a.a.p(new az.a(1));
             }
@@ -127,19 +127,19 @@ public class uy extends ax<jy4> {
     }
 
     @Override // com.baidu.tieba.ax
-    public void p(vj6<jy4> vj6Var) {
+    public void p(wj6<jy4> wj6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, vj6Var) == null) {
-            super.p(vj6Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, wj6Var) == null) {
+            super.p(wj6Var);
         }
     }
 
     public final void y(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            hj6.l(this.g, str, R.color.CAM_X0105, R.color.CAM_X0109);
-            hj6.l(this.h, str, R.color.CAM_X0105, R.color.CAM_X0109);
-            this.i.setReadState(hj6.k(str));
+            ij6.l(this.g, str, R.color.CAM_X0105, R.color.CAM_X0109);
+            ij6.l(this.h, str, R.color.CAM_X0105, R.color.CAM_X0109);
+            this.i.setReadState(ij6.k(str));
         }
     }
 

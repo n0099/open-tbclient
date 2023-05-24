@@ -68,7 +68,7 @@ public class xx extends ax<jy4> {
             this.g.b();
             jy4 jy4Var = this.i;
             if (jy4Var != null && jy4Var.getThreadData() != null) {
-                hj6.l(this.h, this.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                ij6.l(this.h, this.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
             }
         }
     }
@@ -82,7 +82,7 @@ public class xx extends ax<jy4> {
             if (jy4Var != null && jy4Var.getThreadData() != null) {
                 this.i = jy4Var;
                 ThreadData threadData = jy4Var.getThreadData();
-                hj6.j(threadData, this.h);
+                ij6.j(threadData, this.h);
                 this.g.setData(threadData);
                 return;
             }

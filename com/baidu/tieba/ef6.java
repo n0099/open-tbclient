@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ef6 extends jk1<ji6> {
+public class ef6 extends jk1<ki6> {
     public static /* synthetic */ Interceptable $ic;
     public static final b a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public class ef6 extends jk1<ji6> {
     }
 
     /* loaded from: classes5.dex */
-    public static final class b implements ji6 {
+    public static final class b implements ki6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -99,12 +99,12 @@ public class ef6 extends jk1<ji6> {
                             }
                             monitorWebView2.setPreRenderMode(preRenderMode);
                         }
-                        yk8 defaultLog = DefaultLog.getInstance();
+                        zk8 defaultLog = DefaultLog.getInstance();
                         defaultLog.c("PrerenderManagerFetcher", "onPageFinished， 预渲染成功，url：" + str);
                         return;
                     }
-                    xe6.c().f(WebViewMapper.getInstance().getAndRemove(this.a));
-                    yk8 defaultLog2 = DefaultLog.getInstance();
+                    xe6.f().i(WebViewMapper.getInstance().getAndRemove(this.a));
+                    zk8 defaultLog2 = DefaultLog.getInstance();
                     defaultLog2.c("PrerenderManagerFetcher", "onPageFinished， 预渲染失败，url：" + str);
                 }
             }
@@ -114,7 +114,7 @@ public class ef6 extends jk1<ji6> {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, i, str, str2) == null) {
                     DefaultLog.getInstance().c("PrerenderManagerFetcher", "onReceivedError， 预渲染失败");
-                    xe6.c().f(WebViewMapper.getInstance().getAndRemove(this.a));
+                    xe6.f().i(WebViewMapper.getInstance().getAndRemove(this.a));
                 }
             }
 
@@ -124,7 +124,7 @@ public class ef6 extends jk1<ji6> {
                 if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, webResourceRequest, webResourceError) == null) {
                     DefaultLog.getInstance().c("PrerenderManagerFetcher", "onReceivedError， 预渲染失败");
                     if (webResourceRequest.isForMainFrame()) {
-                        xe6.c().f(WebViewMapper.getInstance().getAndRemove(this.a));
+                        xe6.f().i(WebViewMapper.getInstance().getAndRemove(this.a));
                     }
                 }
             }
@@ -134,7 +134,7 @@ public class ef6 extends jk1<ji6> {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLLL(1048579, this, webView, webResourceRequest, webResourceResponse) == null) {
                     DefaultLog.getInstance().c("PrerenderManagerFetcher", "onReceivedHttpError， 预渲染失败");
-                    xe6.c().f(WebViewMapper.getInstance().getAndRemove(this.a));
+                    xe6.f().i(WebViewMapper.getInstance().getAndRemove(this.a));
                 }
             }
 
@@ -143,7 +143,7 @@ public class ef6 extends jk1<ji6> {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLLL(1048580, this, webView, sslErrorHandler, sslError) == null) {
                     DefaultLog.getInstance().c("PrerenderManagerFetcher", "onReceivedSslError， 预渲染失败");
-                    xe6.c().f(WebViewMapper.getInstance().getAndRemove(this.a));
+                    xe6.f().i(WebViewMapper.getInstance().getAndRemove(this.a));
                 }
             }
 
@@ -180,24 +180,24 @@ public class ef6 extends jk1<ji6> {
             this();
         }
 
-        @Override // com.baidu.tieba.ji6
+        @Override // com.baidu.tieba.ki6
         public void a(@NonNull Activity activity, @NonNull String str, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{activity, str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && !WebViewMapper.getInstance().contain(str)) {
-                MonitorWebView e = xe6.c().e(yg6.getContext());
+                MonitorWebView h = xe6.f().h(zg6.getContext());
                 if (activity != null) {
                     ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, 1);
                     marginLayoutParams.topMargin = -1;
-                    ((ViewGroup) activity.findViewById(16908290)).addView(e, marginLayoutParams);
+                    ((ViewGroup) activity.findViewById(16908290)).addView(h, marginLayoutParams);
                 }
-                e.setWebViewClient(new a(this, str, z2, e, z));
-                e.loadUrl(str);
-                e.setPreRenderMode(PreRenderMode.NONE);
-                WebViewMapper.getInstance().save(str, e, z2);
+                h.setWebViewClient(new a(this, str, z2, h, z));
+                h.loadUrl(str);
+                h.setPreRenderMode(PreRenderMode.NONE);
+                WebViewMapper.getInstance().save(str, h, z2);
             }
         }
 
-        @Override // com.baidu.tieba.ji6
+        @Override // com.baidu.tieba.ki6
         @NonNull
         public WebView b(Context context, @NonNull String str) {
             InterceptResult invokeLL;
@@ -205,7 +205,7 @@ public class ef6 extends jk1<ji6> {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
                 WebView andRemove = WebViewMapper.getInstance().getAndRemove(str);
                 if (andRemove == null) {
-                    return xe6.c().e(context);
+                    return xe6.f().h(context);
                 }
                 Context context2 = andRemove.getContext();
                 if (context2 instanceof MutableContextWrapper) {
@@ -217,16 +217,16 @@ public class ef6 extends jk1<ji6> {
             return (WebView) invokeLL.objValue;
         }
 
-        @Override // com.baidu.tieba.ji6
+        @Override // com.baidu.tieba.ki6
         public boolean c(@NonNull String str, WebView webView) {
             InterceptResult invokeLL;
             PreRenderMode preRenderMode;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, webView)) == null) {
-                gi6.d(webView);
+                hi6.d(webView);
                 Context context = webView.getContext();
                 if (context instanceof MutableContextWrapper) {
-                    ((MutableContextWrapper) context).setBaseContext(yg6.getContext());
+                    ((MutableContextWrapper) context).setBaseContext(zg6.getContext());
                 }
                 boolean z = false;
                 if (TextUtils.isEmpty(str) || WebViewMapper.getInstance().contain(str)) {
@@ -271,24 +271,24 @@ public class ef6 extends jk1<ji6> {
         }
     }
 
-    public static ji6 b() {
+    public static ki6 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             return a;
         }
-        return (ji6) invokeV.objValue;
+        return (ki6) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.jk1
     /* renamed from: a */
-    public ji6 createService() throws ServiceNotFoundException {
+    public ki6 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return b();
         }
-        return (ji6) invokeV.objValue;
+        return (ki6) invokeV.objValue;
     }
 }

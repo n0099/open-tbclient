@@ -1,70 +1,83 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 import java.util.List;
-import tbclient.GameForumGuideTab.GameForumSubTab;
-import tbclient.ThreadInfo;
 /* loaded from: classes5.dex */
 public class de7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public int b;
+    public int c;
+    public List<rn> d;
+    public boolean e;
+    public int f;
 
-    public static List<ke7> a(List<GameForumSubTab> list) {
-        InterceptResult invokeL;
+    public de7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            ArrayList arrayList = new ArrayList(list.size());
-            for (GameForumSubTab gameForumSubTab : list) {
-                ke7 ke7Var = new ke7();
-                if (gameForumSubTab != null) {
-                    ke7Var.a = gameForumSubTab.id.intValue();
-                    ke7Var.b = gameForumSubTab.sub_tab_name;
-                    LabelDataList labelDataList = new LabelDataList();
-                    labelDataList.parseProtu(gameForumSubTab.sub_label_list);
-                    ke7Var.c = labelDataList;
-                    arrayList.add(ke7Var);
-                }
-            }
-            return arrayList;
         }
-        return (List) invokeL.objValue;
     }
 
-    public static List<rn> b(List<ThreadInfo> list) {
+    public int a(List<rn> list) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
             if (ListUtils.isEmpty(list)) {
-                return null;
+                return 0;
             }
-            LinkedList linkedList = new LinkedList();
+            if (ListUtils.isEmpty(this.d)) {
+                LinkedList linkedList = new LinkedList();
+                this.d = linkedList;
+                linkedList.addAll(list);
+                return list.size();
+            }
+            LinkedList linkedList2 = new LinkedList();
             for (int i = 0; i < list.size(); i++) {
-                be7 be7Var = new be7();
-                ThreadData threadData = new ThreadData();
-                be7Var.c(threadData);
-                threadData.parserProtobuf(list.get(i));
-                threadData.parser_title();
-                if (!TextUtils.isEmpty(threadData.getLegoCard())) {
-                    a05 a05Var = new a05();
-                    a05Var.e(threadData.getLegoCard());
-                    linkedList.add(a05Var);
-                } else {
-                    linkedList.add(be7Var);
+                rn rnVar = list.get(i);
+                int i2 = 0;
+                while (true) {
+                    if (i2 < this.d.size()) {
+                        rn rnVar2 = this.d.get(i2);
+                        if (rnVar != null && (rnVar instanceof ce7) && rnVar2 != null && (rnVar2 instanceof ce7)) {
+                            ThreadData threadData = ((ce7) rnVar).getThreadData();
+                            ThreadData threadData2 = ((ce7) rnVar2).getThreadData();
+                            if (threadData != null && threadData2 != null && threadData.getTid() != null && threadData2.getTid() != null && threadData.getTid().equals(threadData2.getTid())) {
+                                z = true;
+                                break;
+                            }
+                        }
+                        i2++;
+                    } else {
+                        z = false;
+                        break;
+                    }
+                }
+                if (!z) {
+                    ListUtils.add(linkedList2, rnVar);
                 }
             }
-            return linkedList;
+            if (linkedList2.size() != 0) {
+                ListUtils.addAll(this.d, 0, linkedList2);
+            }
+            return linkedList2.size();
         }
-        return (List) invokeL.objValue;
+        return invokeL.intValue;
     }
 }

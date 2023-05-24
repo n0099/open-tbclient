@@ -1,36 +1,76 @@
 package com.baidu.tieba;
 
-import android.text.Editable;
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import android.text.style.BackgroundColorSpan;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.ImageSpan;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.frs.FrsTabItemData;
+import com.baidu.tieba.r8a;
+import com.baidu.tieba.wm6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.List;
+import tbclient.FrsTabInfo;
+import tbclient.SimpleForum;
 /* loaded from: classes6.dex */
-public class l7a {
+public class l7a implements wm6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<String> a;
-    public String b;
-    public int c;
-    public int d;
-    public int e;
+    public r8a a;
+    public ArrayList<TransmitForumData> b;
+    public List<SimpleForum> c;
+    public wm6.a d;
+    public boolean e;
     public int f;
-    public int g;
-    public boolean h;
-    public boolean i;
+    public r8a.b g;
+
+    /* loaded from: classes6.dex */
+    public class a implements r8a.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ l7a a;
+
+        public a(l7a l7aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l7aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = l7aVar;
+        }
+
+        @Override // com.baidu.tieba.r8a.b
+        public void a(List<SimpleForum> list, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeLI(1048576, this, list, i) != null) {
+                return;
+            }
+            this.a.c = list;
+            this.a.f = i;
+            this.a.h();
+        }
+
+        @Override // com.baidu.tieba.r8a.b
+        public void onError() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.g();
+            }
+        }
+    }
 
     public l7a() {
         Interceptable interceptable = $ic;
@@ -45,179 +85,69 @@ public class l7a {
                 return;
             }
         }
-        this.g = -1;
-        this.h = false;
-        this.i = false;
+        this.b = new ArrayList<>();
+        this.g = new a(this);
+        BdUniqueId gen = BdUniqueId.gen();
+        r8a r8aVar = new r8a(gen);
+        this.a = r8aVar;
+        r8aVar.i(this.g);
+        this.a.j(gen);
     }
 
-    public ArrayList<String> a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.wm6
+    public void a(wm6.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.h;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.i;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            int i = this.c;
-            if (i != 0) {
-                this.e = SkinManager.getColor(i);
-            }
-            int i2 = this.d;
-            if (i2 != 0) {
-                this.f = SkinManager.getColor(i2);
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            this.d = aVar;
         }
     }
 
-    public SpannableStringBuilder f(Editable editable) {
-        InterceptResult invokeL;
-        boolean z;
+    @Override // com.baidu.tieba.wm6
+    public void b() {
+        r8a r8aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, editable)) == null) {
-            if (editable == null || StringUtils.isNull(editable.toString()) || ListUtils.isEmpty(this.a)) {
-                return null;
-            }
-            String obj = editable.toString();
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(obj);
-            if (this.g >= 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            this.g = -1;
-            Iterator<String> it = this.a.iterator();
-            while (it.hasNext()) {
-                String next = it.next();
-                if (!StringUtils.isNull(next)) {
-                    m(spannableStringBuilder, obj, next);
-                }
-            }
-            if (this.g < 0 && !z) {
-                return null;
-            }
-            ImageSpan[] imageSpanArr = (ImageSpan[]) editable.getSpans(0, obj.length(), ImageSpan.class);
-            if (imageSpanArr != null) {
-                for (ImageSpan imageSpan : imageSpanArr) {
-                    if (imageSpan != null) {
-                        spannableStringBuilder.setSpan(imageSpan, editable.getSpanStart(imageSpan), editable.getSpanEnd(imageSpan), editable.getSpanFlags(imageSpan));
-                    }
-                }
-            }
-            return spannableStringBuilder;
-        }
-        return (SpannableStringBuilder) invokeL.objValue;
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.d = i;
-            this.f = SkinManager.getColor(i);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.d != null && (r8aVar = this.a) != null) {
+            this.e = false;
+            r8aVar.l(null);
+            this.a.k(null);
+            this.a.h();
         }
     }
 
-    public void i(ArrayList<String> arrayList) {
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList) == null) {
-            this.a = arrayList;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.e) {
+            return;
         }
+        wm6.a aVar = this.d;
+        if (aVar != null) {
+            aVar.a(null, false, 2, 0);
+        }
+        this.e = true;
     }
 
-    public void j(int i) {
+    public final void h() {
+        Long l;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.c = i;
-            this.e = SkinManager.getColor(i);
-        }
-    }
-
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.h = z;
-        }
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.i = z;
-        }
-    }
-
-    public void n(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public final void m(SpannableStringBuilder spannableStringBuilder, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048588, this, spannableStringBuilder, str, str2) == null) && spannableStringBuilder != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            if (this.e != 0 || this.f != 0) {
-                int indexOf = str.indexOf(str2);
-                int length = str2.length();
-                if (indexOf >= 0) {
-                    int i = this.g;
-                    if (i == -1) {
-                        this.g = indexOf + length;
-                    } else {
-                        int i2 = indexOf + length;
-                        if (i2 < i) {
-                            this.g = i2;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b.clear();
+            if (ListUtils.getCount(this.c) > 0) {
+                for (SimpleForum simpleForum : this.c) {
+                    if (simpleForum != null && (l = simpleForum.id) != null && l.longValue() > 0 && !StringUtils.isNull(simpleForum.name)) {
+                        TransmitForumData transmitForumData = new TransmitForumData(simpleForum.id.longValue(), simpleForum.name, false, 1, simpleForum.avatar);
+                        transmitForumData.tabItemDatas = new ArrayList<>();
+                        for (FrsTabInfo frsTabInfo : simpleForum.tab_info) {
+                            if (frsTabInfo != null && frsTabInfo.is_general_tab.intValue() == 1 && frsTabInfo.tab_id.intValue() > 0 && !StringUtils.isNull(frsTabInfo.tab_name)) {
+                                transmitForumData.tabItemDatas.add(new FrsTabItemData(frsTabInfo));
+                            }
                         }
+                        this.b.add(transmitForumData);
                     }
                 }
-                while (indexOf >= 0) {
-                    if (this.e != 0) {
-                        spannableStringBuilder.setSpan(new ForegroundColorSpan(this.e), indexOf, indexOf + length, 33);
-                    }
-                    if (this.f != 0) {
-                        spannableStringBuilder.setSpan(new BackgroundColorSpan(this.f), indexOf, indexOf + length, 33);
-                    }
-                    indexOf = str.indexOf(str2, indexOf + 1);
-                }
+            }
+            wm6.a aVar = this.d;
+            if (aVar != null) {
+                aVar.a(this.b, true, 2, this.f);
             }
         }
     }

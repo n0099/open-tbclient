@@ -21,12 +21,12 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ah7;
 import com.baidu.tieba.n75;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.v75;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.zg7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -361,21 +361,21 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
         }
     }
 
-    public void n(zg7 zg7Var) {
+    public void n(ah7 ah7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, zg7Var) == null) {
-            GameCodeList gameCodeList = this.a.get(zg7Var.a);
+        if (interceptable == null || interceptable.invokeL(1048580, this, ah7Var) == null) {
+            GameCodeList gameCodeList = this.a.get(ah7Var.a);
             GameCodeList.Builder builder = new GameCodeList.Builder();
             builder.claimed_status = 2;
-            builder.claimed_value = zg7Var.b;
+            builder.claimed_value = ah7Var.b;
             builder.type = gameCodeList.type;
             builder.label = gameCodeList.label;
             builder.begin_time = gameCodeList.begin_time;
             builder.end_time = gameCodeList.end_time;
             builder.item_id = gameCodeList.item_id;
             builder.list_id = gameCodeList.list_id;
-            this.a.set(zg7Var.a, builder.build(false));
-            notifyItemChanged(zg7Var.a);
+            this.a.set(ah7Var.a, builder.build(false));
+            notifyItemChanged(ah7Var.a);
         }
     }
 }

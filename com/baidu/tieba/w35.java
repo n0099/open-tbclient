@@ -61,7 +61,7 @@ public class w35 {
                 }
                 a.get(a2).getConstructor(new Class[0]).newInstance(new Object[0]).a(context, b);
             } catch (Exception e) {
-                yk8 yunDialogLog = YunDialogLog.getInstance();
+                zk8 yunDialogLog = YunDialogLog.getInstance();
                 yunDialogLog.b("YunDialogManager", "云弹窗 " + str + " 渲染失败：" + e.getMessage());
                 a35.s(str);
                 e.printStackTrace();

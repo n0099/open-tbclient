@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.si6;
+import com.baidu.tieba.ti6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 import java.util.Objects;
 /* loaded from: classes8.dex */
-public abstract class ze6<T extends si6> implements af6<T> {
+public abstract class ze6<T extends ti6> implements af6<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -33,9 +33,9 @@ public abstract class ze6<T extends si6> implements af6<T> {
         }
         this.a = 0;
         if (i > 0) {
-            this.b = (T[]) new si6[i];
+            this.b = (T[]) new ti6[i];
         } else {
-            this.b = (T[]) new si6[5];
+            this.b = (T[]) new ti6[5];
         }
         Arrays.fill(this.b, (Object) null);
     }

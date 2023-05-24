@@ -1,30 +1,42 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.PointF;
+import android.graphics.RectF;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.n7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import java.util.Map;
-import kotlin.Pair;
-import kotlin.collections.MapsKt__MapsKt;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class iq6 implements gq6 {
+public final class iq6 implements n7.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final gq6 a;
-    public final Map<Integer, gq6> b;
+    public lo6 a;
+    public ho6 b;
+    public PointF c;
+    public RectF d;
+    public Matrix e;
+    public float f;
+    public boolean g;
 
-    public iq6(gq6 defaultRenderer, Pair<Integer, ? extends gq6>... renderers) {
+    @Override // com.baidu.tieba.n7.a
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        }
+    }
+
+    public iq6(lo6 item, ho6 drawingCache, PointF position, RectF rect, Matrix transform) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {defaultRenderer, renderers};
+            Object[] objArr = {item, drawingCache, position, rect, transform};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,52 +46,109 @@ public class iq6 implements gq6 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(defaultRenderer, "defaultRenderer");
-        Intrinsics.checkNotNullParameter(renderers, "renderers");
-        this.a = defaultRenderer;
-        this.b = MapsKt__MapsKt.mutableMapOf((Pair[]) Arrays.copyOf(renderers, renderers.length));
+        Intrinsics.checkNotNullParameter(item, "item");
+        Intrinsics.checkNotNullParameter(drawingCache, "drawingCache");
+        Intrinsics.checkNotNullParameter(position, "position");
+        Intrinsics.checkNotNullParameter(rect, "rect");
+        Intrinsics.checkNotNullParameter(transform, "transform");
+        this.a = item;
+        this.b = drawingCache;
+        this.c = position;
+        this.d = rect;
+        this.e = transform;
+        this.f = 1.0f;
     }
 
-    @Override // com.baidu.tieba.gq6
-    public sq6 a(ko6 item, kq6 displayer, eo6 config) {
-        InterceptResult invokeLLL;
+    public final float a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, displayer, config)) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(displayer, "displayer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            gq6 gq6Var = this.b.get(Integer.valueOf(c(item)));
-            if (gq6Var == null) {
-                gq6Var = this.a;
-            }
-            return gq6Var.a(item, displayer, config);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
         }
-        return (sq6) invokeLLL.objValue;
+        return invokeV.floatValue;
     }
 
-    @Override // com.baidu.tieba.gq6
-    public void b(ko6 item, Canvas canvas, kq6 displayer, eo6 config) {
+    public final ho6 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item, canvas, displayer, config) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(canvas, "canvas");
-            Intrinsics.checkNotNullParameter(displayer, "displayer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            gq6 gq6Var = this.b.get(Integer.valueOf(c(item)));
-            if (gq6Var == null) {
-                gq6Var = this.a;
-            }
-            gq6Var.b(item, canvas, displayer, config);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (ho6) invokeV.objValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final lo6 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (lo6) invokeV.objValue;
+    }
+
+    public final PointF e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (PointF) invokeV.objValue;
+    }
+
+    public final RectF f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
+        }
+        return (RectF) invokeV.objValue;
+    }
+
+    public final Matrix g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.e;
+        }
+        return (Matrix) invokeV.objValue;
+    }
+
+    public final void h(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048583, this, f) == null) {
+            this.f = f;
         }
     }
 
-    public int c(ko6 item) {
-        InterceptResult invokeL;
+    public final void i(ho6 ho6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, item)) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            return item.e().g();
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ho6Var) == null) {
+            Intrinsics.checkNotNullParameter(ho6Var, "<set-?>");
+            this.b = ho6Var;
         }
-        return invokeL.intValue;
+    }
+
+    public final void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    public final void k(lo6 lo6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, lo6Var) == null) {
+            Intrinsics.checkNotNullParameter(lo6Var, "<set-?>");
+            this.a = lo6Var;
+        }
     }
 }

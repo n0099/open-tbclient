@@ -1,21 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class yt8 implements Comparable<yt8> {
+public class yt8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public String a;
     public String b;
     public String c;
     public String d;
-    public int e;
-    public int f;
+    public List<zt8> e;
 
     public yt8() {
         Interceptable interceptable = $ic;
@@ -29,35 +27,5 @@ public class yt8 implements Comparable<yt8> {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(yt8 yt8Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, yt8Var)) == null) {
-            if (this == yt8Var) {
-                return 0;
-            }
-            if (yt8Var == null || this.a <= yt8Var.a) {
-                return -1;
-            }
-            return 1;
-        }
-        return invokeL.intValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (!(obj instanceof yt8) || compareTo((yt8) obj) != 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 }

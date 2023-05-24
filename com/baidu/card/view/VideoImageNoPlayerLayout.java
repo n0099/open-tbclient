@@ -21,7 +21,7 @@ import com.baidu.tieba.fz;
 import com.baidu.tieba.jy4;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.tx;
-import com.baidu.tieba.vj6;
+import com.baidu.tieba.wj6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,7 +44,7 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements tx<jy4> 
     public RelativeLayout j;
     public RelativeLayout k;
     public boolean l;
-    public vj6<jy4> m;
+    public wj6<jy4> m;
     public jy4 n;
     public View.OnClickListener o;
     public fz p;
@@ -78,9 +78,9 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements tx<jy4> 
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.m != null) {
-                    vj6 vj6Var = this.a.m;
+                    wj6 wj6Var = this.a.m;
                     VideoImageNoPlayerLayout videoImageNoPlayerLayout = this.a;
-                    vj6Var.a(videoImageNoPlayerLayout.c, videoImageNoPlayerLayout.n);
+                    wj6Var.a(videoImageNoPlayerLayout.c, videoImageNoPlayerLayout.n);
                 }
                 if (this.a.o != null) {
                     this.a.o.onClick(this.a.c);
@@ -167,10 +167,10 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements tx<jy4> 
         }
     }
 
-    public void setOnCardSubClickListener(vj6<jy4> vj6Var) {
+    public void setOnCardSubClickListener(wj6<jy4> wj6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, vj6Var) == null) {
-            this.m = vj6Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, wj6Var) == null) {
+            this.m = wj6Var;
         }
     }
 

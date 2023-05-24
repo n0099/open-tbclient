@@ -26,12 +26,12 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.au4;
 import com.baidu.tieba.bu4;
-import com.baidu.tieba.bx6;
 import com.baidu.tieba.cn;
 import com.baidu.tieba.cu4;
+import com.baidu.tieba.cx6;
 import com.baidu.tieba.du4;
-import com.baidu.tieba.eu8;
 import com.baidu.tieba.fu8;
+import com.baidu.tieba.gu8;
 import com.baidu.tieba.hx4;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.th5;
@@ -47,7 +47,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes5.dex */
-public class UserAlbumActivity extends BaseFragmentActivity implements AbsListView.OnScrollListener, eu8, PopupWindow.OnDismissListener, bx6.d {
+public class UserAlbumActivity extends BaseFragmentActivity implements AbsListView.OnScrollListener, fu8, PopupWindow.OnDismissListener, cx6.d {
     public static /* synthetic */ Interceptable $ic = null;
     public static int p = 10;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,8 +57,8 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
     public TextView d;
     public TextView e;
     public View f;
-    public bx6 g;
-    public fu8 h;
+    public cx6 g;
+    public gu8 h;
     public bu4 i;
     public List<ImageFileInfo> j;
     public List<ImageFileInfo> k;
@@ -97,7 +97,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
 
         /* renamed from: com.baidu.tieba.faceshop.UserAlbumActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0290a implements cu4 {
+        public class C0286a implements cu4 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -109,7 +109,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
                 }
             }
 
-            public C0290a(a aVar) {
+            public C0286a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -167,7 +167,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
                 Drawable drawable = SkinManager.getDrawable(R.drawable.icon_emotion_albumarrow_up);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
                 this.a.d.setCompoundDrawables(null, null, drawable, null);
-                this.a.i.g(new C0290a(this));
+                this.a.i.g(new C0286a(this));
             }
         }
     }
@@ -417,9 +417,9 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
     public void onDismiss() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            fu8 fu8Var = this.h;
-            if (fu8Var != null) {
-                this.l = fu8Var.f();
+            gu8 gu8Var = this.h;
+            if (gu8Var != null) {
+                this.l = gu8Var.f();
             }
             Drawable drawable = SkinManager.getDrawable(R.drawable.icon_emotion_albumarrow_down);
             drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
@@ -443,7 +443,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
         }
     }
 
-    @Override // com.baidu.tieba.bx6.d
+    @Override // com.baidu.tieba.cx6.d
     public void a(int i, au4 au4Var) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048581, this, i, au4Var) == null) && au4Var != null) {
@@ -466,7 +466,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
         }
     }
 
-    @Override // com.baidu.tieba.eu8
+    @Override // com.baidu.tieba.fu8
     public void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -482,7 +482,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
         }
     }
 
-    @Override // com.baidu.tieba.eu8
+    @Override // com.baidu.tieba.fu8
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -494,7 +494,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
         }
     }
 
-    @Override // com.baidu.tieba.eu8
+    @Override // com.baidu.tieba.fu8
     public boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -511,23 +511,23 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.i = new bu4(getActivity());
-            fu8 fu8Var = new fu8(this, this.j);
-            this.h = fu8Var;
-            fu8Var.k(getPageContext().getString(R.string.obfuscated_res_0x7f0f03c2));
+            gu8 gu8Var = new gu8(this, this.j);
+            this.h = gu8Var;
+            gu8Var.k(getPageContext().getString(R.string.obfuscated_res_0x7f0f03c2));
             this.h.j(this);
             this.a.setAdapter((ListAdapter) this.h);
             this.a.setOnScrollListener(this);
-            bx6 bx6Var = new bx6(getPageContext().getPageActivity());
-            this.g = bx6Var;
-            bx6Var.setOnDismissListener(this);
+            cx6 cx6Var = new cx6(getPageContext().getPageActivity());
+            this.g = cx6Var;
+            cx6Var.setOnDismissListener(this);
             this.g.j(this);
         }
     }
 
     public final void L1() {
-        fu8 fu8Var;
+        gu8 gu8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (fu8Var = this.h) != null && fu8Var.g() != null) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (gu8Var = this.h) != null && gu8Var.g() != null) {
             int childCount = this.a.getChildCount();
             int firstVisiblePosition = this.a.getFirstVisiblePosition();
             for (int i = 0; i < childCount; i++) {

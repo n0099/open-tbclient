@@ -6,14 +6,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ThemeRecommand;
+import tbclient.GetThemeList.ThemeList;
 /* loaded from: classes6.dex */
 public class ny9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public String c;
+    public long c;
+    public String d;
 
     public ny9() {
         Interceptable interceptable = $ic;
@@ -33,7 +34,7 @@ public class ny9 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+            return this.b;
         }
         return (String) invokeV.objValue;
     }
@@ -47,23 +48,32 @@ public class ny9 {
         return (String) invokeV.objValue;
     }
 
-    public String c() {
+    public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+            return this.c;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
         }
         return (String) invokeV.objValue;
     }
 
-    public void d(ThemeRecommand themeRecommand) {
+    public void d(ThemeList themeList) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, themeRecommand) != null) || themeRecommand == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, themeList) != null) || themeList == null) {
             return;
         }
-        this.a = themeRecommand.icon;
-        this.b = themeRecommand.tip_text;
-        this.c = themeRecommand.button_text;
-        String str = themeRecommand.button_url;
+        this.a = themeList.name;
+        this.b = themeList.icon;
+        this.c = themeList.last_update_time.longValue();
+        this.d = themeList.type;
     }
 }

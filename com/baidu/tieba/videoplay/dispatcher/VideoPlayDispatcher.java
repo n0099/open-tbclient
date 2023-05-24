@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.YyExtData;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
-import com.baidu.tieba.gi9;
+import com.baidu.tieba.hi9;
 import com.baidu.tieba.os5;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.video.UserItemData;
@@ -22,7 +22,7 @@ import com.tencent.connect.share.QzonePublish;
 import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class VideoPlayDispatcher implements gi9 {
+public class VideoPlayDispatcher implements hi9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -42,7 +42,7 @@ public class VideoPlayDispatcher implements gi9 {
 
     /* JADX WARN: Removed duplicated region for block: B:38:0x017e  */
     /* JADX WARN: Removed duplicated region for block: B:40:0x018e  */
-    @Override // com.baidu.tieba.gi9
+    @Override // com.baidu.tieba.hi9
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

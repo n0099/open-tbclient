@@ -35,7 +35,7 @@ public class mz4 implements t45 {
     public String m;
     public float n;
     public List<String> o;
-    public sq9 p;
+    public tq9 p;
 
     /* loaded from: classes6.dex */
     public class a implements Comparator<VideoImageColor> {
@@ -121,13 +121,13 @@ public class mz4 implements t45 {
         return (String) invokeV.objValue;
     }
 
-    public sq9 f() {
+    public tq9 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.p;
         }
-        return (sq9) invokeV.objValue;
+        return (tq9) invokeV.objValue;
     }
 
     public String g() {
@@ -308,9 +308,9 @@ public class mz4 implements t45 {
             this.k = str4.trim();
         }
         this.o = headImgs.third_statistics_url;
-        sq9 sq9Var = new sq9();
-        this.p = sq9Var;
-        sq9Var.d(headImgs);
+        tq9 tq9Var = new tq9();
+        this.p = tq9Var;
+        tq9Var.d(headImgs);
     }
 
     public void p(String str) {

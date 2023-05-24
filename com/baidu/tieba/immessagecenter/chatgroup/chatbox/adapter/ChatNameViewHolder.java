@@ -15,11 +15,11 @@ import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d78;
 import com.baidu.tieba.e78;
+import com.baidu.tieba.f78;
 import com.baidu.tieba.p45;
-import com.baidu.tieba.q78;
 import com.baidu.tieba.r78;
+import com.baidu.tieba.s78;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -33,7 +33,7 @@ public class ChatNameViewHolder extends BaseItemViewHolder {
     public TextView e;
     public ImageView f;
     public RecyclerView g;
-    public q78 h;
+    public r78 h;
 
     /* loaded from: classes6.dex */
     public class a extends LinearLayoutManager {
@@ -103,12 +103,12 @@ public class ChatNameViewHolder extends BaseItemViewHolder {
                 if (this.a.h.d()) {
                     this.a.f.setImageResource(R.drawable.obfuscated_res_0x7f0808ee);
                     ChatNameViewHolder chatNameViewHolder = this.a;
-                    e78.d(chatNameViewHolder, chatNameViewHolder.g);
+                    f78.d(chatNameViewHolder, chatNameViewHolder.g);
                     int unused = ChatNameViewHolder.i = 1;
                 } else {
                     this.a.f.setImageResource(R.drawable.obfuscated_res_0x7f0808ed);
                     ChatNameViewHolder chatNameViewHolder2 = this.a;
-                    e78.a(chatNameViewHolder2, chatNameViewHolder2.g);
+                    f78.a(chatNameViewHolder2, chatNameViewHolder2.g);
                     int unused2 = ChatNameViewHolder.i = 2;
                 }
                 this.a.n();
@@ -156,13 +156,13 @@ public class ChatNameViewHolder extends BaseItemViewHolder {
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder
-    public void d(@NonNull d78 d78Var, @NonNull TbPageContext tbPageContext, int i2) {
+    public void d(@NonNull e78 e78Var, @NonNull TbPageContext tbPageContext, int i2) {
         int i3;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(1048576, this, d78Var, tbPageContext, i2) == null) && (d78Var instanceof q78)) {
-            q78 q78Var = (q78) d78Var;
-            this.h = q78Var;
-            this.e.setText(q78Var.b());
+        if ((interceptable == null || interceptable.invokeLLI(1048576, this, e78Var, tbPageContext, i2) == null) && (e78Var instanceof r78)) {
+            r78 r78Var = (r78) e78Var;
+            this.h = r78Var;
+            this.e.setText(r78Var.b());
             ImageView imageView = this.f;
             int i4 = R.drawable.obfuscated_res_0x7f0808ee;
             imageView.setImageResource(R.drawable.obfuscated_res_0x7f0808ee);
@@ -195,12 +195,12 @@ public class ChatNameViewHolder extends BaseItemViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CHAT_GROUP_CLICK);
-            d78 d78Var = this.h.getSubItems().get(0);
-            if (d78Var instanceof r78) {
-                r78 r78Var = (r78) d78Var;
-                if (r78Var.a() != null) {
-                    statisticItem.param("fid", r78Var.a().getForumId());
-                    statisticItem.param("fname", r78Var.a().getForumName());
+            e78 e78Var = this.h.getSubItems().get(0);
+            if (e78Var instanceof s78) {
+                s78 s78Var = (s78) e78Var;
+                if (s78Var.a() != null) {
+                    statisticItem.param("fid", s78Var.a().getForumId());
+                    statisticItem.param("fname", s78Var.a().getForumName());
                 }
             }
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());

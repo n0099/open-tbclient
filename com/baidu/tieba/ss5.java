@@ -99,7 +99,7 @@ public class ss5 {
             builder.net_type = Integer.valueOf(BdNetTypeUtil.netType());
             builder.sample_id = TbSingleton.getInstance().getSampleId();
             builder.is_teenager = 0;
-            if (be9.b()) {
+            if (ce9.b()) {
                 builder._phone_imei = TbadkCoreApplication.getInst().getImei();
                 builder.model = ti.g();
                 builder._os_version = ti.k();
@@ -107,53 +107,53 @@ public class ss5 {
                 builder.oaid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
                 builder.android_id = TbadkCoreApplication.getInst().getAndroidId();
             } else {
-                builder.need_decrypt = Integer.valueOf(pg.e(be9.c(), 0));
-                String g = be9.g(HttpRequest.PHONE_IMEI);
+                builder.need_decrypt = Integer.valueOf(pg.e(ce9.c(), 0));
+                String g = ce9.g(HttpRequest.PHONE_IMEI);
                 if (HttpRequest.PHONE_IMEI.equals(g)) {
-                    builder._phone_imei = be9.f();
+                    builder._phone_imei = ce9.f();
                 } else if (HttpRequest.PHONE_IMEI_REVERSAL.equals(g)) {
-                    builder.iemi = be9.f();
+                    builder.iemi = ce9.f();
                 }
-                String g2 = be9.g("model");
+                String g2 = ce9.g("model");
                 if ("model".equals(g2)) {
-                    builder.model = be9.h();
+                    builder.model = ce9.h();
                 } else if ("ledom".equals(g2)) {
-                    builder.ledom = be9.h();
+                    builder.ledom = ce9.h();
                 }
-                String g3 = be9.g(HttpRequest.OS_VERSION);
+                String g3 = ce9.g(HttpRequest.OS_VERSION);
                 if (HttpRequest.OS_VERSION.equals(g3)) {
-                    builder._os_version = be9.j();
+                    builder._os_version = ce9.j();
                 } else if ("noisrev_so".equals(g3)) {
-                    builder.noisrev_so = be9.j();
+                    builder.noisrev_so = ce9.j();
                 }
-                String g4 = be9.g("brand");
+                String g4 = ce9.g("brand");
                 if ("brand".equals(g4)) {
-                    builder.brand = be9.e();
+                    builder.brand = ce9.e();
                 } else if ("dnarb".equals(g4)) {
-                    builder.dnarb = be9.e();
+                    builder.dnarb = ce9.e();
                 }
-                String g5 = be9.g("oaid");
+                String g5 = ce9.g("oaid");
                 if ("oaid".equals(g5)) {
-                    builder.oaid = be9.i();
+                    builder.oaid = ce9.i();
                 } else if ("diao".equals(g5)) {
-                    builder.diao = be9.i();
+                    builder.diao = ce9.i();
                 }
-                String g6 = be9.g(HttpRequest.ANDROID_ID);
+                String g6 = ce9.g(HttpRequest.ANDROID_ID);
                 if (HttpRequest.ANDROID_ID.equals(g6)) {
-                    builder.android_id = be9.d();
+                    builder.android_id = ce9.d();
                 } else if (HttpRequest.ANDROID_ID_REVERSAL.equals(g6)) {
-                    builder.di_diordna = be9.d();
+                    builder.di_diordna = ce9.d();
                 }
             }
-            if (ae9.b()) {
+            if (be9.b()) {
                 builder.mac = PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst());
             } else {
-                builder.need_cam_decrypt = Integer.valueOf(pg.e(ae9.c(), 0));
-                String d = ae9.d("mac");
+                builder.need_cam_decrypt = Integer.valueOf(pg.e(be9.c(), 0));
+                String d = be9.d("mac");
                 if ("mac".equals(d)) {
-                    builder.mac = ae9.e();
+                    builder.mac = be9.e();
                 } else if (HttpRequest.MAC_REVERSAL.equals(d)) {
-                    builder.cam = ae9.e();
+                    builder.cam = be9.e();
                 }
             }
             builder.sdk_ver = TbadkCoreApplication.getInst().getSdk_ver();

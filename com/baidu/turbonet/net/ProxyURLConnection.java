@@ -3,11 +3,11 @@ package com.baidu.turbonet.net;
 import android.annotation.TargetApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cfa;
+import com.baidu.tieba.afa;
 import com.baidu.tieba.dfa;
-import com.baidu.tieba.hfa;
-import com.baidu.tieba.wea;
-import com.baidu.tieba.zea;
+import com.baidu.tieba.efa;
+import com.baidu.tieba.ifa;
+import com.baidu.tieba.xea;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -28,25 +28,25 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSocketFactory;
 /* loaded from: classes8.dex */
-public class ProxyURLConnection extends HttpsURLConnection implements dfa {
+public class ProxyURLConnection extends HttpsURLConnection implements efa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zea a;
+    public afa a;
     public HttpURLConnection b;
-    public hfa c;
+    public ifa c;
     public TurbonetEngine d;
     public ProxyConfig e;
 
-    @Override // com.baidu.tieba.dfa
+    @Override // com.baidu.tieba.efa
     public void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            zea zeaVar = this.a;
-            zeaVar.e = j;
-            zeaVar.c();
-            zea zeaVar2 = this.a;
-            zeaVar2.c = -12;
-            zeaVar2.d(this.d);
+            afa afaVar = this.a;
+            afaVar.e = j;
+            afaVar.c();
+            afa afaVar2 = this.a;
+            afaVar2.c = -12;
+            afaVar2.d(this.d);
         }
     }
 
@@ -89,16 +89,16 @@ public class ProxyURLConnection extends HttpsURLConnection implements dfa {
         return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.dfa
+    @Override // com.baidu.tieba.efa
     public void onComplete(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048620, this, j) == null) {
-            zea zeaVar = this.a;
-            zeaVar.e = j;
-            zeaVar.c();
-            zea zeaVar2 = this.a;
-            zeaVar2.c = 0;
-            zeaVar2.d(this.d);
+            afa afaVar = this.a;
+            afaVar.e = j;
+            afaVar.c();
+            afa afaVar2 = this.a;
+            afaVar2.c = 0;
+            afaVar2.d(this.d);
         }
     }
 
@@ -269,13 +269,13 @@ public class ProxyURLConnection extends HttpsURLConnection implements dfa {
         }
     }
 
-    @Override // com.baidu.tieba.dfa
+    @Override // com.baidu.tieba.efa
     public void b(Exception exc, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, exc, j) == null) {
-            zea zeaVar = this.a;
-            zeaVar.e = j;
-            zeaVar.c();
+            afa afaVar = this.a;
+            afaVar.e = j;
+            afaVar.c();
             this.a.a(exc);
             this.a.d(this.d);
         }
@@ -323,7 +323,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements dfa {
     public void connect() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            wea.a("ProxyURLConn", "connect by libtype: " + this.e.toString());
+            xea.a("ProxyURLConn", "connect by libtype: " + this.e.toString());
             if (!this.e.a()) {
                 this.c.connect();
                 return;
@@ -341,7 +341,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements dfa {
     public void disconnect() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            wea.a("ProxyURLConn", "disconnect by libtype: " + this.e.toString());
+            xea.a("ProxyURLConn", "disconnect by libtype: " + this.e.toString());
             if (!this.e.a()) {
                 this.c.disconnect();
             } else {
@@ -809,12 +809,12 @@ public class ProxyURLConnection extends HttpsURLConnection implements dfa {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            wea.a("ProxyURLConn", "getInputStream by libtype: " + this.e.toString());
+            xea.a("ProxyURLConn", "getInputStream by libtype: " + this.e.toString());
             if (!this.e.a()) {
                 return this.c.getInputStream();
             }
             try {
-                return new cfa(this.b.getInputStream(), this);
+                return new dfa(this.b.getInputStream(), this);
             } catch (IOException e) {
                 b(e, 0L);
                 throw e;
@@ -845,7 +845,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements dfa {
                     throw e;
                 }
             }
-            wea.a("ProxyURLConn", "getResponseCode: " + i + " by libtype: " + this.e.toString());
+            xea.a("ProxyURLConn", "getResponseCode: " + i + " by libtype: " + this.e.toString());
             return i;
         }
         return invokeV.intValue;
@@ -862,7 +862,7 @@ public class ProxyURLConnection extends HttpsURLConnection implements dfa {
             } else {
                 responseMessage = this.b.getResponseMessage();
             }
-            wea.a("ProxyURLConn", "getResponseMessage by libtype: " + this.e.toString() + " Message: " + responseMessage);
+            xea.a("ProxyURLConn", "getResponseMessage by libtype: " + this.e.toString() + " Message: " + responseMessage);
             return responseMessage;
         }
         return (String) invokeV.objValue;

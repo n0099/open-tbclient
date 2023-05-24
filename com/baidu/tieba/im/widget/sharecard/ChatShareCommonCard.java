@@ -18,7 +18,7 @@ import com.baidu.tbadk.data.ImShareCardCommonData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.widget.sharecard.ChatShareCommonCard;
-import com.baidu.tieba.k58;
+import com.baidu.tieba.l58;
 import com.baidu.tieba.p45;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -129,12 +129,12 @@ public final class ChatShareCommonCard extends ConstraintLayout {
             int type = it.getType();
             if (type != 1) {
                 if (type == 2) {
-                    k58.d("c15286", 4, this$0.d);
+                    l58.d("c15286", 4, this$0.d);
                     return;
                 }
                 return;
             }
-            k58.d("c15286", 3, this$0.d);
+            l58.d("c15286", 3, this$0.d);
         }
     }
 
@@ -153,7 +153,7 @@ public final class ChatShareCommonCard extends ConstraintLayout {
             if (textView2 != null) {
                 textView2.setText(imShareCardCommonData.getContent());
             }
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.z58
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.a68
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

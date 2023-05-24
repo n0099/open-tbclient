@@ -12,7 +12,7 @@ import com.baidu.tieba.g9;
 import com.baidu.tieba.hottopic.message.RequestHotRanklistMessage;
 import com.baidu.tieba.hottopic.message.ResponseHttpHotRanklistMessage;
 import com.baidu.tieba.hottopic.message.ResponseSocketHotRanklistMessage;
-import com.baidu.tieba.xz7;
+import com.baidu.tieba.yz7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ public class HotRanklistModel extends BdBaseModel {
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(boolean z, xz7 xz7Var, int i, String str);
+        void a(boolean z, yz7 yz7Var, int i, String str);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -134,7 +134,7 @@ public class HotRanklistModel extends BdBaseModel {
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, responsedMessage) != null) || responsedMessage == null) {
             return;
         }
-        xz7 xz7Var = null;
+        yz7 yz7Var = null;
         if (responsedMessage.getOrginalMessage() != null) {
             Object extra = responsedMessage.getOrginalMessage().getExtra();
             if (extra instanceof RequestHotRanklistMessage) {
@@ -142,21 +142,21 @@ public class HotRanklistModel extends BdBaseModel {
                 if (responsedMessage instanceof ResponseHttpHotRanklistMessage) {
                     ResponseHttpHotRanklistMessage responseHttpHotRanklistMessage = (ResponseHttpHotRanklistMessage) responsedMessage;
                     if (responseHttpHotRanklistMessage.getHotRanklistData() != null) {
-                        xz7Var = responseHttpHotRanklistMessage.getHotRanklistData();
+                        yz7Var = responseHttpHotRanklistMessage.getHotRanklistData();
                     }
                 }
                 if (responsedMessage instanceof ResponseSocketHotRanklistMessage) {
                     ResponseSocketHotRanklistMessage responseSocketHotRanklistMessage = (ResponseSocketHotRanklistMessage) responsedMessage;
                     if (responseSocketHotRanklistMessage.getHotRanklistData() != null) {
-                        xz7Var = responseSocketHotRanklistMessage.getHotRanklistData();
+                        yz7Var = responseSocketHotRanklistMessage.getHotRanklistData();
                     }
                 }
-                if (!StringUtils.isNull(str) && !ListUtils.isEmpty(xz7Var.b)) {
-                    xz7Var.a = xz7Var.b.get(0).a;
+                if (!StringUtils.isNull(str) && !ListUtils.isEmpty(yz7Var.b)) {
+                    yz7Var.a = yz7Var.b.get(0).a;
                 } else {
-                    xz7Var.a = str;
+                    yz7Var.a = str;
                 }
-                this.a.a(!responsedMessage.hasError(), xz7Var, responsedMessage.getError(), responsedMessage.getErrorString());
+                this.a.a(!responsedMessage.hasError(), yz7Var, responsedMessage.getError(), responsedMessage.getErrorString());
             }
         }
         str = null;
@@ -166,8 +166,8 @@ public class HotRanklistModel extends BdBaseModel {
         }
         if (!StringUtils.isNull(str)) {
         }
-        xz7Var.a = str;
-        this.a.a(!responsedMessage.hasError(), xz7Var, responsedMessage.getError(), responsedMessage.getErrorString());
+        yz7Var.a = str;
+        this.a.a(!responsedMessage.hasError(), yz7Var, responsedMessage.getError(), responsedMessage.getErrorString());
     }
 
     public final void Y(String str, String str2, String str3, long j) {

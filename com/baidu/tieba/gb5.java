@@ -15,7 +15,7 @@ import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class gb5 extends jn6 {
+public final class gb5 extends kn6 {
     public static /* synthetic */ Interceptable $ic;
     public static final a b;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,12 +48,12 @@ public final class gb5 extends jn6 {
 
         /* renamed from: com.baidu.tieba.gb5$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static final class C0310a extends CustomMessageListener {
+        public static final class C0309a extends CustomMessageListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0310a() {
+            public C0309a() {
                 super(2001115);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -84,7 +84,7 @@ public final class gb5 extends jn6 {
                         updateAttentionMessage = null;
                     }
                     if (updateAttentionMessage != null && (data = updateAttentionMessage.getData()) != null) {
-                        in6.b().b(new gb5(data));
+                        jn6.b().b(new gb5(data));
                     }
                 }
             }
@@ -109,7 +109,7 @@ public final class gb5 extends jn6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, pageContext) == null) {
                 Intrinsics.checkNotNullParameter(pageContext, "pageContext");
-                pageContext.registerListener(new C0310a());
+                pageContext.registerListener(new C0309a());
             }
         }
     }

@@ -37,7 +37,7 @@ import com.baidu.tieba.hi;
 import com.baidu.tieba.immessagecenter.mention.FeedData;
 import com.baidu.tieba.jc5;
 import com.baidu.tieba.ji;
-import com.baidu.tieba.qg9;
+import com.baidu.tieba.rg9;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -54,7 +54,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
     public static int B0 = 0;
     public static String C0 = "https://afd.baidu.com/afd/updateTiebaAdExt";
     public transient /* synthetic */ FieldHolder $fh;
-    public qg9 A0;
+    public rg9 A0;
     public int w0;
     public int x0;
     public int y0;
@@ -231,11 +231,11 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         }
     }
 
-    public void setShareData(qg9 qg9Var) {
+    public void setShareData(rg9 rg9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, qg9Var) == null) {
-            this.A0 = qg9Var;
-            setData(qg9Var.getThreadData());
+        if (interceptable == null || interceptable.invokeL(1048595, this, rg9Var) == null) {
+            this.A0 = rg9Var;
+            setData(rg9Var.getThreadData());
         }
     }
 
@@ -269,11 +269,11 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void G(View view2) {
-        qg9 qg9Var;
+        rg9 rg9Var;
         Uri parse;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) && this.E != null && this.F != null && (qg9Var = this.A0) != null) {
-            n0(qg9Var.getThreadData(), "share", 0);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) && this.E != null && this.F != null && (rg9Var = this.A0) != null) {
+            n0(rg9Var.getThreadData(), "share", 0);
             o0(this.A0.getThreadData(), "2", "1");
             if (!ShareSwitch.isOn() && !ViewHelper.checkUpIsLogin(this.F)) {
                 return;

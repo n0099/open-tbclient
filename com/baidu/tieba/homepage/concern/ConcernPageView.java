@@ -38,30 +38,32 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a16;
 import com.baidu.tieba.am6;
-import com.baidu.tieba.c37;
-import com.baidu.tieba.cv7;
-import com.baidu.tieba.cy6;
-import com.baidu.tieba.dq7;
+import com.baidu.tieba.ar7;
+import com.baidu.tieba.bm6;
+import com.baidu.tieba.d37;
+import com.baidu.tieba.dv7;
+import com.baidu.tieba.dy6;
+import com.baidu.tieba.eq7;
 import com.baidu.tieba.feed.list.FeedTemplateAdapter;
-import com.baidu.tieba.g07;
-import com.baidu.tieba.g7a;
 import com.baidu.tieba.g9;
-import com.baidu.tieba.gp7;
+import com.baidu.tieba.h07;
+import com.baidu.tieba.h7a;
 import com.baidu.tieba.hb5;
-import com.baidu.tieba.hn6;
 import com.baidu.tieba.homepage.HomePageStatic;
 import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
 import com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout;
+import com.baidu.tieba.hp7;
 import com.baidu.tieba.in6;
-import com.baidu.tieba.j47;
-import com.baidu.tieba.jp7;
-import com.baidu.tieba.k37;
-import com.baidu.tieba.kk6;
+import com.baidu.tieba.jn6;
+import com.baidu.tieba.k47;
+import com.baidu.tieba.kp7;
 import com.baidu.tieba.l37;
-import com.baidu.tieba.ln6;
+import com.baidu.tieba.lk6;
 import com.baidu.tieba.m37;
 import com.baidu.tieba.m9;
+import com.baidu.tieba.mn6;
 import com.baidu.tieba.n37;
+import com.baidu.tieba.o37;
 import com.baidu.tieba.o65;
 import com.baidu.tieba.qr5;
 import com.baidu.tieba.ri;
@@ -69,12 +71,10 @@ import com.baidu.tieba.ri5;
 import com.baidu.tieba.rn;
 import com.baidu.tieba.sg;
 import com.baidu.tieba.si5;
-import com.baidu.tieba.ut9;
-import com.baidu.tieba.v27;
+import com.baidu.tieba.vt9;
+import com.baidu.tieba.w27;
 import com.baidu.tieba.y65;
-import com.baidu.tieba.yl6;
 import com.baidu.tieba.zl6;
-import com.baidu.tieba.zq7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -94,15 +94,15 @@ public class ConcernPageView extends FrameLayout {
     public CustomMessageListener C;
     public CustomMessageListener D;
     public final CustomMessageListener E;
-    public cv7 a;
+    public dv7 a;
     public PbListView b;
     public BdRecyclerView c;
-    public v27 d;
-    public gp7 e;
+    public w27 d;
+    public hp7 e;
     public TbPageContext<?> f;
     public s g;
-    public jp7 h;
-    public n37 i;
+    public kp7 h;
+    public o37 i;
     public ri5 j;
     public si5 k;
     public NoDataView l;
@@ -112,14 +112,14 @@ public class ConcernPageView extends FrameLayout {
     public ScrollFragmentTabHost p;
     public int q;
     public boolean r;
-    public zq7 s;
-    public g7a t;
+    public ar7 s;
+    public h7a t;
     public RecyclerView.OnScrollListener u;
     public BdListView.p v;
     public ScrollFragmentTabHost.r w;
     public BigdaySwipeRefreshLayout x;
-    public jp7.o y;
-    public final m37.a<g07> z;
+    public kp7.o y;
+    public final n37.a<h07> z;
 
     /* loaded from: classes5.dex */
     public interface s {
@@ -131,7 +131,7 @@ public class ConcernPageView extends FrameLayout {
     }
 
     /* loaded from: classes5.dex */
-    public class n implements jp7.o {
+    public class n implements kp7.o {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ConcernPageView a;
@@ -187,7 +187,7 @@ public class ConcernPageView extends FrameLayout {
             this.a = concernPageView;
         }
 
-        @Override // com.baidu.tieba.jp7.o
+        @Override // com.baidu.tieba.kp7.o
         public void a(qr5 qr5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(1048576, this, qr5Var) != null) {
@@ -214,7 +214,7 @@ public class ConcernPageView extends FrameLayout {
             }
         }
 
-        @Override // com.baidu.tieba.jp7.o
+        @Override // com.baidu.tieba.kp7.o
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -229,7 +229,7 @@ public class ConcernPageView extends FrameLayout {
             }
         }
 
-        @Override // com.baidu.tieba.jp7.o
+        @Override // com.baidu.tieba.kp7.o
         public void c(boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
@@ -253,7 +253,7 @@ public class ConcernPageView extends FrameLayout {
             }
         }
 
-        @Override // com.baidu.tieba.jp7.o
+        @Override // com.baidu.tieba.kp7.o
         public void d(String str, qr5 qr5Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048579, this, str, qr5Var) == null) {
@@ -267,7 +267,7 @@ public class ConcernPageView extends FrameLayout {
             }
         }
 
-        @Override // com.baidu.tieba.jp7.o
+        @Override // com.baidu.tieba.kp7.o
         public void onError(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
@@ -594,7 +594,7 @@ public class ConcernPageView extends FrameLayout {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             PublishProgressData publishProgressData;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof PublishProgressData) && (publishProgressData = (PublishProgressData) customResponsedMessage.getData()) != null && !ut9.g() && ut9.a() != null && this.a.m != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof PublishProgressData) && (publishProgressData = (PublishProgressData) customResponsedMessage.getData()) != null && !vt9.g() && vt9.a() != null && this.a.m != null) {
                 this.a.m.c(publishProgressData);
             }
         }
@@ -774,7 +774,7 @@ public class ConcernPageView extends FrameLayout {
     }
 
     /* loaded from: classes5.dex */
-    public class m extends ln6<hb5> {
+    public class m extends mn6<hb5> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ConcernPageView b;
@@ -801,7 +801,7 @@ public class ConcernPageView extends FrameLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ln6
+        @Override // com.baidu.tieba.mn6
         public void onEvent(@NonNull hb5 hb5Var) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, hb5Var) != null) || !"recommend_user".equals(hb5Var.getType())) {
@@ -812,7 +812,7 @@ public class ConcernPageView extends FrameLayout {
     }
 
     /* loaded from: classes5.dex */
-    public class o implements m37.a<g07> {
+    public class o implements n37.a<h07> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ConcernPageView a;
@@ -836,37 +836,37 @@ public class ConcernPageView extends FrameLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.m37.a
+        @Override // com.baidu.tieba.n37.a
         /* renamed from: b */
-        public void a(g07 g07Var) {
+        public void a(h07 h07Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g07Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h07Var) == null) {
                 this.a.x.setRefreshing(false);
                 this.a.D();
                 this.a.F();
-                if (g07Var == null) {
+                if (h07Var == null) {
                     return;
                 }
-                if (g07Var.c != 0) {
-                    if (ListUtils.isEmpty(g07Var.a)) {
+                if (h07Var.c != 0) {
+                    if (ListUtils.isEmpty(h07Var.a)) {
                         this.a.g0(true);
                         return;
                     }
                     return;
                 }
                 this.a.E();
-                if (ListUtils.isEmpty(g07Var.a)) {
+                if (ListUtils.isEmpty(h07Var.a)) {
                     this.a.b.M(8);
                     this.a.h0();
                 } else {
                     this.a.b.M(0);
-                    if (g07Var.b) {
+                    if (h07Var.b) {
                         this.a.e0();
                     } else {
                         this.a.d0();
                     }
                 }
-                this.a.d.setList(g07Var.a);
+                this.a.d.setList(h07Var.a);
             }
         }
     }
@@ -1033,14 +1033,14 @@ public class ConcernPageView extends FrameLayout {
                 i0();
                 return;
             }
-            jp7 jp7Var = this.h;
-            if (jp7Var != null) {
-                jp7Var.update();
+            kp7 kp7Var = this.h;
+            if (kp7Var != null) {
+                kp7Var.update();
                 f0(true);
             }
-            n37 n37Var = this.i;
-            if (n37Var != null) {
-                n37Var.d();
+            o37 o37Var = this.i;
+            if (o37Var != null) {
+                o37Var.d();
                 f0(true);
             }
         }
@@ -1049,11 +1049,11 @@ public class ConcernPageView extends FrameLayout {
     public final void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            new dq7.b().execute(new Integer[0]);
+            new eq7.b().execute(new Integer[0]);
             TiebaStatic.log(new StatisticItem("c13572"));
-            n37 n37Var = this.i;
-            if (n37Var != null) {
-                n37Var.a();
+            o37 o37Var = this.i;
+            if (o37Var != null) {
+                o37Var.a();
             }
         }
     }
@@ -1131,35 +1131,35 @@ public class ConcernPageView extends FrameLayout {
     public final void P() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            jp7 jp7Var = this.h;
-            if (jp7Var != null) {
-                jp7Var.G();
+            kp7 kp7Var = this.h;
+            if (kp7Var != null) {
+                kp7Var.G();
             }
-            n37 n37Var = this.i;
-            if (n37Var != null) {
-                n37Var.e();
+            o37 o37Var = this.i;
+            if (o37Var != null) {
+                o37Var.e();
             }
         }
     }
 
     public void Q() {
-        zq7 zq7Var;
+        ar7 ar7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && (zq7Var = this.s) != null) {
-            zq7Var.f();
+        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && (ar7Var = this.s) != null) {
+            ar7Var.f();
         }
     }
 
     public void R() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            v27 v27Var = this.d;
-            if (v27Var != null) {
-                v27Var.notifyDataSetChanged();
+            w27 w27Var = this.d;
+            if (w27Var != null) {
+                w27Var.notifyDataSetChanged();
             }
-            gp7 gp7Var = this.e;
-            if (gp7Var != null) {
-                gp7Var.d();
+            hp7 hp7Var = this.e;
+            if (hp7Var != null) {
+                hp7Var.d();
             }
             Q();
         }
@@ -1182,10 +1182,10 @@ public class ConcernPageView extends FrameLayout {
     }
 
     public void W() {
-        g7a g7aVar;
+        h7a h7aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && (g7aVar = this.t) != null) {
-            g7aVar.i(2000);
+        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && (h7aVar = this.t) != null) {
+            h7aVar.i(2000);
         }
     }
 
@@ -1198,10 +1198,10 @@ public class ConcernPageView extends FrameLayout {
     }
 
     public void Z() {
-        jp7 jp7Var;
+        kp7 kp7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && (jp7Var = this.h) != null) {
-            jp7Var.J(true);
+        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && (kp7Var = this.h) != null) {
+            kp7Var.J(true);
         }
     }
 
@@ -1212,9 +1212,9 @@ public class ConcernPageView extends FrameLayout {
                 i0();
                 return;
             }
-            jp7 jp7Var = this.h;
-            if (jp7Var != null) {
-                jp7Var.Q();
+            kp7 kp7Var = this.h;
+            if (kp7Var != null) {
+                kp7Var.Q();
             }
         }
     }
@@ -1223,9 +1223,9 @@ public class ConcernPageView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
             setViewForeground(false);
-            jp7 jp7Var = this.h;
-            if (jp7Var != null) {
-                jp7Var.J(false);
+            kp7 kp7Var = this.h;
+            if (kp7Var != null) {
+                kp7Var.J(false);
             }
         }
     }
@@ -1276,9 +1276,9 @@ public class ConcernPageView extends FrameLayout {
                 if (si5Var != null) {
                     si5Var.onChangeSkinType();
                 }
-                cv7 cv7Var = this.a;
-                if (cv7Var != null) {
-                    cv7Var.H(i2);
+                dv7 dv7Var = this.a;
+                if (dv7Var != null) {
+                    dv7Var.H(i2);
                 }
                 PbListView pbListView = this.b;
                 if (pbListView != null) {
@@ -1295,21 +1295,21 @@ public class ConcernPageView extends FrameLayout {
                 if (publishProgressView != null) {
                     publishProgressView.b();
                 }
-                gp7 gp7Var = this.e;
-                if (gp7Var != null) {
-                    gp7Var.e(i2);
+                hp7 hp7Var = this.e;
+                if (hp7Var != null) {
+                    hp7Var.e(i2);
                 }
-                v27 v27Var = this.d;
-                if (v27Var != null) {
-                    v27Var.b();
+                w27 w27Var = this.d;
+                if (w27Var != null) {
+                    w27Var.b();
                 }
-                zq7 zq7Var = this.s;
-                if (zq7Var != null) {
-                    zq7Var.o();
+                ar7 ar7Var = this.s;
+                if (ar7Var != null) {
+                    ar7Var.o();
                 }
-                g7a g7aVar = this.t;
-                if (g7aVar != null) {
-                    g7aVar.i(2000);
+                h7a h7aVar = this.t;
+                if (h7aVar != null) {
+                    h7aVar.i(2000);
                 }
             }
             this.o = i2;
@@ -1424,19 +1424,19 @@ public class ConcernPageView extends FrameLayout {
     }
 
     public void setTabInForeBackgroundState(boolean z) {
-        jp7 jp7Var;
+        kp7 kp7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048616, this, z) == null) && (jp7Var = this.h) != null) {
-            jp7Var.Z(z);
+        if ((interceptable == null || interceptable.invokeZ(1048616, this, z) == null) && (kp7Var = this.h) != null) {
+            kp7Var.Z(z);
         }
     }
 
     public void setViewForeground(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048618, this, z) == null) {
-            jp7 jp7Var = this.h;
-            if (jp7Var != null) {
-                jp7Var.N(z);
+            kp7 kp7Var = this.h;
+            if (kp7Var != null) {
+                kp7Var.N(z);
             }
             ScrollFragmentTabHost scrollFragmentTabHost = this.p;
             if (scrollFragmentTabHost != null) {
@@ -1452,33 +1452,33 @@ public class ConcernPageView extends FrameLayout {
         if (interceptable == null || interceptable.invokeLZ(1048585, this, threadData, z) == null) {
             F();
             if (F) {
-                n37 n37Var = this.i;
-                if (n37Var != null) {
-                    n37Var.c(threadData);
+                o37 o37Var = this.i;
+                if (o37Var != null) {
+                    o37Var.c(threadData);
                     return;
                 }
                 return;
             }
-            jp7 jp7Var = this.h;
-            if (jp7Var != null) {
-                jp7Var.A(threadData, z);
+            kp7 kp7Var = this.h;
+            if (kp7Var != null) {
+                kp7Var.A(threadData, z);
             }
         }
     }
 
     public void k0(DataRes dataRes, boolean z) {
-        jp7 jp7Var;
+        kp7 kp7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048611, this, dataRes, z) == null) && (jp7Var = this.h) != null) {
-            jp7Var.M(z, dataRes, 0, null);
+        if ((interceptable == null || interceptable.invokeLZ(1048611, this, dataRes, z) == null) && (kp7Var = this.h) != null) {
+            kp7Var.M(z, dataRes, 0, null);
         }
     }
 
     public void l0(String str, int i2) {
-        jp7 jp7Var;
+        kp7 kp7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048612, this, str, i2) == null) && (jp7Var = this.h) != null) {
-            jp7Var.M(true, null, i2, str);
+        if ((interceptable == null || interceptable.invokeLI(1048612, this, str, i2) == null) && (kp7Var = this.h) != null) {
+            kp7Var.M(true, null, i2, str);
         }
     }
 
@@ -1489,8 +1489,8 @@ public class ConcernPageView extends FrameLayout {
         }
         this.r = true;
         if (F) {
-            if (cy6.a.getBaseContext() == null) {
-                cy6.a.a(TbadkCoreApplication.getInst());
+            if (dy6.a.getBaseContext() == null) {
+                dy6.a.a(TbadkCoreApplication.getInst());
             }
             this.c = new BdRecyclerView(context);
         } else {
@@ -1501,9 +1501,9 @@ public class ConcernPageView extends FrameLayout {
         this.c.setOverScrollMode(2);
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
         this.c.setPadding(dimenPixelSize, 0, dimenPixelSize, 0);
-        zq7 zq7Var = new zq7(this, this.c);
-        this.s = zq7Var;
-        zq7Var.q(context.getString(R.string.tab_name_concern));
+        ar7 ar7Var = new ar7(this, this.c);
+        this.s = ar7Var;
+        ar7Var.q(context.getString(R.string.tab_name_concern));
         BigdaySwipeRefreshLayout bigdaySwipeRefreshLayout = new BigdaySwipeRefreshLayout(context);
         this.x = bigdaySwipeRefreshLayout;
         bigdaySwipeRefreshLayout.addView(this.c);
@@ -1528,30 +1528,30 @@ public class ConcernPageView extends FrameLayout {
         if (UbsABTestHelper.isLaunchUpA()) {
             addView(this.x);
         }
-        cv7 cv7Var = new cv7(this.f);
-        this.a = cv7Var;
-        cv7Var.A(true);
+        dv7 dv7Var = new dv7(this.f);
+        this.a = dv7Var;
+        dv7Var.A(true);
         this.x.setProgressView(this.a);
         int i2 = (int) (getResources().getDisplayMetrics().density * 86.0f);
         this.x.setCustomDistances(i2, i2, i2 * 2);
         if (F) {
             FeedTemplateAdapter feedTemplateAdapter = new FeedTemplateAdapter();
             this.d = feedTemplateAdapter;
-            feedTemplateAdapter.e(new l37(new am6()));
-            v27 v27Var = this.d;
-            zl6 zl6Var = new zl6();
-            zl6Var.b("2");
-            v27Var.c(new k37(zl6Var));
-            this.d.j(new j47());
-            this.d.j(new c37());
+            feedTemplateAdapter.e(new m37(new bm6()));
+            w27 w27Var = this.d;
+            am6 am6Var = new am6();
+            am6Var.b("2");
+            w27Var.c(new l37(am6Var));
+            this.d.j(new k47());
+            this.d.j(new d37());
             this.d.f(this.c);
-            n37 n37Var = new n37(this.f.getPageActivity(), new yl6(this.f.getPageActivity()));
-            this.i = n37Var;
-            n37Var.f(this.z);
+            o37 o37Var = new o37(this.f.getPageActivity(), new zl6(this.f.getPageActivity()));
+            this.i = o37Var;
+            o37Var.f(this.z);
         } else {
-            gp7 gp7Var = new gp7(context, (BdTypeRecyclerView) this.c);
-            this.e = gp7Var;
-            this.h = new jp7(this.f, (BdTypeRecyclerView) this.c, gp7Var, this.x);
+            hp7 hp7Var = new hp7(context, (BdTypeRecyclerView) this.c);
+            this.e = hp7Var;
+            this.h = new kp7(this.f, (BdTypeRecyclerView) this.c, hp7Var, this.x);
         }
         this.x.setVisibility(8);
         this.s.r(false);
@@ -1562,16 +1562,16 @@ public class ConcernPageView extends FrameLayout {
         this.m.setVisibility(8);
         S(TbadkCoreApplication.getInst().getSkinType());
         if (this.t == null) {
-            this.t = new g7a(this.f, this.c);
+            this.t = new h7a(this.f, this.c);
         }
     }
 
     public void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            jp7 jp7Var = this.h;
-            if (jp7Var != null) {
-                jp7Var.Y(this.y);
+            kp7 kp7Var = this.h;
+            if (kp7Var != null) {
+                kp7Var.Y(this.y);
             }
             this.a.f(new q(this));
             this.a.g(new r(this));
@@ -1603,9 +1603,9 @@ public class ConcernPageView extends FrameLayout {
                             F();
                             f0(true);
                         } else {
-                            jp7 jp7Var = this.h;
-                            if (jp7Var != null) {
-                                jp7Var.update();
+                            kp7 kp7Var = this.h;
+                            if (kp7Var != null) {
+                                kp7Var.update();
                             }
                         }
                     }
@@ -1649,9 +1649,9 @@ public class ConcernPageView extends FrameLayout {
             this.c.removeOnScrollListener(this.u);
             MessageManager.getInstance().unRegisterListener(this.E);
             MessageManager.getInstance().unRegisterListener(this.A);
-            jp7 jp7Var = this.h;
-            if (jp7Var != null) {
-                jp7Var.Y(null);
+            kp7 kp7Var = this.h;
+            if (kp7Var != null) {
+                kp7Var.Y(null);
             }
             this.a.f(null);
             this.a.g(null);
@@ -1659,31 +1659,31 @@ public class ConcernPageView extends FrameLayout {
             this.a.m(null);
             this.a.Y();
             this.c.setRecyclerListener(null);
-            jp7 jp7Var2 = this.h;
-            if (jp7Var2 != null) {
-                jp7Var2.L();
+            kp7 kp7Var2 = this.h;
+            if (kp7Var2 != null) {
+                kp7Var2.L();
             }
         }
     }
 
     public void Y() {
-        gp7 gp7Var;
+        hp7 hp7Var;
         ThreadData threadData;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048599, this) != null) || (gp7Var = this.e) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048599, this) != null) || (hp7Var = this.e) == null) {
             return;
         }
-        List<rn> a2 = gp7Var.a();
+        List<rn> a2 = hp7Var.a();
         if (ListUtils.isEmpty(a2)) {
             return;
         }
         for (rn rnVar : a2) {
-            if (rnVar instanceof kk6) {
-                kk6 kk6Var = (kk6) rnVar;
-                if (kk6Var.j != 0 && (threadData = kk6Var.a) != null) {
+            if (rnVar instanceof lk6) {
+                lk6 lk6Var = (lk6) rnVar;
+                if (lk6Var.j != 0 && (threadData = lk6Var.a) != null) {
                     int[] imageWidthAndHeight = threadData.getImageWidthAndHeight();
-                    kk6Var.j = imageWidthAndHeight[0];
-                    kk6Var.k = imageWidthAndHeight[1];
+                    lk6Var.j = imageWidthAndHeight[0];
+                    lk6Var.k = imageWidthAndHeight[1];
                 }
             }
         }
@@ -1691,14 +1691,14 @@ public class ConcernPageView extends FrameLayout {
     }
 
     public void e0() {
-        n37 n37Var;
+        o37 o37Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
             this.x.setVisibility(0);
             this.c.setVisibility(0);
             this.s.r(true);
-            jp7 jp7Var = this.h;
-            if ((jp7Var != null && jp7Var.z()) || ((n37Var = this.i) != null && n37Var.b())) {
+            kp7 kp7Var = this.h;
+            if ((kp7Var != null && kp7Var.z()) || ((o37Var = this.i) != null && o37Var.b())) {
                 this.b.S();
             } else {
                 this.b.h();
@@ -1746,17 +1746,17 @@ public class ConcernPageView extends FrameLayout {
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048614, this, bdUniqueId) == null) {
-            gp7 gp7Var = this.e;
-            if (gp7Var != null) {
-                gp7Var.h(bdUniqueId);
+            hp7 hp7Var = this.e;
+            if (hp7Var != null) {
+                hp7Var.h(bdUniqueId);
             }
-            jp7 jp7Var = this.h;
-            if (jp7Var != null) {
-                jp7Var.a0(bdUniqueId);
+            kp7 kp7Var = this.h;
+            if (kp7Var != null) {
+                kp7Var.a0(bdUniqueId);
             }
-            cv7 cv7Var = this.a;
-            if (cv7Var != null) {
-                cv7Var.a0(bdUniqueId);
+            dv7 dv7Var = this.a;
+            if (dv7Var != null) {
+                dv7Var.a0(bdUniqueId);
             }
             CustomMessageListener customMessageListener = this.C;
             if (customMessageListener != null) {
@@ -1768,7 +1768,7 @@ public class ConcernPageView extends FrameLayout {
                 customMessageListener2.setTag(bdUniqueId);
                 MessageManager.getInstance().registerListener(this.D);
             }
-            in6.b().a(new hn6(bdUniqueId, this), new m(this, hb5.class));
+            jn6.b().a(new in6(bdUniqueId, this), new m(this, hb5.class));
         }
     }
 

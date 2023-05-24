@@ -33,7 +33,7 @@ import com.baidu.tbadk.widget.horizontalpullview.RefreshView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnItemData;
 import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnListData;
-import com.baidu.tieba.iw7;
+import com.baidu.tieba.jw7;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.tx;
 import com.baidu.tieba.ux;
@@ -295,7 +295,7 @@ public class SpecialTopicLayout extends LinearLayout implements ux, tx<SpecialCo
             if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, specialColumnItemData, Integer.valueOf(i), Long.valueOf(j)}) != null) || specialColumnItemData == null) {
                 return;
             }
-            iw7.b("c13754", specialColumnItemData, i + 1, this.a.j);
+            jw7.b("c13754", specialColumnItemData, i + 1, this.a.j);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -319,10 +319,10 @@ public class SpecialTopicLayout extends LinearLayout implements ux, tx<SpecialCo
                     alaLiveInfoCoreData.liveID = specialColumnItemData.liveId;
                     this.a.a.sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.a.getContext(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_ACTIVE_VIEW, "", false, "")));
                 }
-                iw7.a("c13754", specialColumnItemData, i + 1, this.a.j);
+                jw7.a("c13754", specialColumnItemData, i + 1, this.a.j);
             }
             this.a.a.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.a.getContext()).createNormalCfg(String.valueOf(specialColumnItemData.threadId), null, null)));
-            iw7.a("c13754", specialColumnItemData, i + 1, this.a.j);
+            jw7.a("c13754", specialColumnItemData, i + 1, this.a.j);
         }
     }
 

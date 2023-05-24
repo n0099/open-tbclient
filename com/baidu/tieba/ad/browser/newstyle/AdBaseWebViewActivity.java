@@ -33,7 +33,7 @@ import com.baidu.tieba.sg;
 import com.baidu.tieba.t16;
 import com.baidu.tieba.v16;
 import com.baidu.tieba.wx4;
-import com.baidu.tieba.xf9;
+import com.baidu.tieba.yf9;
 import com.baidu.tieba.yt5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -541,7 +541,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return xf9.l(str, getApplicationContext());
+            return yf9.l(str, getApplicationContext());
         }
         return invokeL.booleanValue;
     }

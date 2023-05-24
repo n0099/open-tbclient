@@ -25,7 +25,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bl8;
+import com.baidu.tieba.cl8;
 import com.baidu.tieba.quickWebView.QuickWebView;
 import com.baidu.tieba.yu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -325,7 +325,7 @@ public class MemberCenterFragment extends BaseFragment {
             if (arguments != null) {
                 this.f = arguments.getString("key_url", "");
             }
-            new bl8("my_tab_vip_banner_bubble").i();
+            new cl8("my_tab_vip_banner_bubble").i();
         }
     }
 

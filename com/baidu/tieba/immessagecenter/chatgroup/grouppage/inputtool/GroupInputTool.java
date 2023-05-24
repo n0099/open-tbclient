@@ -36,8 +36,8 @@ import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ch5;
-import com.baidu.tieba.da8;
 import com.baidu.tieba.df5;
+import com.baidu.tieba.ea8;
 import com.baidu.tieba.ef5;
 import com.baidu.tieba.fj;
 import com.baidu.tieba.hj;
@@ -52,12 +52,12 @@ import com.baidu.tieba.immessagecenter.chatgroup.utility.NoSlidingLinearLayout;
 import com.baidu.tieba.ng5;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.pf5;
-import com.baidu.tieba.r7a;
 import com.baidu.tieba.ri;
+import com.baidu.tieba.s7a;
 import com.baidu.tieba.se5;
 import com.baidu.tieba.sg;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.wp9;
+import com.baidu.tieba.xp9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -115,7 +115,7 @@ public class GroupInputTool implements LifecycleObserver, hj {
         public GroupInputViewController m;
         public GroupChatRobotTopHeadView n;
         public GroupChatRobotFloorView o;
-        public da8 p;
+        public ea8 p;
         public GroupChatUserReplyView q;
         public GroupChatUserReplyView r;
         public int s;
@@ -131,11 +131,11 @@ public class GroupInputTool implements LifecycleObserver, hj {
 
             /* renamed from: com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.GroupInputTool$g$a$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class RunnableC0341a implements Runnable {
+            public class RunnableC0339a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                public RunnableC0341a(a aVar) {
+                public RunnableC0339a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -196,7 +196,7 @@ public class GroupInputTool implements LifecycleObserver, hj {
                             long currentTimeMillis = System.currentTimeMillis();
                             if (this.a.v == 0 || currentTimeMillis - this.a.v > 5000) {
                                 this.a.v = currentTimeMillis;
-                                sg.a().post(new RunnableC0341a(this));
+                                sg.a().post(new RunnableC0339a(this));
                             }
                         }
                         if (!matches) {
@@ -567,7 +567,7 @@ public class GroupInputTool implements LifecycleObserver, hj {
             g.setTextSize(0, context.getResources().getDimensionPixelSize(R.dimen.T_X06));
             g.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             g.setHintTextColor(context.getResources().getColor(R.color.CAM_X0109));
-            r7a.l(g, R.drawable.edittext_cursor);
+            s7a.l(g, R.drawable.edittext_cursor);
             g.setLineSpacing(ri.g(context, R.dimen.M_T_X002), 1.0f);
             g.setPadding(ri.g(context, R.dimen.M_W_X006), ri.g(context, R.dimen.M_H_X004), ri.g(context, R.dimen.M_W_X006), ri.g(context, R.dimen.M_H_X004));
             H(g);
@@ -581,9 +581,9 @@ public class GroupInputTool implements LifecycleObserver, hj {
                 this.o = groupChatRobotFloorView;
                 groupChatRobotFloorView.setPageContext(groupChatFragment.getPageContext());
                 this.o.A(TbadkCoreApplication.getInst().getSkinType());
-                da8 da8Var = new da8(groupChatFragment);
-                this.p = da8Var;
-                da8Var.t(this.o);
+                ea8 ea8Var = new ea8(groupChatFragment);
+                this.p = ea8Var;
+                ea8Var.t(this.o);
             }
         }
 
@@ -595,7 +595,7 @@ public class GroupInputTool implements LifecycleObserver, hj {
                 if (i == 0) {
                     this.s = SkinManager.getColor(R.color.CAM_X0212);
                 } else if (i == 1) {
-                    this.s = wp9.a(SkinManager.getColor(R.color.CAM_X0302), 0.06f);
+                    this.s = xp9.a(SkinManager.getColor(R.color.CAM_X0302), 0.06f);
                 } else {
                     this.s = SkinManager.getColor(R.color.CAM_X0212);
                 }
@@ -765,7 +765,7 @@ public class GroupInputTool implements LifecycleObserver, hj {
     }
 
     /* loaded from: classes6.dex */
-    public class e implements da8.e {
+    public class e implements ea8.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GroupInputTool a;
@@ -788,7 +788,7 @@ public class GroupInputTool implements LifecycleObserver, hj {
             this.a = groupInputTool;
         }
 
-        @Override // com.baidu.tieba.da8.e
+        @Override // com.baidu.tieba.ea8.e
         public void a(int i, int i2, long j, AnimatorListenerAdapter animatorListenerAdapter, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), animatorListenerAdapter, Boolean.valueOf(z)}) == null) {
@@ -801,7 +801,7 @@ public class GroupInputTool implements LifecycleObserver, hj {
             }
         }
 
-        @Override // com.baidu.tieba.da8.e
+        @Override // com.baidu.tieba.ea8.e
         public void b(int i, int i2, long j, AnimatorListenerAdapter animatorListenerAdapter, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), animatorListenerAdapter, Boolean.valueOf(z)}) == null) {
@@ -1086,13 +1086,13 @@ public class GroupInputTool implements LifecycleObserver, hj {
         return invokeV.booleanValue;
     }
 
-    public da8 L() {
+    public ea8 L() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.a.p;
         }
-        return (da8) invokeV.objValue;
+        return (ea8) invokeV.objValue;
     }
 
     public boolean M() {

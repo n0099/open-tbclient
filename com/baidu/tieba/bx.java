@@ -86,8 +86,8 @@ public class bx extends ax<jy4> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (this.a.g != null && this.a.g.getThreadData() != null) {
-                    hj6.a(this.a.g.getThreadData().getId());
-                    hj6.l(this.a.f.getTitle(), this.a.g.getThreadData().getId(), R.color.CAM_X0101, R.color.CAM_X0109);
+                    ij6.a(this.a.g.getThreadData().getId());
+                    ij6.l(this.a.f.getTitle(), this.a.g.getThreadData().getId(), R.color.CAM_X0101, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -120,11 +120,11 @@ public class bx extends ax<jy4> {
     }
 
     @Override // com.baidu.tieba.ax
-    public void p(vj6<jy4> vj6Var) {
+    public void p(wj6<jy4> wj6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, vj6Var) == null) {
-            super.p(vj6Var);
-            this.f.setSubClickListener(vj6Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, wj6Var) == null) {
+            super.p(wj6Var);
+            this.f.setSubClickListener(wj6Var);
         }
     }
 
@@ -171,20 +171,20 @@ public class bx extends ax<jy4> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, view2, rnVar) == null) {
             jy4 jy4Var = this.g;
-            if ((!(jy4Var instanceof fk6) && !(jy4Var instanceof ThreadData)) || !(view2.getTag() instanceof ThreadCardViewHolder)) {
+            if ((!(jy4Var instanceof gk6) && !(jy4Var instanceof ThreadData)) || !(view2.getTag() instanceof ThreadCardViewHolder)) {
                 return;
             }
             ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-            if (rnVar instanceof fk6) {
-                fk6 fk6Var = (fk6) this.g;
-                fk6Var.f = 1;
+            if (rnVar instanceof gk6) {
+                gk6 gk6Var = (gk6) this.g;
+                gk6Var.f = 1;
                 Context context = view2.getContext();
-                if (fk6Var.a.isFromHomPage) {
+                if (gk6Var.a.isFromHomPage) {
                     i = 2;
                 } else {
                     i = 1;
                 }
-                ThreadCardUtils.jumpToPB((jy4) fk6Var, context, i, false);
+                ThreadCardUtils.jumpToPB((jy4) gk6Var, context, i, false);
                 threadCardViewHolder.a().p(new az.a(1));
             } else if (rnVar instanceof ThreadData) {
                 ThreadData threadData = (ThreadData) this.g;

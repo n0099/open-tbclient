@@ -26,7 +26,7 @@ public class vx extends xy implements View.OnClickListener {
     public InterviewLiveLayout A;
     public int B;
     public TextView C;
-    public vj6<jy4> D;
+    public wj6<jy4> D;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public vx(Context context) {
@@ -68,7 +68,7 @@ public class vx extends xy implements View.OnClickListener {
             this.C = (TextView) this.f.findViewById(R.id.video_seg_abstract);
             this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.frame_video);
             this.A = (InterviewLiveLayout) this.f.findViewById(R.id.frame_interview_no_video);
-            wc9 u = u();
+            xc9 u = u();
             this.l = u;
             u.getMainView().setBackgroundResource(R.color.transparent);
             this.C.setOnClickListener(this);
@@ -85,21 +85,21 @@ public class vx extends xy implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        vj6<jy4> vj6Var;
+        wj6<jy4> wj6Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
-            if ((view2 == this.C || view2 == this.g) && (vj6Var = this.D) != null) {
-                vj6Var.a(view2, this.h);
+            if ((view2 == this.C || view2 == this.g) && (wj6Var = this.D) != null) {
+                wj6Var.a(view2, this.h);
             }
         }
     }
 
     @Override // com.baidu.tieba.ax
-    public void p(vj6<jy4> vj6Var) {
+    public void p(wj6<jy4> wj6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, vj6Var) == null) {
-            this.D = vj6Var;
-            this.A.setSubClickListener(vj6Var);
+        if (interceptable == null || interceptable.invokeL(1048583, this, wj6Var) == null) {
+            this.D = wj6Var;
+            this.A.setSubClickListener(wj6Var);
         }
     }
 
@@ -114,15 +114,15 @@ public class vx extends xy implements View.OnClickListener {
     }
 
     @Override // com.baidu.tieba.xy
-    public wc9 u() {
+    public xc9 u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            xc9 xc9Var = new xc9(this.b, this.i);
-            xc9Var.setStageType("2003");
-            return xc9Var;
+            yc9 yc9Var = new yc9(this.b, this.i);
+            yc9Var.setStageType("2003");
+            return yc9Var;
         }
-        return (wc9) invokeV.objValue;
+        return (xc9) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.xy, com.baidu.tieba.ux

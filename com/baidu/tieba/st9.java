@@ -1,14 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class st9 extends vt9 {
+public class st9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public boolean b;
+    public String c;
 
     public st9() {
         Interceptable interceptable = $ic;
@@ -20,11 +22,7 @@ public class st9 extends vt9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        i(true);
-        f(-1);
-        h(TbErrInfo.getErrMsg(-51));
     }
 }

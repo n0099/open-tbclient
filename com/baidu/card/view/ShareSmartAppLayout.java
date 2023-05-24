@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.view.AppletsCellView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.jy4;
 import com.baidu.tieba.tx;
-import com.baidu.tieba.vj6;
+import com.baidu.tieba.wj6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ public class ShareSmartAppLayout extends LinearLayout implements tx<jy4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AppletsCellView a;
-    public vj6<jy4> b;
+    public wj6<jy4> b;
 
     public void setFromCDN(boolean z) {
         Interceptable interceptable = $ic;
@@ -74,10 +74,10 @@ public class ShareSmartAppLayout extends LinearLayout implements tx<jy4> {
         b();
     }
 
-    public void setSubClickListener(vj6<jy4> vj6Var) {
+    public void setSubClickListener(wj6<jy4> wj6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, vj6Var) == null) {
-            this.b = vj6Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, wj6Var) == null) {
+            this.b = wj6Var;
         }
     }
 
@@ -109,12 +109,12 @@ public class ShareSmartAppLayout extends LinearLayout implements tx<jy4> {
         }
     }
 
-    public vj6<jy4> getSubClickListener() {
+    public wj6<jy4> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.b;
         }
-        return (vj6) invokeV.objValue;
+        return (wj6) invokeV.objValue;
     }
 }

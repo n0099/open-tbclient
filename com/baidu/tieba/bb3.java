@@ -27,12 +27,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URI;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class bb3 extends db3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements zn3<je3<le3.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -44,13 +44,13 @@ public class bb3 extends db3 {
         public final /* synthetic */ bb3 f;
 
         /* renamed from: com.baidu.tieba.bb3$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class RunnableC0235a implements Runnable {
+        /* loaded from: classes5.dex */
+        public class RunnableC0233a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0235a(a aVar) {
+            public RunnableC0233a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,12 +112,12 @@ public class bb3 extends db3 {
                     ee3.q(je3Var, this.a, this.b);
                     return;
                 }
-                am3.k(new RunnableC0235a(this), "SaveImageAction");
+                am3.k(new RunnableC0233a(this), "SaveImageAction");
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements j43 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

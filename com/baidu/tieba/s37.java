@@ -4,14 +4,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardLiveView;
+import com.baidu.tieba.feed.component.CardHeadView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class s37 extends p27<CardLiveView, cz6> {
+public class s37 extends q27<CardHeadView, cz6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,27 +35,26 @@ public class s37 extends p27<CardLiveView, cz6> {
         }
     }
 
-    @Override // com.baidu.tieba.p27, com.baidu.tieba.e37
+    @Override // com.baidu.tieba.q27, com.baidu.tieba.f37
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            int g = ri.g(viewGroup.getContext(), R.dimen.M_W_X005);
             View a = super.a(viewGroup);
-            m47.m(a, Integer.valueOf(g), null, Integer.valueOf(g));
+            n47.k(a, 0);
             return a;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.e37
+    @Override // com.baidu.tieba.f37
     /* renamed from: e */
-    public void b(@NonNull CardLiveView cardLiveView, @NonNull cz6 cz6Var) {
+    public void b(@NonNull CardHeadView cardHeadView, @NonNull cz6 cz6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardLiveView, cz6Var) == null) {
-            cardLiveView.f(cz6Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardHeadView, cz6Var) == null) {
+            cardHeadView.e(cz6Var);
         }
     }
 }

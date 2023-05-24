@@ -1,24 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes8.dex */
-public class wj7 implements m35 {
+public class wj7 extends k35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.m35
-    public String name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "frsForumManage" : (String) invokeV.objValue;
-    }
 
     public wj7() {
         Interceptable interceptable = $ic;
@@ -34,13 +28,21 @@ public class wj7 implements m35 {
         }
     }
 
-    @Override // com.baidu.tieba.m35
-    public Class<? extends k35> a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.k35
+    public void a(@NonNull Context context, @NonNull c35 c35Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return vj7.class;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, c35Var) == null) {
+            if (TbSingleton.getInstance().getFrsResponseData() == null) {
+                YunDialogLog.getInstance().b("YunDialogManager", "展示吧务管理弹窗失败：当前没有FRS吧数据");
+                a35.s("frsForumManage");
+            } else if (!(context instanceof FrsActivity)) {
+                YunDialogLog.getInstance().b("YunDialogManager", "展示吧务管理弹窗失败：当前Activity非FrsActivity");
+                a35.s("frsForumManage");
+            } else {
+                if (!hl7.a(TbSingleton.getInstance().getFrsResponseData(), ((FrsActivity) context).v1())) {
+                    a35.s("frsForumManage");
+                }
+            }
         }
-        return (Class) invokeV.objValue;
     }
 }

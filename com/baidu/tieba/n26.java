@@ -101,12 +101,12 @@ public class n26 {
 
         /* renamed from: com.baidu.tieba.n26$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0386a implements ValueAnimator.AnimatorUpdateListener {
+        public class C0388a implements ValueAnimator.AnimatorUpdateListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0386a(a aVar) {
+            public C0388a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -227,7 +227,7 @@ public class n26 {
                                 ValueAnimator ofInt = ValueAnimator.ofInt(this.a.i.x, this.a.i.x - (m26.b - m26.a));
                                 ofInt.setDuration(200L);
                                 ofInt.setInterpolator(new DecelerateInterpolator());
-                                ofInt.addUpdateListener(new C0386a(this));
+                                ofInt.addUpdateListener(new C0388a(this));
                                 ofInt.start();
                             }
                             this.a.f.d();

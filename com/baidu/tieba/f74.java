@@ -50,14 +50,14 @@ public class f74 extends pu2 {
 
         /* renamed from: com.baidu.tieba.f74$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0282a implements Runnable {
+        public class RunnableC0280a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ zr2 a;
             public final /* synthetic */ int b;
             public final /* synthetic */ a c;
 
-            public RunnableC0282a(a aVar, zr2 zr2Var, int i) {
+            public RunnableC0280a(a aVar, zr2 zr2Var, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -134,7 +134,7 @@ public class f74 extends pu2 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, zr2Var) == null) {
                 an3.d0(this.c.m);
-                this.c.m = new RunnableC0282a(this, zr2Var, i);
+                this.c.m = new RunnableC0280a(this, zr2Var, i);
                 an3.g0(this.c.m);
             }
         }

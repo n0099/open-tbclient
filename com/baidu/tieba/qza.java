@@ -1,21 +1,13 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class qza {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
 
     public qza() {
         Interceptable interceptable = $ic;
@@ -31,81 +23,43 @@ public class qza {
         }
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public static void b(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if ((!TextUtils.isEmpty(this.d) || !TextUtils.isEmpty(this.c)) && !TextUtils.isEmpty(this.a)) {
-                return true;
+        if (!(interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) || str2.length() <= 4000) {
+            return;
+        }
+        int i = 0;
+        while (i < str2.length()) {
+            int i2 = i + 4000;
+            if (i2 < str2.length()) {
+                str2.substring(i, i2);
+            } else {
+                str2.substring(i);
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.a = str;
+            i = i2;
         }
     }
 
-    public void g(String str) {
+    public static void a(String str) {
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.d = str;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            StackTraceElement[] stackTrace = new Throwable().fillInStackTrace().getStackTrace();
+            int i = 2;
+            while (true) {
+                if (i < stackTrace.length) {
+                    if (!stackTrace[i].getClass().equals(qza.class)) {
+                        String className = stackTrace[i].getClassName();
+                        str2 = className.substring(className.lastIndexOf(46) + 1);
+                        break;
+                    }
+                    i++;
+                } else {
+                    str2 = "";
+                    break;
+                }
+            }
+            b("HonorPush_" + str2, str, null);
         }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a + "|" + this.c + "|" + this.d;
-        }
-        return (String) invokeV.objValue;
     }
 }

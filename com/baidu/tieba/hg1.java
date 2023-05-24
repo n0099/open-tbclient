@@ -23,13 +23,13 @@ public class hg1 {
 
         /* renamed from: com.baidu.tieba.hg1$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0317a extends zg1 {
+        public class C0318a extends zg1 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ JSONArray a;
             public final /* synthetic */ a b;
 
-            public C0317a(a aVar, JSONArray jSONArray) {
+            public C0318a(a aVar, JSONArray jSONArray) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,7 +88,7 @@ public class hg1 {
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (a = hg1.a()) == null) {
                 return;
             }
-            dg1.d(a, new C0317a(this, a));
+            dg1.d(a, new C0318a(this, a));
         }
     }
 

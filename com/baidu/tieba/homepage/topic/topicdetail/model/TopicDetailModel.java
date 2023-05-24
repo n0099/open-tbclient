@@ -18,8 +18,8 @@ import com.baidu.tieba.homepage.topic.topicdetail.message.ResponseSocketGetTopic
 import com.baidu.tieba.homepage.topic.topicdetail.message.ResponseSocketGetTopicThreadMessage;
 import com.baidu.tieba.message.RequestBlessMessage;
 import com.baidu.tieba.rn;
-import com.baidu.tieba.sx7;
-import com.baidu.tieba.wx7;
+import com.baidu.tieba.tx7;
+import com.baidu.tieba.xx7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,8 +30,8 @@ import java.util.List;
 public class TopicDetailModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sx7 a;
-    public wx7 b;
+    public tx7 a;
+    public xx7 b;
     public fb c;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -221,10 +221,10 @@ public class TopicDetailModel extends BdBaseModel {
         registerListener(this.c);
     }
 
-    public void b0(sx7 sx7Var) {
+    public void b0(tx7 tx7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sx7Var) == null) {
-            this.a = sx7Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tx7Var) == null) {
+            this.a = tx7Var;
         }
     }
 
@@ -232,9 +232,9 @@ public class TopicDetailModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                sx7 sx7Var = this.a;
-                if (sx7Var != null) {
-                    sx7Var.t(-1, null);
+                tx7 tx7Var = this.a;
+                if (tx7Var != null) {
+                    tx7Var.t(-1, null);
                     return;
                 }
                 return;
@@ -251,9 +251,9 @@ public class TopicDetailModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                sx7 sx7Var = this.a;
-                if (sx7Var != null) {
-                    sx7Var.L0(-1, false, null);
+                tx7 tx7Var = this.a;
+                if (tx7Var != null) {
+                    tx7Var.L0(-1, false, null);
                     return;
                 }
                 return;

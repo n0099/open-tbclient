@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import android.net.http.SslError;
-import android.webkit.SslErrorHandler;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 /* loaded from: classes7.dex */
 public interface th6 {
-    void a(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError);
+    void a(WebView webView, WebResourceRequest webResourceRequest, int i, CharSequence charSequence);
 }

@@ -1,6 +1,6 @@
 package com.baidu.validation.js.interpreter;
 
-import com.baidu.tieba.yoa;
+import com.baidu.tieba.apa;
 import com.baidu.tieba.zoa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -28,14 +28,14 @@ public class SapiActionCheckMethodSupport extends BaseInterpreter {
     }
 
     @Override // com.baidu.validation.js.BaseInterpreter
-    public String interpret(zoa zoaVar) {
+    public String interpret(apa apaVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, zoaVar)) == null) {
-            if (zoaVar == null || zoaVar.c() == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, apaVar)) == null) {
+            if (apaVar == null || apaVar.c() == null) {
                 return null;
             }
-            return yoa.b().a(zoaVar.c().get(0)) != null ? "1" : "0";
+            return zoa.b().a(apaVar.c().get(0)) != null ? "1" : "0";
         }
         return (String) invokeL.objValue;
     }

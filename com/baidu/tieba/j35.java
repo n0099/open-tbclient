@@ -80,7 +80,7 @@ public abstract class j35 extends k35 {
             this.a = activity;
             if (activity == null) {
                 c();
-                yk8 yunDialogLog = YunDialogLog.getInstance();
+                zk8 yunDialogLog = YunDialogLog.getInstance();
                 yunDialogLog.c("YunDialogManager", "云弹窗 " + data.a("yun_dialogName") + " 展示失败：当前 activity 为空");
                 return;
             }

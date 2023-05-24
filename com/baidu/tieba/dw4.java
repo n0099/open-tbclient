@@ -32,18 +32,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class dw4 implements jh6 {
+public class dw4 implements kh6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.jh6
+    @Override // com.baidu.tieba.kh6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        ih6.a(this, webView, str, jSONObject);
+        jh6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.jh6
+    @Override // com.baidu.tieba.kh6
     public /* synthetic */ void onDestroy() {
-        ih6.b(this);
+        jh6.b(this);
     }
 
     public dw4() {
@@ -60,7 +60,7 @@ public class dw4 implements jh6 {
         }
     }
 
-    @Override // com.baidu.tieba.jh6
+    @Override // com.baidu.tieba.kh6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -131,13 +131,13 @@ public class dw4 implements jh6 {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public js9 e(WebView webView, String str) {
+    public ks9 e(WebView webView, String str) {
         InterceptResult invokeLL;
         String f;
         JSONObject newGodDataJson;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             JSONObject jSONObject = null;
             int i = 0;
             try {
@@ -154,8 +154,8 @@ public class dw4 implements jh6 {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("resultCode", i);
                 jSONObject2.put("user_info", jSONObject);
-                js9Var.o(jSONObject2.toString());
-                return js9Var;
+                ks9Var.o(jSONObject2.toString());
+                return ks9Var;
             }
             if (!TextUtils.isEmpty(f)) {
                 jSONObject = new JSONObject(f);
@@ -163,23 +163,23 @@ public class dw4 implements jh6 {
             JSONObject jSONObject22 = new JSONObject();
             jSONObject22.put("resultCode", i);
             jSONObject22.put("user_info", jSONObject);
-            js9Var.o(jSONObject22.toString());
-            return js9Var;
+            ks9Var.o(jSONObject22.toString());
+            return ks9Var;
             i = 1;
             JSONObject jSONObject222 = new JSONObject();
             jSONObject222.put("resultCode", i);
             jSONObject222.put("user_info", jSONObject);
-            js9Var.o(jSONObject222.toString());
-            return js9Var;
+            ks9Var.o(jSONObject222.toString());
+            return ks9Var;
         }
-        return (js9) invokeLL.objValue;
+        return (ks9) invokeLL.objValue;
     }
 
-    public js9 f(WebView webView, int i, int i2, String str, String str2, int i3, String str3, String str4, double d, String str5, String str6, int i4, String str7, String str8, String str9, int i5, int i6) {
+    public ks9 f(WebView webView, int i, int i2, String str, String str2, int i3, String str3, String str4, double d, String str5, String str6, int i4, String str7, String str8, String str9, int i5, int i6) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{webView, Integer.valueOf(i), Integer.valueOf(i2), str, str2, Integer.valueOf(i3), str3, str4, Double.valueOf(d), str5, str6, Integer.valueOf(i4), str7, str8, str9, Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             ps4 ps4Var = new ps4();
             ps4Var.c = i;
             ps4Var.d = i2;
@@ -212,13 +212,13 @@ public class dw4 implements jh6 {
                     c(ps4Var.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
                 }
             } else if (i == ps4.C) {
-                Activity a = yg6.a(webView.getContext());
+                Activity a = zg6.a(webView.getContext());
                 if (i6 == 1 && a != null) {
                     a.finish();
                 }
                 el5.i(new TopToastEvent(i5, str, 1500));
             } else if (i == ps4.D) {
-                Activity a2 = yg6.a(webView.getContext());
+                Activity a2 = zg6.a(webView.getContext());
                 if (i6 == 1 && a2 != null) {
                     a2.finish();
                 }
@@ -231,22 +231,22 @@ public class dw4 implements jh6 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                js9Var.o(jSONObject.toString());
-                return js9Var;
+                ks9Var.o(jSONObject.toString());
+                return ks9Var;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return js9Var;
+                return ks9Var;
             }
         }
-        return (js9) invokeCommon.objValue;
+        return (ks9) invokeCommon.objValue;
     }
 
-    public js9 g(WebView webView, String str, String str2, String str3, int i, int i2) {
+    public ks9 g(WebView webView, String str, String str2, String str3, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{webView, str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            js9 js9Var = new js9();
-            Activity a = yg6.a(webView.getContext());
+            ks9 ks9Var = new ks9();
+            Activity a = zg6.a(webView.getContext());
             int i3 = 0;
             boolean z = false;
             boolean z2 = false;
@@ -278,13 +278,13 @@ public class dw4 implements jh6 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", i3);
-                js9Var.o(jSONObject.toString());
-                return js9Var;
+                ks9Var.o(jSONObject.toString());
+                return ks9Var;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return js9Var;
+                return ks9Var;
             }
         }
-        return (js9) invokeCommon.objValue;
+        return (ks9) invokeCommon.objValue;
     }
 }

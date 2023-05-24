@@ -34,7 +34,7 @@ import com.baidu.tieba.mn5;
 import com.baidu.tieba.on5;
 import com.baidu.tieba.sg;
 import com.baidu.tieba.tg;
-import com.baidu.tieba.yk8;
+import com.baidu.tieba.zk8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -691,7 +691,7 @@ public class IntentConfig extends OrmObject {
                     return false;
                 }
             }
-            yk8 activityLog = ActivityLog.getInstance();
+            zk8 activityLog = ActivityLog.getInstance();
             activityLog.b(WBConstants.SHARE_START_ACTIVITY, "fail mComponentClass:" + this.mComponentClass + " mContext：" + this.mContext);
             return false;
         }
@@ -730,7 +730,7 @@ public class IntentConfig extends OrmObject {
                     return;
                 }
             }
-            yk8 activityLog = ActivityLog.getInstance();
+            zk8 activityLog = ActivityLog.getInstance();
             activityLog.b("startActivityForResult", "fail mComponentClass:" + this.mComponentClass + " mContext：" + this.mContext);
         }
     }

@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
 import com.baidu.tieba.hb;
 import com.baidu.tieba.im.message.SettingChangeMessage;
-import com.baidu.tieba.j48;
-import com.baidu.tieba.jna;
+import com.baidu.tieba.k48;
+import com.baidu.tieba.kna;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,13 +42,13 @@ public class IMOfficialMaskModel extends BdBaseModel {
 
         /* renamed from: com.baidu.tieba.immessagecenter.im.model.IMOfficialMaskModel$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0344a extends BdAsyncTask<Void, Void, Void> {
+        public class C0342a extends BdAsyncTask<Void, Void, Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ RequestUpdateMaskInfoMessage b;
 
-            public C0344a(a aVar, String str, RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage) {
+            public C0342a(a aVar, String str, RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -77,9 +77,9 @@ public class IMOfficialMaskModel extends BdBaseModel {
                         return null;
                     }
                     if (this.b.isMuteNotifications()) {
-                        j48.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a), false);
+                        k48.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a), false);
                     } else {
-                        j48.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a), true);
+                        k48.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a), true);
                     }
                     return null;
                 }
@@ -118,7 +118,7 @@ public class IMOfficialMaskModel extends BdBaseModel {
                 if (!(responseUpdateMaskInfoMessage.getOrginalMessage() instanceof RequestUpdateMaskInfoMessage) || (requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) responseUpdateMaskInfoMessage.getOrginalMessage()) == null || requestUpdateMaskInfoMessage.getMaskType() != 6) {
                     return;
                 }
-                new C0344a(this, requestUpdateMaskInfoMessage.getList(), requestUpdateMaskInfoMessage).execute(new Void[0]);
+                new C0342a(this, requestUpdateMaskInfoMessage.getList(), requestUpdateMaskInfoMessage).execute(new Void[0]);
                 MessageManager.getInstance().dispatchResponsedMessage(new SettingChangeMessage(2));
             }
         }
@@ -160,7 +160,7 @@ public class IMOfficialMaskModel extends BdBaseModel {
             requestUpdateMaskInfoMessage.setMute(true);
             requestUpdateMaskInfoMessage.setMuteNotifications(z);
             requestUpdateMaskInfoMessage.setMaskType(6);
-            requestUpdateMaskInfoMessage.setG_id(jna.c(str, 0L));
+            requestUpdateMaskInfoMessage.setG_id(kna.c(str, 0L));
             requestUpdateMaskInfoMessage.setList(str);
             MessageManager.getInstance().sendMessage(requestUpdateMaskInfoMessage);
         }

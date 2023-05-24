@@ -24,10 +24,10 @@ public class d76 extends en<h76, LiveTabConcernOfflineViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public vj6<h76> b;
+    public wj6<h76> b;
 
     /* loaded from: classes5.dex */
-    public class a extends vj6<h76> {
+    public class a extends wj6<h76> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d76 b;
@@ -51,7 +51,7 @@ public class d76 extends en<h76, LiveTabConcernOfflineViewHolder> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vj6
+        @Override // com.baidu.tieba.wj6
         /* renamed from: d */
         public void a(View view2, h76 h76Var) {
             Interceptable interceptable = $ic;

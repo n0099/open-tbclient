@@ -47,13 +47,13 @@ public class us2 implements pg4 {
 
         /* renamed from: com.baidu.tieba.us2$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0471a extends ac2 {
+        public class C0468a extends ac2 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AtomicInteger a;
             public final /* synthetic */ a b;
 
-            public C0471a(a aVar, AtomicInteger atomicInteger) {
+            public C0468a(a aVar, AtomicInteger atomicInteger) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -134,7 +134,7 @@ public class us2 implements pg4 {
                 if (arrayList.isEmpty()) {
                     return;
                 }
-                w72.b(arrayList, "3", new C0471a(this, atomicInteger));
+                w72.b(arrayList, "3", new C0468a(this, atomicInteger));
             }
         }
     }

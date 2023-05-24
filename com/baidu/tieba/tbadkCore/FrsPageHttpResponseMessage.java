@@ -9,9 +9,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcNetMessage;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
-import com.baidu.tieba.gq9;
+import com.baidu.tieba.hq9;
 import com.baidu.tieba.pg;
-import com.baidu.tieba.xp9;
+import com.baidu.tieba.yp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,13 +20,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Error;
 import tbclient.FrsPage.FrsPageResIdl;
 /* loaded from: classes7.dex */
-public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<gq9, FrsPageResIdl> {
+public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<hq9, FrsPageResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int mCategoryId;
     public int mIsGood;
     public boolean needCache;
-    public gq9 responseData;
+    public hq9 responseData;
     public int updateType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -51,16 +51,16 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        gq9 gq9Var;
+        hq9 hq9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && !hasError() && (gq9Var = this.responseData) != null && this.needCache && gq9Var.getForum() != null) {
+        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && !hasError() && (hq9Var = this.responseData) != null && this.needCache && hq9Var.getForum() != null) {
             int sortType = this.responseData.getSortType();
-            xp9 i2 = xp9.i();
+            yp9 i2 = yp9.i();
             String g = i2.g("1~" + this.responseData.getForum().getName(), sortType, this.mIsGood, this.mCategoryId);
             if (sortType == 3) {
-                xp9.i().m(g, bArr);
+                yp9.i().m(g, bArr);
             } else {
-                xp9.i().a(g, bArr, true);
+                yp9.i().a(g, bArr, true);
             }
         }
     }
@@ -85,9 +85,9 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
         Error error;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048581, this, i, bArr) == null) {
-            gq9 gq9Var = new gq9();
-            this.responseData = gq9Var;
-            FrsPageResIdl parserProtobuf = gq9Var.parserProtobuf(bArr, true);
+            hq9 hq9Var = new hq9();
+            this.responseData = hq9Var;
+            FrsPageResIdl parserProtobuf = hq9Var.parserProtobuf(bArr, true);
             if (parserProtobuf != null && (error = parserProtobuf.error) != null) {
                 Integer num = error.errorno;
                 if (num != null) {
@@ -96,9 +96,9 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
                 }
                 setErrorString(parserProtobuf.error.usermsg);
             }
-            gq9 gq9Var2 = this.responseData;
-            gq9Var2.isFromCache = false;
-            setData(gq9Var2);
+            hq9 hq9Var2 = this.responseData;
+            hq9Var2.isFromCache = false;
+            setData(hq9Var2);
         }
     }
 
@@ -112,13 +112,13 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
         return (Class) invokeV.objValue;
     }
 
-    public gq9 getResponseData() {
+    public hq9 getResponseData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.responseData;
         }
-        return (gq9) invokeV.objValue;
+        return (hq9) invokeV.objValue;
     }
 
     public int getUpdateType() {
@@ -153,10 +153,10 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
         }
     }
 
-    public void setResponseData(gq9 gq9Var) {
+    public void setResponseData(hq9 hq9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, gq9Var) == null) {
-            this.responseData = gq9Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, hq9Var) == null) {
+            this.responseData = hq9Var;
         }
     }
 

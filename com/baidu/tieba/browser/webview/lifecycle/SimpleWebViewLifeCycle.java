@@ -7,10 +7,10 @@ import androidx.lifecycle.OnLifecycleEvent;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.tieba.browser.lifecycle.WebViewLifeCycle;
-import com.baidu.tieba.ki6;
+import com.baidu.tieba.li6;
 import com.baidu.tieba.qe6;
-import com.baidu.tieba.si6;
-import com.baidu.tieba.wh6;
+import com.baidu.tieba.ti6;
+import com.baidu.tieba.xh6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -84,22 +84,22 @@ public class SimpleWebViewLifeCycle implements WebViewLifeCycle {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
             WebView call = this.b.call();
-            if (call instanceof si6) {
+            if (call instanceof ti6) {
                 int i = a.a[event.ordinal()];
                 if (i != 1) {
                     if (i != 2) {
                         if (i == 3) {
-                            wh6.c("newHybrid", "WebView::onDestroy");
-                            ((ki6) ServiceManager.getService(ki6.a)).b(this.a.call(), call);
+                            xh6.c("newHybrid", "WebView::onDestroy");
+                            ((li6) ServiceManager.getService(li6.a)).b(this.a.call(), call);
                             return;
                         }
                         return;
                     }
-                    wh6.c("newHybrid", "WebView::onPause");
+                    xh6.c("newHybrid", "WebView::onPause");
                     call.onPause();
                     return;
                 }
-                wh6.c("newHybrid", "WebView::onResume");
+                xh6.c("newHybrid", "WebView::onResume");
                 call.onResume();
             }
         }

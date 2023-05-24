@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class wv4 implements jh6 {
+public class wv4 implements kh6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.jh6
+    @Override // com.baidu.tieba.kh6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        ih6.a(this, webView, str, jSONObject);
+        jh6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.jh6
+    @Override // com.baidu.tieba.kh6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -30,9 +30,9 @@ public class wv4 implements jh6 {
         return invokeLLLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.jh6
+    @Override // com.baidu.tieba.kh6
     public /* synthetic */ void onDestroy() {
-        ih6.b(this);
+        jh6.b(this);
     }
 
     public wv4() {
@@ -49,16 +49,16 @@ public class wv4 implements jh6 {
         }
     }
 
-    public js9 c(WebView webView, HashMap<String, String> hashMap) {
+    public ks9 c(WebView webView, HashMap<String, String> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, hashMap)) == null) {
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             if (hashMap != null && hashMap.get("result") != null) {
-                js9Var.o(hashMap.get("result"));
+                ks9Var.o(hashMap.get("result"));
             }
-            return js9Var;
+            return ks9Var;
         }
-        return (js9) invokeLL.objValue;
+        return (ks9) invokeLL.objValue;
     }
 }

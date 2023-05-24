@@ -6,20 +6,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
+import com.bytedance.sdk.openadsdk.TTFullScreenVideoAd;
 /* loaded from: classes7.dex */
-public class sta extends hta<TTNativeExpressAd> {
+public class sta extends ita<TTFullScreenVideoAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sta(TTNativeExpressAd tTNativeExpressAd) {
-        super(tTNativeExpressAd);
+    public sta(TTFullScreenVideoAd tTFullScreenVideoAd) {
+        super(tTFullScreenVideoAd);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tTNativeExpressAd};
+            Object[] objArr = {tTFullScreenVideoAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,13 +32,13 @@ public class sta extends hta<TTNativeExpressAd> {
         }
     }
 
-    @Override // com.baidu.tieba.hta
+    @Override // com.baidu.tieba.ita
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.b.isEmpty()) {
-                this.b = (String) ((TTNativeExpressAd) this.a).getMediaExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
+                this.b = (String) ((TTFullScreenVideoAd) this.a).getMediaExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
             }
             return this.b;
         }

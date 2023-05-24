@@ -1,29 +1,20 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.text.TextUtils;
 import android.util.Pair;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoDataView;
-import com.baidu.tieba.enterForum.view.ForumHeaderView;
-import com.baidu.tieba.forumSquare.adapter.LeftAdapter;
+import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
+import com.baidu.tbadk.core.data.ErrorData;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.forumSquare.model.ForumSquareModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,24 +22,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class t67 {
+public class t67 implements w67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public View b;
-    public RelativeLayout c;
-    public ForumHeaderView d;
-    public NavigationBar e;
-    public TextView f;
-    public View g;
-    public a77 h;
-    public RelativeLayout i;
-    public ri5 j;
-    public si5 k;
-    public NoDataView l;
-    public View.OnClickListener m;
-    public final TbPageContext n;
-    public CustomMessageListener o;
+    public final TbPageContext a;
+    public final Context b;
+    public ForumSquareModel c;
+    public u67 d;
+    public v67 e;
+    public String f;
+    public CustomMessageListener g;
 
     /* loaded from: classes7.dex */
     public class a extends CustomMessageListener {
@@ -81,8 +64,14 @@ public class t67 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304) {
-                this.a.a(TbadkCoreApplication.getInst().getSkinType());
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                t67 t67Var = this.a;
+                if (t67Var.d == null || t67Var.c == null) {
+                    return;
+                }
+                this.a.f = "推荐";
+                this.a.c.clearData();
+                this.a.m();
             }
         }
     }
@@ -102,425 +91,223 @@ public class t67 {
                 return;
             }
         }
-        this.o = new a(this, 2001304);
-        this.a = context;
-        this.n = tbPageContext;
-        this.b = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0302, (ViewGroup) null);
-        l();
-        k();
+        this.f = "推荐";
+        this.g = new a(this, 2921589);
+        this.a = tbPageContext;
+        this.b = context;
+        this.c = new ForumSquareModel(context, this);
+        this.d = new u67(context, this.a);
+        this.a.registerListener(this.g);
     }
 
-    public void A(BdListView.p pVar) {
-        a77 a77Var;
+    @Override // com.baidu.tieba.w67
+    public void onError(String str, ErrorData errorData) {
+        u67 u67Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, pVar) == null) && (a77Var = this.h) != null) {
-            a77Var.v(pVar);
+        if ((interceptable == null || interceptable.invokeLL(1048588, this, str, errorData) == null) && (u67Var = this.d) != null && this.c != null) {
+            u67Var.K();
+            a77 j0 = this.c.j0(str);
+            if (j0 != null && (!j0.d || !ListUtils.isEmpty(j0.a()))) {
+                this.d.t(j0.a());
+                c(str, j0.a());
+                return;
+            }
+            this.d.g();
+            this.d.v();
         }
     }
 
-    public void B(String str) {
-        ForumHeaderView forumHeaderView;
+    public void j(String str) {
+        ForumSquareModel forumSquareModel;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && (forumHeaderView = this.d) != null) {
-            forumHeaderView.setSearchHint(str);
+        if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && (forumSquareModel = this.c) != null && this.d != null && forumSquareModel.i0(str)) {
+            this.d.C(str);
+            i(str);
         }
     }
 
-    public void C(String str) {
-        a77 a77Var;
+    @Override // com.baidu.tieba.w67
+    public void onNoData(ErrorData errorData) {
+        u67 u67Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (a77Var = this.h) != null) {
-            a77Var.x(str);
+        if ((interceptable == null || interceptable.invokeL(1048589, this, errorData) == null) && (u67Var = this.d) != null) {
+            u67Var.J();
         }
     }
 
-    public void D(boolean z) {
-        int i;
+    public final void c(String str, List<rn> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            View view2 = this.g;
-            if (z) {
-                i = 0;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, list) == null) && this.d != null && this.c != null) {
+            if (ListUtils.isEmpty(list)) {
+                this.d.g();
+            } else if (ListUtils.getCount(list) < 10) {
+                this.d.o();
             } else {
-                i = 8;
-            }
-            view2.setVisibility(i);
-        }
-    }
-
-    public boolean F(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-            if (z) {
-                if (BdNetTypeUtil.isNetWorkAvailable()) {
-                    p();
-                    return true;
-                }
-                q();
-                return true;
-            }
-            o();
-            return false;
-        }
-        return invokeZ.booleanValue;
-    }
-
-    public void t(List<rn> list) {
-        a77 a77Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048606, this, list) == null) && (a77Var = this.h) != null) {
-            a77Var.p(list);
-        }
-    }
-
-    public void w(View.OnClickListener onClickListener) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048609, this, onClickListener) == null) && (textView = this.f) != null) {
-            textView.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void x(LeftAdapter.b bVar) {
-        a77 a77Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048610, this, bVar) == null) && (a77Var = this.h) != null) {
-            a77Var.t(bVar);
-        }
-    }
-
-    public void y(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, onClickListener) == null) {
-            this.m = onClickListener;
-        }
-    }
-
-    public void z(RecyclerView.OnScrollListener onScrollListener) {
-        a77 a77Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048612, this, onScrollListener) == null) && (a77Var = this.h) != null) {
-            a77Var.u(onScrollListener);
-        }
-    }
-
-    public void E() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            h();
-            i();
-            j();
-            a77 a77Var = this.h;
-            if (a77Var != null) {
-                a77Var.y(true);
-                this.h.w(8);
+                this.d.F(this.c.k0(str));
             }
         }
     }
 
-    public void G() {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            i();
-            j();
-            H(true);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.d.c();
         }
     }
 
-    public void J() {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            h();
-            j();
-            I(true);
-            a77 a77Var = this.h;
-            if (a77Var != null) {
-                a77Var.s(8);
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.d.b();
         }
-    }
-
-    public void K() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            h();
-            i();
-            j();
-            a77 a77Var = this.h;
-            if (a77Var != null) {
-                a77Var.f();
-                this.h.s(0);
-            }
-        }
-    }
-
-    public Pair<Integer, Integer> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            a77 a77Var = this.h;
-            if (a77Var != null) {
-                return a77Var.c();
-            }
-            return new Pair<>(0, 0);
-        }
-        return (Pair) invokeV.objValue;
-    }
-
-    public View e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.b;
-        }
-        return (View) invokeV.objValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.h.d();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f;
         }
         return (String) invokeV.objValue;
     }
 
-    public void g() {
-        a77 a77Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && (a77Var = this.h) != null) {
-            a77Var.e();
-        }
-    }
-
     public void h() {
-        ri5 ri5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && (ri5Var = this.j) != null) {
-            ri5Var.dettachView(this.i);
-            this.j = null;
-        }
-    }
-
-    public void i() {
-        si5 si5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && (si5Var = this.k) != null) {
-            si5Var.dettachView(this.i);
-            this.k = null;
-        }
-    }
-
-    public void j() {
-        NoDataView noDataView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && (noDataView = this.l) != null) {
-            noDataView.setVisibility(8);
-        }
-    }
-
-    public final void k() {
-        TbPageContext tbPageContext;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && (tbPageContext = this.n) != null) {
-            tbPageContext.registerListener(this.o);
-        }
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            ri5 ri5Var = this.j;
-            if (ri5Var != null) {
-                return ri5Var.isViewAttached();
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            u67 u67Var = this.d;
+            if (u67Var != null) {
+                u67Var.G();
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            si5 si5Var = this.k;
-            if (si5Var != null) {
-                return si5Var.isViewAttached();
+            ForumSquareModel forumSquareModel = this.c;
+            if (forumSquareModel != null) {
+                forumSquareModel.m0(f());
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void o() {
-        a77 a77Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048601, this) == null) && (a77Var = this.h) != null) {
-            a77Var.j();
         }
     }
 
-    public void p() {
-        a77 a77Var;
+    public void m() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048602, this) == null) && (a77Var = this.h) != null) {
-            a77Var.k();
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            v67 v67Var = new v67(this.b, this, this.d);
+            this.e = v67Var;
+            v67Var.e();
+            n();
         }
     }
 
-    public void q() {
-        a77 a77Var;
+    public final void n() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048603, this) == null) && (a77Var = this.h) != null) {
-            a77Var.l();
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.d.G();
+            this.c.m0(this.f);
         }
     }
 
-    public void v() {
-        a77 a77Var;
+    public void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048608, this) == null) && (a77Var = this.h) != null) {
-            a77Var.r();
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            String f = f();
+            ForumSquareModel forumSquareModel = this.c;
+            if (forumSquareModel != null && this.d != null) {
+                boolean l0 = forumSquareModel.l0();
+                boolean F = this.d.F(this.c.k0(f));
+                if (!l0 && F) {
+                    this.c.m0(f);
+                }
+            }
         }
     }
 
-    public void H(boolean z) {
+    public void i(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048583, this, z) != null) || m()) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            l(this.f);
+            this.f = str;
+            ForumSquareModel forumSquareModel = this.c;
+            if (forumSquareModel != null && this.d != null) {
+                a77 j0 = forumSquareModel.j0(str);
+                if (j0 != null && (!j0.d || !ListUtils.isEmpty(j0.a()))) {
+                    this.d.K();
+                    c(str, j0.a());
+                    this.d.t(j0.a());
+                    this.d.r(j0.f, j0.g);
+                    return;
+                }
+                this.d.E();
+                c(str, null);
+                this.c.m0(str);
+                this.d.r(0, 0);
+            }
+        }
+    }
+
+    public void k(Intent intent) {
+        Uri uri;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, intent) == null) && intent != null) {
+            String stringExtra = intent.getStringExtra(ForumSquareActivityConfig.FORUM_CLASS_NAME);
+            this.f = stringExtra;
+            if (TextUtils.isEmpty(stringExtra) && (uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI)) != null) {
+                this.f = uri.getQueryParameter("tab_name");
+            }
+            boolean z = false;
+            int intExtra = intent.getIntExtra(ForumSquareActivityConfig.SHOW_CREATE_BAR, 0);
+            u67 u67Var = this.d;
+            if (intExtra == 0) {
+                z = true;
+            }
+            u67Var.D(z);
+        }
+    }
+
+    public void l(String str) {
+        a77 j0;
+        Pair<Integer, Integer> d;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048585, this, str) != null) || this.d == null || this.c == null || TextUtils.isEmpty(str) || (j0 = this.c.j0(str)) == null || (d = this.d.d()) == null) {
             return;
         }
-        if (this.j == null) {
-            ri5 ri5Var = new ri5(this.a);
-            this.j = ri5Var;
-            ri5Var.t(ri.g(this.a, R.dimen.obfuscated_res_0x7f070395));
-        }
-        this.j.onChangeSkinType();
-        this.j.attachView(this.i, z);
+        j0.f = ((Integer) d.first).intValue();
+        j0.g = ((Integer) d.second).intValue();
     }
 
-    public void I(boolean z) {
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x002f, code lost:
+        if (r5.equals(r1) == false) goto L11;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x003c  */
+    @Override // com.baidu.tieba.w67
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onSucc(String str, List<String> list, List<rn> list2) {
+        boolean isEmpty;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) != null) || n()) {
-            return;
-        }
-        if (this.k == null) {
-            si5 si5Var = new si5(this.a, this.m);
-            this.k = si5Var;
-            si5Var.k(ri.g(this.a, R.dimen.obfuscated_res_0x7f070395));
-        }
-        this.k.attachView(this.i, z);
-        this.k.p();
-    }
-
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            ForumHeaderView forumHeaderView = this.d;
-            if (forumHeaderView != null) {
-                forumHeaderView.b();
+        if ((interceptable == null || interceptable.invokeLLL(1048590, this, str, list, list2) == null) && this.c != null && this.d != null) {
+            boolean z = false;
+            if (TextUtils.isEmpty(str) || str.equals(this.f)) {
+                String f = this.d.f();
+                if (!TextUtils.isEmpty(str)) {
+                }
+                isEmpty = TextUtils.isEmpty(this.f);
+                this.f = str;
+                if (isEmpty) {
+                    this.d.G();
+                    this.c.m0(this.f);
+                }
+                this.d.K();
+                this.d.s(str, list, z);
+                this.d.u(list2, this.c.p0(list2, 300));
+                c(str, list2);
             }
-            NavigationBar navigationBar = this.e;
-            if (navigationBar != null && this.a != null) {
-                navigationBar.onChangeSkinType(this.n, i);
+            z = true;
+            isEmpty = TextUtils.isEmpty(this.f);
+            this.f = str;
+            if (isEmpty) {
             }
-            a77 a77Var = this.h;
-            if (a77Var != null) {
-                a77Var.m(i);
-            }
-            ri5 ri5Var = this.j;
-            if (ri5Var != null) {
-                ri5Var.onChangeSkinType();
-            }
-            si5 si5Var = this.k;
-            if (si5Var != null) {
-                si5Var.onChangeSkinType();
-            }
-            NoDataView noDataView = this.l;
-            if (noDataView != null && this.a != null) {
-                noDataView.setSubTitleTextColor(R.color.CAM_X0105);
-                this.l.f(this.n, i);
-            }
-            SkinManager.setViewTextColor(this.f, R.color.CAM_X0105, 1);
-            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0205);
-            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0207);
-            SkinManager.setBackgroundColor(this.e, R.color.CAM_X0207, i);
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.e.setVisibility(8);
-            this.d.setVisibility(8);
-            this.c.setVisibility(8);
-            ((LinearLayout.LayoutParams) this.i.getLayoutParams()).bottomMargin = ri.g(this.n.getPageActivity(), R.dimen.tbds22);
-        }
-    }
-
-    public void c() {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            if (UtilHelper.canUseStyleImmersiveSticky()) {
-                i = UtilHelper.getStatusBarHeight();
-            } else {
-                i = 0;
-            }
-            int g = i + ri.g(this.a, R.dimen.tbds238);
-            RelativeLayout relativeLayout = this.i;
-            if (relativeLayout != null && relativeLayout.getLayoutParams() != null) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.i.getLayoutParams();
-                layoutParams.setMargins(layoutParams.leftMargin, g, layoutParams.rightMargin, layoutParams.bottomMargin);
-            }
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.navigation_bar);
-            this.e = navigationBar;
-            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.e.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f0792));
-            View addCustomView = this.e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.navigation_right_button_layout, (View.OnClickListener) null);
-            this.g = addCustomView;
-            TextView textView = (TextView) addCustomView.findViewById(R.id.right_textview);
-            this.f = textView;
-            textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0793));
-            this.c = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090ba6);
-            ForumHeaderView forumHeaderView = (ForumHeaderView) this.b.findViewById(R.id.obfuscated_res_0x7f090ba7);
-            this.d = forumHeaderView;
-            forumHeaderView.setFrom(1);
-            this.d.setSearchHint(TbSingleton.getInstance().getHotSearch());
-            this.h = new a77(this.n, this.b);
-            this.i = (RelativeLayout) this.b.findViewById(R.id.layout_container);
-            a(TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
-    public void r(int i, int i2) {
-        a77 a77Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048604, this, i, i2) == null) && (a77Var = this.h) != null) {
-            a77Var.n(i, i2);
-        }
-    }
-
-    public void u(List<rn> list, int i) {
-        a77 a77Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048607, this, list, i) == null) && (a77Var = this.h) != null) {
-            a77Var.q(list, i);
-        }
-    }
-
-    public void s(String str, List<String> list, boolean z) {
-        a77 a77Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(1048605, this, str, list, z) == null) && (a77Var = this.h) != null) {
-            a77Var.o(str, list, z);
+            this.d.K();
+            this.d.s(str, list, z);
+            this.d.u(list2, this.c.p0(list2, 300));
+            c(str, list2);
         }
     }
 }

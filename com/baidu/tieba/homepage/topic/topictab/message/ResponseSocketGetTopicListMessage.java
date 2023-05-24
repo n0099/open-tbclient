@@ -6,8 +6,8 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ly7;
-import com.baidu.tieba.ny7;
+import com.baidu.tieba.my7;
+import com.baidu.tieba.oy7;
 import com.baidu.tieba.rn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -74,19 +74,19 @@ public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
                 int i2 = 1;
                 for (NewTopicList newTopicList : newTopicListResIdl.data.topic_list) {
                     if (newTopicList != null && !StringUtils.isNull(newTopicList.topic_name) && !StringUtils.isNull(newTopicList.topic_desc)) {
-                        ly7 ly7Var = new ly7();
-                        ly7Var.R = i2;
-                        ly7Var.K(newTopicList);
-                        this.mTopicDataList.add(ly7Var);
-                        ny7 ny7Var = new ny7();
-                        ny7Var.a = R.dimen.tbds1;
-                        ny7Var.b = R.color.CAM_X0203;
-                        this.mTopicDataList.add(ny7Var);
+                        my7 my7Var = new my7();
+                        my7Var.R = i2;
+                        my7Var.K(newTopicList);
+                        this.mTopicDataList.add(my7Var);
+                        oy7 oy7Var = new oy7();
+                        oy7Var.a = R.dimen.tbds1;
+                        oy7Var.b = R.color.CAM_X0203;
+                        this.mTopicDataList.add(oy7Var);
                         i2++;
                     }
                 }
                 List<rn> list = this.mTopicDataList;
-                ((ny7) ListUtils.getItem(list, list.size() - 1)).a = 0;
+                ((oy7) ListUtils.getItem(list, list.size() - 1)).a = 0;
             }
             return newTopicListResIdl;
         }

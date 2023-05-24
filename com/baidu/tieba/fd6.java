@@ -38,7 +38,7 @@ public class fd6 {
         SocketMessageTask socketMessageTask = new SocketMessageTask(309643);
         socketMessageTask.setResponsedClass(CommitCardInfoSocketResMsg.class);
         MessageManager.getInstance().registerTask(socketMessageTask);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_COMMIT_CARD_INFO, zq9.a(TbConfig.URL_COMMIT_CARD_INFO, 309643));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_COMMIT_CARD_INFO, ar9.a(TbConfig.URL_COMMIT_CARD_INFO, 309643));
         tbHttpMessageTask.setResponsedClass(CommitCardInfoHttpResMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }

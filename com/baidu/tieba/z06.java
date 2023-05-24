@@ -3,7 +3,7 @@ package com.baidu.tieba;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.vha;
+import com.baidu.tieba.wha;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -155,7 +155,7 @@ public class z06 {
             if (qi.isEmpty(e)) {
                 return 0;
             }
-            SampleResult a = uha.a(e);
+            SampleResult a = vha.a(e);
             if (a != SampleResult.T1 && a != SampleResult.T2 && a != SampleResult.T3 && a != SampleResult.T4 && a != SampleResult.T5) {
                 return 0;
             }
@@ -172,7 +172,7 @@ public class z06 {
                 return false;
             }
             try {
-                vha.a aVar = new vha.a();
+                wha.a aVar = new wha.a();
                 aVar.e(TbadkCoreApplication.getInst());
                 aVar.j(false);
                 aVar.n(30L);
@@ -180,7 +180,7 @@ public class z06 {
                 aVar.l(false);
                 aVar.o(15L);
                 aVar.k(1000);
-                uha.b(aVar.c());
+                vha.b(aVar.c());
                 return true;
             } catch (Exception e) {
                 e.printStackTrace();

@@ -1,37 +1,36 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class jd9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final boolean a;
+    public final int b;
+    public final boolean c;
+    public final String d;
 
-    public static boolean a(si5 si5Var) {
-        InterceptResult invokeL;
+    public jd9(boolean z, int i, boolean z2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, si5Var)) == null) {
-            if (si5Var != null) {
-                return si5Var.isViewAttached();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2), str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static void b(si5 si5Var, View.OnClickListener onClickListener, Context context, View view2, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{si5Var, onClickListener, context, view2, str, Boolean.valueOf(z)}) == null) && !a(si5Var) && context != null && view2 != null) {
-            if (si5Var == null) {
-                si5Var = new si5(context, onClickListener);
-            }
-            si5Var.k(context.getResources().getDimensionPixelSize(R.dimen.tbds530));
-            si5Var.attachView(view2, z);
-            si5Var.p();
-            si5Var.onChangeSkinType();
-        }
+        this.a = z;
+        this.b = i;
+        this.c = z2;
+        this.d = str;
     }
 }

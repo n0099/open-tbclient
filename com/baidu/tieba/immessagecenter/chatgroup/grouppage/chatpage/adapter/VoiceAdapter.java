@@ -17,13 +17,13 @@ import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b98;
+import com.baidu.tieba.c98;
 import com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.VoiceMsg;
-import com.baidu.tieba.k98;
-import com.baidu.tieba.l88;
+import com.baidu.tieba.l98;
+import com.baidu.tieba.m88;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.w85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -83,16 +83,16 @@ public class VoiceAdapter extends BaseChatAdapter<VoiceMsg, ViewHolder> {
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder
-        public void d(@NonNull b98 b98Var) {
+        public void d(@NonNull c98 c98Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b98Var) == null) {
-                super.d(b98Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c98Var) == null) {
+                super.d(c98Var);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class a implements l88 {
+    public class a implements m88 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ViewGroup a;
@@ -119,7 +119,7 @@ public class VoiceAdapter extends BaseChatAdapter<VoiceMsg, ViewHolder> {
             this.b = voiceMsg;
         }
 
-        @Override // com.baidu.tieba.l88
+        @Override // com.baidu.tieba.m88
         public void a(Drawable drawable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
@@ -127,7 +127,7 @@ public class VoiceAdapter extends BaseChatAdapter<VoiceMsg, ViewHolder> {
             }
         }
 
-        @Override // com.baidu.tieba.l88
+        @Override // com.baidu.tieba.m88
         public void onFailed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -238,9 +238,9 @@ public class VoiceAdapter extends BaseChatAdapter<VoiceMsg, ViewHolder> {
     public void R(int i, @NonNull ViewGroup viewGroup, @NonNull VoiceMsg voiceMsg, @NonNull ViewHolder viewHolder, @NonNull List<Object> list, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), viewGroup, voiceMsg, viewHolder, list, Integer.valueOf(i2)}) == null) {
-            k98.r(this.mType, voiceMsg, viewGroup, new a(this, viewGroup, voiceMsg));
+            l98.r(this.mType, voiceMsg, viewGroup, new a(this, viewGroup, voiceMsg));
             ChatVoiceView chatVoiceView = (ChatVoiceView) viewHolder.getView();
-            int s = k98.s(voiceMsg, i2);
+            int s = l98.s(voiceMsg, i2);
             if (s == 0) {
                 if (voiceMsg.isLeft()) {
                     chatVoiceView.setVoicePureColor(SkinManager.getColor(R.color.CAM_X0105));

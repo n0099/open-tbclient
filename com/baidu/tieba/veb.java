@@ -4,41 +4,131 @@ import android.app.Activity;
 import android.app.Dialog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.tgb;
+import com.baidu.tieba.vgb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
+import com.yy.mobile.framework.revenuesdk.baseapi.PurchaseStatus;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.PayType;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import java.util.List;
+import tv.athena.revenue.api.MiddleRevenueConfig;
+import tv.athena.revenue.api.pay.params.AppCustomExpand;
 import tv.athena.revenue.api.pay.params.PayFlowType;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
-import tv.athena.revenue.payui.view.WindowParams;
 import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes7.dex */
 public class veb implements odb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mdb a;
-    public PayFlowType b;
-    public gfb c;
-    public ldb d;
-    public PayUIKitConfig e;
+    public String a;
+    public ndb b;
+    public PayUIKitConfig c;
+    public PayFlowType d;
+    public mdb e;
     public int f;
     public int g;
+    public long h;
 
-    public veb(mdb mdbVar, PayFlowType payFlowType, ldb ldbVar, int i, int i2, PayUIKitConfig payUIKitConfig) {
+    /* loaded from: classes7.dex */
+    public class a implements IPayCallback<CurrencyChargeMessage> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ IPayCallback a;
+        public final /* synthetic */ ifb b;
+        public final /* synthetic */ Activity c;
+        public final /* synthetic */ efb d;
+        public final /* synthetic */ Dialog e;
+        public final /* synthetic */ ogb f;
+        public final /* synthetic */ AppCustomExpand g;
+        public final /* synthetic */ vgb.b h;
+        public final /* synthetic */ veb i;
+
+        public a(veb vebVar, IPayCallback iPayCallback, ifb ifbVar, Activity activity, efb efbVar, Dialog dialog, ogb ogbVar, AppCustomExpand appCustomExpand, vgb.b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vebVar, iPayCallback, ifbVar, activity, efbVar, dialog, ogbVar, appCustomExpand, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.i = vebVar;
+            this.a = iPayCallback;
+            this.b = ifbVar;
+            this.c = activity;
+            this.d = efbVar;
+            this.e = dialog;
+            this.f = ogbVar;
+            this.g = appCustomExpand;
+            this.h = bVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
+        /* renamed from: a */
+        public void onSuccess(CurrencyChargeMessage currencyChargeMessage, PayCallBackBean payCallBackBean) {
+            IPayCallback iPayCallback;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, currencyChargeMessage, payCallBackBean) == null) && (iPayCallback = this.a) != null) {
+                iPayCallback.onSuccess(currencyChargeMessage, payCallBackBean);
+            }
+        }
+
+        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
+        public void onFail(int i, String str, PayCallBackBean payCallBackBean) {
+            IPayCallback iPayCallback;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, payCallBackBean) == null) && (iPayCallback = this.a) != null) {
+                iPayCallback.onFail(i, str, payCallBackBean);
+            }
+        }
+
+        @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
+        public void onPayStart() {
+            IPayCallback iPayCallback;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (iPayCallback = this.a) != null) {
+                iPayCallback.onPayStart();
+            }
+        }
+
+        @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
+        public void onPayStatus(PurchaseStatus purchaseStatus, PayCallBackBean payCallBackBean) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048579, this, purchaseStatus, payCallBackBean) == null) {
+                if (purchaseStatus == PurchaseStatus.ORDER_FAIL && this.b.a == PayType.ALI_PAY_SIGN) {
+                    RLog.info(this.i.a, "prepareShowPaySignDialog onPayStatus ORDER_FAIL, payWay.payType=PayType.ALI_PAY_SIGN");
+                    ifb ifbVar = this.b;
+                    ifbVar.a = PayType.ALI_PAY;
+                    this.i.e(this.c, this.d, ifbVar, this.e, this.f, this.g, this.h, this.a);
+                    return;
+                }
+                IPayCallback iPayCallback = this.a;
+                if (iPayCallback != null) {
+                    iPayCallback.onPayStatus(purchaseStatus, payCallBackBean);
+                }
+            }
+        }
+    }
+
+    public veb(int i, int i2, ndb ndbVar, PayUIKitConfig payUIKitConfig, PayFlowType payFlowType, mdb mdbVar) {
+        MiddleRevenueConfig middleRevenueConfig;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mdbVar, payFlowType, ldbVar, Integer.valueOf(i), Integer.valueOf(i2), payUIKitConfig};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), ndbVar, payUIKitConfig, payFlowType, mdbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -48,93 +138,61 @@ public class veb implements odb {
                 return;
             }
         }
-        this.a = mdbVar;
-        this.b = payFlowType;
-        this.d = ldbVar;
+        this.a = "PaySignManager";
+        this.h = 0L;
+        RLog.info("PaySignManager", "create PaySignManager:" + this);
         this.f = i;
         this.g = i2;
-        this.e = payUIKitConfig;
+        this.b = ndbVar;
+        this.c = payUIKitConfig;
+        this.d = payFlowType;
+        this.e = mdbVar;
+        if (payUIKitConfig != null && (middleRevenueConfig = payUIKitConfig.revenueConfig) != null) {
+            this.h = middleRevenueConfig.getUid();
+        }
     }
 
     @Override // com.baidu.tieba.odb
-    public void a(Activity activity, dfb dfbVar, List<PayWayInfo> list, String str, PaySplitOrderViewSource paySplitOrderViewSource, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback) {
-        WindowParams windowParams;
+    public void a(Activity activity, efb efbVar, ifb ifbVar, Dialog dialog, ogb ogbVar, AppCustomExpand appCustomExpand, vgb.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{activity, dfbVar, list, str, paySplitOrderViewSource, viewParams, iPayCallback}) == null) {
-            if (qfb.b(this.f, this.g) == null) {
-                RLog.error("PaySplitOrderManager", "prepareShowSplitOrderDialog error appPayService null", new Object[0]);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{activity, efbVar, ifbVar, dialog, ogbVar, appCustomExpand, bVar, iPayCallback}) == null) {
+            String str = this.a;
+            RLog.info(str, "prepareShowPaySignDialog:" + this);
+            a aVar = new a(this, iPayCallback, ifbVar, activity, efbVar, dialog, ogbVar, appCustomExpand, bVar);
+            boolean z = false;
+            if (!ifbVar.g) {
+                z = dgb.b(activity, this.h + "").a("pay_sp_key_sign_pay_skip_remind", false);
+            }
+            String str2 = this.a;
+            RLog.info(str2, "prepareShowPaySignDialog, isSkipShowSignDialog=" + z);
+            if (z) {
+                e(activity, efbVar, ifbVar, dialog, ogbVar, appCustomExpand, bVar, aVar);
                 return;
             }
-            tgb.b bVar = new tgb.b();
-            bVar.a = dfbVar;
-            bVar.h = paySplitOrderViewSource;
-            bVar.c = this.b;
-            AbsViewEventHandler absViewEventHandler = null;
-            if (viewParams != null) {
-                windowParams = viewParams.windowParams;
-            } else {
-                windowParams = null;
-            }
-            bVar.b = windowParams;
-            bVar.d = list;
-            bVar.e = str;
-            bVar.f = viewParams;
-            if (viewParams != null) {
-                absViewEventHandler = viewParams.viewEventListener;
-            }
-            bVar.g = absViewEventHandler;
-            e(activity, bVar, iPayCallback);
+            tgb.b bVar2 = new tgb.b();
+            bVar2.a = ifbVar.g;
+            bVar2.b = efbVar;
+            bVar2.c = bVar.f;
+            tgb f = this.b.f(activity, bVar2, this.c);
+            f.setCallback(new keb(activity, d(activity, f, bVar2), this.e, efbVar, ifbVar, dialog, ogbVar, appCustomExpand, bVar, aVar));
         }
     }
 
-    @Override // com.baidu.tieba.odb
-    public gfb b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (gfb) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.odb
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            RLog.info("PaySplitOrderManager", "release mPaySplitOrderInfo:" + this.c);
-            this.c = null;
-        }
-    }
-
-    @Override // com.baidu.tieba.odb
-    public void c(gfb gfbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gfbVar) == null) {
-            RLog.info("PaySplitOrderManager", "setPaySplitOrderInfo info:" + gfbVar);
-            this.c = gfbVar;
-        }
-    }
-
-    public Dialog d(Activity activity, tgb tgbVar, AbsViewEventHandler absViewEventHandler) {
+    public final Dialog d(Activity activity, tgb tgbVar, tgb.b bVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, activity, tgbVar, absViewEventHandler)) == null) {
-            RLog.info("PaySplitOrderManager", "createSplitOrderDialog");
-            this.d.m(absViewEventHandler, PayDialogType.PAY_SPLIT_ORDER_DIALOG);
-            return chb.b.e(activity, activity.getString(R.string.pay_ui_pay_split_order_dialog_title), tgbVar.getContentView(), new keb(this.f, this.g, activity, absViewEventHandler, this.d, tgbVar), absViewEventHandler, PayDialogType.PAY_WAY_DIALOG, this.b, this.e, true);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, tgbVar, bVar)) == null) {
+            return ehb.b.e(activity, "title", tgbVar.getContentView(), new jeb(this.f, this.g), bVar.c, PayDialogType.PAY_SIGN_DIALOG, this.d);
         }
         return (Dialog) invokeLLL.objValue;
     }
 
-    public final void e(Activity activity, tgb.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
+    public final void e(Activity activity, efb efbVar, ifb ifbVar, Dialog dialog, ogb ogbVar, AppCustomExpand appCustomExpand, vgb.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, activity, bVar, iPayCallback) == null) {
-            RLog.info("PaySplitOrderManager", "pay_dialog_show_flow:showSplitOrderDialog splitOrderViewParams:" + bVar);
-            tgb h = this.a.h(activity, this.e, bVar, this);
-            h.refreshView();
-            Dialog d = d(activity, h, bVar.g);
-            h.setCallback(new leb(activity, d, bVar, iPayCallback, this.d));
-            this.d.r(h, d);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, efbVar, ifbVar, dialog, ogbVar, appCustomExpand, bVar, iPayCallback}) == null) {
+            String str = this.a;
+            RLog.info(str, "prepareShowPaySignDialog startPay payType=" + ifbVar.a);
+            this.e.k(activity, ifbVar, efbVar, dialog, ogbVar, appCustomExpand, bVar, iPayCallback);
         }
     }
 }

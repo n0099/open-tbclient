@@ -55,7 +55,7 @@ import com.baidu.tieba.d25;
 import com.baidu.tieba.fw4;
 import com.baidu.tieba.gv4;
 import com.baidu.tieba.hi;
-import com.baidu.tieba.kh6;
+import com.baidu.tieba.lh6;
 import com.baidu.tieba.q95;
 import com.baidu.tieba.qi;
 import com.baidu.tieba.ri;
@@ -971,7 +971,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             } else if (getWebView() instanceof TbWebView) {
                 LinkedHashMap linkedHashMap = new LinkedHashMap();
                 linkedHashMap.put("skin", SkinManager.getCurrentSkinTypeString());
-                kh6.a().d(getWebView(), CommonTbJsBridge.CHANGE_SKIN_TYPE, linkedHashMap);
+                lh6.a().d(getWebView(), CommonTbJsBridge.CHANGE_SKIN_TYPE, linkedHashMap);
             }
         }
     }
@@ -1341,7 +1341,11 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                     }
                 }
                 try {
-                    String query = new URL(str2).getQuery();
+                    URL url = new URL(str2);
+                    String query = url.getQuery();
+                    if (StringUtils.isNull(query)) {
+                        query = url.getRef();
+                    }
                     if (StringUtils.isNull(query) || (split = query.split("&")) == null) {
                         return true;
                     }

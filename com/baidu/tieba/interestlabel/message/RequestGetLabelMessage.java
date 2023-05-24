@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.hh8;
+import com.baidu.tieba.ih8;
 import com.baidu.tieba.ss5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,7 +22,7 @@ public class RequestGetLabelMessage extends NetMessage {
     /* renamed from: common  reason: collision with root package name */
     public CommonReq f1055common;
     public int from;
-    public hh8 mLabelDataSet;
+    public ih8 mLabelDataSet;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RequestGetLabelMessage() {
@@ -61,13 +61,13 @@ public class RequestGetLabelMessage extends NetMessage {
         return invokeZ.objValue;
     }
 
-    public hh8 getLabelDataSet() {
+    public ih8 getLabelDataSet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mLabelDataSet;
         }
-        return (hh8) invokeV.objValue;
+        return (ih8) invokeV.objValue;
     }
 
     public void setCommon(CommonReq commonReq) {
@@ -84,10 +84,10 @@ public class RequestGetLabelMessage extends NetMessage {
         }
     }
 
-    public void setLabelDataSet(hh8 hh8Var) {
+    public void setLabelDataSet(ih8 ih8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, hh8Var) == null) {
-            this.mLabelDataSet = hh8Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ih8Var) == null) {
+            this.mLabelDataSet = ih8Var;
         }
     }
 }

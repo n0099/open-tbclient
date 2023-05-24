@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.flow.data.ApkDownloadInfoData;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,10 +14,9 @@ import java.util.List;
 /* loaded from: classes7.dex */
 public class s79 extends BaseCardInfo implements rn {
     public static /* synthetic */ Interceptable $ic;
-    public static BdUniqueId c;
+    public static BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ApkDownloadInfoData> a;
-    public List<ApkDownloadInfoData> b;
+    public List<b79> a;
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +31,7 @@ public class s79 extends BaseCardInfo implements rn {
                 return;
             }
         }
-        c = BdUniqueId.gen();
+        b = BdUniqueId.gen();
     }
 
     public s79() {
@@ -50,7 +48,6 @@ public class s79 extends BaseCardInfo implements rn {
             }
         }
         this.a = new ArrayList();
-        this.b = new ArrayList();
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.rn
@@ -58,7 +55,7 @@ public class s79 extends BaseCardInfo implements rn {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c;
+            return b;
         }
         return (BdUniqueId) invokeV.objValue;
     }

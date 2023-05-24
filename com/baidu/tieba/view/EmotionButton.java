@@ -17,8 +17,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.au9;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.zt9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -145,7 +145,7 @@ public class EmotionButton extends View {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, zt9.EmotionButton);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, au9.EmotionButton);
         this.n = obtainStyledAttributes.getString(1);
         this.o = obtainStyledAttributes.getDimension(0, ri.g(context, R.dimen.tbds44));
         obtainStyledAttributes.recycle();
@@ -171,7 +171,7 @@ public class EmotionButton extends View {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, zt9.EmotionButton);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, au9.EmotionButton);
         this.n = obtainStyledAttributes.getString(1);
         this.o = obtainStyledAttributes.getDimension(0, ri.g(context, R.dimen.tbds44));
         obtainStyledAttributes.recycle();

@@ -37,9 +37,9 @@ import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.cp5;
 import com.baidu.tieba.dv4;
 import com.baidu.tieba.i05;
-import com.baidu.tieba.i97;
 import com.baidu.tieba.iv4;
-import com.baidu.tieba.kh6;
+import com.baidu.tieba.j97;
+import com.baidu.tieba.lh6;
 import com.baidu.tieba.rn5;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.tieba.yu4;
@@ -54,7 +54,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class NewFrsTabWebFragment extends BaseWebViewFragment implements i97 {
+public class NewFrsTabWebFragment extends BaseWebViewFragment implements j97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String e;
@@ -72,14 +72,14 @@ public class NewFrsTabWebFragment extends BaseWebViewFragment implements i97 {
     public CustomMessageListener q;
     public final View.OnClickListener r;
 
-    @Override // com.baidu.tieba.i97
+    @Override // com.baidu.tieba.j97
     public void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.i97
+    @Override // com.baidu.tieba.j97
     public void a0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -471,7 +471,7 @@ public class NewFrsTabWebFragment extends BaseWebViewFragment implements i97 {
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, i05Var, jSONObject) == null) && this.h == 102) {
             HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put("threadInfo", jSONObject);
-            kh6.a().d(this.j, CommonTbJsBridge.CHANGE_POST_WALL, hashMap);
+            lh6.a().d(this.j, CommonTbJsBridge.CHANGE_POST_WALL, hashMap);
         }
     }
 
@@ -495,14 +495,14 @@ public class NewFrsTabWebFragment extends BaseWebViewFragment implements i97 {
         return (rn5) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.i97
+    @Override // com.baidu.tieba.j97
     public void h0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             SkinManager.setBackgroundColor(this.j, R.color.CAM_X0202);
             LinkedHashMap linkedHashMap = new LinkedHashMap();
             linkedHashMap.put("skin", SkinManager.getCurrentSkinTypeString());
-            kh6.a().d(this.j, CommonTbJsBridge.CHANGE_SKIN_TYPE, linkedHashMap);
+            lh6.a().d(this.j, CommonTbJsBridge.CHANGE_SKIN_TYPE, linkedHashMap);
         }
     }
 
@@ -590,7 +590,7 @@ public class NewFrsTabWebFragment extends BaseWebViewFragment implements i97 {
         }
     }
 
-    @Override // com.baidu.tieba.i97
+    @Override // com.baidu.tieba.j97
     public void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {

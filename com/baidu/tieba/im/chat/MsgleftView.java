@@ -20,11 +20,11 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.widget.sharecard.ChatShareChatroomCard;
-import com.baidu.tieba.j38;
+import com.baidu.tieba.k38;
 import com.baidu.tieba.o65;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.wt5;
-import com.baidu.tieba.x08;
+import com.baidu.tieba.y08;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class MsgleftView extends x08 {
+public class MsgleftView extends y08 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String Q = "com.baidu.tieba.im.chat.MsgleftView";
     public transient /* synthetic */ FieldHolder $fh;
@@ -190,7 +190,7 @@ public class MsgleftView extends x08 {
         this.n.setIsLeft(true);
     }
 
-    @Override // com.baidu.tieba.x08
+    @Override // com.baidu.tieba.y08
     public void I() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.E == TbadkCoreApplication.getInst().getSkinType()) {
@@ -213,7 +213,7 @@ public class MsgleftView extends x08 {
     /* JADX WARN: Removed duplicated region for block: B:39:0x0141 A[Catch: Exception -> 0x01ee, TryCatch #0 {Exception -> 0x01ee, blocks: (B:19:0x00b3, B:21:0x00b9, B:22:0x00db, B:24:0x00e8, B:27:0x00f3, B:29:0x00f7, B:30:0x0109, B:32:0x010d, B:34:0x0119, B:35:0x011f, B:37:0x012e, B:39:0x0141, B:40:0x0164, B:42:0x0198, B:43:0x019d, B:57:0x01ba, B:59:0x01be, B:60:0x01c2, B:61:0x01c6, B:62:0x01ca, B:63:0x01ce, B:64:0x01d2, B:65:0x01d8, B:66:0x01dc, B:67:0x01e2, B:68:0x01e8, B:36:0x0127), top: B:76:0x00b3 }] */
     /* JADX WARN: Removed duplicated region for block: B:42:0x0198 A[Catch: Exception -> 0x01ee, TryCatch #0 {Exception -> 0x01ee, blocks: (B:19:0x00b3, B:21:0x00b9, B:22:0x00db, B:24:0x00e8, B:27:0x00f3, B:29:0x00f7, B:30:0x0109, B:32:0x010d, B:34:0x0119, B:35:0x011f, B:37:0x012e, B:39:0x0141, B:40:0x0164, B:42:0x0198, B:43:0x019d, B:57:0x01ba, B:59:0x01be, B:60:0x01c2, B:61:0x01c6, B:62:0x01ca, B:63:0x01ce, B:64:0x01d2, B:65:0x01d8, B:66:0x01dc, B:67:0x01e2, B:68:0x01e8, B:36:0x0127), top: B:76:0x00b3 }] */
     /* JADX WARN: Removed duplicated region for block: B:45:0x01a3  */
-    @Override // com.baidu.tieba.x08
+    @Override // com.baidu.tieba.y08
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -272,7 +272,7 @@ public class MsgleftView extends x08 {
                 }
                 if (chatMessage.getUserInfo().getUserType() != 1 && chatMessage.getUserInfo().getUserType() != 3) {
                     if (this.O == null) {
-                        this.O = j38.n().h(String.valueOf(chatMessage.getUserId()), 2);
+                        this.O = k38.n().h(String.valueOf(chatMessage.getUserId()), 2);
                     }
                     if (this.O != null && !TextUtils.isEmpty(this.O.getGroup_head())) {
                         str = this.O.getGroup_head();

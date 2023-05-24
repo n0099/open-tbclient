@@ -79,7 +79,7 @@ public class pr4 {
                 return;
             }
             int errCode = ((UserGrowthTaskResponseMessage) httpResponsedMessage).getErrCode();
-            yk8 defaultLog = DefaultLog.getInstance();
+            zk8 defaultLog = DefaultLog.getInstance();
             String str = pr4.c;
             defaultLog.c(str, "任务完成：errCode=" + errCode);
             if (errCode == 0) {
@@ -156,13 +156,13 @@ public class pr4 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            yk8 defaultLog = DefaultLog.getInstance();
+            zk8 defaultLog = DefaultLog.getInstance();
             String str3 = c;
             defaultLog.c(str3, "尝试完成任务：" + str);
             if (!e(str)) {
                 return false;
             }
-            yk8 defaultLog2 = DefaultLog.getInstance();
+            zk8 defaultLog2 = DefaultLog.getInstance();
             String str4 = c;
             defaultLog2.c(str4, "开始完成任务：" + str + " data=" + str2);
             UserGrowthTaskRequestMessage userGrowthTaskRequestMessage = new UserGrowthTaskRequestMessage(str);
@@ -189,7 +189,7 @@ public class pr4 {
                         return true;
                     }
                 }
-                yk8 defaultLog = DefaultLog.getInstance();
+                zk8 defaultLog = DefaultLog.getInstance();
                 String str2 = c;
                 defaultLog.b(str2, "任务列表中无此任务:" + sb.toString());
                 return false;

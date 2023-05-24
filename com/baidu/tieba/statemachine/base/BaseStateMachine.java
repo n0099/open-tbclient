@@ -2,11 +2,11 @@ package com.baidu.tieba.statemachine.base;
 
 import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.np9;
 import com.baidu.tieba.op9;
 import com.baidu.tieba.pp9;
 import com.baidu.tieba.qp9;
-import com.baidu.tieba.yk8;
+import com.baidu.tieba.rp9;
+import com.baidu.tieba.zk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,12 +23,12 @@ import kotlin.jvm.internal.Intrinsics;
 public class BaseStateMachine {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final op9 a;
-    public qp9 b;
-    public Function1<? super qp9, Unit> c;
-    public final Function1<List<np9>, Unit> d;
+    public final pp9 a;
+    public rp9 b;
+    public Function1<? super rp9, Unit> c;
+    public final Function1<List<op9>, Unit> d;
 
-    public BaseStateMachine(op9 baseStateMap) {
+    public BaseStateMachine(pp9 baseStateMap) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,46 +49,46 @@ public class BaseStateMachine {
         this.d = BaseStateMachine$doAction$1.INSTANCE;
     }
 
-    public final qp9 a() {
+    public final rp9 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.b;
         }
-        return (qp9) invokeV.objValue;
+        return (rp9) invokeV.objValue;
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.b = this.a.a();
-            yk8 defaultLog = DefaultLog.getInstance();
+            zk8 defaultLog = DefaultLog.getInstance();
             defaultLog.b("State Machine", "State Machine ReInt! Start State: " + this.b.getClass().getSimpleName());
         }
     }
 
-    public final void c(pp9 event) {
+    public final void c(qp9 event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, event) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
-            HashMap<pp9, qp9> hashMap = this.a.getMap().get(this.b);
+            HashMap<qp9, rp9> hashMap = this.a.getMap().get(this.b);
             if (hashMap == null) {
                 DefaultLog.getInstance().b("State Machine", "Illegal state!");
                 return;
             }
-            qp9 qp9Var = hashMap.get(event);
-            if (qp9Var == null) {
+            rp9 rp9Var = hashMap.get(event);
+            if (rp9Var == null) {
                 DefaultLog.getInstance().b("State Machine", "Illegal event!");
                 return;
             }
-            yk8 defaultLog = DefaultLog.getInstance();
+            zk8 defaultLog = DefaultLog.getInstance();
             defaultLog.b("State Machine", "Current State: " + this.b.getClass().getSimpleName() + "  Current Event: " + event.getClass().getSimpleName());
             this.d.invoke(event.a());
-            this.b = qp9Var;
-            yk8 defaultLog2 = DefaultLog.getInstance();
+            this.b = rp9Var;
+            zk8 defaultLog2 = DefaultLog.getInstance();
             defaultLog2.b("State Machine", "Next State: " + this.b.getClass().getSimpleName());
             this.d.invoke(this.b.b());
-            Function1<? super qp9, Unit> function1 = this.c;
+            Function1<? super rp9, Unit> function1 = this.c;
             if (function1 != null) {
                 function1.invoke(this.b);
             }
@@ -99,11 +99,11 @@ public class BaseStateMachine {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.d.invoke(this.b.b());
-            Function1<? super qp9, Unit> function1 = this.c;
+            Function1<? super rp9, Unit> function1 = this.c;
             if (function1 != null) {
                 function1.invoke(this.b);
             }
-            yk8 defaultLog = DefaultLog.getInstance();
+            zk8 defaultLog = DefaultLog.getInstance();
             defaultLog.b("State Machine", "Start State: " + this.b.getClass().getSimpleName());
         }
     }

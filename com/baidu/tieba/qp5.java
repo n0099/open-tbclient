@@ -28,7 +28,7 @@ public class qp5 extends pp5<o15, ThreadCardViewHolder<o15>> {
     public transient /* synthetic */ FieldHolder $fh;
     public gg<ImageView> g;
     public gg<GifView> h;
-    public vj6<o15> i;
+    public wj6<o15> i;
 
     /* loaded from: classes7.dex */
     public class a implements hg<ImageView> {
@@ -273,7 +273,7 @@ public class qp5 extends pp5<o15, ThreadCardViewHolder<o15>> {
     }
 
     /* loaded from: classes7.dex */
-    public class c extends vj6<o15> {
+    public class c extends wj6<o15> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ qp5 b;
@@ -297,7 +297,7 @@ public class qp5 extends pp5<o15, ThreadCardViewHolder<o15>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vj6
+        @Override // com.baidu.tieba.wj6
         /* renamed from: d */
         public void a(View view2, o15 o15Var) {
             Interceptable interceptable = $ic;

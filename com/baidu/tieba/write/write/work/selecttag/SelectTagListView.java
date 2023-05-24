@@ -31,9 +31,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ep5;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.s8a;
+import com.baidu.tieba.t8a;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.wp9;
+import com.baidu.tieba.xp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -437,7 +437,7 @@ public class SelectTagListView extends LinearLayout implements ep5, View.OnClick
     }
 
     /* loaded from: classes8.dex */
-    public class g implements s8a.c {
+    public class g implements t8a.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SelectTagListView a;
@@ -460,7 +460,7 @@ public class SelectTagListView extends LinearLayout implements ep5, View.OnClick
             this.a = selectTagListView;
         }
 
-        @Override // com.baidu.tieba.s8a.c
+        @Override // com.baidu.tieba.t8a.c
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -785,7 +785,7 @@ public class SelectTagListView extends LinearLayout implements ep5, View.OnClick
             if (list != null && list.size() != 0) {
                 p45.d(this.c).z(R.color.CAM_X0302);
             } else {
-                this.c.setTextColor(wp9.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+                this.c.setTextColor(xp9.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
             }
         }
     }
@@ -829,7 +829,7 @@ public class SelectTagListView extends LinearLayout implements ep5, View.OnClick
             this.p.setOnClickListener(new d(this));
             this.p.setOnEditorActionListener(new e(this));
             this.p.addTextChangedListener(new f(this));
-            this.p.setFilters(new InputFilter[]{new s8a.a(this.u, new g(this))});
+            this.p.setFilters(new InputFilter[]{new t8a.a(this.u, new g(this))});
             this.r.setOnClickListener(new h(this));
             p45 d2 = p45.d(this.j);
             d2.o(R.string.J_X07);

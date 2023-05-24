@@ -1,35 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tieba.impersonal.template.PersonalImageMsgTemplate;
+import com.baidu.tieba.impersonal.template.PersonalTextMsgTemplate;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public final class de8 {
+public final class de8 implements x27 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(String key, String uid, String str) {
+    public de8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, key, uid, str) == null) {
-            Intrinsics.checkNotNullParameter(key, "key");
-            Intrinsics.checkNotNullParameter(uid, "uid");
-            StatisticItem.make(key).param("uid", uid).param("content", str).eventStat();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static final void b(boolean z) {
-        int i;
+    @Override // com.baidu.tieba.x27
+    public List<f37<?, ?>> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            StatisticItem param = new StatisticItem("c15227").param("uid", TbadkCoreApplication.getCurrentAccount());
-            if (z) {
-                i = 2;
-            } else {
-                i = 1;
-            }
-            param.param("obj_type", i).eventStat();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new PersonalTextMsgTemplate("text_left"));
+            arrayList.add(new PersonalTextMsgTemplate("text_right"));
+            arrayList.add(new lg8("loading_left"));
+            arrayList.add(new mg8("voice_left"));
+            arrayList.add(new PersonalImageMsgTemplate("image_left"));
+            return arrayList;
         }
+        return (List) invokeV.objValue;
     }
 }

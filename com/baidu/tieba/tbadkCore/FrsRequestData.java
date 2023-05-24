@@ -5,16 +5,16 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.util.AdExtParam;
-import com.baidu.tieba.gh9;
-import com.baidu.tieba.jh9;
+import com.baidu.tieba.hh9;
 import com.baidu.tieba.jm5;
+import com.baidu.tieba.kh9;
 import com.baidu.tieba.mm5;
 import com.baidu.tieba.nr5;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.qi;
-import com.baidu.tieba.sn7;
 import com.baidu.tieba.sr5;
 import com.baidu.tieba.ss5;
+import com.baidu.tieba.tn7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -529,14 +529,14 @@ public class FrsRequestData extends OrmObject implements mm5, jm5 {
             builder.yuelaou_locate = this.s;
             builder.sort_type = Integer.valueOf(this.y);
             builder.last_click_tid = Long.valueOf(this.x);
-            builder.app_pos = gh9.e().a();
+            builder.app_pos = hh9.e().a();
             builder.load_type = Integer.valueOf(this.z);
             builder.obj_locate = this.C;
             builder.obj_source = this.D;
             builder.is_selection = Integer.valueOf(this.E);
             builder.call_from = Integer.valueOf(this.F);
             builder.hot_thread_id = Long.valueOf(this.H);
-            String d = sn7.e().d("frs_feed");
+            String d = tn7.e().d("frs_feed");
             builder.ad_bear_sid = d;
             builder.ad_bear_context = nr5.g(d, nr5.f());
             builder.ad_bear_sid_price = Double.valueOf(nr5.i());
@@ -549,7 +549,7 @@ public class FrsRequestData extends OrmObject implements mm5, jm5 {
             builder.ad_param = builder2.build(false);
             builder.is_default_navtab = Integer.valueOf(this.I);
             if (this.z != 1) {
-                str = jh9.f().d("FRS");
+                str = kh9.f().d("FRS");
             }
             builder.ad_context_list = str;
             builder.up_schema = this.J;

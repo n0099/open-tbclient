@@ -35,7 +35,7 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.tab.FrsTabItemCustomeView;
 import com.baidu.tieba.homepage.HomePageStatic;
-import com.baidu.tieba.hr7;
+import com.baidu.tieba.ir7;
 import com.baidu.tieba.la5;
 import com.baidu.tieba.o65;
 import com.baidu.tieba.p45;
@@ -207,7 +207,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             this.currentPosition = parcel.readInt();
         }
 
-        public /* synthetic */ SavedState(Parcel parcel, hr7 hr7Var) {
+        public /* synthetic */ SavedState(Parcel parcel, ir7 ir7Var) {
             this(parcel);
         }
 
@@ -362,7 +362,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             this.a = pagerSlidingTabStrip;
         }
 
-        public /* synthetic */ e(PagerSlidingTabStrip pagerSlidingTabStrip, hr7 hr7Var) {
+        public /* synthetic */ e(PagerSlidingTabStrip pagerSlidingTabStrip, ir7 ir7Var) {
             this(pagerSlidingTabStrip);
         }
 

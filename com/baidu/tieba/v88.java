@@ -1,367 +1,81 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
+import kotlin.collections.SetsKt__SetsJVMKt;
+import kotlin.collections.SetsKt__SetsKt;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public abstract class v88<ChildItemData extends BaseMsg, ChildViewHolder extends BaseViewHolder> extends en<ChildItemData, ChildViewHolder> implements z88<ChildItemData> {
+public abstract class v88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public x88<BaseMsg> a;
-    @Nullable
-    public x88<ChildItemData> b;
-    @Nullable
-    public y88<BaseMsg> c;
-    @Nullable
-    public y88<ChildItemData> d;
-    @Nullable
-    public z88<ChildItemData> e;
-    @Nullable
-    public s88 f;
-    @NonNull
-    public final b98 g;
-    @Nullable
-    public c h;
+    public t88 a;
 
-    /* loaded from: classes7.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final List<v88> a;
-        @Nullable
-        public HandlerThread b;
-        @NonNull
-        public final Handler c;
+    public abstract void b(AbilityItem abilityItem, BaseMsg baseMsg, Object obj);
 
-        /* loaded from: classes7.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Runnable a;
-
-            public a(c cVar, Runnable runnable) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar, runnable};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = runnable;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    wg.c(this.a);
-                }
-            }
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
         }
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new ArrayList();
-            HandlerThread handlerThread = new HandlerThread("ChatAdapterFrame");
-            this.b = handlerThread;
-            handlerThread.start();
-            this.c = new Handler(this.b.getLooper());
-        }
-
-        @NonNull
-        public static c b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                return new c();
-            }
-            return (c) invokeV.objValue;
-        }
-
-        public void c() {
-            HandlerThread handlerThread;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (handlerThread = this.b) != null) {
-                handlerThread.quit();
-                this.b = null;
-            }
-        }
-
-        public List<en> e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return new ArrayList(this.a);
-            }
-            return (List) invokeV.objValue;
-        }
-
-        public void a(@NonNull v88 v88Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, v88Var) == null) {
-                v88Var.z(this);
-                this.a.add(v88Var);
-            }
-        }
-
-        public void d(@NonNull Runnable runnable, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, runnable, j) == null) {
-                if (j <= 0) {
-                    wg.c(runnable);
-                } else {
-                    this.c.postDelayed(new a(this, runnable), j);
-                }
-            }
-        }
+        return invokeV.booleanValue;
     }
 
-    /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ BaseViewHolder a;
-        public final /* synthetic */ v88 b;
-
-        public a(v88 v88Var, BaseViewHolder baseViewHolder) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v88Var, baseViewHolder};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = v88Var;
-            this.a = baseViewHolder;
-        }
-
-        /* JADX DEBUG: Multi-variable search result rejected for r2v5, resolved type: com.baidu.tieba.x88 */
-        /* JADX DEBUG: Multi-variable search result rejected for r2v7, resolved type: com.baidu.tieba.x88 */
-        /* JADX WARN: Multi-variable type inference failed */
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                try {
-                    int adapterPosition = this.a.getAdapterPosition();
-                    rn item = this.b.getItem(adapterPosition);
-                    if (this.b.a != null) {
-                        this.b.a.a(view2, (BaseMsg) item, adapterPosition);
-                    }
-                    if (this.b.b != null) {
-                        this.b.b.a(view2, (BaseMsg) item, adapterPosition);
-                    }
-                } catch (Exception e) {
-                    BdLog.e(e);
-                }
-            }
-        }
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements View.OnLongClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ BaseViewHolder a;
-        public final /* synthetic */ v88 b;
-
-        public b(v88 v88Var, BaseViewHolder baseViewHolder) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v88Var, baseViewHolder};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = v88Var;
-            this.a = baseViewHolder;
-        }
-
-        /* JADX DEBUG: Multi-variable search result rejected for r2v6, resolved type: com.baidu.tieba.y88 */
-        /* JADX DEBUG: Multi-variable search result rejected for r2v9, resolved type: com.baidu.tieba.y88 */
-        /* JADX WARN: Multi-variable type inference failed */
-        @Override // android.view.View.OnLongClickListener
-        public boolean onLongClick(View view2) {
-            InterceptResult invokeL;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-                int adapterPosition = this.a.getAdapterPosition();
-                rn item = this.b.getItem(adapterPosition);
-                if (this.b.c != null) {
-                    z = this.b.c.a(view2, (BaseMsg) item, adapterPosition);
-                } else {
-                    z = false;
-                }
-                if (!z && this.b.d != null) {
-                    return this.b.d.a(view2, (BaseMsg) item, adapterPosition);
-                }
-                return z;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v88(@NonNull TbPageContext<?> tbPageContext, @NonNull BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public v88() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.g = new b98();
     }
 
-    public void D(@Nullable s88 s88Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, s88Var) == null) {
-            this.f = s88Var;
-        }
-    }
-
-    public void G(ChildViewHolder childviewholder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, childviewholder) == null) {
-            childviewholder.d(this.g);
-            childviewholder.a(new a(this, childviewholder));
-            childviewholder.b(new b(this, childviewholder));
-        }
-    }
-
-    @Override // com.baidu.tieba.z88
-    public void onEvent(@NonNull ChildItemData childitemdata) {
-        z88<ChildItemData> z88Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, childitemdata) == null) && (z88Var = this.e) != null) {
-            z88Var.onEvent(childitemdata);
-        }
-    }
-
-    public final void z(@NonNull c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, cVar) == null) {
-            this.h = cVar;
-        }
-    }
-
-    public void E(@Nullable x88<BaseMsg> x88Var, @Nullable x88<ChildItemData> x88Var2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, x88Var, x88Var2) == null) {
-            this.a = x88Var;
-            this.b = x88Var2;
-        }
-    }
-
-    public void F(@Nullable y88<BaseMsg> y88Var, @Nullable y88<ChildItemData> y88Var2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, y88Var, y88Var2) == null) {
-            this.c = y88Var;
-            this.d = y88Var2;
-        }
-    }
-
-    @Nullable
-    public s88 A() {
+    public Set<String> e() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            String d = d();
+            if (d.length() == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                return SetsKt__SetsKt.emptySet();
+            }
+            return SetsKt__SetsJVMKt.setOf(d);
         }
-        return (s88) invokeV.objValue;
+        return (Set) invokeV.objValue;
     }
 
-    @NonNull
-    public c C() {
-        InterceptResult invokeV;
+    public final void a(AbilityItem abilityItem, BaseMsg baseMsg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            xs5.c(this.h, "请先绑定适配器帮助类");
-            return this.h;
-        }
-        return (c) invokeV.objValue;
-    }
-
-    @NonNull
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.mContext;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.en
-    /* renamed from: B */
-    public void onFillViewHolder(int i, ViewGroup viewGroup, ChildViewHolder childviewholder, ChildItemData childitemdata, @NonNull List<Object> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), viewGroup, childviewholder, childitemdata, list}) == null) {
-            super.onFillViewHolder(i, viewGroup, (ViewGroup) childviewholder, (ChildViewHolder) childitemdata, list);
-            childitemdata.setItemEventCallback(this);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, abilityItem, baseMsg) == null) {
+            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
+            t88 t88Var = this.a;
+            if (t88Var != null) {
+                t88Var.b(abilityItem, baseMsg);
+            }
         }
     }
 }

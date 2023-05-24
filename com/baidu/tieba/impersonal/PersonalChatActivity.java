@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.de8;
+import com.baidu.tieba.ee8;
 import com.baidu.tieba.gs5;
 import com.baidu.tieba.impersonal.databinding.ActivityPersonalChatBinding;
-import com.baidu.tieba.jna;
+import com.baidu.tieba.kna;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -385,8 +385,8 @@ public final class PersonalChatActivity extends BaseFragmentActivity implements 
                 str = "0";
             }
             boolean z = false;
-            int b = jna.b(str, 0);
-            de8.b((b == 1 || b == 2) ? true : true);
+            int b = kna.b(str, 0);
+            ee8.b((b == 1 || b == 2) ? true : true);
         }
     }
 

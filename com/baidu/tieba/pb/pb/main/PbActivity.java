@@ -20,14 +20,14 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.util.PriorityOrganizer;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a35;
-import com.baidu.tieba.c19;
+import com.baidu.tieba.d19;
 import com.baidu.tieba.d55;
 import com.baidu.tieba.g55;
 import com.baidu.tieba.lr4;
-import com.baidu.tieba.lx8;
 import com.baidu.tieba.mr4;
-import com.baidu.tieba.o19;
+import com.baidu.tieba.mx8;
 import com.baidu.tieba.o65;
+import com.baidu.tieba.p19;
 import com.baidu.tieba.pb.fragment.VideoFragmentController;
 import com.baidu.tieba.un;
 import com.baidu.tieba.z25;
@@ -224,36 +224,36 @@ public class PbActivity extends AbsPbActivity {
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
-    public void D1(lx8 lx8Var) {
+    public void D1(mx8 mx8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lx8Var) == null) {
-            super.D1(lx8Var);
-            if (this.a != null && b2(lx8Var)) {
-                this.a.u3(lx8Var);
-                this.b.setArguments(this.x.g(lx8Var));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mx8Var) == null) {
+            super.D1(mx8Var);
+            if (this.a != null && b2(mx8Var)) {
+                this.a.u3(mx8Var);
+                this.b.setArguments(this.x.g(mx8Var));
                 this.x.l();
             }
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
-    public String I1(lx8 lx8Var) {
+    public String I1(mx8 mx8Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, lx8Var)) == null) {
-            if (lx8Var != null && lx8Var.v0()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, mx8Var)) == null) {
+            if (mx8Var != null && mx8Var.v0()) {
                 return "video_pb_fragment_tag";
             }
-            return super.I1(lx8Var);
+            return super.I1(mx8Var);
         }
         return (String) invokeL.objValue;
     }
 
-    public final boolean b2(lx8 lx8Var) {
+    public final boolean b2(mx8 mx8Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, lx8Var)) == null) {
-            return "video_pb_fragment_tag".equals(I1(lx8Var));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, mx8Var)) == null) {
+            return "video_pb_fragment_tag".equals(I1(mx8Var));
         }
         return invokeL.booleanValue;
     }
@@ -287,7 +287,7 @@ public class PbActivity extends AbsPbActivity {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_START_STAMP_KEY);
             super.onCreate(bundle);
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_END_STAMP_KEY);
-            registerListener(new c19(this));
+            registerListener(new d19(this));
             X1();
         }
     }
@@ -497,9 +497,9 @@ public class PbActivity extends AbsPbActivity {
         }
     }
 
-    public void e2(int i, o19 o19Var) {
+    public void e2(int i, p19 p19Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048589, this, i, o19Var) == null) && !this.u && K1() != null) {
+        if ((interceptable == null || interceptable.invokeIL(1048589, this, i, p19Var) == null) && !this.u && K1() != null) {
             int i2 = 1;
             this.u = true;
             if (K1() != null && K1().x1() == 7) {
@@ -510,7 +510,7 @@ public class PbActivity extends AbsPbActivity {
             if (i2 != 3) {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_DATABACK_STAMP_KEY);
             }
-            o19Var.k2(new b(this, i, i2));
+            p19Var.k2(new b(this, i, i2));
         }
     }
 

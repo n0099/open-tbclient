@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.topic.topicdetail.message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.wx7;
+import com.baidu.tieba.xx7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.NewHottopic.NewHottopicResIdl;
 public class ResponseHttpGetTopicDetailMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wx7 mTopicDetailData;
+    public xx7 mTopicDetailData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseHttpGetTopicDetailMessage() {
@@ -35,13 +35,13 @@ public class ResponseHttpGetTopicDetailMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public wx7 getTopicDetailData() {
+    public xx7 getTopicDetailData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mTopicDetailData;
         }
-        return (wx7) invokeV.objValue;
+        return (xx7) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -55,9 +55,9 @@ public class ResponseHttpGetTopicDetailMessage extends TbHttpResponsedMessage {
         setError(newHottopicResIdl.error.errorno.intValue());
         setErrorString(newHottopicResIdl.error.usermsg);
         if (getError() == 0 && newHottopicResIdl.data != null) {
-            wx7 wx7Var = new wx7();
-            this.mTopicDetailData = wx7Var;
-            wx7Var.b(newHottopicResIdl.data);
+            xx7 xx7Var = new xx7();
+            this.mTopicDetailData = xx7Var;
+            xx7Var.b(newHottopicResIdl.data);
         }
     }
 }

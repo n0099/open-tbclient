@@ -23,31 +23,31 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.data.UserPendantData;
 import com.baidu.tieba.aq9;
-import com.baidu.tieba.do7;
-import com.baidu.tieba.dq9;
+import com.baidu.tieba.bq9;
+import com.baidu.tieba.eo7;
 import com.baidu.tieba.eq9;
+import com.baidu.tieba.fq9;
 import com.baidu.tieba.gm5;
-import com.baidu.tieba.gq9;
+import com.baidu.tieba.hq9;
 import com.baidu.tieba.i05;
-import com.baidu.tieba.iq9;
 import com.baidu.tieba.jq9;
 import com.baidu.tieba.kq9;
 import com.baidu.tieba.l05;
 import com.baidu.tieba.lq9;
+import com.baidu.tieba.mq9;
 import com.baidu.tieba.o15;
 import com.baidu.tieba.o65;
-import com.baidu.tieba.ok6;
-import com.baidu.tieba.p87;
 import com.baidu.tieba.pg;
+import com.baidu.tieba.pk6;
+import com.baidu.tieba.q87;
 import com.baidu.tieba.qi;
 import com.baidu.tieba.rn;
-import com.baidu.tieba.rq9;
 import com.baidu.tieba.rz5;
-import com.baidu.tieba.s77;
+import com.baidu.tieba.sq9;
 import com.baidu.tieba.t77;
-import com.baidu.tieba.tn7;
 import com.baidu.tieba.u77;
-import com.baidu.tieba.zp9;
+import com.baidu.tieba.un7;
+import com.baidu.tieba.v77;
 import com.baidu.tieba.zz5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -65,13 +65,13 @@ import tbclient.FrsTabInfo;
 import tbclient.SmartApp;
 import tbclient.User;
 /* loaded from: classes7.dex */
-public class FrsViewData extends gq9 implements gm5, Serializable {
+public class FrsViewData extends hq9 implements gm5, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ForumActiveInfo forumActiveInfo;
     public int frsCurrentTabId;
     public BdUniqueId frsFragmentTag;
-    public tn7 funAdController;
+    public un7 funAdController;
     public boolean isBrandForum;
     public boolean isFrsVideoAutoPlay;
     public boolean isLoadMore;
@@ -144,7 +144,7 @@ public class FrsViewData extends gq9 implements gm5, Serializable {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.gq9
+    @Override // com.baidu.tieba.hq9
     public List<RecmForumInfo> getRecm_forum_list() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -215,14 +215,14 @@ public class FrsViewData extends gq9 implements gm5, Serializable {
     public void removeAlaInsertLiveData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
-            removeTopSameClassDataFromList(zp9.class, getThreadList());
+            removeTopSameClassDataFromList(aq9.class, getThreadList());
         }
     }
 
     public void removeAlaStageLiveDat() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
-            removeTopSameClassDataFromList(aq9.class, getThreadList());
+            removeTopSameClassDataFromList(bq9.class, getThreadList());
         }
     }
 
@@ -296,17 +296,17 @@ public class FrsViewData extends gq9 implements gm5, Serializable {
             }
         }
         if (this.threadList.size() - i > 7 && (feedForumList = this.forum.getBannerListData().getFeedForumList()) != null && feedForumList.size() > 0) {
-            eq9 eq9Var = new eq9();
-            eq9Var.d(this.forum.getId());
-            eq9Var.c(feedForumList);
-            this.threadList.add(i + 6, eq9Var);
+            fq9 fq9Var = new fq9();
+            fq9Var.d(this.forum.getId());
+            fq9Var.c(feedForumList);
+            this.threadList.add(i + 6, fq9Var);
         }
     }
 
     public boolean addHotTopicDataToThreadList() {
         InterceptResult invokeV;
         ForumData forumData;
-        ok6 recomTopicData;
+        pk6 recomTopicData;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (this.threadList != null && (forumData = this.forum) != null && forumData.getBannerListData() != null) {
@@ -403,10 +403,10 @@ public class FrsViewData extends gq9 implements gm5, Serializable {
         }
     }
 
-    public void setFunAdController(tn7 tn7Var) {
+    public void setFunAdController(un7 un7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, tn7Var) == null) {
-            this.funAdController = tn7Var;
+        if (interceptable == null || interceptable.invokeL(1048617, this, un7Var) == null) {
+            this.funAdController = un7Var;
         }
     }
 
@@ -469,11 +469,11 @@ public class FrsViewData extends gq9 implements gm5, Serializable {
     }
 
     public void addStageLiveDataToThreadList() {
-        aq9 frsStageLiveData;
+        bq9 frsStageLiveData;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.threadList != null && getForum() != null && MessageManager.getInstance().findTask(2911003) != null && (frsStageLiveData = getFrsStageLiveData()) != null) {
             ArrayList<rn> threadList = getThreadList();
-            removeTopSameClassDataFromList(aq9.class, threadList);
+            removeTopSameClassDataFromList(bq9.class, threadList);
             if (!ListUtils.isEmpty(frsStageLiveData.a)) {
                 threadList.add(getAlaLiveThreadCardInsertPos(1, threadList.size()), frsStageLiveData);
             }
@@ -489,7 +489,7 @@ public class FrsViewData extends gq9 implements gm5, Serializable {
                     break;
                 }
                 rn next = it.next();
-                if (next != null && next.getType() == lq9.c) {
+                if (next != null && next.getType() == mq9.c) {
                     this.threadList.remove(next);
                     break;
                 }
@@ -576,11 +576,11 @@ public class FrsViewData extends gq9 implements gm5, Serializable {
     }
 
     public void addInsertLiveDataToThreadList() {
-        zp9 frsInsertLiveData;
+        aq9 frsInsertLiveData;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.threadList != null && getForum() != null && MessageManager.getInstance().findTask(2911003) != null && (frsInsertLiveData = getFrsInsertLiveData()) != null) {
             ArrayList<rn> threadList = getThreadList();
-            removeTopSameClassDataFromList(zp9.class, threadList);
+            removeTopSameClassDataFromList(aq9.class, threadList);
             threadList.add(getAlaLiveThreadCardInsertPos(frsInsertLiveData.b, threadList.size()), frsInsertLiveData);
         }
     }
@@ -600,7 +600,7 @@ public class FrsViewData extends gq9 implements gm5, Serializable {
         int a;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && getUserRecommend() != null) {
-            p87 userRecommend = getUserRecommend();
+            q87 userRecommend = getUserRecommend();
             if (ListUtils.getCount(userRecommend.c()) < 3 || (a = userRecommend.a()) <= 0) {
                 return;
             }
@@ -642,7 +642,7 @@ public class FrsViewData extends gq9 implements gm5, Serializable {
         FrsTabInfo frsTabInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            iq9 entelechyTabInfo = getEntelechyTabInfo();
+            jq9 entelechyTabInfo = getEntelechyTabInfo();
             if (entelechyTabInfo == null || (list = entelechyTabInfo.a) == null || list.size() <= 0 || (frsTabInfo = list.get(0)) == null || frsTabInfo.tab_id.intValue() != 1) {
                 return false;
             }
@@ -657,7 +657,7 @@ public class FrsViewData extends gq9 implements gm5, Serializable {
             Iterator<rn> it = this.threadList.iterator();
             while (it.hasNext()) {
                 rn next = it.next();
-                if (next != null && next.getType() == do7.e) {
+                if (next != null && next.getType() == eo7.e) {
                     it.remove();
                 }
             }
@@ -672,7 +672,7 @@ public class FrsViewData extends gq9 implements gm5, Serializable {
         boolean z = false;
         Iterator<rn> it = this.threadList.iterator();
         while (it.hasNext()) {
-            if (it.next() instanceof p87) {
+            if (it.next() instanceof q87) {
                 if (z) {
                     it.remove();
                 } else {
@@ -824,12 +824,12 @@ public class FrsViewData extends gq9 implements gm5, Serializable {
         }
     }
 
-    public void filterEnterList(List<dq9> list) {
+    public void filterEnterList(List<eq9> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048593, this, list) == null) && list != null && list.size() != 0) {
-            Iterator<dq9> it = list.iterator();
+            Iterator<eq9> it = list.iterator();
             while (it.hasNext()) {
-                dq9 next = it.next();
+                eq9 next = it.next();
                 if (next == null) {
                     it.remove();
                 } else if (StringUtils.isNull(next.f()) || StringUtils.isNull(next.d())) {
@@ -843,7 +843,7 @@ public class FrsViewData extends gq9 implements gm5, Serializable {
 
     public List<rn> getShowTopThreadList() {
         InterceptResult invokeV;
-        List<dq9> list;
+        List<eq9> list;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
@@ -867,12 +867,12 @@ public class FrsViewData extends gq9 implements gm5, Serializable {
             }
             ForumData forum = getForum();
             if (forum != null && getForum().getIsShowRule() && this.forumRule != null && (getUserData().getIs_manager() == 1 || this.forumRule.has_forum_rule.intValue() == 1)) {
-                arrayList.add(new kq9(forum, this.forumRule));
+                arrayList.add(new lq9(forum, this.forumRule));
             }
             if (forum != null && !qi.isEmpty(forum.getRiskTipNotice())) {
-                arrayList.add(new jq9(forum, false));
+                arrayList.add(new kq9(forum, false));
             } else if (forum != null && !ListUtils.isEmpty(forum.getTipInfos())) {
-                arrayList.add(new jq9(forum, true));
+                arrayList.add(new kq9(forum, true));
             }
             int i3 = 3 - i;
             int size = arrayList.size();
@@ -957,129 +957,129 @@ public class FrsViewData extends gq9 implements gm5, Serializable {
         }
     }
 
-    public void updateLikeData(rq9 rq9Var) {
+    public void updateLikeData(sq9 sq9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048620, this, rq9Var) != null) || rq9Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048620, this, sq9Var) != null) || sq9Var == null) {
             return;
         }
-        this.forum.setCurScore(rq9Var.c());
-        this.forum.setLevelupScore(rq9Var.i());
-        this.forum.setLike(rq9Var.n());
-        this.forum.setUser_level(rq9Var.m());
-        this.forum.setLevelName(rq9Var.h());
+        this.forum.setCurScore(sq9Var.c());
+        this.forum.setLevelupScore(sq9Var.i());
+        this.forum.setLike(sq9Var.n());
+        this.forum.setUser_level(sq9Var.m());
+        this.forum.setLevelName(sq9Var.h());
     }
 
-    public boolean receiveData(gq9 gq9Var) {
+    public boolean receiveData(hq9 hq9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, gq9Var)) == null) {
-            if (gq9Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, hq9Var)) == null) {
+            if (hq9Var == null) {
                 return false;
             }
-            this.isFromCache = gq9Var.isFromCache;
-            setBaWuNoticeNum(gq9Var.getBaWuNoticeNum());
-            setSortType(gq9Var.getSortType());
-            setAnti(gq9Var.getAnti());
-            setChatGroup(gq9Var.getChatGroup());
-            setFortuneBag(gq9Var.isFortuneBag());
-            setFortuneDesc(gq9Var.getFortuneDesc());
-            setForum(gq9Var.getForum());
-            setGameName(gq9Var.getGameName());
-            setGameUrl(gq9Var.getGameUrl());
-            setGconAccount(gq9Var.getGconAccount());
-            setHasGame(gq9Var.isHasGame());
-            setIsNewUrl(gq9Var.getIsNewUrl());
-            setPhotoLivePos(gq9Var.getPhotoLivePos());
-            setPage(gq9Var.getPage());
-            setStar(gq9Var.getStar());
-            setStarEnter(gq9Var.getStarEnter());
-            setThreadList(gq9Var.threadList);
-            setThreadListIds(gq9Var.getThreadListIds());
-            setUserData(gq9Var.getUserData());
-            setUserMap(gq9Var.getUserMap());
-            setActivityHeadData(gq9Var.getActivityHeadData());
-            setFrsDefaultTabId(gq9Var.getFrsDefaultTabId());
-            this.defaultShowTab = gq9Var.defaultShowTab;
-            setCategoryInfos(gq9Var.getCategoryInfos());
-            setBawuCenterUrl(gq9Var.getBawuCenterUrl());
-            setCardVideoInfo(gq9Var.getCardVideoInfo());
-            setHeadSdkData(gq9Var.getHeadSdkData());
-            setSchoolRecommendPos(gq9Var.getSchoolRecommendPos());
-            setSchoolRecommendInfo(gq9Var.getSchoolRecommendUserInfo());
-            setEntelechyTabInfo(gq9Var.getEntelechyTabInfo());
-            setAlaLiveCount(gq9Var.getAlaLiveCount());
-            setCarrierEnterData(gq9Var.getCarrierEnterData());
-            setForumState(gq9Var.getForumState());
-            setAccessFlag(gq9Var.getAccessFlag());
-            this.needLog = gq9Var.needLog;
-            this.recommendBookData = gq9Var.recommendBookData;
-            this.presentInfoData = gq9Var.presentInfoData;
-            setBookInfo(gq9Var.getBookInfo());
-            setMangaReadRecordChapterId(gq9Var.getMangaReadRecordChapterId());
-            setHeadlineImgInfoData(gq9Var.getHeadlineImgInfoData());
-            setCardShipinPos(gq9Var.getCardShipinPos());
-            setCardShipinNew(gq9Var.getCardShipinNew());
-            this.enterFrsDialogInfo = gq9Var.enterFrsDialogInfo;
-            setGameRankListData(gq9Var.getGameRankListData());
-            setAgreeBanner(gq9Var.getAgreeBanner());
-            setLiveNotify(gq9Var.getLiveNotify());
-            setGameTabInfo(gq9Var.getGameTabInfo());
-            setGameDefaultTabId(gq9Var.getGameDefaultTabId());
-            setForumHeadIcon(gq9Var.getForumHeadIcon());
-            setUserRecommend(gq9Var.getUserRecommend());
-            setFrsVideoActivityData(gq9Var.getFrsVideoActivityData());
-            this.mNewChapterInfo = gq9Var.mNewChapterInfo;
-            setFrsInsertLiveData(gq9Var.getFrsInsertLiveData());
-            this.recm_forum_list = gq9Var.getRecm_forum_list();
-            setFrsStageLiveData(gq9Var.getFrsStageLiveData());
-            this.forumArIno = gq9Var.forumArIno;
-            this.starRank = gq9Var.starRank;
-            this.postTopic = gq9Var.postTopic;
-            this.mWindowToast = gq9Var.mWindowToast;
-            this.activityConfig = gq9Var.activityConfig;
-            setIsShowRedTip(gq9Var.isShowRedTip());
-            this.isBrandForum = gq9Var.isBrandForum;
-            this.brandAdData = gq9Var.brandAdData;
-            this.oriForumInfoList = gq9Var.oriForumInfoList;
-            this.bottomMenuList = gq9Var.bottomMenuList;
-            this.adMixFloor = gq9Var.adMixFloor;
-            this.adShowSelect = gq9Var.adShowSelect;
-            this.adSampleMapKey = gq9Var.adSampleMapKey;
-            t77.f().n(getAnti());
-            t77.f().q(gq9Var.getForum().getId());
-            t77.f().r(gq9Var.getForum().getName());
-            s77.h().q(gq9Var.getForum().getId());
-            if (gq9Var.getEntelechyTabInfo() != null) {
-                s77.h().r(gq9Var.getEntelechyTabInfo().a);
+            this.isFromCache = hq9Var.isFromCache;
+            setBaWuNoticeNum(hq9Var.getBaWuNoticeNum());
+            setSortType(hq9Var.getSortType());
+            setAnti(hq9Var.getAnti());
+            setChatGroup(hq9Var.getChatGroup());
+            setFortuneBag(hq9Var.isFortuneBag());
+            setFortuneDesc(hq9Var.getFortuneDesc());
+            setForum(hq9Var.getForum());
+            setGameName(hq9Var.getGameName());
+            setGameUrl(hq9Var.getGameUrl());
+            setGconAccount(hq9Var.getGconAccount());
+            setHasGame(hq9Var.isHasGame());
+            setIsNewUrl(hq9Var.getIsNewUrl());
+            setPhotoLivePos(hq9Var.getPhotoLivePos());
+            setPage(hq9Var.getPage());
+            setStar(hq9Var.getStar());
+            setStarEnter(hq9Var.getStarEnter());
+            setThreadList(hq9Var.threadList);
+            setThreadListIds(hq9Var.getThreadListIds());
+            setUserData(hq9Var.getUserData());
+            setUserMap(hq9Var.getUserMap());
+            setActivityHeadData(hq9Var.getActivityHeadData());
+            setFrsDefaultTabId(hq9Var.getFrsDefaultTabId());
+            this.defaultShowTab = hq9Var.defaultShowTab;
+            setCategoryInfos(hq9Var.getCategoryInfos());
+            setBawuCenterUrl(hq9Var.getBawuCenterUrl());
+            setCardVideoInfo(hq9Var.getCardVideoInfo());
+            setHeadSdkData(hq9Var.getHeadSdkData());
+            setSchoolRecommendPos(hq9Var.getSchoolRecommendPos());
+            setSchoolRecommendInfo(hq9Var.getSchoolRecommendUserInfo());
+            setEntelechyTabInfo(hq9Var.getEntelechyTabInfo());
+            setAlaLiveCount(hq9Var.getAlaLiveCount());
+            setCarrierEnterData(hq9Var.getCarrierEnterData());
+            setForumState(hq9Var.getForumState());
+            setAccessFlag(hq9Var.getAccessFlag());
+            this.needLog = hq9Var.needLog;
+            this.recommendBookData = hq9Var.recommendBookData;
+            this.presentInfoData = hq9Var.presentInfoData;
+            setBookInfo(hq9Var.getBookInfo());
+            setMangaReadRecordChapterId(hq9Var.getMangaReadRecordChapterId());
+            setHeadlineImgInfoData(hq9Var.getHeadlineImgInfoData());
+            setCardShipinPos(hq9Var.getCardShipinPos());
+            setCardShipinNew(hq9Var.getCardShipinNew());
+            this.enterFrsDialogInfo = hq9Var.enterFrsDialogInfo;
+            setGameRankListData(hq9Var.getGameRankListData());
+            setAgreeBanner(hq9Var.getAgreeBanner());
+            setLiveNotify(hq9Var.getLiveNotify());
+            setGameTabInfo(hq9Var.getGameTabInfo());
+            setGameDefaultTabId(hq9Var.getGameDefaultTabId());
+            setForumHeadIcon(hq9Var.getForumHeadIcon());
+            setUserRecommend(hq9Var.getUserRecommend());
+            setFrsVideoActivityData(hq9Var.getFrsVideoActivityData());
+            this.mNewChapterInfo = hq9Var.mNewChapterInfo;
+            setFrsInsertLiveData(hq9Var.getFrsInsertLiveData());
+            this.recm_forum_list = hq9Var.getRecm_forum_list();
+            setFrsStageLiveData(hq9Var.getFrsStageLiveData());
+            this.forumArIno = hq9Var.forumArIno;
+            this.starRank = hq9Var.starRank;
+            this.postTopic = hq9Var.postTopic;
+            this.mWindowToast = hq9Var.mWindowToast;
+            this.activityConfig = hq9Var.activityConfig;
+            setIsShowRedTip(hq9Var.isShowRedTip());
+            this.isBrandForum = hq9Var.isBrandForum;
+            this.brandAdData = hq9Var.brandAdData;
+            this.oriForumInfoList = hq9Var.oriForumInfoList;
+            this.bottomMenuList = hq9Var.bottomMenuList;
+            this.adMixFloor = hq9Var.adMixFloor;
+            this.adShowSelect = hq9Var.adShowSelect;
+            this.adSampleMapKey = hq9Var.adSampleMapKey;
+            u77.f().n(getAnti());
+            u77.f().q(hq9Var.getForum().getId());
+            u77.f().r(hq9Var.getForum().getName());
+            t77.h().q(hq9Var.getForum().getId());
+            if (hq9Var.getEntelechyTabInfo() != null) {
+                t77.h().r(hq9Var.getEntelechyTabInfo().a);
             }
-            if (gq9Var.getUserData() != null) {
-                u77.c().e(gq9Var.getUserData().bawuThrones);
+            if (hq9Var.getUserData() != null) {
+                v77.c().e(hq9Var.getUserData().bawuThrones);
             }
-            setPrivateForumTotalInfo(gq9Var.getPrivateForumTotalInfo());
-            setPrivateForumPopInfoData(gq9Var.getPrivateForumPopInfo());
+            setPrivateForumTotalInfo(hq9Var.getPrivateForumTotalInfo());
+            setPrivateForumPopInfoData(hq9Var.getPrivateForumPopInfo());
             this.isFrsVideoAutoPlay = TbadkCoreApplication.getInst().canAutoPlaySwitch();
-            this.smartAppAvatar = gq9Var.smartAppAvatar;
-            this.smartApp = gq9Var.smartApp;
-            this.nebulaHotThreads = gq9Var.nebulaHotThreads;
-            this.forumActiveInfo = gq9Var.forumActiveInfo;
-            this.userList = gq9Var.userList;
-            setBusinessPromot(gq9Var.getBusinessPromot());
-            this.serviceAreaData = gq9Var.serviceAreaData;
-            setHotUserRankData(gq9Var.getHotUserRankData());
-            this.itemInfo = gq9Var.itemInfo;
-            this.toLoadHorseData = gq9Var.toLoadHorseData;
-            this.forumRule = gq9Var.forumRule;
-            this.mSignActivityInfo = gq9Var.mSignActivityInfo;
-            this.showAdsense = gq9Var.showAdsense;
-            setVoiceRoomConfig(gq9Var.getVoiceRoomConfig());
-            setVoiceRoomData(gq9Var.getVoiceRoomData());
-            this.serviceAreaFlutterData = gq9Var.serviceAreaFlutterData;
-            this.liveFuseForumDataList = gq9Var.liveFuseForumDataList;
-            this.frsGameRankInfoData = gq9Var.frsGameRankInfoData;
-            this.frsBannerHeaderData = gq9Var.frsBannerHeaderData;
-            this.forumTagInfo = gq9Var.forumTagInfo;
-            this.firstCategory = gq9Var.firstCategory;
-            this.frsForumGroup = gq9Var.frsForumGroup;
+            this.smartAppAvatar = hq9Var.smartAppAvatar;
+            this.smartApp = hq9Var.smartApp;
+            this.nebulaHotThreads = hq9Var.nebulaHotThreads;
+            this.forumActiveInfo = hq9Var.forumActiveInfo;
+            this.userList = hq9Var.userList;
+            setBusinessPromot(hq9Var.getBusinessPromot());
+            this.serviceAreaData = hq9Var.serviceAreaData;
+            setHotUserRankData(hq9Var.getHotUserRankData());
+            this.itemInfo = hq9Var.itemInfo;
+            this.toLoadHorseData = hq9Var.toLoadHorseData;
+            this.forumRule = hq9Var.forumRule;
+            this.mSignActivityInfo = hq9Var.mSignActivityInfo;
+            this.showAdsense = hq9Var.showAdsense;
+            setVoiceRoomConfig(hq9Var.getVoiceRoomConfig());
+            setVoiceRoomData(hq9Var.getVoiceRoomData());
+            this.serviceAreaFlutterData = hq9Var.serviceAreaFlutterData;
+            this.liveFuseForumDataList = hq9Var.liveFuseForumDataList;
+            this.frsGameRankInfoData = hq9Var.frsGameRankInfoData;
+            this.frsBannerHeaderData = hq9Var.frsBannerHeaderData;
+            this.forumTagInfo = hq9Var.forumTagInfo;
+            this.firstCategory = hq9Var.firstCategory;
+            this.frsForumGroup = hq9Var.frsForumGroup;
             return true;
         }
         return invokeL.booleanValue;

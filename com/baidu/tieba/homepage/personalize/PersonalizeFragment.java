@@ -22,20 +22,20 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.a16;
 import com.baidu.tieba.aj5;
-import com.baidu.tieba.cr7;
 import com.baidu.tieba.dr7;
-import com.baidu.tieba.i97;
-import com.baidu.tieba.in6;
+import com.baidu.tieba.er7;
+import com.baidu.tieba.j97;
+import com.baidu.tieba.jn6;
 import com.baidu.tieba.lr4;
 import com.baidu.tieba.mr4;
 import com.baidu.tieba.o65;
 import com.baidu.tieba.rn5;
-import com.baidu.tieba.st7;
-import com.baidu.tieba.tm9;
-import com.baidu.tieba.tp9;
-import com.baidu.tieba.vm9;
+import com.baidu.tieba.tt7;
+import com.baidu.tieba.um9;
+import com.baidu.tieba.up9;
 import com.baidu.tieba.vn;
 import com.baidu.tieba.wb;
+import com.baidu.tieba.wm9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,12 +45,12 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.Personalized.DataRes;
 /* loaded from: classes5.dex */
-public class PersonalizeFragment extends BaseFragment implements i97, VoiceManager.j {
+public class PersonalizeFragment extends BaseFragment implements j97, VoiceManager.j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public PersonalizePageView a;
     public VoiceManager b;
-    public cr7 c;
+    public dr7 c;
     public boolean d;
     public final Object e;
     public CustomMessageListener f;
@@ -58,14 +58,14 @@ public class PersonalizeFragment extends BaseFragment implements i97, VoiceManag
     public final CustomMessageListener h;
     public final CustomMessageListener i;
 
-    @Override // com.baidu.tieba.i97
+    @Override // com.baidu.tieba.j97
     public void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.i97
+    @Override // com.baidu.tieba.j97
     public void a0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
@@ -315,7 +315,7 @@ public class PersonalizeFragment extends BaseFragment implements i97, VoiceManag
             if (voiceManager != null) {
                 voiceManager.onDestory(getPageContext());
             }
-            tp9.g().k(getUniqueId());
+            up9.g().k(getUniqueId());
             MessageManager.getInstance().unRegisterListener(this.f);
             MessageManager.getInstance().unRegisterListener(this.g);
             MessageManager.getInstance().unRegisterListener(this.i);
@@ -323,7 +323,7 @@ public class PersonalizeFragment extends BaseFragment implements i97, VoiceManag
             this.a.w0();
             this.d = true;
             aj5.e().b();
-            in6.b().unregister(this.e);
+            jn6.b().unregister(this.e);
         }
     }
 
@@ -400,19 +400,19 @@ public class PersonalizeFragment extends BaseFragment implements i97, VoiceManag
         SpeedStatsManager.getInstance().addStatsTimeStamp(5047);
     }
 
-    public void N1(cr7 cr7Var) {
+    public void N1(dr7 dr7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, cr7Var) == null) {
-            this.c = cr7Var;
-            this.a.setCallback(cr7Var);
+        if (interceptable == null || interceptable.invokeL(1048581, this, dr7Var) == null) {
+            this.c = dr7Var;
+            this.a.setCallback(dr7Var);
         }
     }
 
-    public void O1(dr7 dr7Var) {
+    public void O1(er7 er7Var) {
         PersonalizePageView personalizePageView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, dr7Var) == null) && (personalizePageView = this.a) != null) {
-            personalizePageView.setScrollFragmentTabHost(dr7Var);
+        if ((interceptable == null || interceptable.invokeL(1048582, this, er7Var) == null) && (personalizePageView = this.a) != null) {
+            personalizePageView.setScrollFragmentTabHost(er7Var);
         }
     }
 
@@ -438,7 +438,7 @@ public class PersonalizeFragment extends BaseFragment implements i97, VoiceManag
         if (interceptable == null || interceptable.invokeL(1048597, this, bundle) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PERSONALIZE_TAB_ON_CREATE_START_STAMP_KEY);
             super.onCreate(bundle);
-            tp9.g().i(getUniqueId());
+            up9.g().i(getUniqueId());
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PERSONALIZE_TAB_ON_CREATE_END_STAMP_KEY);
         }
     }
@@ -454,7 +454,7 @@ public class PersonalizeFragment extends BaseFragment implements i97, VoiceManag
     public final void J1() {
         PersonalizePageView personalizePageView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && st7.a(getBaseFragmentActivity()) && (personalizePageView = this.a) != null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && tt7.a(getBaseFragmentActivity()) && (personalizePageView = this.a) != null) {
             personalizePageView.D0();
         }
     }
@@ -501,7 +501,7 @@ public class PersonalizeFragment extends BaseFragment implements i97, VoiceManag
         }
     }
 
-    @Override // com.baidu.tieba.i97
+    @Override // com.baidu.tieba.j97
     public void h0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
@@ -535,7 +535,7 @@ public class PersonalizeFragment extends BaseFragment implements i97, VoiceManag
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
             super.onStop();
-            tp9.g().h(getUniqueId(), false);
+            up9.g().h(getUniqueId(), false);
             VoiceManager voiceManager = this.b;
             if (voiceManager != null) {
                 voiceManager.onStop(getPageContext());
@@ -577,7 +577,7 @@ public class PersonalizeFragment extends BaseFragment implements i97, VoiceManag
         return (VoiceManager) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.i97
+    @Override // com.baidu.tieba.j97
     public void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
@@ -657,8 +657,8 @@ public class PersonalizeFragment extends BaseFragment implements i97, VoiceManag
             registerListener(this.f);
             registerListener(this.g);
             registerListener(this.i);
-            in6.b().a(this.e, new vm9());
-            in6.b().a(this.e, new tm9());
+            jn6.b().a(this.e, new wm9());
+            jn6.b().a(this.e, new um9());
         }
     }
 
@@ -677,9 +677,9 @@ public class PersonalizeFragment extends BaseFragment implements i97, VoiceManag
             }
             if (this.a.getParent() instanceof ViewGroup) {
                 ((ViewGroup) this.a.getParent()).removeView(this.a);
-                cr7 cr7Var = this.c;
-                if (cr7Var != null) {
-                    this.a.setCallback(cr7Var);
+                dr7 dr7Var = this.c;
+                if (dr7Var != null) {
+                    this.a.setCallback(dr7Var);
                 }
             }
             this.a.setPageUniqueId(getUniqueId());

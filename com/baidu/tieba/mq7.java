@@ -22,6 +22,7 @@ public class mq7 extends en<rq7, ThreadCardViewHolder<rq7>> implements c16 {
     public BdUniqueId b;
     public xn c;
     public String d;
+    public byte e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public mq7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, byte b) {
@@ -43,6 +44,7 @@ public class mq7 extends en<rq7, ThreadCardViewHolder<rq7>> implements c16 {
             }
         }
         this.a = tbPageContext;
+        this.e = b;
     }
 
     @Override // com.baidu.tieba.c16
@@ -68,14 +70,10 @@ public class mq7 extends en<rq7, ThreadCardViewHolder<rq7>> implements c16 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
             py.b bVar = new py.b(this.a.getPageActivity(), false);
-            yq7 yq7Var = new yq7(this.a);
-            yq7Var.t(2);
-            yq7Var.u(this.b);
-            bVar.n(yq7Var);
+            bVar.n(new yq7(this.a, this.b, this.e));
             bVar.l().c(0);
             bVar.l().g(0);
             bVar.l().f(0);
-            bVar.l().e(0);
             bVar.l().i(0);
             ThreadCardViewHolder<rq7> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.c));
             threadCardViewHolder.i(this.b);
@@ -91,7 +89,6 @@ public class mq7 extends en<rq7, ThreadCardViewHolder<rq7>> implements c16 {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rq7Var, threadCardViewHolder})) == null) {
-            rq7Var.i(i);
             threadCardViewHolder.e(rq7Var);
             if (threadCardViewHolder.a() != null) {
                 threadCardViewHolder.a().r(i);

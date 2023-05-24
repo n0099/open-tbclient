@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gh8;
+import com.baidu.tieba.hh8;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -142,7 +142,7 @@ public class LabelItemView extends LinearLayout {
         }
     }
 
-    public void setData(List<gh8> list, boolean z) {
+    public void setData(List<hh8> list, boolean z) {
         int i;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLZ(1048579, this, list, z) != null) || ListUtils.isEmpty(list)) {
@@ -156,19 +156,19 @@ public class LabelItemView extends LinearLayout {
             if (i2 >= i) {
                 break;
             }
-            gh8 gh8Var = list.get(i2);
-            if (gh8Var != null && (getChildAt(i2) instanceof TextView)) {
+            hh8 hh8Var = list.get(i2);
+            if (hh8Var != null && (getChildAt(i2) instanceof TextView)) {
                 TextView textView = (TextView) getChildAt(i2);
                 textView.setVisibility(0);
-                String str = gh8Var.b;
-                if (!StringUtils.isNull(str) && gh8Var.b.length() > 4) {
-                    str = gh8Var.b.substring(0, 3) + StringHelper.STRING_MORE;
+                String str = hh8Var.b;
+                if (!StringUtils.isNull(str) && hh8Var.b.length() > 4) {
+                    str = hh8Var.b.substring(0, 3) + StringHelper.STRING_MORE;
                 }
                 textView.setText(str);
                 SkinManager.setViewTextColor(textView, (int) R.drawable.color_lable_selector);
                 textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_lable_selector), (Drawable) null);
-                textView.setSelected(gh8Var.c);
-                textView.setTag(gh8Var);
+                textView.setSelected(hh8Var.c);
+                textView.setTag(hh8Var);
             }
             i2++;
         }

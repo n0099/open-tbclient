@@ -17,8 +17,8 @@ import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.tbadk.core.data.WorkPostNotifyFlutterData;
 import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.k55;
-import com.baidu.tieba.kh6;
 import com.baidu.tieba.l55;
+import com.baidu.tieba.lh6;
 import com.baidu.tieba.m55;
 import com.baidu.tieba.o55;
 import com.baidu.tieba.p55;
@@ -489,7 +489,7 @@ public class WebViewBridge extends s55 implements p55 {
             }
             try {
                 String b2 = t55Var.b();
-                kh6.a().e(this.a, b2, null);
+                lh6.a().e(this.a, b2, null);
                 m55.a(b2);
             } catch (NullPointerException e) {
                 x("500", e.getMessage());

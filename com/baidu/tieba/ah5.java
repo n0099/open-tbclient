@@ -225,7 +225,7 @@ public class ah5 extends ue5 {
                 p.l = 1;
             }
             if (!this.c) {
-                if (lt9.a() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, b.getContext()), df5.class)) != null && (df5Var = (df5) runTask.getData()) != null) {
+                if (mt9.a() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, b.getContext()), df5.class)) != null && (df5Var = (df5) runTask.getData()) != null) {
                     df5Var.l = 2;
                     b.d(df5Var);
                 }

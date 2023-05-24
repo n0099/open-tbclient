@@ -343,7 +343,7 @@ public class xg5 extends ue5 {
             arrayList.add(6);
             arrayList.add(9);
             b.d(new of5(b.getContext(), 1));
-            if (lt9.a() && pq9.a(this.b, Boolean.TRUE) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, b.getContext()), df5.class)) != null && (df5Var = (df5) runTask.getData()) != null) {
+            if (mt9.a() && qq9.a(this.b, Boolean.TRUE) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, b.getContext()), df5.class)) != null && (df5Var = (df5) runTask.getData()) != null) {
                 df5Var.l = 2;
                 b.d(df5Var);
             }

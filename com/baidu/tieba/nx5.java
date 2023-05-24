@@ -1260,12 +1260,12 @@ public class nx5 {
         return invokeL.booleanValue;
     }
 
-    public static boolean x(rr9 rr9Var) {
+    public static boolean x(sr9 sr9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65571, null, rr9Var)) == null) {
-            if (rr9Var != null && rr9Var.a0() != null) {
-                ArrayList<TbRichTextData> W = rr9Var.a0().W();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65571, null, sr9Var)) == null) {
+            if (sr9Var != null && sr9Var.a0() != null) {
+                ArrayList<TbRichTextData> W = sr9Var.a0().W();
                 if (!ListUtils.isEmpty(W)) {
                     for (int count = ListUtils.getCount(W) - 1; count >= 0; count--) {
                         if (W.get(count).getType() == 37) {

@@ -4,7 +4,7 @@ import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-import com.baidu.tieba.dda;
+import com.baidu.tieba.eda;
 import com.baidu.tieba.ep5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -42,7 +42,7 @@ public class WriteVoteActivity extends SuspendedActivity {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linearLayout, navigationBar)) == null) {
-            return new dda(getPageContext(), linearLayout, navigationBar);
+            return new eda(getPageContext(), linearLayout, navigationBar);
         }
         return (ep5) invokeLL.objValue;
     }

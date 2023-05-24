@@ -1,42 +1,55 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.SizedSyncTreeSet;
-import com.baidu.tieba.impersonal.sprite.SpriteMsgProcessor;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.atomData.PersonalMsgImageActivityConfig;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.httpNet.HttpNetContext;
+import com.baidu.tbadk.core.util.httpNet.HttpResponse;
+import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
+import com.baidu.tieba.o25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ListIterator;
-import java.util.Vector;
-import kotlin.collections.CollectionsKt__MutableCollectionsKt;
-import kotlin.collections.CollectionsKt___CollectionsKt;
 import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class yg8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Vector<String> f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SpriteMsgProcessor a;
-    public final String b;
-    public final long c;
-    public final String d;
-    public final Runnable e;
+    public b a;
+    public m25 b;
+    public PermissionJudgePolicy c;
+    public final int d;
+    public final int e;
+    public final int f;
+    public c g;
 
     /* loaded from: classes8.dex */
-    public static final class a implements Runnable {
+    public final class a implements o25.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yg8 a;
+        public String a;
+        public byte[] b;
+        public final /* synthetic */ yg8 c;
 
+        /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public a(yg8 yg8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -52,232 +65,326 @@ public final class yg8 {
                     return;
                 }
             }
-            this.a = yg8Var;
+            this.c = yg8Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.o25.f
+        public void M0(o25 mPopupDialogView, int i, View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.e();
-                if (!this.a.j()) {
-                    SpriteMsgProcessor i = this.a.i();
-                    String loadingTimeOutContent = this.a.d;
-                    Intrinsics.checkNotNullExpressionValue(loadingTimeOutContent, "loadingTimeOutContent");
-                    i.F(loadingTimeOutContent, this.a.k());
-                    yg8.f.clear();
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, mPopupDialogView, i, view2) == null) {
+                Intrinsics.checkNotNullParameter(mPopupDialogView, "mPopupDialogView");
+                Intrinsics.checkNotNullParameter(view2, "view");
+                if (!(view2 instanceof TextView)) {
+                    return;
+                }
+                String obj = ((TextView) view2).getText().toString();
+                if (TextUtils.isEmpty(obj)) {
+                    return;
+                }
+                this.c.j(mPopupDialogView, obj, this.a, this.b);
+                m25 m25Var = this.c.b;
+                if (m25Var != null) {
+                    m25Var.dismiss();
                 }
             }
         }
+
+        public final void a(String str, byte[] bArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bArr) == null) {
+                this.a = str;
+                this.b = bArr;
+            }
+        }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948329311, "Lcom/baidu/tieba/yg8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public final class b extends BdAsyncTask<String, Integer, String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public NetWork a;
+        public String b;
+        public String c;
+        public final /* synthetic */ yg8 d;
+
+        /* JADX DEBUG: Incorrect args count in method signature: ()V */
+        public b(yg8 yg8Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yg8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948329311, "Lcom/baidu/tieba/yg8;");
+            this.d = yg8Var;
+        }
+
+        public final void b(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                try {
+                    this.c = new JSONObject(str).optString("pid");
+                } catch (Exception e) {
+                    BdLog.detailException(e);
+                }
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                NetWork netWork = this.a;
+                if (netWork != null) {
+                    Intrinsics.checkNotNull(netWork);
+                    netWork.cancelNetConnect();
+                }
+                this.d.a = null;
+                super.cancel(true);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public String doInBackground(String... params) {
+            InterceptResult invokeL;
+            boolean z;
+            HttpNetContext netContext;
+            HttpResponse response;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, params)) == null) {
+                Intrinsics.checkNotNullParameter(params, "params");
+                NetWork netWork = new NetWork(TbConfig.URL_REQUEST_PID);
+                this.a = netWork;
+                String str = null;
+                boolean z2 = false;
+                try {
+                    String str2 = params[0];
+                    this.b = str2;
+                    if (netWork != null) {
+                        netWork.addPostData("pic_url", str2);
+                    }
+                    NetWork netWork2 = this.a;
+                    if (netWork2 != null) {
+                        str = netWork2.postMultiNetData();
+                    }
+                    NetWork netWork3 = this.a;
+                    if (netWork3 != null && (netContext = netWork3.getNetContext()) != null && (response = netContext.getResponse()) != null && response.isRequestSuccess()) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (z) {
+                        if (!((str == null || str.length() == 0) ? true : true)) {
+                            b(str);
+                        }
+                    }
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                }
+                return str;
+            }
+            return (String) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+                super.onPostExecute((b) str);
+                PersonalMsgImageActivityConfig personalMsgImageActivityConfig = new PersonalMsgImageActivityConfig(TbadkApplication.getInst(), this.b, TbadkCoreApplication.getCurrentAccountId(), "");
+                personalMsgImageActivityConfig.isFromGroupChat(true);
+                personalMsgImageActivityConfig.setPid(this.c);
+                personalMsgImageActivityConfig.isShieldLongClickViewTitle(true);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, personalMsgImageActivityConfig));
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public final class c extends BdAsyncTask<String, Integer, String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final byte[] b;
+        public final /* synthetic */ yg8 c;
+
+        public c(yg8 yg8Var, String str, byte[] bArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yg8Var, str, bArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = yg8Var;
+            this.a = str;
+            this.b = bArr;
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
                 return;
             }
+            this.c.g = null;
+            super.cancel(true);
         }
-        f = new Vector<>();
-    }
 
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (f.isEmpty()) {
-                e();
-                return;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public String doInBackground(String... arg0) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arg0)) == null) {
+                Intrinsics.checkNotNullParameter(arg0, "arg0");
+                int saveImageFileByUser = FileHelper.saveImageFileByUser(this.a, this.b, TbadkApplication.getInst());
+                if (saveImageFileByUser == this.c.d) {
+                    String string = TbadkCoreApplication.getInst().getString(R.string.save_image_to_album);
+                    Intrinsics.checkNotNullExpressionValue(string, "getInst()\n              …ring.save_image_to_album)");
+                    return string;
+                } else if (saveImageFileByUser == this.c.f) {
+                    String sdErrorString = FileHelper.getSdErrorString();
+                    Intrinsics.checkNotNullExpressionValue(sdErrorString, "getSdErrorString()");
+                    return sdErrorString;
+                } else if (saveImageFileByUser == this.c.e) {
+                    String string2 = TbadkCoreApplication.getInst().getString(R.string.save_fail);
+                    Intrinsics.checkNotNullExpressionValue(string2, "getInst()\n              …kcore.R.string.save_fail)");
+                    return string2;
+                } else {
+                    String string3 = TbadkCoreApplication.getInst().getString(R.string.save_fail);
+                    Intrinsics.checkNotNullExpressionValue(string3, "getInst()\n              …kcore.R.string.save_fail)");
+                    return string3;
+                }
             }
-            xna.a().removeCallbacks(this.e);
-            xna.a().postDelayed(this.e, this.c);
+            return (String) invokeL.objValue;
         }
-    }
 
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            xna.a().removeCallbacks(this.e);
-        }
-    }
-
-    public final String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Object first = CollectionsKt___CollectionsKt.first((List<? extends Object>) f);
-            Intrinsics.checkNotNullExpressionValue(first, "sendMsgkeyList.first()");
-            return (String) first;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final long g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            long o = o65.m().o("key_funny_sprite_loading_animation_show", 0L);
-            if (j() || o <= 0) {
-                return 0L;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(String result) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, result) == null) {
+                Intrinsics.checkNotNullParameter(result, "result");
+                super.onPostExecute((c) result);
+                this.c.g = null;
+                ri.Q(TbadkCoreApplication.getInst(), result);
             }
-            return this.c - (System.currentTimeMillis() - o);
         }
-        return invokeV.longValue;
     }
 
-    public final String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            String loadingTimeOutContent = this.d;
-            Intrinsics.checkNotNullExpressionValue(loadingTimeOutContent, "loadingTimeOutContent");
-            return loadingTimeOutContent;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final SpriteMsgProcessor i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a;
-        }
-        return (SpriteMsgProcessor) invokeV.objValue;
-    }
-
-    public final boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return f.isEmpty();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            String lastElement = f.lastElement();
-            Intrinsics.checkNotNullExpressionValue(lastElement, "sendMsgkeyList.lastElement()");
-            return lastElement;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public yg8(SpriteMsgProcessor spriteMsgProcessor) {
+    public yg8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {spriteMsgProcessor};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(spriteMsgProcessor, "spriteMsgProcessor");
-        this.a = spriteMsgProcessor;
-        String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f139a);
-        Intrinsics.checkNotNullExpressionValue(string, "getInst().getString(R.string.sprite_time_out_hint)");
-        this.b = string;
-        this.c = o65.m().n("key_funny_sprite_msg_time_out", 60) * 1000;
-        this.d = o65.m().s("key_funny_sprite_msg_time_out_content", this.b);
-        this.e = new a(this);
+        this.e = -1;
+        this.f = -2;
     }
 
-    public final void c(String msgKey) {
+    public final String[] h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, msgKey) == null) {
-            Intrinsics.checkNotNullParameter(msgKey, "msgKey");
-            if (!f.contains(msgKey)) {
-                f.add(msgKey);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1241);
+            Intrinsics.checkNotNullExpressionValue(string, "getInst().getString(com.….tbadkcore.R.string.save)");
+            return new String[]{string};
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    public final void i(String mImgUrl) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mImgUrl) == null) {
+            Intrinsics.checkNotNullParameter(mImgUrl, "mImgUrl");
+            b bVar = new b(this);
+            this.a = bVar;
+            if (bVar != null) {
+                bVar.execute(mImgUrl);
             }
-            d();
-            o65.m().A("key_funny_sprite_loading_animation_show", System.currentTimeMillis());
         }
     }
 
-    public final void l(long j) {
+    public final void j(o25 o25Var, String str, String str2, byte[] bArr) {
+        TbPageContextSupport tbPageContextSupport;
+        TbPageContext pageContext;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            xna.a().removeCallbacks(this.e);
-            xna.a().postDelayed(this.e, j);
-        }
-    }
-
-    public final void o(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            if (z) {
-                f.clear();
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, o25Var, str, str2, bArr) == null) {
+            Context context = o25Var.getContext();
+            Activity activity = null;
+            if (context instanceof TbPageContextSupport) {
+                tbPageContextSupport = (TbPageContextSupport) context;
+            } else {
+                tbPageContextSupport = null;
             }
-            e();
-        }
-    }
-
-    public final void m(String msgKey, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048586, this, msgKey, z) == null) {
-            Intrinsics.checkNotNullParameter(msgKey, "msgKey");
-            if (z) {
-                f.remove(msgKey);
-            } else if (!j()) {
-                CollectionsKt__MutableCollectionsKt.removeFirst(f);
-            }
-            d();
-        }
-    }
-
-    public final boolean n(SizedSyncTreeSet<pe8> set) {
-        InterceptResult invokeL;
-        Object obj;
-        ue8 ue8Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, set)) == null) {
-            Intrinsics.checkNotNullParameter(set, "set");
-            if (j()) {
-                return true;
-            }
-            ArrayList arrayList = new ArrayList(set);
-            ListIterator listIterator = arrayList.listIterator(arrayList.size());
-            while (true) {
-                if (listIterator.hasPrevious()) {
-                    obj = listIterator.previous();
-                    if (Intrinsics.areEqual(((pe8) obj).b(), f())) {
-                        break;
-                    }
-                } else {
-                    obj = null;
-                    break;
+            if (Intrinsics.areEqual(str, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1241))) {
+                if (tbPageContextSupport != null && (pageContext = tbPageContextSupport.getPageContext()) != null) {
+                    activity = pageContext.getPageActivity();
+                }
+                if (this.c == null) {
+                    this.c = new PermissionJudgePolicy();
+                }
+                PermissionJudgePolicy permissionJudgePolicy = this.c;
+                if (permissionJudgePolicy != null) {
+                    permissionJudgePolicy.clearRequestPermissionList();
+                }
+                PermissionJudgePolicy permissionJudgePolicy2 = this.c;
+                if (permissionJudgePolicy2 != null) {
+                    permissionJudgePolicy2.appendRequestPermission(activity, "android.permission.WRITE_EXTERNAL_STORAGE");
+                }
+                PermissionJudgePolicy permissionJudgePolicy3 = this.c;
+                boolean z = true;
+                if ((permissionJudgePolicy3 == null || !permissionJudgePolicy3.startRequestPermission(activity)) ? false : false) {
+                    return;
+                }
+                c cVar = new c(this, str2, bArr);
+                this.g = cVar;
+                if (cVar != null) {
+                    cVar.execute(new String[0]);
                 }
             }
-            int lastIndexOf = CollectionsKt___CollectionsKt.lastIndexOf((List<? extends pe8>) arrayList, (pe8) obj);
-            if (lastIndexOf >= -1 && lastIndexOf < arrayList.size() - 1) {
-                int size = arrayList.size();
-                for (int i = lastIndexOf + 1; i < size; i++) {
-                    Object item = ListUtils.getItem(arrayList, i);
-                    if (item instanceof ue8) {
-                        ue8Var = (ue8) item;
-                    } else {
-                        ue8Var = null;
-                    }
-                    if (ue8Var != null && !ue8Var.e().d() && !qi.isEmpty(ue8Var.g().a())) {
-                        m(ue8Var.g().a(), true);
-                    }
+        }
+    }
+
+    public final void k(Context mContext, String str, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, mContext, str, bArr) == null) {
+            Intrinsics.checkNotNullParameter(mContext, "mContext");
+            TbPageContext currentPageContext = TbadkApplication.getInst().getCurrentPageContext(mContext);
+            if (currentPageContext != null) {
+                m25 m25Var = new m25(currentPageContext);
+                a aVar = new a(this);
+                aVar.a(str, bArr);
+                m25Var.i(null, h(), aVar);
+                this.b = m25Var;
+                if (m25Var != null) {
+                    m25Var.l();
                 }
             }
-            return j();
         }
-        return invokeL.booleanValue;
     }
 }

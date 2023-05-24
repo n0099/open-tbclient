@@ -1,118 +1,31 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.danmu.layout.retainer.AkTopRetainer;
+import com.baidu.tieba.gq6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import java.util.Map;
-import kotlin.Pair;
-import kotlin.collections.MapsKt__MapsKt;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class cq6 implements yp6 {
+public final class cq6 extends xp6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final yp6 a;
-    public final Map<Integer, yp6> b;
 
-    public cq6(yp6 defaultLayouter, Pair<Integer, ? extends yp6>... layouter) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cq6() {
+        super(new AkTopRetainer(0.0f, 0.0f, 3, null), new fq6());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {defaultLayouter, layouter};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((gq6) objArr[0], (gq6.a) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(defaultLayouter, "defaultLayouter");
-        Intrinsics.checkNotNullParameter(layouter, "layouter");
-        this.a = defaultLayouter;
-        this.b = MapsKt__MapsKt.mutableMapOf((Pair[]) Arrays.copyOf(layouter, layouter.length));
-    }
-
-    @Override // com.baidu.tieba.yp6
-    public void a(ko6 item, long j, kq6 displayer, eo6 config) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{item, Long.valueOf(j), displayer, config}) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(displayer, "displayer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            f(item).a(item, j, displayer, config);
-        }
-    }
-
-    @Override // com.baidu.tieba.yp6
-    public boolean d(ko6 item, long j, kq6 displayer, eo6 config) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{item, Long.valueOf(j), displayer, config})) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(displayer, "displayer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            return f(item).d(item, j, displayer, config);
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.yp6
-    public void b(ko6 item) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            f(item).b(item);
-        }
-    }
-
-    public int e(ko6 item) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, item)) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            return item.e().j();
-        }
-        return invokeL.intValue;
-    }
-
-    public final yp6 f(ko6 ko6Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, ko6Var)) == null) {
-            yp6 yp6Var = this.b.get(Integer.valueOf(e(ko6Var)));
-            if (yp6Var == null) {
-                return this.a;
-            }
-            return yp6Var;
-        }
-        return (yp6) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.yp6
-    public void c(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            this.a.c(i, i2);
-            for (yp6 yp6Var : this.b.values()) {
-                yp6Var.c(i, i2);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.yp6
-    public void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.clear();
-            for (yp6 yp6Var : this.b.values()) {
-                yp6Var.clear();
             }
         }
     }

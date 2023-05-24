@@ -1,41 +1,45 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.log.TbLogManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public abstract class zk8<T> {
+public class zk8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public final String a;
+    public final String b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948362946, "Lcom/baidu/tieba/zk8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948362946, "Lcom/baidu/tieba/zk8;");
-        }
-    }
-
-    public zk8(String key) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public zk8(String str) {
+        this(str, "000");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {key};
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public zk8(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -45,82 +49,35 @@ public abstract class zk8<T> {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(key, "key");
-        this.a = "default";
-        this.a = "key_prefix_" + key;
+        this.a = str;
+        this.b = str2;
     }
 
-    public final T a(T t) {
-        InterceptResult invokeL;
+    public void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
-            Intrinsics.checkNotNullParameter(t, "default");
-            return (T) b(t);
-        }
-        return (T) invokeL.objValue;
-    }
-
-    public final void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.a = str;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            TbLogManager.log(this.a, TbLogManager.Level.DEBUG, this.b, str, str2);
         }
     }
 
-    public final Object b(T t) {
-        InterceptResult invokeL;
+    public void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
-            if (t instanceof String) {
-                String s = o65.m().s(this.a, (String) t);
-                Intrinsics.checkNotNullExpressionValue(s, "getInstance().getString(key, default as String)");
-                return s;
-            } else if (t instanceof Integer) {
-                return Integer.valueOf(o65.m().n(this.a, ((Integer) t).intValue()));
-            } else {
-                if (t instanceof Long) {
-                    return Long.valueOf(o65.m().o(this.a, ((Long) t).longValue()));
-                }
-                if (t instanceof Boolean) {
-                    return Boolean.valueOf(o65.m().i(this.a, ((Boolean) t).booleanValue()));
-                }
-                if (t instanceof Float) {
-                    return Float.valueOf(o65.m().l(this.a, ((Float) t).floatValue()));
-                }
-                return t;
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            TbLogManager.log(this.a, TbLogManager.Level.ERROR, this.b, str, str2);
         }
-        return invokeL.objValue;
     }
 
-    public final T d(T value) {
-        InterceptResult invokeL;
+    public void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, value)) == null) {
-            Intrinsics.checkNotNullParameter(value, "value");
-            if (value instanceof String) {
-                o65.m().B(this.a, (String) value);
-            } else if (value instanceof Integer) {
-                o65.m().z(this.a, ((Integer) value).intValue());
-            } else if (value instanceof Long) {
-                o65.m().A(this.a, ((Long) value).longValue());
-            } else if (value instanceof Boolean) {
-                o65.m().w(this.a, ((Boolean) value).booleanValue());
-            } else if (value instanceof Float) {
-                o65.m().y(this.a, ((Float) value).floatValue());
-            }
-            return value;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+            TbLogManager.log(this.a, TbLogManager.Level.INFO, this.b, str, str2);
         }
-        return (T) invokeL.objValue;
     }
 
-    public final String c() {
-        InterceptResult invokeV;
+    public void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            TbLogManager.log(this.a, TbLogManager.Level.WARN, this.b, str, str2);
         }
-        return (String) invokeV.objValue;
     }
 }

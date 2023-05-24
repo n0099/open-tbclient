@@ -6,7 +6,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public final class l07 {
@@ -14,27 +13,6 @@ public final class l07 {
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
     public final String b;
-    public final int c;
-    public final int d;
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public l07() {
-        this(null, null, 0, 0, 15, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((String) objArr[0], (String) objArr[1], ((Integer) objArr[2]).intValue(), ((Integer) objArr[3]).intValue(), ((Integer) objArr[4]).intValue(), (DefaultConstructorMarker) objArr[5]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
@@ -45,7 +23,7 @@ public final class l07 {
             }
             if (obj instanceof l07) {
                 l07 l07Var = (l07) obj;
-                return Intrinsics.areEqual(this.a, l07Var.a) && Intrinsics.areEqual(this.b, l07Var.b) && this.c == l07Var.c && this.d == l07Var.d;
+                return Intrinsics.areEqual(this.a, l07Var.a) && Intrinsics.areEqual(this.b, l07Var.b);
             }
             return false;
         }
@@ -55,43 +33,41 @@ public final class l07 {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c) * 31) + this.d : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String str = this.a;
+            int hashCode = (str == null ? 0 : str.hashCode()) * 31;
+            String str2 = this.b;
+            return hashCode + (str2 != null ? str2.hashCode() : 0);
+        }
+        return invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "IconData(day=" + this.a + ", dark=" + this.b + ", width=" + this.c + ", height=" + this.d + ')';
+            return "FeedFeedbackUserData(userId=" + this.a + ", portrait=" + this.b + ')';
         }
         return (String) invokeV.objValue;
     }
 
-    public l07(String day, String dark, int i, int i2) {
+    public l07(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {day, dark, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(day, "day");
-        Intrinsics.checkNotNullParameter(dark, "dark");
-        this.a = day;
-        this.b = dark;
-        this.c = i;
-        this.d = i2;
-    }
-
-    public /* synthetic */ l07(String str, String str2, int i, int i2, int i3, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i3 & 1) != 0 ? "" : str, (i3 & 2) != 0 ? "" : str2, (i3 & 4) != 0 ? 0 : i, (i3 & 8) != 0 ? 0 : i2);
+        this.a = str;
+        this.b = str2;
     }
 
     public final String a() {

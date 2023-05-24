@@ -39,18 +39,18 @@ public class ju5 {
     }
 
     /* loaded from: classes6.dex */
-    public class a implements gs9 {
+    public class a implements hs9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ es9 a;
+        public final /* synthetic */ fs9 a;
         public final /* synthetic */ WebView b;
 
-        public a(ju5 ju5Var, es9 es9Var, WebView webView) {
+        public a(ju5 ju5Var, fs9 fs9Var, WebView webView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ju5Var, es9Var, webView};
+                Object[] objArr = {ju5Var, fs9Var, webView};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -60,18 +60,18 @@ public class ju5 {
                     return;
                 }
             }
-            this.a = es9Var;
+            this.a = fs9Var;
             this.b = webView;
         }
 
-        @Override // com.baidu.tieba.gs9
+        @Override // com.baidu.tieba.hs9
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
-                es9 es9Var = this.a;
-                if (es9Var != null) {
-                    return es9Var.c(this.b, str, jsPromptResult);
+                fs9 fs9Var = this.a;
+                if (fs9Var != null) {
+                    return fs9Var.c(this.b, str, jsPromptResult);
                 }
                 return false;
             }
@@ -122,10 +122,10 @@ public class ju5 {
             BridgeWebView bridgeWebView = new BridgeWebView(new MutableContextWrapper(context));
             bridgeWebView.setBackgroundColor(R.color.transparent);
             ku5.b(bridgeWebView);
-            es9 es9Var = new es9();
-            es9Var.a(new CommonTbJsBridge(context, bridgeWebView));
+            fs9 fs9Var = new fs9();
+            fs9Var.a(new CommonTbJsBridge(context, bridgeWebView));
             hv4 hv4Var = new hv4();
-            hv4Var.b(new a(this, es9Var, bridgeWebView));
+            hv4Var.b(new a(this, fs9Var, bridgeWebView));
             bridgeWebView.setWebChromeClient(hv4Var);
             iu5Var.a = bridgeWebView;
             iu5Var.b = str;

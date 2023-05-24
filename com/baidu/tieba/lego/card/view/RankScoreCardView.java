@@ -16,11 +16,11 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.cp5;
-import com.baidu.tieba.fi8;
+import com.baidu.tieba.gi8;
 import com.baidu.tieba.lego.card.model.RankScoreCard;
-import com.baidu.tieba.qq9;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.sh8;
+import com.baidu.tieba.rq9;
+import com.baidu.tieba.th8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -74,7 +74,7 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                qq9.c(this.b.i, this.a.getD2Scheme());
+                rq9.c(this.b.i, this.a.getD2Scheme());
             }
         }
     }
@@ -111,7 +111,7 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !ViewHelper.checkUpIsLogin(this.b.getContext())) {
                 return;
             }
-            fi8 a = fi8.a();
+            gi8 a = gi8.a();
             RankScoreCard rankScoreCard = this.a;
             a.e(rankScoreCard, rankScoreCard.getPostUrl(), null, null);
         }
@@ -293,7 +293,7 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
                     } else {
                         SkinManager.setViewTextColor(this.t, (int) R.color.CAM_X0111);
                     }
-                    SkinManager.setBackgroundColor(this.t, sh8.a[i]);
+                    SkinManager.setBackgroundColor(this.t, th8.a[i]);
                     this.t.setText(rankScoreCard.getRank() + "");
                 }
             }

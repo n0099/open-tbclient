@@ -1,26 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.GroupChatRepo;
+import java.util.TreeSet;
 /* loaded from: classes6.dex */
-public class j88 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface j88 {
+    void a(BdTypeRecyclerView bdTypeRecyclerView);
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            return o65.m().i(o65.q(str), false);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void b(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65537, null, str, z) == null) {
-            o65.m().w(o65.q(str), z);
-        }
-    }
+    void b(BdTypeRecyclerView bdTypeRecyclerView, GroupChatRepo groupChatRepo, GroupChatRepo.s<TreeSet<ChatMsg>> sVar);
 }

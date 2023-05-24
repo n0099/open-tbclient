@@ -134,12 +134,12 @@ public final class an3 {
 
         /* renamed from: com.baidu.tieba.an3$b$b  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0224b implements Runnable {
+        public class RunnableC0226b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public RunnableC0224b(b bVar) {
+            public RunnableC0226b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -201,7 +201,7 @@ public final class an3 {
                         return;
                     }
                 }
-                an3.e0(new RunnableC0224b(this));
+                an3.e0(new RunnableC0226b(this));
             }
         }
     }

@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -23,6 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import kotlin.jvm.internal.Intrinsics;
 import tv.athena.revenue.api.pay.params.PayFlowType;
+import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.model.PayViewInfo;
 import tv.athena.revenue.payui.view.IViewEventListener;
 import tv.athena.revenue.payui.view.dialog.CancelType;
@@ -30,7 +32,7 @@ import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes5.dex */
 public final class dhb {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "CenterDialogManager";
+    public static final String a = "BottomDialogManager";
     public static final dhb b;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -39,16 +41,16 @@ public final class dhb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PayDialogType a;
-        public final /* synthetic */ Dialog b;
-        public final /* synthetic */ IViewEventListener c;
-        public final /* synthetic */ ehb d;
+        public final /* synthetic */ fhb b;
+        public final /* synthetic */ Dialog c;
+        public final /* synthetic */ IViewEventListener d;
 
-        public a(PayDialogType payDialogType, Dialog dialog, IViewEventListener iViewEventListener, ehb ehbVar) {
+        public a(PayDialogType payDialogType, fhb fhbVar, Dialog dialog, IViewEventListener iViewEventListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {payDialogType, dialog, iViewEventListener, ehbVar};
+                Object[] objArr = {payDialogType, fhbVar, dialog, iViewEventListener};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -59,30 +61,68 @@ public final class dhb {
                 }
             }
             this.a = payDialogType;
-            this.b = dialog;
-            this.c = iViewEventListener;
-            this.d = ehbVar;
+            this.b = fhbVar;
+            this.c = dialog;
+            this.d = iViewEventListener;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
+            String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 String a = dhb.a(dhb.b);
-                RLog.info(a, "empty click payDialogType:" + this.a.name());
+                StringBuilder sb = new StringBuilder();
+                sb.append("empty click payDialogType:");
+                PayDialogType payDialogType = this.a;
+                String str2 = null;
+                if (payDialogType != null) {
+                    str = payDialogType.name();
+                } else {
+                    str = null;
+                }
+                sb.append(str);
+                RLog.info(a, sb.toString());
+                fhb fhbVar = this.b;
+                if (fhbVar != null) {
+                    if (fhbVar == null) {
+                        Intrinsics.throwNpe();
+                    }
+                    if (fhbVar.b(this.c, CancelType.EMPTY_AREA_CLICK)) {
+                        String a2 = dhb.a(dhb.b);
+                        StringBuilder sb2 = new StringBuilder();
+                        sb2.append("empty click intercept ");
+                        PayDialogType payDialogType2 = this.a;
+                        if (payDialogType2 != null) {
+                            str2 = payDialogType2.name();
+                        }
+                        sb2.append(str2);
+                        RLog.info(a2, sb2.toString());
+                        return;
+                    }
+                }
                 PayViewInfo payViewInfo = new PayViewInfo();
                 payViewInfo.clickArea = CancelType.EMPTY_AREA_CLICK;
                 payViewInfo.payDialogType = this.a;
-                payViewInfo.viewDialog = this.b;
-                IViewEventListener iViewEventListener = this.c;
+                payViewInfo.viewDialog = this.c;
+                IViewEventListener iViewEventListener = this.d;
                 if (iViewEventListener != null && iViewEventListener.onInterceptView(payViewInfo)) {
+                    String a3 = dhb.a(dhb.b);
+                    StringBuilder sb3 = new StringBuilder();
+                    sb3.append("empty click onInterceptView ");
+                    PayDialogType payDialogType3 = this.a;
+                    if (payDialogType3 != null) {
+                        str2 = payDialogType3.name();
+                    }
+                    sb3.append(str2);
+                    RLog.info(a3, sb3.toString());
                     return;
                 }
-                ehb ehbVar = this.d;
-                if (ehbVar != null) {
-                    ehbVar.a(CancelType.EMPTY_AREA_CLICK);
+                fhb fhbVar2 = this.b;
+                if (fhbVar2 != null) {
+                    fhbVar2.a(CancelType.EMPTY_AREA_CLICK);
                 }
-                this.b.dismiss();
+                this.c.dismiss();
             }
         }
     }
@@ -92,16 +132,16 @@ public final class dhb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PayDialogType a;
-        public final /* synthetic */ Dialog b;
-        public final /* synthetic */ IViewEventListener c;
-        public final /* synthetic */ ehb d;
+        public final /* synthetic */ fhb b;
+        public final /* synthetic */ Dialog c;
+        public final /* synthetic */ IViewEventListener d;
 
-        public b(PayDialogType payDialogType, Dialog dialog, IViewEventListener iViewEventListener, ehb ehbVar) {
+        public b(PayDialogType payDialogType, fhb fhbVar, Dialog dialog, IViewEventListener iViewEventListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {payDialogType, dialog, iViewEventListener, ehbVar};
+                Object[] objArr = {payDialogType, fhbVar, dialog, iViewEventListener};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -112,30 +152,68 @@ public final class dhb {
                 }
             }
             this.a = payDialogType;
-            this.b = dialog;
-            this.c = iViewEventListener;
-            this.d = ehbVar;
+            this.b = fhbVar;
+            this.c = dialog;
+            this.d = iViewEventListener;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
+            String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 String a = dhb.a(dhb.b);
-                RLog.info(a, "btn close payDialogType:" + this.a.name());
+                StringBuilder sb = new StringBuilder();
+                sb.append("btn close payDialogType:");
+                PayDialogType payDialogType = this.a;
+                String str2 = null;
+                if (payDialogType != null) {
+                    str = payDialogType.name();
+                } else {
+                    str = null;
+                }
+                sb.append(str);
+                RLog.info(a, sb.toString());
+                fhb fhbVar = this.b;
+                if (fhbVar != null) {
+                    if (fhbVar == null) {
+                        Intrinsics.throwNpe();
+                    }
+                    if (fhbVar.b(this.c, CancelType.BUTTOM_AREA_CLICK)) {
+                        String a2 = dhb.a(dhb.b);
+                        StringBuilder sb2 = new StringBuilder();
+                        sb2.append("btn close intercept :");
+                        PayDialogType payDialogType2 = this.a;
+                        if (payDialogType2 != null) {
+                            str2 = payDialogType2.name();
+                        }
+                        sb2.append(str2);
+                        RLog.info(a2, sb2.toString());
+                        return;
+                    }
+                }
                 PayViewInfo payViewInfo = new PayViewInfo();
                 payViewInfo.clickArea = CancelType.BUTTOM_AREA_CLICK;
                 payViewInfo.payDialogType = this.a;
-                payViewInfo.viewDialog = this.b;
-                IViewEventListener iViewEventListener = this.c;
+                payViewInfo.viewDialog = this.c;
+                IViewEventListener iViewEventListener = this.d;
                 if (iViewEventListener != null && iViewEventListener.onInterceptView(payViewInfo)) {
+                    String a3 = dhb.a(dhb.b);
+                    StringBuilder sb3 = new StringBuilder();
+                    sb3.append("btn close onInterceptView :");
+                    PayDialogType payDialogType3 = this.a;
+                    if (payDialogType3 != null) {
+                        str2 = payDialogType3.name();
+                    }
+                    sb3.append(str2);
+                    RLog.info(a3, sb3.toString());
                     return;
                 }
-                ehb ehbVar = this.d;
-                if (ehbVar != null) {
-                    ehbVar.a(CancelType.BUTTOM_AREA_CLICK);
+                fhb fhbVar2 = this.b;
+                if (fhbVar2 != null) {
+                    fhbVar2.a(CancelType.BUTTOM_AREA_CLICK);
                 }
-                this.b.dismiss();
+                this.c.dismiss();
             }
         }
     }
@@ -144,15 +222,15 @@ public final class dhb {
     public static final class c implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ehb a;
-        public final /* synthetic */ hhb b;
+        public final /* synthetic */ fhb a;
+        public final /* synthetic */ ihb b;
 
-        public c(ehb ehbVar, hhb hhbVar) {
+        public c(fhb fhbVar, ihb ihbVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ehbVar, hhbVar};
+                Object[] objArr = {fhbVar, ihbVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -162,19 +240,19 @@ public final class dhb {
                     return;
                 }
             }
-            this.a = ehbVar;
-            this.b = hhbVar;
+            this.a = fhbVar;
+            this.b = ihbVar;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
         public final void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                ehb ehbVar = this.a;
-                if (ehbVar != null) {
-                    ehbVar.a(CancelType.ON_DIALOG_DISMISS);
+                fhb fhbVar = this.a;
+                if (fhbVar != null) {
+                    fhbVar.a(CancelType.ON_DIALOG_DISMISS);
                 }
-                dhb.b.c(this.b);
+                dhb.b.b(this.b);
             }
         }
     }
@@ -183,15 +261,15 @@ public final class dhb {
     public static final class d implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ehb a;
-        public final /* synthetic */ hhb b;
+        public final /* synthetic */ fhb a;
+        public final /* synthetic */ ihb b;
 
-        public d(ehb ehbVar, hhb hhbVar) {
+        public d(fhb fhbVar, ihb ihbVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ehbVar, hhbVar};
+                Object[] objArr = {fhbVar, ihbVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -201,19 +279,19 @@ public final class dhb {
                     return;
                 }
             }
-            this.a = ehbVar;
-            this.b = hhbVar;
+            this.a = fhbVar;
+            this.b = ihbVar;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public final void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                ehb ehbVar = this.a;
-                if (ehbVar != null) {
-                    ehbVar.a(CancelType.ON_DIALOG_CANCEL);
+                fhb fhbVar = this.a;
+                if (fhbVar != null) {
+                    fhbVar.a(CancelType.ON_DIALOG_CANCEL);
                 }
-                dhb.b.c(this.b);
+                dhb.b.b(this.b);
             }
         }
     }
@@ -222,14 +300,15 @@ public final class dhb {
     public static final class e implements DialogInterface.OnKeyListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ehb a;
+        public final /* synthetic */ PayDialogType a;
+        public final /* synthetic */ fhb b;
 
-        public e(ehb ehbVar) {
+        public e(PayDialogType payDialogType, fhb fhbVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ehbVar};
+                Object[] objArr = {payDialogType, fhbVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -239,22 +318,45 @@ public final class dhb {
                     return;
                 }
             }
-            this.a = ehbVar;
+            this.a = payDialogType;
+            this.b = fhbVar;
         }
 
         @Override // android.content.DialogInterface.OnKeyListener
         public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
             InterceptResult invokeLIL;
-            ehb ehbVar;
+            String str;
+            fhb fhbVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, dialogInterface, i, keyEvent)) == null) {
                 String a = dhb.a(dhb.b);
-                RLog.info(a, "onKey keyCode:" + i);
-                if (keyEvent.getAction() == 0 && i == 4 && (ehbVar = this.a) != null) {
-                    if (ehbVar == null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("onKey keyCode:");
+                sb.append(i);
+                sb.append(" dialogType:");
+                PayDialogType payDialogType = this.a;
+                String str2 = null;
+                if (payDialogType != null) {
+                    str = payDialogType.name();
+                } else {
+                    str = null;
+                }
+                sb.append(str);
+                RLog.info(a, sb.toString());
+                if (keyEvent.getAction() == 0 && i == 4 && (fhbVar = this.b) != null) {
+                    if (fhbVar == null) {
                         Intrinsics.throwNpe();
                     }
-                    if (ehbVar.b(dialogInterface, CancelType.ON_DIALOG_CANCEL)) {
+                    if (fhbVar.b(dialogInterface, CancelType.ON_DIALOG_CANCEL)) {
+                        String a2 = dhb.a(dhb.b);
+                        StringBuilder sb2 = new StringBuilder();
+                        sb2.append("onKey intercept ");
+                        PayDialogType payDialogType2 = this.a;
+                        if (payDialogType2 != null) {
+                            str2 = payDialogType2.name();
+                        }
+                        sb2.append(str2);
+                        RLog.info(a2, sb2.toString());
                         return true;
                     }
                 }
@@ -298,7 +400,7 @@ public final class dhb {
         return a;
     }
 
-    public final void c(Dialog dialog) {
+    public final void b(Dialog dialog) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, dialog) != null) || dialog == null) {
             return;
@@ -317,51 +419,109 @@ public final class dhb {
             if (objectAnimator != null) {
                 objectAnimator.cancel();
                 imageView.setTag(null);
-                RLog.debug(a, "hideDialogLoading->oldRotateAnimator.cancel()");
+                RLog.debug(a, "hideDialogLoading oldRotateAnimator cancel()");
             }
         }
     }
 
-    public final void d(Context context, String str, View view2, ehb ehbVar, IViewEventListener iViewEventListener, PayDialogType payDialogType, Dialog dialog) {
+    public final void c(Context context, PayUIKitConfig payUIKitConfig, String str, View view2, fhb fhbVar, IViewEventListener iViewEventListener, PayDialogType payDialogType, Dialog dialog, boolean z) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, str, view2, ehbVar, iViewEventListener, payDialogType, dialog}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, payUIKitConfig, str, view2, fhbVar, iViewEventListener, payDialogType, dialog, Boolean.valueOf(z)}) == null) {
             Window window = dialog.getWindow();
-            Intrinsics.checkExpressionValueIsNotNull(window, "centerDialog.getWindow()");
-            window.setGravity(17);
+            Intrinsics.checkExpressionValueIsNotNull(window, "bottomDialog.getWindow()");
+            window.setGravity(80);
             WindowManager.LayoutParams attributes = window.getAttributes();
             Intrinsics.checkExpressionValueIsNotNull(attributes, "window.getAttributes()");
-            attributes.width = -2;
+            attributes.width = -1;
             attributes.height = -2;
             window.setAttributes(attributes);
-            window.setWindowAnimations(R.style.obfuscated_res_0x7f100161);
-            window.setContentView(R.layout.pay_ui_center_dialog_pay_common);
+            window.setWindowAnimations(R.style.obfuscated_res_0x7f100160);
+            window.setContentView(R.layout.pay_ui_bottom_dialog_pay_common);
             View findViewById = window.findViewById(R.id.tv_title);
             Intrinsics.checkExpressionValueIsNotNull(findViewById, "window.findViewById<TextView>(R.id.tv_title)");
             ((TextView) findViewById).setText(str);
-            window.findViewById(R.id.obfuscated_res_0x7f091e6f).setOnClickListener(new a(payDialogType, dialog, iViewEventListener, ehbVar));
-            ((Button) window.findViewById(R.id.obfuscated_res_0x7f0904a6)).setOnClickListener(new b(payDialogType, dialog, iViewEventListener, ehbVar));
-            ((ViewGroup) window.findViewById(R.id.obfuscated_res_0x7f090792)).addView(view2);
+            ViewGroup viewGroup = (ViewGroup) window.findViewById(R.id.obfuscated_res_0x7f090792);
+            Button button = (Button) window.findViewById(R.id.obfuscated_res_0x7f0904a6);
+            View findViewById2 = window.findViewById(R.id.obfuscated_res_0x7f091e6f);
+            View findViewById3 = window.findViewById(R.id.ll_content);
+            if (payUIKitConfig != null) {
+                if (kgb.a.b(payUIKitConfig)) {
+                    i = R.drawable.pay_ui_bg_pay_common_bottom_dialog_red_bg;
+                } else {
+                    i = R.drawable.pay_ui_bg_pay_common_bottom_dialog_yellow_bg;
+                }
+                findViewById3.setBackgroundResource(i);
+            }
+            findViewById2.setOnClickListener(new a(payDialogType, fhbVar, dialog, iViewEventListener));
+            button.setOnClickListener(new b(payDialogType, fhbVar, dialog, iViewEventListener));
+            if (z && context != null) {
+                viewGroup.setBackgroundColor(context.getResources().getColor(R.color.pay_ui_color_F6F7F8));
+                viewGroup.setPadding(0, 0, 0, 0);
+            }
+            viewGroup.addView(view2);
         }
     }
 
-    public final Dialog e(Context context, String str, View view2, ehb ehbVar, IViewEventListener iViewEventListener, PayDialogType payDialogType, PayFlowType payFlowType) {
+    public final Dialog d(Context context, String str, View view2, fhb fhbVar, IViewEventListener iViewEventListener, PayDialogType payDialogType, PayFlowType payFlowType, PayUIKitConfig payUIKitConfig) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, str, view2, ehbVar, iViewEventListener, payDialogType, payFlowType})) == null) {
-            if (!lgb.a.a(context)) {
-                RLog.info(a, "showDialog ActivityInvalid....");
-                return null;
-            }
-            hhb hhbVar = new hhb(context, R.style.obfuscated_res_0x7f100164, payFlowType);
-            hhbVar.setCancelable(true);
-            hhbVar.setCanceledOnTouchOutside(false);
-            hhbVar.show();
-            hhbVar.setOnDismissListener(new c(ehbVar, hhbVar));
-            hhbVar.setOnCancelListener(new d(ehbVar, hhbVar));
-            hhbVar.setOnKeyListener(new e(ehbVar));
-            d(context, str, view2, ehbVar, iViewEventListener, payDialogType, hhbVar);
-            return hhbVar;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, str, view2, fhbVar, iViewEventListener, payDialogType, payFlowType, payUIKitConfig})) == null) {
+            return e(context, str, view2, fhbVar, iViewEventListener, payDialogType, payFlowType, payUIKitConfig, false);
         }
         return (Dialog) invokeCommon.objValue;
+    }
+
+    public final Dialog e(Context context, String str, View view2, fhb fhbVar, IViewEventListener iViewEventListener, PayDialogType payDialogType, PayFlowType payFlowType, PayUIKitConfig payUIKitConfig, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{context, str, view2, fhbVar, iViewEventListener, payDialogType, payFlowType, payUIKitConfig, Boolean.valueOf(z)})) == null) {
+            if (!mgb.a.a(context)) {
+                RLog.info(a, "showSimpleNumberInputDialog ActivityInvalid....");
+                return null;
+            }
+            ihb ihbVar = new ihb(context, R.style.obfuscated_res_0x7f100164, payFlowType);
+            ihbVar.setCancelable(true);
+            ihbVar.setCanceledOnTouchOutside(true);
+            ihbVar.show();
+            ihbVar.setOnDismissListener(new c(fhbVar, ihbVar));
+            ihbVar.setOnCancelListener(new d(fhbVar, ihbVar));
+            ihbVar.setOnKeyListener(new e(payDialogType, fhbVar));
+            c(context, payUIKitConfig, str, view2, fhbVar, iViewEventListener, payDialogType, ihbVar, z);
+            return ihbVar;
+        }
+        return (Dialog) invokeCommon.objValue;
+    }
+
+    public final void f(Dialog dialog) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, dialog) != null) || dialog == null) {
+            return;
+        }
+        Window window = dialog.getWindow();
+        Intrinsics.checkExpressionValueIsNotNull(window, "dialog.getWindow()");
+        ViewGroup viewGroup = (ViewGroup) window.findViewById(R.id.root_loading);
+        ImageView imageView = (ImageView) window.findViewById(R.id.iv_loading_circle);
+        if (viewGroup != null && imageView != null) {
+            Object tag = imageView.getTag();
+            if (!(tag instanceof ObjectAnimator)) {
+                tag = null;
+            }
+            ObjectAnimator objectAnimator = (ObjectAnimator) tag;
+            if (objectAnimator != null) {
+                objectAnimator.cancel();
+                imageView.setTag(null);
+                RLog.debug(a, "showDialogLoading oldRotateAnimator cancel()");
+            }
+            viewGroup.setVisibility(0);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(imageView, "rotation", 0.0f, 360.0f);
+            Intrinsics.checkExpressionValueIsNotNull(ofFloat, "ObjectAnimator.ofFloat(i…le, \"rotation\", 0f, 360f)");
+            ofFloat.setDuration(1000L);
+            ofFloat.setInterpolator(new LinearInterpolator());
+            ofFloat.setRepeatCount(-1);
+            ofFloat.start();
+            imageView.setTag(ofFloat);
+            RLog.debug(a, "showDialogLoading mRotateAnimator start()");
+        }
     }
 }

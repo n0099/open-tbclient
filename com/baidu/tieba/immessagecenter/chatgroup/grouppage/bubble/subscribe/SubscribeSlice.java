@@ -21,8 +21,8 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.GroupChatRepo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.tieba.immessagecenter.slice.Slice;
 import com.baidu.tieba.o65;
-import com.baidu.tieba.oz9;
 import com.baidu.tieba.pg;
+import com.baidu.tieba.pz9;
 import com.baidu.tieba.sg;
 import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -290,7 +290,7 @@ public class SubscribeSlice extends Slice {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             i0(8);
             j0(true);
-            oz9.b(this.m.b, 600);
+            pz9.b(this.m.b, 600);
             this.m.b.a();
         }
     }

@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.layout.ObservedChangeLinearLayout;
 import com.baidu.tieba.R;
 import com.baidu.tieba.cp5;
-import com.baidu.tieba.it6;
-import com.baidu.tieba.kt6;
-import com.baidu.tieba.tp9;
-import com.baidu.tieba.ws6;
+import com.baidu.tieba.jt6;
+import com.baidu.tieba.lt6;
+import com.baidu.tieba.up9;
+import com.baidu.tieba.xs6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,8 +34,8 @@ import java.util.ArrayList;
 public class EnterForumFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public it6 a;
-    public kt6 b;
+    public jt6 a;
+    public lt6 b;
     public RelativeLayout c;
     public ObservedChangeLinearLayout d;
     public RelativeLayout e;
@@ -162,21 +162,21 @@ public class EnterForumFragment extends BaseFragment {
         return (ObservedChangeLinearLayout) invokeV.objValue;
     }
 
-    public kt6 K1() {
+    public lt6 K1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.b;
         }
-        return (kt6) invokeV.objValue;
+        return (lt6) invokeV.objValue;
     }
 
     public boolean M1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            it6 it6Var = this.a;
-            if (it6Var != null && it6Var.A() != null) {
+            jt6 jt6Var = this.a;
+            if (jt6Var != null && jt6Var.A() != null) {
                 return this.a.A().b0();
             }
             return true;
@@ -185,10 +185,10 @@ public class EnterForumFragment extends BaseFragment {
     }
 
     public final void O1() {
-        it6 it6Var;
+        jt6 jt6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (it6Var = this.a) != null) {
-            it6Var.x(true);
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (jt6Var = this.a) != null) {
+            jt6Var.x(true);
         }
     }
 
@@ -196,9 +196,9 @@ public class EnterForumFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             O1();
-            it6 it6Var = this.a;
-            if (it6Var != null) {
-                it6Var.H();
+            jt6 jt6Var = this.a;
+            if (jt6Var != null) {
+                jt6Var.H();
             }
         }
     }
@@ -207,7 +207,7 @@ public class EnterForumFragment extends BaseFragment {
     public void onDestroyView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            tp9.g().k(getUniqueId());
+            up9.g().k(getUniqueId());
             super.onDestroyView();
         }
     }
@@ -217,9 +217,9 @@ public class EnterForumFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.onPause();
-            it6 it6Var = this.a;
-            if (it6Var != null) {
-                it6Var.K();
+            jt6 jt6Var = this.a;
+            if (jt6Var != null) {
+                jt6Var.K();
             }
         }
     }
@@ -253,29 +253,29 @@ public class EnterForumFragment extends BaseFragment {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            it6 it6Var = this.a;
-            if (it6Var != null) {
-                it6Var.J();
+            jt6 jt6Var = this.a;
+            if (jt6Var != null) {
+                jt6Var.J();
             }
             this.b = null;
             MessageManager.getInstance().unRegisterListener(this.f);
             MessageManager.getInstance().unRegisterListener(this.g);
-            tp9.g().k(getUniqueId());
+            up9.g().k(getUniqueId());
             super.onDestroy();
         }
     }
 
-    public void N1(ws6 ws6Var) {
+    public void N1(xs6 xs6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ws6Var) == null) {
-            this.b.e0(ws6Var);
+        if (interceptable == null || interceptable.invokeL(1048581, this, xs6Var) == null) {
+            this.b.e0(xs6Var);
         }
     }
 
-    public void P1(kt6 kt6Var) {
+    public void P1(lt6 lt6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, kt6Var) == null) {
-            this.b = kt6Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, lt6Var) == null) {
+            this.b = lt6Var;
         }
     }
 
@@ -286,9 +286,9 @@ public class EnterForumFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
             super.onChangeSkinType(i);
             SkinManager.setBackgroundColor(this.c, R.color.CAM_X0204);
-            it6 it6Var = this.a;
-            if (it6Var != null) {
-                it6Var.I(i);
+            jt6 jt6Var = this.a;
+            if (jt6Var != null) {
+                jt6Var.I(i);
             }
             if (this.e != null) {
                 cp5.a(getPageContext(), this.e);
@@ -303,7 +303,7 @@ public class EnterForumFragment extends BaseFragment {
             super.onCreate(bundle);
             registerListener(this.f);
             registerListener(this.g);
-            tp9.g().i(getUniqueId());
+            up9.g().i(getUniqueId());
         }
     }
 
@@ -312,9 +312,9 @@ public class EnterForumFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
             this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0909f4);
             this.d = (ObservedChangeLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092264);
-            it6 it6Var = new it6(this);
-            this.a = it6Var;
-            it6Var.S(getUniqueId());
+            jt6 jt6Var = new jt6(this);
+            this.a = jt6Var;
+            jt6Var.S(getUniqueId());
             this.c.addView(this.a.B(), 0);
             this.a.C();
             View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f0909e9);
@@ -336,7 +336,7 @@ public class EnterForumFragment extends BaseFragment {
             View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d030d, viewGroup, false);
             L1(inflate);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            tp9.g().i(getUniqueId());
+            up9.g().i(getUniqueId());
             return inflate;
         }
         return (View) invokeLLL.objValue;
@@ -349,15 +349,15 @@ public class EnterForumFragment extends BaseFragment {
             super.onPrimary();
             if (isAdded() && isPrimary()) {
                 Q1();
-                it6 it6Var = this.a;
-                if (it6Var != null) {
-                    refreshImage(it6Var.B());
+                jt6 jt6Var = this.a;
+                if (jt6Var != null) {
+                    refreshImage(jt6Var.B());
                 }
-                tp9.g().h(getUniqueId(), false);
+                up9.g().h(getUniqueId(), false);
             }
-            it6 it6Var2 = this.a;
-            if (it6Var2 != null) {
-                it6Var2.L();
+            jt6 jt6Var2 = this.a;
+            if (jt6Var2 != null) {
+                jt6Var2.L();
             }
             if (K1() != null) {
                 K1().c0();

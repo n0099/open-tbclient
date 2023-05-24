@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.au6;
 import com.baidu.tieba.p45;
-import com.baidu.tieba.zt6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,16 +45,16 @@ public class RecommendThreadView extends LinearLayout {
         }
     }
 
-    public void setData(zt6 zt6Var) {
+    public void setData(au6 au6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, zt6Var) != null) || zt6Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, au6Var) != null) || au6Var == null) {
             return;
         }
-        if (!TextUtils.isEmpty(zt6Var.b())) {
-            this.a.N(zt6Var.b(), 10, false);
+        if (!TextUtils.isEmpty(au6Var.b())) {
+            this.a.N(au6Var.b(), 10, false);
         }
-        if (!TextUtils.isEmpty(zt6Var.d())) {
-            this.b.setText(zt6Var.d());
+        if (!TextUtils.isEmpty(au6Var.d())) {
+            this.b.setText(au6Var.d());
         }
         d();
     }

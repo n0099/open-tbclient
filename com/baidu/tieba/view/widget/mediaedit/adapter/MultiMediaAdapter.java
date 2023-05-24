@@ -12,11 +12,11 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f6a;
-import com.baidu.tieba.kna;
+import com.baidu.tieba.aoa;
+import com.baidu.tieba.g6a;
+import com.baidu.tieba.lna;
 import com.baidu.tieba.view.widget.mediaedit.SimpleDraweeView;
-import com.baidu.tieba.wna;
-import com.baidu.tieba.zna;
+import com.baidu.tieba.xna;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ import java.util.List;
 public class MultiMediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<f6a> a;
+    public List<g6a> a;
     public Context b;
     public a c;
     public boolean d;
@@ -38,7 +38,7 @@ public class MultiMediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     /* loaded from: classes7.dex */
     public interface a {
-        void e(int i, View view2, f6a f6aVar);
+        void e(int i, View view2, g6a g6aVar);
     }
 
     /* loaded from: classes7.dex */
@@ -82,10 +82,10 @@ public class MultiMediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                f6a f6aVar;
+                g6a g6aVar;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a != null && this.b.g != null && !kna.e(this.b.g.l()) && (f6aVar = (f6a) kna.c(this.b.g.l(), this.b.getAdapterPosition())) != null) {
-                    this.a.e(this.b.getAdapterPosition(), view2, f6aVar);
+                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a != null && this.b.g != null && !lna.e(this.b.g.l()) && (g6aVar = (g6a) lna.c(this.b.g.l(), this.b.getAdapterPosition())) != null) {
+                    this.a.e(this.b.getAdapterPosition(), view2, g6aVar);
                 }
             }
         }
@@ -151,16 +151,16 @@ public class MultiMediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return kna.b(this.a);
+            return lna.b(this.a);
         }
         return invokeV.intValue;
     }
 
-    public List<f6a> k() {
+    public List<g6a> k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<f6a> list = this.a;
+            List<g6a> list = this.a;
             if (list == null) {
                 return new ArrayList();
             }
@@ -169,7 +169,7 @@ public class MultiMediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         return (List) invokeV.objValue;
     }
 
-    public List<f6a> l() {
+    public List<g6a> l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -188,8 +188,8 @@ public class MultiMediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            for (f6a f6aVar : l()) {
-                f6aVar.c(false);
+            for (g6a g6aVar : l()) {
+                g6aVar.c(false);
             }
         }
     }
@@ -199,7 +199,7 @@ public class MultiMediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (kna.e(this.a)) {
+            if (lna.e(this.a)) {
                 return -1;
             }
             return this.a.get(i).getType();
@@ -230,14 +230,14 @@ public class MultiMediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
-        f6a f6aVar;
+        g6a g6aVar;
         String str;
         int i2;
         ArrayList<SimpleDraweeView> arrayList;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048583, this, viewHolder, i) == null) && (f6aVar = (f6a) kna.c(this.a, i)) != null && (viewHolder instanceof MultiMediaHolder)) {
+        if ((interceptable == null || interceptable.invokeLI(1048583, this, viewHolder, i) == null) && (g6aVar = (g6a) lna.c(this.a, i)) != null && (viewHolder instanceof MultiMediaHolder)) {
             MultiMediaHolder multiMediaHolder = (MultiMediaHolder) viewHolder;
-            LocalAlbumInfo a2 = f6aVar.a();
+            LocalAlbumInfo a2 = g6aVar.a();
             if (a2 != null) {
                 if ((multiMediaHolder.a.getTag() == null || !TextUtils.equals((String) multiMediaHolder.a.getTag(), a2.path)) && (str = a2.path) != null) {
                     multiMediaHolder.a.setTag(str);
@@ -250,19 +250,19 @@ public class MultiMediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                         multiMediaHolder.a.setImageURI(Uri.fromFile(new File(a2.path)));
                     }
                 }
-                multiMediaHolder.e.setText(zna.b((int) a2.getDurationWithSpeed()));
+                multiMediaHolder.e.setText(aoa.b((int) a2.getDurationWithSpeed()));
                 View view2 = multiMediaHolder.f;
-                if (f6aVar.b()) {
+                if (g6aVar.b()) {
                     i2 = 0;
                 } else {
                     i2 = 4;
                 }
                 view2.setVisibility(i2);
-                if (f6aVar.getType() == 2 && (arrayList = multiMediaHolder.d) != null) {
+                if (g6aVar.getType() == 2 && (arrayList = multiMediaHolder.d) != null) {
                     int size = arrayList.size();
                     int i4 = 1;
                     if (!this.d && !this.e) {
-                        multiMediaHolder.h.getLayoutParams().width = ((int) wna.i(R.dimen.obfuscated_res_0x7f07019a)) * size;
+                        multiMediaHolder.h.getLayoutParams().width = ((int) xna.i(R.dimen.obfuscated_res_0x7f07019a)) * size;
                         while (i4 < size) {
                             multiMediaHolder.d.get(i4).setVisibility(0);
                             i4++;
@@ -273,7 +273,7 @@ public class MultiMediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                         multiMediaHolder.d.get(i4).setVisibility(8);
                         i4++;
                     }
-                    multiMediaHolder.h.getLayoutParams().width = (int) wna.i(R.dimen.obfuscated_res_0x7f07019a);
+                    multiMediaHolder.h.getLayoutParams().width = (int) xna.i(R.dimen.obfuscated_res_0x7f07019a);
                 }
             }
         }
@@ -284,11 +284,11 @@ public class MultiMediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewHolder, i, list) == null) {
-            if (!kna.e(list)) {
-                f6a f6aVar = (f6a) kna.c(this.a, i);
+            if (!lna.e(list)) {
+                g6a g6aVar = (g6a) lna.c(this.a, i);
                 if (viewHolder instanceof MultiMediaHolder) {
                     View view2 = ((MultiMediaHolder) viewHolder).f;
-                    if (f6aVar.b()) {
+                    if (g6aVar.b()) {
                         i2 = 0;
                     } else {
                         i2 = 4;

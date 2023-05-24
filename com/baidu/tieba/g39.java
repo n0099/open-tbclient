@@ -1,38 +1,37 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.BdUniqueId;
+import android.content.DialogInterface;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.pb.pb.main.relatelist.RelateRecThreadListModel;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
+import com.baidu.tbadk.data.IconPopData;
+import com.baidu.tbadk.util.PriorityOrganizer;
+import com.baidu.tieba.pb.pb.main.PbActivity;
+import com.baidu.tieba.so9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.RelateRecThread.DataRes;
-import tbclient.ThreadInfo;
 /* loaded from: classes5.dex */
-public class g39 {
+public class g39 extends PriorityOrganizer.Task {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<rn> a;
-    public final RelateRecThreadListModel b;
-    public o19 c;
-    public PbModel d;
-    public boolean e;
-    public List<rn> f;
-    public final tw4 g;
+    public PbActivity m;
+
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* loaded from: classes5.dex */
-    public class a implements tw4 {
+    public class a implements so9.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ g39 a;
@@ -55,74 +54,67 @@ public class g39 {
             this.a = g39Var;
         }
 
-        @Override // com.baidu.tieba.tw4
-        public void onError(int i, String str) {
+        @Override // com.baidu.tieba.so9.c
+        public void a() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && this.a.c != null && this.a.c.d1() != null) {
-                this.a.c.d1().O();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.t();
             }
         }
 
-        @Override // com.baidu.tieba.tw4
-        public void onSuccess(Object obj) {
-            String str;
-            int intValue;
+        @Override // com.baidu.tieba.so9.c
+        public void b() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-                if (this.a.d != null && (obj instanceof DataRes)) {
-                    DataRes dataRes = (DataRes) obj;
-                    lx8 y1 = this.a.d.y1();
-                    if (y1.k() != null) {
-                        str = y1.k().getFirst_class();
-                    } else {
-                        str = "";
-                    }
-                    List<ThreadInfo> list = dataRes.recom_thread_info;
-                    if (ListUtils.isEmpty(list)) {
-                        if (this.a.c != null && this.a.c.d1() != null) {
-                            this.a.c.d1().x(y1.s());
-                            this.a.c.d1().O();
-                            if (y1.s()) {
-                                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_PB_FOLD_ICON_SHOW);
-                                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                                statisticItem.param("fid", y1.l());
-                                statisticItem.param("fname", y1.m());
-                                statisticItem.param("tid", y1.O());
-                                TiebaStatic.log(statisticItem);
-                                return;
-                            }
-                            return;
-                        }
-                        return;
-                    }
-                    List<rn> b = h39.b(list, str, this.a.d.x1());
-                    this.a.a.addAll(b);
-                    y1.P0(this.a.a);
-                    this.a.f.addAll(b);
-                    Integer num = dataRes.rec_type;
-                    if (num == null) {
-                        intValue = 0;
-                    } else {
-                        intValue = num.intValue();
-                    }
-                    y1.M0(intValue);
-                }
-                if (this.a.c != null && !ListUtils.isEmpty(this.a.a)) {
-                    this.a.c.M3();
-                }
-                if (this.a.c != null && this.a.c.d1() != null && this.a.c.d1().p() && !ListUtils.isEmpty(this.a.a)) {
-                    this.a.c.d1().m();
-                }
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.t();
+            }
+        }
+
+        @Override // com.baidu.tieba.so9.c
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.a.t();
             }
         }
     }
 
-    public g39(v49 v49Var, BdUniqueId bdUniqueId, o19 o19Var, PbModel pbModel) {
+    /* loaded from: classes5.dex */
+    public class b implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(g39 g39Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g39Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                a35.s("userIcon");
+            }
+        }
+    }
+
+    public g39(PbActivity pbActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {v49Var, bdUniqueId, o19Var, pbModel};
+            Object[] objArr = {pbActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -132,59 +124,40 @@ public class g39 {
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.f = new ArrayList();
-        this.g = new a(this);
-        this.c = o19Var;
-        this.d = pbModel;
-        RelateRecThreadListModel relateRecThreadListModel = new RelateRecThreadListModel(v49Var.getPageContext(), bdUniqueId);
-        this.b = relateRecThreadListModel;
-        relateRecThreadListModel.b0(this.g);
+        this.m = pbActivity;
     }
 
-    public boolean d() {
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            PbModel pbModel = this.d;
-            if (pbModel == null || TextUtils.isEmpty(pbModel.R1()) || this.d.y1() == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (a35.j()) {
                 return false;
             }
-            if (this.e) {
-                return true;
-            }
-            if (this.d.y1().a0()) {
+            IconPopData iconPopData = TbSingleton.getInstance().getIconPopData();
+            if (!PollingModel.y0() || iconPopData.getPic160() == null || iconPopData.getTitle() == null || !this.m.Z1() || iconPopData.getUid().longValue() != TbadkCoreApplication.getCurrentAccountId()) {
                 return false;
             }
-            String forumId = this.d.getForumId();
-            if (TextUtils.isEmpty(forumId) && this.d.y1().k() != null) {
-                forumId = this.d.y1().k().getId();
-            }
-            long g = pg.g(forumId, 0L);
-            long g2 = pg.g(this.d.R1(), 0L);
-            int N1 = this.d.N1();
-            String M1 = this.d.M1();
-            if (!this.e) {
-                this.e = true;
-            }
-            return this.b.a0(g, g2, 1, N1, M1);
+            return true;
         }
         return invokeV.booleanValue;
     }
 
-    public void e() {
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public void z() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.clear();
-            this.b.onDestroy();
-        }
-    }
-
-    public void f(o19 o19Var, PbModel pbModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, o19Var, pbModel) == null) {
-            this.c = o19Var;
-            this.d = pbModel;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (PollingModel.y0()) {
+                IconPopData iconPopData = TbSingleton.getInstance().getIconPopData();
+                so9 so9Var = new so9();
+                so9Var.d(iconPopData);
+                so9Var.e(new a(this));
+                so9Var.f(new b(this));
+                a35.m("userIcon");
+                return;
+            }
+            t();
         }
     }
 }

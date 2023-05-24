@@ -13,10 +13,10 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pg;
-import com.baidu.tieba.rt6;
 import com.baidu.tieba.sg;
 import com.baidu.tieba.st6;
 import com.baidu.tieba.tt6;
+import com.baidu.tieba.ut6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,16 +30,16 @@ public class HotUserRankActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HotUserRankView a;
-    public tt6 b;
+    public ut6 b;
     public String c;
     public long d;
-    public List<st6> e;
+    public List<tt6> e;
     public String f;
     public int g;
     public boolean h;
     public Runnable i;
     public Runnable j;
-    public tt6.b k;
+    public ut6.b k;
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.on5
     public String getCurrentPageKey() {
@@ -115,7 +115,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
     }
 
     /* loaded from: classes5.dex */
-    public class c implements tt6.b {
+    public class c implements ut6.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HotUserRankActivity a;
@@ -138,31 +138,31 @@ public class HotUserRankActivity extends BaseFragmentActivity {
             this.a = hotUserRankActivity;
         }
 
-        @Override // com.baidu.tieba.tt6.b
-        public void a(rt6 rt6Var) {
+        @Override // com.baidu.tieba.ut6.b
+        public void a(st6 st6Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, rt6Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, st6Var) == null) {
                 HotUserRankActivity hotUserRankActivity = this.a;
                 hotUserRankActivity.hideLoadingView(hotUserRankActivity.a.i());
-                if (rt6Var != null && rt6Var.a != null) {
-                    this.a.f = rt6Var.d;
+                if (st6Var != null && st6Var.a != null) {
+                    this.a.f = st6Var.d;
                     if (this.a.d > 0) {
                         sg.a().post(this.a.i);
                         return;
                     }
-                    TiebaFieldsInfo tiebaFieldsInfo = rt6Var.a.f;
+                    TiebaFieldsInfo tiebaFieldsInfo = st6Var.a.f;
                     if (tiebaFieldsInfo != null && !ListUtils.isEmpty(tiebaFieldsInfo.tieba_fields)) {
-                        List<String> list = rt6Var.a.f.tieba_fields;
+                        List<String> list = st6Var.a.f.tieba_fields;
                         this.a.e.clear();
                         for (int i = 0; i < list.size(); i++) {
                             String str = list.get(i);
                             if (str != null && str.equals(this.a.c)) {
                                 this.a.g = i;
                             }
-                            st6 st6Var = new st6();
-                            st6Var.b = str;
-                            st6Var.a = str;
-                            this.a.e.add(st6Var);
+                            tt6 tt6Var = new tt6();
+                            tt6Var.b = str;
+                            tt6Var.a = str;
+                            this.a.e.add(tt6Var);
                         }
                         sg.a().post(this.a.i);
                         return;
@@ -173,7 +173,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
             }
         }
 
-        @Override // com.baidu.tieba.tt6.b
+        @Override // com.baidu.tieba.ut6.b
         public void onError(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -238,9 +238,9 @@ public class HotUserRankActivity extends BaseFragmentActivity {
             HotUserRankView hotUserRankView = new HotUserRankView(this);
             this.a = hotUserRankView;
             setContentView(hotUserRankView.i());
-            tt6 tt6Var = new tt6(getUniqueId());
-            this.b = tt6Var;
-            tt6Var.n(this.k);
+            ut6 ut6Var = new ut6(getUniqueId());
+            this.b = ut6Var;
+            ut6Var.n(this.k);
             D1();
             if (!TextUtils.isEmpty(this.c)) {
                 this.b.i(this.c);

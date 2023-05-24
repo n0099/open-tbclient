@@ -37,7 +37,7 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tbadk.widget.ContinuousAnimationView;
-import com.baidu.tieba.j4a;
+import com.baidu.tieba.k4a;
 import com.baidu.tieba.o25;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -79,11 +79,11 @@ public class gv4 {
     public boolean v;
     public boolean w;
     public boolean x;
-    public u59 y;
+    public v59 y;
     public m25 z;
 
     /* loaded from: classes5.dex */
-    public class a implements j4a.c {
+    public class a implements k4a.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ gv4 a;
@@ -106,7 +106,7 @@ public class gv4 {
             this.a = gv4Var;
         }
 
-        @Override // com.baidu.tieba.j4a.c
+        @Override // com.baidu.tieba.k4a.c
         public void onClick() {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.y == null) {
@@ -435,7 +435,7 @@ public class gv4 {
     }
 
     /* loaded from: classes5.dex */
-    public class k implements j4a.d {
+    public class k implements k4a.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ gv4 a;
@@ -458,7 +458,7 @@ public class gv4 {
             this.a = gv4Var;
         }
 
-        @Override // com.baidu.tieba.j4a.d
+        @Override // com.baidu.tieba.k4a.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.y != null && this.a.a != null) {
@@ -810,16 +810,16 @@ public class gv4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             if (this.y == null) {
-                j4a j4aVar = new j4a(this.a);
+                k4a k4aVar = new k4a(this.a);
                 ArrayList arrayList = new ArrayList();
-                j4a.b bVar = new j4a.b(this.a.getString(R.string.report_text), j4aVar);
+                k4a.b bVar = new k4a.b(this.a.getString(R.string.report_text), k4aVar);
                 bVar.h(new k(this));
                 arrayList.add(bVar);
-                j4aVar.g(new a(this));
-                j4aVar.f(arrayList);
-                u59 u59Var = new u59(this.a, j4aVar.b());
-                this.y = u59Var;
-                u59Var.a(0.7f);
+                k4aVar.g(new a(this));
+                k4aVar.f(arrayList);
+                v59 v59Var = new v59(this.a, k4aVar.b());
+                this.y = v59Var;
+                v59Var.a(0.7f);
             }
             this.y.show();
         }
@@ -982,7 +982,7 @@ public class gv4 {
         if (shareItem.q) {
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.a, shareItem, true, (SparseArray<String>) null);
             shareDialogConfig.mShowMoreForumShare = true;
-            bn6.c().l(shareDialogConfig);
+            cn6.c().l(shareDialogConfig);
             return;
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2001276, new ShareDialogConfig((Context) this.a, shareItem, true, k())));

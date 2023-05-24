@@ -1,42 +1,213 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.SuppressLint;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.util.orderlist.OrderLinkList;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.GroupInputViewController;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class hb8 {
+public class hb8 implements jb8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
-    public static final String c;
-    public static final String d;
-    public static final String e;
-    public static final String f;
-    public static final String g;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public ChatRoomDetail a;
+    @NonNull
+    public final OrderLinkList<va8> b;
+    @NonNull
+    public final GroupInputViewController c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947818059, "Lcom/baidu/tieba/hb8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947818059, "Lcom/baidu/tieba/hb8;");
+    public hb8(@NonNull GroupInputViewController groupInputViewController) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {groupInputViewController};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08ea);
-        b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08ec);
-        c = TbadkCoreApplication.getInst().getString(R.string.group_chat_group_had_close);
-        d = TbadkCoreApplication.getInst().getString(R.string.group_chat_no_speak_all);
-        e = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0903);
-        f = TbadkCoreApplication.getInst().getString(R.string.group_chat_no_speak_person);
-        g = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08f8);
+        this.c = groupInputViewController;
+        this.b = new OrderLinkList<>();
+    }
+
+    @Override // com.baidu.tieba.jb8
+    public void d(@NonNull List<va8> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && list.size() > 0) {
+            for (va8 va8Var : list) {
+                va8Var.b(i(va8Var.d()));
+                va8Var.h(false);
+                this.b.insert(va8Var);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.jb8
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.b.c(i(i));
+        }
+    }
+
+    @Override // com.baidu.tieba.jb8
+    public void b(@NonNull va8 va8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, va8Var) == null) {
+            va8Var.b(i(va8Var.d()));
+            va8Var.h(false);
+            this.b.insert(va8Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.jb8
+    public void g(@NonNull ChatRoomDetail chatRoomDetail) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, chatRoomDetail) == null) {
+            this.a = chatRoomDetail;
+        }
+    }
+
+    @Override // com.baidu.tieba.jb8
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            va8 f = f();
+            if (f == null) {
+                return false;
+            }
+            this.c.C1(f.c());
+            this.c.S1(false);
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.jb8
+    @Nullable
+    public va8 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b.b();
+        }
+        return (va8) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.jb8
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            int i2 = i(i);
+            va8 a = this.b.a(i2);
+            if (i == 7011 && a != null && a.e()) {
+                a.f(h(i));
+            }
+            if (a == null) {
+                va8 va8Var = new va8();
+                va8Var.g(i);
+                va8Var.b(i2);
+                va8Var.f(h(i));
+                va8Var.h(true);
+                this.b.insert(va8Var);
+            }
+        }
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    @SuppressLint({"StringFormatMatches"})
+    public final String h(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            if (i != 102) {
+                if (i != 7003) {
+                    if (i != 7005) {
+                        if (i != 7007) {
+                            switch (i) {
+                                case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_THRESHOLD_POST /* 7011 */:
+                                    ChatRoomDetail chatRoomDetail = this.a;
+                                    if (chatRoomDetail != null) {
+                                        return String.format(ib8.g, Integer.valueOf(chatRoomDetail.getExtraInfo().getTalkThresholdLevel()));
+                                    }
+                                    break;
+                                case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_THRESHOLD_VIEW /* 7012 */:
+                                    return ib8.b;
+                                case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_ONLY_MANAGER_CAN_TALK /* 7013 */:
+                                    return ib8.e;
+                            }
+                            return "";
+                        }
+                        return ib8.c;
+                    }
+                    return ib8.d;
+                }
+                return ib8.f;
+            }
+            return ib8.a;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public final int i(int i) {
+        InterceptResult invokeI;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            if (i != 102) {
+                switch (i) {
+                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MUZZLE /* 7003 */:
+                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_UN_MUZZLE /* 7004 */:
+                        i2 = 5;
+                        break;
+                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MUZZLE_ALL /* 7005 */:
+                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_UN_MUZZLE_ALL /* 7006 */:
+                        i2 = 7;
+                        break;
+                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_FROZEN /* 7007 */:
+                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_UN_FROZEN /* 7008 */:
+                        i2 = 8;
+                        break;
+                    default:
+                        switch (i) {
+                            case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_THRESHOLD_POST /* 7011 */:
+                                i2 = 4;
+                                break;
+                            case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_THRESHOLD_VIEW /* 7012 */:
+                                i2 = 9;
+                                break;
+                            case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_ONLY_MANAGER_CAN_TALK /* 7013 */:
+                                i2 = 6;
+                                break;
+                            default:
+                                i2 = 0;
+                                break;
+                        }
+                }
+            } else {
+                i2 = 10;
+            }
+            if (i2 != 0) {
+                return i2;
+            }
+            throw new IllegalArgumentException("The type of the banned msg is unknown!");
+        }
+        return invokeI.intValue;
     }
 }

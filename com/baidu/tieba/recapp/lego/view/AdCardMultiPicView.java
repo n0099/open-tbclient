@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdCard;
-import com.baidu.tieba.xg9;
-import com.baidu.tieba.xi8;
+import com.baidu.tieba.yg9;
+import com.baidu.tieba.yi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -104,17 +104,17 @@ public class AdCardMultiPicView extends AdCardBaseView {
         float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adCard) == null) {
-            xg9 xg9Var = adCard.picInfo;
-            if (xg9Var == null) {
+            yg9 yg9Var = adCard.picInfo;
+            if (yg9Var == null) {
                 list = null;
             } else {
-                list = xg9Var.c;
+                list = yg9Var.c;
             }
-            if (!xi8.e(list) && xg9Var != null) {
-                int i = xi8.i(xg9Var.c);
+            if (!yi8.e(list) && yg9Var != null) {
+                int i = yi8.i(yg9Var.c);
                 int dimensionPixelSize = (int) ((this.B - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X002) * 2)) / 3.0f);
-                int i2 = xg9Var.e;
-                int i3 = xg9Var.d;
+                int i2 = yg9Var.e;
+                int i3 = yg9Var.d;
                 if (i2 != 0 && i3 != 0) {
                     f = i2 / i3;
                 } else {
@@ -131,21 +131,21 @@ public class AdCardMultiPicView extends AdCardBaseView {
                 y0(this.t0, dimensionPixelSize, max);
                 y0(this.v0, dimensionPixelSize, max);
                 if (i == 1) {
-                    this.r0.o((String) xi8.d(list, 0));
+                    this.r0.o((String) yi8.d(list, 0));
                     this.r0.setVisibility(0);
                     z0(this.j0, 4);
                 } else if (i == 2) {
-                    this.r0.o((String) xi8.d(list, 0));
+                    this.r0.o((String) yi8.d(list, 0));
                     this.r0.setVisibility(0);
-                    this.t0.o((String) xi8.d(list, 1));
+                    this.t0.o((String) yi8.d(list, 1));
                     this.t0.setVisibility(0);
                     z0(this.s0, 3);
                 } else if (i >= 3) {
-                    this.r0.o((String) xi8.d(list, 0));
+                    this.r0.o((String) yi8.d(list, 0));
                     this.r0.setVisibility(0);
-                    this.t0.o((String) xi8.d(list, 1));
+                    this.t0.o((String) yi8.d(list, 1));
                     this.t0.setVisibility(0);
-                    this.v0.o((String) xi8.d(list, 2));
+                    this.v0.o((String) yi8.d(list, 2));
                     this.v0.setVisibility(0);
                 }
                 this.o.setVisibility(0);

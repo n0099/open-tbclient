@@ -56,7 +56,7 @@ import com.baidu.tieba.rn5;
 import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.tieba.vn5;
 import com.baidu.tieba.wn5;
-import com.baidu.tieba.wp8;
+import com.baidu.tieba.xp8;
 import com.baidu.tieba.yn5;
 import com.baidu.tieba.zn5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -1006,7 +1006,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
             if (TbSingleton.getInstance().isUserBan()) {
                 vn5.a(this);
             }
-            wp8.a(this.g, this.h, this.C);
+            xp8.a(this.g, this.h, this.C);
         }
     }
 }

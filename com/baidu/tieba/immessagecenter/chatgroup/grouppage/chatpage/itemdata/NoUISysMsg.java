@@ -5,7 +5,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg;
-import com.baidu.tieba.ua8;
+import com.baidu.tieba.va8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ public class NoUISysMsg extends BaseSysMsg {
     public BaseSysMsg.ChatRoomInfo chatroomInfo;
     @Nullable
     @SerializedName("mask_info")
-    public ua8 maskInfo;
+    public va8 maskInfo;
     @Nullable
     @SerializedName("user_to")
     public BaseSysMsg.User userTo;
@@ -84,13 +84,13 @@ public class NoUISysMsg extends BaseSysMsg {
     }
 
     @Nullable
-    public ua8 getMaskInfo() {
+    public va8 getMaskInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.maskInfo;
         }
-        return (ua8) invokeV.objValue;
+        return (va8) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg

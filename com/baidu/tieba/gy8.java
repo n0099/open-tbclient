@@ -1,76 +1,58 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.os.CountDownTimer;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.pb.ejection.value.Direction;
-import com.baidu.tieba.pb.ejection.value.LifeCycleState;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Random;
 /* loaded from: classes5.dex */
-public abstract class gy8 {
+public class gy8 implements rn {
     public static /* synthetic */ Interceptable $ic;
+    public static BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public float h;
-    public int i;
-    public int j;
-    public int k;
-    public int l;
-    public float m;
-    public Direction n;
-    public Direction o;
-    public int p;
-    public int q;
-    public int r;
-    public int s;
-    public int t;
-    public Paint u;
-    public LifeCycleState v;
-    public CountDownTimer w;
-    public Random x;
-    public int y;
+    public ThreadData a;
 
-    public abstract void a();
-
-    public abstract void b(Canvas canvas);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947810371, "Lcom/baidu/tieba/gy8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947810371, "Lcom/baidu/tieba/gy8;");
+                return;
+            }
+        }
+        b = BdUniqueId.gen();
+    }
 
     public gy8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.g = 255;
-        this.h = 2.0f;
-        this.i = 0;
-        this.j = 0;
-        this.k = 90;
-        this.l = 0;
-        this.m = -0.4f;
-        this.n = Direction.TOP;
-        this.o = Direction.RIGHT;
-        this.t = 0;
-        this.v = LifeCycleState.ACTIVE;
-        this.u = new Paint(1);
-        this.x = new Random();
-        this.y = TbadkCoreApplication.getInst().getSkinType();
+    }
+
+    @Override // com.baidu.tieba.rn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b;
+        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

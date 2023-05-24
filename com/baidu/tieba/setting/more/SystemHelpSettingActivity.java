@@ -23,7 +23,7 @@ import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
 import com.baidu.tieba.d25;
 import com.baidu.tieba.d65;
-import com.baidu.tieba.ij9;
+import com.baidu.tieba.jj9;
 import com.baidu.tieba.log.TbLogManager;
 import com.baidu.tieba.o65;
 import com.baidu.tieba.ri;
@@ -39,7 +39,7 @@ import java.util.ArrayList;
 public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingActivity> implements BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ij9 a;
+    public jj9 a;
     public SystemHelpSettingModel b;
     public d25 c;
 
@@ -491,7 +491,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new ij9(this);
+            this.a = new jj9(this);
             this.b = new SystemHelpSettingModel(this);
             if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
                 this.a.B().k();
@@ -558,12 +558,12 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
-        ij9 ij9Var;
+        jj9 jj9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, view2) != null) || (ij9Var = this.a) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, view2) != null) || (jj9Var = this.a) == null) {
             return;
         }
-        if (view2 == ij9Var.y()) {
+        if (view2 == jj9Var.y()) {
             if (this.b != null) {
                 CyberPlayerManager.deleteVideoCache(null);
                 if (TextUtils.isEmpty(this.a.y().getTip())) {

@@ -57,12 +57,12 @@ public class le3 extends re3<e> {
 
             /* renamed from: com.baidu.tieba.le3$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class C0370a implements be3 {
+            public class C0372a implements be3 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public C0370a(a aVar) {
+                public C0372a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -118,7 +118,7 @@ public class le3 extends re3<e> {
                 if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.isFinishing()) {
                     return;
                 }
-                ee3.u(this.a, this.c.c.M(), this.b, null, new C0370a(this));
+                ee3.u(this.a, this.c.c.M(), this.b, null, new C0372a(this));
             }
         }
 

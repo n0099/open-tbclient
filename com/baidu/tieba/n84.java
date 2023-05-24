@@ -35,13 +35,13 @@ public class n84 extends m84 {
 
         /* renamed from: com.baidu.tieba.n84$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0387a implements Runnable {
+        public class RunnableC0389a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ s84 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0387a(a aVar, s84 s84Var) {
+            public RunnableC0389a(a aVar, s84 s84Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,7 +132,7 @@ public class n84 extends m84 {
                 if (m84.a) {
                     Log.d("CheckAdvisedToRestApi", "on success");
                 }
-                this.c.b.post(new RunnableC0387a(this, s84Var));
+                this.c.b.post(new RunnableC0389a(this, s84Var));
             }
         }
 

@@ -46,11 +46,11 @@ public class af3 {
 
         /* renamed from: com.baidu.tieba.af3$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static class RunnableC0221a implements Runnable {
+        public static class RunnableC0223a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0221a() {
+            public RunnableC0223a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,7 +76,7 @@ public class af3 {
         public static void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-                ExecutorUtilsExt.postOnElastic(new RunnableC0221a(), "V8SoCleaner", 3);
+                ExecutorUtilsExt.postOnElastic(new RunnableC0223a(), "V8SoCleaner", 3);
             }
         }
     }

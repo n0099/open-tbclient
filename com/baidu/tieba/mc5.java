@@ -22,7 +22,7 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.data.HotEventData;
 import com.baidu.tbadk.mutiprocess.hotevent.HotEvent;
-import com.baidu.tieba.an6;
+import com.baidu.tieba.bn6;
 import com.baidu.tieba.core.widget.SpriteBottomTipView;
 import com.baidu.tieba.jb5;
 import com.baidu.tieba.sprite.FunnySpriteResDownloadUtil;
@@ -68,7 +68,7 @@ public class mc5 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 String b = bj5.b("", 0);
-                yk8 defaultLog = DefaultLog.getInstance();
+                zk8 defaultLog = DefaultLog.getInstance();
                 defaultLog.b("HotEventTip", "精灵动画提示控件：精灵点击跳转，scheme" + b);
                 if (b.startsWith("tiebaapp://router/portal")) {
                     mc5.d(b);
@@ -81,9 +81,9 @@ public class mc5 {
     public static class b implements Function0<Unit> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ an6.e a;
+        public final /* synthetic */ bn6.e a;
 
-        public b(an6.e eVar) {
+        public b(bn6.e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -178,9 +178,9 @@ public class mc5 {
     public static class d implements jb5.j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ an6.e a;
+        public final /* synthetic */ bn6.e a;
 
-        public d(an6.e eVar) {
+        public d(bn6.e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -203,7 +203,7 @@ public class mc5 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 boolean unused = mc5.a = false;
-                an6.e eVar = this.a;
+                bn6.e eVar = this.a;
                 if (eVar != null) {
                     eVar.onDismiss();
                 }
@@ -381,7 +381,7 @@ public class mc5 {
     public static void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            yk8 defaultLog = DefaultLog.getInstance();
+            zk8 defaultLog = DefaultLog.getInstance();
             defaultLog.b("HotEventTip", "精灵动画提示控件：气泡点击跳转，scheme" + str);
             UrlManager.getInstance().dealOneLink(TbadkApplication.getInst().getCurrentPageContext(TbadkApplication.getInst().getCurrentActivity()), new String[]{str});
         }
@@ -412,7 +412,7 @@ public class mc5 {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 83;
-            if (zk6.b(activity, "com.baidu.tieba.frs.FrsActivity")) {
+            if (al6.b(activity, "com.baidu.tieba.frs.FrsActivity")) {
                 i = R.dimen.tbds95;
             } else {
                 i = R.dimen.tbds141;
@@ -434,7 +434,7 @@ public class mc5 {
                 curGlobalActivity = TbadkCoreApplication.getInst();
             }
             if (hotEventData != null && hotEventData.getWindowType() == 3) {
-                hi9.a(curGlobalActivity, new String[]{hotEventData.getSchemaUrl()});
+                ii9.a(curGlobalActivity, new String[]{hotEventData.getSchemaUrl()});
             }
         }
     }
@@ -469,7 +469,7 @@ public class mc5 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, hotEventData)) == null) {
             if (!TextUtils.isEmpty(hotEventData.getBtnSchema()) && !TextUtils.isEmpty(hotEventData.getTitle())) {
                 if (hotEventData.getWindowType() != 1 && hotEventData.getWindowType() != 2) {
-                    yk8 defaultLog = DefaultLog.getInstance();
+                    zk8 defaultLog = DefaultLog.getInstance();
                     defaultLog.b("HotEventTip", "S级事件弹窗无法展示，WindowType不对" + hotEventData.getWindowType());
                     return false;
                 }
@@ -497,14 +497,14 @@ public class mc5 {
                 }
                 return true;
             }
-            yk8 defaultLog2 = DefaultLog.getInstance();
+            zk8 defaultLog2 = DefaultLog.getInstance();
             defaultLog2.b("HotEventTip", "S级事件弹窗无法展示，数据不合法 schema:" + hotEventData.getBtnSchema() + " title:" + hotEventData.getTitle());
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    public static jb5 p(HotEventData hotEventData, an6.e eVar) {
+    public static jb5 p(HotEventData hotEventData, bn6.e eVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, hotEventData, eVar)) == null) {
@@ -542,7 +542,7 @@ public class mc5 {
         return (jb5) invokeLL.objValue;
     }
 
-    public static SpriteAnimationTipManager t(HotEventData hotEventData, an6.e eVar) {
+    public static SpriteAnimationTipManager t(HotEventData hotEventData, bn6.e eVar) {
         InterceptResult invokeLL;
         boolean z;
         String str;
@@ -562,12 +562,12 @@ public class mc5 {
             r(hotEventData);
             Activity currentActivity = TbadkApplication.getInst().getCurrentActivity();
             if (currentActivity != null && !currentActivity.isFinishing()) {
-                if (currentActivity instanceof hv9) {
+                if (currentActivity instanceof iv9) {
                     DefaultLog.getInstance().b("HotEventTip", "精灵动画提示控件：通知首页展示S级事件");
-                    in6.b().b(new hp9(new ip9(hotEventData, eVar), 1));
+                    jn6.b().b(new ip9(new jp9(hotEventData, eVar), 1));
                     return null;
                 }
-                if (zk6.b(currentActivity, "com.baidu.tieba.frs.FrsActivity")) {
+                if (al6.b(currentActivity, "com.baidu.tieba.frs.FrsActivity")) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921769));
                 }
                 SpriteAnimationTipManager spriteAnimationTipManager = new SpriteAnimationTipManager(currentActivity);
@@ -581,13 +581,13 @@ public class mc5 {
                 } else {
                     str = "funny_sprite_appear_dark";
                 }
-                qn6 a2 = bj5.a(FunnySpriteResDownloadUtil.i(str, "rush_res", true), false, 2);
+                rn6 a2 = bj5.a(FunnySpriteResDownloadUtil.i(str, "rush_res", true), false, 2);
                 if (z) {
                     str2 = "funny_sprite_show_day";
                 } else {
                     str2 = "funny_sprite_show_dark";
                 }
-                qn6 a3 = bj5.a(FunnySpriteResDownloadUtil.i(str2, "rush_res", true), true, 2);
+                rn6 a3 = bj5.a(FunnySpriteResDownloadUtil.i(str2, "rush_res", true), true, 2);
                 if (z) {
                     str3 = "funny_sprite_exit_day";
                 } else {

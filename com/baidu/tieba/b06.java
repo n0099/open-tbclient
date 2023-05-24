@@ -63,7 +63,7 @@ public class b06 {
     public final void b(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            if (km9.a(this.c.getIntent())) {
+            if (lm9.a(this.c.getIntent())) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016560));
             }
             if (bundle != null) {
@@ -107,10 +107,10 @@ public class b06 {
                 return;
             }
             b(bundle);
-            if (!km9.a(this.c.getIntent()) && (km9.b(this.c.getIntent()) || this.c.isTaskRoot() || this.c.getIntent().getBooleanExtra(LogoActivityConfig.IS_DEAL_INTENT, false))) {
+            if (!lm9.a(this.c.getIntent()) && (lm9.b(this.c.getIntent()) || this.c.isTaskRoot() || this.c.getIntent().getBooleanExtra(LogoActivityConfig.IS_DEAL_INTENT, false))) {
                 a(this.c.getIntent());
             }
-            tp9.g().i(this.c.getUniqueId());
+            up9.g().i(this.c.getUniqueId());
             c06 c06Var = new c06(this.c);
             this.b = c06Var;
             c06Var.i(d);
@@ -120,7 +120,7 @@ public class b06 {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            tp9.g().k(this.c.getUniqueId());
+            up9.g().k(this.c.getUniqueId());
             d = false;
             c06 c06Var = this.b;
             if (c06Var != null) {

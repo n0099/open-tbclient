@@ -3,10 +3,10 @@ package com.baidu.tieba;
 import androidx.annotation.NonNull;
 import com.baidu.webkit.sdk.WebResourceResponse;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface be2 {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(String str);
 

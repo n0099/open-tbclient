@@ -1,17 +1,16 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tieba.tbadkCore.FrsRequestData;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
+import com.baidu.tieba.frs.FrsFragment;
 /* loaded from: classes8.dex */
 public interface wc7 {
-    void a(jm7 jm7Var, FrsViewData frsViewData);
+    gm7 a(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout);
 
-    void b(View view2);
+    uc7 b(FrsFragment frsFragment, xn xnVar, boolean z);
 
-    void c(jm7 jm7Var, i87 i87Var, FrsViewData frsViewData);
+    xc7 c();
 
-    int d(int i, FrsRequestData frsRequestData);
+    yc7 d(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout);
 
-    boolean e(int i);
+    wm7 e(String str, FrsFragment frsFragment, int i);
 }

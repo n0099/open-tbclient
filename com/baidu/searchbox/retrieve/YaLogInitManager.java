@@ -11,7 +11,7 @@ import com.baidu.searchbox.retrieve.connect.FetchConnManager;
 import com.baidu.tieba.ck1;
 import com.baidu.tieba.g10;
 import com.baidu.tieba.j80;
-import com.baidu.tieba.upa;
+import com.baidu.tieba.vpa;
 import com.baidu.tieba.yj1;
 import com.baidu.voyager.impl.service.VoyagerIPCManager;
 import com.baidu.yalog.LoggerManager;
@@ -43,9 +43,9 @@ public class YaLogInitManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void retryTask(boolean z) {
-        upa upaVar;
-        if (z && (upaVar = (upa) ServiceManager.getService(upa.a)) != null) {
-            upaVar.retry();
+        vpa vpaVar;
+        if (z && (vpaVar = (vpa) ServiceManager.getService(vpa.a)) != null) {
+            vpaVar.retry();
         }
     }
 

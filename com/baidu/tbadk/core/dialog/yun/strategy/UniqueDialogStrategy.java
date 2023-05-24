@@ -9,7 +9,7 @@ import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.b;
 import com.baidu.tieba.y35;
-import com.baidu.tieba.yk8;
+import com.baidu.tieba.zk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -88,7 +88,7 @@ public class UniqueDialogStrategy implements y35 {
                 if (Build.VERSION.SDK_INT >= 26) {
                     obj = b.a(",", data.currentShowingDialogList);
                 }
-                yk8 yunDialogLog = YunDialogLog.getInstance();
+                zk8 yunDialogLog = YunDialogLog.getInstance();
                 yunDialogLog.c("YunDialogManager", "云弹窗命中唯一策略，当前正在显示弹窗：" + obj);
             }
             return isEmpty;

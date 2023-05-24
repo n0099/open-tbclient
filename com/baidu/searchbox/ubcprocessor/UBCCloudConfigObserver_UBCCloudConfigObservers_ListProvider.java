@@ -1,6 +1,6 @@
 package com.baidu.searchbox.ubcprocessor;
 
-import com.baidu.tieba.eqa;
+import com.baidu.tieba.fqa;
 import com.baidu.tieba.tj1;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
@@ -8,7 +8,7 @@ public class UBCCloudConfigObserver_UBCCloudConfigObservers_ListProvider impleme
     @Override // com.baidu.tieba.tj1
     public Object get() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new eqa());
+        arrayList.add(new fqa());
         return arrayList;
     }
 }

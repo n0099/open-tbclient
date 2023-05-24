@@ -137,13 +137,13 @@ public abstract class ak3 implements bk3, ck3 {
 
         /* renamed from: com.baidu.tieba.ak3$c$c  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0223c implements Runnable {
+        public class RunnableC0225c implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ zn3 a;
             public final /* synthetic */ c b;
 
-            public RunnableC0223c(c cVar, zn3 zn3Var) {
+            public RunnableC0225c(c cVar, zn3 zn3Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -268,7 +268,7 @@ public abstract class ak3 implements bk3, ck3 {
             if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zn3Var) != null) || zn3Var == null) {
                 return;
             }
-            am3.k(new RunnableC0223c(this, zn3Var), "wifiScan");
+            am3.k(new RunnableC0225c(this, zn3Var), "wifiScan");
         }
 
         @Override // com.baidu.tieba.ck3

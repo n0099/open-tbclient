@@ -26,7 +26,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.cv7;
+import com.baidu.tieba.dv7;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.sg;
 import com.baidu.tieba.y65;
@@ -1243,8 +1243,8 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
             this.s = kVar;
             kVar.getView().setVisibility(8);
             addView(this.s.getView(), 0);
-            if (kVar instanceof cv7) {
-                ((cv7) kVar).T(new c(this, kVar));
+            if (kVar instanceof dv7) {
+                ((dv7) kVar).T(new c(this, kVar));
             }
         }
     }

@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.o65;
-import com.baidu.tieba.pv8;
+import com.baidu.tieba.qv8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class InterestGuideActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pv8 a;
+    public qv8 a;
     public int b;
     public boolean c;
     public ArrayList<Integer> d;
@@ -66,9 +66,9 @@ public class InterestGuideActivity extends BaseFragmentActivity {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             t1();
-            pv8 pv8Var = new pv8(this, this.b, this.c, this.d, this.e, this.f);
-            this.a = pv8Var;
-            setContentView(pv8Var.d());
+            qv8 qv8Var = new qv8(this, this.b, this.c, this.d, this.e, this.f);
+            this.a = qv8Var;
+            setContentView(qv8Var.d());
             u1();
         }
     }

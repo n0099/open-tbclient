@@ -14,13 +14,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ka6 extends c87<aq9, FrsPageAlaStageViewHolder> implements tj6 {
+public class ka6 extends d87<bq9, FrsPageAlaStageViewHolder> implements uj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String l;
     public va6 m;
 
-    @Override // com.baidu.tieba.tj6
+    @Override // com.baidu.tieba.uj6
     public void p(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
@@ -67,7 +67,7 @@ public class ka6 extends c87<aq9, FrsPageAlaStageViewHolder> implements tj6 {
         return (FrsPageAlaStageViewHolder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.tj6
+    @Override // com.baidu.tieba.uj6
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -75,12 +75,12 @@ public class ka6 extends c87<aq9, FrsPageAlaStageViewHolder> implements tj6 {
         }
     }
 
-    public View H(int i, View view2, ViewGroup viewGroup, aq9 aq9Var, FrsPageAlaStageViewHolder frsPageAlaStageViewHolder) {
+    public View H(int i, View view2, ViewGroup viewGroup, bq9 bq9Var, FrsPageAlaStageViewHolder frsPageAlaStageViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, aq9Var, frsPageAlaStageViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) aq9Var, (aq9) frsPageAlaStageViewHolder);
-            if (aq9Var != null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, bq9Var, frsPageAlaStageViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) bq9Var, (bq9) frsPageAlaStageViewHolder);
+            if (bq9Var != null) {
                 int i2 = 0;
                 FrsViewData frsViewData = this.b;
                 if (frsViewData != null) {
@@ -89,16 +89,16 @@ public class ka6 extends c87<aq9, FrsPageAlaStageViewHolder> implements tj6 {
                 va6 va6Var = frsPageAlaStageViewHolder.a;
                 va6Var.x = (i + 1) - i2;
                 va6Var.a(this.l);
-                frsPageAlaStageViewHolder.a.i(aq9Var);
+                frsPageAlaStageViewHolder.a.i(bq9Var);
             }
             return view2;
         }
         return (View) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.c87, com.baidu.tieba.en
+    @Override // com.baidu.tieba.d87, com.baidu.tieba.en
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        H(i, view2, viewGroup, (aq9) obj, (FrsPageAlaStageViewHolder) viewHolder);
+        H(i, view2, viewGroup, (bq9) obj, (FrsPageAlaStageViewHolder) viewHolder);
         return view2;
     }
 }

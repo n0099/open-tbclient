@@ -1,8 +1,8 @@
 package com.huawei.hms.opendevice;
 
-import com.baidu.tieba.g2b;
+import com.baidu.tieba.h2b;
 import com.huawei.hms.support.api.opendevice.OdidResult;
 /* loaded from: classes9.dex */
 public interface OpenDeviceClient {
-    g2b<OdidResult> getOdid();
+    h2b<OdidResult> getOdid();
 }

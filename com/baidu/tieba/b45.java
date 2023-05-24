@@ -31,14 +31,14 @@ public class b45 implements tj1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new mj7());
-            arrayList.add(new qj7());
-            arrayList.add(new uj7());
-            arrayList.add(new yj7());
-            arrayList.add(new ck7());
-            arrayList.add(new gk7());
-            arrayList.add(new kk7());
-            arrayList.add(new on9());
+            arrayList.add(new nj7());
+            arrayList.add(new rj7());
+            arrayList.add(new vj7());
+            arrayList.add(new zj7());
+            arrayList.add(new dk7());
+            arrayList.add(new hk7());
+            arrayList.add(new lk7());
+            arrayList.add(new pn9());
             return arrayList;
         }
         return invokeV.objValue;

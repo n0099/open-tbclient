@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.gi9;
+import com.baidu.tieba.hi9;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
 import com.baidu.tieba.lk5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.JsonSyntaxException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ChatRoomDispatcher implements gi9 {
+public class ChatRoomDispatcher implements hi9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String OPEN_GROUPCHAT_SCHEME = "com.baidu.tieba://unidispatch/router/portal";
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +60,7 @@ public class ChatRoomDispatcher implements gi9 {
 
     /* JADX WARN: Removed duplicated region for block: B:23:0x0088  */
     /* JADX WARN: Removed duplicated region for block: B:24:0x008a  */
-    @Override // com.baidu.tieba.gi9
+    @Override // com.baidu.tieba.hi9
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

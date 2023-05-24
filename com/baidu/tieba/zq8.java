@@ -5,9 +5,12 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.imageManager.TbFaceManager;
+import com.baidu.tieba.memberCenter.tail.data.TailData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,8 +21,11 @@ public class zq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
-    public TextView b;
+    public Context b;
     public TextView c;
+    public ImageView d;
+    public TailData e;
+    public View f;
 
     public zq8() {
         Interceptable interceptable = $ic;
@@ -35,13 +41,23 @@ public class zq8 {
         }
     }
 
-    @SuppressLint({"ResourceAsColor"})
-    public void b() {
+    public TailData b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setBackgroundResource(this.b, R.drawable.member_privilege_button_new_selector);
-            SkinManager.setViewTextColor(this.b, R.color.CAM_X0101, 1);
-            SkinManager.setViewTextColor(this.c, R.color.CAM_X0108, 1);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
+        }
+        return (TailData) invokeV.objValue;
+    }
+
+    @SuppressLint({"ResourceAsColor"})
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SkinManager.setBackgroundResource(this.f, R.drawable.tail_item_bg);
+            SkinManager.setViewTextColor(this.c, R.color.CAM_X0106, 1);
+            SkinManager.setBackgroundResource(this.d, R.drawable.tail_tool_list_item_checkbox_bg);
+            SkinManager.setImageResource(this.d, R.drawable.tail_tool_list_item_checkbox_selector);
         }
     }
 
@@ -49,20 +65,55 @@ public class zq8 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d090f, (ViewGroup) null);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d090e, (ViewGroup) null);
             this.a = inflate;
+            this.b = context;
             inflate.setTag(this);
-            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092328);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092329);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092325);
+            this.d = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092324);
+            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f092323);
+            this.f = findViewById;
+            findViewById.setTag(this);
             return this.a;
         }
         return (View) invokeL.objValue;
     }
 
-    public void c(View.OnClickListener onClickListener) {
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.b.setOnClickListener(onClickListener);
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.c.setTextColor(fr8.a(str));
         }
+    }
+
+    public void e(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
+            this.f.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void f(TailData tailData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, tailData) == null) {
+            this.e = tailData;
+        }
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.c.setText(TbFaceManager.i().t(this.b, gr8.a(str), null));
+        }
+    }
+
+    public void h(TailData tailData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, tailData) != null) || tailData == null) {
+            return;
+        }
+        g(tailData.getContent());
+        d(tailData.getFontColor());
+        this.d.setSelected(tailData.isSelected());
     }
 }

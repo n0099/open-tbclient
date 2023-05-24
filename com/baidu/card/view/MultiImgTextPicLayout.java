@@ -38,7 +38,7 @@ import com.baidu.tieba.ri;
 import com.baidu.tieba.rx4;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import com.baidu.tieba.tx;
-import com.baidu.tieba.vj6;
+import com.baidu.tieba.wj6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -64,7 +64,7 @@ public class MultiImgTextPicLayout extends LinearLayout implements tx<jy4> {
     public TbImageView i;
     public String j;
     public boolean k;
-    public vj6<jy4> l;
+    public wj6<jy4> l;
     public jy4 m;
     public int n;
     public iw5 o;
@@ -112,7 +112,7 @@ public class MultiImgTextPicLayout extends LinearLayout implements tx<jy4> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            vj6<jy4> subClickListener;
+            wj6<jy4> subClickListener;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (subClickListener = this.a.getSubClickListener()) != null) {
                 view2.setTag("2");
@@ -149,7 +149,7 @@ public class MultiImgTextPicLayout extends LinearLayout implements tx<jy4> {
         public void a(View view2, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-                vj6<jy4> subClickListener = this.a.getSubClickListener();
+                wj6<jy4> subClickListener = this.a.getSubClickListener();
                 if (subClickListener != null) {
                     view2.setTag("1");
                     this.a.m.objType = 2;
@@ -499,10 +499,10 @@ public class MultiImgTextPicLayout extends LinearLayout implements tx<jy4> {
         }
     }
 
-    public void setSubClickListener(vj6<jy4> vj6Var) {
+    public void setSubClickListener(wj6<jy4> wj6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, vj6Var) == null) {
-            this.l = vj6Var;
+        if (interceptable == null || interceptable.invokeL(1048590, this, wj6Var) == null) {
+            this.l = wj6Var;
         }
     }
 
@@ -619,13 +619,13 @@ public class MultiImgTextPicLayout extends LinearLayout implements tx<jy4> {
         }
     }
 
-    public vj6<jy4> getSubClickListener() {
+    public wj6<jy4> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.l;
         }
-        return (vj6) invokeV.objValue;
+        return (wj6) invokeV.objValue;
     }
 
     public final void h() {

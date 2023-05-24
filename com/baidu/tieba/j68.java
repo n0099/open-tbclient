@@ -1,118 +1,265 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.content.Intent;
+import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AlaInfoData;
-import com.baidu.tbadk.core.data.YyExtData;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.TiebaStaticHelper;
-import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public class j68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, Boolean> a;
+    public long b;
+    public String c;
+    public int d;
+    public int e;
+    public int f;
 
-    public static void a(StatisticItem statisticItem, q68 q68Var) {
+    public j68() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, statisticItem, q68Var) == null) {
-            int i = 5;
-            String str = "";
-            if (q68Var != null) {
-                YyExtData g = q68Var.g();
-                if (g != null) {
-                    if (g.isYyGame) {
-                        i = 3;
-                    } else {
-                        i = 2;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = 0L;
+        this.a = new HashMap<>();
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public void c(List<String> list, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, list, i, i2) == null) {
+            synchronized (this.a) {
+                if (System.nanoTime() - this.b > 300000000 && list != null && i < list.size()) {
+                    this.a.put(list.get(i), Boolean.TRUE);
+                }
+                this.b = System.nanoTime();
+                if (list != null && i2 < list.size() && this.a.get(list.get(i2)) == null) {
+                    this.a.put(list.get(i2), Boolean.FALSE);
+                }
+            }
+            if (this.a.size() >= 100) {
+                i();
+            }
+        }
+    }
+
+    public void d(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
+            TiebaStatic.log(new StatisticItem("c13340").param("uid", str).param("post_id", str2).param("obj_source", m(str3)));
+        }
+    }
+
+    public void e(String str, String str2, int i, int i2, int i3, int i4, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str3}) == null) {
+            TiebaStatic.log(new StatisticItem("c13340").param("uid", TbadkCoreApplication.getCurrentAccount()).param("post_id", str).param("obj_source", str2).param("obj_param1", i).param(TiebaStatic.Params.OBJ_PARAM2, i2).param(TiebaStatic.Params.OBJ_PARAM3, i3).param(TiebaStatic.Params.OBJ_PARAM4, i4).param("obj_type", str3));
+        }
+    }
+
+    public void f(Bundle bundle, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, bundle, intent) == null) {
+            if (bundle != null) {
+                this.c = bundle.getString(ImageViewerConfig.PV_TYPE);
+            } else if (intent != null) {
+                this.c = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
+                int intExtra = intent.getIntExtra("index", -1);
+                this.d = intExtra;
+                this.e = intExtra;
+                this.f = intExtra;
+            }
+        }
+    }
+
+    public void g(int i, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(1048582, this, i, str) == null) && i == 1 && System.nanoTime() - this.b > 300000000) {
+            this.a.put(str, Boolean.TRUE);
+        }
+    }
+
+    public void h(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, bundle) != null) || bundle == null) {
+            return;
+        }
+        bundle.putString(ImageViewerConfig.PV_TYPE, this.c);
+    }
+
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public void i() {
+        HashMap<String, Boolean> hashMap;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || (hashMap = this.a) == null) {
+            return;
+        }
+        synchronized (hashMap) {
+            if (this.a.size() <= 0) {
+                return;
+            }
+            int i = 0;
+            for (Map.Entry<String, Boolean> entry : this.a.entrySet()) {
+                if (entry.getValue().booleanValue()) {
+                    i++;
+                }
+            }
+            TbadkCoreApplication.getInst().sendImagePv(i, this.a.size(), this.c, this.d + 1, this.e + 1);
+            this.a.clear();
+        }
+    }
+
+    public void l(int i, String str, String str2, String str3, String str4, String str5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), str, str2, str3, str4, str5}) == null) {
+            StringBuilder sb = new StringBuilder();
+            StringBuilder sb2 = new StringBuilder();
+            int i2 = this.f;
+            if (i2 != this.e) {
+                while (true) {
+                    int i3 = this.e;
+                    if (i2 > i3) {
+                        break;
                     }
-                    str = TiebaStatic.YYValues.YY_LIVE;
+                    if (i2 == i3) {
+                        sb.append(i2 + 1);
+                        if (this.e == i - 1) {
+                            sb2.append(1);
+                        } else {
+                            sb2.append(0);
+                        }
+                    } else {
+                        sb.append(i2 + 1);
+                        sb.append("|");
+                        sb2.append(0);
+                        sb2.append("|");
+                    }
+                    i2++;
                 }
-                if (!TextUtils.isEmpty(q68Var.e())) {
-                    statisticItem.param("obj_param1", q68Var.e());
-                }
-            }
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, i);
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, str);
-        }
-    }
-
-    public static void b(StatisticItem statisticItem, String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLLL(65537, null, statisticItem, str, str2, str3, str4) == null) && statisticItem != null) {
-            if (!TextUtils.isEmpty(str)) {
-                statisticItem.param("fid", str);
-            }
-            if (!TextUtils.isEmpty(str2)) {
-                statisticItem.param("fname", str2);
-            }
-            if (!TextUtils.isEmpty(str3)) {
-                statisticItem.param("uid", str3);
-            }
-            if (!TextUtils.isEmpty(str4)) {
-                statisticItem.param("tid", str4);
-            }
-        }
-    }
-
-    public static void c(int i, String str, String str2, String str3, String str4, q68 q68Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), str, str2, str3, str4, q68Var}) == null) {
-            StatisticItem statisticItem = new StatisticItem("c15008");
-            statisticItem.param("obj_locate", i);
-            b(statisticItem, str, str2, str3, str4);
-            if (q68Var != null) {
-                a(statisticItem, q68Var);
-                TiebaStaticHelper.addYYParam(statisticItem, q68Var.g());
-            }
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void d(String str, String str2, String str3, @NonNull AlaInfoData alaInfoData) {
-        String str4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65539, null, str, str2, str3, alaInfoData) == null) {
-            StatisticItem param = new StatisticItem("c13711").param("fid", str).param("fname", str2).param("uid", TbadkCoreApplication.getCurrentAccount()).param("tid", str3);
-            String str5 = "";
-            if (alaInfoData.user_info == null) {
-                str4 = "";
             } else {
-                str4 = "" + alaInfoData.user_info.user_id;
+                sb.append(i2 + 1);
+                if (this.e == i - 1) {
+                    sb2.append(1);
+                } else {
+                    sb2.append(0);
+                }
             }
-            StatisticItem param2 = param.param("obj_param1", str4);
-            int calculateLiveType = YYLiveUtil.calculateLiveType(alaInfoData);
-            if (alaInfoData.isLegalYYLiveData()) {
-                TiebaStaticHelper.addYYParam(param2, alaInfoData.mYyExtData);
-                str5 = TiebaStatic.YYValues.YY_LIVE;
+            StatisticItem statisticItem = new StatisticItem("common_exp");
+            statisticItem.param("page_type", "a008");
+            if (!qi.isEmpty(str2)) {
+                statisticItem.param("fid", str2);
             }
-            param2.param(TiebaStatic.Params.OBJ_PARAM2, calculateLiveType);
-            param2.param(TiebaStatic.Params.OBJ_PARAM3, str5);
-            TiebaStatic.log(param2);
-        }
-    }
-
-    public static void e(String str, String str2, String str3, String str4, q68 q68Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3, str4, q68Var) == null) {
-            StatisticItem statisticItem = new StatisticItem("c15007");
-            b(statisticItem, str, str2, str3, str4);
-            if (q68Var != null) {
-                a(statisticItem, q68Var);
-                TiebaStaticHelper.addYYParam(statisticItem, q68Var.g());
+            if (!qi.isEmpty(str3)) {
+                statisticItem.param("tid", str3);
+            }
+            if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
+                statisticItem.param("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().k);
+            }
+            statisticItem.param("pic_count", i);
+            statisticItem.param(TiebaStatic.Params.OBJ_FLOOR_MERGE, sb.toString());
+            statisticItem.param(TiebaStatic.Params.OBJ_ISAD_MERGE, sb2.toString());
+            int i4 = this.e;
+            int i5 = (i4 - this.f) + 1;
+            if (i5 == 1) {
+                if (i4 == i - 1) {
+                    statisticItem.param("obj_id", str);
+                } else {
+                    statisticItem.param("obj_id", "");
+                }
+            }
+            if (i5 > 1) {
+                StringBuilder sb3 = new StringBuilder();
+                for (int i6 = 0; i6 < i5 - 1; i6++) {
+                    sb3.append("|");
+                }
+                if (this.e == i - 1) {
+                    sb3.append(str);
+                }
+                statisticItem.param(TiebaStatic.Params.OBJ_ID_MERGE, str);
+            }
+            if (!StringUtils.isNull(str4)) {
+                statisticItem.param(TiebaStatic.Params.FIRST_DIR, str4);
+            }
+            if (!StringUtils.isNull(str5)) {
+                statisticItem.param(TiebaStatic.Params.SECOND_DIR, str5);
+            }
+            if (PermissionUtil.isBrowseMode()) {
+                statisticItem.param(TiebaStatic.Params.PURE_BROWSING, 1);
             }
             TiebaStatic.log(statisticItem);
         }
     }
 
-    public static void f(int i, String str, String str2) {
+    public final int m(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65541, null, i, str, str2) == null) {
-            TiebaStatic.log(new StatisticItem("c13857").param("obj_type", i).param("post_id", str).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", str2));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            if (StringUtils.isNULL(str)) {
+                return 7;
+            }
+            if (str.equals("pb")) {
+                return 5;
+            }
+            if (str.equals("frs")) {
+                return 3;
+            }
+            if (!str.equals("index")) {
+                return 7;
+            }
+            return 1;
         }
+        return invokeL.intValue;
     }
 }

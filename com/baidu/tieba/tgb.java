@@ -5,26 +5,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import java.util.List;
-import tv.athena.revenue.api.pay.params.PayFlowType;
 import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
-import tv.athena.revenue.payui.view.WindowParams;
 /* loaded from: classes7.dex */
-public interface tgb extends ogb {
+public interface tgb extends pgb {
 
     /* loaded from: classes7.dex */
     public interface a {
-        void a(dfb dfbVar);
-
         void b();
-
-        void onRefreshViewFail(int i, String str);
     }
-
-    void a();
 
     void setCallback(a aVar);
 
@@ -32,14 +20,9 @@ public interface tgb extends ogb {
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public dfb a;
-        public WindowParams b;
-        public PayFlowType c;
-        public List<PayWayInfo> d;
-        public String e;
-        public IYYPayAmountView.ViewParams f;
-        public AbsViewEventHandler g;
-        public PaySplitOrderViewSource h;
+        public boolean a;
+        public efb b;
+        public AbsViewEventHandler c;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -59,7 +42,7 @@ public interface tgb extends ogb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "ViewParams{  source='" + this.h + "'  amount=" + this.a + ", payFlowType=" + this.c + ", bubbleActMsg=" + this.e + ", payWayInfoList=" + this.d + ", payAmountViewParams='" + this.f + "', windowParams='" + this.b + "', viewEventListener='" + this.g + "'}";
+                return "ViewParams{amount=" + this.b + "alwaysConfirm=" + this.a + "}";
             }
             return (String) invokeV.objValue;
         }

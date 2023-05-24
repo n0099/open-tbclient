@@ -1,58 +1,39 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.graphics.Rect;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.uistate.CardUiStateKt;
-import com.baidu.tieba.feed.component.uistate.CardVirtualHeadUiStateKt;
-import com.baidu.tieba.feed.helper.CommonOnClickKt;
+import com.baidu.tieba.feed.component.uistate.CardVideoUiStateKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.Unit;
-import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
+import kotlin.jvm.functions.Function3;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class lz6 implements f37<lz6> {
+public final class lz6 extends kz6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final zz6 a;
-    public final j07 b;
-    public final String c;
-    public final String d;
-    public final Function2<View, String, Unit> e;
-    public final Function2<View, String, Boolean> f;
-    public final Function2<j07, View, Unit> g;
-    public final Function1<y07, Unit> h;
-
-    @Override // com.baidu.tieba.f37
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "virtual_head" : (String) invokeV.objValue;
-    }
-
-    public lz6 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this : (lz6) invokeV.objValue;
-    }
+    public final b17 b;
+    public final c17 c;
+    public z07 d;
+    public final Function3<Context, Rect, c17, Unit> e;
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
             if (this == obj) {
                 return true;
             }
             if (obj instanceof lz6) {
                 lz6 lz6Var = (lz6) obj;
-                return Intrinsics.areEqual(this.a, lz6Var.a) && Intrinsics.areEqual(this.b, lz6Var.b) && Intrinsics.areEqual(this.c, lz6Var.c) && Intrinsics.areEqual(this.d, lz6Var.d) && Intrinsics.areEqual(this.e, lz6Var.e) && Intrinsics.areEqual(this.f, lz6Var.f) && Intrinsics.areEqual(this.g, lz6Var.g) && Intrinsics.areEqual(this.h, lz6Var.h);
+                return Intrinsics.areEqual(this.b, lz6Var.b) && Intrinsics.areEqual(this.c, lz6Var.c) && Intrinsics.areEqual(this.d, lz6Var.d) && Intrinsics.areEqual(this.e, lz6Var.e);
             }
             return false;
         }
@@ -62,168 +43,84 @@ public final class lz6 implements f37<lz6> {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            int hashCode = this.a.hashCode() * 31;
-            j07 j07Var = this.b;
-            int hashCode2 = (hashCode + (j07Var == null ? 0 : j07Var.hashCode())) * 31;
-            String str = this.c;
-            int hashCode3 = (hashCode2 + (str == null ? 0 : str.hashCode())) * 31;
-            String str2 = this.d;
-            return ((((((((hashCode3 + (str2 != null ? str2.hashCode() : 0)) * 31) + this.e.hashCode()) * 31) + this.f.hashCode()) * 31) + this.g.hashCode()) * 31) + this.h.hashCode();
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (((((this.b.hashCode() * 31) + this.c.hashCode()) * 31) + this.d.hashCode()) * 31) + this.e.hashCode() : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return "CardVirtualHeadUiState(headData=" + this.a + ", feedBackData=" + this.b + ", schema=" + this.c + ", authorUserId=" + this.d + ", onItemClick=" + this.e + ", onImageClick=" + this.f + ", onFeedBackClick=" + this.g + ", onStat=" + this.h + ')';
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "CardVideoUiState(videoData=" + this.b + ", schemaData=" + this.c + ", statData=" + this.d + ", onVideoClick=" + this.e + ')';
         }
         return (String) invokeV.objValue;
     }
 
-    @JvmOverloads
-    public lz6(zz6 headData, j07 j07Var, String str, String str2, Function2<? super View, ? super String, Unit> onItemClick, Function2<? super View, ? super String, Boolean> onImageClick, Function2<? super j07, ? super View, Unit> onFeedBackClick, Function1<? super y07, Unit> onStat) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lz6(b17 videoData, c17 schemaData, z07 statData, Function3<? super Context, ? super Rect, ? super c17, Unit> onVideoClick) {
+        super(null, null, 3, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {headData, j07Var, str, str2, onItemClick, onImageClick, onFeedBackClick, onStat};
+            Object[] objArr = {videoData, schemaData, statData, onVideoClick};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Function2) objArr2[0], (Function1) objArr2[1], ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(headData, "headData");
-        Intrinsics.checkNotNullParameter(onItemClick, "onItemClick");
-        Intrinsics.checkNotNullParameter(onImageClick, "onImageClick");
-        Intrinsics.checkNotNullParameter(onFeedBackClick, "onFeedBackClick");
-        Intrinsics.checkNotNullParameter(onStat, "onStat");
-        this.a = headData;
-        this.b = j07Var;
-        this.c = str;
-        this.d = str2;
-        this.e = onItemClick;
-        this.f = onImageClick;
-        this.g = onFeedBackClick;
-        this.h = onStat;
+        Intrinsics.checkNotNullParameter(videoData, "videoData");
+        Intrinsics.checkNotNullParameter(schemaData, "schemaData");
+        Intrinsics.checkNotNullParameter(statData, "statData");
+        Intrinsics.checkNotNullParameter(onVideoClick, "onVideoClick");
+        this.b = videoData;
+        this.c = schemaData;
+        this.d = statData;
+        this.e = onVideoClick;
     }
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public /* synthetic */ lz6(zz6 zz6Var, j07 j07Var, String str, String str2, Function2 function2, Function2 function22, Function2 function23, Function1 function1, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(zz6Var, j07Var, str, str2, r7, r8, r9, r10);
-        Function2<View, String, Unit> function24;
-        Function2 function25;
-        Function2<j07, View, Unit> function26;
-        Function1<y07, Unit> function12;
-        Function2 function27;
-        if ((i & 16) != 0) {
-            function24 = CommonOnClickKt.b();
-        } else {
-            function24 = function2;
-        }
-        if ((i & 32) != 0) {
-            function27 = CardVirtualHeadUiStateKt.a;
-            function25 = function27;
-        } else {
-            function25 = function22;
-        }
-        if ((i & 64) != 0) {
-            function26 = CommonOnClickKt.a();
-        } else {
-            function26 = function23;
-        }
-        if ((i & 128) != 0) {
-            function12 = CardUiStateKt.b();
-        } else {
-            function12 = function1;
-        }
+    public /* synthetic */ lz6(b17 b17Var, c17 c17Var, z07 z07Var, Function3 function3, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(b17Var, c17Var, (i & 4) != 0 ? new z07(null, null, null, 7, null) : z07Var, (i & 8) != 0 ? CardVideoUiStateKt.a() : function3);
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.f37
-    public /* bridge */ /* synthetic */ lz6 b() {
-        d();
-        return this;
-    }
-
-    public final String c() {
+    public final Function3<Context, Rect, c17, Unit> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
         }
-        return (String) invokeV.objValue;
+        return (Function3) invokeV.objValue;
     }
 
-    public final j07 e() {
+    public final c17 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (c17) invokeV.objValue;
+    }
+
+    public final z07 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (z07) invokeV.objValue;
+    }
+
+    public final b17 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.b;
         }
-        return (j07) invokeV.objValue;
-    }
-
-    public final zz6 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a;
-        }
-        return (zz6) invokeV.objValue;
-    }
-
-    public final Function2<j07, View, Unit> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.g;
-        }
-        return (Function2) invokeV.objValue;
-    }
-
-    public final Function2<View, String, Boolean> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.f;
-        }
-        return (Function2) invokeV.objValue;
-    }
-
-    public final Function2<View, String, Unit> i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.e;
-        }
-        return (Function2) invokeV.objValue;
-    }
-
-    public final Function1<y07, Unit> j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.h;
-        }
-        return (Function1) invokeV.objValue;
-    }
-
-    public final String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
+        return (b17) invokeV.objValue;
     }
 }

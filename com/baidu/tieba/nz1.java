@@ -36,14 +36,14 @@ public class nz1 extends mz1 {
 
         /* renamed from: com.baidu.tieba.nz1$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0396a implements si3.a {
+        public class C0395a implements si3.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ yz1 b;
             public final /* synthetic */ a c;
 
-            public C0396a(a aVar, String str, yz1 yz1Var) {
+            public C0395a(a aVar, String str, yz1 yz1Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,7 +113,7 @@ public class nz1 extends mz1 {
                 yz1 yz1Var = new yz1("accelerometerChange", jSONObject, str);
                 si3 a = si3.a();
                 a.b(this.a.getContext(), b.a(jSONObject.optString("interval")));
-                a.e(new C0396a(this, str, yz1Var));
+                a.e(new C0395a(this, str, yz1Var));
                 a.f();
                 yz1Var.b(this.a);
                 return g12.f();

@@ -16,7 +16,7 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSys
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.NoticeModifySysMsg;
 import com.baidu.tieba.p45;
-import com.baidu.tieba.qb8;
+import com.baidu.tieba.rb8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -162,7 +162,7 @@ public class NoticeModifyAdapter extends BaseSysAdapter<NoticeModifySysMsg, Hold
                 }
                 holder.d.setText(R.string.obfuscated_res_0x7f0f0901);
                 holder.e.setText(R.string.obfuscated_res_0x7f0f1781);
-                qb8.a("c15095", 2, this.i, this.j, TbadkCoreApplication.getCurrentAccount());
+                rb8.a("c15095", 2, this.i, this.j, TbadkCoreApplication.getCurrentAccount());
             }
             return holder.getView();
         }

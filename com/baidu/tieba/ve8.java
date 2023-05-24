@@ -6,15 +6,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
+import java.util.Objects;
 /* loaded from: classes7.dex */
-public final class ve8 {
+public final class ve8<T> extends qe8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public JSONArray b;
-    public String c;
+    public final te8 c;
+    public T d;
+    public Object e;
+    public ue8 f;
 
     public ve8() {
         Interceptable interceptable = $ic;
@@ -29,57 +29,89 @@ public final class ve8 {
                 return;
             }
         }
-        this.a = "";
-        this.c = "";
+        this.c = new te8();
+        this.f = new ue8();
     }
 
-    public final String a() {
+    public final te8 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.c;
         }
-        return (String) invokeV.objValue;
+        return (te8) invokeV.objValue;
     }
 
-    public final JSONArray b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (JSONArray) invokeV.objValue;
-    }
-
-    public final String c() {
+    public final T f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+            return this.d;
         }
-        return (String) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
-    public final void d(String str) {
+    public final ue8 g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.c = str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f;
+        }
+        return (ue8) invokeV.objValue;
+    }
+
+    public final Object h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return invokeV.objValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return Objects.hashCode(b());
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        ve8 ve8Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            String str = null;
+            if (obj instanceof ve8) {
+                ve8Var = (ve8) obj;
+            } else {
+                ve8Var = null;
+            }
+            String b = b();
+            if (ve8Var != null) {
+                str = ve8Var.b();
+            }
+            return Objects.equals(b, str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void i(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
+            this.d = t;
         }
     }
 
-    public final void e(JSONArray jSONArray) {
+    public final void j(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jSONArray) == null) {
-            this.b = jSONArray;
-        }
-    }
-
-    public final void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.a = str;
+        if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
+            this.e = obj;
         }
     }
 }

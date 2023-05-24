@@ -1,106 +1,48 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.switchs.LooperBlockSwitch;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
 /* loaded from: classes8.dex */
-public class ww9 implements iv9 {
+public class ww9 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public dx9 a;
-    public x25 b;
-    public cx9 c;
-    public bx9 d;
-    public zw9 e;
-    public xw9 f;
-    public ax9 g;
-    public yw9 h;
-    public MainTabActivity i;
-    public iu9 j;
-    public boolean k;
+    public final MainTabActivity a;
 
-    public ww9(@NonNull MainTabActivity mainTabActivity, @NonNull iu9 iu9Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ww9(MainTabActivity mainTabActivity, ju9 ju9Var) {
+        super(2921561);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, iu9Var};
+            Object[] objArr = {mainTabActivity, ju9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = false;
-        this.i = mainTabActivity;
-        this.j = iu9Var;
-        this.a = new dx9(mainTabActivity.getPageContext(), iu9Var, mainTabActivity, false);
-        this.b = new x25(mainTabActivity.getPageContext());
-        this.c = new cx9(mainTabActivity, iu9Var);
-        this.d = new bx9(mainTabActivity, iu9Var);
-        this.g = new ax9(mainTabActivity, iu9Var);
-        this.h = new yw9(mainTabActivity, iu9Var);
-        this.e = new zw9(mainTabActivity, iu9Var);
+        this.a = mainTabActivity;
     }
 
-    @Override // com.baidu.tieba.iv9
-    public void a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (LooperBlockSwitch.getIsOn()) {
-                LinkedList linkedList = new LinkedList();
-                linkedList.add(this.a);
-                u25.g(linkedList);
-            } else if (!this.k) {
-            } else {
-                bh8.m = false;
-                LinkedList linkedList2 = new LinkedList();
-                linkedList2.add(this.h);
-                linkedList2.add(this.a);
-                u25.g(linkedList2);
+        if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+            Object data = customResponsedMessage.getData();
+            if (data instanceof Integer) {
+                ((Integer) data).intValue();
             }
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || LooperBlockSwitch.getIsOn() || !this.k) {
-            return;
-        }
-        LinkedList linkedList = new LinkedList();
-        linkedList.add(this.h);
-        linkedList.add(this.c);
-        linkedList.add(this.d);
-        linkedList.add(this.e);
-        u25.g(linkedList);
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LinkedList linkedList = new LinkedList();
-            linkedList.add(this.a);
-            if (LooperBlockSwitch.getIsOn()) {
-                linkedList.add(this.c);
-                linkedList.add(this.d);
-                linkedList.add(this.h);
-                linkedList.add(this.b);
-                linkedList.add(this.g);
-            }
-            xw9 xw9Var = new xw9(this.i, this.j, "source_from_theme");
-            this.f = xw9Var;
-            linkedList.add(xw9Var);
-            u25.g(linkedList);
-            this.k = true;
         }
     }
 }

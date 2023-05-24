@@ -174,7 +174,7 @@ public class fb5 {
                 this.E = sa5Var;
                 sa5Var.a(optJSONObject3);
             }
-            x28.f(jSONObject.optInt("android_max_stranger"));
+            y28.f(jSONObject.optInt("android_max_stranger"));
             TiebaPlusConfigData tiebaPlusConfigData = new TiebaPlusConfigData();
             tiebaPlusConfigData.setSwitchOpen(jSONObject.optInt("switch_open") == 1);
             tiebaPlusConfigData.setJumpUrl(jSONObject.optString("tiebaplus_jumpurl"));
@@ -376,6 +376,7 @@ public class fb5 {
             o65.m().z("privacy_common_param_android", jSONObject.optInt("privacy_common_param_android", 0));
             o65.m().z("privacy_cookie_param_android", jSONObject.optInt("privacy_cookie_param_android", 1));
             o65.m().z("privacy_mac_param_android", jSONObject.optInt("privacy_mac_param_android", 1));
+            o65.m().z("webview_blank_page_switch_android", jSONObject.optInt("webview_blank_page_switch_android", 1));
             String optString16 = jSONObject.optString("chatroom_subscribe_tips");
             if (optString16 == null) {
                 return;
@@ -407,7 +408,7 @@ public class fb5 {
                 BdLog.e(e6);
             }
             TbSingleton.getInstance().parseGroupChatDisturbText(jSONObject);
-            fh6.d(jSONObject);
+            gh6.d(jSONObject);
         } catch (Exception e7) {
             e7.printStackTrace();
         }

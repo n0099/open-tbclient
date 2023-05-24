@@ -1,33 +1,22 @@
 package com.baidu.tieba;
 
-import android.os.Looper;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.f0b;
-import com.baidu.tieba.j0b;
+import com.baidu.tieba.q0b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.hihonor.push.framework.aidl.IPushInvoke;
-import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
-import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes6.dex */
-public class m0b implements j0b {
+public class m0b implements q0b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicInteger a;
-    public volatile IPushInvoke b;
-    public final j0b.a c;
-    public p0b d;
+    public final /* synthetic */ n0b a;
 
-    public m0b(j0b.a aVar) {
+    public m0b(n0b n0bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
+            Object[] objArr = {n0bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,36 +26,6 @@ public class m0b implements j0b {
                 return;
             }
         }
-        this.a = new AtomicInteger(1);
-        this.c = aVar;
-    }
-
-    public final void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            Log.i("PushConnectionClient", "notifyFailed result: " + i);
-            j0b.a aVar = this.c;
-            if (aVar != null) {
-                f0b.a aVar2 = (f0b.a) aVar;
-                aVar2.getClass();
-                if (Looper.myLooper() == aVar2.f.a.getLooper()) {
-                    aVar2.b(HonorPushErrorEnum.fromCode(i));
-                } else {
-                    aVar2.f.a.post(new e0b(aVar2, i));
-                }
-            }
-        }
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a.get() != 3 && this.a.get() != 4) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
+        this.a = n0bVar;
     }
 }

@@ -1,47 +1,67 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.os.Build;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Closeable;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 /* loaded from: classes7.dex */
 public class q3b {
     public static /* synthetic */ Interceptable $ic;
+    public static SharedPreferences a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Closeable closeable) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948042313, "Lcom/baidu/tieba/q3b;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948042313, "Lcom/baidu/tieba/q3b;");
+        }
+    }
+
+    public static String a(String str, String str2, Context context) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, closeable) == null) && closeable != null) {
-            try {
-                closeable.close();
-            } catch (IOException unused) {
-                Log.e("IOUtil", "closeSecure IOException");
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, context)) == null) {
+            return b(context).getString(str, str2);
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static void c(String str, String str2, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, context) == null) {
+            b(context).edit().putString(str, str2).apply();
+        }
+    }
+
+    public static synchronized SharedPreferences b(Context context) {
+        InterceptResult invokeL;
+        SharedPreferences sharedPreferences;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            synchronized (q3b.class) {
+                if (a == null) {
+                    if (Build.VERSION.SDK_INT >= 24) {
+                        a = context.createDeviceProtectedStorageContext().getSharedPreferences("aegis", 0);
+                    } else {
+                        a = context.getApplicationContext().getSharedPreferences("aegis", 0);
+                    }
+                }
+                sharedPreferences = a;
             }
+            return sharedPreferences;
         }
-    }
-
-    public static void b(InputStream inputStream) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, inputStream) == null) {
-            a(inputStream);
-        }
-    }
-
-    public static void c(OutputStream outputStream) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, outputStream) == null) {
-            a(outputStream);
-        }
-    }
-
-    public static void d(File file) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, file) == null) && file != null && file.exists() && !file.delete()) {
-            Log.e("IOUtil", "deleteSecure exception");
-        }
+        return (SharedPreferences) invokeL.objValue;
     }
 }

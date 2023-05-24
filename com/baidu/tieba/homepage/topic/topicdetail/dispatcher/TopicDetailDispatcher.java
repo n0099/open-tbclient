@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.topic.topicdetail.dispatcher;
 import android.content.Context;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.gi9;
+import com.baidu.tieba.hi9;
 import com.baidu.tieba.us5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class TopicDetailDispatcher implements gi9 {
+public class TopicDetailDispatcher implements hi9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,7 +29,7 @@ public class TopicDetailDispatcher implements gi9 {
         }
     }
 
-    @Override // com.baidu.tieba.gi9
+    @Override // com.baidu.tieba.hi9
     public void dispatch(JSONObject jSONObject, Context context) {
         TbPageContext currentPageContext;
         Interceptable interceptable = $ic;

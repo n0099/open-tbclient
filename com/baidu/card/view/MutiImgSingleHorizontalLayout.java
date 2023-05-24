@@ -26,7 +26,7 @@ import com.baidu.tieba.jy4;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.rx4;
 import com.baidu.tieba.tx;
-import com.baidu.tieba.vj6;
+import com.baidu.tieba.wj6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,7 +48,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements tx<jy
     public TbImageView b;
     public ImageView c;
     public boolean d;
-    public vj6<jy4> e;
+    public wj6<jy4> e;
 
     public void setPreloadSizeReadyCallback(an anVar) {
         Interceptable interceptable = $ic;
@@ -170,10 +170,10 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements tx<jy
         }
     }
 
-    public void setSubClickListener(vj6<jy4> vj6Var) {
+    public void setSubClickListener(wj6<jy4> wj6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, vj6Var) == null) {
-            this.e = vj6Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, wj6Var) == null) {
+            this.e = wj6Var;
         }
     }
 
@@ -219,13 +219,13 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements tx<jy
         }
     }
 
-    public vj6<jy4> getSubClickListener() {
+    public wj6<jy4> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.e;
         }
-        return (vj6) invokeV.objValue;
+        return (wj6) invokeV.objValue;
     }
 
     @Override // android.widget.LinearLayout, android.view.View

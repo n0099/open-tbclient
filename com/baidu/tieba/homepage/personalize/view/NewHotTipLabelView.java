@@ -15,9 +15,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.as7;
 import com.baidu.tieba.ia5;
 import com.baidu.tieba.p45;
-import com.baidu.tieba.zr7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -144,7 +144,7 @@ public class NewHotTipLabelView extends EMTextView {
         ia5 hotNotifyConfig;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (hotNotifyConfig = TbSingleton.getInstance().getHotNotifyConfig()) != null) {
-            zr7.c("key_new_hot_topic_update_time", hotNotifyConfig.b());
+            as7.c("key_new_hot_topic_update_time", hotNotifyConfig.b());
         }
     }
 

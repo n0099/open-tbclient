@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Executor;
 /* loaded from: classes6.dex */
-public final class n2b<TResult> implements c2b<TResult> {
+public final class n2b<TResult> implements d2b<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public f2b<TResult> a;
+    public f2b a;
     public Executor b;
     public final Object c;
 
@@ -18,15 +18,15 @@ public final class n2b<TResult> implements c2b<TResult> {
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g2b a;
+        public final /* synthetic */ h2b a;
         public final /* synthetic */ n2b b;
 
-        public a(n2b n2bVar, g2b g2bVar) {
+        public a(n2b n2bVar, h2b h2bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {n2bVar, g2bVar};
+                Object[] objArr = {n2bVar, h2bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -37,25 +37,23 @@ public final class n2b<TResult> implements c2b<TResult> {
                 }
             }
             this.b = n2bVar;
-            this.a = g2bVar;
+            this.a = h2bVar;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r1v4, resolved type: com.baidu.tieba.f2b */
-        /* JADX WARN: Multi-variable type inference failed */
         @Override // java.lang.Runnable
         public final void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (this.b.c) {
                     if (this.b.a != null) {
-                        this.b.a.onSuccess(this.a.e());
+                        this.b.a.onFailure(this.a.d());
                     }
                 }
             }
         }
     }
 
-    public n2b(Executor executor, f2b<TResult> f2bVar) {
+    public n2b(Executor executor, f2b f2bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,7 +73,7 @@ public final class n2b<TResult> implements c2b<TResult> {
         this.b = executor;
     }
 
-    @Override // com.baidu.tieba.c2b
+    @Override // com.baidu.tieba.d2b
     public final void cancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -85,11 +83,12 @@ public final class n2b<TResult> implements c2b<TResult> {
         }
     }
 
-    @Override // com.baidu.tieba.c2b
-    public final void onComplete(g2b<TResult> g2bVar) {
+    @Override // com.baidu.tieba.d2b
+    public final void onComplete(h2b<TResult> h2bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g2bVar) == null) && g2bVar.h() && !g2bVar.f()) {
-            this.b.execute(new a(this, g2bVar));
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h2bVar) == null) || h2bVar.h() || h2bVar.f()) {
+            return;
         }
+        this.b.execute(new a(this, h2bVar));
     }
 }

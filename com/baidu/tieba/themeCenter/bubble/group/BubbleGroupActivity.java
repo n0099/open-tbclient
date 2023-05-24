@@ -3,12 +3,12 @@ package com.baidu.tieba.themeCenter.bubble.group;
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.by9;
+import com.baidu.tieba.ay9;
 import com.baidu.tieba.cy9;
-import com.baidu.tieba.ny9;
+import com.baidu.tieba.dy9;
+import com.baidu.tieba.oy9;
 import com.baidu.tieba.rn5;
 import com.baidu.tieba.themeCenter.bubble.group.BubbleGroupModel;
-import com.baidu.tieba.zx9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,8 +20,8 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BubbleGroupModel a;
-    public cy9 b;
-    public zx9 c;
+    public dy9 b;
+    public ay9 c;
     public BubbleGroupModel.c d;
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.on5
@@ -56,9 +56,9 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
         }
 
         @Override // com.baidu.tieba.themeCenter.bubble.group.BubbleGroupModel.c
-        public void a(int i, String str, ny9 ny9Var, List<by9> list) {
+        public void a(int i, String str, oy9 oy9Var, List<cy9> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, ny9Var, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, oy9Var, list}) == null) {
                 BubbleGroupActivity bubbleGroupActivity = this.a;
                 bubbleGroupActivity.hideLoadingView(bubbleGroupActivity.b.d());
                 this.a.b.i();
@@ -67,7 +67,7 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
                     this.a.b.j();
                     return;
                 }
-                this.a.b.k(ny9Var, list, this.a.a.b0());
+                this.a.b.k(oy9Var, list, this.a.a.b0());
             }
         }
     }
@@ -112,10 +112,10 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        cy9 cy9Var;
+        dy9 dy9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a != null && (cy9Var = this.b) != null) {
-            showLoadingView(cy9Var.d());
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a != null && (dy9Var = this.b) != null) {
+            showLoadingView(dy9Var.d());
             this.a.loadData();
         }
     }
@@ -125,9 +125,9 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            cy9 cy9Var = this.b;
-            if (cy9Var != null) {
-                cy9Var.f();
+            dy9 dy9Var = this.b;
+            if (dy9Var != null) {
+                dy9Var.f();
             }
         }
     }
@@ -140,11 +140,11 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
             BubbleGroupModel bubbleGroupModel = new BubbleGroupModel(this);
             this.a = bubbleGroupModel;
             bubbleGroupModel.e0(this.d);
-            zx9 zx9Var = new zx9(getPageContext());
-            this.c = zx9Var;
-            cy9 cy9Var = new cy9(this, zx9Var);
-            this.b = cy9Var;
-            cy9Var.e();
+            ay9 ay9Var = new ay9(getPageContext());
+            this.c = ay9Var;
+            dy9 dy9Var = new dy9(this, ay9Var);
+            this.b = dy9Var;
+            dy9Var.e();
             showLoadingView(this.b.d());
             this.a.loadData();
         }

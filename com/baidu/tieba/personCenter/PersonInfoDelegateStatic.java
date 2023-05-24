@@ -21,6 +21,7 @@ import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.aj5;
+import com.baidu.tieba.ar9;
 import com.baidu.tieba.fj5;
 import com.baidu.tieba.o65;
 import com.baidu.tieba.person.ProfileHttpResponseMessage;
@@ -33,7 +34,6 @@ import com.baidu.tieba.wi5;
 import com.baidu.tieba.xi5;
 import com.baidu.tieba.yi5;
 import com.baidu.tieba.zi5;
-import com.baidu.tieba.zq9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -244,8 +244,8 @@ public class PersonInfoDelegateStatic extends xi5 {
     public static void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            zq9.h(303012, ProfileSocketResponseMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PROFILE_HTTP_CMD, zq9.a("c/u/user/profile", 303012));
+            ar9.h(303012, ProfileSocketResponseMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PROFILE_HTTP_CMD, ar9.a("c/u/user/profile", 303012));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);

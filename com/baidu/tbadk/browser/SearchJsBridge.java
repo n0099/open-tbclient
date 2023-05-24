@@ -13,12 +13,12 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.et5;
-import com.baidu.tieba.fs9;
+import com.baidu.tieba.gs9;
 import com.baidu.tieba.is5;
 import com.baidu.tieba.it5;
-import com.baidu.tieba.js9;
+import com.baidu.tieba.ks9;
 import com.baidu.tieba.qo;
-import com.baidu.tieba.qs9;
+import com.baidu.tieba.rs9;
 import com.baidu.tieba.tbadkCore.util.MercatorModel;
 import com.baidu.tieba.ti;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +34,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 @qo
 /* loaded from: classes4.dex */
-public class SearchJsBridge implements fs9 {
+public class SearchJsBridge implements gs9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BAIDUID = "baiduid";
     public static final String CLIENT_VERSION = "_client_version";
@@ -94,7 +94,7 @@ public class SearchJsBridge implements fs9 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                qs9.h(this.a);
+                rs9.h(this.a);
                 return this.a;
             }
             return (String) invokeV.objValue;
@@ -159,7 +159,7 @@ public class SearchJsBridge implements fs9 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                qs9.b();
+                rs9.b();
                 return null;
             }
             return invokeV.objValue;
@@ -218,26 +218,26 @@ public class SearchJsBridge implements fs9 {
         this.mHistoryDatas = new ArrayList();
     }
 
-    public js9 deleteAllSearchHistory() {
+    public ks9 deleteAllSearchHistory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             it5.b(new c(this), new d(this));
-            return js9Var;
+            return ks9Var;
         }
-        return (js9) invokeV.objValue;
+        return (ks9) invokeV.objValue;
     }
 
-    public js9 getSearchAdCookie() {
+    public ks9 getSearchAdCookie() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            js9 js9Var = new js9();
-            js9Var.o(initCookies());
-            return js9Var;
+            ks9 ks9Var = new ks9();
+            ks9Var.o(initCookies());
+            return ks9Var;
         }
-        return (js9) invokeV.objValue;
+        return (ks9) invokeV.objValue;
     }
 
     public SearchJsBridge(List<String> list) {
@@ -259,15 +259,15 @@ public class SearchJsBridge implements fs9 {
         this.mHistoryDatas = list;
     }
 
-    public js9 deleteSearchHistory(String str) {
+    public ks9 deleteSearchHistory(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             it5.b(new a(this, str), new b(this));
-            return js9Var;
+            return ks9Var;
         }
-        return (js9) invokeL.objValue;
+        return (ks9) invokeL.objValue;
     }
 
     public void setHistoryDatas(List<String> list) {
@@ -321,7 +321,7 @@ public class SearchJsBridge implements fs9 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.fs9
+    @Override // com.baidu.tieba.gs9
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -361,31 +361,31 @@ public class SearchJsBridge implements fs9 {
         return invokeLLLL.booleanValue;
     }
 
-    public js9 getSearchHistoryJson() {
+    public ks9 getSearchHistoryJson() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             int count = ListUtils.getCount(this.mHistoryDatas);
             if (count == 0) {
-                js9Var.o("");
+                ks9Var.o("");
             }
             JSONArray jSONArray = new JSONArray();
             for (int i = 0; i < count; i++) {
                 jSONArray.put(this.mHistoryDatas.get(i));
             }
-            js9Var.o(jSONArray.toString());
+            ks9Var.o(jSONArray.toString());
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921556, Boolean.TRUE));
-            return js9Var;
+            return ks9Var;
         }
-        return (js9) invokeV.objValue;
+        return (ks9) invokeV.objValue;
     }
 
-    public js9 openSearchPage(String str, int i) {
+    public ks9 openSearchPage(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) {
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("query", str);
@@ -394,8 +394,8 @@ public class SearchJsBridge implements fs9 {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            return js9Var;
+            return ks9Var;
         }
-        return (js9) invokeLI.objValue;
+        return (ks9) invokeLI.objValue;
     }
 }

@@ -24,7 +24,7 @@ import com.baidu.tieba.fb;
 import com.baidu.tieba.g9;
 import com.baidu.tieba.hb;
 import com.baidu.tieba.pg;
-import com.baidu.tieba.rq9;
+import com.baidu.tieba.sq9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -93,9 +93,9 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof rq9)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof sq9)) {
                 boolean z = true;
-                if (((rq9) customResponsedMessage.getData()).n() != 1) {
+                if (((sq9) customResponsedMessage.getData()).n() != 1) {
                     z = false;
                 }
                 this.a.a.L1(z);

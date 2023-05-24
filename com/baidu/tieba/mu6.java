@@ -50,8 +50,10 @@ public class mu6 extends en<o15, ThreadCardViewHolder<ThreadData>> {
         @Override // com.baidu.tieba.bo
         public void b(View view2, rn rnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, rnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (rnVar instanceof kk6) && (view2.getTag() instanceof ThreadCardViewHolder)) {
-                ThreadCardUtils.jumpToPB((jy4) ((kk6) rnVar), view2.getContext(), 2, false);
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, rnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (rnVar instanceof o15) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                ThreadData threadData = ((o15) rnVar).t;
+                threadData.objType = 1;
+                ThreadCardUtils.jumpToPB((jy4) threadData, view2.getContext(), 2, false);
                 ((ThreadCardViewHolder) view2.getTag()).a().p(new az.a(1));
             }
         }
@@ -95,7 +97,10 @@ public class mu6 extends en<o15, ThreadCardViewHolder<ThreadData>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             py.b bVar = new py.b(this.b.getPageActivity(), false);
-            bVar.h(new ey(this.b.getPageActivity()));
+            wx wxVar = new wx(this.b.getPageActivity());
+            wxVar.C(true);
+            wxVar.y();
+            bVar.h(wxVar);
             py k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.c);
             k.s(2);
             ThreadCardViewHolder<ThreadData> threadCardViewHolder = new ThreadCardViewHolder<>(k);

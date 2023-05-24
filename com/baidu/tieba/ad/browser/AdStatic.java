@@ -37,7 +37,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ad.browser.newstyle.AdBrowserActivity;
 import com.baidu.tieba.ad.browser.newstyle.AdWebViewActivity;
 import com.baidu.tieba.cf;
-import com.baidu.tieba.jf9;
+import com.baidu.tieba.kf9;
 import com.baidu.tieba.o16;
 import com.baidu.tieba.t16;
 import com.baidu.tieba.us5;
@@ -107,7 +107,7 @@ public class AdStatic {
     }
 
     /* loaded from: classes4.dex */
-    public static class b implements jf9.c {
+    public static class b implements kf9.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -125,8 +125,8 @@ public class AdStatic {
             }
         }
 
-        @Override // com.baidu.tieba.jf9.c
-        public int a(Context context, String str, String str2, boolean z, jf9.d dVar, boolean z2, Bundle bundle) {
+        @Override // com.baidu.tieba.kf9.c
+        public int a(Context context, String str, String str2, boolean z, kf9.d dVar, boolean z2, Bundle bundle) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle})) == null) {
@@ -142,7 +142,7 @@ public class AdStatic {
     }
 
     /* loaded from: classes4.dex */
-    public static class c implements jf9.a {
+    public static class c implements kf9.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -160,7 +160,7 @@ public class AdStatic {
             }
         }
 
-        @Override // com.baidu.tieba.jf9.a
+        @Override // com.baidu.tieba.kf9.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             String str;
@@ -255,7 +255,7 @@ public class AdStatic {
     }
 
     /* loaded from: classes4.dex */
-    public static class d implements jf9.a {
+    public static class d implements kf9.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -273,7 +273,7 @@ public class AdStatic {
             }
         }
 
-        @Override // com.baidu.tieba.jf9.a
+        @Override // com.baidu.tieba.kf9.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -368,7 +368,7 @@ public class AdStatic {
     }
 
     /* loaded from: classes4.dex */
-    public static class e implements jf9.a {
+    public static class e implements kf9.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -386,7 +386,7 @@ public class AdStatic {
             }
         }
 
-        @Override // com.baidu.tieba.jf9.a
+        @Override // com.baidu.tieba.kf9.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;

@@ -89,7 +89,7 @@ public class c06 {
     public void d(Configuration configuration) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, configuration) == null) {
-            wm6.a().b(configuration);
+            xm6.a().b(configuration);
         }
     }
 
@@ -118,21 +118,21 @@ public class c06 {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            wm6.a().c();
+            xm6.a().c();
         }
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            wm6.a().d();
+            xm6.a().d();
         }
     }
 
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            wm6.a().e(this.a);
+            xm6.a().e(this.a);
         }
     }
 
@@ -141,7 +141,7 @@ public class c06 {
         if ((interceptable != null && interceptable.invokeZ(1048583, this, z) != null) || !PermissionUtil.isAgreePrivacyPolicy()) {
             return;
         }
-        if (!km9.a(this.a.getIntent()) && !km9.b(this.a.getIntent()) && !this.a.isTaskRoot()) {
+        if (!lm9.a(this.a.getIntent()) && !lm9.b(this.a.getIntent()) && !this.a.isTaskRoot()) {
             this.a.finish();
         } else {
             h();

@@ -35,7 +35,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class sa6 extends wi6<zp9> implements tj6 {
+public class sa6 extends xi6<aq9> implements uj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadSkinView i;
@@ -48,18 +48,18 @@ public class sa6 extends wi6<zp9> implements tj6 {
     public ParentDisallowInterceptHListView p;
     public ia6 q;
     public boolean r;
-    public zp9 s;
+    public aq9 s;
     public String t;
     public AdapterView.d u;
 
-    @Override // com.baidu.tieba.wi6
+    @Override // com.baidu.tieba.xi6
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d032e : invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.tj6
+    @Override // com.baidu.tieba.uj6
     public void p(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
@@ -207,7 +207,7 @@ public class sa6 extends wi6<zp9> implements tj6 {
         return (AlaLiveInfoCoreData) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.tj6
+    @Override // com.baidu.tieba.uj6
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -227,20 +227,20 @@ public class sa6 extends wi6<zp9> implements tj6 {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wi6
+    @Override // com.baidu.tieba.xi6
     /* renamed from: z */
-    public void i(zp9 zp9Var) {
+    public void i(aq9 aq9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, zp9Var) != null) || zp9Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048586, this, aq9Var) != null) || aq9Var == null) {
             return;
         }
-        this.s = zp9Var;
+        this.s = aq9Var;
         x();
-        this.q.b(zp9Var.a);
+        this.q.b(aq9Var.a);
         j(g(), TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // com.baidu.tieba.wi6
+    @Override // com.baidu.tieba.xi6
     public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) && this.a != i) {
@@ -293,8 +293,8 @@ public class sa6 extends wi6<zp9> implements tj6 {
             }
             AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
             alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
-            zp9 zp9Var = this.s;
-            if (zp9Var != null && !ListUtils.isEmpty(zp9Var.a)) {
+            aq9 aq9Var = this.s;
+            if (aq9Var != null && !ListUtils.isEmpty(aq9Var.a)) {
                 for (ThreadData threadData2 : this.s.a) {
                     alaLiveInfoListCoreData.mLiveInfoList.add(A(threadData2));
                 }

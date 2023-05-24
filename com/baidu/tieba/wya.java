@@ -1,28 +1,25 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.os.RemoteException;
-import android.util.Log;
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+import android.os.IBinder;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.ArCoreApk;
 /* loaded from: classes8.dex */
-public final class wya implements Runnable {
+public final class wya implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ Context a;
-    public final /* synthetic */ ArCoreApk.a b;
-    public final /* synthetic */ tya c;
+    public final /* synthetic */ uya a;
 
-    public wya(tya tyaVar, Context context, ArCoreApk.a aVar) {
+    public wya(uya uyaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tyaVar, context, aVar};
+            Object[] objArr = {uyaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,28 +29,24 @@ public final class wya implements Runnable {
                 return;
             }
         }
-        this.c = tyaVar;
-        this.a = context;
-        this.b = aVar;
+        this.a = uyaVar;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        com.google.a.b.a.a.a.a aVar;
-        Bundle l;
+    @Override // android.content.ServiceConnection
+    public final void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+        if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) != null) {
             return;
         }
-        try {
-            aVar = this.c.d;
-            String str = this.a.getApplicationInfo().packageName;
-            tya tyaVar = this.c;
-            l = tya.l();
-            aVar.a(str, l, new com.google.ar.core.u(this));
-        } catch (RemoteException e) {
-            Log.e("ARCore-InstallService", "requestInfo threw", e);
-            this.b.a(ArCoreApk.Availability.UNKNOWN_ERROR);
+        this.a.q();
+    }
+
+    @Override // android.content.ServiceConnection
+    public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLL(1048576, this, componentName, iBinder) != null) {
+            return;
         }
+        this.a.f(iBinder);
     }
 }

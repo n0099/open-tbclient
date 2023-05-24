@@ -4,14 +4,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardVideoView;
+import com.baidu.tieba.feed.component.CardTitleView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class z37 extends p27<CardVideoView, kz6> {
+public class z37 extends q27<CardTitleView, jz6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,26 +35,26 @@ public class z37 extends p27<CardVideoView, kz6> {
         }
     }
 
-    @Override // com.baidu.tieba.p27, com.baidu.tieba.e37
+    @Override // com.baidu.tieba.q27, com.baidu.tieba.f37
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View a = super.a(viewGroup);
-            m47.j(a);
+            n47.l(a, null, Integer.valueOf(ri.g(dy6.a, R.dimen.M_H_X001)));
             return a;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.e37
+    @Override // com.baidu.tieba.f37
     /* renamed from: e */
-    public void b(@NonNull CardVideoView cardVideoView, @NonNull kz6 kz6Var) {
+    public void b(@NonNull CardTitleView cardTitleView, @NonNull jz6 jz6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardVideoView, kz6Var) == null) {
-            cardVideoView.f(kz6Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardTitleView, jz6Var) == null) {
+            cardTitleView.f(jz6Var);
         }
     }
 }

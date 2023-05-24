@@ -4,9 +4,9 @@ import android.webkit.WebView;
 import com.baidu.android.imsdk.chatmessage.messages.AdvisoryMsgBusinessExtra;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.SearchJsBridge;
-import com.baidu.tieba.hs9;
-import com.baidu.tieba.js9;
-import com.baidu.tieba.ls9;
+import com.baidu.tieba.is9;
+import com.baidu.tieba.ks9;
+import com.baidu.tieba.ms9;
 import com.baidu.tieba.qi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,7 +20,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class SearchJsBridge_Proxy extends hs9 {
+public class SearchJsBridge_Proxy extends is9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public SearchJsBridge mJsBridge;
@@ -45,74 +45,74 @@ public class SearchJsBridge_Proxy extends hs9 {
         this.mNotificationNameList = new HashSet<>();
     }
 
-    @Override // com.baidu.tieba.hs9
-    public js9 dispatch(ls9 ls9Var, js9 js9Var) {
+    @Override // com.baidu.tieba.is9
+    public ks9 dispatch(ms9 ms9Var, ks9 ks9Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, ls9Var, js9Var)) == null) {
-            if (js9Var == null) {
-                js9Var = new js9();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, ms9Var, ks9Var)) == null) {
+            if (ks9Var == null) {
+                ks9Var = new ks9();
             }
-            String b = ls9Var.b();
-            JSONObject e = ls9Var.e();
+            String b = ms9Var.b();
+            JSONObject e = ms9Var.e();
             if (b.equals("hybrid/deleteSearchHistory")) {
-                js9Var.s(true);
-                js9 deleteSearchHistory = this.mJsBridge.deleteSearchHistory(e.optString("query"));
+                ks9Var.s(true);
+                ks9 deleteSearchHistory = this.mJsBridge.deleteSearchHistory(e.optString("query"));
                 if (deleteSearchHistory != null) {
-                    js9Var.y(deleteSearchHistory.f());
-                    js9Var.u(deleteSearchHistory.b());
-                    js9Var.o(deleteSearchHistory.a());
-                    js9Var.x(deleteSearchHistory.e());
+                    ks9Var.y(deleteSearchHistory.f());
+                    ks9Var.u(deleteSearchHistory.b());
+                    ks9Var.o(deleteSearchHistory.a());
+                    ks9Var.x(deleteSearchHistory.e());
                 }
-                js9Var.z(0);
+                ks9Var.z(0);
             } else if (b.equals("hybrid/deleteAllSearchHistory")) {
-                js9Var.s(true);
-                js9 deleteAllSearchHistory = this.mJsBridge.deleteAllSearchHistory();
+                ks9Var.s(true);
+                ks9 deleteAllSearchHistory = this.mJsBridge.deleteAllSearchHistory();
                 if (deleteAllSearchHistory != null) {
-                    js9Var.y(deleteAllSearchHistory.f());
-                    js9Var.u(deleteAllSearchHistory.b());
-                    js9Var.o(deleteAllSearchHistory.a());
-                    js9Var.x(deleteAllSearchHistory.e());
+                    ks9Var.y(deleteAllSearchHistory.f());
+                    ks9Var.u(deleteAllSearchHistory.b());
+                    ks9Var.o(deleteAllSearchHistory.a());
+                    ks9Var.x(deleteAllSearchHistory.e());
                 }
-                js9Var.z(0);
+                ks9Var.z(0);
             } else if (b.equals("hybrid/openSearchPage")) {
-                js9Var.s(true);
-                js9 openSearchPage = this.mJsBridge.openSearchPage(e.optString("query"), e.optInt(AdvisoryMsgBusinessExtra.SUBTYPE_KEY));
+                ks9Var.s(true);
+                ks9 openSearchPage = this.mJsBridge.openSearchPage(e.optString("query"), e.optInt(AdvisoryMsgBusinessExtra.SUBTYPE_KEY));
                 if (openSearchPage != null) {
-                    js9Var.y(openSearchPage.f());
-                    js9Var.u(openSearchPage.b());
-                    js9Var.o(openSearchPage.a());
-                    js9Var.x(openSearchPage.e());
+                    ks9Var.y(openSearchPage.f());
+                    ks9Var.u(openSearchPage.b());
+                    ks9Var.o(openSearchPage.a());
+                    ks9Var.x(openSearchPage.e());
                 }
-                js9Var.z(0);
+                ks9Var.z(0);
             } else if (b.equals("hybrid/getSearchHistory")) {
-                js9Var.s(true);
-                js9 searchHistoryJson = this.mJsBridge.getSearchHistoryJson();
+                ks9Var.s(true);
+                ks9 searchHistoryJson = this.mJsBridge.getSearchHistoryJson();
                 if (searchHistoryJson != null) {
-                    js9Var.y(searchHistoryJson.f());
-                    js9Var.u(searchHistoryJson.b());
-                    js9Var.o(searchHistoryJson.a());
-                    js9Var.x(searchHistoryJson.e());
+                    ks9Var.y(searchHistoryJson.f());
+                    ks9Var.u(searchHistoryJson.b());
+                    ks9Var.o(searchHistoryJson.a());
+                    ks9Var.x(searchHistoryJson.e());
                 }
-                js9Var.z(0);
+                ks9Var.z(0);
             } else if (b.equals("hybrid/getSearchAdCookie")) {
-                js9Var.s(true);
-                js9 searchAdCookie = this.mJsBridge.getSearchAdCookie();
+                ks9Var.s(true);
+                ks9 searchAdCookie = this.mJsBridge.getSearchAdCookie();
                 if (searchAdCookie != null) {
-                    js9Var.y(searchAdCookie.f());
-                    js9Var.u(searchAdCookie.b());
-                    js9Var.o(searchAdCookie.a());
-                    js9Var.x(searchAdCookie.e());
+                    ks9Var.y(searchAdCookie.f());
+                    ks9Var.u(searchAdCookie.b());
+                    ks9Var.o(searchAdCookie.a());
+                    ks9Var.x(searchAdCookie.e());
                 }
-                js9Var.z(0);
+                ks9Var.z(0);
             }
-            return js9Var;
+            return ks9Var;
         }
-        return (js9) invokeLL.objValue;
+        return (ks9) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.hs9
-    public List<js9> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.is9
+    public List<ks9> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, hashMap)) == null) {

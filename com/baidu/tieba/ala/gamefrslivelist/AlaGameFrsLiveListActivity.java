@@ -28,7 +28,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d97;
+import com.baidu.tieba.e97;
 import com.baidu.tieba.pn5;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.rn5;
@@ -227,11 +227,11 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof d97)) {
-                d97 d97Var = (d97) customResponsedMessage.getData();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof e97)) {
+                e97 e97Var = (e97) customResponsedMessage.getData();
                 ArrayList arrayList = new ArrayList();
-                if (d97Var.e() != null) {
-                    for (xi5 xi5Var : d97Var.e()) {
+                if (e97Var.e() != null) {
+                    for (xi5 xi5Var : e97Var.e()) {
                         if (xi5Var.b().a != null) {
                             arrayList.add(xi5Var.b().a);
                         }
@@ -408,11 +408,11 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
             d dVar = new d(this, 2001620);
             dVar.setPriority(Integer.MAX_VALUE);
             registerListener(dVar);
-            d97 d97Var = new d97(getPageContext().getPageActivity());
-            d97Var.g(this.g);
-            d97Var.h(this.h);
-            d97Var.f(this.i);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001620, d97Var));
+            e97 e97Var = new e97(getPageContext().getPageActivity());
+            e97Var.g(this.g);
+            e97Var.h(this.h);
+            e97Var.f(this.i);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001620, e97Var));
         }
     }
 

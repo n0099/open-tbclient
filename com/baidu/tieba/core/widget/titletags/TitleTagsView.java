@@ -12,8 +12,8 @@ import com.baidu.bdtask.ctrl.model.TaskProcess;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.do6;
-import com.baidu.tieba.e0a;
+import com.baidu.tieba.eo6;
+import com.baidu.tieba.f0a;
 import com.baidu.tieba.p45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -231,10 +231,10 @@ public final class TitleTagsView extends LinearLayout {
 
     public final void d(ThemeColorInfo themeColorInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, themeColorInfo) == null) && !TextUtils.isEmpty(e0a.h(themeColorInfo))) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, themeColorInfo) == null) && !TextUtils.isEmpty(f0a.h(themeColorInfo))) {
             TbImageView tbImageView = new TbImageView(getContext());
             tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(e0a.j(themeColorInfo), e0a.i(themeColorInfo));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(f0a.j(themeColorInfo), f0a.i(themeColorInfo));
             layoutParams.leftMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X002);
             getTagViewList().add(tbImageView);
             addView(tbImageView, layoutParams);
@@ -249,7 +249,7 @@ public final class TitleTagsView extends LinearLayout {
         }
     }
 
-    public final void c(do6 titleTags) {
+    public final void c(eo6 titleTags) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, titleTags) == null) {
             Intrinsics.checkNotNullParameter(titleTags, "titleTags");
@@ -295,7 +295,7 @@ public final class TitleTagsView extends LinearLayout {
             while (it.hasNext()) {
                 ThemeColorInfo info = it.next();
                 Intrinsics.checkNotNullExpressionValue(info, "info");
-                String h = e0a.h(info);
+                String h = f0a.h(info);
                 if (!TextUtils.isEmpty(h)) {
                     TbImageView tbImageView = getTagViewList().get(i);
                     Intrinsics.checkNotNullExpressionValue(tbImageView, "tagViewList[i]");

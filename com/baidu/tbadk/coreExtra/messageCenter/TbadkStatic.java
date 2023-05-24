@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.atomData.SimpleVideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.httpNet.ComplianceParmasHelper;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.ae9;
 import com.baidu.tieba.be9;
+import com.baidu.tieba.ce9;
 import com.baidu.tieba.mb5;
 import com.baidu.tieba.play.SimpleVideoPlayActivity;
 import com.baidu.tieba.qb5;
@@ -87,7 +87,7 @@ public class TbadkStatic {
                 if (customMessage != null && customMessage.getData() != null) {
                     String obj = customMessage.getData().toString();
                     if ("isKeepOriginalLogic".equals(obj)) {
-                        z = be9.b();
+                        z = ce9.b();
                     } else if (ComplianceParmasHelper.isNeedChange(obj)) {
                         z = true;
                     }
@@ -128,7 +128,7 @@ public class TbadkStatic {
                 if (customMessage != null && customMessage.getData() != null) {
                     String obj = customMessage.getData().toString();
                     if ("isKeepOriginalLogic".equals(obj)) {
-                        z = ae9.b();
+                        z = be9.b();
                     } else if (ComplianceParmasHelper.isNeedChange(obj)) {
                         z = true;
                     }
@@ -172,22 +172,22 @@ public class TbadkStatic {
                         hashMap.put(ComplianceParmasHelper.getRenameKey(HttpRequest.ANDROID_ID), ComplianceParmasHelper.getBase64Value(TbadkCoreApplication.getInst().getAndroidId()));
                         hashMap.put(ComplianceParmasHelper.getRenameKey(HttpRequest.PHONE_IMEI), ComplianceParmasHelper.getBase64Value(TbadkCoreApplication.getInst().getImei()));
                     } else {
-                        hashMap.put(HttpRequest.NEED_DECRYPT, be9.c());
-                        String g = be9.g(HttpRequest.ANDROID_ID);
+                        hashMap.put(HttpRequest.NEED_DECRYPT, ce9.c());
+                        String g = ce9.g(HttpRequest.ANDROID_ID);
                         if (!TextUtils.isEmpty(g)) {
-                            hashMap.put(g, be9.d());
+                            hashMap.put(g, ce9.d());
                         }
-                        String g2 = be9.g(HttpRequest.PHONE_IMEI);
+                        String g2 = ce9.g(HttpRequest.PHONE_IMEI);
                         if (!TextUtils.isEmpty(g2)) {
-                            hashMap.put(g2, be9.f());
+                            hashMap.put(g2, ce9.f());
                         }
-                        String g3 = be9.g("oaid");
+                        String g3 = ce9.g("oaid");
                         if (!TextUtils.isEmpty(g3)) {
-                            hashMap.put(g3, be9.i());
+                            hashMap.put(g3, ce9.i());
                         }
-                        String g4 = be9.g("model");
+                        String g4 = ce9.g("model");
                         if (!TextUtils.isEmpty(g4)) {
-                            hashMap.put(g4, be9.h());
+                            hashMap.put(g4, ce9.h());
                         }
                     }
                 }
@@ -227,10 +227,10 @@ public class TbadkStatic {
                         hashMap.remove("isKeepOriginalLogic");
                         hashMap.put(ComplianceParmasHelper.getRenameKey("mac"), ComplianceParmasHelper.getBase64Value(PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst())));
                     } else {
-                        hashMap.put("need_cam_decrypt", ae9.c());
-                        String d = ae9.d("mac");
+                        hashMap.put("need_cam_decrypt", be9.c());
+                        String d = be9.d("mac");
                         if (!TextUtils.isEmpty(d)) {
-                            hashMap.put(d, ae9.e());
+                            hashMap.put(d, be9.e());
                         }
                     }
                 }

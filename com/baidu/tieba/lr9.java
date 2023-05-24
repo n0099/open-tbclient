@@ -1,21 +1,33 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.DetailInfo;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.ActBtn;
+import tbclient.TPointPost;
+import tbclient.Timgs;
+import tbclient.VideoInfo;
 /* loaded from: classes6.dex */
 public class lr9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public ArrayList<kr9> b;
+    public ArrayList<nr9> c;
 
-    public lr9(DetailInfo detailInfo) {
+    public lr9(TPointPost tPointPost) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {detailInfo};
+            Object[] objArr = {tPointPost};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -25,10 +37,50 @@ public class lr9 {
                 return;
             }
         }
-        if (detailInfo == null) {
-            return;
+        if (tPointPost != null) {
+            try {
+                String str = tPointPost.position;
+                tPointPost.template_id.longValue();
+                if (tPointPost.is_tuiguang.intValue() == 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                this.a = z;
+                tPointPost.template_type.intValue();
+                List<ActBtn> list = tPointPost.act_btn;
+                if (list != null && list.size() > 0) {
+                    this.b = new ArrayList<>();
+                    for (int i3 = 0; i3 != list.size(); i3++) {
+                        this.b.add(new kr9(list.get(i3)));
+                    }
+                }
+                List<Timgs> list2 = tPointPost.t_imgs;
+                if (list2 != null && list2.size() > 0) {
+                    this.c = new ArrayList<>();
+                    for (int i4 = 0; i4 != list2.size(); i4++) {
+                        this.c.add(new nr9(list2.get(i4)));
+                    }
+                }
+                if (tPointPost.detail_info != null) {
+                    new mr9(tPointPost.detail_info);
+                }
+                String str2 = tPointPost.monitor_id;
+                tPointPost.hidden_day.intValue();
+                VideoInfo videoInfo = tPointPost.t_video;
+                String str3 = tPointPost.tag_name;
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
         }
-        String str = detailInfo.text;
-        String str2 = detailInfo.url;
+    }
+
+    public nr9 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return (nr9) ListUtils.getItem(this.c, 0);
+        }
+        return (nr9) invokeV.objValue;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.memberCenter.memberTask;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.np8;
+import com.baidu.tieba.op8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ public class MemberTaskCenterSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<ImgInfo> mImageList;
-    public List<np8> mTaskList;
+    public List<op8> mTaskList;
     public UserPointInfo mUserPointInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -71,7 +71,7 @@ public class MemberTaskCenterSocketResMessage extends SocketResponsedMessage {
                 int size = getMemberTaskListResIdl.data.task_list.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     if (getMemberTaskListResIdl.data.task_list.get(i2) != null) {
-                        this.mTaskList.add(new np8(getMemberTaskListResIdl.data.task_list.get(i2)));
+                        this.mTaskList.add(new op8(getMemberTaskListResIdl.data.task_list.get(i2)));
                     }
                 }
             }
@@ -89,7 +89,7 @@ public class MemberTaskCenterSocketResMessage extends SocketResponsedMessage {
         return (List) invokeV.objValue;
     }
 
-    public List<np8> getTaskList() {
+    public List<op8> getTaskList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

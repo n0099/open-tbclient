@@ -937,7 +937,7 @@ public class nb5 {
         ImMessageCenterPojo h;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, aVar)) == null) {
-            if (aVar != null && (h = j38.n().h(aVar.a, aVar.f)) != null && h.getLast_content() != null) {
+            if (aVar != null && (h = k38.n().h(aVar.a, aVar.f)) != null && h.getLast_content() != null) {
                 try {
                     String lastTaskId = h.getLastTaskId();
                     String lastServiceId = h.getLastServiceId();

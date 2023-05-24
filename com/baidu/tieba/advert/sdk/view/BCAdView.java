@@ -52,11 +52,11 @@ public class BCAdView extends RelativeLayout {
 
         /* renamed from: com.baidu.tieba.advert.sdk.view.BCAdView$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0220a extends kg<cn> {
+        public class C0222a extends kg<cn> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0220a(a aVar) {
+            public C0222a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,7 +93,7 @@ public class BCAdView extends RelativeLayout {
             public void onLoaded(cn cnVar, String str, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cnVar, str, i) == null) {
-                    super.onLoaded((C0220a) cnVar, str, i);
+                    super.onLoaded((C0222a) cnVar, str, i);
                 }
             }
         }
@@ -153,7 +153,7 @@ public class BCAdView extends RelativeLayout {
             AdInfo jsonToObject = AdInfo.jsonToObject(str);
             this.b = jsonToObject;
             if (this.d == AdType.SPLASH && !qi.isEmpty(jsonToObject.adImgUrl)) {
-                lg.h().k(this.b.adImgUrl, 10, new C0220a(this), 0, 0, null, new Object[0]);
+                lg.h().k(this.b.adImgUrl, 10, new C0222a(this), 0, 0, null, new Object[0]);
             }
             this.c.b(str);
             BCAdView bCAdView = this.a.get();

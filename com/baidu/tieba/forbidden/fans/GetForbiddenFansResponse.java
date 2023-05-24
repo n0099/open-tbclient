@@ -2,7 +2,7 @@ package com.baidu.tieba.forbidden.fans;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.h57;
+import com.baidu.tieba.i57;
 import com.baidu.tieba.l05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public class GetForbiddenFansResponse extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<h57> fansList;
+    public ArrayList<i57> fansList;
     public l05 pageData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -54,10 +54,10 @@ public class GetForbiddenFansResponse extends JsonHttpResponsedMessage {
                 int length = optJSONArray.length();
                 this.fansList = new ArrayList<>();
                 for (int i2 = 0; i2 < length; i2++) {
-                    h57 h57Var = new h57();
-                    h57Var.a(optJSONArray.getJSONObject(i2));
-                    if (h57Var.a != 0) {
-                        this.fansList.add(h57Var);
+                    i57 i57Var = new i57();
+                    i57Var.a(optJSONArray.getJSONObject(i2));
+                    if (i57Var.a != 0) {
+                        this.fansList.add(i57Var);
                     }
                 }
             }
@@ -67,7 +67,7 @@ public class GetForbiddenFansResponse extends JsonHttpResponsedMessage {
         }
     }
 
-    public ArrayList<h57> getFansList() {
+    public ArrayList<i57> getFansList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

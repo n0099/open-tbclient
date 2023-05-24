@@ -4,7 +4,7 @@ import androidx.annotation.Keep;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.fw4;
 import com.baidu.tieba.gw4;
-import com.baidu.tieba.mh6;
+import com.baidu.tieba.nh6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -32,8 +32,8 @@ public final class JsInterfaces_tbadkcore {
     public static void register() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            mh6.a().c("local_obj", fw4.class);
-            mh6.a().c(BaseWebView.TB_NA_CHANNEL, gw4.class);
+            nh6.a().c("local_obj", fw4.class);
+            nh6.a().c(BaseWebView.TB_NA_CHANNEL, gw4.class);
         }
     }
 }

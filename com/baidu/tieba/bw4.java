@@ -21,18 +21,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bw4 implements jh6 {
+public class bw4 implements kh6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.jh6
+    @Override // com.baidu.tieba.kh6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        ih6.a(this, webView, str, jSONObject);
+        jh6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.jh6
+    @Override // com.baidu.tieba.kh6
     public /* synthetic */ void onDestroy() {
-        ih6.b(this);
+        jh6.b(this);
     }
 
     public bw4() {
@@ -49,7 +49,7 @@ public class bw4 implements jh6 {
         }
     }
 
-    @Override // com.baidu.tieba.jh6
+    @Override // com.baidu.tieba.kh6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -72,11 +72,11 @@ public class bw4 implements jh6 {
         return invokeLLLLL.booleanValue;
     }
 
-    public js9 c(WebView webView, String str, String str2, String str3, String str4) {
+    public ks9 c(WebView webView, String str, String str2, String str3, String str4) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2, str3, str4)) == null) {
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("gameId", str);
@@ -89,52 +89,52 @@ public class bw4 implements jh6 {
             String jSONObject2 = jSONObject.toString();
             if (!TextUtils.isEmpty(jSONObject2)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921404, jSONObject2));
-                return js9Var;
+                return ks9Var;
             }
-            js9Var.p();
-            return js9Var;
+            ks9Var.p();
+            return ks9Var;
         }
-        return (js9) invokeLLLLL.objValue;
+        return (ks9) invokeLLLLL.objValue;
     }
 
     @NonNull
-    public js9 d(WebView webView, @NonNull String str, @Nullable String str2) {
+    public ks9 d(WebView webView, @NonNull String str, @Nullable String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, webView, str, str2)) == null) {
-            js9 js9Var = new js9();
-            js9Var.y(0);
-            js9Var.o(gu5.b().c(str, str2));
-            return js9Var;
+            ks9 ks9Var = new ks9();
+            ks9Var.y(0);
+            ks9Var.o(gu5.b().c(str, str2));
+            return ks9Var;
         }
-        return (js9) invokeLLL.objValue;
+        return (ks9) invokeLLL.objValue;
     }
 
-    public js9 e(WebView webView) {
+    public ks9 e(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, webView)) == null) {
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             String s = o65.m().s("key_match_id_list_football", "");
             String s2 = o65.m().s("key_match_id_list_basketball", "");
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("football", PreferencesUtil.LEFT_MOUNT + s + PreferencesUtil.RIGHT_MOUNT);
                 jSONObject.put("basketball", PreferencesUtil.LEFT_MOUNT + s2 + PreferencesUtil.RIGHT_MOUNT);
-                js9Var.o(jSONObject.toString());
+                ks9Var.o(jSONObject.toString());
             } catch (JSONException e) {
                 BdLog.e(e);
             }
-            return js9Var;
+            return ks9Var;
         }
-        return (js9) invokeL.objValue;
+        return (ks9) invokeL.objValue;
     }
 
-    public js9 f(WebView webView, String str, String str2) {
+    public ks9 f(WebView webView, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, webView, str, str2)) == null) {
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             if (!str.equals(CommonTbJsBridge.KEY_GROUP_CHAT_CREATE) && !str.equals(CommonTbJsBridge.KEY_GROUP_CHAT_DISSLOVE) && !str.equals(CommonTbJsBridge.KEY_GROUP_CHAT_MANAGE)) {
                 if (CommonTbJsBridge.KEY_GROUP_CHAT_CHANGE_NAME.equals(str)) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921779, str2));
@@ -146,7 +146,7 @@ public class bw4 implements jh6 {
                     try {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921797, Integer.valueOf(new JSONObject(str2).optInt("spriteShowType"))));
                     } catch (JSONException e) {
-                        yk8 defaultLog = DefaultLog.getInstance();
+                        zk8 defaultLog = DefaultLog.getInstance();
                         defaultLog.b("SpriteTip", "JSONException:" + e);
                     }
                 } else if (CommonTbJsBridge.KEY_GROUP_CHAT_NOTIFY_REFTESH.equals(str)) {
@@ -173,7 +173,7 @@ public class bw4 implements jh6 {
                             o65.m().w("official_push_switch", z);
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921754, Integer.valueOf(optInt)));
                         } catch (JSONException e2) {
-                            yk8 defaultLog2 = DefaultLog.getInstance();
+                            zk8 defaultLog2 = DefaultLog.getInstance();
                             defaultLog2.b("officialPushMsgStatus", "JSONException:" + e2);
                         }
                     }
@@ -181,8 +181,8 @@ public class bw4 implements jh6 {
             } else {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921778));
             }
-            return js9Var;
+            return ks9Var;
         }
-        return (js9) invokeLLL.objValue;
+        return (ks9) invokeLLL.objValue;
     }
 }

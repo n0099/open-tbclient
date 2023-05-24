@@ -1,42 +1,22 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes6.dex */
 public class kr7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public BdTypeRecyclerView b;
-    public LinkedList<en> c;
-    public pr7 d;
-    public mr7 e;
-    public nr7 f;
-    public or7 g;
+    public int a;
+    public boolean b;
+    public boolean c;
 
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public kr7(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
+    public kr7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -46,115 +26,28 @@ public class kr7 {
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = bdTypeRecyclerView;
-        this.c = new LinkedList<>();
-        b();
+        this.a = -1;
+        this.b = false;
+        this.c = false;
     }
 
-    public List<rn> a() {
-        InterceptResult invokeV;
+    public void a(hr7 hr7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            BdTypeRecyclerView bdTypeRecyclerView = this.b;
-            if (bdTypeRecyclerView != null) {
-                return bdTypeRecyclerView.getData();
-            }
-            return null;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void c() {
-        BdTypeRecyclerView bdTypeRecyclerView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (bdTypeRecyclerView = this.b) != null) {
-            bdTypeRecyclerView.getListAdapter().notifyDataSetChanged();
-        }
-    }
-
-    public void e() {
-        mr7 mr7Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (mr7Var = this.e) != null) {
-            mr7Var.onPause();
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.d = new pr7(this.a, kk6.C0);
-            this.e = new mr7(this.a, lk6.U);
-            this.f = new nr7(this.a, kk6.L0);
-            this.g = new or7(this.a, kk6.J0);
-            this.d.A(this.b);
-            this.e.C(this.b);
-            this.f.z(this.b);
-            this.g.B(this.b);
-            this.c.add(this.d);
-            this.c.add(this.e);
-            this.c.add(this.f);
-            this.c.add(this.g);
-            this.b.addAdapters(this.c);
-        }
-    }
-
-    public void f(List<rn> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.b.setData(list);
-        }
-    }
-
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            pr7 pr7Var = this.d;
-            if (pr7Var != null) {
-                pr7Var.y(i);
-            }
-            mr7 mr7Var = this.e;
-            if (mr7Var != null) {
-                mr7Var.A(i);
-            }
-            nr7 nr7Var = this.f;
-            if (nr7Var != null) {
-                nr7Var.x(i);
-            }
-            or7 or7Var = this.g;
-            if (or7Var != null) {
-                or7Var.z(i);
+        if (interceptable == null || interceptable.invokeL(1048576, this, hr7Var) == null) {
+            this.b = true;
+            int i = this.a;
+            if (i != -1 && this.c) {
+                hr7Var.a(i);
             }
         }
     }
 
-    public void h(NEGFeedBackView.b bVar) {
-        or7 or7Var;
+    public void b(int i, hr7 hr7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) && (or7Var = this.g) != null) {
-            or7Var.y(bVar);
-        }
-    }
-
-    public void i(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
-            pr7 pr7Var = this.d;
-            if (pr7Var != null) {
-                pr7Var.z(bdUniqueId);
-            }
-            mr7 mr7Var = this.e;
-            if (mr7Var != null) {
-                mr7Var.B(bdUniqueId);
-            }
-            nr7 nr7Var = this.f;
-            if (nr7Var != null) {
-                nr7Var.y(bdUniqueId);
-            }
-            or7 or7Var = this.g;
-            if (or7Var != null) {
-                or7Var.A(bdUniqueId);
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, hr7Var) == null) {
+            this.a = i;
+            if (this.b && this.c) {
+                hr7Var.a(i);
             }
         }
     }

@@ -17,7 +17,7 @@ import com.baidu.tieba.d25;
 import com.baidu.tieba.lego.activity.LegoListFragment;
 import com.baidu.tieba.lego.card.model.ButtonCard;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.yi8;
+import com.baidu.tieba.zi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -198,7 +198,7 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
         this.n.setDefaultBgResource(R.color.transparent);
         if (!TextUtils.isEmpty(buttonCard.getPicUrl())) {
             this.n.N(buttonCard.getPicUrl(), 17, false);
-        } else if (!yi8.a(bgColor)) {
+        } else if (!zi8.a(bgColor)) {
             this.n.setBackgroundColor(bgColor);
         } else {
             this.n.setDefaultBgResource(R.color.transparent);
@@ -210,7 +210,7 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
         this.o.setText(buttonCard.getText());
         this.o.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b5));
         int textColor = buttonCard.getTextColor();
-        if (!yi8.a(textColor)) {
+        if (!zi8.a(textColor)) {
             this.o.setTextColor(textColor);
         }
         this.o.setOnClickListener(new a(this, buttonCard));
@@ -220,7 +220,7 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
         if (i != 1) {
             if (i != 2) {
                 this.o.setBackgroundColor(0);
-            } else if (!yi8.a(buttonColor)) {
+            } else if (!zi8.a(buttonColor)) {
                 this.o.setBackgroundColor(buttonColor);
             } else {
                 this.o.setBackgroundColor(0);
@@ -228,7 +228,7 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
         } else {
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setShape(0);
-            if (!yi8.a(buttonColor)) {
+            if (!zi8.a(buttonColor)) {
                 gradientDrawable.setStroke(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703a5), buttonColor);
             }
             gradientDrawable.setColor(0);

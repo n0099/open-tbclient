@@ -19,7 +19,7 @@ import com.baidu.tieba.ri;
 import com.baidu.tieba.ri5;
 import com.baidu.tieba.rn;
 import com.baidu.tieba.square.adapter.LeftAdapter;
-import com.baidu.tieba.un9;
+import com.baidu.tieba.vn9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +38,7 @@ public class RightLeftListView {
     public BdListView.p mOnRightScrollToBottomListener;
     public BdListView.p mOnScrollToBottomListener;
     public TbPageContext<?> mPageContext;
-    public un9 mRightAdapterManager;
+    public vn9 mRightAdapterManager;
     public RelativeLayout mRightContainer;
     public LinearLayoutManager mRightLayoutManager;
     public final View mRoot;
@@ -188,7 +188,7 @@ public class RightLeftListView {
             LeftAdapter leftAdapter = new LeftAdapter(this.mPageContext.getPageActivity());
             this.mLeftAdapter = leftAdapter;
             this.mRvLeft.setAdapter(leftAdapter);
-            this.mRightAdapterManager = new un9(this.mPageContext, this.mRvRight);
+            this.mRightAdapterManager = new vn9(this.mPageContext, this.mRvRight);
             LinearLayoutManager linearLayoutManager2 = new LinearLayoutManager(this.mPageContext.getPageActivity());
             this.mRightLayoutManager = linearLayoutManager2;
             this.mRvRight.setLayoutManager(linearLayoutManager2);
@@ -338,9 +338,9 @@ public class RightLeftListView {
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            un9 un9Var = this.mRightAdapterManager;
-            if (un9Var != null) {
-                un9Var.b();
+            vn9 vn9Var = this.mRightAdapterManager;
+            if (vn9Var != null) {
+                vn9Var.b();
             }
             LeftAdapter leftAdapter = this.mLeftAdapter;
             if (leftAdapter != null) {

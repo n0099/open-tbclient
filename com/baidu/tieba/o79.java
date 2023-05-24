@@ -14,9 +14,9 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class o79 extends BaseCardInfo implements rn {
     public static /* synthetic */ Interceptable $ic;
-    public static BdUniqueId b;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<e79> a;
+    public List<l79> a;
 
     static {
         InterceptResult invokeClinit;
@@ -48,7 +48,7 @@ public class o79 extends BaseCardInfo implements rn {
         }
     }
 
-    public List<e79> c() {
+    public List<l79> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -67,7 +67,7 @@ public class o79 extends BaseCardInfo implements rn {
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public void d(List<e79> list) {
+    public void d(List<l79> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             this.a = list;

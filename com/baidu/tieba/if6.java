@@ -19,7 +19,7 @@ import java.util.List;
 public class if6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<hs9> a;
+    public ArrayList<is9> a;
 
     public if6() {
         Interceptable interceptable = $ic;
@@ -37,19 +37,19 @@ public class if6 {
         this.a = new ArrayList<>();
     }
 
-    public void a(hs9 hs9Var) {
+    public void a(is9 is9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hs9Var) == null) {
-            this.a.add(hs9Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, is9Var) == null) {
+            this.a.add(is9Var);
         }
     }
 
     public void f(List<Pair<String, String>> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, list) == null) && list != null && !list.isEmpty()) {
-            Iterator<hs9> it = this.a.iterator();
+            Iterator<is9> it = this.a.iterator();
             while (it.hasNext()) {
-                hs9 next = it.next();
+                is9 next = it.next();
                 next.removeObserverBridge(list);
                 next.onDestroy();
             }
@@ -60,7 +60,7 @@ public class if6 {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2)) == null) {
-            yk8 hybridLog = HybridLog.getInstance();
+            zk8 hybridLog = HybridLog.getInstance();
             hybridLog.c("JsBridge", "callJsMethod methodName:" + str + " param:" + str2);
             if (webView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
                 webView.evaluateJavascript("javascript:" + str + "&&" + str + "('" + str2 + "')", null);
@@ -71,51 +71,51 @@ public class if6 {
         return invokeLLL.booleanValue;
     }
 
-    public js9 c(WebView webView, ls9 ls9Var, js9 js9Var) {
+    public ks9 c(WebView webView, ms9 ms9Var, ks9 ks9Var) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, ls9Var, js9Var)) == null) {
-            if (js9Var == null) {
-                js9Var = new js9();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, ms9Var, ks9Var)) == null) {
+            if (ks9Var == null) {
+                ks9Var = new ks9();
             }
-            if ("notification".equals(ls9Var.c()) && "addObserver".equals(ls9Var.a())) {
-                Iterator<hs9> it = this.a.iterator();
+            if ("notification".equals(ms9Var.c()) && "addObserver".equals(ms9Var.a())) {
+                Iterator<is9> it = this.a.iterator();
                 while (it.hasNext()) {
-                    js9Var = it.next().addObserver(webView, ls9Var.d(), js9Var, true);
-                    if (js9Var.j()) {
-                        return js9Var;
+                    ks9Var = it.next().addObserver(webView, ms9Var.d(), ks9Var, true);
+                    if (ks9Var.j()) {
+                        return ks9Var;
                     }
                 }
-                if (!js9Var.j()) {
-                    js9Var.z(202);
-                    js9Var.v(yg6.getContext().getString(R.string.can_find_notification_name));
+                if (!ks9Var.j()) {
+                    ks9Var.z(202);
+                    ks9Var.v(zg6.getContext().getString(R.string.can_find_notification_name));
                 }
             } else {
-                Iterator<hs9> it2 = this.a.iterator();
+                Iterator<is9> it2 = this.a.iterator();
                 while (it2.hasNext()) {
-                    js9Var = it2.next().dispatch(webView, ls9Var, js9Var);
-                    if (js9Var.i()) {
-                        return js9Var;
+                    ks9Var = it2.next().dispatch(webView, ms9Var, ks9Var);
+                    if (ks9Var.i()) {
+                        return ks9Var;
                     }
                 }
-                if (!js9Var.i()) {
-                    js9Var.z(202);
+                if (!ks9Var.i()) {
+                    ks9Var.z(202);
                 }
             }
-            return js9Var;
+            return ks9Var;
         }
-        return (js9) invokeLLL.objValue;
+        return (ks9) invokeLLL.objValue;
     }
 
-    public void d(WebView webView, js9 js9Var) {
+    public void d(WebView webView, ks9 ks9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048579, this, webView, js9Var) != null) || webView == null || js9Var == null || !js9Var.k()) {
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, webView, ks9Var) != null) || webView == null || ks9Var == null || !ks9Var.k()) {
             return;
         }
-        b(webView, js9Var.c(), js9Var.d());
+        b(webView, ks9Var.c(), ks9Var.d());
     }
 
-    public boolean e(WebView webView, List<js9> list) {
+    public boolean e(WebView webView, List<ks9> list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, list)) == null) {
@@ -124,9 +124,9 @@ public class if6 {
             }
             while (true) {
                 boolean z = false;
-                for (js9 js9Var : list) {
-                    if (js9Var != null && js9Var.k()) {
-                        if (z || b(webView, js9Var.c(), js9Var.d())) {
+                for (ks9 ks9Var : list) {
+                    if (ks9Var != null && ks9Var.k()) {
+                        if (z || b(webView, ks9Var.c(), ks9Var.d())) {
                             z = true;
                         }
                     }
@@ -137,15 +137,15 @@ public class if6 {
         return invokeLL.booleanValue;
     }
 
-    public List<js9> g(WebView webView, String str, HashMap hashMap) {
+    public List<ks9> g(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, webView, str, hashMap)) == null) {
-            List<js9> list = null;
+            List<ks9> list = null;
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            Iterator<hs9> it = this.a.iterator();
+            Iterator<is9> it = this.a.iterator();
             while (it.hasNext()) {
                 list = it.next().processNotification(webView, str, hashMap);
                 if (!ListUtils.isEmpty(list)) {

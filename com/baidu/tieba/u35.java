@@ -45,8 +45,8 @@ public final class u35 extends k35 {
                 a35.s("userIcon");
                 return;
             }
-            ro9 ro9Var = new ro9();
-            ro9Var.f(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.e35
+            so9 so9Var = new so9();
+            so9Var.f(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.e35
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -58,7 +58,7 @@ public final class u35 extends k35 {
                     }
                 }
             });
-            ro9Var.d(TbSingleton.getInstance().getIconPopData());
+            so9Var.d(TbSingleton.getInstance().getIconPopData());
             a35.m("userIcon");
         }
     }

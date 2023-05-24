@@ -15,12 +15,12 @@ import com.baidu.tbadk.core.util.MemberPayStatistic;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ar9;
 import com.baidu.tieba.fb;
-import com.baidu.tieba.jx9;
 import com.baidu.tieba.kx9;
-import com.baidu.tieba.ny9;
+import com.baidu.tieba.lx9;
 import com.baidu.tieba.o65;
-import com.baidu.tieba.zq9;
+import com.baidu.tieba.oy9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BackgroundListActivity a;
-    public ny9 b;
+    public oy9 b;
     public List<DressItemData> c;
     public List<DressItemData> d;
     public DressItemData e;
@@ -47,7 +47,7 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
 
     /* loaded from: classes7.dex */
     public interface c {
-        void a(int i, String str, ny9 ny9Var, List<DressItemData> list);
+        void a(int i, String str, oy9 oy9Var, List<DressItemData> list);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -178,9 +178,9 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
                 if (responsedMessage.getError() == 2270014) {
                     return;
                 }
-                int i = kx9.b;
-                if (responsedMessage.getError() == kx9.c) {
-                    i = kx9.a;
+                int i = lx9.b;
+                if (responsedMessage.getError() == lx9.c) {
+                    i = lx9.a;
                 }
                 boolean fromDetail = backgroundSetRequestMessage.getFromDetail();
                 if (fromDetail) {
@@ -305,16 +305,16 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
     public final void o0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            zq9.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
-            zq9.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
+            ar9.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
+            ar9.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
         }
     }
 
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            zq9.h(309021, BackgroundListSocketResponseMessage.class, false, false);
-            zq9.c(309021, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_LIST, TbConfig.PERSONAL_BACKGROUND_LIST_PAGE, BackgroundListHttpResponseMessage.class, false, false, false, false);
+            ar9.h(309021, BackgroundListSocketResponseMessage.class, false, false);
+            ar9.c(309021, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_LIST, TbConfig.PERSONAL_BACKGROUND_LIST_PAGE, BackgroundListHttpResponseMessage.class, false, false, false, false);
         }
     }
 
@@ -363,20 +363,20 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
             }
             if (!StringUtils.isNull(str)) {
                 int i4 = 4;
-                if (i == kx9.a) {
+                if (i == lx9.a) {
                     TbPageContext<BackgroundListActivity> pageContext = this.a.getPageContext();
                     if (z) {
                         i3 = 4;
                     } else {
                         i3 = 2;
                     }
-                    jx9.d(pageContext, i3, str, i2, MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND, MemberPayStatistic.CLICK_ZONE_OPENDE_BUTTON);
-                } else if (i == kx9.b) {
+                    kx9.d(pageContext, i3, str, i2, MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND, MemberPayStatistic.CLICK_ZONE_OPENDE_BUTTON);
+                } else if (i == lx9.b) {
                     TbPageContext<BackgroundListActivity> pageContext2 = this.a.getPageContext();
                     if (!z) {
                         i4 = 2;
                     }
-                    jx9.c(pageContext2, i4, str, i2);
+                    kx9.c(pageContext2, i4, str, i2);
                 }
             }
         }

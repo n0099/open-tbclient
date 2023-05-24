@@ -22,11 +22,11 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bo;
-import com.baidu.tieba.ei7;
 import com.baidu.tieba.fi7;
-import com.baidu.tieba.fq9;
 import com.baidu.tieba.gi7;
+import com.baidu.tieba.gq9;
 import com.baidu.tieba.hi7;
+import com.baidu.tieba.ii7;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.rn;
 import com.baidu.tieba.ux;
@@ -46,10 +46,10 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements ux {
     public TextView c;
     public ImageView d;
     public BdTypeRecyclerView e;
-    public ei7 f;
-    public fi7 g;
+    public fi7 f;
+    public gi7 g;
     public ValueAnimator h;
-    public gi7 i;
+    public hi7 i;
     public boolean j;
     public int k;
 
@@ -60,7 +60,7 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements ux {
         public final /* synthetic */ FrsLikeRecommendLayout a;
 
         /* loaded from: classes5.dex */
-        public class a implements hi7 {
+        public class a implements ii7 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -102,15 +102,15 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements ux {
         @Override // com.baidu.tieba.bo
         public void b(View view2, rn rnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, rnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(rnVar instanceof fq9)) {
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, rnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(rnVar instanceof gq9)) {
                 return;
             }
             if (view2.getId() == R.id.obfuscated_res_0x7f090cbd) {
                 if (this.a.g != null) {
-                    this.a.g.b((fq9) rnVar);
+                    this.a.g.b((gq9) rnVar);
                 }
             } else if (view2.getId() == R.id.obfuscated_res_0x7f090bb1 && this.a.g != null) {
-                this.a.g.c((fq9) rnVar, i, new a(this, i));
+                this.a.g.c((gq9) rnVar, i, new a(this, i));
             }
         }
     }
@@ -324,18 +324,18 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements ux {
         }
     }
 
-    public void setHeightChangeListener(gi7 gi7Var) {
+    public void setHeightChangeListener(hi7 hi7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, gi7Var) == null) {
-            this.i = gi7Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, hi7Var) == null) {
+            this.i = hi7Var;
         }
     }
 
     public void setThemeColor(ThemeColorInfo themeColorInfo) {
-        ei7 ei7Var;
+        fi7 fi7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, themeColorInfo) == null) && (ei7Var = this.f) != null) {
-            ei7Var.u(themeColorInfo);
+        if ((interceptable == null || interceptable.invokeL(1048585, this, themeColorInfo) == null) && (fi7Var = this.f) != null) {
+            fi7Var.u(themeColorInfo);
         }
     }
 
@@ -378,9 +378,9 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements ux {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDetachedFromWindow();
-            fi7 fi7Var = this.g;
-            if (fi7Var != null) {
-                fi7Var.a();
+            gi7 gi7Var = this.g;
+            if (gi7Var != null) {
+                gi7Var.a();
             }
             n();
         }
@@ -412,9 +412,9 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements ux {
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090cc0);
             this.e = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f090cbf);
             this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090cbc);
-            ei7 ei7Var = new ei7(getContext());
-            this.f = ei7Var;
-            ei7Var.setOnAdapterItemClickListener(getItemClickListener());
+            fi7 fi7Var = new fi7(getContext());
+            this.f = fi7Var;
+            fi7Var.setOnAdapterItemClickListener(getItemClickListener());
             BdTypeRecyclerView bdTypeRecyclerView = this.e;
             if (bdTypeRecyclerView != null) {
                 bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(context, 0, false));
@@ -440,9 +440,9 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements ux {
             if (imageView != null) {
                 WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_card_close22, R.color.CAM_X0622, null);
             }
-            ei7 ei7Var = this.f;
-            if (ei7Var != null) {
-                ei7Var.notifyDataSetChanged();
+            fi7 fi7Var = this.f;
+            if (fi7Var != null) {
+                fi7Var.notifyDataSetChanged();
             }
         }
     }

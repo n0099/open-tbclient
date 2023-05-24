@@ -8,8 +8,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.multiprocess.IPCServiceManager;
 import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tieba.bha;
-import com.baidu.tieba.mga;
+import com.baidu.tieba.cha;
+import com.baidu.tieba.nga;
 import com.baidu.tieba.yj1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -25,7 +25,7 @@ import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class IPCService implements bha {
+public class IPCService implements cha {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public class IPCService implements bha {
                 return;
             }
         }
-        a = mga.m();
+        a = nga.m();
     }
 
     public IPCService() {
@@ -60,7 +60,7 @@ public class IPCService implements bha {
         }
     }
 
-    @Override // com.baidu.tieba.bha
+    @Override // com.baidu.tieba.cha
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -253,7 +253,7 @@ public class IPCService implements bha {
         }
     }
 
-    @Override // com.baidu.tieba.bha
+    @Override // com.baidu.tieba.cha
     public IBinder a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

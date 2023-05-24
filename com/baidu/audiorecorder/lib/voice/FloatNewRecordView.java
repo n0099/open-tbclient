@@ -15,14 +15,14 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.t08;
+import com.baidu.tieba.u08;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class FloatNewRecordView extends RelativeLayout implements t08 {
+public class FloatNewRecordView extends RelativeLayout implements u08 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TBLottieAnimationView a;
@@ -198,7 +198,7 @@ public class FloatNewRecordView extends RelativeLayout implements t08 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.t08
+    @Override // com.baidu.tieba.u08
     public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {

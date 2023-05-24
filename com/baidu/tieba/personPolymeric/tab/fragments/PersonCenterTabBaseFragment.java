@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sb9;
+import com.baidu.tieba.tb9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,7 +15,7 @@ import tbclient.User;
 public abstract class PersonCenterTabBaseFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sb9 a;
+    public tb9 a;
 
     public abstract void G1(boolean z);
 
@@ -47,10 +47,10 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void hideNetRefreshView(View view2) {
-        sb9 sb9Var;
+        tb9 tb9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && (sb9Var = this.a) != null) {
-            sb9Var.dettachView(view2);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && (tb9Var = this.a) != null) {
+            tb9Var.dettachView(view2);
         }
     }
 
@@ -59,9 +59,9 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             super.onChangeSkinType(i);
-            sb9 sb9Var = this.a;
-            if (sb9Var != null) {
-                sb9Var.onChangeSkinType();
+            tb9 tb9Var = this.a;
+            if (tb9Var != null) {
+                tb9Var.onChangeSkinType();
             }
         }
     }
@@ -71,9 +71,9 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048583, this, view2, str, z) == null) {
             if (this.a == null) {
-                sb9 sb9Var = new sb9(getPageContext().getPageActivity(), getNetRefreshListener());
-                this.a = sb9Var;
-                sb9Var.e(getPageContext().getResources().getString(R.string.refresh_view_title_text));
+                tb9 tb9Var = new tb9(getPageContext().getPageActivity(), getNetRefreshListener());
+                this.a = tb9Var;
+                tb9Var.e(getPageContext().getResources().getString(R.string.refresh_view_title_text));
                 this.a.d(null);
                 this.a.c(getPageContext().getResources().getString(R.string.refresh_view_button_text));
                 this.a.f();

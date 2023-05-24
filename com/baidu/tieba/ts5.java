@@ -142,7 +142,7 @@ public class ts5 {
                 if (isNetWorkAvailable) {
                     if (BdNetTypeUtil.isWifiNet()) {
                         TbImageHelper.getInstance().setNetworkIsWifi(true);
-                        gh9.e().f();
+                        hh9.e().f();
                     } else if (BdNetTypeUtil.isMobileNet()) {
                         TbImageHelper.getInstance().setNetworkIsWifi(false);
                     }

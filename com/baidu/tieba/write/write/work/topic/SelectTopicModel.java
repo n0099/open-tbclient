@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.fb;
 import com.baidu.tieba.g9;
-import com.baidu.tieba.l08;
-import com.baidu.tieba.lea;
+import com.baidu.tieba.m08;
+import com.baidu.tieba.mea;
 import com.baidu.tieba.write.write.work.topic.model.GetRecommendTopicReqMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -28,11 +28,11 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
     public final fb a;
     public b b;
     public boolean c;
-    public List<l08> d;
+    public List<m08> d;
 
     /* loaded from: classes8.dex */
     public interface b {
-        void a(@NonNull List<l08> list);
+        void a(@NonNull List<m08> list);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -88,8 +88,8 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 this.a.c = false;
-                if (responsedMessage != null && (responsedMessage instanceof lea)) {
-                    this.a.Y(((lea) responsedMessage).getTopicList());
+                if (responsedMessage != null && (responsedMessage instanceof mea)) {
+                    this.a.Y(((mea) responsedMessage).getTopicList());
                 }
             }
         }
@@ -122,7 +122,7 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && !ListUtils.isEmpty(list)) {
             this.d = new ArrayList();
             for (TopicList topicList : list) {
-                this.d.add(new l08(topicList));
+                this.d.add(new m08(topicList));
             }
             b bVar = this.b;
             if (bVar != null) {

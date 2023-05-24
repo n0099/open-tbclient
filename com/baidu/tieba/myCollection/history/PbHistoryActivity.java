@@ -40,11 +40,11 @@ import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
 import com.baidu.tbadk.mvc.model.CacheModel;
 import com.baidu.tieba.R;
 import com.baidu.tieba.d25;
-import com.baidu.tieba.ms8;
 import com.baidu.tieba.myCollection.baseHistory.PbHistoryCacheModel;
 import com.baidu.tieba.myCollection.message.AlaMGetLiveStatusHttpResponseMessage;
 import com.baidu.tieba.myCollection.message.AlaMGetLiveStatusRequestMessage;
 import com.baidu.tieba.ns8;
+import com.baidu.tieba.os8;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.sm5;
@@ -66,12 +66,12 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     public NavigationBarShadowView c;
     public TextView d;
     public BdListView e;
-    public zm5<ms8, sm5, ns8> f;
+    public zm5<ns8, sm5, os8> f;
     public boolean g;
-    public List<ms8> h;
+    public List<ns8> h;
     public List<Long> i;
     public PbHistoryCacheModel j;
-    public final CacheModel.c<ms8> k;
+    public final CacheModel.c<ns8> k;
     public final HttpMessageListener l;
     public AbsListView.OnScrollListener m;
 
@@ -184,7 +184,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     }
 
     /* loaded from: classes6.dex */
-    public class a implements CacheModel.c<ms8> {
+    public class a implements CacheModel.c<ns8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbHistoryActivity a;
@@ -208,7 +208,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         }
 
         @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-        public void l(WriteCacheRespMsg<List<ms8>> writeCacheRespMsg, WriteCacheMessage<ms8> writeCacheMessage) {
+        public void l(WriteCacheRespMsg<List<ns8>> writeCacheRespMsg, WriteCacheMessage<ns8> writeCacheMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048576, this, writeCacheRespMsg, writeCacheMessage) == null) && writeCacheRespMsg != null && writeCacheRespMsg.isSuccess()) {
                 if (writeCacheMessage.isClear()) {
@@ -220,14 +220,14 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         }
 
         @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-        public void q(ReadCacheRespMsg<List<ms8>> readCacheRespMsg, ReadCacheMessage<ms8> readCacheMessage) {
+        public void q(ReadCacheRespMsg<List<ns8>> readCacheRespMsg, ReadCacheMessage<ns8> readCacheMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, readCacheRespMsg, readCacheMessage) == null) && readCacheRespMsg != null && readCacheRespMsg.getData() != null) {
                 this.a.h = readCacheRespMsg.getData();
                 ArrayList arrayList = new ArrayList();
-                for (ms8 ms8Var : readCacheRespMsg.getData()) {
-                    if (!StringUtils.isNull(ms8Var.e()) && Long.valueOf(ms8Var.e()).longValue() != 0) {
-                        arrayList.add(Long.valueOf(ms8Var.e()));
+                for (ns8 ns8Var : readCacheRespMsg.getData()) {
+                    if (!StringUtils.isNull(ns8Var.e()) && Long.valueOf(ns8Var.e()).longValue() != 0) {
+                        arrayList.add(Long.valueOf(ns8Var.e()));
                     }
                 }
                 if (this.a.g) {
@@ -353,40 +353,40 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-            ms8 ms8Var;
+            ns8 ns8Var;
             String str;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) && (ms8Var = (ms8) this.a.f.getItem(i)) != null) {
-                if (ms8Var.i() == 49) {
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) && (ns8Var = (ns8) this.a.f.getItem(i)) != null) {
+                if (ns8Var.i() == 49) {
                     AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-                    alaLiveInfoCoreData.liveID = pg.g(ms8Var.e(), 0L);
+                    alaLiveInfoCoreData.liveID = pg.g(ns8Var.e(), 0L);
                     if (!StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
                         str = TbadkCoreApplication.getCurrentAccount();
                     } else {
                         str = "";
                     }
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.a.getPageContext().getPageActivity(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_SCAN_HISTORY, str, false, "")));
-                } else if (ms8Var.n()) {
+                } else if (ns8Var.n()) {
                     if (TbadkCoreApplication.getInst().appResponseToIntentClass(MangaBrowserActivityConfig.class)) {
                         if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
                             ViewHelper.skipToLoginActivity(this.a.getActivity());
                             return;
                         } else {
-                            this.a.sendMessage(new CustomMessage(2002001, new MangaBrowserActivityConfig(this.a.getPageContext().getPageActivity(), ms8Var.a(), ms8Var.b(), 5)));
+                            this.a.sendMessage(new CustomMessage(2002001, new MangaBrowserActivityConfig(this.a.getPageContext().getPageActivity(), ns8Var.a(), ns8Var.b(), 5)));
                             return;
                         }
                     }
                     ri.P(this.a.getPageContext().getPageActivity(), R.string.manga_plugin_not_install_tip);
-                } else if (ms8Var.i() == 40) {
+                } else if (ns8Var.i() == 40) {
                     ArrayList arrayList = new ArrayList();
                     VideoItemData videoItemData = new VideoItemData();
-                    videoItemData.thread_id = ms8Var.g();
+                    videoItemData.thread_id = ns8Var.g();
                     arrayList.add(videoItemData);
                     new VideoRecommentPlayActivityConfig(SelectorHelper.getContext(), arrayList, null, VideoRecommentPlayActivityConfig.FROM_HISTORY).start();
                 } else {
-                    PbActivityConfig createHistoryCfg = new PbActivityConfig(this.a.getPageContext().getPageActivity()).createHistoryCfg(ms8Var.g(), ms8Var.f(), ms8Var.l(), ms8Var.q(), null);
+                    PbActivityConfig createHistoryCfg = new PbActivityConfig(this.a.getPageContext().getPageActivity()).createHistoryCfg(ns8Var.g(), ns8Var.f(), ns8Var.l(), ns8Var.q(), null);
                     createHistoryCfg.setStartFrom(11);
-                    createHistoryCfg.setIsShareThread(ms8Var.o());
+                    createHistoryCfg.setIsShareThread(ns8Var.o());
                     this.a.sendMessage(new CustomMessage(2004001, createHistoryCfg));
                 }
             }
@@ -422,10 +422,10 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         }
     }
 
-    public final void O1(List<ms8> list) {
+    public final void O1(List<ns8> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            zm5<ms8, sm5, ns8> zm5Var = this.f;
+            zm5<ns8, sm5, os8> zm5Var = this.f;
             if (zm5Var != null) {
                 zm5Var.g(list);
             }
@@ -440,10 +440,10 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     public final void L1() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !ListUtils.isEmpty(this.i) && !ListUtils.isEmpty(this.h)) {
-            for (ms8 ms8Var : this.h) {
-                if (!StringUtils.isNull(ms8Var.e()) && Long.valueOf(ms8Var.e()).longValue() != 0) {
-                    if (this.i.contains(Long.valueOf(ms8Var.e()))) {
-                        ms8Var.z(false);
+            for (ns8 ns8Var : this.h) {
+                if (!StringUtils.isNull(ns8Var.e()) && Long.valueOf(ns8Var.e()).longValue() != 0) {
+                    if (this.i.contains(Long.valueOf(ns8Var.e()))) {
+                        ns8Var.z(false);
                     }
                 }
             }
@@ -512,7 +512,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
             TextView textView = new TextView(getActivity());
             textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + ri.g(getActivity(), R.dimen.obfuscated_res_0x7f07040f)));
             this.e.w(textView, 0);
-            this.f = new zm5<>(getPageContext(), ns8.class, R.layout.obfuscated_res_0x7f0d0756, null);
+            this.f = new zm5<>(getPageContext(), os8.class, R.layout.obfuscated_res_0x7f0d0756, null);
             this.f.f(NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07037a)), NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0f66)), null, null);
             this.e.setAdapter((ListAdapter) this.f);
             this.e.setOnItemClickListener(new e(this));

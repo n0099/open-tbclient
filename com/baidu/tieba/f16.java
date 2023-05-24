@@ -72,15 +72,15 @@ public class f16 implements View.OnClickListener {
                     return;
                 }
                 if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
-                    yi9 yi9Var = null;
+                    zi9 zi9Var = null;
                     if (responsedMessage instanceof ResponsedPrivacyHttpMessage) {
-                        yi9Var = ((ResponsedPrivacyHttpMessage) responsedMessage).getPrivacyData();
+                        zi9Var = ((ResponsedPrivacyHttpMessage) responsedMessage).getPrivacyData();
                     }
                     if (responsedMessage instanceof ResponsedPrivacySocketMessage) {
-                        yi9Var = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
+                        zi9Var = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
                     }
                     if (this.a.c != null) {
-                        this.a.c.a0(yi9Var);
+                        this.a.c.a0(zi9Var);
                     }
                     if (this.a.b != null && this.a.c != null && this.a.c.V() != null) {
                         this.a.b.d(this.a.c.V().f());

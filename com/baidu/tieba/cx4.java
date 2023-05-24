@@ -43,11 +43,11 @@ public class cx4 {
 
         /* renamed from: com.baidu.tieba.cx4$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0256a implements Runnable {
+        public class RunnableC0247a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0256a(a aVar) {
+            public RunnableC0247a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -108,7 +108,7 @@ public class cx4 {
                     o = currentTimeMillis;
                 }
                 if (currentTimeMillis - o > cx4.a) {
-                    wn6.a(new RunnableC0256a(this), "clearResource", 3);
+                    xn6.a(new RunnableC0247a(this), "clearResource", 3);
                     o65.m().A("key_clear_resource", currentTimeMillis);
                 }
             }

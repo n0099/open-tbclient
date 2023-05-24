@@ -3,6 +3,8 @@ package com.baidu.tieba;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
@@ -15,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class lg7 extends c87<xg7, ThreadCardViewHolder<xg7>> {
+public class lg7 extends d87<xg7, ThreadCardViewHolder<xg7>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -65,7 +67,7 @@ public class lg7 extends c87<xg7, ThreadCardViewHolder<xg7>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.c87, com.baidu.tieba.en
+    @Override // com.baidu.tieba.d87, com.baidu.tieba.en
     /* renamed from: H */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, xg7 xg7Var, ThreadCardViewHolder<xg7> threadCardViewHolder) {
         InterceptResult invokeCommon;
@@ -74,6 +76,7 @@ public class lg7 extends c87<xg7, ThreadCardViewHolder<xg7>> {
             threadCardViewHolder.a().r(i);
             threadCardViewHolder.e(xg7Var);
             threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new v75(9)));
             return threadCardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

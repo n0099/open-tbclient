@@ -1,98 +1,183 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.GeneralSecurityException;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import java.util.Arrays;
-import javax.crypto.Cipher;
-import javax.crypto.SecretKey;
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.PBEKeySpec;
-import javax.crypto.spec.SecretKeySpec;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.InputStream;
+import java.math.BigDecimal;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class t1b {
+public class t1b implements p1b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final JSONObject a;
 
-    public static SecretKey a(byte[] bArr, byte[] bArr2, byte[] bArr3, byte[] bArr4, int i) throws NoSuchAlgorithmException, InvalidKeySpecException {
-        InterceptResult invokeCommon;
+    public t1b(InputStream inputStream) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{bArr, bArr2, bArr3, bArr4, Integer.valueOf(i)})) == null) {
-            if (bArr.length == 16 && bArr2.length == 16 && bArr3.length == 16) {
-                return new SecretKeySpec(SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1").generateSecret(new PBEKeySpec(j1b.c(e(bArr, bArr2, bArr3)).toCharArray(), bArr4, i, 128)).getEncoded(), "AES");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            throw new IllegalArgumentException("invalid data for generating the key.");
         }
-        return (SecretKey) invokeCommon.objValue;
+        this.a = b(inputStream);
     }
 
-    public static byte[] b(SecretKey secretKey, byte[] bArr) throws GeneralSecurityException {
+    public t1b(InputStream inputStream, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream, str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = b(inputStream);
+        c(str);
+    }
+
+    @Override // com.baidu.tieba.p1b
+    public String a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, secretKey, bArr)) == null) {
-            if (secretKey == null || bArr == null) {
-                throw new NullPointerException("key or cipherText must not be null.");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (str.endsWith("/")) {
+                return str2;
             }
-            byte[] copyOfRange = Arrays.copyOfRange(bArr, 1, 17);
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-            cipher.init(2, secretKey, new IvParameterSpec(copyOfRange));
-            return cipher.doFinal(bArr, copyOfRange.length + 1, (bArr.length - copyOfRange.length) - 1);
+            String[] split = str.split("/");
+            try {
+                JSONObject jSONObject = this.a;
+                for (int i = 1; i < split.length; i++) {
+                    if (i == split.length - 1) {
+                        str = jSONObject.get(split[i]).toString();
+                        return str;
+                    }
+                    jSONObject = jSONObject.getJSONObject(split[i]);
+                }
+            } catch (JSONException unused) {
+                Log.w("InputStreamReader", "JSONException when reading 'path': " + str);
+            }
+            return str2;
         }
-        return (byte[]) invokeLL.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    public static byte[] c(byte[] bArr, int i) {
-        InterceptResult invokeLI;
+    public final JSONObject b(InputStream inputStream) {
+        InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, bArr, i)) == null) {
-            if (bArr != null) {
-                for (int i2 = 0; i2 < bArr.length; i2++) {
-                    if (i < 0) {
-                        bArr[i2] = (byte) (bArr[i2] << (-i));
-                    } else {
-                        bArr[i2] = (byte) (bArr[i2] >> i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inputStream)) == null) {
+            if (inputStream != null) {
+                try {
+                    return new JSONObject(l1b.g(inputStream, "UTF-8"));
+                } catch (IOException unused) {
+                    str = "IOException when reading the 'Config' from InputStream.";
+                    Log.e("InputStreamReader", str);
+                    return new JSONObject();
+                } catch (JSONException unused2) {
+                    str = "JSONException when reading the 'Config' from InputStream.";
+                    Log.e("InputStreamReader", str);
+                    return new JSONObject();
+                }
+            }
+            return new JSONObject();
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public final void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            try {
+                JSONObject e = e(str);
+                if (e == null) {
+                    return;
+                }
+                String a = a("/configuration_version", "");
+                BigDecimal bigDecimal = new BigDecimal("0.0");
+                try {
+                    bigDecimal = BigDecimal.valueOf(Double.parseDouble(a));
+                } catch (NumberFormatException unused) {
+                    Log.d("InputStreamReader", "configuration_version to double error");
+                }
+                if (bigDecimal.compareTo(new BigDecimal("2.0")) == 0) {
+                    this.a.getJSONObject(CommandUBCHelper.COMMAND_UBC_STATISTICS_SOURCE_VALUE_CLIENT).put("app_id", e.getString("app_id"));
+                } else if (bigDecimal.compareTo(new BigDecimal("3.0")) >= 0) {
+                    Iterator<String> keys = e.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        if (!"package_name".equals(next)) {
+                            d(next, e.get(next), this.a);
+                        }
                     }
                 }
-                return bArr;
+            } catch (JSONException unused2) {
+                Log.d("InputStreamReader", "JSONException when reading the 'appInfos' from InputStream.");
             }
-            throw new NullPointerException("bytes must not be null.");
         }
-        return (byte[]) invokeLI.objValue;
     }
 
-    public static byte[] d(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
+    public final void d(String str, Object obj, JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bArr, bArr2)) == null) {
-            if (bArr == null || bArr2 == null) {
-                throw new NullPointerException("left or right must not be null.");
-            }
-            if (bArr.length == bArr2.length) {
-                byte[] bArr3 = new byte[bArr.length];
-                for (int i = 0; i < bArr.length; i++) {
-                    bArr3[i] = (byte) (bArr[i] ^ bArr2[i]);
+        if (!(interceptable == null || interceptable.invokeLLL(1048579, this, str, obj, jSONObject) == null) || str == null || obj == null || jSONObject == null) {
+            return;
+        }
+        if (!(obj instanceof JSONObject)) {
+            jSONObject.put(str, obj);
+            return;
+        }
+        JSONObject jSONObject2 = (JSONObject) obj;
+        Iterator<String> keys = jSONObject2.keys();
+        while (keys.hasNext()) {
+            String next = keys.next();
+            d(next, jSONObject2.get(next), jSONObject.getJSONObject(str));
+        }
+    }
+
+    public final JSONObject e(String str) throws JSONException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            JSONArray jSONArray = this.a.getJSONArray("appInfos");
+            for (int i = 0; i < jSONArray.length(); i++) {
+                JSONObject jSONObject = jSONArray.getJSONObject(i);
+                if (jSONObject.getString("package_name").equals(str)) {
+                    return jSONObject;
                 }
-                return bArr3;
             }
-            throw new IllegalArgumentException("left and right must be the same length.");
+            return null;
         }
-        return (byte[]) invokeLL.objValue;
+        return (JSONObject) invokeL.objValue;
     }
 
-    public static byte[] e(byte[] bArr, byte[] bArr2, byte[] bArr3) {
-        InterceptResult invokeLLL;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, bArr2, bArr3)) == null) {
-            c(bArr, -4);
-            byte[] d = d(bArr, bArr2);
-            c(d, 6);
-            return d(d, bArr3);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "InputStreamReader{config=" + this.a.toString().hashCode() + '}';
         }
-        return (byte[]) invokeLLL.objValue;
+        return (String) invokeV.objValue;
     }
 }

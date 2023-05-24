@@ -1,18 +1,18 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ev9 {
+public final class ev9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public String d;
+    public final fv9 a;
+    public final fv9 b;
+    public final fv9 c;
 
     public ev9() {
         Interceptable interceptable = $ic;
@@ -24,16 +24,38 @@ public class ev9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new fv9();
+        this.b = new fv9();
+        this.c = new fv9();
     }
 
-    public String toString() {
+    public final fv9 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "index:" + this.b + " tabName:" + this.a + " type:" + this.c + " tabCode:" + this.d;
+            return this.a;
         }
-        return (String) invokeV.objValue;
+        return (fv9) invokeV.objValue;
+    }
+
+    public final fv9 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (fv9) invokeV.objValue;
+    }
+
+    public final fv9 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (fv9) invokeV.objValue;
     }
 }

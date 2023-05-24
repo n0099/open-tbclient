@@ -1,30 +1,21 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
+import android.content.res.Resources;
+import android.util.TypedValue;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
 public class sfb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context, View view2) {
+    public static int a(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, context, view2) == null) && context != null && view2 != null) {
-            ((InputMethodManager) context.getSystemService("input_method")).hideSoftInputFromWindow(view2.getWindowToken(), 0);
+        if (interceptable == null || (invokeF = interceptable.invokeF(65536, null, f)) == null) {
+            return (int) TypedValue.applyDimension(1, f, Resources.getSystem().getDisplayMetrics());
         }
-    }
-
-    public static void b(Activity activity, View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, activity, view2) == null) {
-            if (view2 == null && (view2 = activity.getCurrentFocus()) == null) {
-                return;
-            }
-            ((InputMethodManager) activity.getSystemService("input_method")).showSoftInput(view2, 1);
-        }
+        return invokeF.intValue;
     }
 }

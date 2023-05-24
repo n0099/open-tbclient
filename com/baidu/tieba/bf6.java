@@ -63,7 +63,7 @@ public class bf6 extends ze6<MonitorWebView> {
             synchronized (this) {
                 monitorWebView = (MonitorWebView) super.b();
                 if (monitorWebView != null) {
-                    monitorWebView.u();
+                    monitorWebView.v();
                 }
             }
             return monitorWebView;

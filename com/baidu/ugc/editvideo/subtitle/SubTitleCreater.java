@@ -9,7 +9,7 @@ import android.text.Layout;
 import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.text.TextUtils;
-import com.baidu.tieba.fna;
+import com.baidu.tieba.gna;
 import com.baidu.ugc.editvideo.data.TextWordsEntity;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -62,7 +62,7 @@ public class SubTitleCreater {
         int i;
         int i2;
         if (this.mVideoWidth <= 0 || this.mSubTitleY <= 0 || TextUtils.isEmpty(subTitleUnit.line)) {
-            fna.e("SubTitleCreater", "mVideoWidth:" + this.mVideoWidth + ",mSubTitleY:" + this.mSubTitleY + "title:" + subTitleUnit.line);
+            gna.e("SubTitleCreater", "mVideoWidth:" + this.mVideoWidth + ",mSubTitleY:" + this.mSubTitleY + "title:" + subTitleUnit.line);
             return null;
         }
         Bitmap createBitmap = Bitmap.createBitmap(this.mVideoWidth, this.mSubTitleY, Bitmap.Config.ARGB_8888);
@@ -213,7 +213,7 @@ public class SubTitleCreater {
                                     return;
                                 }
                                 synchronized (SubTitleCreater.this.mSubtitleCache) {
-                                    fna.e("subcreater", subTitleUnit.line + "," + subTitleUnit.engLine + "," + j);
+                                    gna.e("subcreater", subTitleUnit.line + "," + subTitleUnit.engLine + "," + j);
                                     SubTitleCreater.this.mSubtitleCache.put(SubTitleCreater.this.getCacheKey(subTitleUnit), createSubtitleBitmap);
                                 }
                             }
@@ -223,7 +223,7 @@ public class SubTitleCreater {
                     Bitmap createSubtitleBitmap = createSubtitleBitmap(subTitleUnit);
                     if (createSubtitleBitmap != null && !createSubtitleBitmap.isRecycled()) {
                         this.mSubtitleCache.put(getCacheKey(subTitleUnit), createSubtitleBitmap);
-                        fna.e("subcreater", subTitleUnit.line + "," + subTitleUnit.engLine + "," + j);
+                        gna.e("subcreater", subTitleUnit.line + "," + subTitleUnit.engLine + "," + j);
                     }
                     SubTitleUnit subTitleUnit3 = new SubTitleUnit();
                     subTitleUnit3.line = subTitleUnit.line;
@@ -282,7 +282,7 @@ public class SubTitleCreater {
                     bitmap = createSubtitleBitmap(subTitleUnit2);
                     if (bitmap != null && !bitmap.isRecycled()) {
                         this.mSubtitleCache.put(getCacheKey(subTitleUnit2), bitmap);
-                        fna.e("subcreater", subTitleUnit2.line + "," + subTitleUnit2.engLine + "," + j);
+                        gna.e("subcreater", subTitleUnit2.line + "," + subTitleUnit2.engLine + "," + j);
                     }
                     subTitleUnit = new SubTitleUnit();
                 } else {

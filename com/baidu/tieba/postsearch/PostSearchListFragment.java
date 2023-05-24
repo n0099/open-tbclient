@@ -20,8 +20,8 @@ import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.cp5;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.td9;
-import com.baidu.tieba.wd9;
+import com.baidu.tieba.ud9;
+import com.baidu.tieba.xd9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,10 +35,10 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
     public PostSearchActivity a;
     public View b;
     public BdListView c;
-    public wd9 d;
+    public xd9 d;
     public PbListView e;
     public NoDataView f;
-    public td9 g;
+    public ud9 g;
     public int h;
     public String i;
 
@@ -60,11 +60,11 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
     }
 
     public void G1() {
-        List<td9.a> list;
+        List<ud9.a> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            td9 td9Var = this.g;
-            if (td9Var != null && (list = td9Var.a) != null) {
+            ud9 ud9Var = this.g;
+            if (ud9Var != null && (list = ud9Var.a) != null) {
                 list.clear();
                 this.d.c(this.g.a);
                 this.d.notifyDataSetChanged();
@@ -156,25 +156,25 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
         this.h = i;
     }
 
-    public void K1(td9 td9Var, boolean z) {
-        td9 td9Var2;
-        List<td9.a> list;
-        List<td9.a> list2;
-        td9 td9Var3;
-        List<td9.a> list3;
+    public void K1(ud9 ud9Var, boolean z) {
+        ud9 ud9Var2;
+        List<ud9.a> list;
+        List<ud9.a> list2;
+        ud9 ud9Var3;
+        List<ud9.a> list3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048580, this, td9Var, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048580, this, ud9Var, z) == null) {
             I1();
             hideLoadingView(this.b);
             boolean z2 = false;
             boolean z3 = true;
-            if (td9Var != null && (list2 = td9Var.a) != null && list2.size() != 0) {
-                if (z && (td9Var3 = this.g) != null && (list3 = td9Var3.a) != null && list3.size() != 0) {
-                    td9 td9Var4 = this.g;
-                    td9Var4.b = td9Var.b;
-                    td9Var4.a.addAll(td9Var.a);
+            if (ud9Var != null && (list2 = ud9Var.a) != null && list2.size() != 0) {
+                if (z && (ud9Var3 = this.g) != null && (list3 = ud9Var3.a) != null && list3.size() != 0) {
+                    ud9 ud9Var4 = this.g;
+                    ud9Var4.b = ud9Var.b;
+                    ud9Var4.a.addAll(ud9Var.a);
                 } else {
-                    this.g = td9Var;
+                    this.g = ud9Var;
                 }
                 if (z) {
                     Q1();
@@ -195,7 +195,7 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
                     this.c.setSelection(0);
                 }
                 this.c.setVisibility(0);
-            } else if (z && (td9Var2 = this.g) != null && (list = td9Var2.a) != null && list.size() != 0) {
+            } else if (z && (ud9Var2 = this.g) != null && (list = ud9Var2.a) != null && list.size() != 0) {
                 if (this.g.b.b() == 1) {
                     z2 = true;
                 }
@@ -208,7 +208,7 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
                 H1();
                 N1();
                 this.c.setVisibility(8);
-                this.g = td9Var;
+                this.g = ud9Var;
             }
         }
     }
@@ -230,8 +230,8 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
         } else {
             z2 = true;
         }
-        td9 td9Var = this.g;
-        if (td9Var != null && (td9Var == null || td9Var.a())) {
+        ud9 ud9Var = this.g;
+        if (ud9Var != null && (ud9Var == null || ud9Var.a())) {
             z3 = z2;
         }
         if (z3) {
@@ -247,9 +247,9 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
         if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
             super.onActivityCreated(bundle);
             this.a = (PostSearchActivity) getBaseFragmentActivity();
-            wd9 wd9Var = new wd9(this.a.getPageContext());
-            this.d = wd9Var;
-            wd9Var.f(this.h);
+            xd9 xd9Var = new xd9(this.a.getPageContext());
+            this.d = xd9Var;
+            xd9Var.f(this.h);
             BdListViewHelper.d(this.a.getActivity(), this.c, BdListViewHelper.HeadType.HASTAB);
             this.c.setAdapter((ListAdapter) this.d);
             PbListView pbListView = new PbListView(this.a.getPageContext().getPageActivity());
@@ -281,9 +281,9 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
 
     @Override // com.baidu.adp.widget.ListView.BdListView.p
     public void onScrollToBottom() {
-        td9 td9Var;
+        ud9 ud9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && !StringUtils.isNull(this.i) && (td9Var = this.g) != null && td9Var.b() && this.a.u1().l(this.i, this.h)) {
+        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && !StringUtils.isNull(this.i) && (ud9Var = this.g) != null && ud9Var.b() && this.a.u1().l(this.i, this.h)) {
             P1();
         }
     }
@@ -301,9 +301,9 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
             if (pbListView != null) {
                 pbListView.e(i);
             }
-            wd9 wd9Var = this.d;
-            if (wd9Var != null) {
-                wd9Var.notifyDataSetChanged();
+            xd9 xd9Var = this.d;
+            if (xd9Var != null) {
+                xd9Var.notifyDataSetChanged();
             }
         }
     }

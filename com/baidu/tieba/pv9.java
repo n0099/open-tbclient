@@ -12,17 +12,16 @@ public class pv9 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final iu9 b;
-    public final tu9 c;
+    public final ju9 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pv9(MainTabActivity mainTabActivity, iu9 iu9Var) {
-        super(2921491);
+    public pv9(MainTabActivity mainTabActivity, ju9 ju9Var) {
+        super(2921348);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, iu9Var};
+            Object[] objArr = {mainTabActivity, ju9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,20 +33,19 @@ public class pv9 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = iu9Var;
-        this.c = mainTabActivity.e;
+        this.b = ju9Var;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        iu9 iu9Var;
+        ju9 ju9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String) && (iu9Var = this.b) != null && iu9Var.y() != null && this.b.y().getCurrentTabType() != 21) {
-            String str = (String) customResponsedMessage.getData();
-            tu9 tu9Var = this.c;
-            if (tu9Var != null && tu9Var.a() != null) {
-                this.c.a().e(str);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && (ju9Var = this.b) != null && ju9Var.y() != null) {
+            if (!((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                this.b.y().getTabWrapper().animate().translationY(this.b.y().getTabWrapper().getHeight()).setDuration(200L).start();
+            } else {
+                this.b.y().getTabWrapper().animate().translationY(0.0f).setDuration(400L).start();
             }
         }
     }

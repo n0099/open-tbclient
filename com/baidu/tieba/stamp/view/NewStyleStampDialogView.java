@@ -24,11 +24,11 @@ import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.j15;
 import com.baidu.tieba.p45;
-import com.baidu.tieba.qo9;
+import com.baidu.tieba.ro9;
 import com.baidu.tieba.sg;
 import com.baidu.tieba.stamp.view.NewStyleStampDialogView;
-import com.baidu.tieba.vo9;
 import com.baidu.tieba.wo9;
+import com.baidu.tieba.xo9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,7 +42,7 @@ public class NewStyleStampDialogView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public wo9 b;
+    public xo9 b;
     public View c;
     public ImageView d;
     public TextView e;
@@ -298,13 +298,13 @@ public class NewStyleStampDialogView extends LinearLayout {
         return (View) invokeV.objValue;
     }
 
-    public wo9 getmStampData() {
+    public xo9 getmStampData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.b;
         }
-        return (wo9) invokeV.objValue;
+        return (xo9) invokeV.objValue;
     }
 
     public final void p() {
@@ -417,11 +417,11 @@ public class NewStyleStampDialogView extends LinearLayout {
         if ((interceptable == null || interceptable.invokeL(65549, this, list) == null) && !ListUtils.isEmpty(list)) {
             this.l.setVisibility(0);
             this.l.setStampIconsList(list);
-            this.l.setSignStampIconClickListener(new vo9() { // from class: com.baidu.tieba.zo9
+            this.l.setSignStampIconClickListener(new wo9() { // from class: com.baidu.tieba.ap9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.vo9
+                @Override // com.baidu.tieba.wo9
                 public final void a(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -432,10 +432,10 @@ public class NewStyleStampDialogView extends LinearLayout {
         }
     }
 
-    public void setStampData(wo9 wo9Var) {
+    public void setStampData(xo9 xo9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, wo9Var) == null) {
-            this.b = wo9Var;
+        if (interceptable == null || interceptable.invokeL(1048590, this, xo9Var) == null) {
+            this.b = xo9Var;
             n();
         }
     }
@@ -502,13 +502,13 @@ public class NewStyleStampDialogView extends LinearLayout {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            wo9 wo9Var = this.b;
-            if (wo9Var instanceof qo9) {
-                qo9 qo9Var = (qo9) wo9Var;
-                this.e.setText(qo9Var.b());
-                this.k.N(qo9Var.a(), 10, false);
-            } else if (wo9Var instanceof j15) {
-                j15 j15Var = (j15) wo9Var;
+            xo9 xo9Var = this.b;
+            if (xo9Var instanceof ro9) {
+                ro9 ro9Var = (ro9) xo9Var;
+                this.e.setText(ro9Var.b());
+                this.k.N(ro9Var.a(), 10, false);
+            } else if (xo9Var instanceof j15) {
+                j15 j15Var = (j15) xo9Var;
                 List<j15.a> a2 = j15Var.a();
                 if (j15Var.b() == -1) {
                     this.f.setText(getResources().getString(R.string.stamp_full_level));
@@ -557,7 +557,7 @@ public class NewStyleStampDialogView extends LinearLayout {
                 i2 = 0;
             }
             tBLottieAnimationView.setRepeatCount(i2);
-            tBLottieAnimationView.post(new Runnable() { // from class: com.baidu.tieba.yo9
+            tBLottieAnimationView.post(new Runnable() { // from class: com.baidu.tieba.zo9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

@@ -164,7 +164,7 @@ public class n75 extends TBSpecificationButtonConfig {
                 } else {
                     i = this.b;
                 }
-                gradientDrawable.setColor(wp9.a(i, 0.08f));
+                gradientDrawable.setColor(xp9.a(i, 0.08f));
             } else {
                 gradientDrawable.setColor(SkinManager.getColor(this.r, this.d));
             }

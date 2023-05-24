@@ -15,8 +15,8 @@ import com.baidu.tieba.b36;
 import com.baidu.tieba.f36;
 import com.baidu.tieba.g36;
 import com.baidu.tieba.hb;
-import com.baidu.tieba.o08;
 import com.baidu.tieba.o65;
+import com.baidu.tieba.p08;
 import com.baidu.tieba.y26;
 import com.baidu.tieba.z26;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -234,14 +234,14 @@ public class RelationshipStatic {
     public static void a(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65538, null, i, cls) == null) {
-            o08.a(i, cls);
+            p08.a(i, cls);
         }
     }
 
     public static void b(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z)}) == null) {
-            o08.b(i, cls, z);
+            p08.b(i, cls, z);
         }
     }
 }

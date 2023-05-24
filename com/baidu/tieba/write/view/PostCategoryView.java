@@ -12,7 +12,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.MorePopupWindow;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aa7;
+import com.baidu.tieba.ba7;
 import com.baidu.tieba.frs.TabMenuPopView;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -128,10 +128,10 @@ public class PostCategoryView extends TextView {
         }
     }
 
-    public void setCategoryContainerData(List<aa7> list, aa7 aa7Var) {
+    public void setCategoryContainerData(List<ba7> list, ba7 ba7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, aa7Var) == null) {
-            this.e.setData(list, aa7Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, ba7Var) == null) {
+            this.e.setData(list, ba7Var);
         }
     }
 }

@@ -19,11 +19,11 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ds8;
 import com.baidu.tieba.es8;
 import com.baidu.tieba.ex4;
 import com.baidu.tieba.fs4;
 import com.baidu.tieba.fs8;
+import com.baidu.tieba.gs8;
 import com.baidu.tieba.yi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -36,7 +36,7 @@ import org.apache.commons.codec.language.bm.ResourceConstants;
 public class CollectTabActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ds8 a;
+    public es8 a;
     public CustomMessageListener b;
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.on5
@@ -110,7 +110,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onPause();
-            es8.b().f(false);
+            fs8.b().f(false);
         }
     }
 
@@ -138,7 +138,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
         if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && view2 == this.a.e()) {
             boolean z = !this.a.j();
             if (z) {
-                fs8.a("c14067");
+                gs8.a("c14067");
             }
             this.a.c(z);
             setSwipeBackEnabled(!z);
@@ -151,7 +151,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0202);
-            this.a = new ds8(this);
+            this.a = new es8(this);
             registerListener(this.b);
             v1();
             u1(getIntent());
@@ -199,9 +199,9 @@ public class CollectTabActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onResume();
-            fs8.a("c14061");
-            es8.b().f(true);
-            es8.b().e(false);
+            gs8.a("c14061");
+            fs8.b().f(true);
+            fs8.b().e(false);
             NotificationHelper.cancelNotification(getPageContext().getPageActivity(), 28);
         }
     }

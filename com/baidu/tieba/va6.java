@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class va6 extends wi6<aq9> implements tj6 {
+public class va6 extends xi6<bq9> implements uj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ForbidParentSwipeBackRelativeLayout i;
@@ -43,7 +43,7 @@ public class va6 extends wi6<aq9> implements tj6 {
     public View n;
     public View o;
     public String p;
-    public aq9 q;
+    public bq9 q;
     public int r;
     public pa6 s;
     public qa6 t;
@@ -54,7 +54,7 @@ public class va6 extends wi6<aq9> implements tj6 {
     public ViewPager.OnPageChangeListener y;
     public ra6 z;
 
-    @Override // com.baidu.tieba.wi6
+    @Override // com.baidu.tieba.xi6
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -68,7 +68,7 @@ public class va6 extends wi6<aq9> implements tj6 {
         }
     }
 
-    @Override // com.baidu.tieba.tj6
+    @Override // com.baidu.tieba.uj6
     public void p(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
@@ -279,25 +279,25 @@ public class va6 extends wi6<aq9> implements tj6 {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wi6
+    @Override // com.baidu.tieba.xi6
     /* renamed from: G */
-    public void i(aq9 aq9Var) {
+    public void i(bq9 bq9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, aq9Var) == null) && aq9Var != null && aq9Var.a != null) {
-            this.q = aq9Var;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, bq9Var) == null) && bq9Var != null && bq9Var.a != null) {
+            this.q = bq9Var;
             q(0);
             if (this.t == null) {
-                qa6 qa6Var = new qa6(aq9Var.a, this.u, this.v);
+                qa6 qa6Var = new qa6(bq9Var.a, this.u, this.v);
                 this.t = qa6Var;
                 qa6Var.i(2);
                 this.t.h(6);
                 this.t.g(1);
             }
-            this.t.j(aq9Var.a);
+            this.t.j(bq9Var.a);
             this.k.d(this.p);
             this.k.c(this.t.e(), this.z);
             this.j.setCurrentItem(this.t.d(), false);
-            if (aq9Var.a.size() >= 2) {
+            if (bq9Var.a.size() >= 2) {
                 this.l.setVisibility(0);
                 if (this.m.getCount() != this.t.b()) {
                     this.m.setCount(this.t.b());
@@ -307,15 +307,15 @@ public class va6 extends wi6<aq9> implements tj6 {
             } else {
                 this.l.setVisibility(8);
             }
-            if (aq9Var.a.size() > 0) {
-                this.s.b(aq9Var.a.get(0), "ala_frs_stage_live_feed_back_type");
+            if (bq9Var.a.size() > 0) {
+                this.s.b(bq9Var.a.get(0), "ala_frs_stage_live_feed_back_type");
             }
             D();
             j(g(), TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    @Override // com.baidu.tieba.wi6
+    @Override // com.baidu.tieba.xi6
     public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048585, this, tbPageContext, i) == null) {
@@ -341,7 +341,7 @@ public class va6 extends wi6<aq9> implements tj6 {
         return (AlaLiveInfoCoreData) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.tj6
+    @Override // com.baidu.tieba.uj6
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
@@ -357,10 +357,10 @@ public class va6 extends wi6<aq9> implements tj6 {
     }
 
     public final void D() {
-        aq9 aq9Var;
+        bq9 bq9Var;
         int c2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (aq9Var = this.q) != null && ListUtils.isEmpty(aq9Var.a) && (c2 = this.t.c(this.r)) < this.q.a.size() && c2 >= 0) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bq9Var = this.q) != null && ListUtils.isEmpty(bq9Var.a) && (c2 = this.t.c(this.r)) < this.q.a.size() && c2 >= 0) {
             CustomMessage customMessage = new CustomMessage(2921017);
             List<ThreadData> list = this.q.a;
             if (list != null && list.get(c2) != null) {
@@ -417,8 +417,8 @@ public class va6 extends wi6<aq9> implements tj6 {
             }
             AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
             alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
-            aq9 aq9Var = this.q;
-            if (aq9Var != null && !ListUtils.isEmpty(aq9Var.a)) {
+            bq9 bq9Var = this.q;
+            if (bq9Var != null && !ListUtils.isEmpty(bq9Var.a)) {
                 for (ThreadData threadData2 : this.q.a) {
                     alaLiveInfoListCoreData.mLiveInfoList.add(H(threadData2));
                 }

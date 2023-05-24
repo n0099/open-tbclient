@@ -1,93 +1,291 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.account.contants.AccountConstants;
-import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
 import kotlin.jvm.internal.Intrinsics;
+import tbclient.ThemeColorInfo;
+import tbclient.ThemeElement;
 /* loaded from: classes5.dex */
 public final class f0a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a() {
+    public static final do6 a(ThemeColorInfo themeColorInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            vz9.b();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, themeColorInfo)) == null) {
+            Intrinsics.checkNotNullParameter(themeColorInfo, "themeColorInfo");
+            return new do6(j(themeColorInfo), i(themeColorInfo), h(themeColorInfo));
         }
+        return (do6) invokeL.objValue;
     }
 
-    public static final void b() {
+    public static final int b(ThemeColorInfo themeColorInfoInfo) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                d().deleteSharedPreferences(AccountConstants.LOGOUT_TYPE_NATIVE_SRC_SETTINGS);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, themeColorInfoInfo)) == null) {
+            Intrinsics.checkNotNullParameter(themeColorInfoInfo, "themeColorInfoInfo");
+            String c = c(themeColorInfoInfo);
+            if (c.length() > 0) {
+                z = true;
             } else {
-                o65.m().d();
+                z = false;
             }
+            if (z) {
+                return xp9.f(c);
+            }
+            return Integer.MAX_VALUE;
         }
+        return invokeL.intValue;
     }
 
-    public static final Application d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return g0a.a();
-        }
-        return (Application) invokeV.objValue;
-    }
-
-    public static final String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return tz9.a();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            String cacheDir = FileHelper.getCacheDir();
-            Intrinsics.checkNotNullExpressionValue(cacheDir, "getCacheDir()");
-            return cacheDir;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return b0a.a();
-        }
-        return invokeV.intValue;
-    }
-
-    public static final boolean c(File file) {
+    public static final String c(ThemeColorInfo themeColorInfoInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
-            return FileHelper.deleteFileOrDir(file);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, themeColorInfoInfo)) == null) {
+            Intrinsics.checkNotNullParameter(themeColorInfoInfo, "themeColorInfoInfo");
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            String str = null;
+            if (skinType != 0) {
+                if (skinType != 4) {
+                    return "";
+                }
+                ThemeElement themeElement = themeColorInfoInfo.dark;
+                if (themeElement != null) {
+                    str = themeElement.common_color;
+                }
+                if (str == null) {
+                    return "";
+                }
+            } else {
+                ThemeElement themeElement2 = themeColorInfoInfo.day;
+                if (themeElement2 != null) {
+                    str = themeElement2.common_color;
+                }
+                if (str == null) {
+                    return "";
+                }
+            }
+            return str;
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public static final File g(String str) {
+    public static final String d(ThemeColorInfo themeColorInfoInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            File GetFileByAbsolutePath = FileHelper.GetFileByAbsolutePath(str);
-            Intrinsics.checkNotNullExpressionValue(GetFileByAbsolutePath, "GetFileByAbsolutePath(filePath)");
-            return GetFileByAbsolutePath;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, themeColorInfoInfo)) == null) {
+            Intrinsics.checkNotNullParameter(themeColorInfoInfo, "themeColorInfoInfo");
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            String str = null;
+            if (skinType != 0) {
+                if (skinType != 4) {
+                    return "";
+                }
+                ThemeElement themeElement = themeColorInfoInfo.dark;
+                if (themeElement != null) {
+                    str = themeElement.dark_color;
+                }
+                if (str == null) {
+                    return "";
+                }
+            } else {
+                ThemeElement themeElement2 = themeColorInfoInfo.day;
+                if (themeElement2 != null) {
+                    str = themeElement2.dark_color;
+                }
+                if (str == null) {
+                    return "";
+                }
+            }
+            return str;
         }
-        return (File) invokeL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static final String f(ThemeColorInfo themeColorInfoInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, themeColorInfoInfo)) == null) {
+            Intrinsics.checkNotNullParameter(themeColorInfoInfo, "themeColorInfoInfo");
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            String str = null;
+            if (skinType != 0) {
+                if (skinType != 4) {
+                    return "";
+                }
+                ThemeElement themeElement = themeColorInfoInfo.dark;
+                if (themeElement != null) {
+                    str = themeElement.light_color;
+                }
+                if (str == null) {
+                    return "";
+                }
+            } else {
+                ThemeElement themeElement2 = themeColorInfoInfo.day;
+                if (themeElement2 != null) {
+                    str = themeElement2.light_color;
+                }
+                if (str == null) {
+                    return "";
+                }
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static final String h(ThemeColorInfo themeColorInfoInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, themeColorInfoInfo)) == null) {
+            Intrinsics.checkNotNullParameter(themeColorInfoInfo, "themeColorInfoInfo");
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            String str = null;
+            if (skinType != 0) {
+                if (skinType != 4) {
+                    return "";
+                }
+                ThemeElement themeElement = themeColorInfoInfo.dark;
+                if (themeElement != null) {
+                    str = themeElement.pattern_image;
+                }
+                if (str == null) {
+                    return "";
+                }
+            } else {
+                ThemeElement themeElement2 = themeColorInfoInfo.day;
+                if (themeElement2 != null) {
+                    str = themeElement2.pattern_image;
+                }
+                if (str == null) {
+                    return "";
+                }
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static final int i(ThemeColorInfo themeColorInfoInfo) {
+        InterceptResult invokeL;
+        Long l;
+        long longValue;
+        ThemeElement themeElement;
+        Long l2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, themeColorInfoInfo)) == null) {
+            Intrinsics.checkNotNullParameter(themeColorInfoInfo, "themeColorInfoInfo");
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            if (skinType != 0) {
+                if (skinType != 4 || (themeElement = themeColorInfoInfo.dark) == null || (l2 = themeElement.pattern_image_height) == null) {
+                    return 0;
+                }
+                longValue = l2.longValue();
+            } else {
+                ThemeElement themeElement2 = themeColorInfoInfo.day;
+                if (themeElement2 == null || (l = themeElement2.pattern_image_height) == null) {
+                    return 0;
+                }
+                longValue = l.longValue();
+            }
+            return (int) longValue;
+        }
+        return invokeL.intValue;
+    }
+
+    public static final int j(ThemeColorInfo themeColorInfoInfo) {
+        InterceptResult invokeL;
+        Long l;
+        long longValue;
+        ThemeElement themeElement;
+        Long l2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, themeColorInfoInfo)) == null) {
+            Intrinsics.checkNotNullParameter(themeColorInfoInfo, "themeColorInfoInfo");
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            if (skinType != 0) {
+                if (skinType != 4 || (themeElement = themeColorInfoInfo.dark) == null || (l2 = themeElement.pattern_image_width) == null) {
+                    return 0;
+                }
+                longValue = l2.longValue();
+            } else {
+                ThemeElement themeElement2 = themeColorInfoInfo.day;
+                if (themeElement2 == null || (l = themeElement2.pattern_image_width) == null) {
+                    return 0;
+                }
+                longValue = l.longValue();
+            }
+            return (int) longValue;
+        }
+        return invokeL.intValue;
+    }
+
+    public static final String e(ae5 themeColor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, themeColor)) == null) {
+            Intrinsics.checkNotNullParameter(themeColor, "themeColor");
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            String str = null;
+            if (skinType != 0) {
+                if (skinType != 4) {
+                    return "";
+                }
+                be5 a = themeColor.a();
+                if (a != null) {
+                    str = a.a();
+                }
+                if (str == null) {
+                    return "";
+                }
+            } else {
+                be5 b = themeColor.b();
+                if (b != null) {
+                    str = b.a();
+                }
+                if (str == null) {
+                    return "";
+                }
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static final String g(ae5 themeColor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, themeColor)) == null) {
+            Intrinsics.checkNotNullParameter(themeColor, "themeColor");
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            String str = null;
+            if (skinType != 0) {
+                if (skinType != 4) {
+                    return "";
+                }
+                be5 a = themeColor.a();
+                if (a != null) {
+                    str = a.b();
+                }
+                if (str == null) {
+                    return "";
+                }
+            } else {
+                be5 b = themeColor.b();
+                if (b != null) {
+                    str = b.b();
+                }
+                if (str == null) {
+                    return "";
+                }
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
     }
 }

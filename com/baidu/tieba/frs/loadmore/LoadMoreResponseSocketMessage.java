@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SpecHotTopicHelper;
 import com.baidu.tieba.a05;
-import com.baidu.tieba.gh9;
-import com.baidu.tieba.jh9;
+import com.baidu.tieba.hh9;
+import com.baidu.tieba.kh9;
 import com.baidu.tieba.rn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -96,7 +96,7 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     }
                 }
             }
-            gh9.e().h(threadListResIdl.data.asp_shown_info);
+            hh9.e().h(threadListResIdl.data.asp_shown_info);
             long j = 0;
             Message<?> orginalMessage2 = getOrginalMessage();
             if (orginalMessage2 != null && (orginalMessage2.getExtra() instanceof LoadMoreRequestMessage)) {
@@ -126,13 +126,13 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                         this.threadList.add(a05Var);
                     } else {
                         this.threadList.add(threadData);
-                        JSONObject b = jh9.b(threadInfo);
+                        JSONObject b = kh9.b(threadInfo);
                         if (b != null) {
                             arrayList.add(b);
                         }
                     }
                 }
-                jh9.f().h("FRS", arrayList);
+                kh9.f().h("FRS", arrayList);
             }
             this.bannerListData = null;
             if (threadListResIdl.data.banner_list != null && (orginalMessage = getOrginalMessage()) != null && orginalMessage.getExtra() != null && (orginalMessage.getExtra() instanceof LoadMoreRequestMessage)) {

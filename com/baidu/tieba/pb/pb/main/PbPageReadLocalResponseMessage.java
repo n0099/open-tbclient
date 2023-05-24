@@ -2,7 +2,7 @@ package com.baidu.tieba.pb.pb.main;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.lx8;
+import com.baidu.tieba.mx8;
 import com.baidu.tieba.pb.PbPageRequestMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,7 +15,7 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean markCache;
-    public lx8 pbData;
+    public mx8 pbData;
     public String postId;
     public int updateType;
 
@@ -37,13 +37,13 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         }
     }
 
-    public lx8 getPbData() {
+    public mx8 getPbData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.pbData;
         }
-        return (lx8) invokeV.objValue;
+        return (mx8) invokeV.objValue;
     }
 
     public int getUpdateType() {
@@ -73,9 +73,9 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         setError(pbPageResIdl.error.errorno.intValue());
         setErrorString(pbPageResIdl.error.usermsg);
         if (getError() == 0 && pbPageResIdl.data != null) {
-            lx8 lx8Var = new lx8();
-            this.pbData = lx8Var;
-            lx8Var.C0(1);
+            mx8 mx8Var = new mx8();
+            this.pbData = mx8Var;
+            mx8Var.C0(1);
             try {
                 this.pbData.B0(pbPageResIdl.data);
                 if (!this.pbData.u0()) {

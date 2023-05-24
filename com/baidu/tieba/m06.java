@@ -184,7 +184,7 @@ public class m06 {
                     this.a.e.remove(bVar);
                     if (this.a.D && this.a.r != null) {
                         this.a.r.setClickable(false);
-                        this.a.r.setTextColor(wp9.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+                        this.a.r.setTextColor(xp9.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
                     }
                 }
             }
@@ -642,7 +642,7 @@ public class m06 {
             SkinManager.setViewTextColor(this.s, R.color.CAM_X0105, 1);
             SkinManager.setViewTextColorSelector(this.q, R.color.CAM_X0105);
             if (this.D) {
-                this.r.setTextColor(wp9.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+                this.r.setTextColor(xp9.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
                 this.r.setClickable(false);
             } else {
                 p45.d(this.r).w(R.color.CAM_X0302);

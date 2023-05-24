@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.co7;
 import com.baidu.tieba.do7;
+import com.baidu.tieba.eo7;
 import com.baidu.tieba.o65;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,23 +32,23 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(co7 co7Var, int i);
+        void a(do7 do7Var, int i);
     }
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ co7 a;
+        public final /* synthetic */ do7 a;
         public final /* synthetic */ int b;
         public final /* synthetic */ GameRankHorizontalLayout c;
 
-        public a(GameRankHorizontalLayout gameRankHorizontalLayout, co7 co7Var, int i) {
+        public a(GameRankHorizontalLayout gameRankHorizontalLayout, do7 do7Var, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gameRankHorizontalLayout, co7Var, Integer.valueOf(i)};
+                Object[] objArr = {gameRankHorizontalLayout, do7Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -59,7 +59,7 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
                 }
             }
             this.c = gameRankHorizontalLayout;
-            this.a = co7Var;
+            this.a = do7Var;
             this.b = i;
         }
 
@@ -158,56 +158,56 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
         }
     }
 
-    public final View c(co7 co7Var, int i) {
+    public final View c(do7 do7Var, int i) {
         InterceptResult invokeLI;
         RoundAngleRelativeLayout roundAngleRelativeLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, co7Var, i)) == null) {
-            if (co7Var == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, do7Var, i)) == null) {
+            if (do7Var == null) {
                 return null;
             }
-            if (!StringUtils.isNull(co7Var.b())) {
+            if (!StringUtils.isNull(do7Var.b())) {
                 roundAngleRelativeLayout = (RoundAngleRelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03b1, (ViewGroup) null);
                 roundAngleRelativeLayout.setRadius(4.0f);
                 HeadImageView headImageView = (HeadImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f090ebd);
                 headImageView.setIsRound(true);
-                headImageView.N(co7Var.b(), 10, false);
-                ((TbImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f092902)).N(co7Var.b(), 10, false);
+                headImageView.N(do7Var.b(), 10, false);
+                ((TbImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f092902)).N(do7Var.b(), 10, false);
             } else {
                 roundAngleRelativeLayout = (RoundAngleRelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03b0, (ViewGroup) null);
                 roundAngleRelativeLayout.setRadius(4.0f);
                 HeadImageView headImageView2 = (HeadImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f090ebd);
                 headImageView2.setIsRound(true);
-                headImageView2.N(co7Var.f(), 10, false);
-                ((TbImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f0918d9)).N(co7Var.f(), 10, false);
-                ((TextView) roundAngleRelativeLayout.findViewById(R.id.user_name)).setText(co7Var.e());
-                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f091d49)).setText(co7Var.g());
-                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f092744)).setText(getContext().getString(R.string.obfuscated_res_0x7f0f087e, co7Var.d()));
-                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f091d42)).setText(co7Var.a());
+                headImageView2.N(do7Var.f(), 10, false);
+                ((TbImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f0918d9)).N(do7Var.f(), 10, false);
+                ((TextView) roundAngleRelativeLayout.findViewById(R.id.user_name)).setText(do7Var.e());
+                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f091d49)).setText(do7Var.g());
+                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f092744)).setText(getContext().getString(R.string.obfuscated_res_0x7f0f087e, do7Var.d()));
+                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f091d42)).setText(do7Var.a());
             }
             if (roundAngleRelativeLayout != null) {
-                roundAngleRelativeLayout.setOnClickListener(new a(this, co7Var, i));
+                roundAngleRelativeLayout.setOnClickListener(new a(this, do7Var, i));
             }
             return roundAngleRelativeLayout;
         }
         return (View) invokeLI.objValue;
     }
 
-    public void setData(do7 do7Var) {
+    public void setData(eo7 eo7Var) {
         LinearLayout linearLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, do7Var) == null) && (linearLayout = this.a) != null && do7Var != null) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eo7Var) == null) && (linearLayout = this.a) != null && eo7Var != null) {
             linearLayout.removeAllViews();
-            if (!ListUtils.isEmpty(do7Var.b())) {
-                for (int i = 0; i < do7Var.b().size(); i++) {
-                    View c = c(do7Var.b().get(i), i);
+            if (!ListUtils.isEmpty(eo7Var.b())) {
+                for (int i = 0; i < eo7Var.b().size(); i++) {
+                    View c = c(eo7Var.b().get(i), i);
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ri.g(getContext(), R.dimen.obfuscated_res_0x7f0703d2), ri.g(getContext(), R.dimen.obfuscated_res_0x7f07037a));
                     if (i != 0) {
                         layoutParams.leftMargin = ri.g(getContext(), R.dimen.obfuscated_res_0x7f07040b);
                     } else {
                         layoutParams.leftMargin = ri.g(getContext(), R.dimen.obfuscated_res_0x7f070225);
                     }
-                    if (i == do7Var.b().size() - 1) {
+                    if (i == eo7Var.b().size() - 1) {
                         layoutParams.rightMargin = ri.g(getContext(), R.dimen.obfuscated_res_0x7f070225);
                     } else {
                         layoutParams.rightMargin = 0;

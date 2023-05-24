@@ -1,31 +1,71 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.im.db.pojo.GroupChatRoomPojo;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes4.dex */
 public class av9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final iu9 b;
-    public final tu9 c;
+    public MainTabActivity a;
+    public PollingModel b;
+    public List<Map<String, Long>> c;
+    public final Runnable d;
 
-    public av9(MainTabActivity mainTabActivity, iu9 iu9Var) {
+    /* loaded from: classes4.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ av9 a;
+
+        public a(av9 av9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {av9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = av9Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null) {
+                this.a.b.D0(PollingModel.SUBSCRIBE_GROUP_CHAT_LIST, String.valueOf(System.currentTimeMillis()), this.a.c());
+                sg.a().postDelayed(this.a.d, a65.a().c());
+            }
+        }
+    }
+
+    public av9(MainTabActivity mainTabActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, iu9Var};
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,63 +75,49 @@ public class av9 {
                 return;
             }
         }
+        this.c = null;
+        this.d = new a(this);
         this.a = mainTabActivity;
-        this.b = iu9Var;
-        this.c = mainTabActivity.e;
+        this.b = new PollingModel(mainTabActivity.getPageContext(), this.a.getUniqueId());
     }
 
-    public void a() {
+    public final String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            iu9 iu9Var = this.b;
-            if (iu9Var != null && iu9Var.x() != null && this.b.x().getAnimationView() != null && this.b.x().getAnimationView().getVisibility() != 0) {
-                this.b.x().setLottieView(false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.c == null) {
+                this.c = new ArrayList();
             }
-            if (TbadkCoreApplication.getInst().getActivityPrizeData().isSwitchTurn()) {
-                if (!StringUtils.isNull(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.getInst().getActivityPrizeData().isUserSatisfy()) {
-                    String h5Url = TbadkCoreApplication.getInst().getActivityPrizeData().getH5Url();
-                    if (!StringUtils.isNull(h5Url)) {
-                        o65 m = o65.m();
-                        if (m.i("activity_prize_get_tip" + TbadkCoreApplication.getCurrentAccount(), true)) {
-                            UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.a.getPageContext(), new String[]{h5Url}, true);
-                            o65 m2 = o65.m();
-                            m2.w("activity_prize_get_tip" + TbadkCoreApplication.getCurrentAccount(), false);
-                        }
-                    }
-                }
-                if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
-                    String myTabText = TbadkCoreApplication.getInst().getActivityPrizeData().getMyTabText();
-                    if (!StringUtils.isNull(myTabText)) {
-                        iu9 iu9Var2 = this.b;
-                        if (iu9Var2 != null) {
-                            iu9Var2.L(myTabText);
-                        }
-                    } else {
-                        iu9 iu9Var3 = this.b;
-                        if (iu9Var3 != null) {
-                            iu9Var3.L(null);
-                        }
-                    }
-                } else {
-                    iu9 iu9Var4 = this.b;
-                    if (iu9Var4 != null) {
-                        iu9Var4.L(null);
-                    }
-                }
-            } else {
-                iu9 iu9Var5 = this.b;
-                if (iu9Var5 != null) {
-                    iu9Var5.L(null);
+            this.c.clear();
+            List<GroupChatRoomPojo> h = n28.f().h(TbadkCoreApplication.getCurrentAccount());
+            if (ListUtils.isEmpty(h)) {
+                return "";
+            }
+            for (GroupChatRoomPojo groupChatRoomPojo : h) {
+                if (groupChatRoomPojo.V() == 0) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put("room_id", Long.valueOf(groupChatRoomPojo.getRoomId()));
+                    hashMap.put("msg_id", Long.valueOf(groupChatRoomPojo.getLatestMsgId()));
+                    this.c.add(hashMap);
                 }
             }
-            if (TbSingleton.getInstance().canShowPermDialog()) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921360, this.b));
+            if (ListUtils.isEmpty(this.c)) {
+                return "";
             }
-            ey4.b().l("1", "");
-            tu9 tu9Var = this.c;
-            if (tu9Var != null && tu9Var.i() != null) {
-                this.c.i().a();
+            String json = DataExt.toJson(this.c);
+            if (TextUtils.isEmpty(json)) {
+                return "";
             }
+            return json;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            sg.a().removeCallbacks(this.d);
+            this.a = null;
         }
     }
 }

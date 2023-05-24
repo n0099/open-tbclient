@@ -1,7 +1,7 @@
 package com.fun.ad.sdk.internal.api.reporter;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fxa;
+import com.baidu.tieba.gxa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,7 +37,7 @@ public interface Reporter {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 if (this.a != null) {
-                    return new fxa(this.a, false);
+                    return new gxa(this.a, false);
                 }
                 throw new RuntimeException("Call setUrl(String url) first.");
             }

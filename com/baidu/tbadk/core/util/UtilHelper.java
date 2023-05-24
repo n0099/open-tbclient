@@ -153,7 +153,7 @@ import com.baidu.tieba.st5;
 import com.baidu.tieba.tbadkCore.data.PaymentConfirmRequestData;
 import com.baidu.tieba.ti;
 import com.baidu.tieba.wallet.CurrencyJumpHelper;
-import com.baidu.tieba.xf9;
+import com.baidu.tieba.yf9;
 import com.baidu.tieba.yi;
 import com.baidu.tieba.yu4;
 import com.baidu.tieba.zn5;
@@ -2953,7 +2953,7 @@ public class UtilHelper {
                         String string2 = intent.getExtras().getString(BigdayActivityConfig.JUMP_URL);
                         boolean z6 = intent.getExtras().getBoolean("is_ad", false);
                         if (intent.getExtras().getBoolean("gd_ad", false) && !StringUtils.isNull(string2)) {
-                            xf9.a(TbadkCoreApplication.getInst(), string2, yi.c(string2), intent.getExtras().getString("ext_info", ""), null);
+                            yf9.a(TbadkCoreApplication.getInst(), string2, yi.c(string2), intent.getExtras().getString("ext_info", ""), null);
                         } else {
                             l9 c = m9.c(context);
                             if (c instanceof BaseActivity) {

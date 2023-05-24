@@ -92,9 +92,9 @@ public class px extends hx {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (this.a.i != null && this.a.i.getThreadData() != null && !this.a.j().booleanValue()) {
-                    hj6.a(this.a.i.getThreadData().getId());
-                    hj6.l(this.a.h.b, this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    hj6.l(this.a.h.c, this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    ij6.a(this.a.i.getThreadData().getId());
+                    ij6.l(this.a.h.b, this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    ij6.l(this.a.h.c, this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -199,10 +199,10 @@ public class px extends hx {
     }
 
     @Override // com.baidu.tieba.ax
-    public void p(vj6<jy4> vj6Var) {
+    public void p(wj6<jy4> wj6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, vj6Var) == null) {
-            this.h.setSubClickListener(vj6Var);
+        if (interceptable == null || interceptable.invokeL(1048591, this, wj6Var) == null) {
+            this.h.setSubClickListener(wj6Var);
         }
     }
 

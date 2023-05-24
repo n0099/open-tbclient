@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ar9;
+import com.baidu.tieba.br9;
 import com.baidu.tieba.hx4;
 import com.baidu.tieba.m9;
 import com.baidu.tieba.p15;
@@ -134,16 +134,16 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         h();
     }
 
-    public void f(ar9 ar9Var) {
+    public void f(br9 br9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, ar9Var) != null) || ar9Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, br9Var) != null) || br9Var == null) {
             return;
         }
-        p15 c = ar9Var.c();
-        s15 d = ar9Var.d();
+        p15 c = br9Var.c();
+        s15 d = br9Var.d();
         this.k = c;
         this.l = d;
-        if (ar9Var.e()) {
+        if (br9Var.e()) {
             this.n.setVisibility(0);
         } else {
             this.n.setVisibility(8);

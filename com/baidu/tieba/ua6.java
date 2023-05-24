@@ -38,7 +38,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ua6 extends vi6<ThreadData> implements tj6, b16 {
+public class ua6 extends wi6<ThreadData> implements uj6, b16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HeadImageView A;
@@ -58,14 +58,14 @@ public class ua6 extends vi6<ThreadData> implements tj6, b16 {
     public TextView y;
     public TextView z;
 
-    @Override // com.baidu.tieba.wi6
+    @Override // com.baidu.tieba.xi6
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? R.layout.obfuscated_res_0x7f0d032f : invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.tj6
+    @Override // com.baidu.tieba.uj6
     public void p(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
@@ -197,7 +197,7 @@ public class ua6 extends vi6<ThreadData> implements tj6, b16 {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wi6
+    @Override // com.baidu.tieba.xi6
     /* renamed from: T */
     public void i(ThreadData threadData) {
         Interceptable interceptable = $ic;
@@ -219,7 +219,7 @@ public class ua6 extends vi6<ThreadData> implements tj6, b16 {
         }
     }
 
-    @Override // com.baidu.tieba.tj6
+    @Override // com.baidu.tieba.uj6
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
@@ -358,7 +358,7 @@ public class ua6 extends vi6<ThreadData> implements tj6, b16 {
                 } else {
                     this.E.setVisibility(8);
                 }
-                this.J.setVisibility((t77.f().i() || s77.h().j()) ? 0 : 0);
+                this.J.setVisibility((u77.f().i() || t77.h().j()) ? 0 : 0);
                 F(this.w);
                 j(g(), TbadkCoreApplication.getInst().getSkinType());
                 N();
@@ -383,7 +383,7 @@ public class ua6 extends vi6<ThreadData> implements tj6, b16 {
         this.F.setVisibility(8);
     }
 
-    @Override // com.baidu.tieba.wi6
+    @Override // com.baidu.tieba.xi6
     public void j(TbPageContext<?> tbPageContext, int i) {
         ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout;
         Interceptable interceptable = $ic;
@@ -423,7 +423,7 @@ public class ua6 extends vi6<ThreadData> implements tj6, b16 {
                 }
             }
             T t = this.k;
-            if (t != 0 && hj6.k(((ThreadData) t).getId())) {
+            if (t != 0 && ij6.k(((ThreadData) t).getId())) {
                 SkinManager.setViewTextColor(this.y, (int) R.color.CAM_X0109);
                 SkinManager.setViewTextColor(this.z, (int) R.color.CAM_X0109);
                 SkinManager.setViewTextColor(this.B, (int) R.color.CAM_X0109);
@@ -439,7 +439,7 @@ public class ua6 extends vi6<ThreadData> implements tj6, b16 {
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048591, this, view2) == null) && !t77.f().i() && !s77.h().j()) {
+        if ((interceptable == null || interceptable.invokeL(1048591, this, view2) == null) && !u77.f().i() && !t77.h().j()) {
             int i = 1;
             if (view2 != this.w && view2 != this.l.getCommentContainer() && this.v != view2 && view2 != this.F.b.getCommentContainer() && view2 != this.m.getCommentContainer()) {
                 if (view2.getId() == R.id.video_container) {
@@ -459,7 +459,7 @@ public class ua6 extends vi6<ThreadData> implements tj6, b16 {
             }
             T t = this.k;
             if (t != 0) {
-                hj6.a(((ThreadData) t).getId());
+                ij6.a(((ThreadData) t).getId());
             }
             if (e() != null) {
                 e().a(this.w, this.k);

@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.p45;
-import com.baidu.tieba.rl7;
 import com.baidu.tieba.sl7;
+import com.baidu.tieba.tl7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -46,7 +46,7 @@ public class FrsLikeShareDialogView extends ConstraintLayout implements View.OnC
     public ImageView r;
     public ImageView s;
     public View t;
-    public rl7 u;
+    public sl7 u;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FrsLikeShareDialogView(Context context) {
@@ -86,7 +86,7 @@ public class FrsLikeShareDialogView extends ConstraintLayout implements View.OnC
                 }
             }
             if (i2 != -1 && (forumData = this.a) != null) {
-                sl7.a(forumData.getId(), i2);
+                tl7.a(forumData.getId(), i2);
             }
         }
     }
@@ -94,13 +94,13 @@ public class FrsLikeShareDialogView extends ConstraintLayout implements View.OnC
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         int i;
-        rl7 rl7Var;
+        sl7 sl7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
             if (view2 == this.q) {
-                rl7 rl7Var2 = this.u;
-                if (rl7Var2 != null) {
-                    rl7Var2.a();
+                sl7 sl7Var2 = this.u;
+                if (sl7Var2 != null) {
+                    sl7Var2.a();
                 }
                 e(-1);
                 return;
@@ -114,8 +114,8 @@ public class FrsLikeShareDialogView extends ConstraintLayout implements View.OnC
             } else {
                 i = -1;
             }
-            if (i != -1 && (rl7Var = this.u) != null) {
-                rl7Var.b(i);
+            if (i != -1 && (sl7Var = this.u) != null) {
+                sl7Var.b(i);
             }
             e(i);
         }

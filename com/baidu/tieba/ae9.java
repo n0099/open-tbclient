@@ -1,9 +1,6 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tieba.privacy.PrivacyParamType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -41,7 +38,7 @@ public final class ae9 {
             }
         }
         a = new ae9();
-        b = MapsKt__MapsKt.hashMapOf(TuplesKt.to("mac", HttpRequest.MAC_REVERSAL));
+        b = MapsKt__MapsKt.hashMapOf(TuplesKt.to("TBBRAND", "DNARBBT"));
     }
 
     public ae9() {
@@ -63,10 +60,10 @@ public final class ae9 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (PrivacyParamType.e()) {
+            if (PrivacyParamType.d()) {
                 return true;
             }
-            if (PrivacyParamType.c() != 1 && PrivacyParamType.c() != 2) {
+            if (PrivacyParamType.b() != 1 && PrivacyParamType.b() != 2) {
                 return true;
             }
             return false;
@@ -79,7 +76,7 @@ public final class ae9 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (PrivacyParamType.e() || PrivacyParamType.c() != 1) {
+            if (PrivacyParamType.d() || PrivacyParamType.b() != 1) {
                 return "0";
             }
             return "1";
@@ -92,7 +89,9 @@ public final class ae9 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return a(PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst()));
+            String g = ti.g();
+            Intrinsics.checkNotNullExpressionValue(g, "getModel()");
+            return a(g);
         }
         return (String) invokeV.objValue;
     }
@@ -111,12 +110,12 @@ public final class ae9 {
             if (z) {
                 return "";
             }
-            if (PrivacyParamType.e()) {
+            if (PrivacyParamType.d()) {
                 return str;
             }
-            int c = PrivacyParamType.c();
-            if (c != 1) {
-                if (c == 2) {
+            int b2 = PrivacyParamType.b();
+            if (b2 != 1) {
+                if (b2 == 2) {
                     return "";
                 }
                 return str;
@@ -138,12 +137,12 @@ public final class ae9 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, key)) == null) {
             Intrinsics.checkNotNullParameter(key, "key");
-            if (PrivacyParamType.e()) {
+            if (PrivacyParamType.d()) {
                 return key;
             }
-            int c = PrivacyParamType.c();
-            if (c != 1) {
-                if (c == 2) {
+            int b2 = PrivacyParamType.b();
+            if (b2 != 1) {
+                if (b2 == 2) {
                     return "";
                 }
                 return key;

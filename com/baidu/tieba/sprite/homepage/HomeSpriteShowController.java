@@ -8,13 +8,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tieba.ex9;
+import com.baidu.tieba.fx9;
 import com.baidu.tieba.sg;
 import com.baidu.tieba.sprite.homepage.HomeSpriteShowController;
 import com.baidu.tieba.sprite.homepage.HomeSpriteShowController$mainTabTipCloseListener$2;
 import com.baidu.tieba.sprite.homepage.HomeSpriteShowController$splashCloseListener$2;
 import com.baidu.tieba.sprite.homepage.HomeSpriteShowController$spriteShowListener$2;
-import com.baidu.tieba.yk8;
+import com.baidu.tieba.zk8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -329,11 +329,11 @@ public final class HomeSpriteShowController {
         });
         this.d = owner;
         this.e = new HashMap<>();
-        if (ex9.d.a().c()) {
+        if (fx9.d.a().c()) {
             if (HomeSpriteEdgeFloatManager.j.b() && (lifecycle = this.d) != null) {
                 lifecycle.addObserver(HomeSpriteEdgeFloatManager.j.c());
             }
-            ex9.d.a().e(false);
+            fx9.d.a().e(false);
             return;
         }
         if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
@@ -382,16 +382,16 @@ public final class HomeSpriteShowController {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             for (Map.Entry<String, Boolean> entry : this.e.entrySet()) {
                 if (!entry.getValue().booleanValue()) {
-                    yk8 defaultLog = DefaultLog.getInstance();
+                    zk8 defaultLog = DefaultLog.getInstance();
                     defaultLog.c("HomeSpriteShow", "当前状态不可用展示精灵：" + this.e);
                     return;
                 }
             }
-            yk8 defaultLog2 = DefaultLog.getInstance();
+            zk8 defaultLog2 = DefaultLog.getInstance();
             defaultLog2.c("HomeSpriteShow", "开始展示首页小精灵:" + HomeSpriteEdgeFloatManager.j.b());
             if (HomeSpriteEdgeFloatManager.j.b()) {
                 if (HomeSpriteEdgeFloatManager.j.g()) {
-                    sg.a().post(new Runnable() { // from class: com.baidu.tieba.in9
+                    sg.a().post(new Runnable() { // from class: com.baidu.tieba.jn9
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -405,7 +405,7 @@ public final class HomeSpriteShowController {
                     });
                     return;
                 }
-                sg.a().postDelayed(new Runnable() { // from class: com.baidu.tieba.jn9
+                sg.a().postDelayed(new Runnable() { // from class: com.baidu.tieba.kn9
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -417,7 +417,7 @@ public final class HomeSpriteShowController {
                         }
                     }
                 }, 3000L);
-                sg.a().post(new Runnable() { // from class: com.baidu.tieba.gn9
+                sg.a().post(new Runnable() { // from class: com.baidu.tieba.hn9
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

@@ -34,10 +34,10 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.en5;
 import com.baidu.tieba.h46;
-import com.baidu.tieba.k79;
+import com.baidu.tieba.l79;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.u79;
+import com.baidu.tieba.v79;
 import com.baidu.tieba.yu4;
 import com.baidu.tieba.zt4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,7 +51,7 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
     public transient /* synthetic */ FieldHolder $fh;
     public TbImageView a;
     public TextView b;
-    public k79 c;
+    public l79 c;
     public boolean d;
 
     /* loaded from: classes7.dex */
@@ -185,11 +185,11 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
         b(context);
     }
 
-    public void a(k79 k79Var) {
+    public void a(l79 l79Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, k79Var) == null) {
-            this.c = k79Var;
-            this.b.setText(k79Var.e);
+        if (interceptable == null || interceptable.invokeL(1048576, this, l79Var) == null) {
+            this.c = l79Var;
+            this.b.setText(l79Var.e);
             f();
         }
     }
@@ -203,12 +203,12 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
     }
 
     public void d() {
-        k79 k79Var;
+        l79 l79Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (k79Var = this.c) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (l79Var = this.c) == null) {
             return;
         }
-        int i = k79Var.a;
+        int i = l79Var.a;
         if (this.d) {
             int[] iArr = new int[2];
             getLocationOnScreen(iArr);
@@ -241,11 +241,11 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            k79 k79Var = this.c;
-            if (k79Var.b > 0) {
+            l79 l79Var = this.c;
+            if (l79Var.b > 0) {
                 this.a.setVisibility(0);
                 SkinManager.setImageResource(this.a, this.c.b);
-            } else if (k79Var.n && !TextUtils.isEmpty(k79Var.l)) {
+            } else if (l79Var.n && !TextUtils.isEmpty(l79Var.l)) {
                 this.a.setVisibility(0);
                 this.a.N(this.c.l, 10, false);
             } else {
@@ -256,14 +256,14 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        k79 k79Var;
+        l79 l79Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, view2) != null) || (k79Var = this.c) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048582, this, view2) != null) || (l79Var = this.c) == null) {
             return;
         }
-        if (k79Var.n && k79Var.m != 0) {
+        if (l79Var.n && l79Var.m != 0) {
             if (TbadkApplication.getInst().getCurrentActivity() instanceof TbPageContextSupport) {
-                u79.a(this.c, ((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext());
+                v79.a(this.c, ((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext());
                 return;
             }
             return;

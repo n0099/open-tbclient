@@ -14,8 +14,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.xf7;
 import com.baidu.tieba.yf7;
+import com.baidu.tieba.zf7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.FrsPage.LiveFuseForumData;
 /* loaded from: classes5.dex */
-public class HeaderComponentMultiView extends FrameLayout implements yf7 {
+public class HeaderComponentMultiView extends FrameLayout implements zf7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -33,7 +33,7 @@ public class HeaderComponentMultiView extends FrameLayout implements yf7 {
     public List<LiveFuseForumData> c;
     public HeaderComponentMultiAdapter d;
 
-    @Override // com.baidu.tieba.yf7
+    @Override // com.baidu.tieba.zf7
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -108,19 +108,19 @@ public class HeaderComponentMultiView extends FrameLayout implements yf7 {
         c();
     }
 
-    @Override // com.baidu.tieba.yf7
-    public void a(List<LiveFuseForumData> list, xf7 xf7Var) {
+    @Override // com.baidu.tieba.zf7
+    public void a(List<LiveFuseForumData> list, yf7 yf7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, list, xf7Var) != null) || ListUtils.isEmpty(list)) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, list, yf7Var) != null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.d.m(xf7Var);
+        this.d.m(yf7Var);
         this.c.clear();
         this.c.addAll(list);
         this.d.notifyDataSetChanged();
     }
 
-    @Override // com.baidu.tieba.yf7
+    @Override // com.baidu.tieba.zf7
     public void b() {
         HeaderComponentMultiAdapter headerComponentMultiAdapter;
         Interceptable interceptable = $ic;

@@ -1,7 +1,11 @@
 package com.baidu.tieba;
+
+import com.baidu.tieba.faceshop.emotioncenter.data.EmotionCenterData;
 /* loaded from: classes7.dex */
 public interface qx6 {
-    void a();
+    void E0(EmotionCenterData emotionCenterData);
 
-    void b();
+    void Q0(EmotionCenterData emotionCenterData);
+
+    void g1(EmotionCenterData emotionCenterData);
 }

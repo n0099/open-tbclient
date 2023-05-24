@@ -11,12 +11,12 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.gif.GifInfo;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import com.baidu.tieba.ca;
-import com.baidu.tieba.d28;
+import com.baidu.tieba.e28;
 import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.data.MsgLocalData;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.rn;
-import com.baidu.tieba.x08;
+import com.baidu.tieba.y08;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -52,10 +52,10 @@ public abstract class ChatMessage extends TbSocketMessage implements ca, rn {
     public String groupId;
     public boolean hasRead;
     public int height;
-    public List<d28> iceBreakEmotions;
+    public List<e28> iceBreakEmotions;
     public int isFriend;
     public boolean isUploading;
-    public WeakReference<x08> itemViewWeakReference;
+    public WeakReference<y08> itemViewWeakReference;
     public String link;
     public MsgLocalData localData;
     public long logTime;
@@ -281,7 +281,7 @@ public abstract class ChatMessage extends TbSocketMessage implements ca, rn {
         return invokeV.intValue;
     }
 
-    public List<d28> getIceBreakEmotions() {
+    public List<e28> getIceBreakEmotions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
@@ -309,17 +309,17 @@ public abstract class ChatMessage extends TbSocketMessage implements ca, rn {
     }
 
     @Nullable
-    public x08 getItemView() {
+    public y08 getItemView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            WeakReference<x08> weakReference = this.itemViewWeakReference;
+            WeakReference<y08> weakReference = this.itemViewWeakReference;
             if (weakReference == null) {
                 return null;
             }
             return weakReference.get();
         }
-        return (x08) invokeV.objValue;
+        return (y08) invokeV.objValue;
     }
 
     public String getLink() {
@@ -636,24 +636,24 @@ public abstract class ChatMessage extends TbSocketMessage implements ca, rn {
         return invokeL.booleanValue;
     }
 
-    public void setItemView(@Nullable x08 x08Var) {
-        WeakReference<x08> weakReference;
+    public void setItemView(@Nullable y08 y08Var) {
+        WeakReference<y08> weakReference;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048631, this, x08Var) == null) {
-            if (x08Var == null && (weakReference = this.itemViewWeakReference) != null) {
+        if (interceptable == null || interceptable.invokeL(1048631, this, y08Var) == null) {
+            if (y08Var == null && (weakReference = this.itemViewWeakReference) != null) {
                 weakReference.clear();
                 this.itemViewWeakReference = null;
                 return;
             }
-            WeakReference<x08> weakReference2 = this.itemViewWeakReference;
+            WeakReference<y08> weakReference2 = this.itemViewWeakReference;
             if (weakReference2 != null) {
-                if (weakReference2.get() == x08Var) {
+                if (weakReference2.get() == y08Var) {
                     return;
                 }
                 this.itemViewWeakReference.clear();
                 this.itemViewWeakReference = null;
             }
-            this.itemViewWeakReference = new WeakReference<>(x08Var);
+            this.itemViewWeakReference = new WeakReference<>(y08Var);
         }
     }
 
@@ -727,7 +727,7 @@ public abstract class ChatMessage extends TbSocketMessage implements ca, rn {
         }
     }
 
-    public void setIceBreakEmotions(List<d28> list) {
+    public void setIceBreakEmotions(List<e28> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048627, this, list) == null) {
             this.iceBreakEmotions = list;

@@ -27,13 +27,13 @@ public class ys3 {
 
         /* renamed from: com.baidu.tieba.ys3$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC0509a implements Runnable {
+        public class RunnableC0508a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ byte[] a;
             public final /* synthetic */ a b;
 
-            public RunnableC0509a(a aVar, byte[] bArr) {
+            public RunnableC0508a(a aVar, byte[] bArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,7 +120,7 @@ public class ys3 {
         public void onSuccess(byte[] bArr, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, bArr, i) == null) {
-                am3.l(new RunnableC0509a(this, bArr), "HandshakeRequest");
+                am3.l(new RunnableC0508a(this, bArr), "HandshakeRequest");
             }
         }
 

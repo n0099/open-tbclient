@@ -7,7 +7,7 @@ import com.baidu.searchbox.block.ubc.BlockPerfSampleCallback;
 import com.baidu.searchbox.fluency.ubc.FpsPerfSampleCallback;
 import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionPerfSampleCallback;
 import com.baidu.searchbox.ruka.ubc.LooperPerfSampleCallback;
-import com.baidu.tieba.hl9;
+import com.baidu.tieba.il9;
 import com.baidu.tieba.tj1;
 import com.baidu.tieba.vj1;
 import com.baidu.tieba.xj1;
@@ -33,7 +33,7 @@ public class PerfSampleManager {
             arrayList.add(new FpsPerfSampleCallback());
             arrayList.add(new ExceptionPerfSampleCallback());
             arrayList.add(new LooperPerfSampleCallback());
-            arrayList.add(new hl9());
+            arrayList.add(new il9());
             return arrayList;
         }
     }

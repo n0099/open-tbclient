@@ -6,9 +6,9 @@ import android.os.RemoteException;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tieba.mga;
-import com.baidu.tieba.ofa;
-import com.baidu.tieba.tha;
+import com.baidu.tieba.nga;
+import com.baidu.tieba.pfa;
+import com.baidu.tieba.uha;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -57,7 +57,7 @@ public class UBC {
                 return;
             }
         }
-        DEBUG = mga.m();
+        DEBUG = nga.m();
     }
 
     public UBC() {
@@ -78,7 +78,7 @@ public class UBC {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return mga.b();
+            return nga.b();
         }
         return (Context) invokeV.objValue;
     }
@@ -220,7 +220,7 @@ public class UBC {
             if (sProxy == null) {
                 synchronized (UBC.class) {
                     if (sProxy == null) {
-                        IBinder e = mga.e(UBC_REMOTE_SERVICE_NAME);
+                        IBinder e = nga.e(UBC_REMOTE_SERVICE_NAME);
                         if (e != null) {
                             if (e != null) {
                                 sProxy = IRemoteUBCService.Stub.asInterface(e);
@@ -239,11 +239,11 @@ public class UBC {
     public static void onMutilProcessEvent(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65556, null, str, str2, str3) == null) {
-            String a = tha.a(str3);
+            String a = uha.a(str3);
             if (DEBUG) {
                 Log.d(TAG, "on onMultiProcessEvent id:" + str + " value:" + str2 + " name: " + a);
             }
-            ofa.w().z(str, str2, a, 8);
+            pfa.w().z(str, str2, a, 8);
         }
     }
 }

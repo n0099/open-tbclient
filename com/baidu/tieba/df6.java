@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class df6 extends jk1<ii6> {
+public class df6 extends jk1<ji6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -21,7 +21,7 @@ public class df6 extends jk1<ii6> {
     }
 
     /* loaded from: classes5.dex */
-    public static final class b implements ii6 {
+    public static final class b implements ji6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -43,7 +43,7 @@ public class df6 extends jk1<ii6> {
             this();
         }
 
-        @Override // com.baidu.tieba.ii6
+        @Override // com.baidu.tieba.ji6
         public List<Pair<String, Long>> a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -71,12 +71,12 @@ public class df6 extends jk1<ii6> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.jk1
     /* renamed from: a */
-    public ii6 createService() throws ServiceNotFoundException {
+    public ji6 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return new b(null);
         }
-        return (ii6) invokeV.objValue;
+        return (ji6) invokeV.objValue;
     }
 }

@@ -2,8 +2,8 @@ package com.huawei.hms.aaid;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.g2b;
 import com.baidu.tieba.h2b;
+import com.baidu.tieba.i2b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -93,15 +93,15 @@ public class HmsInstanceIdEx {
         return (HmsInstanceIdEx) invokeL.objValue;
     }
 
-    public final g2b<TokenResult> a(Exception exc) {
+    public final h2b<TokenResult> a(Exception exc) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, exc)) == null) {
-            h2b h2bVar = new h2b();
-            h2bVar.c(exc);
-            return h2bVar.b();
+            i2b i2bVar = new i2b();
+            i2bVar.c(exc);
+            return i2bVar.b();
         }
-        return (g2b) invokeL.objValue;
+        return (h2b) invokeL.objValue;
     }
 
     public final String a(String str) {
@@ -155,8 +155,8 @@ public class HmsInstanceIdEx {
         return invokeL.longValue;
     }
 
-    /* JADX DEBUG: Type inference failed for r0v22. Raw type applied. Possible types: com.baidu.tieba.g2b<TResult>, com.baidu.tieba.g2b<com.huawei.hms.aaid.entity.TokenResult> */
-    public g2b<TokenResult> getToken() {
+    /* JADX DEBUG: Type inference failed for r0v22. Raw type applied. Possible types: com.baidu.tieba.h2b<TResult>, com.baidu.tieba.h2b<com.huawei.hms.aaid.entity.TokenResult> */
+    public h2b<TokenResult> getToken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -164,9 +164,9 @@ public class HmsInstanceIdEx {
                 try {
                     HMSLog.i(TAG, "use proxy get token, please check HmsMessageService.onNewToken receive result.");
                     ProxyCenter.getProxy().getToken(this.a, null, null);
-                    h2b h2bVar = new h2b();
-                    h2bVar.setResult(new TokenResult());
-                    return h2bVar.b();
+                    i2b i2bVar = new i2b();
+                    i2bVar.setResult(new TokenResult());
+                    return i2bVar.b();
                 } catch (ApiException e) {
                     return a(e);
                 } catch (Exception unused) {
@@ -186,6 +186,6 @@ public class HmsInstanceIdEx {
                 return a(ErrorEnum.ERROR_INTERNAL_ERROR.toApiException());
             }
         }
-        return (g2b) invokeV.objValue;
+        return (h2b) invokeV.objValue;
     }
 }

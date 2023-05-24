@@ -126,18 +126,18 @@ public class yx extends cx implements ux, tx<ThreadData> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.j != null && this.a.l != null && this.a.k != null && !this.a.l.isTransportThread() && this.a.n) {
-                if (!this.a.l.isMarkToDel() && t77.f().i()) {
-                    if (t77.f().a(this.a.l)) {
+                if (!this.a.l.isMarkToDel() && u77.f().i()) {
+                    if (u77.f().a(this.a.l)) {
                         this.a.l.setMarkToDel(true);
                     }
-                } else if (!this.a.l.isMarkToMove() && s77.h().j()) {
-                    if (s77.h().a(this.a.l)) {
+                } else if (!this.a.l.isMarkToMove() && t77.h().j()) {
+                    if (t77.h().a(this.a.l)) {
                         this.a.l.setMarkToMove(true);
                     }
                 } else {
-                    t77.f().l(this.a.l);
+                    u77.f().l(this.a.l);
                     this.a.l.setMarkToDel(false);
-                    s77.h().l(this.a.l);
+                    t77.h().l(this.a.l);
                     this.a.l.setMarkToMove(false);
                 }
                 this.a.r();
@@ -243,7 +243,7 @@ public class yx extends cx implements ux, tx<ThreadData> {
                 z = false;
             }
             this.n = z;
-            if (!t77.f().i() && !s77.h().j()) {
+            if (!u77.f().i() && !t77.h().j()) {
                 this.d.p(new az.a(4, Boolean.TRUE));
                 this.g.setVisibility(8);
                 return;

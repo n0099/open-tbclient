@@ -11,13 +11,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tieba.et5;
-import com.baidu.tieba.gi9;
+import com.baidu.tieba.hi9;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
 import com.baidu.tieba.is5;
 import com.baidu.tieba.it5;
 import com.baidu.tieba.pg;
-import com.baidu.tieba.t28;
+import com.baidu.tieba.u28;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class SelectPrivateMsgPageDispatcher implements gi9 {
+public class SelectPrivateMsgPageDispatcher implements hi9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -64,7 +64,7 @@ public class SelectPrivateMsgPageDispatcher implements gi9 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return t28.f().i(this.a);
+                return u28.f().i(this.a);
             }
             return (ImMessageCenterPojo) invokeV.objValue;
         }
@@ -136,7 +136,7 @@ public class SelectPrivateMsgPageDispatcher implements gi9 {
         }
     }
 
-    @Override // com.baidu.tieba.gi9
+    @Override // com.baidu.tieba.hi9
     @RequiresApi(api = 19)
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;

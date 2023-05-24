@@ -14,7 +14,7 @@ public class e86 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public zj6 a;
+    public ak6 a;
 
     static {
         InterceptResult invokeClinit;

@@ -131,7 +131,7 @@ public class lw4 {
                         str4 = offlineWebViewHttpResMsg.getError() + "";
                         str5 = "\"\"";
                     }
-                    p = te9.n().p(str);
+                    p = ue9.n().p(str);
                     if (p == null) {
                         p = "0.0.0.0";
                     }
@@ -160,14 +160,14 @@ public class lw4 {
                     sb.append(i2 ^ 1);
                     sb.append("\"");
                     sb.append("}");
-                    wh6.a("OfflineWebHttpProxy", "网络请求结果：fromPreRequest=" + (i2 ^ 1));
+                    xh6.a("OfflineWebHttpProxy", "网络请求结果：fromPreRequest=" + (i2 ^ 1));
                     if (i2 != 0 && !z) {
                         if (StringUtils.isNull(str7)) {
-                            wh6.a("OfflineWebHttpProxy", "请求完成：预请求-收到网络请求结果（" + httpResponsedMessage.getStatusCode() + "），缓存请求结果：url=" + str2);
+                            xh6.a("OfflineWebHttpProxy", "请求完成：预请求-收到网络请求结果（" + httpResponsedMessage.getStatusCode() + "），缓存请求结果：url=" + str2);
                             this.a.d.put(str3, sb.toString());
                             return;
                         }
-                        wh6.a("OfflineWebHttpProxy", "请求完成：预请求-收到网络请求结果（" + httpResponsedMessage.getStatusCode() + "），开始回调js函数(" + str7 + ")：url=" + str2);
+                        xh6.a("OfflineWebHttpProxy", "请求完成：预请求-收到网络请求结果（" + httpResponsedMessage.getStatusCode() + "），开始回调js函数(" + str7 + ")：url=" + str2);
                         this.a.l(webView, str7, sb.toString());
                         return;
                     }
@@ -183,7 +183,7 @@ public class lw4 {
                     sb2.append(httpResponsedMessage.getStatusCode());
                     sb2.append("），开始回调端能力：url=");
                     sb2.append(str2);
-                    wh6.a("OfflineWebHttpProxy", sb2.toString());
+                    xh6.a("OfflineWebHttpProxy", sb2.toString());
                     this.a.i(webView, str2, sb.toString());
                 }
             }
@@ -193,7 +193,7 @@ public class lw4 {
             }
             str4 = offlineWebViewHttpResMsg.getError() + "";
             str5 = "\"\"";
-            p = te9.n().p(str);
+            p = ue9.n().p(str);
             if (p == null) {
             }
             sb = new StringBuilder();
@@ -221,7 +221,7 @@ public class lw4 {
             sb.append(i2 ^ 1);
             sb.append("\"");
             sb.append("}");
-            wh6.a("OfflineWebHttpProxy", "网络请求结果：fromPreRequest=" + (i2 ^ 1));
+            xh6.a("OfflineWebHttpProxy", "网络请求结果：fromPreRequest=" + (i2 ^ 1));
             if (i2 != 0) {
             }
             StringBuilder sb22 = new StringBuilder();
@@ -233,7 +233,7 @@ public class lw4 {
             sb22.append(httpResponsedMessage.getStatusCode());
             sb22.append("），开始回调端能力：url=");
             sb22.append(str2);
-            wh6.a("OfflineWebHttpProxy", sb22.toString());
+            xh6.a("OfflineWebHttpProxy", sb22.toString());
             this.a.i(webView, str2, sb.toString());
         }
     }
@@ -269,17 +269,17 @@ public class lw4 {
             String g = g(offlineBridgeData.url);
             String remove = this.d.remove(g);
             if (!TextUtils.isEmpty(remove) && str != null) {
-                wh6.a("OfflineWebHttpProxy", "请求完成：命中预请求缓存-执行js回调，url=" + offlineBridgeData.url);
+                xh6.a("OfflineWebHttpProxy", "请求完成：命中预请求缓存-执行js回调，url=" + offlineBridgeData.url);
                 l(webView, str, remove);
             } else if (!TextUtils.isEmpty(remove) && z) {
-                wh6.a("OfflineWebHttpProxy", "请求完成：命中预请求缓存-执行端能力回调，url=" + offlineBridgeData.url);
+                xh6.a("OfflineWebHttpProxy", "请求完成：命中预请求缓存-执行端能力回调，url=" + offlineBridgeData.url);
                 i(webView, offlineBridgeData.url, remove);
             } else if (this.b.containsKey(g)) {
                 if (!TextUtils.isEmpty(str)) {
-                    wh6.a("OfflineWebHttpProxy", "加入等待队列：重复的请求-js回调函数-等待网络结果完成后回调，url=" + offlineBridgeData.url);
+                    xh6.a("OfflineWebHttpProxy", "加入等待队列：重复的请求-js回调函数-等待网络结果完成后回调，url=" + offlineBridgeData.url);
                     this.c.put(g, str);
                 } else if (z) {
-                    wh6.a("OfflineWebHttpProxy", "加入等待队列：重复的请求-端能力-等待网络结果完成后回调，url=" + offlineBridgeData.url);
+                    xh6.a("OfflineWebHttpProxy", "加入等待队列：重复的请求-端能力-等待网络结果完成后回调，url=" + offlineBridgeData.url);
                     this.b.put(g, Boolean.TRUE);
                 }
             } else {
@@ -292,7 +292,7 @@ public class lw4 {
                 sb.append(str2);
                 sb.append("-正在发起网络请求：");
                 sb.append(offlineBridgeData.url);
-                wh6.a("OfflineWebHttpProxy", sb.toString());
+                xh6.a("OfflineWebHttpProxy", sb.toString());
                 this.b.put(g, Boolean.valueOf(z));
                 m(webView, offlineBridgeData, str, z, g);
             }
@@ -354,14 +354,14 @@ public class lw4 {
             LinkedHashMap linkedHashMap = new LinkedHashMap();
             linkedHashMap.put("result", str2);
             linkedHashMap.put("NotificationKey", str);
-            kh6.a().d(webView, "RequestByNativeToH5", linkedHashMap);
+            lh6.a().d(webView, "RequestByNativeToH5", linkedHashMap);
         }
     }
 
     public void j(WebView webView, OfflineBridgeData offlineBridgeData, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, webView, offlineBridgeData, str) == null) {
-            wh6.a("OfflineWebHttpProxy", "预请求：" + offlineBridgeData.url);
+            xh6.a("OfflineWebHttpProxy", "预请求：" + offlineBridgeData.url);
             f(webView, offlineBridgeData, str, false);
         }
     }
@@ -369,7 +369,7 @@ public class lw4 {
     public void k(WebView webView, OfflineBridgeData offlineBridgeData, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{webView, offlineBridgeData, str, Boolean.valueOf(z)}) == null) {
-            wh6.a("OfflineWebHttpProxy", "端能力请求：" + offlineBridgeData.url);
+            xh6.a("OfflineWebHttpProxy", "端能力请求：" + offlineBridgeData.url);
             f(webView, offlineBridgeData, str, z);
         }
     }
@@ -393,7 +393,7 @@ public class lw4 {
             offlineWebViewHttpReqMsg.webView = webView;
             offlineWebViewHttpReqMsg.setTag(this.a);
             offlineWebViewHttpReqMsg.isFromRequestByNative = z;
-            CookieSyncManager.createInstance(yg6.getContext());
+            CookieSyncManager.createInstance(zg6.getContext());
             String cookie = CookieManager.getInstance().getCookie("tieba.baidu.com");
             if (!TextUtils.isEmpty(cookie)) {
                 HashMap<String, String> headers = offlineWebViewHttpReqMsg.getHeaders();
@@ -412,7 +412,7 @@ public class lw4 {
                 }
             }
             offlineWebViewHttpReqMsg.setUserAgent(webView.getSettings().getUserAgentString());
-            offlineWebViewHttpReqMsg.addCookie("cache_version", te9.n().p(offlineBridgeData.module));
+            offlineWebViewHttpReqMsg.addCookie("cache_version", ue9.n().p(offlineBridgeData.module));
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_WEB_HTTP_PROXY, offlineBridgeData.url);
             tbHttpMessageTask.setResponsedClass(OfflineWebViewHttpResMsg.class);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);

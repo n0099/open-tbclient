@@ -81,16 +81,16 @@ public final class c45 implements y35 {
                 try {
                     Object obj3 = map.get("init_offline_module");
                     if ((obj3 instanceof String) && !TextUtils.isEmpty((CharSequence) obj3)) {
-                        yk8 yunDialogLog = YunDialogLog.getInstance();
+                        zk8 yunDialogLog = YunDialogLog.getInstance();
                         yunDialogLog.c("HybridCheckStrategy", "主动初始化离线包:" + obj3);
                         HashSet hashSet = new HashSet();
                         hashSet.add(obj3);
                         ow4.d(hashSet);
-                        yk8 yunDialogLog2 = YunDialogLog.getInstance();
+                        zk8 yunDialogLog2 = YunDialogLog.getInstance();
                         yunDialogLog2.c("HybridCheckStrategy", "离线包主动初始化完成:" + obj3);
                     }
                 } catch (Exception e) {
-                    yk8 yunDialogLog3 = YunDialogLog.getInstance();
+                    zk8 yunDialogLog3 = YunDialogLog.getInstance();
                     yunDialogLog3.b("HybridCheckStrategy", "离线包手动初始化异常:" + e);
                 }
                 Object obj4 = map.get("check_offline");

@@ -10,26 +10,21 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.BarImageView;
+import com.baidu.tieba.im.data.ShareIMCommonCardData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class t48 extends w48<ForumData> {
+public class t48 extends x48<ShareIMCommonCardData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context m;
-    public LinearLayout n;
-    public BarImageView o;
+    public LinearLayout m;
+    public BarImageView n;
+    public TextView o;
     public TextView p;
-    public EMTextView q;
-    public EMTextView r;
-    public EMTextView s;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public t48(@NonNull Context context) {
@@ -49,16 +44,14 @@ public class t48 extends w48<ForumData> {
                 return;
             }
         }
-        this.m = context;
-        q(context);
     }
 
-    @Override // com.baidu.tieba.p48
+    @Override // com.baidu.tieba.q48
     public void a(String str) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            ForumData forumData = (ForumData) this.j;
+            ShareIMCommonCardData shareIMCommonCardData = (ShareIMCommonCardData) this.j;
             long userIdLong = this.k.getUserIdLong();
             String userName = this.k.getUserName();
             String name_show = this.k.getName_show();
@@ -68,77 +61,73 @@ public class t48 extends w48<ForumData> {
             } else {
                 z = false;
             }
-            w58.a(forumData, str, userIdLong, userName, name_show, portrait, z);
-            p(1, 0, 3, String.valueOf(this.k.getUserIdLong()));
+            x58.c(shareIMCommonCardData, str, userIdLong, userName, name_show, portrait, z);
         }
     }
 
-    @Override // com.baidu.tieba.p48
+    @Override // com.baidu.tieba.q48
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            w58.h(str, this.k.groupData, (ForumData) this.j);
+            x58.e(str, this.k.groupData, (ShareIMCommonCardData) this.j);
         }
     }
 
-    @Override // com.baidu.tieba.w48
+    @Override // com.baidu.tieba.x48
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.g();
-            p45 d = p45.d(this.n);
+            p45 d = p45.d(this.m);
             d.o(R.string.J_X05);
             d.f(R.color.CAM_X0207);
-            p45 d2 = p45.d(this.p);
+            p45 d2 = p45.d(this.o);
             d2.w(R.color.CAM_X0105);
             d2.C(R.string.F_X02);
-            p45.d(this.q).w(R.color.CAM_X0107);
-            p45.d(this.r).w(R.color.CAM_X0109);
-            p45.d(this.s).w(R.color.CAM_X0109);
-            this.o.setStrokeColorResId(R.color.CAM_X0401);
+            p45.d(this.p).w(R.color.CAM_X0109);
+            this.n.setStrokeColorResId(R.color.CAM_X0401);
         }
     }
 
-    public final void q(Context context) {
+    @Override // com.baidu.tieba.x48
+    public void m(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.im_share_dialog_forum, i());
-            this.n = (LinearLayout) inflate.findViewById(R.id.im_share_forum_info_container);
-            BarImageView barImageView = (BarImageView) inflate.findViewById(R.id.im_share_forum_info_head);
-            this.o = barImageView;
+        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
+            super.m(context);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.im_share_dialog_topic, i());
+            this.m = (LinearLayout) inflate.findViewById(R.id.im_share_topic_info_container);
+            BarImageView barImageView = (BarImageView) inflate.findViewById(R.id.im_share_topic_info_head);
+            this.n = barImageView;
             barImageView.setPlaceHolder(1);
-            this.o.setShowOval(true);
-            this.o.setAutoChangeStyle(true);
-            this.o.setShowInnerBorder(true);
-            this.o.setStrokeWith(ri.g(TbadkCoreApplication.getInst(), R.dimen.L_X01));
-            this.o.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.p = (TextView) inflate.findViewById(R.id.im_share_forum_info_title);
-            this.q = (EMTextView) inflate.findViewById(R.id.im_share_forum_info_brief);
-            this.r = (EMTextView) inflate.findViewById(R.id.im_share_forum_info_attention_count);
-            this.s = (EMTextView) inflate.findViewById(R.id.im_share_forum_info_thread_count);
+            this.n.setAutoChangeStyle(true);
+            this.n.setShowInnerBorder(true);
+            this.n.setStrokeWith(ri.g(TbadkCoreApplication.getInst(), R.dimen.L_X01));
+            this.n.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.n.setRadiusById(R.string.J_X04);
+            this.o = (TextView) inflate.findViewById(R.id.im_share_topic_info_title);
+            this.p = (TextView) inflate.findViewById(R.id.im_share_topic_info_desc);
             g();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.w48
-    /* renamed from: r */
-    public void o(ForumData forumData, MetaData metaData) {
+    @Override // com.baidu.tieba.x48
+    /* renamed from: q */
+    public void o(ShareIMCommonCardData shareIMCommonCardData, MetaData metaData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, forumData, metaData) == null) {
-            super.o(forumData, metaData);
-            if (forumData != null && !TextUtils.isEmpty(forumData.getId())) {
-                this.o.N(forumData.getImage_url(), 10, false);
-                this.p.setText("" + forumData.getName() + this.m.getResources().getString(R.string.obfuscated_res_0x7f0f0730));
-                if (!TextUtils.isEmpty(forumData.getSlogan())) {
-                    this.q.setVisibility(0);
-                    this.q.setText(forumData.getSlogan());
-                } else {
-                    this.q.setVisibility(8);
-                }
-                this.r.setText(String.format(this.m.getString(R.string.obfuscated_res_0x7f0f04a6), StringHelper.numberUniformFormatExtra(forumData.getMember_num())));
-                this.s.setText(String.format(this.m.getString(R.string.forum_thread_number), StringHelper.numberUniformFormatExtra(forumData.getThread_num())));
+        if (interceptable == null || interceptable.invokeLL(1048581, this, shareIMCommonCardData, metaData) == null) {
+            super.o(shareIMCommonCardData, metaData);
+            if (shareIMCommonCardData == null) {
+                return;
             }
+            this.n.N(shareIMCommonCardData.getAvatar(), 10, false);
+            this.o.setText(shareIMCommonCardData.getTitle());
+            if (TextUtils.isEmpty(shareIMCommonCardData.getDesc())) {
+                this.p.setVisibility(8);
+                return;
+            }
+            this.p.setVisibility(0);
+            this.p.setText(shareIMCommonCardData.getDesc());
         }
     }
 }

@@ -25,7 +25,7 @@ import com.baidu.tieba.advert.sdk.data.AdLoadState;
 import com.baidu.tieba.advert.sdk.stretagy.SplashNativePolicy;
 import com.baidu.tieba.aj5;
 import com.baidu.tieba.funAd.http.FunAdRecordHttpMessage;
-import com.baidu.tieba.mn7;
+import com.baidu.tieba.nn7;
 import com.baidu.tieba.q16;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -42,7 +42,7 @@ public class i36 implements z36 {
     public static /* synthetic */ Interceptable $ic;
     public static String p;
     public static volatile boolean q;
-    public static volatile mn7.h r;
+    public static volatile nn7.h r;
     public transient /* synthetic */ FieldHolder $fh;
     public WeakReference<ViewGroup> b;
     public ViewGroup c;
@@ -57,7 +57,7 @@ public class i36 implements z36 {
     public final Handler l;
     public final FunAdDestroySwitch m;
     public final Runnable n;
-    public final mn7.i o;
+    public final nn7.i o;
 
     @Override // com.baidu.tieba.z36
     public String c() {
@@ -77,7 +77,7 @@ public class i36 implements z36 {
     }
 
     /* loaded from: classes5.dex */
-    public class f implements mn7.h {
+    public class f implements nn7.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ i36 a;
@@ -168,7 +168,7 @@ public class i36 implements z36 {
             this.a = i36Var;
         }
 
-        @Override // com.baidu.tieba.mn7.h
+        @Override // com.baidu.tieba.nn7.h
         public void a(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
@@ -185,7 +185,7 @@ public class i36 implements z36 {
             }
         }
 
-        @Override // com.baidu.tieba.mn7.h
+        @Override // com.baidu.tieba.nn7.h
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -241,7 +241,7 @@ public class i36 implements z36 {
     }
 
     /* loaded from: classes5.dex */
-    public class b extends mn7.k {
+    public class b extends nn7.k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ i36 a;
@@ -264,7 +264,7 @@ public class i36 implements z36 {
             this.a = i36Var;
         }
 
-        @Override // com.baidu.tieba.mn7.i
+        @Override // com.baidu.tieba.nn7.i
         public void onAdClicked(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
@@ -279,7 +279,7 @@ public class i36 implements z36 {
             }
         }
 
-        @Override // com.baidu.tieba.mn7.i
+        @Override // com.baidu.tieba.nn7.i
         public void onAdClose(String str) {
             int hashCode;
             Interceptable interceptable = $ic;
@@ -310,7 +310,7 @@ public class i36 implements z36 {
             }
         }
 
-        @Override // com.baidu.tieba.mn7.i
+        @Override // com.baidu.tieba.nn7.i
         public void onAdError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -329,7 +329,7 @@ public class i36 implements z36 {
             }
         }
 
-        @Override // com.baidu.tieba.mn7.i
+        @Override // com.baidu.tieba.nn7.i
         public void onAdShow(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
@@ -391,7 +391,7 @@ public class i36 implements z36 {
     }
 
     /* loaded from: classes5.dex */
-    public class d implements mn7.h {
+    public class d implements nn7.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ i36 a;
@@ -414,7 +414,7 @@ public class i36 implements z36 {
             this.a = i36Var;
         }
 
-        @Override // com.baidu.tieba.mn7.h
+        @Override // com.baidu.tieba.nn7.h
         public void a(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
@@ -429,7 +429,7 @@ public class i36 implements z36 {
                     this.a.g.f(e46.c, true);
                 }
                 FunAdRecordHttpMessage.uploadRequestRecord("a064", "0", null, null, null);
-                if (mn7.m().v(str)) {
+                if (nn7.m().v(str)) {
                     this.a.f = AdLoadState.SUCCEED;
                     e46.k(e46.c, "0", null, null, 0, i, this.a.i, this.a.j);
                 } else {
@@ -444,7 +444,7 @@ public class i36 implements z36 {
             }
         }
 
-        @Override // com.baidu.tieba.mn7.h
+        @Override // com.baidu.tieba.nn7.h
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -555,7 +555,7 @@ public class i36 implements z36 {
                 return;
             }
         }
-        p = mn7.p();
+        p = nn7.p();
         q = false;
     }
 
@@ -587,7 +587,7 @@ public class i36 implements z36 {
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            mn7.m().d(p);
+            nn7.m().d(p);
             r = null;
         }
     }
@@ -616,7 +616,7 @@ public class i36 implements z36 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return mn7.m().v(p);
+            return nn7.m().v(p);
         }
         return invokeV.booleanValue;
     }
@@ -648,9 +648,9 @@ public class i36 implements z36 {
         this.o = new b(this);
         this.k = splashNativePolicy;
         if (o65.m().n("splash_bear_sid_type_key", 0) == 1) {
-            p2 = mn7.q();
+            p2 = nn7.q();
         } else {
-            p2 = mn7.p();
+            p2 = nn7.p();
         }
         p = p2;
     }
@@ -660,9 +660,9 @@ public class i36 implements z36 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
             if (i == 1) {
-                p2 = mn7.q();
+                p2 = nn7.q();
             } else {
-                p2 = mn7.p();
+                p2 = nn7.p();
             }
             p = p2;
             o65.m().z("splash_bear_sid_type_key", i);
@@ -698,7 +698,7 @@ public class i36 implements z36 {
                             PrintStream printStream = System.out;
                             printStream.println("IAdSdkSplash BEAR ad showSplash: " + p);
                         }
-                        mn7.m().G((Activity) context, p, this.d, this.o, mn7.b("spalsh", y36.d().c() + ""));
+                        nn7.m().G((Activity) context, p, this.d, this.o, nn7.b("spalsh", y36.d().c() + ""));
                         SkinManager.setBackgroundColor(this.c, R.color.CAM_X0101, 0);
                         return true;
                     }
@@ -741,7 +741,7 @@ public class i36 implements z36 {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             Context context = TbadkCoreApplication.getInst().getContext();
             f fVar = new f(this);
-            mn7.m().w(context, p, (int) (ri.j(context) * 0.85d), fVar, mn7.b("spalsh", y36.d().c() + ""));
+            nn7.m().w(context, p, (int) (ri.j(context) * 0.85d), fVar, nn7.b("spalsh", y36.d().c() + ""));
             q = true;
         }
     }
@@ -785,12 +785,12 @@ public class i36 implements z36 {
                     y();
                     q = false;
                 } else {
-                    mn7 m = mn7.m();
+                    nn7 m = nn7.m();
                     Activity activity = (Activity) context;
                     String str = p;
                     int j = (int) (ri.j(context) * 0.85d);
-                    mn7.h hVar = r;
-                    m.w(activity, str, j, hVar, mn7.b("spalsh", y36.d().c() + ""));
+                    nn7.h hVar = r;
+                    m.w(activity, str, j, hVar, nn7.b("spalsh", y36.d().c() + ""));
                 }
                 if (this.f == AdLoadState.INIT) {
                     this.f = AdLoadState.LOADING;

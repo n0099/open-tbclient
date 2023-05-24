@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class i92 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
@@ -23,7 +23,7 @@ public final class i92 {
     public static LinkedHashMap<String, String> c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public final class i92 {
         public long d;
         public final da2 e;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public class a extends dm2 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -69,13 +69,13 @@ public final class i92 {
         }
 
         /* renamed from: com.baidu.tieba.i92$b$b  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C0328b implements zn3<String> {
+        /* loaded from: classes6.dex */
+        public class C0327b implements zn3<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ zn3 a;
 
-            public C0328b(b bVar, zn3 zn3Var) {
+            public C0327b(b bVar, zn3 zn3Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -204,7 +204,7 @@ public final class i92 {
         public void e(@NonNull zn3<String> zn3Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zn3Var) == null) {
-                this.e.e(new C0328b(this, zn3Var));
+                this.e.e(new C0327b(this, zn3Var));
             }
         }
 
@@ -277,7 +277,7 @@ public final class i92 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a implements zn3<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -9,9 +9,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hw6;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.ReMsgInfo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.view.ReplyContentView;
+import com.baidu.tieba.iw6;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -119,11 +119,11 @@ public final class ReplyContentView extends AppCompatTextView {
     public final void a(ReMsgInfo reMsgInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, reMsgInfo) == null) {
-            hw6.d(getContext(), reMsgInfo.getContent(), this.c, new hw6.i() { // from class: com.baidu.tieba.p98
+            iw6.d(getContext(), reMsgInfo.getContent(), this.c, new iw6.i() { // from class: com.baidu.tieba.q98
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.hw6.i
+                @Override // com.baidu.tieba.iw6.i
                 public final void a(SpannableStringBuilder spannableStringBuilder) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, spannableStringBuilder) == null) {

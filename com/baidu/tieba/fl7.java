@@ -1,92 +1,59 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.download.DownloadMessage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
 public class fl7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ i87 a;
-
-        public a(i87 i87Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {i87Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i87Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.Q0();
-            }
-        }
-    }
-
-    public static void a(ResponsedMessage<?> responsedMessage, i87 i87Var, FrsViewData frsViewData) {
-        List<DownloadData> data;
+    public static void a(rz5 rz5Var, ForumData forumData, List<rn> list, boolean z, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65536, null, responsedMessage, i87Var, frsViewData) != null) || frsViewData == null || i87Var == null || !(responsedMessage instanceof DownloadMessage) || (data = ((DownloadMessage) responsedMessage).getData()) == null) {
+        if ((interceptable != null && interceptable.invokeCommon(65536, null, new Object[]{rz5Var, forumData, list, Boolean.valueOf(z), Integer.valueOf(i)}) != null) || ListUtils.isEmpty(list)) {
             return;
         }
-        boolean z = false;
-        Iterator<DownloadData> it = data.iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                break;
-            } else if (it.next().getStatus() == 0) {
-                z = true;
-                break;
-            }
+        zz5 zz5Var = new zz5(rz5Var, 5);
+        zz5Var.G(list);
+        if (forumData != null) {
+            zz5Var.w(forumData.getId());
+            zz5Var.v(forumData.getFirst_class());
+            zz5Var.E(forumData.getSecond_class());
         }
-        if (z) {
-            sg.a().postDelayed(new a(i87Var), TimeUnit.SECONDS.toMillis(2L));
+        AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+        if (currentAccountObj != null) {
+            zz5Var.B(String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
+        }
+        zz5Var.A(z);
+        zz5Var.C(i);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016515, zz5Var));
+    }
+
+    public static void b(rz5 rz5Var, FrsViewData frsViewData, List<rn> list, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLI(65537, null, rz5Var, frsViewData, list, i) == null) && frsViewData != null) {
+            a(rz5Var, frsViewData.getForum(), list, false, i);
         }
     }
 
-    public static void b(i87 i87Var) {
-        HashMap<Integer, ThreadData> h;
+    public static void c(jr9 jr9Var, List<rn> list, List<rn> list2) {
+        int[] iArr;
+        int indexOf;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, i87Var) == null) && i87Var != null && i87Var.a0() != null && (h = i87Var.a0().h()) != null) {
-            ArrayList<AdvertAppInfo> arrayList = new ArrayList<>();
-            for (Map.Entry<Integer, ThreadData> entry : h.entrySet()) {
-                ThreadData value = entry.getValue();
-                if (value != null && (value instanceof AdvertAppInfo)) {
-                    arrayList.add((AdvertAppInfo) value);
+        if ((interceptable == null || interceptable.invokeLLL(65538, null, jr9Var, list, list2) == null) && jr9Var != null && ListUtils.getCount(list) > 0 && ListUtils.getCount(list2) > 0) {
+            for (int i : jr9.f) {
+                rn rnVar = (rn) ListUtils.getItem(list, i);
+                if (rnVar != null && (indexOf = list2.indexOf(rnVar)) >= 0) {
+                    jr9Var.a(i, indexOf);
                 }
             }
-            lg9.n().w(arrayList);
         }
     }
 }

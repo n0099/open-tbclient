@@ -43,11 +43,11 @@ public class za2 extends og2 {
 
         /* renamed from: com.baidu.tieba.za2$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC0517a implements Runnable {
+        public class RunnableC0514a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0517a(a aVar) {
+            public RunnableC0514a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,7 +132,7 @@ public class za2 extends og2 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 g62.k("SwanAppV8DaemonEngine", "reload");
-                an3.a0(new RunnableC0517a(this));
+                an3.a0(new RunnableC0514a(this));
             }
         }
 

@@ -1,201 +1,47 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
-import com.baidu.tieba.im.data.GroupInfoData;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.gif.GifView;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.apache.commons.codec.language.bm.ResourceConstants;
 /* loaded from: classes8.dex */
-public abstract class w48<T> implements p48 {
+public class w48 extends x48<ThreadData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public EMTextView b;
-    public SpanGroupEditText c;
-    public TextView d;
-    public TextView e;
-    public o48 f;
-    public CustomMessageListener g;
-    public ViewGroup h;
-    public View i;
-    public T j;
-    public MetaData k;
-    public View.OnAttachStateChangeListener l;
+    public final Context m;
+    public LinearLayout n;
+    public FrameLayout o;
+    public GifView p;
+    public TbImageView q;
+    public TextView r;
 
-    /* loaded from: classes8.dex */
-    public class c implements View.OnAttachStateChangeListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ w48 a;
-
-        /* loaded from: classes8.dex */
-        public class a extends CustomMessageListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ c a;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public a(c cVar, int i) {
-                super(i);
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar, Integer.valueOf(i)};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        super(((Integer) newInitContext.callArgs[0]).intValue());
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = cVar;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304) {
-                    this.a.a.g();
-                }
-            }
-        }
-
-        public c(w48 w48Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {w48Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = w48Var;
-        }
-
-        @Override // android.view.View.OnAttachStateChangeListener
-        public void onViewAttachedToWindow(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.g == null) {
-                this.a.g = new a(this, 2001304);
-                MessageManager.getInstance().registerListener(this.a.g);
-            }
-        }
-
-        @Override // android.view.View.OnAttachStateChangeListener
-        public void onViewDetachedFromWindow(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-                MessageManager.getInstance().unRegisterListener(this.a.g);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ w48 a;
-
-        public a(w48 w48Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {w48Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = w48Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.f != null) {
-                this.a.f.a();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ w48 a;
-
-        public b(w48 w48Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {w48Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = w48Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.a.c.getText() != null) {
-                    str = this.a.c.getText().toString();
-                } else {
-                    str = "";
-                }
-                this.a.k(str);
-                if (this.a.f != null) {
-                    this.a.f.b(str);
-                }
-            }
-        }
-    }
-
-    public w48(Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public w48(@NonNull Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -205,160 +51,194 @@ public abstract class w48<T> implements p48 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.l = new c(this);
-        this.a = context;
-        m(context);
-        l();
+        this.m = context;
+        t(context);
     }
 
-    public void k(String str) {
+    @Override // com.baidu.tieba.q48
+    public void a(String str) {
+        boolean z;
+        int i;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || this.j == null) {
-            return;
-        }
-        if (this.k.groupData != null) {
-            b(str);
-        } else {
-            a(str);
-        }
-    }
-
-    public void n(o48 o48Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, o48Var) == null) {
-            this.f = o48Var;
-        }
-    }
-
-    public void o(T t, MetaData metaData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, t, metaData) == null) {
-            this.j = t;
-            this.k = metaData;
-            f(metaData);
-        }
-    }
-
-    public final void f(MetaData metaData) {
-        String name_show;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, metaData) != null) || metaData == null) {
-            return;
-        }
-        GroupInfoData groupInfoData = metaData.groupData;
-        if (groupInfoData != null) {
-            name_show = groupInfoData.getName();
-            SpanGroupEditText spanGroupEditText = this.c;
-            if (spanGroupEditText != null) {
-                spanGroupEditText.setVisibility(8);
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            ThreadData threadData = (ThreadData) this.j;
+            long userIdLong = this.k.getUserIdLong();
+            String userName = this.k.getUserName();
+            String name_show = this.k.getName_show();
+            String portrait = this.k.getPortrait();
+            if (this.k.getIsMyFriend() == 1) {
+                z = true;
+            } else {
+                z = false;
             }
-        } else {
-            name_show = metaData.getName_show();
+            x58.d(threadData, str, userIdLong, userName, name_show, portrait, z);
+            ic5.e(this.k.getUserIdLong());
+            if (((ThreadData) this.j).threadType == 40) {
+                i = 2;
+            } else {
+                i = 1;
+            }
+            p(1, 0, i, String.valueOf(this.k.getUserIdLong()));
         }
-        EMTextView eMTextView = this.b;
-        String string = this.a.getResources().getString(R.string.im_share_title);
-        Object[] objArr = new Object[1];
-        if (name_show == null) {
-            name_show = "";
-        }
-        objArr[0] = name_show;
-        eMTextView.setText(String.format(string, objArr));
     }
 
+    @Override // com.baidu.tieba.q48
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            x58.j(str, this.k.groupData, (ThreadData) this.j);
+        }
+    }
+
+    @Override // com.baidu.tieba.x48
     public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            p45 d = p45.d(this.i);
-            d.o(R.string.J_X14);
-            d.f(R.color.CAM_X0212);
-            p45.d(this.b).w(R.color.CAM_X0109);
-            p45 d2 = p45.d(this.c);
-            d2.o(R.string.J_X05);
-            d2.f(R.color.CAM_X0207);
-            this.c.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            if (TbadkCoreApplication.getInst().getSkinType() == 0) {
-                r7a.l(this.c, R.drawable.edittext_cursor);
-            } else {
-                r7a.l(this.c, R.drawable.edittext_cursor_2);
-            }
-            this.c.setHintTextColor(SkinManager.getColor(TbadkCoreApplication.getInst().getSkinType(), (int) R.color.CAM_X0109));
-            p45.d(this.d).z(R.color.CAM_X0107);
-            p45.d(this.e).z(R.color.CAM_X0304);
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.g);
-            View view2 = this.i;
-            if (view2 != null) {
-                view2.removeOnAttachStateChangeListener(this.l);
+            super.g();
+            p45 d = p45.d(this.n);
+            d.o(R.string.J_X05);
+            d.f(R.color.CAM_X0207);
+            p45.d(this.r).w(R.color.CAM_X0107);
+        }
+    }
+
+    public final void r(ThreadData threadData, CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, threadData, charSequence) == null) && threadData.isVoiceThreadType()) {
+            String str = ((Object) charSequence) + this.m.getString(R.string.im_share_voice_info);
+        }
+    }
+
+    public final void s(ThreadData threadData, CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, threadData, charSequence) == null) && threadData.getPollData() != null) {
+            String str = ((Object) charSequence) + this.m.getString(R.string.im_share_vote_info);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.x48
+    /* renamed from: w */
+    public void o(ThreadData threadData, MetaData metaData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, threadData, metaData) == null) {
+            super.o(threadData, metaData);
+            if (threadData == null) {
+                return;
             }
+            this.q.setVisibility(8);
+            u(threadData);
+            v(threadData);
         }
     }
 
-    public ViewGroup i() {
-        InterceptResult invokeV;
+    public final CharSequence q(ThreadData threadData, CharSequence charSequence) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.h;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, threadData, charSequence)) == null) {
+            if (threadData != null && threadData.isShareThread && threadData.originalThreadData != null) {
+                SpannableStringBuilder append = new SpannableStringBuilder(charSequence).append((CharSequence) ResourceConstants.CMT);
+                OriginalThreadInfo originalThreadInfo = threadData.originalThreadData;
+                return new SpannableString(append.append((CharSequence) new SpannableString(nx5.J(originalThreadInfo.s, originalThreadInfo.E, false, threadData, originalThreadInfo.h()))));
+            }
+            return charSequence;
         }
-        return (ViewGroup) invokeV.objValue;
+        return (CharSequence) invokeLL.objValue;
     }
 
-    public View j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.i;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.d.setOnClickListener(new a(this));
-            this.e.setOnClickListener(new b(this));
-        }
-    }
-
-    public void m(Context context) {
+    public final void t(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.im_share_dialog, (ViewGroup) null);
-            this.i = inflate;
-            this.b = (EMTextView) inflate.findViewById(R.id.im_share_title);
-            this.h = (ViewGroup) this.i.findViewById(R.id.content_show);
-            SpanGroupEditText spanGroupEditText = (SpanGroupEditText) this.i.findViewById(R.id.im_share_input);
-            this.c = spanGroupEditText;
-            spanGroupEditText.setHint(R.string.im_share_input_hint);
-            this.c.setMaxLines(3);
-            this.c.setMinLines(3);
-            this.c.setIncludeFontPadding(false);
-            this.c.setGravity(48);
-            this.c.setTextSize(0, context.getResources().getDimensionPixelSize(R.dimen.T_X06));
-            this.c.setLineSpacing(ri.g(context, R.dimen.M_T_X002), 1.0f);
-            TextView textView = (TextView) this.i.findViewById(R.id.im_share_op_container_cancel_btn);
-            this.d = textView;
-            textView.setText(context.getString(R.string.obfuscated_res_0x7f0f03c3));
-            TextView textView2 = (TextView) this.i.findViewById(R.id.im_share_op_container_share_btn);
-            this.e = textView2;
-            textView2.setText(context.getString(R.string.action_share));
-            this.i.addOnAttachStateChangeListener(this.l);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.im_share_dialog_thread, i());
+            this.n = (LinearLayout) inflate.findViewById(R.id.im_share_thread_info_container);
+            this.o = (FrameLayout) inflate.findViewById(R.id.im_share_thread_info_img_container);
+            GifView gifView = (GifView) inflate.findViewById(R.id.im_share_thread_info_img);
+            this.p = gifView;
+            gifView.setConrers(15);
+            this.p.setRadiusById(R.string.J_X04);
+            this.p.setDrawCorner(true);
+            this.p.setDrawBorder(true);
+            this.p.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.L_X01));
+            this.p.setBorderSurroundContent(true);
+            this.p.setAutoPlay(true);
+            this.p.setShowStaticDrawable(false);
+            this.p.setSupportNoImage(false);
+            this.p.setGifIconSupport(true);
+            this.q = (TbImageView) inflate.findViewById(R.id.im_share_thread_info_video_icon);
+            this.r = (TextView) inflate.findViewById(R.id.im_share_thread_info_text);
+            g();
         }
     }
 
-    public void p(int i, int i2, int i3, String str) {
+    public final void u(ThreadData threadData) {
+        MediaData mediaData;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) {
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SEND_MSG).addParam("obj_source", i).addParam("obj_param1", i3).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam(TiebaStatic.Params.FRIEND_UID, str));
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, threadData) == null) {
+            if (threadData.getThreadType() == 40 && threadData.getThreadVideoInfo() != null) {
+                str = threadData.getThreadVideoInfo().thumbnail_url;
+                this.q.setVisibility(0);
+                this.q.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pb_post_share_voide_thread_play, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
+            } else {
+                new MediaData();
+                if (threadData.isImShareFromPb()) {
+                    OriginalThreadInfo originalThreadInfo = threadData.originalThreadData;
+                    if (originalThreadInfo != null && !ListUtils.isEmpty(originalThreadInfo.h)) {
+                        mediaData = threadData.originalThreadData.h.get(0);
+                        mediaData.setSrc_pic(threadData.originalThreadData.c);
+                    } else {
+                        this.o.setVisibility(8);
+                        return;
+                    }
+                } else if (ListUtils.isEmpty(threadData.getMedias())) {
+                    this.o.setVisibility(8);
+                    return;
+                } else {
+                    mediaData = threadData.getMedias().get(0);
+                }
+                if (!TextUtils.isEmpty(mediaData.getSrc_pic())) {
+                    str = mediaData.getSrc_pic();
+                } else if (!TextUtils.isEmpty(mediaData.getPicUrl())) {
+                    str = mediaData.getPicUrl();
+                } else {
+                    str = null;
+                }
+            }
+            if (TextUtils.isEmpty(str)) {
+                this.o.setVisibility(8);
+                return;
+            }
+            this.p.setVisibility(0);
+            this.p.m0(str, 38);
+        }
+    }
+
+    public final void v(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, threadData) == null) {
+            CharSequence string = this.m.getString(R.string.im_share_default_info);
+            if (!TextUtils.isEmpty(threadData.getTitleText()) && threadData.getIsNoTitle() == 0) {
+                string = q(threadData, threadData.getTitleText());
+            } else if (!TextUtils.isEmpty(threadData.getTitle()) && threadData.getIsNoTitle() == 0) {
+                string = q(threadData, threadData.getTitle());
+            } else if (!TextUtils.isEmpty(threadData.getAbstractText())) {
+                string = q(threadData, threadData.getAbstractText());
+                r(threadData, string);
+                s(threadData, string);
+            } else if (!TextUtils.isEmpty(threadData.getAbstract())) {
+                string = q(threadData, threadData.getAbstract());
+                r(threadData, string);
+                s(threadData, string);
+            } else if (threadData.isImShareFromPb() && threadData.getPbFirstShareData() != null && threadData.getPbFirstShareData().a0() != null) {
+                string = threadData.getPbFirstShareData().a0().toString();
+            }
+            this.r.setText(string);
         }
     }
 }

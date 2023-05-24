@@ -10,13 +10,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.mutiprocess.location.LocationEvent;
+import com.baidu.tieba.ar9;
 import com.baidu.tieba.g9;
 import com.baidu.tieba.hb;
 import com.baidu.tieba.lf;
 import com.baidu.tieba.o65;
-import com.baidu.tieba.ps9;
+import com.baidu.tieba.qs9;
 import com.baidu.tieba.tbadkCore.location.LocationData;
-import com.baidu.tieba.zq9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -179,7 +179,7 @@ public class LocationModel extends BdBaseModel {
     public static void a0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            zq9.h(303017, LocationSocketResponsedMessage.class, false, false);
+            ar9.h(303017, LocationSocketResponsedMessage.class, false, false);
         }
     }
 
@@ -226,8 +226,8 @@ public class LocationModel extends BdBaseModel {
     public void c0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            ps9.a().e(z);
-            o65.m().w("no_longer_show_address", ps9.a().c());
+            qs9.a().e(z);
+            o65.m().w("no_longer_show_address", qs9.a().c());
         }
     }
 
@@ -241,7 +241,7 @@ public class LocationModel extends BdBaseModel {
     public void b0(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            LocationData b2 = ps9.a().b();
+            LocationData b2 = qs9.a().b();
             if (b2 != null) {
                 b2.setFormatted_address(str);
                 b2.setSn(str2);
@@ -297,8 +297,8 @@ public class LocationModel extends BdBaseModel {
                 return;
             }
             X(locationData);
-            ps9.a().f(System.currentTimeMillis());
-            ps9.a().d(locationData);
+            qs9.a().f(System.currentTimeMillis());
+            qs9.a().d(locationData);
             c cVar2 = this.a;
             if (cVar2 != null) {
                 cVar2.a(locationData);

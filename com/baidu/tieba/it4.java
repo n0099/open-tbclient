@@ -49,7 +49,7 @@ public class it4 {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if ((data instanceof rt9) && ((rt9) data).b) {
+            if ((data instanceof st9) && ((st9) data).b) {
                 jt4.f().a("717");
             }
         }

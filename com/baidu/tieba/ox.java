@@ -101,9 +101,9 @@ public class ox extends hx {
                 if (this.b.i.getThreadData().getTaskInfoData() != null) {
                     createNormalCfg.setFromCardType(this.b.i.getThreadData().getTaskInfoData().j());
                     if (ThreadCardUtils.isHeadlinesCard(this.b.i.getThreadData().getTaskInfoData()) && HeadlinesPrefetchSwitch.isOn() && !UbsABTestHelper.isExistSid(ThreadCardUtils.KEY_TOUTIAO_PREFETCH_A) && StringUtils.isNotNull(this.b.i.getThreadData().getTaskInfoData().r())) {
-                        yk8 defaultLog = DefaultLog.getInstance();
+                        zk8 defaultLog = DefaultLog.getInstance();
                         defaultLog.c("GodReplySegment", "头条卡，点击frs卡片神回复区域预取， url：" + this.b.i.getThreadData().getTaskInfoData().r());
-                        dh6.c(this.b.i.getThreadData().getTaskInfoData().r());
+                        eh6.c(this.b.i.getThreadData().getTaskInfoData().r());
                     }
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
@@ -142,7 +142,7 @@ public class ox extends hx {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-                hj6.l(this.a.h.getGodReplyContent(), this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                ij6.l(this.a.h.getGodReplyContent(), this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 return false;
             }
             return invokeL.booleanValue;
@@ -237,10 +237,10 @@ public class ox extends hx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jy4Var) == null) {
             this.i = jy4Var;
-            rr9 topAgreePost = jy4Var.getThreadData().getTopAgreePost();
+            sr9 topAgreePost = jy4Var.getThreadData().getTopAgreePost();
             if (this.j != null && topAgreePost != null && topAgreePost.p() != null && topAgreePost.p().getUserId() != null) {
                 this.j.param("tid", jy4Var.getThreadData().tid).param("post_id", topAgreePost.O()).param("uid", TbadkCoreApplication.getCurrentAccount());
-                oj6.b().a(this.j);
+                pj6.b().a(this.j);
             }
             this.h.setData(jy4Var.getThreadData());
         }

@@ -1,41 +1,41 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.c8b;
-import com.baidu.tieba.ccb;
-import com.baidu.tieba.h7b;
-import com.baidu.tieba.j7b;
-import com.baidu.tieba.n7b;
-import com.baidu.tieba.u7b;
+import com.baidu.tieba.d8b;
+import com.baidu.tieba.dcb;
+import com.baidu.tieba.i7b;
+import com.baidu.tieba.k7b;
+import com.baidu.tieba.o7b;
+import com.baidu.tieba.v7b;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import rx.subjects.UnicastSubject;
 /* loaded from: classes10.dex */
-public final class OperatorWindowWithSize$WindowSkip<T> extends n7b<T> implements u7b {
-    public final n7b<? super h7b<T>> e;
+public final class OperatorWindowWithSize$WindowSkip<T> extends o7b<T> implements v7b {
+    public final o7b<? super i7b<T>> e;
     public final int f;
     public final int g;
     public final AtomicInteger h;
     public int i;
-    public ccb<T, T> j;
+    public dcb<T, T> j;
 
     /* loaded from: classes10.dex */
-    public final class WindowSkipProducer extends AtomicBoolean implements j7b {
+    public final class WindowSkipProducer extends AtomicBoolean implements k7b {
         public static final long serialVersionUID = 4625807964358024108L;
 
         public WindowSkipProducer() {
         }
 
-        @Override // com.baidu.tieba.j7b
+        @Override // com.baidu.tieba.k7b
         public void request(long j) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i >= 0) {
                 if (i != 0) {
                     OperatorWindowWithSize$WindowSkip operatorWindowWithSize$WindowSkip = OperatorWindowWithSize$WindowSkip.this;
                     if (get() || !compareAndSet(false, true)) {
-                        operatorWindowWithSize$WindowSkip.e(c8b.c(j, operatorWindowWithSize$WindowSkip.g));
+                        operatorWindowWithSize$WindowSkip.e(d8b.c(j, operatorWindowWithSize$WindowSkip.g));
                         return;
                     } else {
-                        operatorWindowWithSize$WindowSkip.e(c8b.a(c8b.c(j, operatorWindowWithSize$WindowSkip.f), c8b.c(operatorWindowWithSize$WindowSkip.g - operatorWindowWithSize$WindowSkip.f, j - 1)));
+                        operatorWindowWithSize$WindowSkip.e(d8b.a(d8b.c(j, operatorWindowWithSize$WindowSkip.f), d8b.c(operatorWindowWithSize$WindowSkip.g - operatorWindowWithSize$WindowSkip.f, j - 1)));
                         return;
                     }
                 }
@@ -45,34 +45,34 @@ public final class OperatorWindowWithSize$WindowSkip<T> extends n7b<T> implement
         }
     }
 
-    @Override // com.baidu.tieba.u7b
+    @Override // com.baidu.tieba.v7b
     public void call() {
         if (this.h.decrementAndGet() == 0) {
             unsubscribe();
         }
     }
 
-    @Override // com.baidu.tieba.i7b
+    @Override // com.baidu.tieba.j7b
     public void onCompleted() {
-        ccb<T, T> ccbVar = this.j;
-        if (ccbVar != null) {
+        dcb<T, T> dcbVar = this.j;
+        if (dcbVar != null) {
             this.j = null;
-            ccbVar.onCompleted();
+            dcbVar.onCompleted();
         }
         this.e.onCompleted();
     }
 
-    @Override // com.baidu.tieba.i7b
+    @Override // com.baidu.tieba.j7b
     public void onError(Throwable th) {
-        ccb<T, T> ccbVar = this.j;
-        if (ccbVar != null) {
+        dcb<T, T> dcbVar = this.j;
+        if (dcbVar != null) {
             this.j = null;
-            ccbVar.onError(th);
+            dcbVar.onError(th);
         }
         this.e.onError(th);
     }
 
-    @Override // com.baidu.tieba.i7b
+    @Override // com.baidu.tieba.j7b
     public void onNext(T t) {
         int i = this.i;
         UnicastSubject unicastSubject = this.j;

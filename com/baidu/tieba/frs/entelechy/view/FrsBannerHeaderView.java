@@ -28,8 +28,8 @@ import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e0a;
-import com.baidu.tieba.t77;
+import com.baidu.tieba.f0a;
+import com.baidu.tieba.u77;
 import com.baidu.tieba.wv5;
 import com.baidu.tieba.xv5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -550,8 +550,8 @@ public final class FrsBannerHeaderView extends RelativeLayout implements View.On
                 themeColorInfo = null;
             }
             if (themeColorInfo != null) {
-                str2 = e0a.d(themeColorInfo);
-                str = e0a.f(themeColorInfo);
+                str2 = f0a.d(themeColorInfo);
+                str = f0a.f(themeColorInfo);
             } else {
                 str = null;
                 str2 = null;
@@ -735,7 +735,7 @@ public final class FrsBannerHeaderView extends RelativeLayout implements View.On
                     Context context = getContext();
                     if (context != null) {
                         TbPageContext<?> pageContext = ((TbPageContextSupport) context).getPageContext();
-                        if (pageContext == null || t77.f().i()) {
+                        if (pageContext == null || u77.f().i()) {
                             return;
                         }
                         UrlManager urlManager = UrlManager.getInstance();

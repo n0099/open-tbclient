@@ -55,9 +55,9 @@ public class ay extends ax<jy4> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (this.a.g != null && this.a.g.getThreadData() != null) {
-                    hj6.a(this.a.g.getThreadData().getId());
-                    hj6.l(this.a.f.a, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    hj6.l(this.a.f.b, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    ij6.a(this.a.g.getThreadData().getId());
+                    ij6.l(this.a.f.a, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    ij6.l(this.a.f.b, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -106,10 +106,10 @@ public class ay extends ax<jy4> {
     }
 
     @Override // com.baidu.tieba.ax
-    public void p(vj6<jy4> vj6Var) {
+    public void p(wj6<jy4> wj6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, vj6Var) == null) {
-            this.f.setSubClickListener(vj6Var);
+        if (interceptable == null || interceptable.invokeL(1048582, this, wj6Var) == null) {
+            this.f.setSubClickListener(wj6Var);
         }
     }
 

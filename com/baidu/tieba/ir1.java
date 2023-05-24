@@ -31,7 +31,7 @@ public class ir1 implements lt1 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStream)) == null) {
-            return new n5b(inputStream);
+            return new o5b(inputStream);
         }
         return (InputStream) invokeL.objValue;
     }

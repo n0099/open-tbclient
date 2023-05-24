@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -7,9 +8,18 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.net.FastRequest;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.immessagecenter.chatgroup.chatbox.ChatGroupSource;
 import com.baidu.tieba.immessagecenter.chatgroup.data.ChatGroupInfo;
 import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,23 +28,34 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class b78 implements f78, h78 {
+public class b78 extends x68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public TbPageContext a;
-    public CustomMessageListener b;
-    public boolean c;
-    public long d;
-    public boolean e;
-    public i78 f;
-    public List<d78> g;
-    public List<d78> h;
-    public h78 i;
+    public ArrayList<ChatRoomInfo> k;
+    public ArrayList<ChatRoomInfo> l;
+    public se<String> m;
+    public TbPageContext n;
+    @Nullable
+    public FastRequest o;
+    public boolean p;
+    public String q;
+    public boolean r;
+    public ArrayList<Long> s;
+    public h t;
+    public CustomMessageListener u;
+
+    /* loaded from: classes4.dex */
+    public interface h {
+        void a(@Nullable List<ImMessageCenterPojo> list, boolean z);
+
+        void b(@Nullable List<ImMessageCenterPojo> list);
+    }
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -65,16 +86,16 @@ public class b78 implements f78, h78 {
 
         /* renamed from: onMessage  reason: avoid collision after fix types in other method */
         public void onMessage2(CustomResponsedMessage customResponsedMessage) {
-            r78 r78Var;
-            ChatRoomInfo a;
+            Map map;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921766 && (customResponsedMessage.getData() instanceof Map)) {
-                Map map = (Map) customResponsedMessage.getData();
-                for (d78 d78Var : this.a.g) {
-                    if ((d78Var instanceof r78) && (a = (r78Var = (r78) d78Var).a()) != null && map.containsKey(Long.valueOf(a.getRoomId()))) {
-                        r78Var.c((ChatRoomInfo) map.get(Long.valueOf(a.getRoomId())));
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921766 && (customResponsedMessage.getData() instanceof Map) && (map = (Map) customResponsedMessage.getData()) != null && !map.isEmpty() && map.entrySet() != null && map.entrySet().iterator() != null) {
+                ArrayList arrayList = new ArrayList();
+                for (Map.Entry entry : map.entrySet()) {
+                    if (entry.getValue() != null && !ListUtils.isEmpty(this.a.s) && this.a.s.contains(Long.valueOf(((ChatRoomInfo) entry.getValue()).getRoomId()))) {
+                        arrayList.add(entry.getValue());
                     }
                 }
+                this.a.P(arrayList);
             }
         }
 
@@ -85,237 +106,398 @@ public class b78 implements f78, h78 {
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public b78(@NonNull TbPageContext tbPageContext, long j, boolean z) {
-        this(tbPageContext, j, false, z);
+    /* loaded from: classes4.dex */
+    public class b extends et5<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b78 a;
+
+        public b(b78 b78Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b78Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = b78Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.et5
+        public String doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a.m.get("group_chat_http_key");
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements is5<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b78 a;
+
+        public c(b78 b78Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b78Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = b78Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.is5
+        /* renamed from: a */
+        public void onReturnDataInUI(String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || !this.a.r) {
+                return;
+            }
+            ChatGroupInfo G = this.a.G(str, false);
+            if (G == null || ListUtils.isEmpty(G.getRoomInfoList())) {
+                if (this.a.t != null) {
+                    this.a.t.a(null, false);
+                    return;
+                }
+                return;
+            }
+            List<ImMessageCenterPojo> A = this.a.A(G.getRoomInfoList());
+            if (!ListUtils.isEmpty(A) && this.a.t != null) {
+                this.a.t.a(A, true);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ List a;
+        public final /* synthetic */ b78 b;
+
+        public d(b78 b78Var, List list) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b78Var, list};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = b78Var;
+            this.a = list;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                tb8.a().c(this.b.h(TbadkCoreApplication.getCurrentAccount()), this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class e implements FastRequest.e<ChatGroupInfo> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b78 a;
+
+        public e(b78 b78Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b78Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = b78Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tbadk.net.FastRequest.e
+        @Nullable
+        /* renamed from: b */
+        public ChatGroupInfo a(@NonNull String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) != null) {
+                return (ChatGroupInfo) invokeL.objValue;
+            }
+            return this.a.G(str, true);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class f extends FastRequest.b<ChatGroupInfo> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b78 b;
+
+        public f(b78 b78Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b78Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = b78Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tbadk.net.FastRequest.b
+        /* renamed from: f */
+        public void b(int i, @NonNull String str, @Nullable ChatGroupInfo chatGroupInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, chatGroupInfo) == null) {
+                super.b(i, str, chatGroupInfo);
+                if (this.b.t != null) {
+                    this.b.t.a(null, false);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tbadk.net.FastRequest.b
+        /* renamed from: g */
+        public void e(@NonNull ChatGroupInfo chatGroupInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, chatGroupInfo) == null) {
+                super.e(chatGroupInfo);
+                this.b.r = false;
+                if (this.b.t == null) {
+                    return;
+                }
+                b78 b78Var = this.b;
+                b78Var.N(b78Var.q);
+                if (chatGroupInfo == null || ListUtils.isEmpty(chatGroupInfo.getRoomInfoList())) {
+                    this.b.B(new ArrayList());
+                    if (this.b.t != null) {
+                        this.b.t.a(null, false);
+                        return;
+                    }
+                    return;
+                }
+                this.b.B(chatGroupInfo.getRoomInfoList());
+                List<ImMessageCenterPojo> A = this.b.A(chatGroupInfo.getRoomInfoList());
+                if (!ListUtils.isEmpty(A) && this.b.t != null) {
+                    this.b.t.a(A, true);
+                }
+                this.b.H(chatGroupInfo.getRoomInfoList());
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class g implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ b78 b;
+
+        public g(b78 b78Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b78Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = b78Var;
+            this.a = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.m.g("group_chat_http_key", this.a);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b78(TbPageContext tbPageContext, h hVar) {
+        super(tbPageContext.getPageActivity(), ChatGroupSource.GROUP_CHAT_TAB);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r8;
-            Object[] objArr = {tbPageContext, Long.valueOf(j), Boolean.valueOf(z)};
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, hVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((TbPageContext) objArr2[0], ((Long) objArr2[1]).longValue(), ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue());
+                super((Context) objArr2[0], (ChatGroupSource) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.k = new ArrayList<>();
+        this.l = new ArrayList<>();
+        this.m = null;
+        this.p = false;
+        this.q = null;
+        this.r = true;
+        this.s = new ArrayList<>();
+        this.u = new a(this, 2921766);
+        this.n = tbPageContext;
+        this.t = hVar;
+        c25.d();
+        this.m = c25.f("tb.im_group_chat_http", TbadkCoreApplication.getCurrentAccount());
+        MessageManager.getInstance().registerListener(this.u);
     }
 
-    public b78(@NonNull TbPageContext tbPageContext, long j, boolean z, boolean z2) {
+    public final void B(List<ChatRoomInfo> list) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.g = new ArrayList();
-        this.h = new ArrayList();
-        this.a = tbPageContext;
-        this.c = z;
-        this.d = j;
-        this.e = z2;
-    }
-
-    @Override // com.baidu.tieba.f78
-    public void c(@NonNull h78 h78Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, h78Var) == null) {
-            this.i = h78Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            wg.d(new d(this, list));
         }
     }
 
-    public void h(List<d78> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) != null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        this.g.clear();
-        this.g.addAll(list);
-        this.i.f(0, d());
-    }
-
-    public void p(i78 i78Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, i78Var) == null) {
-            this.f = i78Var;
-        }
-    }
-
-    @Override // com.baidu.tieba.h78
-    public void a(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && i >= 0 && i2 > 0) {
-            getItemsCount();
-            int i3 = (i2 + i) - 1;
-            int i4 = 0;
-            while (i3 >= i && i3 < getItemsCount()) {
-                this.g.remove(i3);
-                i3--;
-                i4++;
-            }
-            h78 h78Var = this.i;
-            if (h78Var != null) {
-                h78Var.a(i, i4);
-            }
-        }
-    }
-
-    public void j(List<?> list, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048586, this, list, z) == null) && !ListUtils.isEmpty(list) && this.i != null) {
-            this.e = z;
-            List<d78> m = m(list);
-            if (m == null) {
-                return;
-            }
-            this.g.clear();
-            this.g.addAll(m);
-            this.i.f(0, d());
-        }
-    }
-
-    public void k(List<?> list, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048587, this, list, z) == null) && !ListUtils.isEmpty(list) && this.i != null) {
-            this.e = z;
-            List<d78> m = m(list);
-            if (ListUtils.isEmpty(m)) {
-                return;
-            }
-            int itemsCount = getItemsCount();
-            this.g.clear();
-            this.i.a(0, itemsCount);
-            this.g.addAll(m);
-            this.i.b(0, d());
-        }
-    }
-
-    @Override // com.baidu.tieba.h78
-    public void b(int i, @NonNull List<d78> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, list) == null) && this.i != null && !ListUtils.isEmpty(list)) {
-            this.i.b(i, list);
-        }
-    }
-
-    @Override // com.baidu.tieba.h78
-    public void f(int i, @NonNull List<d78> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIL(1048582, this, i, list) != null) || list.isEmpty()) {
-            return;
-        }
-        this.g.addAll(i, list);
-        h78 h78Var = this.i;
-        if (h78Var != null) {
-            h78Var.f(i, list);
-        }
-    }
-
-    @Override // com.baidu.tieba.f78
-    @NonNull
-    public List<d78> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return Collections.unmodifiableList(this.g);
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.f78
-    public void detach() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.b != null) {
-            MessageManager.getInstance().unRegisterListener(this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.f78
-    public void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.c) {
-            if (this.b == null) {
-                this.b = new a(this, 2921766);
-            }
-            MessageManager.getInstance().registerListener(this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.f78
-    public int getItemsCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.g.size();
-        }
-        return invokeV.intValue;
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || ListUtils.isEmpty(this.g)) {
-            return;
-        }
-        b(0, d());
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048591, this) != null) || ListUtils.isEmpty(this.g)) {
-            return;
-        }
-        this.h.clear();
-        this.h.addAll(new ArrayList(this.g));
-        this.g.clear();
-    }
-
-    @Nullable
-    public final q78 i(String str) {
+    public String D(List<Map<String, Long>> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            if (ListUtils.isEmpty(this.h)) {
-                return null;
-            }
-            for (d78 d78Var : this.h) {
-                if ((d78Var instanceof q78) && str != null) {
-                    q78 q78Var = (q78) d78Var;
-                    if (str.equals(q78Var.a())) {
-                        return q78Var;
-                    }
-                }
-            }
-            return null;
-        }
-        return (q78) invokeL.objValue;
-    }
-
-    @Nullable
-    public final List<r78> n(@Nullable List list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, list)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
             if (ListUtils.isEmpty(list)) {
+                return "";
+            }
+            String json = DataExt.toJson(list);
+            if (TextUtils.isEmpty(json)) {
+                return "";
+            }
+            return json;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void M(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
+            p(j, 0);
+        }
+    }
+
+    public void N(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048589, this, str) == null) && this.m != null) {
+            wg.d(new g(this, str));
+        }
+    }
+
+    public void O(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            F();
+        }
+    }
+
+    public final void P(List<ChatRoomInfo> list) {
+        h hVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048591, this, list) == null) && !ListUtils.isEmpty(list) && this.t != null) {
+            List<ImMessageCenterPojo> A = A(list);
+            if (!ListUtils.isEmpty(A) && (hVar = this.t) != null) {
+                hVar.b(A);
+            }
+        }
+    }
+
+    public void Q(ChatRoomInfo chatRoomInfo) {
+        ArrayList<ChatRoomInfo> arrayList;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048592, this, chatRoomInfo) == null) && chatRoomInfo != null && (arrayList = this.k) != null) {
+            arrayList.clear();
+            this.k.add(chatRoomInfo);
+            P(this.k);
+        }
+    }
+
+    public final ChatGroupInfo G(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048582, this, str, z)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                this.q = null;
                 return null;
             }
+            if (z) {
+                this.q = str;
+            }
+            ChatGroupInfo chatGroupInfo = new ChatGroupInfo();
+            try {
+                chatGroupInfo.parse(new JSONObject(str));
+                return chatGroupInfo;
+            } catch (JSONException unused) {
+                return null;
+            }
+        }
+        return (ChatGroupInfo) invokeLZ.objValue;
+    }
+
+    public final List<ImMessageCenterPojo> A(List<ChatRoomInfo> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < list.size(); i++) {
-                Object obj = list.get(i);
-                if (obj instanceof ChatRoomInfo) {
-                    arrayList.add(new r78((ChatRoomInfo) obj, this.e));
+            if (ListUtils.isEmpty(list)) {
+                return arrayList;
+            }
+            for (ChatRoomInfo chatRoomInfo : list) {
+                ImMessageCenterPojo I = I(chatRoomInfo);
+                if (I != null) {
+                    arrayList.add(I);
                 }
             }
             return arrayList;
@@ -323,43 +505,191 @@ public class b78 implements f78, h78 {
         return (List) invokeL.objValue;
     }
 
-    @Nullable
-    public final List<d78> m(@Nullable List list) {
-        InterceptResult invokeL;
-        boolean z;
+    public void C() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !this.p) {
+            return;
+        }
+        f();
+        this.p = false;
+    }
+
+    public void J() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            F();
+            k();
+            this.p = true;
+        }
+    }
+
+    public void K() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.t != null && this.m != null) {
+            this.r = true;
+            it5.b(new b(this), new c(this));
+        }
+    }
+
+    @Override // com.baidu.tieba.x68
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            super.j();
+            FastRequest fastRequest = this.o;
+            if (fastRequest != null) {
+                fastRequest.onDestroy();
+            }
+            this.t = null;
+            C();
+            MessageManager.getInstance().unRegisterListener(this.u);
+        }
+    }
+
+    public List<Map<String, Long>> E(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            ArrayList arrayList = new ArrayList();
+            List<ChatRoomInfo> h2 = h(TbadkCoreApplication.getCurrentAccount());
+            if (ListUtils.isEmpty(h2)) {
                 return null;
             }
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < list.size(); i++) {
-                Object obj = list.get(i);
-                if (obj instanceof ChatGroupInfo) {
-                    ChatGroupInfo chatGroupInfo = (ChatGroupInfo) obj;
-                    List<r78> n = n(chatGroupInfo.getRoomInfoList());
-                    if (n != null) {
-                        if (TextUtils.isEmpty(chatGroupInfo.getName())) {
-                            arrayList.add(0, new q78(n, "", "", false, true, this.e, this.a, this.f));
-                        } else {
-                            q78 i2 = i(chatGroupInfo.getGroupId());
-                            String name = chatGroupInfo.getName();
-                            String groupId = chatGroupInfo.getGroupId();
-                            if (i2 != null && i2.d()) {
-                                z = true;
+            if (i != 0) {
+                if (i == 1) {
+                    for (ChatRoomInfo chatRoomInfo : h2) {
+                        if (!chatRoomInfo.isNoDisturb()) {
+                            HashMap hashMap = new HashMap();
+                            hashMap.put("room_id", Long.valueOf(chatRoomInfo.getRoomId()));
+                            if (chatRoomInfo.getNewMessage() != null) {
+                                hashMap.put("msg_id", Long.valueOf(chatRoomInfo.getNewMessage().getMsgId()));
                             } else {
-                                z = false;
+                                hashMap.put("msg_id", 0L);
                             }
-                            arrayList.add(new q78(n, name, groupId, z, this.e, this.a, this.f));
+                            arrayList.add(hashMap);
                         }
                     }
-                } else if (obj instanceof s78) {
-                    s78 s78Var = (s78) obj;
-                    arrayList.add(new p78(s78Var.a(), s78Var.b(), this.d));
+                }
+            } else {
+                for (ChatRoomInfo chatRoomInfo2 : h2) {
+                    HashMap hashMap2 = new HashMap();
+                    if (chatRoomInfo2 != null && chatRoomInfo2.getLatestMsgId() != 0) {
+                        hashMap2.put("room_id", Long.valueOf(chatRoomInfo2.getRoomId()));
+                        if (chatRoomInfo2.getNewMessage() != null) {
+                            hashMap2.put("msg_id", Long.valueOf(chatRoomInfo2.getNewMessage().getMsgId()));
+                        } else {
+                            hashMap2.put("msg_id", 0L);
+                        }
+                        arrayList.add(hashMap2);
+                    }
                 }
             }
             return arrayList;
         }
-        return (List) invokeL.objValue;
+        return (List) invokeI.objValue;
+    }
+
+    public final void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (this.s == null) {
+                this.s = new ArrayList<>();
+            }
+            this.s.clear();
+            List<ChatRoomInfo> h2 = h(TbadkCoreApplication.getCurrentAccount());
+            if (!ListUtils.isEmpty(h2)) {
+                for (ChatRoomInfo chatRoomInfo : h2) {
+                    if (chatRoomInfo != null && chatRoomInfo.isSubscribe()) {
+                        this.s.add(Long.valueOf(chatRoomInfo.getRoomId()));
+                    }
+                }
+            }
+        }
+    }
+
+    public void L() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048587, this) != null) || !TbSingleton.getInstance().isNeedJoinChatRoom()) {
+            return;
+        }
+        String D = D(E(0));
+        if (this.o == null) {
+            this.o = new FastRequest(this.n, CmdConfigHttp.CMD_GET_SUBSCRIBE_GROUP_CHAT_LIST, TbConfig.GET_SUBSCRIBE_GROUP_CHAT_LIST);
+        }
+        FastRequest fastRequest = this.o;
+        fastRequest.V("chatroom_new_msg", D);
+        fastRequest.Z(HttpMessageTask.HTTP_METHOD.POST);
+        fastRequest.X(new f(this));
+        fastRequest.b0(new e(this));
+        fastRequest.W();
+    }
+
+    public void H(List<ChatRoomInfo> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, list) == null) && TbSingleton.getInstance().isNeedJoinChatRoom() && this.l != null) {
+            F();
+            this.l.clear();
+            for (ChatRoomInfo chatRoomInfo : list) {
+                if (chatRoomInfo != null && chatRoomInfo.getIsShow() == 1) {
+                    this.l.add(chatRoomInfo);
+                }
+            }
+            i(this.l);
+            this.p = true;
+        }
+    }
+
+    public final ImMessageCenterPojo I(ChatRoomInfo chatRoomInfo) {
+        InterceptResult invokeL;
+        long msgTime;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, chatRoomInfo)) == null) {
+            if (chatRoomInfo == null) {
+                return null;
+            }
+            ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
+            imMessageCenterPojo.setGid(String.valueOf(chatRoomInfo.getRoomId()));
+            imMessageCenterPojo.setGroup_head(chatRoomInfo.getAvatar());
+            imMessageCenterPojo.setGroup_name(chatRoomInfo.getName());
+            imMessageCenterPojo.setCustomGroupType(9);
+            imMessageCenterPojo.setUnread_count(chatRoomInfo.getUnreadNum());
+            imMessageCenterPojo.setGroupJumpUrl(chatRoomInfo.getJumpUrl());
+            if (chatRoomInfo.getAtInfo() != null) {
+                yz4 yz4Var = new yz4();
+                yz4Var.b(chatRoomInfo.getAtInfo().getAllMsgCount());
+                yz4Var.c(chatRoomInfo.getAtInfo().getCountAll());
+                yz4Var.d(chatRoomInfo.getAtInfo().getSingleMsgCount());
+                imMessageCenterPojo.setAtInfoData(yz4Var);
+            }
+            imMessageCenterPojo.setForumName(chatRoomInfo.getForumName());
+            if (chatRoomInfo.getIsShow() == 0) {
+                return null;
+            }
+            if (chatRoomInfo.getNewMessage() == null) {
+                imMessageCenterPojo.setLast_user_name("");
+                imMessageCenterPojo.setLast_content("");
+                imMessageCenterPojo.setIs_hidden(0);
+                imMessageCenterPojo.setLast_content_time(System.currentTimeMillis());
+                return imMessageCenterPojo;
+            }
+            if (!TextUtils.isEmpty(chatRoomInfo.getNewMessage().getFromUid()) && chatRoomInfo.getUnreadNum() == 1 && chatRoomInfo.getNewMessage().getFromUid().equals(TbadkCoreApplication.getCurrentAccount())) {
+                imMessageCenterPojo.setUnread_count(0);
+            }
+            imMessageCenterPojo.setLast_user_name(chatRoomInfo.getNewMessage().getFromName());
+            imMessageCenterPojo.setLast_content(chatRoomInfo.getNewMessage().getContent());
+            if (String.valueOf(chatRoomInfo.getNewMessage().getMsgTime()).length() <= 10 && chatRoomInfo.getNewMessage().getMsgTime() != 0) {
+                msgTime = chatRoomInfo.getNewMessage().getMsgTime() * 1000;
+            } else {
+                msgTime = chatRoomInfo.getNewMessage().getMsgTime();
+            }
+            if (h48.b().c(Long.valueOf(chatRoomInfo.getRoomId()), msgTime)) {
+                imMessageCenterPojo.setIs_hidden(1);
+            } else {
+                imMessageCenterPojo.setIs_hidden(0);
+            }
+            imMessageCenterPojo.setLast_content_time(msgTime);
+            return imMessageCenterPojo;
+        }
+        return (ImMessageCenterPojo) invokeL.objValue;
     }
 }

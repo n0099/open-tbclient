@@ -8,19 +8,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class bs9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public String c;
-    public as9 d;
-    public as9 e;
-    public as9 f;
+    public long a;
+    public long b;
+    public long c;
+    public long d;
 
-    public bs9(String str, String str2, boolean z) {
+    public bs9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,14 +26,19 @@ public class bs9 {
                 return;
             }
         }
-        this.a = false;
-        this.b = null;
-        this.c = null;
-        this.d = new as9();
-        this.e = new as9();
-        this.f = new as9();
-        this.c = str;
-        this.b = str2;
-        this.a = z;
+        this.a = 0L;
+        this.b = 0L;
+        this.c = 0L;
+        this.d = 0L;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = 0L;
+            this.b = 0L;
+            this.c = 0L;
+            this.d = 0L;
+        }
     }
 }

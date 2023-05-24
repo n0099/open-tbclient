@@ -19,16 +19,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class gt8 extends at8<o15, ThreadCardViewHolder<ThreadData>> {
+public class gt8 extends bt8<o15, ThreadCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId c;
     public TbPageContext<?> d;
-    public xn e;
-    public vj6<ThreadData> f;
+    public boolean e;
+    public xn f;
+    public wj6<ThreadData> g;
 
     /* loaded from: classes5.dex */
-    public class a extends vj6<ThreadData> {
+    public class a extends wj6<ThreadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ gt8 b;
@@ -52,12 +53,12 @@ public class gt8 extends at8<o15, ThreadCardViewHolder<ThreadData>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vj6
+        @Override // com.baidu.tieba.wj6
         /* renamed from: d */
         public void a(View view2, ThreadData threadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
-                oj6.b().d(true);
+                pj6.b().d(true);
                 this.b.B(view2, threadData);
             }
         }
@@ -95,8 +96,8 @@ public class gt8 extends at8<o15, ThreadCardViewHolder<ThreadData>> {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
                 ThreadData threadData = ((o15) rnVar).t;
                 threadData.objType = 1;
-                if (this.a.f != null) {
-                    this.a.f.a(threadCardViewHolder.getView(), threadData);
+                if (this.a.g != null) {
+                    this.a.g.a(threadCardViewHolder.getView(), threadData);
                 }
                 Context context = view2.getContext();
                 String z1 = this.a.b.getOrignalPage().z1();
@@ -130,7 +131,8 @@ public class gt8 extends at8<o15, ThreadCardViewHolder<ThreadData>> {
                 return;
             }
         }
-        this.f = new a(this);
+        this.e = true;
+        this.g = new a(this);
         this.d = tbPageContext;
         this.c = bdUniqueId2;
     }
@@ -138,7 +140,7 @@ public class gt8 extends at8<o15, ThreadCardViewHolder<ThreadData>> {
     public void C(xn xnVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xnVar) == null) {
-            this.e = xnVar;
+            this.f = xnVar;
         }
     }
 
@@ -155,8 +157,8 @@ public class gt8 extends at8<o15, ThreadCardViewHolder<ThreadData>> {
                 threadCardViewHolder.a().r(i);
                 threadCardViewHolder.e(o15Var.t);
                 threadCardViewHolder.a().onChangeSkinType(this.d, TbadkCoreApplication.getInst().getSkinType());
-                threadCardViewHolder.a().q(this.f);
-                xs8.c(this, o15Var);
+                threadCardViewHolder.a().q(this.g);
+                ys8.c(this, o15Var);
                 return threadCardViewHolder.getView();
             }
             return null;
@@ -167,7 +169,7 @@ public class gt8 extends at8<o15, ThreadCardViewHolder<ThreadData>> {
     public final void B(View view2, ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
-            xs8.b(this, threadData);
+            ys8.b(this, threadData);
         }
     }
 
@@ -179,8 +181,11 @@ public class gt8 extends at8<o15, ThreadCardViewHolder<ThreadData>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
             py.b bVar = new py.b(this.d.getPageActivity(), false);
-            bVar.h(new kx(this.d.getPageActivity()));
-            py k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.e);
+            dy dyVar = new dy(this.d.getPageActivity());
+            dyVar.setFrom("index");
+            dyVar.x(this.e);
+            bVar.n(dyVar);
+            py k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.f);
             k.s(17);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
             threadCardViewHolder.i(this.c);

@@ -6,7 +6,7 @@ import android.os.Handler;
 import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.wea;
+import com.baidu.tieba.xea;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,11 +60,11 @@ public class SystemMessageHandler extends Handler {
                 try {
                     this.a = Class.forName("android.os.Message").getMethod("setAsynchronous", Boolean.TYPE);
                 } catch (ClassNotFoundException e) {
-                    wea.c("cr.SysMessageHandler", "Failed to find android.os.Message class", e);
+                    xea.c("cr.SysMessageHandler", "Failed to find android.os.Message class", e);
                 } catch (NoSuchMethodException e2) {
-                    wea.c("cr.SysMessageHandler", "Failed to load Message.setAsynchronous method", e2);
+                    xea.c("cr.SysMessageHandler", "Failed to load Message.setAsynchronous method", e2);
                 } catch (RuntimeException e3) {
-                    wea.c("cr.SysMessageHandler", "Exception while loading Message.setAsynchronous method", e3);
+                    xea.c("cr.SysMessageHandler", "Exception while loading Message.setAsynchronous method", e3);
                 }
             }
 
@@ -78,16 +78,16 @@ public class SystemMessageHandler extends Handler {
                 try {
                     method.invoke(message, Boolean.valueOf(z));
                 } catch (IllegalAccessException unused) {
-                    wea.c("cr.SysMessageHandler", "Illegal access to async message creation, disabling.", new Object[0]);
+                    xea.c("cr.SysMessageHandler", "Illegal access to async message creation, disabling.", new Object[0]);
                     this.a = null;
                 } catch (IllegalArgumentException unused2) {
-                    wea.c("cr.SysMessageHandler", "Illegal argument for async message creation, disabling.", new Object[0]);
+                    xea.c("cr.SysMessageHandler", "Illegal argument for async message creation, disabling.", new Object[0]);
                     this.a = null;
                 } catch (RuntimeException unused3) {
-                    wea.c("cr.SysMessageHandler", "Runtime exception during async message creation, disabling.", new Object[0]);
+                    xea.c("cr.SysMessageHandler", "Runtime exception during async message creation, disabling.", new Object[0]);
                     this.a = null;
                 } catch (InvocationTargetException unused4) {
-                    wea.c("cr.SysMessageHandler", "Invocation exception during async message creation, disabling.", new Object[0]);
+                    xea.c("cr.SysMessageHandler", "Invocation exception during async message creation, disabling.", new Object[0]);
                     this.a = null;
                 }
             }

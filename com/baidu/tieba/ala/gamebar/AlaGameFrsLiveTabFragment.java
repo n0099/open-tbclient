@@ -28,8 +28,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d97;
-import com.baidu.tieba.l97;
+import com.baidu.tieba.e97;
+import com.baidu.tieba.m97;
 import com.baidu.tieba.o65;
 import com.baidu.tieba.pn5;
 import com.baidu.tieba.ri;
@@ -43,7 +43,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager.OnPageChangeListener, l97 {
+public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager.OnPageChangeListener, m97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar a;
@@ -348,16 +348,16 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d97) || this.a.d.getCount() > 0) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof e97) || this.a.d.getCount() > 0) {
                 return;
             }
-            d97 d97Var = (d97) customResponsedMessage.getData();
+            e97 e97Var = (e97) customResponsedMessage.getData();
             Message<?> message = customResponsedMessage.getmOrginalMessage();
             if (message != null && message.getTag() != null && message.getTag().equals(this.a.getUniqueId())) {
                 ArrayList arrayList = new ArrayList();
                 ArrayList arrayList2 = new ArrayList();
-                if (d97Var.e() != null) {
-                    for (xi5 xi5Var : d97Var.e()) {
+                if (e97Var.e() != null) {
+                    for (xi5 xi5Var : e97Var.e()) {
                         if (xi5Var.b().a != null) {
                             arrayList.add(xi5Var.b().a);
                             arrayList2.add(Integer.valueOf(xi5Var.b().e));
@@ -496,11 +496,11 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
             gVar.setTag(getUniqueId());
             gVar.setPriority(Integer.MAX_VALUE);
             registerListener(gVar);
-            d97 d97Var = new d97(getPageContext().getPageActivity());
-            d97Var.g(this.g);
-            d97Var.h(this.h);
-            d97Var.f(this.i);
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001619, d97Var);
+            e97 e97Var = new e97(getPageContext().getPageActivity());
+            e97Var.g(this.g);
+            e97Var.h(this.h);
+            e97Var.f(this.i);
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001619, e97Var);
             customResponsedMessage.setmOrginalMessage(new CustomMessage(2001627, getUniqueId()));
             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
         }
@@ -586,7 +586,7 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
         return (pn5) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.l97
+    @Override // com.baidu.tieba.m97
     public NavigationBar m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

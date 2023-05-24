@@ -17,11 +17,11 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a19;
 import com.baidu.tieba.hx4;
 import com.baidu.tieba.m9;
 import com.baidu.tieba.o05;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.z09;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -47,13 +47,13 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
     public o05 o;
     public TbPageContext p;
     public int q;
-    public z09 r;
+    public a19 r;
     public b s;
     public View.OnClickListener t;
 
     /* loaded from: classes7.dex */
     public interface b {
-        void a(z09 z09Var);
+        void a(a19 a19Var);
     }
 
     /* loaded from: classes7.dex */
@@ -170,16 +170,16 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void g(z09 z09Var) {
+    public void g(a19 a19Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, z09Var) != null) || z09Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, a19Var) != null) || a19Var == null) {
             return;
         }
-        this.r = z09Var;
-        o05 o05Var = z09Var.b1;
+        this.r = a19Var;
+        o05 o05Var = a19Var.b1;
         this.m = o05Var;
-        this.n = z09Var.c1;
-        this.o = z09Var.d1;
+        this.n = a19Var.c1;
+        this.o = a19Var.d1;
         if (o05Var != null) {
             this.c.N(o05Var.d, 10, false);
             this.e.setText(this.m.b);
@@ -208,6 +208,6 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
             this.l.setVisibility(8);
             this.l.setVisibility(8);
         }
-        this.a.setTag(z09Var);
+        this.a.setTag(a19Var);
     }
 }

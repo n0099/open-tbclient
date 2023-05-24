@@ -24,11 +24,11 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ea5;
 import com.baidu.tieba.ef5;
-import com.baidu.tieba.gw6;
 import com.baidu.tieba.hw6;
+import com.baidu.tieba.iw6;
 import com.baidu.tieba.nf5;
-import com.baidu.tieba.r7a;
 import com.baidu.tieba.ri;
+import com.baidu.tieba.s7a;
 import com.baidu.tieba.se5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -220,7 +220,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements ef5, View.
     }
 
     /* loaded from: classes5.dex */
-    public class d implements hw6.i {
+    public class d implements iw6.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TopicDetaiInputContainer a;
@@ -243,7 +243,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements ef5, View.
             this.a = topicDetaiInputContainer;
         }
 
-        @Override // com.baidu.tieba.hw6.i
+        @Override // com.baidu.tieba.iw6.i
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -466,7 +466,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements ef5, View.
                         if (TextUtils.isEmpty((String) obj2)) {
                             this.b.setText((CharSequence) null);
                         } else {
-                            hw6.g(getContext(), (String) se5Var.c, new d(this));
+                            iw6.g(getContext(), (String) se5Var.c, new d(this));
                         }
                     }
                 }
@@ -479,7 +479,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements ef5, View.
             }
         } else if (this.b.getSelectionStart() > 0) {
             String substring = this.b.getText().toString().substring(0, this.b.getSelectionStart());
-            Matcher matcher = gw6.b.matcher(substring);
+            Matcher matcher = hw6.b.matcher(substring);
             if (matcher.find()) {
                 this.b.getText().delete(this.b.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.b.getSelectionStart());
             } else {
@@ -547,10 +547,10 @@ public class TopicDetaiInputContainer extends LinearLayout implements ef5, View.
                 return;
             }
             String obj = this.b.getText().toString();
-            if (this.h && gw6.a(obj) >= 10 && getContext() != null) {
+            if (this.h && hw6.a(obj) >= 10 && getContext() != null) {
                 CustomToast.newInstance().showToast(R.string.too_many_face);
             } else {
-                hw6.b(getContext(), ea5Var, this.b);
+                iw6.b(getContext(), ea5Var, this.b);
             }
         }
     }
@@ -559,10 +559,10 @@ public class TopicDetaiInputContainer extends LinearLayout implements ef5, View.
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048590, this, ea5Var) == null) && ea5Var != null && !TextUtils.isEmpty(ea5Var.d()) && !TextUtils.isEmpty(ea5Var.g())) {
             String obj = this.b.getText().toString();
-            if (this.h && gw6.a(obj) >= 10 && getContext() != null) {
+            if (this.h && hw6.a(obj) >= 10 && getContext() != null) {
                 CustomToast.newInstance().showToast(R.string.too_many_face);
             } else {
-                hw6.c(getContext(), ea5Var, this.b);
+                iw6.c(getContext(), ea5Var, this.b);
             }
         }
     }
@@ -579,7 +579,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements ef5, View.
             this.b.setTextColor(getResources().getColor(R.color.CAM_X0105));
             this.b.setHintTextColor(getResources().getColor(R.color.CAM_X0110));
             this.b.setBackgroundResource(R.color.common_color_10022);
-            r7a.l(this.b, R.drawable.edittext_cursor);
+            s7a.l(this.b, R.drawable.edittext_cursor);
             this.b.setPadding(0, ri.g(context, R.dimen.obfuscated_res_0x7f0701e8), ri.g(context, R.dimen.obfuscated_res_0x7f0703e3), ri.g(context, R.dimen.obfuscated_res_0x7f0701e8));
             this.b.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
             this.b.addTextChangedListener(new b(this));
@@ -644,10 +644,10 @@ public class TopicDetaiInputContainer extends LinearLayout implements ef5, View.
             SkinManager.setBackgroundColor(this.e, R.color.CAM_X0207);
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
             if (i == 0) {
-                r7a.l(this.b, R.drawable.edittext_cursor);
+                s7a.l(this.b, R.drawable.edittext_cursor);
                 this.b.setHintTextColor(getContext().getResources().getColor(R.color.CAM_X0110));
             } else {
-                r7a.l(this.b, R.drawable.edittext_cursor_2);
+                s7a.l(this.b, R.drawable.edittext_cursor_2);
                 this.b.setHintTextColor(SkinManager.getColor(i, (int) R.color.CAM_X0110));
             }
             SkinManager.setBackgroundResource(this.c, R.drawable.topic_discuss_send_bg);

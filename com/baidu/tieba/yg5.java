@@ -158,7 +158,7 @@ public class yg5 {
         tBAlertBuilder.z();
         View findViewById = inflate.findViewById(R.id.pb_virtual_image_setting_guide_img);
         if (findViewById instanceof ImageView) {
-            Glide.with(findViewById).load(rn6.b("icon_mask_post_virtual_image_pb.webp", "icon_mask_post_virtual_image_pb")).into((ImageView) findViewById);
+            Glide.with(findViewById).load(sn6.b("icon_mask_post_virtual_image_pb.webp", "icon_mask_post_virtual_image_pb")).into((ImageView) findViewById);
         }
     }
 }

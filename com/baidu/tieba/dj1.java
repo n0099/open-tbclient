@@ -56,12 +56,12 @@ public class dj1 {
 
         /* renamed from: com.baidu.tieba.dj1$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0259a implements ls0.b {
+        public class C0254a implements ls0.b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0259a(a aVar) {
+            public C0254a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -127,7 +127,7 @@ public class dj1 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    ls0.a(this.a, this.b, new C0259a(this), this.e);
+                    ls0.a(this.a, this.b, new C0254a(this), this.e);
                 } catch (Exception e) {
                     e21.b(new g21(ClogBuilder.LogType.DOWNLOAD_FAILED, this.b, this.d, true).b(-1, e.getMessage(), "download"));
                 }

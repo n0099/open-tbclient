@@ -1,294 +1,82 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.frs.FrsAllThreadFragment;
+import android.content.DialogInterface;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.appcompat.app.AlertDialog;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.dialog.TBAlertConfig;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.ad.FrsADFragment;
-import com.baidu.tieba.frs.commontab.FrsCommonTabFragment;
-import com.baidu.tieba.frs.good.FrsGoodFragment;
-import com.baidu.tieba.frs.h5.FrsTabWebFragment;
-import com.baidu.tieba.frs.h5.NewFrsTabWebFragment;
-import com.baidu.tieba.frs.itemtab.FrsItemTabFragment;
-import com.baidu.tieba.frs.mc.FrsNewAreaFragment;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tieba.frs.view.FrsForumToolDialogView;
+import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
+import com.baidu.tieba.view.NavigationBarCoverTip;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsTabInfo;
+import java.util.HashMap;
+import tbclient.AddBawuPopInfo;
+import tbclient.PopInfo;
 /* loaded from: classes5.dex */
 public class hl7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a extends xi5 {
+    public static class a implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ FrsFragment c;
-        public final /* synthetic */ FrsTabInfo d;
-        public final /* synthetic */ FrsViewData e;
-        public final /* synthetic */ int f;
 
-        @Override // com.baidu.tieba.xi5
-        public TbFragmentTabIndicator c(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-                return null;
-            }
-            return (TbFragmentTabIndicator) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.xi5
-        public boolean d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public a(FrsFragment frsFragment, FrsTabInfo frsTabInfo, FrsViewData frsViewData, int i) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {frsFragment, frsTabInfo, frsViewData, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.c = frsFragment;
-            this.d = frsTabInfo;
-            this.e = frsViewData;
-            this.f = i;
         }
 
-        @Override // com.baidu.tieba.xi5
-        public yi5 a() {
-            InterceptResult invokeV;
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                FrsAllThreadFragment frsAllThreadFragment = new FrsAllThreadFragment();
-                FrsFragment frsFragment = this.c;
-                if (frsFragment != null && frsFragment.x1() != null) {
-                    frsAllThreadFragment.I1(this.c.x1().Z());
-                    this.c.X4(tn7.e(this.d, this.e.showAdsense.intValue()));
-                }
-                Bundle bundle = new Bundle();
-                FrsFragment frsFragment2 = this.c;
-                if (frsFragment2 != null) {
-                    bundle.putString("forum_id", frsFragment2.w());
-                }
-                bundle.putInt("tab_id", this.f);
-                bundle.putBoolean("isAdded", false);
-                frsAllThreadFragment.setArguments(bundle);
-                yi5 yi5Var = new yi5();
-                yi5Var.a = frsAllThreadFragment;
-                yi5Var.e = 1;
-                yi5Var.i = yi5.k;
-                return yi5Var;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                a35.s("frsShield");
             }
-            return (yi5) invokeV.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class b extends xi5 {
+    public static class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ FrsTabInfo c;
-        public final /* synthetic */ FrsViewData d;
-        public final /* synthetic */ FrsFragment e;
-        public final /* synthetic */ int f;
+        public final /* synthetic */ AlertDialog a;
+        public final /* synthetic */ hq9 b;
 
-        @Override // com.baidu.tieba.xi5
-        public TbFragmentTabIndicator c(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-                return null;
-            }
-            return (TbFragmentTabIndicator) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.xi5
-        public boolean d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public b(FrsTabInfo frsTabInfo, FrsViewData frsViewData, FrsFragment frsFragment, int i) {
+        public b(AlertDialog alertDialog, hq9 hq9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {frsTabInfo, frsViewData, frsFragment, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = frsTabInfo;
-            this.d = frsViewData;
-            this.e = frsFragment;
-            this.f = i;
-        }
-
-        @Override // com.baidu.tieba.xi5
-        public yi5 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                FrsGoodFragment frsGoodFragment = new FrsGoodFragment();
-                Bundle bundle = new Bundle();
-                bundle.putBoolean(FrsActivityConfig.FLAG_SHOW_AD, tn7.e(this.c, this.d.showAdsense.intValue()));
-                bundle.putString("name", this.e.v());
-                bundle.putString("from", this.e.C3());
-                bundle.putBoolean("back_special", false);
-                bundle.putBoolean(FrsActivityConfig.GOOD, true);
-                bundle.putLong("TibaStatic.StartTime", System.currentTimeMillis());
-                bundle.putString("forum_id", this.e.w());
-                bundle.putBoolean("isAdded", false);
-                frsGoodFragment.setArguments(bundle);
-                yi5 yi5Var = new yi5();
-                yi5Var.a = frsGoodFragment;
-                yi5Var.e = this.f;
-                yi5Var.i = yi5.k;
-                return yi5Var;
-            }
-            return (yi5) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c extends xi5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ FrsTabInfo c;
-        public final /* synthetic */ FrsViewData d;
-        public final /* synthetic */ FrsFragment e;
-        public final /* synthetic */ int f;
-
-        @Override // com.baidu.tieba.xi5
-        public TbFragmentTabIndicator c(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-                return null;
-            }
-            return (TbFragmentTabIndicator) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.xi5
-        public boolean d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public c(FrsTabInfo frsTabInfo, FrsViewData frsViewData, FrsFragment frsFragment, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {frsTabInfo, frsViewData, frsFragment, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = frsTabInfo;
-            this.d = frsViewData;
-            this.e = frsFragment;
-            this.f = i;
-        }
-
-        @Override // com.baidu.tieba.xi5
-        public yi5 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                FrsNewAreaFragment frsNewAreaFragment = new FrsNewAreaFragment();
-                Bundle bundle = new Bundle();
-                bundle.putBoolean(FrsActivityConfig.FLAG_SHOW_AD, tn7.e(this.c, this.d.showAdsense.intValue()));
-                bundle.putString("name", this.e.v());
-                bundle.putString("from", this.e.C3());
-                bundle.putBoolean("back_special", false);
-                bundle.putLong("TibaStatic.StartTime", System.currentTimeMillis());
-                bundle.putString("forum_id", this.e.w());
-                bundle.putBoolean("isAdded", false);
-                frsNewAreaFragment.setArguments(bundle);
-                yi5 yi5Var = new yi5();
-                yi5Var.a = frsNewAreaFragment;
-                yi5Var.e = this.f;
-                yi5Var.i = yi5.k;
-                return yi5Var;
-            }
-            return (yi5) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class d extends xi5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ FrsFragment c;
-
-        @Override // com.baidu.tieba.xi5
-        public TbFragmentTabIndicator c(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-                return null;
-            }
-            return (TbFragmentTabIndicator) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.xi5
-        public boolean d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public d(FrsFragment frsFragment) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {frsFragment};
+                Object[] objArr = {alertDialog, hq9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -298,244 +86,82 @@ public class hl7 {
                     return;
                 }
             }
-            this.c = frsFragment;
+            this.a = alertDialog;
+            this.b = hq9Var;
         }
 
-        @Override // com.baidu.tieba.xi5
-        public yi5 a() {
-            InterceptResult invokeV;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            AlertDialog alertDialog;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                FrsADFragment frsADFragment = new FrsADFragment();
-                Bundle bundle = new Bundle();
-                bundle.putString("name", this.c.v());
-                bundle.putString("from", this.c.C3());
-                bundle.putString("forum_id", this.c.w());
-                bundle.putBoolean("isAdded", false);
-                frsADFragment.setArguments(bundle);
-                yi5 yi5Var = new yi5();
-                yi5Var.a = frsADFragment;
-                yi5Var.e = 90;
-                yi5Var.i = yi5.k;
-                return yi5Var;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (alertDialog = this.a) != null) {
+                alertDialog.dismiss();
+                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_BAWU_TIP_DIALOG_CANCEL);
+                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                if (this.b.getForum() != null) {
+                    statisticItem.param("fid", this.b.getForum().getId());
+                    statisticItem.param("fname", this.b.getForum().getName());
+                }
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921682, 3));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921588));
+                TiebaStatic.log(statisticItem);
             }
-            return (yi5) invokeV.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class e extends xi5 {
+    public static class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ FrsTabInfo c;
-        public final /* synthetic */ FrsViewData d;
-        public final /* synthetic */ FrsFragment e;
-        public final /* synthetic */ int f;
+        public final /* synthetic */ d25 a;
 
-        @Override // com.baidu.tieba.xi5
-        public TbFragmentTabIndicator c(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-                return null;
-            }
-            return (TbFragmentTabIndicator) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.xi5
-        public boolean d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public e(FrsTabInfo frsTabInfo, FrsViewData frsViewData, FrsFragment frsFragment, int i) {
+        public c(d25 d25Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {frsTabInfo, frsViewData, frsFragment, Integer.valueOf(i)};
+                Object[] objArr = {d25Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = frsTabInfo;
-            this.d = frsViewData;
-            this.e = frsFragment;
-            this.f = i;
+            this.a = d25Var;
         }
 
-        @Override // com.baidu.tieba.xi5
-        public yi5 a() {
-            InterceptResult invokeV;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                FrsCommonTabFragment frsCommonTabFragment = new FrsCommonTabFragment();
-                Bundle bundle = new Bundle();
-                bundle.putBoolean(FrsActivityConfig.FLAG_SHOW_AD, tn7.e(this.c, this.d.showAdsense.intValue()));
-                bundle.putString("name", this.e.v());
-                bundle.putString("from", this.e.C3());
-                bundle.putString("forum_id", this.e.w());
-                bundle.putInt("tab_id", this.f);
-                bundle.putInt("tab_type", this.c.tab_type.intValue());
-                bundle.putString("tab_name", this.c.tab_name);
-                bundle.putInt("is_general_tab", this.c.is_general_tab.intValue());
-                bundle.putBoolean("can_auto_play_video", this.d.isFrsVideoAutoPlay);
-                boolean z = true;
-                if (this.d.needLog != 1) {
-                    z = false;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                d25 d25Var = this.a;
+                if (d25Var != null) {
+                    d25Var.dismiss();
                 }
-                bundle.putBoolean("need_log", z);
-                bundle.putBoolean("is_brand_forum", this.d.isBrandForum);
-                bundle.putSerializable("view_data", this.d);
-                bundle.putBoolean("isAdded", false);
-                frsCommonTabFragment.setArguments(bundle);
-                yi5 yi5Var = new yi5();
-                yi5Var.a = frsCommonTabFragment;
-                yi5Var.e = this.f;
-                yi5Var.i = yi5.k;
-                return yi5Var;
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921682, 3));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921588));
             }
-            return (yi5) invokeV.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class f extends xi5 {
+    public static class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ FrsTabInfo c;
-        public final /* synthetic */ FrsViewData d;
-        public final /* synthetic */ FrsFragment e;
-        public final /* synthetic */ int f;
-
-        @Override // com.baidu.tieba.xi5
-        public TbFragmentTabIndicator c(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-                return null;
-            }
-            return (TbFragmentTabIndicator) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.xi5
-        public boolean d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public f(FrsTabInfo frsTabInfo, FrsViewData frsViewData, FrsFragment frsFragment, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {frsTabInfo, frsViewData, frsFragment, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = frsTabInfo;
-            this.d = frsViewData;
-            this.e = frsFragment;
-            this.f = i;
-        }
-
-        @Override // com.baidu.tieba.xi5
-        public yi5 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                Bundle bundle = new Bundle();
-                bundle.putBoolean(FrsActivityConfig.FLAG_SHOW_AD, tn7.e(this.c, this.d.showAdsense.intValue()));
-                bundle.putString("name", this.e.v());
-                bundle.putString("from", this.e.C3());
-                bundle.putString("forum_id", this.e.w());
-                bundle.putInt("tab_id", this.f);
-                bundle.putInt("tab_type", this.c.tab_type.intValue());
-                bundle.putString("tab_name", this.c.tab_name);
-                bundle.putString("tab_url", this.c.tab_url);
-                bundle.putInt("is_general_tab", this.c.is_general_tab.intValue());
-                bundle.putBoolean("can_auto_play_video", this.d.isFrsVideoAutoPlay);
-                boolean z = true;
-                if (this.d.needLog != 1) {
-                    z = false;
-                }
-                bundle.putBoolean("need_log", z);
-                bundle.putBoolean("is_brand_forum", this.d.isBrandForum);
-                bundle.putSerializable("view_data", this.d);
-                bundle.putBoolean("isAdded", false);
-                yi5 yi5Var = new yi5();
-                if (fh6.e(this.c.tab_url)) {
-                    NewFrsTabWebFragment newFrsTabWebFragment = new NewFrsTabWebFragment();
-                    newFrsTabWebFragment.setArguments(bundle);
-                    yi5Var.a = newFrsTabWebFragment;
-                } else {
-                    FrsTabWebFragment frsTabWebFragment = new FrsTabWebFragment();
-                    frsTabWebFragment.setArguments(bundle);
-                    yi5Var.a = frsTabWebFragment;
-                }
-                yi5Var.e = this.f;
-                yi5Var.i = yi5.k;
-                return yi5Var;
-            }
-            return (yi5) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class g extends xi5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d25 a;
+        public final /* synthetic */ int b;
         public final /* synthetic */ FrsFragment c;
-        public final /* synthetic */ int d;
-        public final /* synthetic */ FrsTabInfo e;
-        public final /* synthetic */ FrsViewData f;
-        public final /* synthetic */ String g;
+        public final /* synthetic */ String d;
 
-        @Override // com.baidu.tieba.xi5
-        public TbFragmentTabIndicator c(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-                return null;
-            }
-            return (TbFragmentTabIndicator) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.xi5
-        public boolean d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public g(FrsFragment frsFragment, int i, FrsTabInfo frsTabInfo, FrsViewData frsViewData, String str) {
+        public d(d25 d25Var, int i, FrsFragment frsFragment, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {frsFragment, Integer.valueOf(i), frsTabInfo, frsViewData, str};
+                Object[] objArr = {d25Var, Integer.valueOf(i), frsFragment, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -545,75 +171,233 @@ public class hl7 {
                     return;
                 }
             }
+            this.a = d25Var;
+            this.b = i;
             this.c = frsFragment;
-            this.d = i;
-            this.e = frsTabInfo;
-            this.f = frsViewData;
-            this.g = str;
+            this.d = str;
         }
 
-        @Override // com.baidu.tieba.xi5
-        public yi5 a() {
-            InterceptResult invokeV;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                FrsItemTabFragment frsItemTabFragment = new FrsItemTabFragment();
-                Bundle bundle = new Bundle();
-                bundle.putString("name", this.c.v());
-                bundle.putString("from", this.c.C3());
-                bundle.putString("forum_id", this.c.w());
-                bundle.putInt("tab_id", this.d);
-                bundle.putInt("tab_type", this.e.tab_type.intValue());
-                bundle.putString("tab_name", this.e.tab_name);
-                bundle.putString("tab_code", this.e.tab_code);
-                boolean z = true;
-                if (this.f.needLog != 1) {
-                    z = false;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                d25 d25Var = this.a;
+                if (d25Var != null) {
+                    d25Var.dismiss();
                 }
-                bundle.putBoolean("need_log", z);
-                bundle.putString("theme_color", this.g);
-                bundle.putBoolean("isAdded", false);
-                bundle.putInt(FrsActivityConfig.FRS_CALL_FROM_BY_ITEM_POSITION, this.c.E3());
-                frsItemTabFragment.setArguments(bundle);
-                frsItemTabFragment.L1(this.c.getUniqueId());
-                yi5 yi5Var = new yi5();
-                yi5Var.a = frsItemTabFragment;
-                yi5Var.e = this.d;
-                yi5Var.i = yi5.k;
-                return yi5Var;
+                int i = this.b;
+                if (i == 1) {
+                    UrlManager.getInstance().dealOneLink(this.c.getPageContext(), new String[]{TbConfig.BAWUTEAME_ADDRESS + "?fn=" + this.c.v() + "&fid=" + this.c.w()});
+                } else if (i == 2) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put("forum_id", this.c.w());
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.c.getActivity(), "ForumDetailPage", hashMap)));
+                } else if (i == 3 && !TextUtils.isEmpty(this.d)) {
+                    UrlManager.getInstance().dealOneLink(this.c.getPageContext(), new String[]{this.d});
+                }
             }
-            return (yi5) invokeV.objValue;
         }
     }
 
-    public static xi5 a(@NonNull FrsTabInfo frsTabInfo, @NonNull FrsFragment frsFragment, @NonNull FrsViewData frsViewData, String str) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, frsTabInfo, frsFragment, frsViewData, str)) == null) {
-            int intValue = frsTabInfo.tab_id.intValue();
-            if (intValue == 1) {
-                return new a(frsFragment, frsTabInfo, frsViewData, intValue);
-            }
-            if (intValue == 301) {
-                return new b(frsTabInfo, frsViewData, frsFragment, intValue);
-            }
-            if (intValue == 503) {
-                return new c(frsTabInfo, frsViewData, frsFragment, intValue);
-            }
-            if (intValue == 90) {
-                return new d(frsFragment);
-            }
-            if (frsTabInfo.tab_type.intValue() != 91 && intValue != 89 && intValue != 504 && frsTabInfo.tab_type.intValue() != 15 && frsTabInfo.tab_type.intValue() != 16 && frsTabInfo.tab_type.intValue() != 3 && frsTabInfo.tab_type.intValue() != 100) {
-                if (frsTabInfo.is_general_tab.intValue() == 1 && frsTabInfo.tab_type.intValue() == 102) {
-                    return new f(frsTabInfo, frsViewData, frsFragment, intValue);
+    /* loaded from: classes5.dex */
+    public static class e implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public e() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                if (intValue == 506) {
-                    return new g(frsFragment, intValue, frsTabInfo, frsViewData, str);
-                }
-                return null;
             }
-            return new e(frsTabInfo, frsViewData, frsFragment, intValue);
         }
-        return (xi5) invokeLLLL.objValue;
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                a35.s("frsForumManage");
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class f implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FrsFragment a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ NavigationBarCoverTip c;
+
+        public f(FrsFragment frsFragment, String str, NavigationBarCoverTip navigationBarCoverTip) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {frsFragment, str, navigationBarCoverTip};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = frsFragment;
+            this.b = str;
+            this.c = navigationBarCoverTip;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                new StatisticItem("c13439").eventStat();
+                FrsFragment frsFragment = this.a;
+                if (frsFragment != null && !TextUtils.isEmpty(frsFragment.w()) && !TextUtils.isEmpty(this.b) && this.a.getActivity() != null) {
+                    NavigationBarCoverTip navigationBarCoverTip = this.c;
+                    if (navigationBarCoverTip != null) {
+                        navigationBarCoverTip.e();
+                    }
+                    if (o65.m().n("key_bawu_task_toast", 0) == -1) {
+                        i = 1;
+                    } else {
+                        i = 0;
+                    }
+                    UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{"https://tieba.baidu.com/mo/q/bawutask?fid=" + this.a.w() + "&fn=" + this.b + "&noread=" + i});
+                }
+            }
+        }
+    }
+
+    public static boolean a(hq9 hq9Var, FrsFragment frsFragment) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, hq9Var, frsFragment)) == null) {
+            if (hq9Var != null && hq9Var.getUserData() != null && frsFragment != null) {
+                int is_manager = hq9Var.getUserData().getIs_manager();
+                boolean i = o65.m().i("key_forum_tool_find_dialog_show", false);
+                if (is_manager == 1 && !i) {
+                    c(1, frsFragment.getString(R.string.obfuscated_res_0x7f0f079f), String.valueOf((int) R.drawable.obfuscated_res_0x7f08117f), "", frsFragment);
+                    o65.m().w("key_forum_tool_find_dialog_show", true);
+                    if (frsFragment != null) {
+                        frsFragment.P4(true);
+                    }
+                    return true;
+                } else if (!i && is_manager == 2) {
+                    c(2, frsFragment.getString(R.string.obfuscated_res_0x7f0f079e), String.valueOf((int) R.drawable.obfuscated_res_0x7f08117f), "", frsFragment);
+                    o65.m().w("key_forum_tool_find_dialog_show", true);
+                    if (frsFragment != null) {
+                        frsFragment.P4(true);
+                    }
+                    return true;
+                } else {
+                    AddBawuPopInfo addBawuPopInfo = hq9Var.bawuPopInfo;
+                    if (addBawuPopInfo != null) {
+                        c(3, addBawuPopInfo.content, addBawuPopInfo.img_url, addBawuPopInfo.jump_url, frsFragment);
+                        if (frsFragment != null) {
+                            frsFragment.P4(true);
+                        }
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void b(NavigationBarCoverTip navigationBarCoverTip, FrsFragment frsFragment, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65537, null, navigationBarCoverTip, frsFragment, str) == null) && navigationBarCoverTip != null && frsFragment != null && frsFragment.getActivity() != null) {
+            View inflate = View.inflate(frsFragment.getActivity(), R.layout.write_thread_share_guide, null);
+            TextView textView = (TextView) inflate.findViewById(R.id.write_thread_success_tips);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.share_icon);
+            if (TextUtils.isEmpty(str)) {
+                textView.setText("吧主您好，本吧考核新制度上线啦");
+            } else {
+                textView.setText(str + "吧吧主您好，本吧考核新制度上线啦");
+            }
+            tBSpecificationBtn.setTextSize(R.dimen.tbds34);
+            tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.check_immediately));
+            o75 o75Var = new o75();
+            o75Var.t();
+            tBSpecificationBtn.setConfig(o75Var);
+            tBSpecificationBtn.k();
+            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
+            SkinManager.setBackgroundColor(navigationBarCoverTip, R.color.cp_link_tip_a_alpha95);
+            tBSpecificationBtn.setOnClickListener(new f(frsFragment, str, navigationBarCoverTip));
+            navigationBarCoverTip.n(frsFragment.getActivity(), inflate, 30000);
+            new StatisticItem("c13438").eventStat();
+            int n = o65.m().n("key_bawu_task_toast", 0);
+            if (n >= 0) {
+                o65.m().z("key_bawu_task_toast", n + 1);
+            }
+        }
+    }
+
+    public static void c(int i, String str, String str2, String str3, FrsFragment frsFragment) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), str, str2, str3, frsFragment}) != null) || frsFragment == null) {
+            return;
+        }
+        d25 d25Var = new d25(frsFragment.getActivity());
+        d25Var.setContentViewSize(2);
+        d25Var.setCanceledOnTouchOutside(false);
+        FrsForumToolDialogView frsForumToolDialogView = new FrsForumToolDialogView(frsFragment.getActivity());
+        frsForumToolDialogView.setStartLoadUrl(i, str2);
+        frsForumToolDialogView.setContent(str);
+        frsForumToolDialogView.setCancleButtonListener(new c(d25Var));
+        frsForumToolDialogView.setConfirmButtonListener(new d(d25Var, i, frsFragment, str3));
+        d25Var.setOnDismissListener(new e());
+        d25Var.setContentView(frsForumToolDialogView);
+        d25Var.create(frsFragment.getPageContext()).show();
+        a35.m("frsForumManage");
+    }
+
+    public static boolean d(hq9 hq9Var, FrsFragment frsFragment) {
+        InterceptResult invokeLL;
+        PopInfo popInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, hq9Var, frsFragment)) == null) {
+            if (frsFragment == null || o65.m().i(o65.q("key_frs_shield_thread_dialog"), false) || hq9Var.getUserData() == null || hq9Var.getUserData().getIs_manager() <= 0 || (popInfo = hq9Var.frsMaskPopInfo) == null || popInfo.if_pop.intValue() != 1) {
+                return false;
+            }
+            ImageView imageView = new ImageView(frsFragment.getActivity());
+            imageView.setImageResource(SkinManager.getResourceId(R.drawable.pic_frs_popup_shield));
+            TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f047d, TBAlertConfig.OperateBtnStyle.MAIN);
+            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(frsFragment.getActivity());
+            tBAlertBuilder.x(hq9Var.frsMaskPopInfo.title);
+            tBAlertBuilder.q(hq9Var.frsMaskPopInfo.v_title);
+            tBAlertBuilder.o(true);
+            tBAlertBuilder.k(imageView);
+            tBAlertBuilder.u(aVar);
+            tBAlertBuilder.j(false);
+            AlertDialog z = tBAlertBuilder.z();
+            z.setOnDismissListener(new a());
+            aVar.a(new b(z, hq9Var));
+            o65.m().w(o65.q("key_frs_shield_thread_dialog"), true);
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_BAWU_TIP_DIALOG_SHOW);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            if (hq9Var.getForum() != null) {
+                statisticItem.param("fid", hq9Var.getForum().getId());
+                statisticItem.param("fname", hq9Var.getForum().getName());
+            }
+            TiebaStatic.log(statisticItem);
+            if (frsFragment != null) {
+                frsFragment.P4(true);
+            }
+            a35.m("frsShield");
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 }

@@ -16,7 +16,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.qk0;
-import com.baidu.tieba.vh9;
+import com.baidu.tieba.wh9;
 import com.baidu.tieba.y16;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ApkDownloadView extends FrameLayout implements y16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vh9 a;
+    public wh9 a;
     public y16.a b;
 
     @Override // com.baidu.tieba.jl0
@@ -136,7 +136,7 @@ public class ApkDownloadView extends FrameLayout implements y16 {
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            this.a = (vh9) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0125, (ViewGroup) this, true).findViewById(R.id.obfuscated_res_0x7f090ac8);
+            this.a = (wh9) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0125, (ViewGroup) this, true).findViewById(R.id.obfuscated_res_0x7f090ac8);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -152,9 +152,9 @@ public class ApkDownloadView extends FrameLayout implements y16 {
     public void setBackgroundSkin(@DrawableRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            vh9 vh9Var = this.a;
-            if (vh9Var instanceof FeedAdProgressButton) {
-                ((FeedAdProgressButton) vh9Var).setBackgroundSkin(i);
+            wh9 wh9Var = this.a;
+            if (wh9Var instanceof FeedAdProgressButton) {
+                ((FeedAdProgressButton) wh9Var).setBackgroundSkin(i);
             }
         }
     }
@@ -162,18 +162,18 @@ public class ApkDownloadView extends FrameLayout implements y16 {
     public void setForegroundSkin(@DrawableRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            vh9 vh9Var = this.a;
-            if (vh9Var instanceof FeedAdProgressButton) {
-                ((FeedAdProgressButton) vh9Var).setForeground(i);
+            wh9 wh9Var = this.a;
+            if (wh9Var instanceof FeedAdProgressButton) {
+                ((FeedAdProgressButton) wh9Var).setForeground(i);
             }
         }
     }
 
     public void setInitText(String str) {
-        vh9 vh9Var;
+        wh9 wh9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, str) == null) && !TextUtils.isEmpty(str) && (vh9Var = this.a) != null) {
-            vh9Var.setInitText(str);
+        if ((interceptable == null || interceptable.invokeL(1048588, this, str) == null) && !TextUtils.isEmpty(str) && (wh9Var = this.a) != null) {
+            wh9Var.setInitText(str);
         }
     }
 
@@ -186,19 +186,19 @@ public class ApkDownloadView extends FrameLayout implements y16 {
     }
 
     public void setRatio(int i) {
-        vh9 vh9Var;
+        wh9 wh9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048590, this, i) == null) && (vh9Var = this.a) != null) {
-            vh9Var.setRatio(i);
+        if ((interceptable == null || interceptable.invokeI(1048590, this, i) == null) && (wh9Var = this.a) != null) {
+            wh9Var.setRatio(i);
         }
     }
 
     public void setStrokeWidth(@DimenRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            vh9 vh9Var = this.a;
-            if (vh9Var instanceof FeedAdProgressButton) {
-                ((FeedAdProgressButton) vh9Var).setStrokeWidth(i);
+            wh9 wh9Var = this.a;
+            if (wh9Var instanceof FeedAdProgressButton) {
+                ((FeedAdProgressButton) wh9Var).setStrokeWidth(i);
             }
         }
     }
@@ -213,9 +213,9 @@ public class ApkDownloadView extends FrameLayout implements y16 {
     public void setTextColorInitSkin(@ColorRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            vh9 vh9Var = this.a;
-            if (vh9Var instanceof FeedAdProgressButton) {
-                ((FeedAdProgressButton) vh9Var).setTextColorInitSkin(i);
+            wh9 wh9Var = this.a;
+            if (wh9Var instanceof FeedAdProgressButton) {
+                ((FeedAdProgressButton) wh9Var).setTextColorInitSkin(i);
             }
         }
     }
@@ -223,9 +223,9 @@ public class ApkDownloadView extends FrameLayout implements y16 {
     public void setTextColorSkin(@ColorRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            vh9 vh9Var = this.a;
-            if (vh9Var instanceof FeedAdProgressButton) {
-                ((FeedAdProgressButton) vh9Var).setTextColorSkin(i);
+            wh9 wh9Var = this.a;
+            if (wh9Var instanceof FeedAdProgressButton) {
+                ((FeedAdProgressButton) wh9Var).setTextColorSkin(i);
             }
         }
     }

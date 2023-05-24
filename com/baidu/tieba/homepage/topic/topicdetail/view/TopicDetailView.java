@@ -49,14 +49,14 @@ import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bb5;
 import com.baidu.tieba.cn;
-import com.baidu.tieba.cy7;
 import com.baidu.tieba.dy7;
 import com.baidu.tieba.ey7;
+import com.baidu.tieba.fy7;
 import com.baidu.tieba.hi;
 import com.baidu.tieba.homepage.topic.topicdetail.TopicDetailActivity;
 import com.baidu.tieba.homepage.topic.topictab.view.TopicPkView;
-import com.baidu.tieba.l7a;
-import com.baidu.tieba.my7;
+import com.baidu.tieba.m7a;
+import com.baidu.tieba.ny7;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.rg5;
 import com.baidu.tieba.ri;
@@ -64,12 +64,12 @@ import com.baidu.tieba.ri5;
 import com.baidu.tieba.rn;
 import com.baidu.tieba.sg;
 import com.baidu.tieba.si5;
-import com.baidu.tieba.sx7;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.ux7;
-import com.baidu.tieba.wx7;
-import com.baidu.tieba.yx7;
+import com.baidu.tieba.tx7;
+import com.baidu.tieba.vx7;
+import com.baidu.tieba.xx7;
+import com.baidu.tieba.zx7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -81,7 +81,7 @@ import java.util.List;
 public class TopicDetailView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cy7.b A;
+    public dy7.b A;
     public int B;
     public int C;
     public NoNetworkView.b D;
@@ -91,14 +91,14 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
     public BdListView.p H;
     public int a;
     public TbPageContext<?> b;
-    public sx7 c;
+    public tx7 c;
     public NavigationBar d;
     public View e;
     public ImageView f;
     public ImageView g;
     public TopicDetailHeadView h;
     public BdTypeRecyclerView i;
-    public ux7 j;
+    public vx7 j;
     public PbListView k;
     public NoNetworkView l;
     public ri5 m;
@@ -107,14 +107,14 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
     public View p;
     public TextView q;
     public TextView r;
-    public dy7 s;
+    public ey7 s;
     public View t;
-    public l7a u;
+    public m7a u;
     public EditText v;
-    public wx7 w;
+    public xx7 w;
     public boolean x;
     public int y;
-    public cy7 z;
+    public dy7 z;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -477,8 +477,8 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
                 return;
             }
             int size = this.a.w.f.size() - 1;
-            if (this.a.w.f.get(size) instanceof yx7) {
-                ((TopicDetailActivity) this.a.b.getPageActivity()).z1(((yx7) this.a.w.f.get(size)).a);
+            if (this.a.w.f.get(size) instanceof zx7) {
+                ((TopicDetailActivity) this.a.b.getPageActivity()).z1(((zx7) this.a.w.f.get(size)).a);
             }
         }
     }
@@ -520,13 +520,13 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TopicDetailView(TbPageContext<?> tbPageContext, sx7 sx7Var, Bundle bundle) {
+    public TopicDetailView(TbPageContext<?> tbPageContext, tx7 tx7Var, Bundle bundle) {
         super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, sx7Var, bundle};
+            Object[] objArr = {tbPageContext, tx7Var, bundle};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -550,7 +550,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         this.G = new h(this);
         this.H = new i(this);
         this.b = tbPageContext;
-        this.c = sx7Var;
+        this.c = tx7Var;
         t(bundle);
         z();
     }
@@ -566,8 +566,8 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             }
             if (i2 == 0 && list != null && !ListUtils.isEmpty(list)) {
                 for (rn rnVar : list) {
-                    if (rnVar instanceof yx7) {
-                        ((yx7) rnVar).f = this.w.a();
+                    if (rnVar instanceof zx7) {
+                        ((zx7) rnVar).f = this.w.a();
                     }
                 }
                 this.w.f.addAll(list);
@@ -590,7 +590,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
     }
 
     public void A(ThreadData threadData) {
-        yx7 yx7Var;
+        zx7 zx7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
             Iterator<rn> it = this.w.f.iterator();
@@ -598,26 +598,26 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             while (true) {
                 if (it.hasNext()) {
                     rn next = it.next();
-                    if (next instanceof yx7) {
-                        yx7Var = (yx7) next;
+                    if (next instanceof zx7) {
+                        zx7Var = (zx7) next;
                         break;
                     }
                     i2++;
                 } else {
-                    yx7Var = null;
+                    zx7Var = null;
                     break;
                 }
             }
-            if (yx7Var != null) {
-                yx7 yx7Var2 = new yx7();
-                yx7Var2.a = yx7Var.a;
-                yx7Var2.b = threadData;
-                yx7Var2.e = 2;
-                yx7Var2.d = this.y;
-                wx7 wx7Var = this.w;
-                yx7Var2.c = wx7Var.a;
-                yx7Var2.f = wx7Var.a();
-                this.w.f.add(i2, yx7Var2);
+            if (zx7Var != null) {
+                zx7 zx7Var2 = new zx7();
+                zx7Var2.a = zx7Var.a;
+                zx7Var2.b = threadData;
+                zx7Var2.e = 2;
+                zx7Var2.d = this.y;
+                xx7 xx7Var = this.w;
+                zx7Var2.c = xx7Var.a;
+                zx7Var2.f = xx7Var.a();
+                this.w.f.add(i2, zx7Var2);
                 this.j.c(this.w.f);
             }
         }
@@ -640,12 +640,12 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        wx7 wx7Var;
+        xx7 xx7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, view2) == null) {
             if (view2 == this.e) {
                 this.b.getPageActivity().finish();
-            } else if (view2 == this.g && (wx7Var = this.w) != null && wx7Var.a > 0) {
+            } else if (view2 == this.g && (xx7Var = this.w) != null && xx7Var.a > 0) {
                 F();
                 TiebaStatic.log(new StatisticItem("c13364").param("topic_id", String.valueOf(this.w.a)));
             }
@@ -669,13 +669,13 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         }
     }
 
-    public dy7 getEditor() {
+    public ey7 getEditor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.s;
         }
-        return (dy7) invokeV.objValue;
+        return (ey7) invokeV.objValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -747,9 +747,9 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.w != null && getContext() != null) {
             String valueOf = String.valueOf(this.w.a);
-            wx7 wx7Var = this.w;
-            String str = wx7Var.b;
-            String str2 = wx7Var.c;
+            xx7 xx7Var = this.w;
+            String str = xx7Var.b;
+            String str2 = xx7Var.c;
             if (!TextUtils.isEmpty(valueOf) && !TextUtils.isEmpty(str)) {
                 String str3 = TbConfig.TIEBA_ADDRESS + "mo/q/newtopic/detail?topic_id=" + valueOf + "/";
                 if (StringUtils.isNull(this.w.d)) {
@@ -864,11 +864,11 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
                 } else {
                     this.v.setSelection(selectionEnd);
                 }
-                l7a l7aVar = this.u;
-                if (l7aVar.b() < 0) {
+                m7a m7aVar = this.u;
+                if (m7aVar.b() < 0) {
                     z2 = false;
                 }
-                l7aVar.k(z2);
+                m7aVar.k(z2);
             }
         }
     }
@@ -876,12 +876,12 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
     public final void u(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, bundle) == null) {
-            dy7 dy7Var = (dy7) new ey7().a(getContext());
-            this.s = dy7Var;
-            if (dy7Var == null) {
+            ey7 ey7Var = (ey7) new fy7().a(getContext());
+            this.s = ey7Var;
+            if (ey7Var == null) {
                 return;
             }
-            dy7Var.F(this.b);
+            ey7Var.F(this.b);
             this.s.G(this.F);
             this.s.E(this.E);
             this.s.b().E(true);
@@ -916,9 +916,9 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             if (noNetworkView != null) {
                 noNetworkView.e(this.D);
             }
-            dy7 dy7Var = this.s;
-            if (dy7Var != null) {
-                dy7Var.x();
+            ey7 ey7Var = this.s;
+            if (ey7Var != null) {
+                ey7Var.x();
             }
             if (this.A != null) {
                 sg.a().removeCallbacks(this.A);
@@ -928,16 +928,16 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         }
     }
 
-    public void setData(wx7 wx7Var) {
+    public void setData(xx7 xx7Var) {
         int g2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048594, this, wx7Var) != null) || wx7Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048594, this, xx7Var) != null) || xx7Var == null) {
             return;
         }
-        this.w = wx7Var;
-        boolean z = wx7Var.g;
+        this.w = xx7Var;
+        boolean z = xx7Var.g;
         this.x = z;
-        if (z && wx7Var.f.size() <= 4) {
+        if (z && xx7Var.f.size() <= 4) {
             this.x = false;
             E();
         } else if (!this.x) {
@@ -945,17 +945,17 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         } else {
             B();
         }
-        if (!StringUtils.isNull(wx7Var.b)) {
-            this.d.setCenterTextTitle(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f050c), StringHelper.cutChineseAndEnglishWithSuffix(wx7Var.b, 14, StringHelper.STRING_MORE)));
+        if (!StringUtils.isNull(xx7Var.b)) {
+            this.d.setCenterTextTitle(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f050c), StringHelper.cutChineseAndEnglishWithSuffix(xx7Var.b, 14, StringHelper.STRING_MORE)));
         }
-        this.h.setData(wx7Var.e);
+        this.h.setData(xx7Var.e);
         this.i.addHeaderView(this.h);
-        this.j.c(wx7Var.f);
-        my7 my7Var = this.w.e.e;
-        if (my7Var != null) {
-            if (my7Var.d.e) {
+        this.j.c(xx7Var.f);
+        ny7 ny7Var = this.w.e.e;
+        if (ny7Var != null) {
+            if (ny7Var.d.e) {
                 I(1);
-            } else if (my7Var.e.e) {
+            } else if (ny7Var.e.e) {
                 I(2);
             } else {
                 I(0);
@@ -999,7 +999,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams.addRule(12);
             addView(this.s.b(), layoutParams);
-            this.u = new l7a();
+            this.u = new m7a();
             this.t = findViewById(R.id.obfuscated_res_0x7f090090);
             BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f090091);
             this.i = bdTypeRecyclerView;
@@ -1009,7 +1009,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             this.i.setOnSrollToBottomListener(this.H);
             this.i.addOnScrollListener(this.G);
             SkinManager.setBackgroundColor(this.i, R.color.CAM_X0201);
-            this.j = new ux7(this.b, this.i);
+            this.j = new vx7(this.b, this.i);
             TopicDetailHeadView topicDetailHeadView = new TopicDetailHeadView(getContext());
             this.h = topicDetailHeadView;
             topicDetailHeadView.g.setPkClickListener(new d(this));
@@ -1028,9 +1028,9 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             this.k.F(getResources().getString(R.string.list_has_no_more));
             this.k.c().setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             if (this.z == null) {
-                cy7 cy7Var = new cy7(this);
-                this.z = cy7Var;
-                cy7Var.f(this.b.getUniqueId());
+                dy7 dy7Var = new dy7(this);
+                this.z = dy7Var;
+                dy7Var.f(this.b.getUniqueId());
             }
         }
     }
@@ -1065,8 +1065,8 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         if (si5Var != null) {
             si5Var.onChangeSkinType();
         }
-        dy7 dy7Var = this.s;
-        if (dy7Var != null && dy7Var.b() != null) {
+        ey7 ey7Var = this.s;
+        if (ey7Var != null && ey7Var.b() != null) {
             this.s.b().y(this.a);
         }
         PbListView pbListView = this.k;
@@ -1080,9 +1080,9 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         if (topicDetailHeadView != null) {
             topicDetailHeadView.b();
         }
-        ux7 ux7Var = this.j;
-        if (ux7Var != null) {
-            ux7Var.b();
+        vx7 vx7Var = this.j;
+        if (vx7Var != null) {
+            vx7Var.b();
         }
         SkinManager.setBackgroundColor(this.i, R.color.CAM_X0205);
     }

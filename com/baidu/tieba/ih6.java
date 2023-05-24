@@ -1,34 +1,26 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.view.View;
+import android.webkit.JsPromptResult;
+import android.webkit.ValueCallback;
 import android.webkit.WebView;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
-/* compiled from: JsPromptInterface.java */
+import androidx.core.util.Pair;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes6.dex */
-public final /* synthetic */ class ih6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ih6 {
+    public static final ServiceReference a = new ServiceReference("Frames", "JsPromptBridge");
 
-    public static void b(jh6 jh6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, jh6Var) == null) {
-        }
-    }
+    void a(List<Pair<String, String>> list);
 
-    public static void a(jh6 jh6Var, WebView webView, String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLL(65536, null, jh6Var, webView, str, jSONObject) != null) || webView == null) {
-            return;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        webView.evaluateJavascript("javascript:" + str + "&&" + str + "('" + jSONObject.toString() + "')", null);
-        StringBuilder sb = new StringBuilder();
-        sb.append("javascript 执行成功:");
-        sb.append(str);
-        sb.append(" 耗时：");
-        sb.append(System.currentTimeMillis() - currentTimeMillis);
-        Log.i("newHybrid", sb.toString());
-    }
+    void b(String str, HashMap<String, Object> hashMap);
+
+    boolean c(WebView webView, String str, JsPromptResult jsPromptResult);
+
+    void d(View view2, String str, HashMap<String, Object> hashMap);
+
+    void e(View view2, String str, ValueCallback<String> valueCallback);
+
+    void f(kh6 kh6Var, Object obj);
 }

@@ -1,88 +1,76 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
-import com.fun.ad.sdk.CustomInflater;
-import com.fun.ad.sdk.ExpressInflater;
+import com.bytedance.sdk.openadsdk.TTAdDislike;
 import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
-import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes5.dex */
-public class eua extends FunNativeAd2Bridger<uta, View> {
+public class eua implements TTAdDislike.DislikeInteractionCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean b;
-    public final /* synthetic */ aua c;
+    public final /* synthetic */ View a;
+    public final /* synthetic */ vta b;
+    public final /* synthetic */ FunAdInteractionListener c;
+    public final /* synthetic */ String d;
+    public final /* synthetic */ bua e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public eua(aua auaVar, ReporterPidLoader reporterPidLoader) {
-        super(reporterPidLoader);
+    public eua(bua buaVar, View view2, vta vtaVar, FunAdInteractionListener funAdInteractionListener, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {auaVar, reporterPidLoader};
+            Object[] objArr = {buaVar, view2, vtaVar, funAdInteractionListener, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = auaVar;
+        this.e = buaVar;
+        this.a = view2;
+        this.b = vtaVar;
+        this.c = funAdInteractionListener;
+        this.d = str;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showCustom(Activity activity, CustomInflater customInflater, String str, uta utaVar, BaseNativeAd2<uta, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
+    public void onCancel() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, utaVar, baseNativeAd2, funAdInteractionListener}) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LogPrinter.e("CSJNativeExpressAd dislike callback onCancel", new Object[0]);
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public View createExpressView(uta utaVar) {
-        InterceptResult invokeL;
+    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
+    public void onSelected(int i, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, utaVar)) == null) {
-            return ((TTNativeExpressAd) utaVar.a).getExpressAdView();
-        }
-        return (View) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, uta utaVar, BaseNativeAd2<uta, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, utaVar, baseNativeAd2, funAdInteractionListener}) == null) {
-            uta utaVar2 = utaVar;
-            ExpressAdListenerWrapper<TTNativeExpressAd.ExpressAdInteractionListener> expressAdListenerWrapper = this.c.f.get(utaVar2);
-            if (expressAdListenerWrapper != null) {
-                expressAdListenerWrapper.funListener = funAdInteractionListener;
-            } else {
-                LogPrinter.e("Can not get correspond listener by csjNativeExpressAd.", new Object[0]);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
+            LogPrinter.e("CSJNativeExpressAd dislike callback onSelected position: " + i + ", message: " + str, new Object[0]);
+            View view2 = this.a;
+            if (view2 != null && view2.getParent() != null) {
+                ((ViewGroup) this.a.getParent()).removeView(this.a);
             }
-            this.c.onShowStart(utaVar2, this.b);
-            expressInflater.inflate();
-            View expressView = expressInflater.getExpressView();
-            aua auaVar = this.c;
-            auaVar.getClass();
-            ((TTNativeExpressAd) utaVar2.a).setDislikeCallback(activity, new dua(auaVar, expressView, utaVar2, funAdInteractionListener, str));
-            this.b = true;
+            this.e.onAdClose(this.b);
+            FunAdInteractionListener funAdInteractionListener = this.c;
+            if (funAdInteractionListener != null) {
+                funAdInteractionListener.onAdClose(this.d);
+            }
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
+    public void onShow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 }

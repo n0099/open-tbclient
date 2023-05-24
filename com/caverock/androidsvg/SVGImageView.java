@@ -13,8 +13,8 @@ import android.view.View;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.uqa;
 import com.baidu.tieba.vqa;
+import com.baidu.tieba.wqa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +32,7 @@ public class SVGImageView extends ImageView {
     public static Method c;
     public transient /* synthetic */ FieldHolder $fh;
     public SVG a;
-    public vqa b;
+    public wqa b;
 
     /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
@@ -224,7 +224,7 @@ public class SVGImageView extends ImageView {
             }
         }
         this.a = null;
-        this.b = new vqa();
+        this.b = new wqa();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -247,7 +247,7 @@ public class SVGImageView extends ImageView {
             }
         }
         this.a = null;
-        this.b = new vqa();
+        this.b = new wqa();
         d(attributeSet, 0);
     }
 
@@ -271,7 +271,7 @@ public class SVGImageView extends ImageView {
             }
         }
         this.a = null;
-        this.b = new vqa();
+        this.b = new wqa();
         d(attributeSet, i);
     }
 
@@ -387,7 +387,7 @@ public class SVGImageView extends ImageView {
         if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, attributeSet, i) != null) || isInEditMode()) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().getTheme().obtainStyledAttributes(attributeSet, uqa.SVGImageView, i, 0);
+        TypedArray obtainStyledAttributes = getContext().getTheme().obtainStyledAttributes(attributeSet, vqa.SVGImageView, i, 0);
         try {
             String string = obtainStyledAttributes.getString(0);
             if (string != null) {

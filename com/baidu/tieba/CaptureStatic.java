@@ -50,7 +50,7 @@ public class CaptureStatic {
 
         /* renamed from: com.baidu.tieba.CaptureStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0215a implements a0a {
+        public class C0215a implements b0a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomResponsedMessage a;
@@ -85,7 +85,7 @@ public class CaptureStatic {
                 public void onDownloadCancel(PackageInfo packageInfo) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(1048576, this, packageInfo) == null) {
-                        yk8 defaultLog = DefaultLog.getInstance();
+                        zk8 defaultLog = DefaultLog.getInstance();
                         defaultLog.c("write", "打开视频编辑页4，libcbffmpeg.so下载取消:" + packageInfo);
                         d65.a("write", 100L, 0, "CaptureStatic_onArDownloadSuccess_nonSo_onDownloadCancel", 0, "", new Object[0]);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.FALSE));
@@ -97,7 +97,7 @@ public class CaptureStatic {
                 public void onDownloadError(PackageInfo packageInfo, ErrorInfo errorInfo) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo, errorInfo) == null) {
-                        yk8 defaultLog = DefaultLog.getInstance();
+                        zk8 defaultLog = DefaultLog.getInstance();
                         defaultLog.c("write", "打开视频编辑页4，libcbffmpeg.so下载失败:" + packageInfo + " errorInfo:" + errorInfo);
                         d65.a("write", 100L, 0, "CaptureStatic_onArDownloadSuccess_nonSo_onDownloadError", 0, "", new Object[0]);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.FALSE));
@@ -109,7 +109,7 @@ public class CaptureStatic {
                 public void onDownloadSuccess(PackageInfo packageInfo, ErrorInfo errorInfo) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, packageInfo, errorInfo) == null) {
-                        yk8 defaultLog = DefaultLog.getInstance();
+                        zk8 defaultLog = DefaultLog.getInstance();
                         defaultLog.c("write", "打开视频编辑页4，libcbffmpeg.so下载成功:" + TbadkCoreApplication.getInst().getCurrentActivity() + " " + packageInfo + " errorInfo:" + errorInfo);
                         d65.a("write", 100L, 0, "CaptureStatic_onArDownloadSuccess_nonSo_onDownloadSuccess", 0, "", new Object[0]);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.TRUE));
@@ -140,14 +140,14 @@ public class CaptureStatic {
                 this.b = intentConfig;
             }
 
-            @Override // com.baidu.tieba.a0a
+            @Override // com.baidu.tieba.b0a
             public void a() {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.a.getData() instanceof IntentConfig)) {
                     String str = BdBaseApplication.getInst().getResHashMap().get("libcbffmpeg.so");
                     d65.a("write", 100L, 0, "CaptureStatic_onArDownloadSuccess_start", 0, "", new Object[0]);
                     if (!StringUtils.isNull(str)) {
-                        yk8 defaultLog = DefaultLog.getInstance();
+                        zk8 defaultLog = DefaultLog.getInstance();
                         defaultLog.c("write", "打开视频编辑页3，libcbffmpeg.so存在，打开页面:" + str);
                         d65.a("write", 100L, 0, "CaptureStatic_onArDownloadSuccess_hasSo", 0, "", new Object[0]);
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.a.getData()));
@@ -165,7 +165,7 @@ public class CaptureStatic {
                 }
             }
 
-            @Override // com.baidu.tieba.a0a
+            @Override // com.baidu.tieba.b0a
             public void b() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -201,7 +201,7 @@ public class CaptureStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921582) {
                 DefaultLog.getInstance().c("write", "打开视频编辑页1，开始检测so");
-                uz9.b(TbadkCoreApplication.getInst(), new C0215a(this, customResponsedMessage, (IntentConfig) customResponsedMessage.getData()));
+                vz9.b(TbadkCoreApplication.getInst(), new C0215a(this, customResponsedMessage, (IntentConfig) customResponsedMessage.getData()));
             }
         }
     }

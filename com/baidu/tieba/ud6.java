@@ -3,7 +3,7 @@ package com.baidu.tieba;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b6a;
+import com.baidu.tieba.c6a;
 import com.baidu.tieba.td6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,14 +14,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ud6 implements td6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b6a a;
+    public c6a a;
     public TextView b;
     public td6.c c;
     public td6.b d;
     public td6.a e;
 
     /* loaded from: classes7.dex */
-    public class a implements b6a.a {
+    public class a implements c6a.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ud6 a;
@@ -44,7 +44,7 @@ public class ud6 implements td6 {
             this.a = ud6Var;
         }
 
-        @Override // com.baidu.tieba.b6a.a
+        @Override // com.baidu.tieba.c6a.a
         public void onProgress(float f) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
@@ -52,7 +52,7 @@ public class ud6 implements td6 {
             }
         }
 
-        @Override // com.baidu.tieba.b6a.a
+        @Override // com.baidu.tieba.c6a.a
         public void a(float f) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
@@ -65,7 +65,7 @@ public class ud6 implements td6 {
             }
         }
 
-        @Override // com.baidu.tieba.b6a.a
+        @Override // com.baidu.tieba.c6a.a
         public float getSpeed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public class ud6 implements td6 {
             return invokeV.floatValue;
         }
 
-        @Override // com.baidu.tieba.b6a.a
+        @Override // com.baidu.tieba.c6a.a
         public void onFinish() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a.c != null) {
@@ -87,12 +87,12 @@ public class ud6 implements td6 {
         }
     }
 
-    public ud6(b6a b6aVar, TextView textView, td6.c cVar, td6.b bVar, td6.a aVar) {
+    public ud6(c6a c6aVar, TextView textView, td6.c cVar, td6.b bVar, td6.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {b6aVar, textView, cVar, bVar, aVar};
+            Object[] objArr = {c6aVar, textView, cVar, bVar, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -102,7 +102,7 @@ public class ud6 implements td6 {
                 return;
             }
         }
-        this.a = b6aVar;
+        this.a = c6aVar;
         this.b = textView;
         this.c = cVar;
         this.d = bVar;
@@ -115,9 +115,9 @@ public class ud6 implements td6 {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            b6a b6aVar = this.a;
-            if (b6aVar != null) {
-                b6aVar.setMaxDuration(i);
+            c6a c6aVar = this.a;
+            if (c6aVar != null) {
+                c6aVar.setMaxDuration(i);
                 this.a.invalidate();
                 return true;
             }
@@ -131,9 +131,9 @@ public class ud6 implements td6 {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            b6a b6aVar = this.a;
-            if (b6aVar != null) {
-                b6aVar.setMinDuration(i);
+            c6a c6aVar = this.a;
+            if (c6aVar != null) {
+                c6aVar.setMinDuration(i);
                 this.a.invalidate();
                 return true;
             }
@@ -147,9 +147,9 @@ public class ud6 implements td6 {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
-            b6a b6aVar = this.a;
-            if (b6aVar != null) {
-                b6aVar.setProgress(j);
+            c6a c6aVar = this.a;
+            if (c6aVar != null) {
+                c6aVar.setProgress(j);
                 return true;
             }
             return false;
@@ -162,9 +162,9 @@ public class ud6 implements td6 {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
-            b6a b6aVar = this.a;
-            if (b6aVar != null) {
-                b6aVar.setShowDeleteLastTip(z);
+            c6a c6aVar = this.a;
+            if (c6aVar != null) {
+                c6aVar.setShowDeleteLastTip(z);
                 return true;
             }
             return false;
@@ -177,9 +177,9 @@ public class ud6 implements td6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            b6a b6aVar = this.a;
-            if (b6aVar != null) {
-                b6aVar.a();
+            c6a c6aVar = this.a;
+            if (c6aVar != null) {
+                c6aVar.a();
                 return true;
             }
             return false;
@@ -192,9 +192,9 @@ public class ud6 implements td6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            b6a b6aVar = this.a;
-            if (b6aVar != null) {
-                return b6aVar.b();
+            c6a c6aVar = this.a;
+            if (c6aVar != null) {
+                return c6aVar.b();
             }
             return false;
         }
@@ -206,9 +206,9 @@ public class ud6 implements td6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            b6a b6aVar = this.a;
-            if (b6aVar != null) {
-                return b6aVar.getMaxDuration();
+            c6a c6aVar = this.a;
+            if (c6aVar != null) {
+                return c6aVar.getMaxDuration();
             }
             return 0;
         }
@@ -220,9 +220,9 @@ public class ud6 implements td6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            b6a b6aVar = this.a;
-            if (b6aVar != null) {
-                return b6aVar.getProgress();
+            c6a c6aVar = this.a;
+            if (c6aVar != null) {
+                return c6aVar.getProgress();
             }
             return 0.0f;
         }
@@ -234,9 +234,9 @@ public class ud6 implements td6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            b6a b6aVar = this.a;
-            if (b6aVar != null) {
-                return b6aVar.getSlideNum();
+            c6a c6aVar = this.a;
+            if (c6aVar != null) {
+                return c6aVar.getSlideNum();
             }
             return 0;
         }
@@ -247,11 +247,11 @@ public class ud6 implements td6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            b6a b6aVar = this.a;
-            if (b6aVar == null) {
+            c6a c6aVar = this.a;
+            if (c6aVar == null) {
                 return false;
             }
-            b6aVar.setOnProgressListener(new a(this));
+            c6aVar.setOnProgressListener(new a(this));
             return true;
         }
         return invokeV.booleanValue;
@@ -262,9 +262,9 @@ public class ud6 implements td6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            b6a b6aVar = this.a;
-            if (b6aVar != null) {
-                b6aVar.stop();
+            c6a c6aVar = this.a;
+            if (c6aVar != null) {
+                c6aVar.stop();
                 return true;
             }
             return false;
@@ -277,9 +277,9 @@ public class ud6 implements td6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            b6a b6aVar = this.a;
-            if (b6aVar != null) {
-                b6aVar.reset();
+            c6a c6aVar = this.a;
+            if (c6aVar != null) {
+                c6aVar.reset();
                 return true;
             }
             return false;
@@ -292,9 +292,9 @@ public class ud6 implements td6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            b6a b6aVar = this.a;
-            if (b6aVar != null) {
-                b6aVar.start();
+            c6a c6aVar = this.a;
+            if (c6aVar != null) {
+                c6aVar.start();
                 return true;
             }
             return false;

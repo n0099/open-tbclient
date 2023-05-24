@@ -37,7 +37,7 @@ import com.baidu.tieba.d25;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.uq9;
+import com.baidu.tieba.vq9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -64,7 +64,7 @@ public class zg5 extends we5 {
     public String o;
     public wg5 p;
     public ThreadData q;
-    public uq9.g r;
+    public vq9.g r;
     public boolean s;
     public int t;
     public int u;
@@ -203,7 +203,7 @@ public class zg5 extends we5 {
                         }
                     } else if (postWriteCallBackData != null && i == 227001) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.a.b.getPageActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
-                    } else if (i != 238010 && !jz9.d(i)) {
+                    } else if (i != 238010 && !kz9.d(i)) {
                         this.a.getContext().showToast(str);
                     }
                 } else {
@@ -252,7 +252,7 @@ public class zg5 extends we5 {
     }
 
     /* loaded from: classes8.dex */
-    public class c implements uq9.g {
+    public class c implements vq9.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zg5 a;
@@ -275,7 +275,7 @@ public class zg5 extends we5 {
             this.a = zg5Var;
         }
 
-        @Override // com.baidu.tieba.uq9.g
+        @Override // com.baidu.tieba.vq9.g
         public void a(WriteData writeData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, writeData) == null) {
@@ -408,7 +408,7 @@ public class zg5 extends we5 {
         NewWriteModel newWriteModel = new NewWriteModel(tbPageContext);
         this.h = newWriteModel;
         newWriteModel.s0(this.v);
-        uq9.r(this.j.W(), new c(this));
+        vq9.r(this.j.W(), new c(this));
     }
 
     public final void K(ArrayList<AtSelectData> arrayList) {
@@ -467,7 +467,7 @@ public class zg5 extends we5 {
         }
     }
 
-    public void S(uq9.g gVar) {
+    public void S(vq9.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, gVar) == null) {
             this.r = gVar;
@@ -632,7 +632,7 @@ public class zg5 extends we5 {
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
-            uq9.B(this.e, null);
+            vq9.B(this.e, null);
         }
     }
 
@@ -846,7 +846,7 @@ public class zg5 extends we5 {
             writeData.onSaveDrafDataParse(this.i);
             writeData.setReplyId(this.d);
             writeData.setThreadId(this.e);
-            uq9.B(this.e, writeData);
+            vq9.B(this.e, writeData);
         }
     }
 

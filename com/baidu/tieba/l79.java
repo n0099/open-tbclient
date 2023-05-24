@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.card.data.BaseCardInfo;
@@ -13,9 +14,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class l79 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static BdUniqueId b;
+    public static BdUniqueId q;
     public transient /* synthetic */ FieldHolder $fh;
-    public UserData a;
+    public int a;
+    public int b;
+    public boolean c;
+    public boolean d;
+    public String e;
+    public boolean f;
+    public String g;
+    public UserData h;
+    public n79 i;
+    public Bundle j;
+    public int k;
+    public String l;
+    public int m;
+    public boolean n;
+    public boolean o;
+    public boolean p;
 
     static {
         InterceptResult invokeClinit;
@@ -30,7 +46,7 @@ public class l79 extends BaseCardInfo {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        q = BdUniqueId.gen();
     }
 
     public l79() {
@@ -52,7 +68,7 @@ public class l79 extends BaseCardInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
+            return q;
         }
         return (BdUniqueId) invokeV.objValue;
     }

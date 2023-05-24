@@ -1,27 +1,22 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.content.Context;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView;
-import com.baidu.tieba.impersonal.data.VoiceMsgContent;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class lg8 extends jg8<VoiceMsgContent, ChatVoiceView, ne8> {
+public final class lg8 extends kg8<se8, ImageView, me8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int b;
-    public final int c;
-    public final int d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public lg8(String name) {
@@ -42,81 +37,42 @@ public final class lg8 extends jg8<VoiceMsgContent, ChatVoiceView, ne8> {
             }
         }
         Intrinsics.checkNotNullParameter(name, "name");
-        this.b = ri.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
-        this.c = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds38);
-        this.d = ri.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
-    }
-
-    public static final boolean l(ne8 data, View it) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, data, it)) == null) {
-            Intrinsics.checkNotNullParameter(data, "$data");
-            Function2<View, ue8<VoiceMsgContent>, Unit> d = data.d();
-            if (d != null) {
-                Intrinsics.checkNotNullExpressionValue(it, "it");
-                d.invoke(it, data.c());
-                return true;
-            }
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.jg8
-    public void f(ViewGroup container) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, container) == null) {
-            Intrinsics.checkNotNullParameter(container, "container");
-            int i = this.b;
-            int i2 = this.d;
-            container.setPadding(i, i2, this.c, i2);
-        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jg8
-    /* renamed from: k */
-    public void d(ChatVoiceView chatVoiceView, final ne8 data) {
-        VoiceData.VoiceModel d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, chatVoiceView, data) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            if (chatVoiceView != null) {
-                chatVoiceView.j(true, !data.c().e().d());
-                VoiceMsgContent f = data.c().f();
-                if (f != null && (d = f.d()) != null) {
-                    chatVoiceView.setData(d);
-                }
-                chatVoiceView.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.cg8
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // android.view.View.OnLongClickListener
-                    public final boolean onLongClick(View view2) {
-                        InterceptResult invokeL;
-                        Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view2)) == null) ? lg8.l(ne8.this, view2) : invokeL.booleanValue;
-                    }
-                });
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jg8
-    /* renamed from: m */
-    public ChatVoiceView g(ViewGroup parent) {
+    @Override // com.baidu.tieba.kg8
+    /* renamed from: l */
+    public ImageView g(ViewGroup parent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, parent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, parent)) == null) {
             Intrinsics.checkNotNullParameter(parent, "parent");
-            ChatVoiceView chatVoiceView = new ChatVoiceView(parent.getContext(), true);
-            chatVoiceView.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            chatVoiceView.setId(R.id.obfuscated_res_0x7f090e7c);
-            chatVoiceView.setOnClickListener(chatVoiceView);
-            return chatVoiceView;
+            Context context = parent.getContext();
+            Intrinsics.checkNotNullExpressionValue(context, "parent.context");
+            TbImage tbImage = new TbImage(context, null, 0, 6, null);
+            tbImage.setLayoutParams(new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds96), UtilHelper.getDimenPixelSize(R.dimen.tbds50)));
+            return tbImage;
         }
-        return (ChatVoiceView) invokeL.objValue;
+        return (ImageView) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kg8
+    /* renamed from: k */
+    public void d(ImageView imageView, me8 data) {
+        TbImage tbImage;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, imageView, data) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            if (imageView instanceof TbImage) {
+                tbImage = (TbImage) imageView;
+            } else {
+                tbImage = null;
+            }
+            se8 f = data.c().f();
+            if (f != null && tbImage != null) {
+                tbImage.k("res://drawable/" + f.a());
+            }
+        }
     }
 }

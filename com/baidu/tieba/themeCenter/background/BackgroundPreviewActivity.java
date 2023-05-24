@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
 import com.baidu.tieba.oh5;
 import com.baidu.tieba.rn5;
 import com.baidu.tieba.themeCenter.background.BackgroundPreviewModel;
-import com.baidu.tieba.yx9;
+import com.baidu.tieba.zx9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BackgroundPreviewModel a;
-    public yx9 b;
+    public zx9 b;
     public int c;
     public int d;
     public int e;
@@ -161,19 +161,19 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
             if (backgroundPreviewModel != null) {
                 backgroundPreviewModel.destroy();
             }
-            yx9 yx9Var = this.b;
-            if (yx9Var != null) {
-                yx9Var.h();
+            zx9 zx9Var = this.b;
+            if (zx9Var != null) {
+                zx9Var.h();
             }
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        yx9 yx9Var;
+        zx9 zx9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a != null && (yx9Var = this.b) != null) {
-            showLoadingView(yx9Var.f());
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a != null && (zx9Var = this.b) != null) {
+            showLoadingView(zx9Var.f());
             this.a.loadData();
         }
     }
@@ -192,9 +192,9 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            yx9 yx9Var = this.b;
-            if (yx9Var != null) {
-                yx9Var.g();
+            zx9 zx9Var = this.b;
+            if (zx9Var != null) {
+                zx9Var.g();
             }
         }
     }
@@ -225,9 +225,9 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
             BackgroundPreviewModel backgroundPreviewModel = new BackgroundPreviewModel(this.c, this.d);
             this.a = backgroundPreviewModel;
             backgroundPreviewModel.Z(this.f);
-            yx9 yx9Var = new yx9(this);
-            this.b = yx9Var;
-            showLoadingView(yx9Var.f());
+            zx9 zx9Var = new zx9(this);
+            this.b = zx9Var;
+            showLoadingView(zx9Var.f());
             this.b.j(new b(this));
             this.a.loadData();
         }

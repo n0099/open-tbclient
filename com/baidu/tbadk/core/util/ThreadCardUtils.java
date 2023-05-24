@@ -40,23 +40,23 @@ import com.baidu.tbadk.switchs.HeadlinesPrefetchSwitch;
 import com.baidu.tbadk.widget.tiejia.TiePlusEventController;
 import com.baidu.tieba.R;
 import com.baidu.tieba.aj;
-import com.baidu.tieba.d87;
-import com.baidu.tieba.dh6;
 import com.baidu.tieba.e85;
-import com.baidu.tieba.hj6;
+import com.baidu.tieba.e87;
+import com.baidu.tieba.eh6;
+import com.baidu.tieba.ij6;
 import com.baidu.tieba.jy4;
 import com.baidu.tieba.m15;
 import com.baidu.tieba.os5;
 import com.baidu.tieba.ox5;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.pg;
-import com.baidu.tieba.q4a;
 import com.baidu.tieba.qi;
+import com.baidu.tieba.r4a;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.t65;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.w05;
-import com.baidu.tieba.yk8;
+import com.baidu.tieba.zk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -409,13 +409,13 @@ public final class ThreadCardUtils {
                     ThreadRecommendTagUtil.setTag(spannableStringBuilder, threadData);
                 }
                 textView.setVisibility(0);
-                textView.setOnTouchListener(new q4a(spannableStringBuilder));
+                textView.setOnTouchListener(new r4a(spannableStringBuilder));
                 if (i > 0) {
                     cutAndSetTextByMaxLineForDot(textView, spannableStringBuilder, i2, i);
                 } else {
                     textView.setText(spannableStringBuilder);
                 }
-                hj6.l(textView, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                ij6.l(textView, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
             }
         }
     }
@@ -525,9 +525,9 @@ public final class ThreadCardUtils {
         if (threadData != null && spannableString != null && !qi.isEmptyStringAfterTrim(spannableString.toString())) {
             textView.setVisibility(0);
             threadData.setShowFullThread(false);
-            textView.setOnTouchListener(new q4a(spannableString));
+            textView.setOnTouchListener(new r4a(spannableString));
             threadData.setShowFullThread(cutAndSetTextByMaxLine(textView, new SpannableStringBuilder(spannableString), 5, (int) f));
-            hj6.l(textView, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+            ij6.l(textView, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
             return;
         }
         textView.setVisibility(8);
@@ -669,9 +669,9 @@ public final class ThreadCardUtils {
                 }
                 return;
             }
-            String g = hj6.g();
+            String g = ij6.g();
             if (i == 3) {
-                g = hj6.f();
+                g = ij6.f();
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921498, Long.valueOf(threadData.getFid())));
             }
             PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(threadData, null, g, 18003, true, false, false);
@@ -707,17 +707,17 @@ public final class ThreadCardUtils {
             createFromThreadCfg.setFromHomePageQuality(z3);
             if (TbSingleton.getInstance().isPbPreloadSwitchOn() && isPreloadType(threadData) && !z2 && !z4) {
                 createFromThreadCfg.setNeedPreLoad(true);
-                d87.update(threadData);
+                e87.update(threadData);
             }
             createFromThreadCfg.setThreadData(threadData);
             createFromThreadCfg.setVideoOriginArea(rect);
             createFromThreadCfg.setIsPrivacy(threadData.isPrivacy);
-            hj6.a(threadData.getTid());
+            ij6.a(threadData.getTid());
             if (threadData != null && threadData.getTaskInfoData() != null) {
                 if (HeadlinesPrefetchSwitch.isOn() && !UbsABTestHelper.isExistSid(KEY_TOUTIAO_PREFETCH_A) && StringUtils.isNotNull(threadData.getTaskInfoData().r())) {
-                    yk8 defaultLog = DefaultLog.getInstance();
+                    zk8 defaultLog = DefaultLog.getInstance();
                     defaultLog.c(TAG, "头条卡，点击frs卡片区域预取, url: " + threadData.getTaskInfoData().r());
-                    dh6.c(threadData.getTaskInfoData().r());
+                    eh6.c(threadData.getTaskInfoData().r());
                 }
                 createFromThreadCfg.setFromCardType(threadData.getTaskInfoData().j());
             }
@@ -729,9 +729,9 @@ public final class ThreadCardUtils {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLII(65565, null, jy4Var, context, i, i2) == null) && jy4Var != null && context != null && jy4Var.getThreadData() != null) {
             ThreadData threadData = jy4Var.getThreadData();
-            String g = hj6.g();
+            String g = ij6.g();
             if (i == 3) {
-                g = hj6.f();
+                g = ij6.f();
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921498, Long.valueOf(threadData.getFid())));
             }
             PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(threadData, null, g, 18003, true, false, false);
@@ -762,7 +762,7 @@ public final class ThreadCardUtils {
             if (threadData.isInterviewLiveStyle() && createFromThreadCfg.getIntent() != null) {
                 createFromThreadCfg.getIntent().putExtra("KEY_IS_INTERVIEW_LIVE", true);
             }
-            hj6.a(threadData.getTid());
+            ij6.a(threadData.getTid());
             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createFromThreadCfg));
             cancelHighLight(threadData);
         }
@@ -801,13 +801,13 @@ public final class ThreadCardUtils {
                     ThreadRecommendTagUtil.setTag(spannableStringBuilder, threadData);
                 }
                 textView.setVisibility(0);
-                textView.setOnTouchListener(new q4a(spannableStringBuilder));
+                textView.setOnTouchListener(new r4a(spannableStringBuilder));
                 if (i > 0) {
                     cutAndSetTextByMaxLine(textView, spannableStringBuilder, 5, i);
                 } else {
                     textView.setText(spannableStringBuilder);
                 }
-                hj6.l(textView, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                ij6.l(textView, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
             }
         }
     }
@@ -827,7 +827,7 @@ public final class ThreadCardUtils {
                         spannableStringBuilder.insert(threadData.getTabName().length(), (CharSequence) TAB_NAME_SPLIT_STRING);
                         spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0203)), threadData.getTabName().length(), threadData.getTabName().length() + 5, 33);
                     }
-                    textView.setOnTouchListener(new q4a(spannableStringBuilder));
+                    textView.setOnTouchListener(new r4a(spannableStringBuilder));
                     setAbstractStyleAb(textView);
                     if (textView2.getVisibility() != 8) {
                         i2 = 5 - aj.a(i, textView2.getPaint(), textView2.getText().toString(), 2);
@@ -846,7 +846,7 @@ public final class ThreadCardUtils {
                     textView.setVisibility(8);
                 }
                 if (!z) {
-                    hj6.l(textView, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    ij6.l(textView, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                     return;
                 } else if (!(textView instanceof TextView)) {
                     return;
@@ -897,7 +897,7 @@ public final class ThreadCardUtils {
                         setExcellentThreadPrefix(spannableStringBuilder);
                     }
                     setAbstractStyleAb(textView);
-                    textView.setOnTouchListener(new q4a(spannableStringBuilder));
+                    textView.setOnTouchListener(new r4a(spannableStringBuilder));
                     textView.setVisibility(0);
                     if (z2) {
                         i2 = 2;
@@ -920,7 +920,7 @@ public final class ThreadCardUtils {
                 } else {
                     textView.setVisibility(8);
                 }
-                hj6.l(textView, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                ij6.l(textView, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 return;
             }
             textView.setVisibility(8);

@@ -21,13 +21,13 @@ import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.util.tbselector.shadow.ShadowDrawable;
 import com.baidu.tieba.R;
 import com.baidu.tieba.cn;
-import com.baidu.tieba.e0a;
+import com.baidu.tieba.f0a;
 import com.baidu.tieba.homepage.concern.adapter.ContentCollectListAdapter;
 import com.baidu.tieba.kg;
 import com.baidu.tieba.lg;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.rq7;
+import com.baidu.tieba.sq7;
 import com.baidu.tieba.ux;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -47,7 +47,7 @@ public class RecommendCollectLayout extends RelativeLayout implements ux {
     public BdRecyclerView c;
     public EMTextView d;
     public int e;
-    public rq7 f;
+    public sq7 f;
     public int g;
     public BdUniqueId h;
     public Boolean i;
@@ -134,13 +134,13 @@ public class RecommendCollectLayout extends RelativeLayout implements ux {
     }
 
     public final void c(boolean z) {
-        rq7 rq7Var;
+        sq7 sq7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) != null) || (rq7Var = this.f) == null) {
+        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) != null) || (sq7Var = this.f) == null) {
             return;
         }
-        if (!z && rq7Var.d() != null && !TextUtils.isEmpty(e0a.h(this.f.d()))) {
-            cn cnVar = (cn) lg.h().m(e0a.h(this.f.d()), 45, this.j, this.h);
+        if (!z && sq7Var.d() != null && !TextUtils.isEmpty(f0a.h(this.f.d()))) {
+            cn cnVar = (cn) lg.h().m(f0a.h(this.f.d()), 45, this.j, this.h);
             if (cnVar != null) {
                 setBackground(cnVar.j());
                 return;
@@ -152,11 +152,11 @@ public class RecommendCollectLayout extends RelativeLayout implements ux {
 
     private int getDefaultIdByNumber() {
         InterceptResult invokeV;
-        rq7 rq7Var;
+        sq7 sq7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            rq7 rq7Var2 = this.f;
-            if ((rq7Var2 != null && rq7Var2.e()) || (rq7Var = this.f) == null || ListUtils.getCount(rq7Var.getDataList()) <= k.intValue()) {
+            sq7 sq7Var2 = this.f;
+            if ((sq7Var2 != null && sq7Var2.e()) || (sq7Var = this.f) == null || ListUtils.getCount(sq7Var.getDataList()) <= k.intValue()) {
                 return R.drawable.bg_home_card_heji_two;
             }
             return R.drawable.bg_home_card_heji;
@@ -225,19 +225,19 @@ public class RecommendCollectLayout extends RelativeLayout implements ux {
         }
     }
 
-    public void setData(rq7 rq7Var) {
+    public void setData(sq7 sq7Var) {
         int i;
         int i2;
         int i3;
         int i4;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, rq7Var) != null) || rq7Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, sq7Var) != null) || sq7Var == null) {
             return;
         }
-        this.f = rq7Var;
+        this.f = sq7Var;
         if (getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) getLayoutParams();
-            if (rq7Var.c() > 0) {
+            if (sq7Var.c() > 0) {
                 marginLayoutParams.topMargin = ri.g(getContext(), R.dimen.M_H_X001);
             } else {
                 marginLayoutParams.topMargin = 0;
@@ -248,12 +248,12 @@ public class RecommendCollectLayout extends RelativeLayout implements ux {
         pureDrawable.setBounds(0, 0, ri.g(getContext(), R.dimen.tbds96), ri.g(getContext(), R.dimen.T_X07));
         this.d.setCompoundDrawables(pureDrawable, null, null, null);
         this.d.setCompoundDrawablePadding(ri.g(getContext(), R.dimen.M_W_X001));
-        this.d.setText(rq7Var.getTitle());
-        this.b.q(rq7Var.getDataList());
+        this.d.setText(sq7Var.getTitle());
+        this.b.q(sq7Var.getDataList());
         this.b.r(this.e);
         Boolean bool = this.i;
-        if (bool == null || bool.booleanValue() != rq7Var.e()) {
-            boolean e = rq7Var.e();
+        if (bool == null || bool.booleanValue() != sq7Var.e()) {
+            boolean e = sq7Var.e();
             if (e) {
                 this.b.p(ContentCollectListAdapter.CornerType.FULL);
             } else {

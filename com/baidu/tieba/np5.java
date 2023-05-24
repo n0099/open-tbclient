@@ -13,14 +13,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class np5 extends pp5<jk6, CardViewHolder<fj6>> {
+public class np5 extends pp5<kk6, CardViewHolder<gj6>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NEGFeedBackView.b g;
-    public vj6<jk6> h;
+    public wj6<kk6> h;
 
     /* loaded from: classes6.dex */
-    public class a extends vj6<jk6> {
+    public class a extends wj6<kk6> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ np5 b;
@@ -44,12 +44,12 @@ public class np5 extends pp5<jk6, CardViewHolder<fj6>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vj6
+        @Override // com.baidu.tieba.wj6
         /* renamed from: d */
-        public void a(View view2, jk6 jk6Var) {
+        public void a(View view2, kk6 kk6Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, jk6Var) == null) {
-                this.b.u(view2, jk6Var);
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, kk6Var) == null) {
+                this.b.u(view2, kk6Var);
             }
         }
     }
@@ -80,14 +80,14 @@ public class np5 extends pp5<jk6, CardViewHolder<fj6>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.en
     /* renamed from: O */
-    public CardViewHolder<fj6> onCreateViewHolder(ViewGroup viewGroup) {
+    public CardViewHolder<gj6> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            fj6 fj6Var = new fj6(this.c, this.mPageId);
-            fj6Var.E(C());
-            fj6Var.Z(this.mPageId);
-            return new CardViewHolder<>(fj6Var);
+            gj6 gj6Var = new gj6(this.c, this.mPageId);
+            gj6Var.E(C());
+            gj6Var.Z(this.mPageId);
+            return new CardViewHolder<>(gj6Var);
         }
         return (CardViewHolder) invokeL.objValue;
     }
@@ -95,17 +95,17 @@ public class np5 extends pp5<jk6, CardViewHolder<fj6>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.en
     /* renamed from: P */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, jk6 jk6Var, CardViewHolder<fj6> cardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, kk6 kk6Var, CardViewHolder<gj6> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, jk6Var, cardViewHolder})) == null) {
-            jk6Var.B(jk6Var.position + 1);
-            fj6 a2 = cardViewHolder.a();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, kk6Var, cardViewHolder})) == null) {
+            kk6Var.B(kk6Var.position + 1);
+            gj6 a2 = cardViewHolder.a();
             a2.c0(i + 1);
-            a2.i(jk6Var);
+            a2.i(kk6Var);
             a2.n(this.h);
             a2.D(this.g);
-            N(cardViewHolder.getView(), jk6Var, i, i);
+            N(cardViewHolder.getView(), kk6Var, i, i);
             return cardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

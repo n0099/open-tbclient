@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.we6;
-import com.baidu.tieba.y7b;
+import com.baidu.tieba.z7b;
 /* loaded from: classes4.dex */
 public class InitWebViewTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -24,9 +24,9 @@ public class InitWebViewTask extends LaunchTask {
         try {
             we6 we6Var = new we6();
             we6Var.h(TbadkCoreApplication.getInst().isDebugMode());
-            we6.e(new y7b<String>() { // from class: com.baidu.searchbox.task.view.appcreate.InitWebViewTask.1
+            we6.e(new z7b<String>() { // from class: com.baidu.searchbox.task.view.appcreate.InitWebViewTask.1
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tieba.y7b
+                @Override // com.baidu.tieba.z7b
                 public String call() {
                     StringBuffer stringBuffer = new StringBuffer();
                     stringBuffer.append(" tieba/");

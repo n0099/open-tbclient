@@ -187,7 +187,7 @@ public class t16 {
                 if (StringUtils.isNull(str2)) {
                     return;
                 }
-                if (fh6.e("https://ad-tmp/")) {
+                if (gh6.e("https://ad-tmp/")) {
                     adWebViewActivityConfig = new AdBrowserActivityConfig(context, str, str2, z, z2, z3, bundle);
                 } else {
                     adWebViewActivityConfig = new AdWebViewActivityConfig(context, str, str2, z, z2, z3, bundle);

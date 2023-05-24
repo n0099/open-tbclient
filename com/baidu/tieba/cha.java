@@ -1,13 +1,9 @@
 package com.baidu.tieba;
+
+import android.os.IBinder;
 /* loaded from: classes5.dex */
 public interface cha {
-    zga a();
+    IBinder a(String str);
 
-    bha b();
-
-    bga c();
-
-    fga d();
-
-    aha e();
+    void b();
 }

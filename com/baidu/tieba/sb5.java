@@ -227,7 +227,7 @@ public class sb5 {
                         aVar.i = null;
                     }
                     int serverErrorCode = this.a.getServerErrorCode();
-                    if (AntiHelper.a(this.m.getContext(), serverErrorCode, aVar.h) || jz9.b(this.m.getContext(), serverErrorCode, this.a.getErrorString())) {
+                    if (AntiHelper.a(this.m.getContext(), serverErrorCode, aVar.h) || kz9.b(this.m.getContext(), serverErrorCode, this.a.getErrorString())) {
                         return;
                     }
                     UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);

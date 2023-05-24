@@ -48,8 +48,8 @@ import com.baidu.tieba.ri;
 import com.baidu.tieba.t65;
 import com.baidu.tieba.ux;
 import com.baidu.tieba.v75;
-import com.baidu.tieba.vg7;
 import com.baidu.tieba.video.VideoItemData;
+import com.baidu.tieba.wg7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -558,10 +558,10 @@ public class CardItemHotVideoLayout extends LinearLayout implements ux {
         c();
     }
 
-    public void setData(vg7 vg7Var) {
+    public void setData(wg7 wg7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, vg7Var) == null) {
-            this.d = vg7Var.c();
+        if (interceptable == null || interceptable.invokeL(1048579, this, wg7Var) == null) {
+            this.d = wg7Var.c();
             this.c.notifyDataSetChanged();
         }
     }

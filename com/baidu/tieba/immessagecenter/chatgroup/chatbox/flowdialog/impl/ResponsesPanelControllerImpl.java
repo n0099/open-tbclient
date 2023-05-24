@@ -10,12 +10,12 @@ import com.baidu.tieba.immessagecenter.chatgroup.chatbox.flowdialog.ResponsesPan
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
-import com.baidu.tieba.j78;
 import com.baidu.tieba.k78;
 import com.baidu.tieba.l78;
 import com.baidu.tieba.m78;
 import com.baidu.tieba.n78;
 import com.baidu.tieba.o78;
+import com.baidu.tieba.p78;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -25,8 +25,8 @@ import java.util.Map;
 public class ResponsesPanelControllerImpl implements ResponsesPanelController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final m78 a;
-    public final l78 b;
+    public final n78 a;
+    public final m78 b;
     @NonNull
     public GroupChatFragment c;
 
@@ -46,8 +46,8 @@ public class ResponsesPanelControllerImpl implements ResponsesPanelController {
             }
         }
         this.c = groupChatFragment;
-        this.b = new n78(groupChatFragment.getPageContext());
-        this.a = new o78(groupChatFragment.getPageContext(), this);
+        this.b = new o78(groupChatFragment.getPageContext());
+        this.a = new p78(groupChatFragment.getPageContext(), this);
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
@@ -98,17 +98,17 @@ public class ResponsesPanelControllerImpl implements ResponsesPanelController {
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.flowdialog.ResponsesPanelController
-    public void c(@NonNull k78 k78Var) {
+    public void c(@NonNull l78 l78Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k78Var) == null) {
-            this.a.c(k78Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l78Var) == null) {
+            this.a.c(l78Var);
         }
     }
 
-    public void n(@NonNull j78 j78Var) {
+    public void n(@NonNull k78 k78Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, j78Var) == null) {
-            this.b.n(j78Var);
+        if (interceptable == null || interceptable.invokeL(1048587, this, k78Var) == null) {
+            this.b.n(k78Var);
         }
     }
 

@@ -14,20 +14,20 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cv8;
+import com.baidu.tieba.dv8;
 import com.baidu.tieba.m75;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.view.NoScrollGridView;
-import com.baidu.tieba.vu8;
 import com.baidu.tieba.wu8;
+import com.baidu.tieba.xu8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragment implements vu8.a {
+public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragment implements wu8.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View g;
@@ -36,7 +36,7 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
     public TextView j;
     public TextView k;
     public NoScrollGridView l;
-    public cv8 m;
+    public dv8 m;
 
     public InterestSelectionStyleAFragment() {
         Interceptable interceptable = $ic;
@@ -153,9 +153,9 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            wu8 wu8Var = new wu8(null, getContext());
-            this.c = wu8Var;
-            this.m = new cv8(this, wu8Var);
+            xu8 xu8Var = new xu8(null, getContext());
+            this.c = xu8Var;
+            this.m = new dv8(this, xu8Var);
         }
     }
 

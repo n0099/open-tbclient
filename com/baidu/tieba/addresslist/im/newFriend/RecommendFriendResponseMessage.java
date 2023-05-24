@@ -2,7 +2,7 @@ package com.baidu.tieba.addresslist.im.newFriend;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.e28;
+import com.baidu.tieba.f28;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public class RecommendFriendResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<e28> mDatas;
+    public List<f28> mDatas;
     public int mErrCode;
     public String mErrMsg;
 
@@ -57,26 +57,26 @@ public class RecommendFriendResponseMessage extends JsonHttpResponsedMessage {
                 if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("recommend_list")) != null) {
                     this.mDatas = new ArrayList();
                     for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                        e28 e28Var = new e28();
+                        f28 f28Var = new f28();
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
-                        e28Var.h(jSONObject2.optLong("user_id"));
-                        e28Var.j(jSONObject2.optString("user_name"));
-                        e28Var.k(jSONObject2.optString("portrait"));
-                        e28Var.g(jSONObject2.optString("message"));
+                        f28Var.h(jSONObject2.optLong("user_id"));
+                        f28Var.j(jSONObject2.optString("user_name"));
+                        f28Var.k(jSONObject2.optString("portrait"));
+                        f28Var.g(jSONObject2.optString("message"));
                         if (jSONObject2.optInt("type") == 0) {
-                            e28Var.l(0);
+                            f28Var.l(0);
                         } else {
-                            e28Var.l(1);
+                            f28Var.l(1);
                         }
-                        e28Var.i(1);
-                        this.mDatas.add(e28Var);
+                        f28Var.i(1);
+                        this.mDatas.add(f28Var);
                     }
                 }
             }
         }
     }
 
-    public List<e28> getDatas() {
+    public List<f28> getDatas() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

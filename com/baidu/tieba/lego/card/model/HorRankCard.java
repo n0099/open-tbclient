@@ -8,8 +8,8 @@ import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.lego.card.exception.CardParseException;
-import com.baidu.tieba.wi8;
-import com.baidu.tieba.yi8;
+import com.baidu.tieba.xi8;
+import com.baidu.tieba.zi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class HorRankCard extends BaseCardInfo {
     public final int position;
     public List<a> rankInfoList;
     public final double ratio;
-    public final wi8 rightText;
+    public final xi8 rightText;
     public final boolean scrollEnabled;
     public final boolean showLeft;
     public final boolean showSep;
@@ -91,8 +91,8 @@ public class HorRankCard extends BaseCardInfo {
                 return;
             }
         }
-        this.titleColor = yi8.b(jSONObject.optString("tColor", ""));
-        this.titleColorNight = yi8.b(jSONObject.optString("tColorNight", ""));
+        this.titleColor = zi8.b(jSONObject.optString("tColor", ""));
+        this.titleColorNight = zi8.b(jSONObject.optString("tColorNight", ""));
         this.displayNum = jSONObject.optDouble("displayNum", 5.0d);
         this.ratio = jSONObject.optDouble(MapBundleKey.OfflineMapKey.OFFLINE_RATION, 1.0d);
         int optInt = jSONObject.optInt("picType", 1);
@@ -146,13 +146,13 @@ public class HorRankCard extends BaseCardInfo {
             aVar.h = optJSONObject.optString("btnText");
             aVar.i = optJSONObject.optString("btnDone");
             aVar.j = optJSONObject.optString("picScheme");
-            aVar.k = yi8.b(optJSONObject.optString("bgColor", ""));
-            yi8.b(optJSONObject.optString("bgColorNight", ""));
+            aVar.k = zi8.b(optJSONObject.optString("bgColor", ""));
+            zi8.b(optJSONObject.optString("bgColorNight", ""));
             optJSONObject.optLong("resourceId");
             aVar.l = this;
             this.rankInfoList.add(aVar);
         }
-        this.rightText = wi8.a(jSONObject.optJSONObject("moreButton"));
+        this.rightText = xi8.a(jSONObject.optJSONObject("moreButton"));
     }
 
     public double getDisplayNum() {
@@ -210,13 +210,13 @@ public class HorRankCard extends BaseCardInfo {
         return invokeV.doubleValue;
     }
 
-    public wi8 getRightText() {
+    public xi8 getRightText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.rightText;
         }
-        return (wi8) invokeV.objValue;
+        return (xi8) invokeV.objValue;
     }
 
     public int getTitleColor() {

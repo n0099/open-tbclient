@@ -4,14 +4,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardOriginCardView;
+import com.baidu.tieba.feed.component.CardMultiLinkView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class v37 extends p27<CardOriginCardView, fz6> {
+public class v37 extends q27<CardMultiLinkView, fz6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,26 +35,26 @@ public class v37 extends p27<CardOriginCardView, fz6> {
         }
     }
 
-    @Override // com.baidu.tieba.p27, com.baidu.tieba.e37
+    @Override // com.baidu.tieba.q27, com.baidu.tieba.f37
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View a = super.a(viewGroup);
-            m47.k(a, 0);
+            n47.j(a);
             return a;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.e37
+    @Override // com.baidu.tieba.f37
     /* renamed from: e */
-    public void b(@NonNull CardOriginCardView cardOriginCardView, @NonNull fz6 fz6Var) {
+    public void b(@NonNull CardMultiLinkView cardMultiLinkView, @NonNull fz6 fz6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardOriginCardView, fz6Var) == null) {
-            cardOriginCardView.a(fz6Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardMultiLinkView, fz6Var) == null) {
+            cardMultiLinkView.a(fz6Var);
         }
     }
 }

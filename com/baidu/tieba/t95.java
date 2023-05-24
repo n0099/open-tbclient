@@ -2,7 +2,7 @@ package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ws9;
+import com.baidu.tieba.xs9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ public class t95 {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public String b;
-    public ws9.c c;
+    public xs9.c c;
 
     /* loaded from: classes7.dex */
     public static class a extends c {
@@ -125,7 +125,7 @@ public class t95 {
         return (t95) invokeL.objValue;
     }
 
-    public void g(ws9.c cVar) {
+    public void g(xs9.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
             this.c = cVar;
@@ -168,13 +168,13 @@ public class t95 {
         return (String) invokeV.objValue;
     }
 
-    public ws9.c f() {
+    public xs9.c f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.c;
         }
-        return (ws9.c) invokeV.objValue;
+        return (xs9.c) invokeV.objValue;
     }
 
     public int getType() {

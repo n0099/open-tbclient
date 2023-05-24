@@ -17,7 +17,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e6a;
+import com.baidu.tieba.f6a;
 import com.baidu.tieba.q06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -55,7 +55,7 @@ public class RangeSlider extends ViewGroup {
     public b v;
     public ValueAnimator w;
     public int x;
-    public e6a y;
+    public f6a y;
     public Paint z;
 
     /* loaded from: classes7.dex */
@@ -188,7 +188,7 @@ public class RangeSlider extends ViewGroup {
         Drawable drawable2 = obtainStyledAttributes.getDrawable(6);
         this.e = new ThumbView(context, this.p, this.q, drawable == null ? new ColorDrawable(-65456) : drawable);
         this.f = new ThumbView(context, this.p, this.q, drawable2 == null ? new ColorDrawable(-65456) : drawable2);
-        this.y = new e6a(context);
+        this.y = new f6a(context);
         this.y.setLayoutParams(new FrameLayout.LayoutParams(200, 200));
         obtainStyledAttributes.recycle();
         this.j = this.g;
@@ -203,18 +203,18 @@ public class RangeSlider extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(65539, this, f) == null) {
             if (this.A == 1) {
-                e6a e6aVar = this.y;
-                if (e6aVar != null) {
-                    e6aVar.setX(f);
+                f6a f6aVar = this.y;
+                if (f6aVar != null) {
+                    f6aVar.setX(f);
                     return;
                 }
                 return;
             }
-            e6a e6aVar2 = this.y;
-            if (e6aVar2 != null && (thumbView = this.f) != null) {
+            f6a f6aVar2 = this.y;
+            if (f6aVar2 != null && (thumbView = this.f) != null) {
                 float f2 = this.g;
                 if (f <= f2) {
-                    e6aVar2.setX(f2);
+                    f6aVar2.setX(f2);
                 } else if (f >= thumbView.getX()) {
                     this.y.setX(this.f.getX() - UtilHelper.getDimenPixelSize(R.dimen.tbds4));
                 } else {
@@ -351,8 +351,8 @@ public class RangeSlider extends ViewGroup {
             float f2 = this.n;
             this.j = (int) (f2 + (f * (this.o - f2)));
             invalidate();
-            e6a e6aVar = this.y;
-            if (e6aVar != null && !e6aVar.isPressed()) {
+            f6a f6aVar = this.y;
+            if (f6aVar != null && !f6aVar.isPressed()) {
                 setVideoPointerViewPosition(this.j);
             }
         }
@@ -495,7 +495,7 @@ public class RangeSlider extends ViewGroup {
     }
 
     public void n(float f, float f2) {
-        e6a e6aVar;
+        f6a f6aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
             ThumbView thumbView = this.e;
@@ -506,8 +506,8 @@ public class RangeSlider extends ViewGroup {
             if (thumbView2 != null) {
                 thumbView2.setX(f2);
             }
-            if (this.A == 1 && (e6aVar = this.y) != null) {
-                e6aVar.setX(f + this.p);
+            if (this.A == 1 && (f6aVar = this.y) != null) {
+                f6aVar.setX(f + this.p);
             }
             invalidate();
         }

@@ -18,10 +18,10 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ep5;
 import com.baidu.tieba.fb;
 import com.baidu.tieba.p45;
-import com.baidu.tieba.wda;
-import com.baidu.tieba.wp9;
 import com.baidu.tieba.write.write.work.classdialog.model.GetSelectClassHttpResMessage;
 import com.baidu.tieba.write.write.work.classdialog.model.GetSelectClassSocketResMessage;
+import com.baidu.tieba.xda;
+import com.baidu.tieba.xp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +34,7 @@ public class SelectTagActivity extends SuspendedActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout k;
     public SelectTagListView l;
-    public wda m;
+    public xda m;
     public List<String> n;
     public int o;
     public VideoCategoryClassData p;
@@ -231,7 +231,7 @@ public class SelectTagActivity extends SuspendedActivity {
             if (this.l.x()) {
                 p45.d(this.l.c).z(R.color.CAM_X0302);
             } else {
-                this.l.c.setTextColor(wp9.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+                this.l.c.setTextColor(xp9.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
             }
         }
     }
@@ -243,7 +243,7 @@ public class SelectTagActivity extends SuspendedActivity {
             super.onCreate(bundle);
             addGlobalLayoutListener();
             adjustResizeForSoftInput();
-            this.m = new wda(getUniqueId());
+            this.m = new xda(getUniqueId());
             this.l.d = findViewById(R.id.suspend_root_view);
             this.l.l();
             this.r.getHttpMessageListener().setSelfListener(true);

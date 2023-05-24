@@ -58,7 +58,7 @@ public class st5 {
     public static void d(String str, String str2, String str3, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65539, null, str, str2, str3, context) == null) {
-            yu4.x(context, null, sha.a(sha.a(sha.a(TbConfig.URL_FORUM_LEVEL_H5_PAGE, "portrait", str2), "forum_id", str), "obj_locate", str3), true, true, true);
+            yu4.x(context, null, tha.a(tha.a(tha.a(TbConfig.URL_FORUM_LEVEL_H5_PAGE, "portrait", str2), "forum_id", str), "obj_locate", str3), true, true, true);
         }
     }
 }

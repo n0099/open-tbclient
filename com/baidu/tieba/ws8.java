@@ -1,55 +1,18 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import androidx.annotation.NonNull;
+import tbclient.RecomTopicList;
 /* loaded from: classes8.dex */
 public interface ws8 {
-    void a();
+    void O(@NonNull RecomTopicList recomTopicList);
 
-    void b(boolean z);
+    void V0(tz7 tz7Var);
 
-    void c(int i);
+    void d1(int i);
 
-    void d(sz7 sz7Var);
+    void p(int i, sz7 sz7Var);
 
-    void destroy();
+    void p0(int i, tz7 tz7Var);
 
-    void e();
-
-    void f(boolean z);
-
-    void g(long j, long j2);
-
-    View getRootView();
-
-    sz7 h();
-
-    void i();
-
-    void j(boolean z, int i);
-
-    void k(int i);
-
-    int l();
-
-    void m();
-
-    void n(sz7 sz7Var);
-
-    void o(long j, long j2, int i);
-
-    rz7 p(int i);
-
-    void pause();
-
-    void q();
-
-    void r();
-
-    void resetView();
-
-    void resume();
-
-    void s(int i);
-
-    void t(rz7 rz7Var, boolean z, int i);
+    void q1(int i, long j, long j2, int i2);
 }

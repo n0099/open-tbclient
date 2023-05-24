@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ad.browser.newstyle.AdWebViewActivity;
 import com.baidu.tieba.ad.browser.newstyle.TBAdWebView;
-import com.baidu.tieba.ah9;
 import com.baidu.tieba.bh9;
+import com.baidu.tieba.ch9;
 import com.baidu.tieba.recapp.view.DistributeVideoView;
 import com.baidu.tieba.recapp.view.WebViewContainer;
 import com.baidu.tieba.ri;
@@ -40,7 +40,7 @@ public class AdWebVideoActivity extends AdWebViewActivity {
     public int K;
     public int L;
     public int M;
-    public ah9 N;
+    public bh9 N;
     public WebViewContainer.OnScrollChangedCallback O;
 
     /* loaded from: classes7.dex */
@@ -221,7 +221,7 @@ public class AdWebVideoActivity extends AdWebViewActivity {
                 if (this.M == 14) {
                     Integer valueOf = Integer.valueOf(ri.l(getActivity()));
                     builder.video_height = valueOf;
-                    builder.video_width = Integer.valueOf(bh9.c(valueOf.intValue()));
+                    builder.video_width = Integer.valueOf(ch9.c(valueOf.intValue()));
                 } else {
                     Integer valueOf2 = Integer.valueOf(ri.l(getActivity()));
                     builder.video_width = valueOf2;
@@ -240,9 +240,9 @@ public class AdWebVideoActivity extends AdWebViewActivity {
                 int intValue2 = build.video_height.intValue();
                 this.J = intValue2;
                 this.L = intValue2 / 2;
-                ah9 ah9Var = this.N;
-                if (ah9Var != null) {
-                    this.D.setVideoTailFrameData(ah9Var);
+                bh9 bh9Var = this.N;
+                if (bh9Var != null) {
+                    this.D.setVideoTailFrameData(bh9Var);
                 }
                 this.D.setPageContext(getPageContext());
                 this.D.setData(build, 2, getPageContext());
@@ -285,9 +285,9 @@ public class AdWebVideoActivity extends AdWebViewActivity {
                 this.M = intent.getIntExtra(AdWebVideoActivityConfig.KEY_GOOD_STYLE, 7);
                 String stringExtra = intent.getStringExtra(AdWebVideoActivityConfig.KEY_TAIL_FRAME);
                 if (!TextUtils.isEmpty(stringExtra)) {
-                    ah9 ah9Var = new ah9();
-                    this.N = ah9Var;
-                    ah9Var.c(stringExtra);
+                    bh9 bh9Var = new bh9();
+                    this.N = bh9Var;
+                    bh9Var.c(stringExtra);
                 }
             } else if (bundle != null) {
                 this.F = bundle.getString("video_url");

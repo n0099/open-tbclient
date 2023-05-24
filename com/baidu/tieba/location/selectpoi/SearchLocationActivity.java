@@ -31,14 +31,14 @@ import com.baidu.tieba.location.data.LocationSearchHttpResponsedMessage;
 import com.baidu.tieba.location.data.LocationSearchNetRequestMessage;
 import com.baidu.tieba.location.data.LocationSearchResponseMessage;
 import com.baidu.tieba.p45;
-import com.baidu.tieba.ps9;
 import com.baidu.tieba.qi;
+import com.baidu.tieba.qs9;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.selectpoi.NavigationBarActivity;
-import com.baidu.tieba.sk8;
 import com.baidu.tieba.tbadkCore.location.LocationData;
 import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
-import com.baidu.tieba.vk8;
+import com.baidu.tieba.tk8;
+import com.baidu.tieba.wk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,8 +50,8 @@ import java.util.List;
 public class SearchLocationActivity extends NavigationBarActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sk8 f;
-    public vk8 g;
+    public tk8 f;
+    public wk8 g;
     public BdListView h;
     public LinearLayout i;
     public EditText j;
@@ -361,7 +361,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) && this.a.g != null && this.a.g.c()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2002013));
                 MessageManager messageManager = MessageManager.getInstance();
-                sk8.a aVar = (sk8.a) this.a.g.getItem(i);
+                tk8.a aVar = (tk8.a) this.a.g.getItem(i);
                 messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, aVar.a(), aVar.a(), aVar.b()));
                 LocationEvent locationEvent = new LocationEvent();
                 locationEvent.setType(1);
@@ -397,8 +397,8 @@ public class SearchLocationActivity extends NavigationBarActivity {
     public void initData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f = new sk8();
-            LocationData b2 = ps9.a().b();
+            this.f = new tk8();
+            LocationData b2 = qs9.a().b();
             if (b2 != null) {
                 this.f.c(J1(b2.getPoi_info(), b2.getFormatted_address(), b2.getSn()));
             }
@@ -459,15 +459,15 @@ public class SearchLocationActivity extends NavigationBarActivity {
             textView.setEnabled(false);
             this.k.setOnClickListener(new e(this));
             this.h = (BdListView) findViewById(R.id.obfuscated_res_0x7f092027);
-            vk8 vk8Var = new vk8(this);
-            this.g = vk8Var;
-            this.h.setAdapter((ListAdapter) vk8Var);
+            wk8 wk8Var = new wk8(this);
+            this.g = wk8Var;
+            this.h.setAdapter((ListAdapter) wk8Var);
             this.h.setOnItemClickListener(this.o);
             this.h.setOnScrollListener(this.n);
         }
     }
 
-    public final ArrayList<sk8.a> J1(List<LocationData.NearByAddressData> list, String str, String str2) {
+    public final ArrayList<tk8.a> J1(List<LocationData.NearByAddressData> list, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, list, str, str2)) == null) {
@@ -475,13 +475,13 @@ public class SearchLocationActivity extends NavigationBarActivity {
             if (list == null || list.size() <= 0) {
                 return null;
             }
-            ArrayList<sk8.a> arrayList = new ArrayList<>();
+            ArrayList<tk8.a> arrayList = new ArrayList<>();
             for (LocationData.NearByAddressData nearByAddressData2 : list) {
                 if (nearByAddressData2 != null && !TextUtils.isEmpty(nearByAddressData2.getName())) {
                     if (TextUtils.equals(nearByAddressData2.getName(), str)) {
                         nearByAddressData = nearByAddressData2;
                     } else {
-                        sk8.a aVar = new sk8.a();
+                        tk8.a aVar = new tk8.a();
                         aVar.d(nearByAddressData2.getName());
                         aVar.e(nearByAddressData2.getSn());
                         arrayList.add(aVar);
@@ -489,12 +489,12 @@ public class SearchLocationActivity extends NavigationBarActivity {
                 }
             }
             if (nearByAddressData != null) {
-                sk8.a aVar2 = new sk8.a();
+                tk8.a aVar2 = new tk8.a();
                 aVar2.d(nearByAddressData.getName());
                 aVar2.e(nearByAddressData.getSn());
                 arrayList.add(0, aVar2);
             } else {
-                sk8.a aVar3 = new sk8.a();
+                tk8.a aVar3 = new tk8.a();
                 aVar3.d(str);
                 aVar3.e(str2);
                 arrayList.add(0, aVar3);

@@ -61,7 +61,7 @@ import com.baidu.tieba.qi;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.u75;
 import com.baidu.tieba.w75;
-import com.baidu.tieba.wp9;
+import com.baidu.tieba.xp9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -779,7 +779,7 @@ public class ItemCardView extends LinearLayout {
                     spannableStringBuilder.append((CharSequence) " |");
                     int i = length + 1;
                     spannableStringBuilder.setSpan(new e85(ItemCardView.R), length, i, 33);
-                    spannableStringBuilder.setSpan(new TextAppearanceSpan(null, Typeface.DEFAULT.getStyle(), UtilHelper.getDimenPixelSize(R.dimen.T_X10), new ColorStateList(new int[][]{new int[0]}, new int[]{wp9.a(SkinManager.getColor(R.color.CAM_X0108), n45.b(R.string.A_X10))}), null), i, length + 2, 33);
+                    spannableStringBuilder.setSpan(new TextAppearanceSpan(null, Typeface.DEFAULT.getStyle(), UtilHelper.getDimenPixelSize(R.dimen.T_X10), new ColorStateList(new int[][]{new int[0]}, new int[]{xp9.a(SkinManager.getColor(R.color.CAM_X0108), n45.b(R.string.A_X10))}), null), i, length + 2, 33);
                     if (!qi.isEmpty(this.b.q)) {
                         int length2 = spannableStringBuilder.length();
                         spannableStringBuilder.append((CharSequence) " ");

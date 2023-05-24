@@ -1,6 +1,9 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,11 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class bb8 extends xb8 {
+/* loaded from: classes5.dex */
+public class bb8 extends yb8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int a;
+    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
+    public AbilityItem a;
+    public BaseMsg b;
 
     static {
         InterceptResult invokeClinit;
@@ -27,7 +32,7 @@ public class bb8 extends xb8 {
                 return;
             }
         }
-        a = BdUniqueId.gen().getId();
+        c = BdUniqueId.gen().getId();
     }
 
     public bb8() {
@@ -44,13 +49,45 @@ public class bb8 extends xb8 {
         }
     }
 
-    @Override // com.baidu.tieba.xb8
+    @Override // com.baidu.tieba.yb8
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return a;
+            return c;
         }
         return invokeV.intValue;
+    }
+
+    public AbilityItem b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (AbilityItem) invokeV.objValue;
+    }
+
+    public BaseMsg c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (BaseMsg) invokeV.objValue;
+    }
+
+    public void d(AbilityItem abilityItem) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, abilityItem) == null) {
+            this.a = abilityItem;
+        }
+    }
+
+    public void e(BaseMsg baseMsg) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, baseMsg) == null) {
+            this.b = baseMsg;
+        }
     }
 }

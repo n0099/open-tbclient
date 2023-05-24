@@ -1,13 +1,13 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class wl6 extends c17 {
+public class wl6 implements e17<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,18 +25,18 @@ public class wl6 extends c17 {
         }
     }
 
-    @Override // com.baidu.tieba.c17
-    @NonNull
-    public f37<?> e(@NonNull vz6<?> vz6Var, @NonNull h07 h07Var) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.e17
+    public g37<?> b(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, vz6Var, h07Var)) == null) {
-            c07 c07Var = new c07();
-            c07Var.c = vz6Var;
-            c07Var.b = h07Var.a();
-            c07Var.a = h07Var.b();
-            return c07Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (!(obj instanceof ThreadData)) {
+                return null;
+            }
+            u07 u07Var = new u07();
+            u07Var.a = obj;
+            return new h37(new ey6(u07Var), "fake_wall");
         }
-        return (f37) invokeLL.objValue;
+        return (g37) invokeL.objValue;
     }
 }

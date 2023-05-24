@@ -1,11 +1,11 @@
 package rx.schedulers;
 
-import com.baidu.tieba.k7b;
+import com.baidu.tieba.l7b;
 @Deprecated
 /* loaded from: classes10.dex */
-public final class ImmediateScheduler extends k7b {
-    @Override // com.baidu.tieba.k7b
-    public k7b.a createWorker() {
+public final class ImmediateScheduler extends l7b {
+    @Override // com.baidu.tieba.l7b
+    public l7b.a createWorker() {
         return null;
     }
 

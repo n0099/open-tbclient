@@ -16,15 +16,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class la6 extends c87<ThreadData, FrsPageAlaVideoHolder> implements tj6, c16 {
+public class la6 extends d87<ThreadData, FrsPageAlaVideoHolder> implements uj6, c16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public wa6 l;
     public String m;
     public String n;
-    public vj6<ThreadData> o;
+    public wj6<ThreadData> o;
 
-    @Override // com.baidu.tieba.tj6
+    @Override // com.baidu.tieba.uj6
     public void p(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
@@ -32,7 +32,7 @@ public class la6 extends c87<ThreadData, FrsPageAlaVideoHolder> implements tj6, 
     }
 
     /* loaded from: classes6.dex */
-    public class a extends vj6<ThreadData> {
+    public class a extends wj6<ThreadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ la6 b;
@@ -56,7 +56,7 @@ public class la6 extends c87<ThreadData, FrsPageAlaVideoHolder> implements tj6, 
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vj6
+        @Override // com.baidu.tieba.wj6
         /* renamed from: d */
         public void a(View view2, ThreadData threadData) {
             CustomMessage customMessage;
@@ -103,7 +103,7 @@ public class la6 extends c87<ThreadData, FrsPageAlaVideoHolder> implements tj6, 
         this.o = new a(this);
     }
 
-    @Override // com.baidu.tieba.tj6
+    @Override // com.baidu.tieba.uj6
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -141,7 +141,7 @@ public class la6 extends c87<ThreadData, FrsPageAlaVideoHolder> implements tj6, 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.c87, com.baidu.tieba.en
+    @Override // com.baidu.tieba.d87, com.baidu.tieba.en
     /* renamed from: J */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ThreadData threadData, FrsPageAlaVideoHolder frsPageAlaVideoHolder) {
         InterceptResult invokeCommon;
@@ -175,7 +175,7 @@ public class la6 extends c87<ThreadData, FrsPageAlaVideoHolder> implements tj6, 
         return (View) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.c87, com.baidu.tieba.sj6
+    @Override // com.baidu.tieba.d87, com.baidu.tieba.tj6
     public void m(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, tbPageContext, bdUniqueId) == null) {

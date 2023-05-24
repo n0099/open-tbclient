@@ -41,8 +41,8 @@ import com.baidu.tieba.pb.pb.main.view.CommentFloatSusPendedView;
 import com.baidu.tieba.pb.videopb.AbsVideoPbFragment;
 import com.baidu.tieba.pb.videopb.VideoPbCommentFloatFragment;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.rr9;
 import com.baidu.tieba.sg;
+import com.baidu.tieba.sr9;
 import com.baidu.tieba.vx5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -684,10 +684,10 @@ public class PbCommentFloatActivity extends AbsPbActivity {
         TiebaPlusInfo tiebaPlusInfo;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (pbModel = this.a) != null && pbModel.y1() != null && this.a.y1().M() != null && this.a.y1().F() != null) {
-            rr9 rr9Var = (rr9) ListUtils.getItem(this.a.y1().F(), 0);
+            sr9 sr9Var = (sr9) ListUtils.getItem(this.a.y1().F(), 0);
             List<PbContent> list = null;
-            if (rr9Var != null) {
-                list = rr9Var.i0;
+            if (sr9Var != null) {
+                list = sr9Var.i0;
             }
             PbContent pbContent = (PbContent) ListUtils.getItem(TiePlusHelper.t(list), 0);
             if (pbContent != null && (tiebaPlusInfo = pbContent.tiebaplus_info) != null) {

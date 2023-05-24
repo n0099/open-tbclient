@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Executor;
 /* loaded from: classes6.dex */
-public final class m2b<TResult> implements c2b<TResult> {
+public final class m2b<TResult> implements d2b<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public e2b a;
+    public e2b<TResult> a;
     public Executor b;
     public final Object c;
 
@@ -18,15 +18,15 @@ public final class m2b<TResult> implements c2b<TResult> {
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g2b a;
+        public final /* synthetic */ h2b a;
         public final /* synthetic */ m2b b;
 
-        public a(m2b m2bVar, g2b g2bVar) {
+        public a(m2b m2bVar, h2b h2bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {m2bVar, g2bVar};
+                Object[] objArr = {m2bVar, h2bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -37,7 +37,7 @@ public final class m2b<TResult> implements c2b<TResult> {
                 }
             }
             this.b = m2bVar;
-            this.a = g2bVar;
+            this.a = h2bVar;
         }
 
         @Override // java.lang.Runnable
@@ -46,14 +46,14 @@ public final class m2b<TResult> implements c2b<TResult> {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (this.b.c) {
                     if (this.b.a != null) {
-                        this.b.a.onFailure(this.a.d());
+                        this.b.a.onComplete(this.a);
                     }
                 }
             }
         }
     }
 
-    public m2b(Executor executor, e2b e2bVar) {
+    public m2b(Executor executor, e2b<TResult> e2bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,7 +73,7 @@ public final class m2b<TResult> implements c2b<TResult> {
         this.b = executor;
     }
 
-    @Override // com.baidu.tieba.c2b
+    @Override // com.baidu.tieba.d2b
     public final void cancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -83,12 +83,11 @@ public final class m2b<TResult> implements c2b<TResult> {
         }
     }
 
-    @Override // com.baidu.tieba.c2b
-    public final void onComplete(g2b<TResult> g2bVar) {
+    @Override // com.baidu.tieba.d2b
+    public final void onComplete(h2b<TResult> h2bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g2bVar) == null) || g2bVar.h() || g2bVar.f()) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h2bVar) == null) {
+            this.b.execute(new a(this, h2bVar));
         }
-        this.b.execute(new a(this, g2bVar));
     }
 }

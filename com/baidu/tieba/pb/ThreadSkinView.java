@@ -14,19 +14,19 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.xr9;
+import com.baidu.tieba.yr9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.SkinInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ThreadSkinView extends TbImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext x0;
     public SkinInfo y0;
-    public xr9.b z0;
+    public yr9.b z0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ThreadSkinView(Context context) {
@@ -54,7 +54,7 @@ public class ThreadSkinView extends TbImageView {
         SkinInfo skinInfo;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (skinInfo = this.y0) != null && !StringUtils.isNull(skinInfo.url)) {
-            xr9.b bVar = this.z0;
+            yr9.b bVar = this.z0;
             if (bVar != null) {
                 bVar.delete("action_type");
                 this.z0.d("action_type", "CLICK");
@@ -108,7 +108,7 @@ public class ThreadSkinView extends TbImageView {
         x();
     }
 
-    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, xr9.b bVar) {
+    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, yr9.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, skinInfo, bVar) == null) {
             if (tbPageContext != null && skinInfo != null && !StringUtils.isNull(skinInfo.skin)) {

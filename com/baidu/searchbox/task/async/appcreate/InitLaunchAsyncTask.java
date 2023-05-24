@@ -22,13 +22,13 @@ import com.baidu.tieba.ie5;
 import com.baidu.tieba.oo5;
 import com.baidu.tieba.qf;
 import com.baidu.tieba.sg;
-import com.baidu.tieba.ss9;
 import com.baidu.tieba.ta;
-import com.baidu.tieba.te9;
 import com.baidu.tieba.ts9;
 import com.baidu.tieba.tx4;
+import com.baidu.tieba.ue9;
 import com.baidu.tieba.ur5;
-import com.baidu.tieba.ye9;
+import com.baidu.tieba.us9;
+import com.baidu.tieba.ze9;
 /* loaded from: classes4.dex */
 public class InitLaunchAsyncTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -43,7 +43,7 @@ public class InitLaunchAsyncTask extends LaunchTask {
 
     private void initQuickWebViewManager() {
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-            te9.n().r();
+            ue9.n().r();
         }
     }
 
@@ -67,8 +67,8 @@ public class InitLaunchAsyncTask extends LaunchTask {
 
     public void intReadThreadHistory() {
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-            TbadkApplication.getInst().mReadThreadHistory = new ts9(300);
-            TbadkApplication.getInst().mPhotoLiveReadHistory = new ss9(300);
+            TbadkApplication.getInst().mReadThreadHistory = new us9(300);
+            TbadkApplication.getInst().mPhotoLiveReadHistory = new ts9(300);
             c9.f().s(TbadkApplication.getInst());
         }
     }
@@ -108,7 +108,7 @@ public class InitLaunchAsyncTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
         setServiceOnCreateCallBack();
-        ye9.g().j();
+        ze9.g().j();
         ie5.j().m(TbadkCoreApplication.getInst().isMainProcess(false));
         intReadThreadHistory();
         f95.c();

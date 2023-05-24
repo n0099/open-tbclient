@@ -1,44 +1,23 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tieba.jn6;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import androidx.annotation.Nullable;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes6.dex */
-public abstract class ln6<T extends jn6> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final Class<T> a;
+public interface ln6 {
+    public static final ServiceReference a = new ServiceReference("tieba.core", "eventbus");
 
-    public abstract void onEvent(@NonNull T t);
+    /* loaded from: classes6.dex */
+    public interface a {
+        public static final ServiceReference a = new ServiceReference("tieba.core", "eventbus.autorelease");
 
-    public ln6(Class<T> cls) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cls};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = cls;
+        void a(@NonNull BdUniqueId bdUniqueId);
     }
 
-    public final Class<T> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (Class) invokeV.objValue;
-    }
+    <T extends kn6> void a(@NonNull Object obj, @NonNull mn6<T> mn6Var);
+
+    <T extends kn6> void b(@Nullable T t);
+
+    void unregister(@NonNull Object obj);
 }

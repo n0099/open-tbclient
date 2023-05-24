@@ -1,26 +1,37 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.widget.image.TbImage;
+import com.baidu.tieba.impersonal.components.PersonalMsgContainer;
+import com.baidu.tieba.ke8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes6.dex */
-public final class kg8 extends jg8<re8, ImageView, le8> {
+public abstract class kg8<T, V extends View, M extends ke8<T>> implements f37<PersonalMsgContainer<T, V>, M> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public abstract void d(V v, M m);
+
+    public void f(ViewGroup container) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, container) == null) {
+            Intrinsics.checkNotNullParameter(container, "container");
+        }
+    }
+
+    public abstract V g(ViewGroup viewGroup);
+
     public kg8(String name) {
-        super(name);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -30,49 +41,81 @@ public final class kg8 extends jg8<re8, ImageView, le8> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         Intrinsics.checkNotNullParameter(name, "name");
+        this.a = name;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jg8
-    /* renamed from: l */
-    public ImageView g(ViewGroup parent) {
+    @Override // com.baidu.tieba.f37
+    /* renamed from: e */
+    public void b(PersonalMsgContainer<T, V> view2, M data) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, view2, data) == null) {
+            Intrinsics.checkNotNullParameter(view2, "view");
+            Intrinsics.checkNotNullParameter(data, "data");
+            view2.h(data);
+            d(view2.getChild(), data);
+            f(view2.getChildContainer());
+        }
+    }
+
+    @Override // com.baidu.tieba.f37
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return StringsKt__StringsJVMKt.endsWith$default(c(), "_left", false, 2, null);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return StringsKt__StringsJVMKt.endsWith$default(c(), "_right", false, 2, null);
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.f37
+    /* renamed from: h */
+    public PersonalMsgContainer<T, V> a(ViewGroup parent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, parent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, parent)) == null) {
             Intrinsics.checkNotNullParameter(parent, "parent");
-            Context context = parent.getContext();
-            Intrinsics.checkNotNullExpressionValue(context, "parent.context");
-            TbImage tbImage = new TbImage(context, null, 0, 6, null);
-            tbImage.setLayoutParams(new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds96), UtilHelper.getDimenPixelSize(R.dimen.tbds50)));
-            return tbImage;
-        }
-        return (ImageView) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jg8
-    /* renamed from: k */
-    public void d(ImageView imageView, le8 data) {
-        TbImage tbImage;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, imageView, data) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            if (imageView instanceof TbImage) {
-                tbImage = (TbImage) imageView;
+            if (i()) {
+                Context context = parent.getContext();
+                Intrinsics.checkNotNullExpressionValue(context, "parent.context");
+                PersonalMsgContainer<T, V> personalMsgContainer = new PersonalMsgContainer<>(true, context, null, 4, null);
+                personalMsgContainer.e(g(parent));
+                return personalMsgContainer;
+            } else if (j()) {
+                Context context2 = parent.getContext();
+                Intrinsics.checkNotNullExpressionValue(context2, "parent.context");
+                PersonalMsgContainer<T, V> personalMsgContainer2 = new PersonalMsgContainer<>(false, context2, null, 4, null);
+                personalMsgContainer2.e(g(parent));
+                return personalMsgContainer2;
             } else {
-                tbImage = null;
-            }
-            re8 f = data.c().f();
-            if (f != null && tbImage != null) {
-                tbImage.k("res://drawable/" + f.a());
+                throw new IllegalArgumentException("unknown template: " + c());
             }
         }
+        return (PersonalMsgContainer) invokeL.objValue;
     }
 }

@@ -1,148 +1,260 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.player.constants.PlayerConstant;
+import com.baidu.tbadk.core.atomData.FrsVideoTabPlayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
 /* loaded from: classes7.dex */
 public class qc9 {
     public static /* synthetic */ Interceptable $ic;
-    public static qc9 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedHashMap<String, Integer> a;
-    public CustomMessageListener b;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948087170, "Lcom/baidu/tieba/qc9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948087170, "Lcom/baidu/tieba/qc9;");
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qc9 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(qc9 qc9Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qc9Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qc9Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
-                return;
-            }
-            this.a.a.clear();
-        }
-    }
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public int f;
 
     public qc9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = new LinkedHashMap<>(150, 0.75f, true);
-        this.b = new a(this, 2005016);
-        MessageManager.getInstance().registerListener(this.b);
+    }
+
+    public String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "Unknown";
+            }
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -1679289728:
+                    if (str.equals("Concern")) {
+                        c = '\t';
+                        break;
+                    }
+                    break;
+                case -1152667590:
+                    if (str.equals("ad_feed")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case -654725321:
+                    if (str.equals("ad_video_landing")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case -421681106:
+                    if (str.equals("HomePage")) {
+                        c = 7;
+                        break;
+                    }
+                    break;
+                case -181435716:
+                    if (str.equals("HomeVideo")) {
+                        c = '\b';
+                        break;
+                    }
+                    break;
+                case 2546:
+                    if (str.equals("PB")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case 70919:
+                    if (str.equals("Frs")) {
+                        c = 6;
+                        break;
+                    }
+                    break;
+                case 175967569:
+                    if (str.equals(FrsVideoTabPlayActivityConfig.KEY_FPS_MIDDLE_VIDEO_PAGE)) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case 671041499:
+                    if (str.equals("ad_paster")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 1974553171:
+                    if (str.equals(PlayerConstant.PAGE_VIDEO_LANDING)) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+            }
+            switch (c) {
+                case 0:
+                case 1:
+                case 2:
+                    return "ad";
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                case '\b':
+                case '\t':
+                    return "tbc";
+                default:
+                    return "Unknown";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "Unknown";
+            }
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != 1567) {
+                if (hashCode != 1568) {
+                    if (hashCode != 1570) {
+                        if (hashCode != 1576) {
+                            if (hashCode != 1599) {
+                                switch (hashCode) {
+                                    case 49:
+                                        if (str.equals("1")) {
+                                            c = 0;
+                                            break;
+                                        }
+                                        break;
+                                    case 50:
+                                        if (str.equals("2")) {
+                                            c = 2;
+                                            break;
+                                        }
+                                        break;
+                                    case 51:
+                                        if (str.equals("3")) {
+                                            c = 4;
+                                            break;
+                                        }
+                                        break;
+                                    case 52:
+                                        if (str.equals("4")) {
+                                            c = 3;
+                                            break;
+                                        }
+                                        break;
+                                    default:
+                                        switch (hashCode) {
+                                            case 54:
+                                                if (str.equals("6")) {
+                                                    c = 7;
+                                                    break;
+                                                }
+                                                break;
+                                            case 55:
+                                                if (str.equals("7")) {
+                                                    c = 1;
+                                                    break;
+                                                }
+                                                break;
+                                            case 56:
+                                                if (str.equals("8")) {
+                                                    c = '\b';
+                                                    break;
+                                                }
+                                                break;
+                                            case 57:
+                                                if (str.equals("9")) {
+                                                    c = '\t';
+                                                    break;
+                                                }
+                                                break;
+                                        }
+                                }
+                            } else if (str.equals("21")) {
+                                c = '\f';
+                            }
+                        } else if (str.equals("19")) {
+                            c = '\n';
+                        }
+                    } else if (str.equals("13")) {
+                        c = 11;
+                    }
+                } else if (str.equals("11")) {
+                    c = 6;
+                }
+            } else if (str.equals("10")) {
+                c = 5;
+            }
+            switch (c) {
+                case 0:
+                    return "HomePage";
+                case 1:
+                    return "Concern";
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                    return "Frs";
+                case 7:
+                    return "PB";
+                case '\b':
+                case '\t':
+                case '\n':
+                    return "HomeVideo";
+                case 11:
+                    return FrsVideoTabPlayActivityConfig.KEY_FPS_MIDDLE_VIDEO_PAGE;
+                case '\f':
+                    return PlayerConstant.PAGE_VIDEO_LANDING;
+                default:
+                    return "Unknown";
+            }
+        }
+        return (String) invokeL.objValue;
     }
 
     public int c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            Integer num = this.a.get(str);
-            if (num != null) {
-                return num.intValue();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 1;
+            }
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != 49) {
+                if (hashCode == 50 && str.equals("2")) {
+                    c = 1;
+                }
+            } else if (str.equals("1")) {
+                c = 0;
+            }
+            if (c == 0 || c != 1) {
+                return 1;
             }
             return 0;
         }
         return invokeL.intValue;
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        this.a.remove(str);
-    }
-
-    public static qc9 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (c == null) {
-                synchronized (qc9.class) {
-                    if (c == null) {
-                        c = new qc9();
-                    }
-                }
-            }
-            return c;
-        }
-        return (qc9) invokeV.objValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.clear();
-        }
-    }
-
-    public void update(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
-            if (i == 0 && this.a.containsKey(str)) {
-                return;
-            }
-            this.a.put(str, Integer.valueOf(i));
-        }
     }
 }

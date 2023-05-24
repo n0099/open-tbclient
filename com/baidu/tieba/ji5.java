@@ -27,7 +27,7 @@ public class ji5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65536, null, downloadData) == null) {
             y75.a(downloadData, 400);
-            ng9.o().i(downloadData.getUrl(), downloadData.getId());
+            og9.o().i(downloadData.getUrl(), downloadData.getId());
         }
     }
 
@@ -35,7 +35,7 @@ public class ji5 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return ng9.o().u(str);
+            return og9.o().u(str);
         }
         return invokeL.booleanValue;
     }
@@ -61,7 +61,7 @@ public class ji5 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, downloadData)) == null) {
-            int l = ng9.o().l(downloadData.getId(), downloadData.getName());
+            int l = og9.o().l(downloadData.getId(), downloadData.getName());
             if (l >= 0 && l <= 100) {
                 return l;
             }
@@ -88,7 +88,7 @@ public class ji5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, downloadData)) == null) {
             if (ri.F()) {
-                return new d57().h(downloadData);
+                return new e57().h(downloadData);
             }
             ke5.b(downloadData);
             return false;
@@ -100,13 +100,13 @@ public class ji5 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, downloadData)) == null) {
-            if (ng9.o().s(downloadData.getId())) {
+            if (og9.o().s(downloadData.getId())) {
                 return 5;
             }
-            if (ng9.o().v(downloadData.getId())) {
+            if (og9.o().v(downloadData.getId())) {
                 return 1;
             }
-            if (ng9.o().r(downloadData.getId(), downloadData.getName())) {
+            if (og9.o().r(downloadData.getId(), downloadData.getName())) {
                 return 7;
             }
             return 6;
@@ -187,7 +187,7 @@ public class ji5 {
             downloadData.setName(itemData.mTitle);
             downloadData.setUniqueId(String.valueOf(itemData.itemId));
             downloadData.setUrl(itemData.buttonLink);
-            downloadData.setNotifyId(ng9.p(str).intValue());
+            downloadData.setNotifyId(og9.p(str).intValue());
             downloadData.setNeedInvokeApk(true);
             downloadData.setNeedNotify(false);
             ItemDownloadExtraData itemDownloadExtraData = new ItemDownloadExtraData(itemData.apkDetail.pkg_source.intValue());

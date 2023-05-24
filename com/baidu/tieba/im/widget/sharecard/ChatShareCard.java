@@ -37,7 +37,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.ShareForumMsgData;
 import com.baidu.tieba.im.data.ShareThreadMsgData;
 import com.baidu.tieba.im.db.pojo.MediaPojo;
-import com.baidu.tieba.k58;
+import com.baidu.tieba.l58;
 import com.baidu.tieba.nx5;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.ri;
@@ -352,7 +352,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig));
                     }
                 }
-                k58.d("c15286", 1, this.V);
+                l58.d("c15286", 1, this.V);
                 return;
             }
             if (this.T != null) {
@@ -360,7 +360,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                 frsActivityConfig.createNormalCfg(this.T.getForum_name(), "");
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003000, frsActivityConfig));
             }
-            k58.d("c15286", 2, this.V);
+            l58.d("c15286", 2, this.V);
         }
     }
 

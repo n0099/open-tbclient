@@ -29,12 +29,12 @@ import com.baidu.tieba.e63;
 import com.baidu.tieba.eu2;
 import com.baidu.tieba.f53;
 import com.baidu.tieba.f63;
-import com.baidu.tieba.f7b;
 import com.baidu.tieba.f93;
 import com.baidu.tieba.g62;
 import com.baidu.tieba.g7b;
 import com.baidu.tieba.gu2;
 import com.baidu.tieba.h63;
+import com.baidu.tieba.h7b;
 import com.baidu.tieba.hl3;
 import com.baidu.tieba.i12;
 import com.baidu.tieba.if2;
@@ -45,10 +45,10 @@ import com.baidu.tieba.ne2;
 import com.baidu.tieba.ni3;
 import com.baidu.tieba.ns2;
 import com.baidu.tieba.nu2;
-import com.baidu.tieba.o7b;
+import com.baidu.tieba.p7b;
 import com.baidu.tieba.pj2;
 import com.baidu.tieba.qp1;
-import com.baidu.tieba.r7b;
+import com.baidu.tieba.s7b;
 import com.baidu.tieba.tj2;
 import com.baidu.tieba.xt2;
 import com.baidu.tieba.zk3;
@@ -115,10 +115,10 @@ public final class SwanLauncher {
 
         /* loaded from: classes4.dex */
         public class a implements zn3<Exception> {
-            public final /* synthetic */ g7b a;
+            public final /* synthetic */ h7b a;
 
-            public a(g7b g7bVar) {
-                this.a = g7bVar;
+            public a(h7b h7bVar) {
+                this.a = h7bVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -130,8 +130,8 @@ public final class SwanLauncher {
                     this.a.onCompleted();
                     return;
                 }
-                g7b g7bVar = this.a;
-                g7bVar.onError(new Exception("SwanJsUpdater fail frame type = " + h.this.b, exc));
+                h7b h7bVar = this.a;
+                h7bVar.onError(new Exception("SwanJsUpdater fail frame type = " + h.this.b, exc));
             }
         }
 
@@ -141,12 +141,12 @@ public final class SwanLauncher {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.swan.apps.env.launch.SwanLauncher.f, com.baidu.tieba.f7b.f, com.baidu.tieba.v7b
-        public void call(g7b g7bVar) {
+        @Override // com.baidu.swan.apps.env.launch.SwanLauncher.f, com.baidu.tieba.g7b.f, com.baidu.tieba.w7b
+        public void call(h7b h7bVar) {
             if (a()) {
-                g7bVar.onCompleted();
+                h7bVar.onCompleted();
             } else {
-                tj2.d().c(new a(g7bVar), this.b);
+                tj2.d().c(new a(h7bVar), this.b);
             }
         }
     }
@@ -159,11 +159,11 @@ public final class SwanLauncher {
         /* loaded from: classes4.dex */
         public class a implements if2 {
             public final /* synthetic */ kf2 a;
-            public final /* synthetic */ g7b b;
+            public final /* synthetic */ h7b b;
 
-            public a(kf2 kf2Var, g7b g7bVar) {
+            public a(kf2 kf2Var, h7b h7bVar) {
                 this.a = kf2Var;
-                this.b = g7bVar;
+                this.b = h7bVar;
             }
 
             @Override // com.baidu.tieba.if2
@@ -218,25 +218,25 @@ public final class SwanLauncher {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.swan.apps.env.launch.SwanLauncher.f, com.baidu.tieba.f7b.f, com.baidu.tieba.v7b
-        public void call(g7b g7bVar) {
+        @Override // com.baidu.swan.apps.env.launch.SwanLauncher.f, com.baidu.tieba.g7b.f, com.baidu.tieba.w7b
+        public void call(h7b h7bVar) {
             ns2.G().c();
             if (a()) {
-                g7bVar.onCompleted();
+                h7bVar.onCompleted();
             } else if (ns2.w0().c()) {
                 b();
-                g7bVar.onCompleted();
+                h7bVar.onCompleted();
             } else {
                 e eVar = this.b;
                 if (eVar.b != 1) {
-                    g7bVar.onError(new T7CheckException(null));
+                    h7bVar.onError(new T7CheckException(null));
                     return;
                 }
                 if (eVar.a == 0 && !BdZeusUtil.isZeusSupported()) {
                     b();
-                    g7bVar.onCompleted();
+                    h7bVar.onCompleted();
                 }
-                e(g7bVar);
+                e(h7bVar);
             }
         }
 
@@ -252,20 +252,20 @@ public final class SwanLauncher {
             return kf2Var;
         }
 
-        public final void e(g7b g7bVar) {
+        public final void e(h7b h7bVar) {
             Bundle bundle = this.b.c;
             if (bundle == null) {
-                g7bVar.onError(new T7CheckException(null));
+                h7bVar.onError(new T7CheckException(null));
                 return;
             }
             String string = bundle.getString("launchScheme");
             if (TextUtils.isEmpty(string)) {
-                g7bVar.onError(new T7CheckException(null));
+                h7bVar.onError(new T7CheckException(null));
                 return;
             }
             Uri build = Uri.parse(string).buildUpon().build();
             if (build == null) {
-                g7bVar.onError(new T7CheckException(null));
+                h7bVar.onError(new T7CheckException(null));
                 return;
             }
             boolean z = true;
@@ -274,11 +274,11 @@ public final class SwanLauncher {
             }
             if (!z) {
                 b();
-                g7bVar.onCompleted();
+                h7bVar.onCompleted();
             }
             g();
             kf2 d = d(this.b, z);
-            ns2.w0().b(d, new a(d, g7bVar));
+            ns2.w0().b(d, new a(d, h7bVar));
         }
     }
 
@@ -293,14 +293,14 @@ public final class SwanLauncher {
     }
 
     /* loaded from: classes4.dex */
-    public class a implements g7b {
+    public class a implements h7b {
         public final /* synthetic */ f63 a;
         public final /* synthetic */ Bundle b;
         public final /* synthetic */ int c;
         public final /* synthetic */ String d;
 
-        @Override // com.baidu.tieba.g7b
-        public void onSubscribe(o7b o7bVar) {
+        @Override // com.baidu.tieba.h7b
+        public void onSubscribe(p7b p7bVar) {
         }
 
         public a(f63 f63Var, Bundle bundle, int i, String str) {
@@ -310,13 +310,13 @@ public final class SwanLauncher {
             this.d = str;
         }
 
-        @Override // com.baidu.tieba.g7b
+        @Override // com.baidu.tieba.h7b
         public void onCompleted() {
             SwanLauncher.this.o(this.a, this.b, this.c);
             f93.K().p("event_launch_swan");
         }
 
-        @Override // com.baidu.tieba.g7b
+        @Override // com.baidu.tieba.h7b
         public void onError(Throwable th) {
             if (an3.G() && (th instanceof T7CheckException)) {
                 return;
@@ -371,14 +371,14 @@ public final class SwanLauncher {
     }
 
     /* loaded from: classes4.dex */
-    public class d implements g7b {
+    public class d implements h7b {
         public final /* synthetic */ zn3 a;
 
         public d(SwanLauncher swanLauncher, zn3 zn3Var) {
             this.a = zn3Var;
         }
 
-        @Override // com.baidu.tieba.g7b
+        @Override // com.baidu.tieba.h7b
         public void onCompleted() {
             SwanLauncher.p("SwanLauncher", "#initEnv 初始化环境完成");
             zn3 zn3Var = this.a;
@@ -387,7 +387,7 @@ public final class SwanLauncher {
             }
         }
 
-        @Override // com.baidu.tieba.g7b
+        @Override // com.baidu.tieba.h7b
         public void onError(Throwable th) {
             SwanLauncher.p("SwanLauncher", "#initEnv 初始化环境失败 " + Log.getStackTraceString(th));
             zn3 zn3Var = this.a;
@@ -396,19 +396,19 @@ public final class SwanLauncher {
             }
         }
 
-        @Override // com.baidu.tieba.g7b
-        public void onSubscribe(o7b o7bVar) {
+        @Override // com.baidu.tieba.h7b
+        public void onSubscribe(p7b p7bVar) {
             if (SwanLauncher.a) {
-                Log.i("SwanLauncher", "init onSubscribe: " + o7bVar);
+                Log.i("SwanLauncher", "init onSubscribe: " + p7bVar);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public static abstract class f implements f7b.f {
+    public static abstract class f implements g7b.f {
         public boolean a;
 
-        @Override // com.baidu.tieba.f7b.f, com.baidu.tieba.v7b
+        @Override // com.baidu.tieba.g7b.f, com.baidu.tieba.w7b
         public abstract /* synthetic */ void call(T t);
 
         public f() {
@@ -500,7 +500,7 @@ public final class SwanLauncher {
         }
     }
 
-    public final void e(@NonNull g7b g7bVar, f... fVarArr) {
+    public final void e(@NonNull h7b h7bVar, f... fVarArr) {
         if (a) {
             Log.i("SwanLauncher", "checkEnv: checkers=" + fVarArr);
         }
@@ -514,21 +514,21 @@ public final class SwanLauncher {
                     if (arrayList == null) {
                         arrayList = new ArrayList();
                     }
-                    arrayList.add(f7b.b(fVar));
+                    arrayList.add(g7b.b(fVar));
                 }
             }
             if (a) {
                 Log.i("SwanLauncher", "checkEnv: list=" + arrayList);
             }
             if (arrayList != null && !arrayList.isEmpty()) {
-                f7b.a(arrayList).h(r7b.b()).d(r7b.b()).g(g7bVar);
+                g7b.a(arrayList).h(s7b.b()).d(s7b.b()).g(h7bVar);
                 return;
             } else {
-                g7bVar.onCompleted();
+                h7bVar.onCompleted();
                 return;
             }
         }
-        g7bVar.onCompleted();
+        h7bVar.onCompleted();
     }
 
     public final void k(Throwable th, int i2, String str, Bundle bundle) {

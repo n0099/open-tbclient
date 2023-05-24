@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.g9;
 import com.baidu.tieba.setting.im.more.PrivateInfoNetMessage;
-import com.baidu.tieba.yi9;
+import com.baidu.tieba.zi9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ public class AccountSafeModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public yi9 b;
+    public zi9 b;
     public String c;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -61,21 +61,21 @@ public class AccountSafeModel extends BdBaseModel {
         return (PrivateInfoNetMessage) invokeV.objValue;
     }
 
-    public yi9 V() {
+    public zi9 V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.b;
         }
-        return (yi9) invokeV.objValue;
+        return (zi9) invokeV.objValue;
     }
 
     public final SimpleUser W() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            yi9 yi9Var = this.b;
-            if (yi9Var != null && yi9Var.f() != null) {
+            zi9 zi9Var = this.b;
+            if (zi9Var != null && zi9Var.f() != null) {
                 return this.b.f();
             }
             return null;
@@ -136,10 +136,10 @@ public class AccountSafeModel extends BdBaseModel {
         return (String) invokeV.objValue;
     }
 
-    public void a0(yi9 yi9Var) {
+    public void a0(zi9 zi9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, yi9Var) == null) {
-            this.b = yi9Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, zi9Var) == null) {
+            this.b = zi9Var;
             Y();
         }
     }

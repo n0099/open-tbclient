@@ -41,8 +41,8 @@ import com.baidu.tieba.fv5;
 import com.baidu.tieba.gv5;
 import com.baidu.tieba.kg;
 import com.baidu.tieba.lg;
-import com.baidu.tieba.oz9;
 import com.baidu.tieba.p45;
+import com.baidu.tieba.pz9;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.sg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -314,7 +314,7 @@ public abstract class FallingView extends FrameLayout {
                 if (this.b.q.f()) {
                     this.b.k.start();
                 } else {
-                    oz9.b(this.b.a.b, 600);
+                    pz9.b(this.b.a.b, 600);
                 }
             }
         }

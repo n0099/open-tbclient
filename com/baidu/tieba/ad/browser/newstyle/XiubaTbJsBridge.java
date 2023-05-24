@@ -17,7 +17,7 @@ import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.download.DownloadMessage;
 import com.baidu.tbadk.xiuba.JSResultData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fs9;
+import com.baidu.tieba.gs9;
 import com.baidu.tieba.le5;
 import com.baidu.tieba.pg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +30,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class XiubaTbJsBridge implements fs9 {
+public class XiubaTbJsBridge implements gs9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERFACE_NAME = "XiubaJSBridge";
     public static final String METHOD_CHECK_APK_INSTALL = "checkAPKInstall";
@@ -361,7 +361,7 @@ public class XiubaTbJsBridge implements fs9 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.fs9
+    @Override // com.baidu.tieba.gs9
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;

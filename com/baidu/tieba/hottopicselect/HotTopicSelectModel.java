@@ -16,11 +16,11 @@ import com.baidu.tbadk.core.atomData.HotSelectActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ar9;
 import com.baidu.tieba.fb;
-import com.baidu.tieba.g08;
 import com.baidu.tieba.g9;
-import com.baidu.tieba.i08;
-import com.baidu.tieba.zq9;
+import com.baidu.tieba.h08;
+import com.baidu.tieba.j08;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,9 +48,9 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
 
     /* loaded from: classes5.dex */
     public interface c {
-        void J0(i08 i08Var);
+        void J0(j08 j08Var);
 
-        void R0(i08 i08Var, i08 i08Var2, i08 i08Var3);
+        void R0(j08 j08Var, j08 j08Var2, j08 j08Var3);
 
         void g1(String str);
 
@@ -308,7 +308,7 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.f = new a(this, 2016491);
-            zq9.b(2016491, g08.class);
+            ar9.b(2016491, h08.class);
             registerListener(this.f);
         }
     }
@@ -367,8 +367,8 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.e = new b(this, CmdConfigHttp.CMD_HTTP_GET_HOTTOPIC_SELECT, 309416);
-            zq9.h(309416, HotSelectSocketResponseMessage.class, false, false);
-            zq9.c(309416, CmdConfigHttp.CMD_HTTP_GET_HOTTOPIC_SELECT, TbConfig.SET_HOTSELECT, HotSelectHttpResponseMessage.class, true, true, true, true);
+            ar9.h(309416, HotSelectSocketResponseMessage.class, false, false);
+            ar9.c(309416, CmdConfigHttp.CMD_HTTP_GET_HOTTOPIC_SELECT, TbConfig.SET_HOTSELECT, HotSelectHttpResponseMessage.class, true, true, true, true);
             registerListener(this.e);
         }
     }

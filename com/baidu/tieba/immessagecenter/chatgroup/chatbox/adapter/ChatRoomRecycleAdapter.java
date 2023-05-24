@@ -7,10 +7,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.d78;
-import com.baidu.tieba.f78;
+import com.baidu.tieba.e78;
 import com.baidu.tieba.g78;
 import com.baidu.tieba.h78;
+import com.baidu.tieba.i78;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,9 +23,9 @@ public class ChatRoomRecycleAdapter extends RecyclerView.Adapter<BaseItemViewHol
     public transient /* synthetic */ FieldHolder $fh;
     public final b a;
     @NonNull
-    public final g78 b;
+    public final h78 b;
     @NonNull
-    public final f78 c;
+    public final g78 c;
     @NonNull
     public final TbPageContext d;
     public RecyclerView e;
@@ -96,7 +96,7 @@ public class ChatRoomRecycleAdapter extends RecyclerView.Adapter<BaseItemViewHol
     }
 
     /* loaded from: classes6.dex */
-    public class b implements h78 {
+    public class b implements i78 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatRoomRecycleAdapter a;
@@ -123,7 +123,7 @@ public class ChatRoomRecycleAdapter extends RecyclerView.Adapter<BaseItemViewHol
             this(chatRoomRecycleAdapter);
         }
 
-        @Override // com.baidu.tieba.h78
+        @Override // com.baidu.tieba.i78
         public void a(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
@@ -131,16 +131,16 @@ public class ChatRoomRecycleAdapter extends RecyclerView.Adapter<BaseItemViewHol
             }
         }
 
-        @Override // com.baidu.tieba.h78
-        public void b(int i, @NonNull List<d78> list) {
+        @Override // com.baidu.tieba.i78
+        public void b(int i, @NonNull List<e78> list) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, list) == null) && !list.isEmpty()) {
                 this.a.notifyItemRangeChanged(i, list.size());
             }
         }
 
-        @Override // com.baidu.tieba.h78
-        public void f(int i, @NonNull List<d78> list) {
+        @Override // com.baidu.tieba.i78
+        public void f(int i, @NonNull List<e78> list) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, list) == null) && !list.isEmpty()) {
                 this.a.notifyItemRangeInserted(i, list.size());
@@ -148,12 +148,12 @@ public class ChatRoomRecycleAdapter extends RecyclerView.Adapter<BaseItemViewHol
         }
     }
 
-    public ChatRoomRecycleAdapter(@NonNull g78 g78Var, @NonNull f78 f78Var, @NonNull TbPageContext tbPageContext) {
+    public ChatRoomRecycleAdapter(@NonNull h78 h78Var, @NonNull g78 g78Var, @NonNull TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g78Var, f78Var, tbPageContext};
+            Object[] objArr = {h78Var, g78Var, tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -165,10 +165,10 @@ public class ChatRoomRecycleAdapter extends RecyclerView.Adapter<BaseItemViewHol
         }
         b bVar = new b(this, null);
         this.a = bVar;
-        this.b = g78Var;
+        this.b = h78Var;
         this.d = tbPageContext;
-        this.c = f78Var;
-        f78Var.c(bVar);
+        this.c = g78Var;
+        g78Var.c(bVar);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter

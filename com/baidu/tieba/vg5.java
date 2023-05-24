@@ -57,7 +57,7 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.uq9;
+import com.baidu.tieba.vq9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -67,7 +67,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes7.dex */
-public class vg5 extends we5 implements uq9.g {
+public class vg5 extends we5 implements vq9.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int A;
@@ -136,12 +136,12 @@ public class vg5 extends we5 implements uq9.g {
                     this.a.R(true);
                     WriteData k0 = this.a.g.k0();
                     this.a.L();
-                    uq9.z(this.a.l, null);
+                    vq9.z(this.a.l, null);
                     if (k0 == null) {
                         return;
                     }
                     if (k0.getType() == 2) {
-                        uq9.p(k0.getThreadId(), this.a);
+                        vq9.p(k0.getThreadId(), this.a);
                     }
                 } else if (writeData != null && bb5Var != null && !TextUtils.isEmpty(bb5Var.d())) {
                     writeData.setVcodeMD5(bb5Var.b());
@@ -518,7 +518,7 @@ public class vg5 extends we5 implements uq9.g {
     public void q(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048629, this, str) == null) {
-            uq9.p(str, this);
+            vq9.p(str, this);
         }
     }
 
@@ -820,7 +820,7 @@ public class vg5 extends we5 implements uq9.g {
                     this.e = null;
                     this.s = null;
                     if (!TextUtils.isEmpty(this.l)) {
-                        uq9.z(this.l, null);
+                        vq9.z(this.l, null);
                     }
                     R(true);
                     NewWriteModel.d dVar = this.u;
@@ -1113,7 +1113,7 @@ public class vg5 extends we5 implements uq9.g {
             k0.setContent(this.c);
             k0.setVideoInfo(this.s);
             k0.setVoiceModel(this.e);
-            uq9.z(str, k0);
+            vq9.z(str, k0);
         }
     }
 
@@ -1189,7 +1189,7 @@ public class vg5 extends we5 implements uq9.g {
         }
     }
 
-    @Override // com.baidu.tieba.uq9.g
+    @Override // com.baidu.tieba.vq9.g
     public void a(WriteData writeData) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048602, this, writeData) != null) || writeData == null) {

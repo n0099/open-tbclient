@@ -20,7 +20,7 @@ public abstract class ax<T extends jy4> implements ux, tx<T> {
     public py a;
     public Context b;
     public Boolean c;
-    public vj6<T> d;
+    public wj6<T> d;
     public a e;
 
     /* loaded from: classes4.dex */
@@ -67,13 +67,13 @@ public abstract class ax<T extends jy4> implements ux, tx<T> {
         this.b = context;
     }
 
-    public vj6<T> h() {
+    public wj6<T> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.d;
         }
-        return (vj6) invokeV.objValue;
+        return (wj6) invokeV.objValue;
     }
 
     public Boolean j() {
@@ -135,10 +135,10 @@ public abstract class ax<T extends jy4> implements ux, tx<T> {
         }
     }
 
-    public void p(vj6<T> vj6Var) {
+    public void p(wj6<T> wj6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, vj6Var) == null) {
-            this.d = vj6Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, wj6Var) == null) {
+            this.d = wj6Var;
         }
     }
 

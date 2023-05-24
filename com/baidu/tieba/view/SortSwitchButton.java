@@ -26,9 +26,9 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a06;
-import com.baidu.tieba.ur9;
-import com.baidu.tieba.wp9;
-import com.baidu.tieba.zt9;
+import com.baidu.tieba.au9;
+import com.baidu.tieba.vr9;
+import com.baidu.tieba.xp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,7 +47,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
     public boolean E;
     public boolean F;
     public boolean G;
-    public List<ur9> H;
+    public List<vr9> H;
     public List<Float> I;
     public GestureDetector J;
     public f K;
@@ -378,7 +378,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
                 this.o.setColor(SkinManager.getColor(0, this.d));
                 Paint paint = this.p;
                 if (paint != null) {
-                    paint.setColor(wp9.a(SkinManager.getColor(0, this.e), this.g));
+                    paint.setColor(xp9.a(SkinManager.getColor(0, this.e), this.g));
                 }
             }
         }
@@ -405,18 +405,18 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
         }
     }
 
-    public final boolean G(ur9 ur9Var, ur9 ur9Var2) {
+    public final boolean G(vr9 vr9Var, vr9 vr9Var2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, ur9Var, ur9Var2)) == null) {
-            if (ur9Var == null && ur9Var2 == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, vr9Var, vr9Var2)) == null) {
+            if (vr9Var == null && vr9Var2 == null) {
                 return true;
             }
-            if (ur9Var != null && ur9Var2 != null) {
-                if (ur9Var.a() == ur9Var2.a() && ur9Var.b() != null && ur9Var.b().equals(ur9Var2.b())) {
+            if (vr9Var != null && vr9Var2 != null) {
+                if (vr9Var.a() == vr9Var2.a() && vr9Var.b() != null && vr9Var.b().equals(vr9Var2.b())) {
                     return true;
                 }
-                if (ur9Var.a() == ur9Var2.a() && ur9Var.b() == null && ur9Var2.b() == null) {
+                if (vr9Var.a() == vr9Var2.a() && vr9Var.b() == null && vr9Var2.b() == null) {
                     return true;
                 }
             }
@@ -484,7 +484,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
         }
     }
 
-    public void setData(List<ur9> list) {
+    public void setData(List<vr9> list) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048593, this, list) != null) || !F(list)) {
             return;
@@ -540,7 +540,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
         }
     }
 
-    public final boolean F(List<ur9> list) {
+    public final boolean F(List<vr9> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, list)) == null) {
@@ -613,7 +613,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
                 this.p = paint2;
                 paint2.setStyle(Paint.Style.STROKE);
                 this.p.setStrokeWidth(this.f);
-                this.p.setColor(wp9.a(SkinManager.getColor(this.d), this.g));
+                this.p.setColor(xp9.a(SkinManager.getColor(this.d), this.g));
             }
             this.q = new Paint(1);
             Paint paint3 = new Paint(1);
@@ -643,7 +643,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
             this.o.setColor(SkinManager.getColor(this.d));
             Paint paint = this.p;
             if (paint != null) {
-                paint.setColor(wp9.a(SkinManager.getColor(this.d), this.g));
+                paint.setColor(xp9.a(SkinManager.getColor(this.d), this.g));
             }
             invalidate();
         }
@@ -652,7 +652,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
     public final void D(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, zt9.SortSwitchButton);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, au9.SortSwitchButton);
             int resourceId = obtainStyledAttributes.getResourceId(3, R.color.CAM_X0107);
             this.d = resourceId;
             this.e = obtainStyledAttributes.getResourceId(1, resourceId);
@@ -774,13 +774,13 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
             if (mode == Integer.MIN_VALUE) {
                 this.a = 0.0f;
                 for (int i3 = 0; i3 < count; i3++) {
-                    ur9 ur9Var = (ur9) ListUtils.getItem(this.H, i3);
-                    if (ur9Var != null) {
+                    vr9 vr9Var = (vr9) ListUtils.getItem(this.H, i3);
+                    if (vr9Var != null) {
                         Paint paint = this.r;
-                        if (ur9Var.b() == null) {
+                        if (vr9Var.b() == null) {
                             b2 = "";
                         } else {
-                            b2 = ur9Var.b();
+                            b2 = vr9Var.b();
                         }
                         float measureText = paint.measureText(b2) + (this.l * 2.0f);
                         if (this.G) {
@@ -899,7 +899,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
         return invokeLL.booleanValue;
     }
 
-    public void setData(List<ur9> list, int i) {
+    public void setData(List<vr9> list, int i) {
         a06 a06Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048594, this, list, i) == null) {

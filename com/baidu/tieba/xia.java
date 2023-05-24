@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.app.Activity;
+import android.os.Handler;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.lia;
+import com.baidu.tieba.oia;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,32 +13,86 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.TimeZone;
+import java.util.UUID;
 /* loaded from: classes8.dex */
-public final class xia {
+public final class xia implements lia.a {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static boolean b;
-    public static StringBuffer c;
+    public static com.baidu.ubs.analytics.a.n f;
+    public static long g;
+    public static long h;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public Handler c;
+    public Runnable d;
+    public e e;
 
     /* loaded from: classes8.dex */
-    public static class a extends zia {
+    public interface e {
+        void a();
+
+        void b();
+    }
+
+    @Override // com.baidu.tieba.lia.a
+    public final void a(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.lia.a
+    public final void onActivityDestroyed(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, activity) == null) {
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
+        public final /* synthetic */ xia a;
 
-        public a(String str, String str2, String str3) {
+        /* renamed from: com.baidu.tieba.xia$a$a  reason: collision with other inner class name */
+        /* loaded from: classes8.dex */
+        public class C0500a extends aja {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public C0500a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // com.baidu.tieba.aja
+            public final void a() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    yia.b("记录一次app启动事件");
+                    vha.c("power_on", "", "", null);
+                    xha.h().d(false);
+                }
+            }
+        }
+
+        public a(xia xiaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, str3};
+                Object[] objArr = {xiaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,26 +102,148 @@ public final class xia {
                     return;
                 }
             }
-            this.a = str;
-            this.b = str2;
-            this.c = str3;
+            this.a = xiaVar;
         }
 
-        @Override // com.baidu.tieba.zia
+        @Override // com.baidu.tieba.xia.e
         public final void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                StringBuffer stringBuffer = new StringBuffer();
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss:SSS");
-                simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT+08"));
-                stringBuffer.append(simpleDateFormat.format(new Date()));
-                stringBuffer.append("\t");
-                stringBuffer.append(this.a);
-                stringBuffer.append("\t");
-                stringBuffer.append(this.b);
-                stringBuffer.append("\t");
-                stringBuffer.append(this.c);
-                cja.d(stringBuffer.toString(), com.baidu.ubs.analytics.d.a.c, xia.c.toString());
+                long currentTimeMillis = System.currentTimeMillis();
+                yia.b("app   went foreground ");
+                if (currentTimeMillis - xia.h > xia.g) {
+                    this.a.m(currentTimeMillis);
+                }
+                if (xha.h().g()) {
+                    zia.a(new C0500a(this));
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.xia.e
+        public final void b() {
+            oia oiaVar;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                oiaVar = oia.a.a;
+                if (oiaVar.a().size() == 0) {
+                    yia.b("后台应用退出了 了               ");
+                    xha.h().d(true);
+                    xia.h();
+                    return;
+                }
+                yia.b("进入后台但没退出                  ");
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xia a;
+
+        public b(xia xiaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xiaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xiaVar;
+        }
+
+        @Override // java.lang.Runnable
+        public final void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a && this.a.b) {
+                xia.k(this.a);
+                try {
+                    this.a.e.b();
+                } catch (Exception e) {
+                    gja.b("Listener threw exception!:" + e.toString());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class c extends aja {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c(xia xiaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xiaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.aja
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                xia.f.z(String.valueOf(currentTimeMillis));
+                try {
+                    xia.f.A(String.valueOf(currentTimeMillis - Long.parseLong(xia.f.N())));
+                } catch (NumberFormatException e) {
+                    yia.b(e.getLocalizedMessage());
+                }
+                iia iiaVar = new iia();
+                if (iiaVar.b(xia.f.I())) {
+                    iiaVar.e(xia.f);
+                } else {
+                    iiaVar.f(xia.f);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class d extends aja {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d(xia xiaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xiaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.aja
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                yia.b("超时了……………… 一个新的session");
+                new iia().f(xia.f);
             }
         }
     }
@@ -81,78 +261,98 @@ public final class xia {
                 return;
             }
         }
-        c = new StringBuffer();
-        if (wha.h() != null) {
-            a = !com.baidu.ubs.analytics.d.a.a();
-            b = true;
-            c.append("ABsdkLog-");
-            c.append(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
-            c.append("_");
-            try {
-                c.append(c(sia.g(wha.h().getContext()).getBytes("UTF-8")));
-            } catch (UnsupportedEncodingException e) {
-                fja.d(e);
-            } catch (Exception e2) {
-                fja.d(e2);
-            }
-            c.append(".log");
-        }
+        g = qia.a();
     }
 
-    public static void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            if (a) {
-                Log.w("BaiDuUbs", str);
-            }
-            d("w", "BaiDuUbs", str);
-        }
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            if (a) {
-                Log.e("BaiDuUbs", str);
-            }
-            d("e", "BaiDuUbs", str);
-        }
-    }
-
-    public static String c(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            StringBuilder sb = new StringBuilder("");
-            if (bArr != null && bArr.length > 0) {
-                for (byte b2 : bArr) {
-                    String hexString = Integer.toHexString(b2 & 255);
-                    if (hexString.length() < 2) {
-                        sb.append(0);
-                    }
-                    sb.append(hexString);
-                }
-                return sb.toString();
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void d(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3) != null) || !b) {
-            return;
-        }
-        yia.a(new a(str, str2, str3));
-    }
-
-    public static String e() {
+    public static com.baidu.ubs.analytics.a.n e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return c.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return f;
         }
-        return (String) invokeV.objValue;
+        return (com.baidu.ubs.analytics.a.n) invokeV.objValue;
+    }
+
+    public static /* synthetic */ long h() {
+        h = 0L;
+        return 0L;
+    }
+
+    public xia() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+        this.b = true;
+        this.c = new Handler();
+        this.e = new a(this);
+        long currentTimeMillis = System.currentTimeMillis();
+        h = currentTimeMillis;
+        m(currentTimeMillis);
+    }
+
+    @Override // com.baidu.tieba.lia.a
+    public final void U() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = true;
+            Runnable runnable = this.d;
+            if (runnable != null) {
+                this.c.removeCallbacks(runnable);
+                this.d = null;
+            }
+            h = System.currentTimeMillis();
+            zia.c(new c(this));
+            Handler handler = this.c;
+            b bVar = new b(this);
+            this.d = bVar;
+            handler.postDelayed(bVar, 1000L);
+        }
+    }
+
+    @Override // com.baidu.tieba.lia.a
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b = false;
+            boolean z = !this.a;
+            this.a = true;
+            Runnable runnable = this.d;
+            if (runnable != null) {
+                this.c.removeCallbacks(runnable);
+            }
+            if (z) {
+                try {
+                    this.e.a();
+                } catch (Exception e2) {
+                    gja.b("Listener threw exception!:" + e2.toString());
+                }
+            }
+        }
+    }
+
+    public static /* synthetic */ boolean k(xia xiaVar) {
+        xiaVar.a = false;
+        return false;
+    }
+
+    public final void m(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            com.baidu.ubs.analytics.a.n nVar = new com.baidu.ubs.analytics.a.n();
+            f = nVar;
+            nVar.setStartTime(String.valueOf(j));
+            f.x(UUID.randomUUID().toString().replace("-", ""));
+            zia.c(new d(this));
+        }
     }
 }

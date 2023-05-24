@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.aq8;
 import com.baidu.tieba.databinding.MemberPayPrivilegeResultActivityBinding;
 import com.baidu.tieba.memberCenter.memberpayresult.MemberPayPrivilegeResultActivity;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.zp8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -69,7 +69,7 @@ public final class MemberPayPrivilegeResultActivity extends BaseFragmentActivity
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             Intrinsics.checkNotNullParameter(memberBuyButtonUrl, "$memberBuyButtonUrl");
             UrlManager.getInstance().dealOneLink(this$0.getPageContext(), new String[]{(String) memberBuyButtonUrl.element});
-            zp8.a.a();
+            aq8.a.a();
         }
     }
 
@@ -167,7 +167,7 @@ public final class MemberPayPrivilegeResultActivity extends BaseFragmentActivity
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 memberPayPrivilegeResultActivityBinding3 = null;
             }
-            memberPayPrivilegeResultActivityBinding3.b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.xp8
+            memberPayPrivilegeResultActivityBinding3.b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yp8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -245,7 +245,7 @@ public final class MemberPayPrivilegeResultActivity extends BaseFragmentActivity
             } else {
                 memberPayPrivilegeResultActivityBinding = memberPayPrivilegeResultActivityBinding9;
             }
-            memberPayPrivilegeResultActivityBinding.k.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yp8
+            memberPayPrivilegeResultActivityBinding.k.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.zp8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

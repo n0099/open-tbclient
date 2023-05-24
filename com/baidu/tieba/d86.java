@@ -62,7 +62,7 @@ public class d86 extends en<e86, LiveTabAlaRecommendViewHolder> {
             this.b = alaRecommendLayout;
             alaRecommendLayout.setPadding(UtilHelper.getDimenPixelSize(R.dimen.tbds34), UtilHelper.getDimenPixelSize(R.dimen.tbds21), UtilHelper.getDimenPixelSize(R.dimen.tbds34), this.b.getPaddingBottom());
             this.b.setFid(this.d);
-            TiebaStatic.log(yj6.e("c13620", this.c, this.d));
+            TiebaStatic.log(zj6.e("c13620", this.c, this.d));
             return new LiveTabAlaRecommendViewHolder(this.b);
         }
         return (LiveTabAlaRecommendViewHolder) invokeL.objValue;
@@ -80,8 +80,8 @@ public class d86 extends en<e86, LiveTabAlaRecommendViewHolder> {
                 p45 d = p45.d(alaRecommendLayout.findViewById(R.id.ala_recommend_list_container));
                 d.o(R.string.J_X06);
                 d.f(R.color.CAM_X0201);
-                zj6 zj6Var = e86Var.a;
-                if (zj6Var != null && !ListUtils.isEmpty(zj6Var.c())) {
+                ak6 ak6Var = e86Var.a;
+                if (ak6Var != null && !ListUtils.isEmpty(ak6Var.c())) {
                     liveTabAlaRecommendViewHolder.a.setData(e86Var.a);
                     liveTabAlaRecommendViewHolder.a.d(TbadkCoreApplication.getInst().getSkinType());
                     liveTabAlaRecommendViewHolder.a.setVisibility(0);

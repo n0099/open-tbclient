@@ -11,19 +11,22 @@ import kotlin.jvm.internal.Intrinsics;
 public final class k07 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
+    public String a;
     public final String b;
+    public final String c;
+    public final String d;
+    public final Object e;
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
             if (this == obj) {
                 return true;
             }
             if (obj instanceof k07) {
                 k07 k07Var = (k07) obj;
-                return Intrinsics.areEqual(this.a, k07Var.a) && Intrinsics.areEqual(this.b, k07Var.b);
+                return Intrinsics.areEqual(this.a, k07Var.a) && Intrinsics.areEqual(this.b, k07Var.b) && Intrinsics.areEqual(this.c, k07Var.c) && Intrinsics.areEqual(this.d, k07Var.d) && Intrinsics.areEqual(this.e, k07Var.e);
             }
             return false;
         }
@@ -33,11 +36,16 @@ public final class k07 {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String str = this.a;
-            int hashCode = (str == null ? 0 : str.hashCode()) * 31;
-            String str2 = this.b;
-            return hashCode + (str2 != null ? str2.hashCode() : 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int hashCode = this.a.hashCode() * 31;
+            String str = this.b;
+            int hashCode2 = (hashCode + (str == null ? 0 : str.hashCode())) * 31;
+            String str2 = this.c;
+            int hashCode3 = (hashCode2 + (str2 == null ? 0 : str2.hashCode())) * 31;
+            String str3 = this.d;
+            int hashCode4 = (hashCode3 + (str3 == null ? 0 : str3.hashCode())) * 31;
+            Object obj = this.e;
+            return hashCode4 + (obj != null ? obj.hashCode() : 0);
         }
         return invokeV.intValue;
     }
@@ -45,18 +53,18 @@ public final class k07 {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "FeedFeedbackUserData(userId=" + this.a + ", portrait=" + this.b + ')';
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "FeedFeedbackData(type=" + this.a + ", title=" + this.b + ", buttonText=" + this.c + ", commonId=" + this.d + ", businessData=" + this.e + ')';
         }
         return (String) invokeV.objValue;
     }
 
-    public k07(String str, String str2) {
+    public k07(String type, String str, String str2, String str3, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
+            Object[] objArr = {type, str, str2, str3, obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -66,23 +74,45 @@ public final class k07 {
                 return;
             }
         }
-        this.a = str;
-        this.b = str2;
+        Intrinsics.checkNotNullParameter(type, "type");
+        this.a = type;
+        this.b = str;
+        this.c = str2;
+        this.d = str3;
+        this.e = obj;
     }
 
-    public final String a() {
+    public final Object a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return this.e;
         }
-        return (String) invokeV.objValue;
+        return invokeV.objValue;
     }
 
     public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.a;
         }
         return (String) invokeV.objValue;

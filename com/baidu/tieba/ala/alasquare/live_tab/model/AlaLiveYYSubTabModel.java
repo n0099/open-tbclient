@@ -15,6 +15,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.ak6;
 import com.baidu.tieba.ala.alasquare.live_tab.message.AlaTabLiveResponsedMessage;
 import com.baidu.tieba.e86;
 import com.baidu.tieba.j66;
@@ -22,7 +23,6 @@ import com.baidu.tieba.ri;
 import com.baidu.tieba.rn;
 import com.baidu.tieba.u76;
 import com.baidu.tieba.x66;
-import com.baidu.tieba.zj6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -239,7 +239,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
             str = "";
         }
         e86 e86Var = new e86();
-        e86Var.a = new zj6(this.a.getUniqueId(), TbSingleton.getInstance().getLiveFollowSecondFloor(), str);
+        e86Var.a = new ak6(this.a.getUniqueId(), TbSingleton.getInstance().getLiveFollowSecondFloor(), str);
         this.f.g(e86Var);
     }
 

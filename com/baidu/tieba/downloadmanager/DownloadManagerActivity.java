@@ -28,7 +28,7 @@ import com.baidu.tbadk.core.view.itemcard.ItemCardHelper;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.downloadmanager.ui.DownloadManagerFragment;
-import com.baidu.tieba.gr6;
+import com.baidu.tieba.hr6;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.yi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -81,11 +81,11 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof gr6)) {
-                gr6 gr6Var = (gr6) customResponsedMessage.getData();
-                View a = gr6Var.a();
-                if (!ItemCardHelper.d.equals(((TBSpecificationBtn) gr6Var.a()).getText())) {
-                    ItemCardHelper.f(gr6Var.e(), gr6Var.d(), ItemCardHelper.e(((TBSpecificationBtn) gr6Var.a()).getText()), gr6Var.c(), gr6Var.b(), true);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof hr6)) {
+                hr6 hr6Var = (hr6) customResponsedMessage.getData();
+                View a = hr6Var.a();
+                if (!ItemCardHelper.d.equals(((TBSpecificationBtn) hr6Var.a()).getText())) {
+                    ItemCardHelper.f(hr6Var.e(), hr6Var.d(), ItemCardHelper.e(((TBSpecificationBtn) hr6Var.a()).getText()), hr6Var.c(), hr6Var.b(), true);
                 }
                 DownloadManagerActivity downloadManagerActivity = this.a;
                 ItemCardHelper.l(downloadManagerActivity, downloadManagerActivity.getUniqueId(), a, (ViewGroup) this.a.findViewById(16908290));

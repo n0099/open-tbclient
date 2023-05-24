@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.util.PriorityOrganizer;
@@ -63,16 +64,21 @@ public class uh7 extends PriorityOrganizer.Task {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            boolean z = false;
             if (a35.j()) {
                 return false;
             }
-            gq9 frsResponseData = TbSingleton.getInstance().getFrsResponseData();
-            qa7 qa7Var = new qa7(this.n.getPageContext());
-            this.m.M4(qa7Var);
-            boolean j = qa7Var.j(frsResponseData);
-            this.m.K4(j);
-            this.m.P4(j);
-            return j;
+            hq9 frsResponseData = TbSingleton.getInstance().getFrsResponseData();
+            if (frsResponseData != null && frsResponseData.getBusinessPromot() != null && !StringUtils.isNull(frsResponseData.getBusinessPromot().q()) && frsResponseData.getForum() != null) {
+                z = true;
+            }
+            if (z) {
+                boolean j = pl7.j(frsResponseData.getBusinessPromot(), frsResponseData.getForum().getId());
+                this.m.L4(j);
+                this.m.P4(j);
+                return j;
+            }
+            return z;
         }
         return invokeV.booleanValue;
     }

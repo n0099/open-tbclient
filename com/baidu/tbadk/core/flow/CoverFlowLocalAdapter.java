@@ -10,9 +10,9 @@ import androidx.viewpager.widget.PagerAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.a87;
 import com.baidu.tieba.s45;
 import com.baidu.tieba.t45;
-import com.baidu.tieba.z77;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -132,7 +132,7 @@ public class CoverFlowLocalAdapter<T extends t45> extends PagerAdapter {
                     this.f.get(i);
                 }
                 if (this.b.get(i) != null && imageView != null) {
-                    if (this.b.get(i) instanceof z77) {
+                    if (this.b.get(i) instanceof a87) {
                         imageView.setImageDrawable(SkinManager.getDrawable(imageView.getResources(), Integer.valueOf(this.b.get(i).getPicUrl()).intValue()));
                     }
                     imageView.setOnClickListener(this.d);

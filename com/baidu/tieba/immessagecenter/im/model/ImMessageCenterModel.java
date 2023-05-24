@@ -7,16 +7,16 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g48;
 import com.baidu.tieba.g9;
+import com.baidu.tieba.h48;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.model.ImBaseMessageCenterModel;
 import com.baidu.tieba.im.settingcache.OfficialSettingItemData;
 import com.baidu.tieba.im.settingcache.PersonalSettingItemData;
-import com.baidu.tieba.j48;
 import com.baidu.tieba.k48;
+import com.baidu.tieba.l48;
 import com.baidu.tieba.pg;
-import com.baidu.tieba.t58;
+import com.baidu.tieba.u58;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -183,9 +183,9 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
             imMessageCenterShowItemData.setServerTime(imMessageCenterPojo.getLast_content_time());
             imMessageCenterShowItemData.setUnReadCount(imMessageCenterPojo.getUnread_count());
             imMessageCenterShowItemData.setGroupSetting(null);
-            imMessageCenterShowItemData.setMarkTopIndex(g48.b().a(Long.valueOf(pg.g(imMessageCenterPojo.getGid(), 0L))));
-            imMessageCenterShowItemData.setNotify(g48.b().d(Long.valueOf(pg.g(imMessageCenterPojo.getGid(), 0L))));
-            imMessageCenterShowItemData.setGroupDelete(g48.b().c(Long.valueOf(pg.g(imMessageCenterPojo.getGid(), 0L)), imMessageCenterPojo.getLast_content_time()));
+            imMessageCenterShowItemData.setMarkTopIndex(h48.b().a(Long.valueOf(pg.g(imMessageCenterPojo.getGid(), 0L))));
+            imMessageCenterShowItemData.setNotify(h48.b().d(Long.valueOf(pg.g(imMessageCenterPojo.getGid(), 0L))));
+            imMessageCenterShowItemData.setGroupDelete(h48.b().c(Long.valueOf(pg.g(imMessageCenterPojo.getGid(), 0L)), imMessageCenterPojo.getLast_content_time()));
             imMessageCenterShowItemData.setCacheGroupMsgContent(imMessageCenterPojo.getLast_content());
             if (TextUtils.isEmpty(imMessageCenterPojo.getLast_content())) {
                 imMessageCenterPojo.setLast_content("");
@@ -259,7 +259,7 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
         if (!TextUtils.isEmpty(imMessageCenterPojo.getLast_user_name()) && !imMessageCenterPojo.getLast_user_name().equals(V()) && !StringUtils.isNull(buildNormalItem.getMsgContent())) {
             buildNormalItem.setMsgContent(buildNormalItem.getMsgContent());
         }
-        OfficialSettingItemData a = j48.j().a(U(), imMessageCenterPojo.getGid());
+        OfficialSettingItemData a = k48.j().a(U(), imMessageCenterPojo.getGid());
         if (a != null) {
             buildNormalItem.setGroupSetting(a);
         }
@@ -292,11 +292,11 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
                 }
                 buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
                 buildNormalItem.setOwnerName(String.valueOf(4));
-                PersonalSettingItemData a = k48.j().a(U(), imMessageCenterPojo.getGid());
+                PersonalSettingItemData a = l48.j().a(U(), imMessageCenterPojo.getGid());
                 if (a != null) {
                     buildNormalItem.setGroupSetting(a);
                 }
-                buildNormalItem.setMarkTopIndex(t58.a(imMessageCenterPojo.getGid()));
+                buildNormalItem.setMarkTopIndex(u58.a(imMessageCenterPojo.getGid()));
                 insertShowData(buildNormalItem, this.mList);
             }
         }

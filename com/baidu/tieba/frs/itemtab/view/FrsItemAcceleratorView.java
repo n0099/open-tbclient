@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.wp9;
+import com.baidu.tieba.xp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -199,7 +199,7 @@ public class FrsItemAcceleratorView extends LinearLayout {
             } else {
                 p45 d2 = p45.d(this.c);
                 d2.o(R.string.J_X07);
-                d2.h(wp9.f(this.g));
+                d2.h(xp9.f(this.g));
             }
             p45.d(this.d).z(R.color.CAM_X0101);
             p45.d(this.e).f(R.color.CAM_X0617);

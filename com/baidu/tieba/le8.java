@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class le8 extends je8<re8> implements f37<le8> {
+public final class le8 extends ke8<re8> implements g37<le8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String d;
@@ -20,7 +20,7 @@ public final class le8 extends je8<re8> implements f37<le8> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public le8(ue8<re8> data, String templateName) {
+    public le8(ve8<re8> data, String templateName) {
         super(data);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -31,7 +31,7 @@ public final class le8 extends je8<re8> implements f37<le8> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ue8) newInitContext.callArgs[0]);
+                super((ve8) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -42,7 +42,7 @@ public final class le8 extends je8<re8> implements f37<le8> {
         this.d = templateName;
     }
 
-    @Override // com.baidu.tieba.f37
+    @Override // com.baidu.tieba.g37
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public final class le8 extends je8<re8> implements f37<le8> {
     }
 
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.f37
+    @Override // com.baidu.tieba.g37
     public /* bridge */ /* synthetic */ le8 b() {
         i();
         return this;

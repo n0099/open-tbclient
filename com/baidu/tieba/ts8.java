@@ -1,35 +1,11 @@
 package com.baidu.tieba;
-
-import java.util.List;
 /* loaded from: classes7.dex */
 public interface ts8 {
-    void a();
+    void b();
 
-    void c(boolean z);
+    boolean hasMore();
 
-    void d();
+    void refresh();
 
-    void e(boolean z, List<rn> list);
-
-    void h(String str);
-
-    void hideLoadingView();
-
-    void i(int i);
-
-    void k();
-
-    void l(int i);
-
-    void m(boolean z);
-
-    void n(ss8 ss8Var);
-
-    void o();
-
-    void onCreate();
-
-    void onDestroy();
-
-    void p(String str);
+    void reload();
 }

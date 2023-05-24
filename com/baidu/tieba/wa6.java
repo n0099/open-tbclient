@@ -52,7 +52,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.AppPosInfo;
 /* loaded from: classes8.dex */
-public class wa6 extends vi6<ThreadData> implements tj6, b16 {
+public class wa6 extends wi6<ThreadData> implements uj6, b16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView A;
@@ -80,14 +80,14 @@ public class wa6 extends vi6<ThreadData> implements tj6, b16 {
     public LinearLayout y;
     public RelativeLayout z;
 
-    @Override // com.baidu.tieba.wi6
+    @Override // com.baidu.tieba.xi6
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? R.layout.obfuscated_res_0x7f0d0333 : invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.tj6
+    @Override // com.baidu.tieba.uj6
     public void p(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
@@ -245,7 +245,7 @@ public class wa6 extends vi6<ThreadData> implements tj6, b16 {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wi6
+    @Override // com.baidu.tieba.xi6
     /* renamed from: T */
     public void i(ThreadData threadData) {
         Interceptable interceptable = $ic;
@@ -280,7 +280,7 @@ public class wa6 extends vi6<ThreadData> implements tj6, b16 {
         }
     }
 
-    @Override // com.baidu.tieba.tj6
+    @Override // com.baidu.tieba.uj6
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
@@ -395,7 +395,7 @@ public class wa6 extends vi6<ThreadData> implements tj6, b16 {
         }
     }
 
-    @Override // com.baidu.tieba.wi6
+    @Override // com.baidu.tieba.xi6
     @SuppressLint({"ResourceAsColor"})
     public void j(TbPageContext<?> tbPageContext, int i) {
         ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout;
@@ -438,7 +438,7 @@ public class wa6 extends vi6<ThreadData> implements tj6, b16 {
                 this.a = i;
             }
             T t = this.k;
-            if (t != 0 && hj6.k(((ThreadData) t).getId())) {
+            if (t != 0 && ij6.k(((ThreadData) t).getId())) {
                 SkinManager.setViewTextColor(this.A, (int) R.color.CAM_X0109);
             } else {
                 SkinManager.setViewTextColor(this.A, (int) R.color.CAM_X0105);
@@ -581,7 +581,7 @@ public class wa6 extends vi6<ThreadData> implements tj6, b16 {
                         String latitude = ((ThreadData) this.k).getLatitude();
                         String longtitude = ((ThreadData) this.k).getLongtitude();
                         if (UtilHelper.isDecimal(latitude) && UtilHelper.isDecimal(longtitude) && UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst())) {
-                            AppPosInfo c = gh9.e().c();
+                            AppPosInfo c = hh9.e().c();
                             String str2 = c.latitude;
                             String str3 = c.longitude;
                             if (UtilHelper.isDecimal(str2) && UtilHelper.isDecimal(str3) && ri.h(Double.parseDouble(str2), Double.parseDouble(str3), Double.parseDouble(latitude), Double.parseDouble(longtitude)) <= 50.0d) {
@@ -603,7 +603,7 @@ public class wa6 extends vi6<ThreadData> implements tj6, b16 {
                 this.F.setLayoutParams(layoutParams3);
                 Y(P(1));
                 O((ThreadData) this.k);
-                this.O.setVisibility((t77.f().i() || s77.h().j()) ? 0 : 0);
+                this.O.setVisibility((u77.f().i() || t77.h().j()) ? 0 : 0);
                 j(this.i, TbadkCoreApplication.getInst().getSkinType());
                 R();
                 F(this.z);
@@ -641,7 +641,7 @@ public class wa6 extends vi6<ThreadData> implements tj6, b16 {
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048593, this, view2) == null) && !t77.f().i() && !s77.h().j()) {
+        if ((interceptable == null || interceptable.invokeL(1048593, this, view2) == null) && !u77.f().i() && !t77.h().j()) {
             if (view2 != this.z && view2 != this.l.getCommentContainer() && view2 != this.y && view2 != this.w.b.getCommentContainer() && view2 != this.m.getCommentContainer() && view2 != this.G) {
                 if (view2.getId() == R.id.video_container) {
                     if (e() != null) {
@@ -654,7 +654,7 @@ public class wa6 extends vi6<ThreadData> implements tj6, b16 {
             }
             T t = this.k;
             if (t != 0) {
-                hj6.a(((ThreadData) t).getId());
+                ij6.a(((ThreadData) t).getId());
             }
             if (e() != null) {
                 e().a(this.z, this.k);

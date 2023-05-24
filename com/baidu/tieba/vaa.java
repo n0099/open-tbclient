@@ -1,21 +1,11 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface vaa {
-    void C();
+    void i(String str);
 
-    void N();
+    void k(String str);
 
-    void R();
+    void u(String str);
 
-    void T0(boolean z);
-
-    void U0(int i, boolean z);
-
-    void c(String str);
-
-    void e();
-
-    void finish();
-
-    void setResult(int i);
+    void v(String str);
 }

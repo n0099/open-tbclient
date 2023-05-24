@@ -74,7 +74,7 @@ public class v26 extends e9<NewFriendsActivity> {
         this.h = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, ri.g(this.a.getActivity(), R.dimen.obfuscated_res_0x7f0703ab)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0dfd), null);
     }
 
-    public void A(List<e28> list) {
+    public void A(List<f28> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
             this.e.setEmptyView(this.h);
@@ -97,7 +97,7 @@ public class v26 extends e9<NewFriendsActivity> {
         }
     }
 
-    public void E(List<e28> list) {
+    public void E(List<f28> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             this.f.h(list);
@@ -105,10 +105,10 @@ public class v26 extends e9<NewFriendsActivity> {
         }
     }
 
-    public void z(e28 e28Var) {
+    public void z(f28 f28Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, e28Var) == null) {
-            this.f.d(e28Var);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, f28Var) == null) {
+            this.f.d(f28Var);
             this.f.notifyDataSetChanged();
         }
     }

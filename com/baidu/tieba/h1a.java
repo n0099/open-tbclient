@@ -104,7 +104,7 @@ public class h1a {
                     this.c.b = null;
                 }
                 if (this.a != null) {
-                    this.c.a.put(downloadData.getPath().substring(m0a.h.length(), downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
+                    this.c.a.put(downloadData.getPath().substring(n0a.a.length(), downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
                     this.a.c(this.b, downloadData.getPath());
                 }
             }
@@ -169,7 +169,7 @@ public class h1a {
             } else {
                 hashMap.clear();
             }
-            File file = new File(m0a.h);
+            File file = new File(n0a.a);
             if (!file.exists() || (listFiles = file.listFiles()) == null) {
                 return;
             }
@@ -187,21 +187,25 @@ public class h1a {
         if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, bVar) != null) || TextUtils.isEmpty(str2) || (nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str2)) == null) {
             return;
         }
-        if (this.b != null) {
+        DownloadData downloadData = this.b;
+        if (downloadData != null) {
+            if (str2.equals(downloadData.getUrl())) {
+                return;
+            }
             oe5.k().h(this.b.getUrl(), true);
         }
-        File file = new File(m0a.h);
+        File file = new File(n0a.a);
         if (!file.exists()) {
             file.mkdirs();
         }
-        DownloadData downloadData = new DownloadData();
-        downloadData.setType(18);
-        downloadData.setId(str);
-        downloadData.setUrl(str2);
-        downloadData.setPath(m0a.h + nameMd5FromUrl + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
-        downloadData.setCallback(new a(this, bVar, str2));
-        this.b = downloadData;
-        oe5.k().l(downloadData);
+        DownloadData downloadData2 = new DownloadData();
+        downloadData2.setType(17);
+        downloadData2.setId(str);
+        downloadData2.setUrl(str2);
+        downloadData2.setPath(n0a.a + nameMd5FromUrl + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
+        downloadData2.setCallback(new a(this, bVar, str2));
+        this.b = downloadData2;
+        oe5.k().l(downloadData2);
     }
 
     public String f(String str) {

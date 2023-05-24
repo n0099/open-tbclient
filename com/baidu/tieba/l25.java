@@ -173,12 +173,12 @@ public class l25 implements View.OnClickListener {
             if (qi.isEmpty(ps4Var.p)) {
                 SkinManager.setViewTextColor(this.c, R.color.CAM_X0302, 1);
             } else {
-                this.c.setTextColor(yi8.b(ps4Var.p));
+                this.c.setTextColor(zi8.b(ps4Var.p));
             }
             if (qi.isEmpty(ps4Var.q)) {
                 SkinManager.setViewTextColor(this.d, R.color.CAM_X0101, 1);
             } else {
-                this.d.setTextColor(yi8.b(ps4Var.q));
+                this.d.setTextColor(zi8.b(ps4Var.q));
             }
             if (!qi.isEmpty(ps4Var.o)) {
                 this.d.setBackgroundDrawable(b(ps4Var.o));
@@ -205,7 +205,7 @@ public class l25 implements View.OnClickListener {
             Drawable drawable = this.a.getResources().getDrawable(R.drawable.shape_new_complete_toast_btn_bg_pressed);
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setCornerRadius(ri.g(this.a, R.dimen.tbds10));
-            gradientDrawable.setColor(yi8.b(str));
+            gradientDrawable.setColor(zi8.b(str));
             stateListDrawable.addState(new int[]{16842919}, drawable);
             stateListDrawable.addState(new int[0], gradientDrawable);
             return stateListDrawable;

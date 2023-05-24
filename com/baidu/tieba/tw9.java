@@ -2,6 +2,8 @@ package com.baidu.tieba;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,13 +16,13 @@ public class tw9 extends CustomMessageListener {
     public final MainTabActivity a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tw9(MainTabActivity mainTabActivity, iu9 iu9Var) {
-        super(2921504);
+    public tw9(MainTabActivity mainTabActivity, ju9 ju9Var) {
+        super(2016493);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, iu9Var};
+            Object[] objArr = {mainTabActivity, ju9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,9 +39,15 @@ public class tw9 extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        de5 de5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-            this.a.T1();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof de5) && (de5Var = (de5) customResponsedMessage.getData()) != null && !StringUtils.isNull(de5Var.a)) {
+            hs5.h(de5Var);
+            if (StringUtils.isNull(de5Var.c)) {
+                UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{de5Var.a});
+            } else {
+                UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{de5Var.a, de5Var.c});
+            }
         }
     }
 }

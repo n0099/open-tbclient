@@ -8,8 +8,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ItemClickJumpUtil;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tbadk.core.view.itemcard.ItemCardHelper;
 import com.baidu.tieba.az;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.py;
@@ -30,28 +33,49 @@ public class zw7 extends en<o15, ThreadCardViewHolder<ThreadData>> {
     public class a implements bo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wx a;
 
-        public a(zw7 zw7Var) {
+        public a(zw7 zw7Var, wx wxVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zw7Var};
+                Object[] objArr = {zw7Var, wxVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = wxVar;
         }
 
         @Override // com.baidu.tieba.bo
         public void b(View view2, rn rnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            boolean z;
+            o15 o15Var;
+            ThreadData threadData;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, rnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (rnVar instanceof jy4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
-                ThreadCardUtils.jumpToPB((jy4) rnVar, view2.getContext(), 0, false);
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, rnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && ((z = rnVar instanceof o15)) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                int i2 = 0;
+                if (z && (o15Var = (o15) rnVar) != null && o15Var.n && (threadData = o15Var.t) != null && threadData.getItem() != null) {
+                    int intValue = o15Var.t.getItem().button_link_type.intValue();
+                    if (o15Var.t.getItem().apk_detail != null) {
+                        i2 = o15Var.t.getItem().apk_detail.pkg_source.intValue();
+                    }
+                    int a = w75.a(intValue, i2);
+                    ItemData itemData = new ItemData();
+                    itemData.parseProto(o15Var.t.getItem());
+                    ItemCardHelper.q(this.a.A(), o15Var.t.getItem().item_id.longValue(), this.a.z(itemData), o15Var.t.getTid(), a, "", 2);
+                    ItemClickJumpUtil.itemClickJump(o15Var.t.getItem().forum_name, String.valueOf(o15Var.t.getItem().item_id), 1, 4);
+                    return;
+                }
+                ThreadData threadData2 = ((o15) rnVar).t;
+                threadData2.objType = 1;
+                ThreadCardUtils.jumpToPB((jy4) threadData2, view2.getContext(), 0, false);
                 ((ThreadCardViewHolder) view2.getTag()).a().p(new az.a(1));
             }
         }
@@ -95,12 +119,16 @@ public class zw7 extends en<o15, ThreadCardViewHolder<ThreadData>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             py.b bVar = new py.b(this.b.getPageActivity(), false);
-            bVar.h(new ey(this.b.getPageActivity()));
+            wx wxVar = new wx(this.b.getPageActivity());
+            wxVar.C(true);
+            wxVar.F(3);
+            wxVar.y();
+            bVar.h(wxVar);
             py k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.c);
             k.s(2);
             ThreadCardViewHolder<ThreadData> threadCardViewHolder = new ThreadCardViewHolder<>(k);
             threadCardViewHolder.i(this.a);
-            setOnAdapterItemClickListener(new a(this));
+            setOnAdapterItemClickListener(new a(this, wxVar));
             return threadCardViewHolder;
         }
         return (ThreadCardViewHolder) invokeL.objValue;

@@ -13,13 +13,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cr8;
 import com.baidu.tieba.d25;
 import com.baidu.tieba.dr8;
 import com.baidu.tieba.ea5;
-import com.baidu.tieba.eq8;
-import com.baidu.tieba.hq8;
+import com.baidu.tieba.er8;
+import com.baidu.tieba.fq8;
 import com.baidu.tieba.iq8;
+import com.baidu.tieba.jq8;
 import com.baidu.tieba.memberCenter.tail.data.TailData;
 import com.baidu.tieba.memberCenter.tail.data.TailEditActivityConfig;
 import com.baidu.tieba.p45;
@@ -34,11 +34,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TailEditActivity extends BaseActivity<TailEditActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hq8 a;
-    public iq8 b;
+    public iq8 a;
+    public jq8 b;
     public View c;
-    public cr8<Integer> d;
-    public cr8<Integer> e;
+    public dr8<Integer> d;
+    public dr8<Integer> e;
     public View.OnClickListener f;
     public View.OnClickListener g;
     public View.OnTouchListener h;
@@ -46,7 +46,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
     public te5 j;
 
     /* loaded from: classes6.dex */
-    public class a implements cr8<Integer> {
+    public class a implements dr8<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TailEditActivity a;
@@ -70,7 +70,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cr8
+        @Override // com.baidu.tieba.dr8
         /* renamed from: b */
         public void a(boolean z, String str, Integer num) {
             Interceptable interceptable = $ic;
@@ -82,7 +82,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements cr8<Integer> {
+    public class b implements dr8<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TailEditActivity a;
@@ -106,7 +106,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cr8
+        @Override // com.baidu.tieba.dr8
         /* renamed from: b */
         public void a(boolean z, String str, Integer num) {
             Interceptable interceptable = $ic;
@@ -483,11 +483,11 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
             this.a.i().setContent(this.b.g());
-            hq8 hq8Var = this.a;
-            if (hq8Var.l(hq8Var.e(hq8Var.i().getContent()))) {
+            iq8 iq8Var = this.a;
+            if (iq8Var.l(iq8Var.e(iq8Var.i().getContent()))) {
                 showToast(R.string.over_limit_tip);
             } else if (obj != null && (obj instanceof ea5)) {
-                new dr8().b(this, this.b.h(), (ea5) obj);
+                new er8().b(this, this.b.h(), (ea5) obj);
             }
         }
     }
@@ -500,8 +500,8 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
             setContentView(R.layout.obfuscated_res_0x7f0d0904);
             setActivityBgTransparent();
             setSwipeBackEnabled(false);
-            this.b = new iq8(this, this.f, this.g);
-            this.a = new hq8(getPageContext());
+            this.b = new jq8(this, this.f, this.g);
+            this.a = new iq8(getPageContext());
             this.c = findViewById(R.id.obfuscated_res_0x7f0922fd);
             L1();
             M1();
@@ -563,9 +563,9 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
                 tailData.setId(num.intValue());
                 tailData.setContent(this.a.i().getContent());
                 tailData.setFontColor(this.a.g());
-                eq8 eq8Var = new eq8(1, tailData);
+                fq8 fq8Var = new fq8(1, tailData);
                 if (!z) {
-                    eq8Var.a = 2;
+                    fq8Var.a = 2;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001348, null));
                 Intent intent = new Intent();
@@ -574,7 +574,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
                 intent.putExtra("tailContent", tailData.getContent());
                 setResult(-1, intent);
                 finish();
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001340, eq8Var));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001340, fq8Var));
             }
         }
     }

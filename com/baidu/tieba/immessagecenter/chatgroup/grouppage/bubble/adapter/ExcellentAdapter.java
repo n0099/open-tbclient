@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.bubble.topbubble.TopBubbleData;
-import com.baidu.tieba.j88;
+import com.baidu.tieba.k88;
 import com.baidu.tieba.p45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -219,7 +219,7 @@ public class ExcellentAdapter extends RecyclerView.Adapter<ExcellentHolder> {
             TextView textView = excellentHolder.e;
             textView.setText(topBubbleData.getUserName() + "：" + topBubbleData.getContent());
             excellentHolder.d.setText(R.string.obfuscated_res_0x7f0f03ff);
-            if (!j88.a(topBubbleData.getVersionKey())) {
+            if (!k88.a(topBubbleData.getVersionKey())) {
                 excellentHolder.f.setVisibility(0);
             } else {
                 excellentHolder.f.setVisibility(8);

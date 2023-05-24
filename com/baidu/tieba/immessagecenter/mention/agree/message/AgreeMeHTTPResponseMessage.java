@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.c25;
-import com.baidu.tieba.ld8;
+import com.baidu.tieba.md8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -20,7 +20,7 @@ import tbclient.Error;
 public class AgreeMeHTTPResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<ld8> datas;
+    public ArrayList<md8> datas;
     public boolean hasMore;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -80,9 +80,9 @@ public class AgreeMeHTTPResponseMessage extends TbHttpResponsedMessage {
                 this.hasMore = z;
                 for (AgreeList agreeList : agreeMeResIdl.data.agree_list) {
                     if (agreeList != null) {
-                        ld8 ld8Var = new ld8();
-                        ld8Var.D(agreeList);
-                        this.datas.add(ld8Var);
+                        md8 md8Var = new md8();
+                        md8Var.D(agreeList);
+                        this.datas.add(md8Var);
                     }
                 }
             }

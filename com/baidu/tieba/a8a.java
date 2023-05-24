@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.album.MediaFileInfo;
+import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes4.dex */
 public interface a8a {
-    void a(int i, MediaFileInfo mediaFileInfo);
+    boolean a(ImageFileInfo imageFileInfo);
 }

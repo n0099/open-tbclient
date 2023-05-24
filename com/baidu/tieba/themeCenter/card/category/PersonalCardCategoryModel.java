@@ -6,11 +6,11 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.ar9;
 import com.baidu.tieba.fb;
-import com.baidu.tieba.fy9;
-import com.baidu.tieba.ix9;
-import com.baidu.tieba.ny9;
-import com.baidu.tieba.zq9;
+import com.baidu.tieba.gy9;
+import com.baidu.tieba.jx9;
+import com.baidu.tieba.oy9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,8 +22,8 @@ import java.util.List;
 public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ny9 a;
-    public List<fy9> b;
+    public oy9 a;
+    public List<gy9> b;
     public int c;
     public boolean d;
     public b e;
@@ -31,7 +31,7 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
 
     /* loaded from: classes7.dex */
     public interface b {
-        void a(int i, String str, ny9 ny9Var, List<fy9> list, boolean z);
+        void a(int i, String str, oy9 oy9Var, List<gy9> list, boolean z);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -135,8 +135,8 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
         this.c = 1;
         this.d = true;
         this.f = new a(this, CmdConfigHttp.CMD_GET_CARD_BY_CATEGORY, 309331);
-        zq9.h(309331, PersonalCardCategorySocktResponse.class, false, false);
-        zq9.c(309331, CmdConfigHttp.CMD_GET_CARD_BY_CATEGORY, TbConfig.GET_PERSONAL_CARD_BY_CATEGORY, PersonalCardCategoryHttpResponse.class, false, false, false, false);
+        ar9.h(309331, PersonalCardCategorySocktResponse.class, false, false);
+        ar9.c(309331, CmdConfigHttp.CMD_GET_CARD_BY_CATEGORY, TbConfig.GET_PERSONAL_CARD_BY_CATEGORY, PersonalCardCategoryHttpResponse.class, false, false, false, false);
         registerListener(this.f);
     }
 
@@ -197,23 +197,23 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
     }
 
     public void e0(long j, int i) {
-        List<fy9> list;
+        List<gy9> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) && (list = this.b) != null && list.size() > 0) {
-            for (fy9 fy9Var : list) {
-                if (fy9Var != null && fy9Var.a() != null && fy9Var.a().size() > 0) {
-                    for (ix9 ix9Var : fy9Var.a()) {
-                        if (ix9Var != null) {
-                            if (ix9Var.a() == j) {
+            for (gy9 gy9Var : list) {
+                if (gy9Var != null && gy9Var.a() != null && gy9Var.a().size() > 0) {
+                    for (jx9 jx9Var : gy9Var.a()) {
+                        if (jx9Var != null) {
+                            if (jx9Var.a() == j) {
                                 if (i == 1) {
-                                    ix9Var.s(1);
+                                    jx9Var.s(1);
                                 } else {
-                                    ix9Var.s(0);
+                                    jx9Var.s(0);
                                 }
                             } else if (i == 1) {
-                                ix9Var.s(0);
-                            } else if (ix9Var.a() == ix9.k) {
-                                ix9Var.s(1);
+                                jx9Var.s(0);
+                            } else if (jx9Var.a() == jx9.k) {
+                                jx9Var.s(1);
                             }
                         }
                     }

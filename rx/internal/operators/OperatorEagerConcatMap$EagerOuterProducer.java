@@ -1,24 +1,24 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.c8b;
-import com.baidu.tieba.j7b;
-import com.baidu.tieba.o8b;
+import com.baidu.tieba.d8b;
+import com.baidu.tieba.k7b;
+import com.baidu.tieba.p8b;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes10.dex */
-public final class OperatorEagerConcatMap$EagerOuterProducer extends AtomicLong implements j7b {
+public final class OperatorEagerConcatMap$EagerOuterProducer extends AtomicLong implements k7b {
     public static final long serialVersionUID = -657299606803478389L;
-    public final o8b<?, ?> parent;
+    public final p8b<?, ?> parent;
 
-    public OperatorEagerConcatMap$EagerOuterProducer(o8b<?, ?> o8bVar) {
-        this.parent = o8bVar;
+    public OperatorEagerConcatMap$EagerOuterProducer(p8b<?, ?> p8bVar) {
+        this.parent = p8bVar;
     }
 
-    @Override // com.baidu.tieba.j7b
+    @Override // com.baidu.tieba.k7b
     public void request(long j) {
         int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i >= 0) {
             if (i > 0) {
-                c8b.b(this, j);
+                d8b.b(this, j);
                 this.parent.g();
                 return;
             }

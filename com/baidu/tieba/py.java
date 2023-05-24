@@ -306,25 +306,25 @@ public class py<T extends jy4> implements ux, b16 {
         }
     }
 
-    public void q(vj6<T> vj6Var) {
+    public void q(wj6<T> wj6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, vj6Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, wj6Var) == null) {
             ax<T> axVar = this.g;
             if (axVar != null) {
-                axVar.p(vj6Var);
+                axVar.p(wj6Var);
             }
             ax<T> axVar2 = this.h;
             if (axVar2 != null) {
-                axVar2.p(vj6Var);
+                axVar2.p(wj6Var);
             }
             for (hx hxVar : this.i) {
                 if (hxVar != null) {
-                    hxVar.p(vj6Var);
+                    hxVar.p(wj6Var);
                 }
             }
             ax<T> axVar3 = this.j;
             if (axVar3 != null) {
-                axVar3.p(vj6Var);
+                axVar3.p(wj6Var);
             }
         }
     }
@@ -665,7 +665,7 @@ public class py<T extends jy4> implements ux, b16 {
                 this.d.setTag(R.id.virtual_image_user_head, null);
                 this.g.a(t);
                 ax<T> axVar = this.g;
-                if (axVar instanceof f7a) {
+                if (axVar instanceof g7a) {
                     this.d.setTag(R.id.virtual_image_user_head, axVar);
                 }
             }

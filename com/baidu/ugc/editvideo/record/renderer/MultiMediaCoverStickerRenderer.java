@@ -6,9 +6,9 @@ import android.opengl.GLUtils;
 import android.text.TextUtils;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.tieba.dg0;
-import com.baidu.tieba.fna;
 import com.baidu.tieba.gna;
-import com.baidu.tieba.kna;
+import com.baidu.tieba.hna;
+import com.baidu.tieba.lna;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import com.baidu.ugc.editvideo.record.entity.GLViewPortLocation;
@@ -30,9 +30,9 @@ public class MultiMediaCoverStickerRenderer extends MultiMediaEditBaseRenderer {
         try {
             int type = GLUtils.getType(decodeBitmap);
             int internalFormat = GLUtils.getInternalFormat(decodeBitmap);
-            fna.b("type : " + type + " internalFormat : " + internalFormat);
+            gna.b("type : " + type + " internalFormat : " + internalFormat);
         } catch (Exception unused) {
-            decodeBitmap = gna.c(decodeBitmap, Bitmap.CompressFormat.PNG, 100);
+            decodeBitmap = hna.c(decodeBitmap, Bitmap.CompressFormat.PNG, 100);
         }
         multiMediaData.textureId = MultiDataSourceUtil.initImageByBitmap(multiMediaData, decodeBitmap);
     }
@@ -65,14 +65,14 @@ public class MultiMediaCoverStickerRenderer extends MultiMediaEditBaseRenderer {
                 i2++;
             }
         }
-        kna.g(this.mCoverStickerDataList, i);
+        lna.g(this.mCoverStickerDataList, i);
         deleteStickerData(multiMediaData, "cover_sticker");
     }
 
     @Override // com.baidu.ugc.editvideo.record.renderer.MultiMediaEditBaseRenderer
     public void deleteTexture() {
         super.deleteTexture();
-        if (kna.e(this.mCoverStickerDataList)) {
+        if (lna.e(this.mCoverStickerDataList)) {
             return;
         }
         for (MultiMediaData multiMediaData : this.mCoverStickerDataList) {
@@ -133,7 +133,7 @@ public class MultiMediaCoverStickerRenderer extends MultiMediaEditBaseRenderer {
 
     @Override // com.baidu.ugc.editvideo.record.renderer.MultiMediaEditBaseRenderer, com.baidu.ugc.editvideo.record.preview.OnMediaPreviewTouchEventListener
     public boolean onTouchDown(float f, float f2, float f3, float f4) {
-        if (kna.e(this.mCoverStickerDataList)) {
+        if (lna.e(this.mCoverStickerDataList)) {
             return false;
         }
         this.mVisibleStickerItems.clear();
@@ -144,7 +144,7 @@ public class MultiMediaCoverStickerRenderer extends MultiMediaEditBaseRenderer {
     }
 
     public void reInitMultiMediaList() {
-        if (kna.e(this.mCoverStickerDataList)) {
+        if (lna.e(this.mCoverStickerDataList)) {
             return;
         }
         for (int i = 0; i < this.mCoverStickerDataList.size(); i++) {
@@ -170,7 +170,7 @@ public class MultiMediaCoverStickerRenderer extends MultiMediaEditBaseRenderer {
         if (i == -1 || i >= this.mStickerItems.size()) {
             return;
         }
-        kna.g(this.mStickerItems, i);
+        lna.g(this.mStickerItems, i);
         MultiDataSourceUtil.glDeleteTextures(multiMediaData);
         initStickerItem(i, multiMediaData);
     }
@@ -200,7 +200,7 @@ public class MultiMediaCoverStickerRenderer extends MultiMediaEditBaseRenderer {
 
     public void setCoverStickerDataList(List<MultiMediaData> list) {
         boolean z;
-        if (kna.e(list)) {
+        if (lna.e(list)) {
             return;
         }
         this.mCoverStickerDataList = list;
@@ -233,10 +233,10 @@ public class MultiMediaCoverStickerRenderer extends MultiMediaEditBaseRenderer {
         super.setCurrentItem(aVar);
         List<a> list = this.mStickerItems;
         int indexOf = list.indexOf(aVar);
-        kna.h(list, indexOf, list.size() - 1);
-        if (!kna.e(this.mCoverStickerDataList)) {
+        lna.h(list, indexOf, list.size() - 1);
+        if (!lna.e(this.mCoverStickerDataList)) {
             List<MultiMediaData> list2 = this.mCoverStickerDataList;
-            kna.h(list2, indexOf, list2.size() - 1);
+            lna.h(list2, indexOf, list2.size() - 1);
         }
         if (z) {
             notifyStickerDataChange(StickerDataChangeType.SWAP);

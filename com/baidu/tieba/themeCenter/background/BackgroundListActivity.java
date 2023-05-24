@@ -6,11 +6,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ny9;
+import com.baidu.tieba.oy9;
 import com.baidu.tieba.rn5;
-import com.baidu.tieba.sx9;
 import com.baidu.tieba.themeCenter.background.BackgroundListModel;
-import com.baidu.tieba.ux9;
+import com.baidu.tieba.tx9;
+import com.baidu.tieba.vx9;
 import com.baidu.tieba.y65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,8 +24,8 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
     public BackgroundListModel b;
-    public ux9 c;
-    public sx9 d;
+    public vx9 c;
+    public tx9 d;
     public BackgroundListModel.c e;
     public BdListView.p f;
     public final y65.g g;
@@ -62,9 +62,9 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
         }
 
         @Override // com.baidu.tieba.themeCenter.background.BackgroundListModel.c
-        public void a(int i, String str, ny9 ny9Var, List<DressItemData> list) {
+        public void a(int i, String str, oy9 oy9Var, List<DressItemData> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, ny9Var, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, oy9Var, list}) == null) {
                 this.a.c.j();
                 BackgroundListActivity backgroundListActivity = this.a;
                 backgroundListActivity.hideLoadingView(backgroundListActivity.c.c());
@@ -73,7 +73,7 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
                     this.a.c.h();
                     return;
                 }
-                this.a.c.i(ny9Var, list, this.a.b.n0());
+                this.a.c.i(oy9Var, list, this.a.b.n0());
             }
         }
     }
@@ -180,9 +180,9 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            ux9 ux9Var = this.c;
-            if (ux9Var != null) {
-                ux9Var.d();
+            vx9 vx9Var = this.c;
+            if (vx9Var != null) {
+                vx9Var.d();
             }
         }
     }
@@ -215,10 +215,10 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        ux9 ux9Var;
+        vx9 vx9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.b != null && (ux9Var = this.c) != null) {
-            showLoadingView(ux9Var.c());
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.b != null && (vx9Var = this.c) != null) {
+            showLoadingView(vx9Var.c());
             this.b.loadData();
         }
     }
@@ -242,12 +242,12 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
             BackgroundListModel backgroundListModel = new BackgroundListModel(this);
             this.b = backgroundListModel;
             backgroundListModel.p0(this.e);
-            sx9 sx9Var = new sx9(this.a, this.b.getUniqueId());
-            this.d = sx9Var;
-            sx9Var.c(0);
-            ux9 ux9Var = new ux9(this, this.d);
-            this.c = ux9Var;
-            ux9Var.g(this.f, this.g);
+            tx9 tx9Var = new tx9(this.a, this.b.getUniqueId());
+            this.d = tx9Var;
+            tx9Var.c(0);
+            vx9 vx9Var = new vx9(this, this.d);
+            this.c = vx9Var;
+            vx9Var.g(this.f, this.g);
             showLoadingView(this.c.c());
             this.b.loadData();
         }

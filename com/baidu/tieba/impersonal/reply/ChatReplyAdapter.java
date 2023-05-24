@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.de8;
+import com.baidu.tieba.ee8;
 import com.baidu.tieba.impersonal.data.QuickReplyData;
 import com.baidu.tieba.impersonal.databinding.ItemQuickChatReplyBinding;
 import com.baidu.tieba.p45;
@@ -200,7 +200,7 @@ public final class ChatReplyAdapter extends RecyclerView.Adapter<ViewHolder> {
             holder.c(questionData);
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             Intrinsics.checkNotNullExpressionValue(currentAccount, "getCurrentAccount()");
-            de8.a("c15229", currentAccount, questionData.getQuestion());
+            ee8.a("c15229", currentAccount, questionData.getQuestion());
             holder.b();
         }
     }

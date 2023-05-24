@@ -30,7 +30,7 @@ import com.baidu.tieba.ri;
 import com.baidu.tieba.rx4;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import com.baidu.tieba.tx;
-import com.baidu.tieba.vj6;
+import com.baidu.tieba.wj6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,7 +51,7 @@ public class MultiImgLayout extends LinearLayout implements tx<jy4> {
     public ConstrainImageGroup d;
     public String e;
     public boolean f;
-    public vj6<jy4> g;
+    public wj6<jy4> g;
     public jy4 h;
     public boolean i;
 
@@ -81,7 +81,7 @@ public class MultiImgLayout extends LinearLayout implements tx<jy4> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            vj6<jy4> subClickListener;
+            wj6<jy4> subClickListener;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (subClickListener = this.a.getSubClickListener()) != null) {
                 view2.setTag("2");
@@ -123,7 +123,7 @@ public class MultiImgLayout extends LinearLayout implements tx<jy4> {
                 if (this.b.g != null && this.b.g.c(view2, this.b.h, "")) {
                     return;
                 }
-                vj6<jy4> subClickListener = this.b.getSubClickListener();
+                wj6<jy4> subClickListener = this.b.getSubClickListener();
                 if (subClickListener != null) {
                     view2.setTag("1");
                     this.b.h.objType = 2;
@@ -265,10 +265,10 @@ public class MultiImgLayout extends LinearLayout implements tx<jy4> {
         }
     }
 
-    public void setSubClickListener(vj6<jy4> vj6Var) {
+    public void setSubClickListener(wj6<jy4> wj6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, vj6Var) == null) {
-            this.g = vj6Var;
+        if (interceptable == null || interceptable.invokeL(1048588, this, wj6Var) == null) {
+            this.g = wj6Var;
         }
     }
 
@@ -374,13 +374,13 @@ public class MultiImgLayout extends LinearLayout implements tx<jy4> {
         }
     }
 
-    public vj6<jy4> getSubClickListener() {
+    public wj6<jy4> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.g;
         }
-        return (vj6) invokeV.objValue;
+        return (wj6) invokeV.objValue;
     }
 
     public void setMarginsTop(View view2, int i) {

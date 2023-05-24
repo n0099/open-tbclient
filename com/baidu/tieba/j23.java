@@ -30,7 +30,7 @@ public class j23 implements zn3<HybridUbcFlow> {
 
         /* renamed from: com.baidu.tieba.j23$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class C0350a {
+        public static class C0349a {
             public static /* synthetic */ Interceptable $ic;
             public static a a;
             public transient /* synthetic */ FieldHolder $fh;
@@ -70,7 +70,7 @@ public class j23 implements zn3<HybridUbcFlow> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                return C0350a.a;
+                return C0349a.a;
             }
             return (a) invokeV.objValue;
         }

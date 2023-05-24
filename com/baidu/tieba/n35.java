@@ -31,13 +31,13 @@ public class n35 implements tj1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new kj7());
-            arrayList.add(new oj7());
-            arrayList.add(new sj7());
-            arrayList.add(new wj7());
-            arrayList.add(new ak7());
-            arrayList.add(new ek7());
-            arrayList.add(new ik7());
+            arrayList.add(new lj7());
+            arrayList.add(new pj7());
+            arrayList.add(new tj7());
+            arrayList.add(new xj7());
+            arrayList.add(new bk7());
+            arrayList.add(new fk7());
+            arrayList.add(new jk7());
             return arrayList;
         }
         return invokeV.objValue;

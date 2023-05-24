@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 import tbclient.FrsPage.TopNews;
 /* loaded from: classes7.dex */
-public class s15 extends rr9 {
+public class s15 extends sr9 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId d1;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +51,7 @@ public class s15 extends rr9 {
         }
     }
 
-    @Override // com.baidu.tieba.rr9, com.baidu.tieba.rn
+    @Override // com.baidu.tieba.sr9, com.baidu.tieba.rn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

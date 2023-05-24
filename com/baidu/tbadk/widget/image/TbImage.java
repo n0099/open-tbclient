@@ -14,11 +14,11 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.newwidget.ImageView.BDImageView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.image.TbImage;
+import com.baidu.tieba.au9;
 import com.baidu.tieba.tv5;
 import com.baidu.tieba.uv5;
 import com.baidu.tieba.vv5;
 import com.baidu.tieba.xv5;
-import com.baidu.tieba.zt9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -528,7 +528,7 @@ public final class TbImage extends SimpleDraweeView implements uv5 {
     public final void m(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, attributeSet) == null) && attributeSet != null) {
-            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, zt9.TbFrescoImage);
+            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, au9.TbFrescoImage);
             int resourceId = obtainStyledAttributes.getResourceId(3, 0);
             if (resourceId != 0) {
                 getUriHierarchyBuilder().setPlaceholderImage(resourceId);

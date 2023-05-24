@@ -20,9 +20,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeListDialog;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.ug7;
 import com.baidu.tieba.ux;
 import com.baidu.tieba.v75;
+import com.baidu.tieba.vg7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -205,13 +205,13 @@ public class CardItemGameCodeLayout extends RelativeLayout implements ux {
         }
     }
 
-    public void setData(ug7 ug7Var) {
+    public void setData(vg7 vg7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ug7Var) != null) || ug7Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vg7Var) != null) || vg7Var == null) {
             return;
         }
-        this.f = ug7Var.d();
-        this.g = ug7Var.c();
+        this.f = vg7Var.d();
+        this.g = vg7Var.c();
         if (this.f != 0) {
             this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02f9), Integer.valueOf(this.f)));
         } else {

@@ -1,78 +1,75 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import tbclient.GetVipInfo.DataRes;
+import tbclient.GetVipInfo.VipBasicList;
 import tbclient.GetVipInfo.VipSpecialItem;
-import tbclient.GetVipInfo.VipSpecialList;
 /* loaded from: classes6.dex */
-public class jp8 implements rn {
+public class jp8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public zo8 a;
-    public List<kp8> b;
+    public ArrayList<String> a;
+    public wo8 b;
+    public LinkedHashMap<String, zo8> c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947891095, "Lcom/baidu/tieba/jp8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947891095, "Lcom/baidu/tieba/jp8;");
-                return;
-            }
-        }
-        c = BdUniqueId.gen();
-    }
-
-    @Override // com.baidu.tieba.rn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public jp8(VipSpecialList vipSpecialList) {
-        List<VipSpecialItem> list;
+    public jp8(DataRes dataRes) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vipSpecialList};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {dataRes};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (vipSpecialList != null && (list = vipSpecialList.item) != null && list.size() > 0) {
-            String str = vipSpecialList.card_id;
-            zo8 zo8Var = new zo8();
-            this.a = zo8Var;
-            zo8Var.e(1);
-            this.a.d(vipSpecialList.class_name);
-            this.a.f(vipSpecialList.class_url_name);
-            this.a.g(vipSpecialList.class_url);
-            this.b = new ArrayList();
-            for (VipSpecialItem vipSpecialItem : vipSpecialList.item) {
-                this.b.add(new kp8(vipSpecialItem));
+        if (dataRes == null) {
+            return;
+        }
+        String str = dataRes.grade_intro_title;
+        String str2 = dataRes.grade_intro_link;
+        new ip8(dataRes);
+        new kp8(dataRes.special_list);
+        new bp8(dataRes.cooperate_list);
+        new fp8(dataRes.theme_list);
+        new xo8(dataRes.banner_list);
+        new np8(dataRes.task_list);
+        new mp8(dataRes.rank, dataRes.user);
+        new dp8(dataRes.daily_list);
+        wo8 wo8Var = new wo8();
+        this.b = wo8Var;
+        wo8Var.a(dataRes);
+        List<VipBasicList> list = dataRes.basic_list;
+        if (list != null && list.size() > 0) {
+            this.c = new LinkedHashMap<>();
+            for (VipBasicList vipBasicList : dataRes.basic_list) {
+                List<VipSpecialItem> list2 = vipBasicList.item;
+                if (list2 != null && list2.size() > 0) {
+                    zo8 zo8Var = new zo8(vipBasicList);
+                    if (zo8Var.c != 3 || zo8Var.a().size() >= 2) {
+                        this.c.put(zo8Var.d, zo8Var);
+                    }
+                }
+            }
+        }
+        List<String> list3 = dataRes.card_order;
+        if (list3 != null && list3.size() > 0) {
+            this.a = new ArrayList<>();
+            for (String str3 : dataRes.card_order) {
+                if (!StringUtils.isNull(str3)) {
+                    this.a.add(str3);
+                }
             }
         }
     }

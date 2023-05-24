@@ -115,7 +115,7 @@ public class tx4 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                qs9.a("", 7);
+                rs9.a("", 7);
             }
         }
     }
@@ -534,7 +534,7 @@ public class tx4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             this.d = i;
-            yk8 a2 = rk.a();
+            zk8 a2 = rk.a();
             a2.c(Config.DEVICE_PART, "skinType status: " + i);
         }
     }
@@ -572,7 +572,7 @@ public class tx4 {
     public void G(AccountData accountData, Application application) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, accountData, application) == null) {
-            o58.a("onAccountChanged()");
+            p58.a("onAccountChanged()");
             BdLog.e("账号切换");
             o65 m = o65.m();
             String s = m.s("current_used_theme_" + h(), null);
@@ -588,14 +588,14 @@ public class tx4 {
             }
             f();
             MessageManager.getInstance().sendMessageFromBackground(new CustomMessage(2005006, accountData));
-            o58.a("send METHOD_ACCOUNT_CHANGE");
+            p58.a("send METHOD_ACCOUNT_CHANGE");
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005016, accountData));
             CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2005019, accountData);
             MessageManager.getInstance().registerStickyMode(2005019);
             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
             TbSingleton.getInstance().onAccountChange();
             if (accountData != null) {
-                yk8 a2 = rk.a();
+                zk8 a2 = rk.a();
                 a2.c(Config.DEVICE_PART, "账号切换 Account:" + accountData.toString());
             }
         }
@@ -646,20 +646,20 @@ public class tx4 {
             if (!this.b) {
                 if (accountData == null && this.a != null) {
                     this.b = true;
-                    o58.a("account == null && mAccount != null");
+                    p58.a("account == null && mAccount != null");
                 } else if (this.a == null && accountData != null) {
                     this.b = true;
-                    o58.a("mAccount == null && account != null 初始化");
+                    p58.a("mAccount == null && account != null 初始化");
                 } else {
                     AccountData accountData2 = this.a;
                     if (accountData2 != null && accountData != null && !TextUtils.equals(accountData2.getAccount(), accountData.getAccount())) {
                         this.b = true;
-                        o58.a("mAccount != null && account != null");
+                        p58.a("mAccount != null && account != null");
                     }
                 }
             }
             this.a = accountData;
-            qs9.n();
+            rs9.n();
             wb.b().a("setCurrentAccountInUI", new a(this, accountData, context));
         }
     }

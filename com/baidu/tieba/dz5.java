@@ -66,10 +66,10 @@ public class dz5 {
                         this.a.c.a(z2);
                     }
                     if (this.a.d != null) {
-                        nr9 nr9Var = new nr9();
-                        nr9Var.a = this.a.d.getThreadId();
-                        nr9Var.b = z2;
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921603, nr9Var));
+                        or9 or9Var = new or9();
+                        or9Var.a = this.a.d.getThreadId();
+                        or9Var.b = z2;
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921603, or9Var));
                         return;
                     }
                     return;

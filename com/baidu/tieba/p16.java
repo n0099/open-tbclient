@@ -44,7 +44,7 @@ public class p16 extends li0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, pi0Var, map, ti0Var)) == null) {
             super.b(context, pi0Var, map, ti0Var);
-            return xf9.d(context, pi0Var.d());
+            return yf9.d(context, pi0Var.d());
         }
         return invokeLLLL.booleanValue;
     }

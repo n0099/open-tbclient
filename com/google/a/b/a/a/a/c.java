@@ -3,7 +3,7 @@ package com.google.a.b.a.a.a;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.Parcel;
-import com.baidu.tieba.gya;
+import com.baidu.tieba.hya;
 import java.util.List;
 /* loaded from: classes9.dex */
 public final class c extends com.google.a.a.a implements a {
@@ -15,8 +15,8 @@ public final class c extends com.google.a.a.a implements a {
     public final void a(String str, Bundle bundle, d dVar) {
         Parcel a = a();
         a.writeString(str);
-        gya.c(a, bundle);
-        gya.b(a, dVar);
+        hya.c(a, bundle);
+        hya.b(a, dVar);
         b(2, a);
     }
 
@@ -25,8 +25,8 @@ public final class c extends com.google.a.a.a implements a {
         Parcel a = a();
         a.writeString(str);
         a.writeTypedList(list);
-        gya.c(a, bundle);
-        gya.b(a, dVar);
+        hya.c(a, bundle);
+        hya.b(a, dVar);
         b(1, a);
     }
 }

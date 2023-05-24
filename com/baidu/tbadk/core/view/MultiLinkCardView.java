@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dk6;
+import com.baidu.tieba.ek6;
 import com.baidu.tieba.ot5;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.ri;
@@ -188,7 +188,7 @@ public class MultiLinkCardView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeLL(1048576, this, list, list2) == null) {
             new ArrayList();
             ot5 ot5Var = new ot5();
-            List<dk6> a = ot5Var.a(list, list2);
+            List<ek6> a = ot5Var.a(list, list2);
             boolean c = ot5Var.c();
             if (ListUtils.isEmpty(a)) {
                 return;

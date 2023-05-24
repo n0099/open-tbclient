@@ -5,10 +5,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class dbb<E> extends cbb<E> {
+public abstract class dbb<E> extends fbb<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long consumerIndex;
+    public long e;
+    public E[] f;
 
     public dbb() {
         Interceptable interceptable = $ic;

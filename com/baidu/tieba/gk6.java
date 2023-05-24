@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class gk6 extends kk6 {
+public class gk6 extends lk6 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId Q0;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public class gk6 extends kk6 {
         Q0 = BdUniqueId.gen();
     }
 
-    @Override // com.baidu.tieba.kk6, com.baidu.tieba.ck6, com.baidu.tieba.jy4
+    @Override // com.baidu.tieba.lk6, com.baidu.tieba.dk6, com.baidu.tieba.jy4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class gk6 extends kk6 {
         return (ThreadData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.kk6, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.rn
+    @Override // com.baidu.tieba.lk6, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.rn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -70,14 +70,14 @@ public class gk6 extends kk6 {
         this.a = threadData;
     }
 
-    public static boolean Z(ThreadData threadData) {
+    public static boolean W(ThreadData threadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) {
-            if (threadData == null) {
+            if (threadData == null || threadData.getType() != ThreadData.TYPE_ARTICLE) {
                 return false;
             }
-            return threadData.isBJHNormalThreadType();
+            return true;
         }
         return invokeL.booleanValue;
     }

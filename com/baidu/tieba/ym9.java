@@ -1,13 +1,24 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import kotlin.Pair;
+import kotlin.collections.MapsKt__MapsKt;
 /* loaded from: classes8.dex */
-public final class ym9 extends pp9 {
+public final class ym9 implements pp9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final en9 a;
+    public final dn9 b;
+    public final fn9 c;
+    public final zm9 d;
+    public final bn9 e;
+    public final HashMap<rp9, HashMap<qp9, rp9>> f;
 
     public ym9() {
         Interceptable interceptable = $ic;
@@ -19,7 +30,75 @@ public final class ym9 extends pp9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new en9();
+        this.b = new dn9();
+        this.c = new fn9();
+        new gn9();
+        this.d = new zm9();
+        this.e = new bn9();
+        new cn9();
+        new an9();
+        this.f = MapsKt__MapsKt.hashMapOf(new Pair(a(), MapsKt__MapsKt.hashMapOf(new Pair(this.d, this.b))), new Pair(this.b, MapsKt__MapsKt.hashMapOf(new Pair(this.e, this.c))));
+    }
+
+    public final zm9 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (zm9) invokeV.objValue;
+    }
+
+    public final dn9 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (dn9) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.pp9
+    /* renamed from: d */
+    public en9 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (en9) invokeV.objValue;
+    }
+
+    public final bn9 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return (bn9) invokeV.objValue;
+    }
+
+    public final fn9 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c;
+        }
+        return (fn9) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.pp9
+    public HashMap<rp9, HashMap<qp9, rp9>> getMap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.f;
+        }
+        return (HashMap) invokeV.objValue;
     }
 }

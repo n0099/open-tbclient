@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.layout.ForbidParentSwipeBackLinearLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.by7;
+import com.baidu.tieba.cy7;
 import com.baidu.tieba.homepage.topic.topicdetail.adapter.TopicTimelineAdapter;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -113,13 +113,13 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
         a(context);
     }
 
-    public void setData(by7 by7Var) {
+    public void setData(cy7 cy7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, by7Var) == null) {
-            if (by7Var != null && !ListUtils.isEmpty(by7Var.b)) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cy7Var) == null) {
+            if (cy7Var != null && !ListUtils.isEmpty(cy7Var.b)) {
                 setVisibility(0);
-                this.b.setText(by7Var.a);
-                this.d.setData(by7Var.b);
+                this.b.setText(cy7Var.a);
+                this.d.setData(cy7Var.b);
                 this.d.notifyDataSetChanged();
                 return;
             }

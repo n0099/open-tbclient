@@ -380,7 +380,7 @@ public class pv5 implements ov5 {
             e.printStackTrace();
         }
         q(MissionEvent.MESSAGE_PAUSE);
-        kh6.a().d(this.d, CommonTbJsBridge.RE_HIDE, null);
+        lh6.a().d(this.d, CommonTbJsBridge.RE_HIDE, null);
     }
 
     public final void t() {
@@ -425,9 +425,9 @@ public class pv5 implements ov5 {
             e.printStackTrace();
         }
         q("onResume");
-        kh6.a().d(this.d, CommonTbJsBridge.RE_SHOW, null);
+        lh6.a().d(this.d, CommonTbJsBridge.RE_SHOW, null);
         if (CurrentPageTypeHelper.currentPageType != CurrentPageTypeHelper.PageType.WEB && CurrentPageTypeHelper.currentPageType != CurrentPageTypeHelper.PageType.NONE && CurrentPageTypeHelper.currentPageType != CurrentPageTypeHelper.PageType.NATIVE_WEB && !this.k) {
-            kh6.a().d(this.d, CommonTbJsBridge.GO_BACK_FROM_NATIVE, null);
+            lh6.a().d(this.d, CommonTbJsBridge.GO_BACK_FROM_NATIVE, null);
         }
         this.k = false;
     }

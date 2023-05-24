@@ -1,5 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface iv9 {
-    void a();
+    jv9 g0();
 }

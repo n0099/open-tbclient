@@ -76,7 +76,7 @@ public class a16 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             if (qi.isEmpty(str) || (z06Var = this.c) == null || !z06Var.g()) {
-                uha.d(str);
+                vha.d(str);
             }
         }
     }
@@ -86,7 +86,7 @@ public class a16 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             if (qi.isEmpty(str) || (z06Var = this.c) == null || !z06Var.g()) {
-                uha.e(str);
+                vha.e(str);
             }
         }
     }
@@ -165,7 +165,7 @@ public class a16 {
                     hashMap.put(str3, str4);
                 }
             }
-            uha.c(str2 + statisticItem.getKey(), str, "", hashMap);
+            vha.c(str2 + statisticItem.getKey(), str, "", hashMap);
         }
     }
 }

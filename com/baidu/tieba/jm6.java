@@ -8,19 +8,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class jm6 implements i37 {
+public final class jm6 implements j37 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.i37
+    @Override // com.baidu.tieba.j37
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? CommonStatisticKey.KEY_CONCERN_YY_LIVE_AVATER_SHOW : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? CommonStatisticKey.KEY_CONCERN_YY_LIVE_AVATER_CLICK : (String) invokeV.objValue;
     }
 
     public jm6() {
@@ -37,14 +38,15 @@ public final class jm6 implements i37 {
         }
     }
 
-    @Override // com.baidu.tieba.i37
-    public Map<String, String> a(uz6 businessInfo) {
+    @Override // com.baidu.tieba.j37
+    public Map<String, String> a(vz6 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
             Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
             HashMap hashMap = new HashMap();
             Map<String, String> a = businessInfo.a();
+            hashMap.put("obj_type", b(businessInfo));
             String str = a.get("live_type");
             String str2 = "";
             if (str == null) {
@@ -59,5 +61,21 @@ public final class jm6 implements i37 {
             return hashMap;
         }
         return (Map) invokeL.objValue;
+    }
+
+    public final String b(vz6 vz6Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vz6Var)) == null) {
+            Map<String, String> a = vz6Var.a();
+            if (Intrinsics.areEqual(a.get("thread_type"), PayUVEventType.PAY_FULL_SPLIT_ORDER_MOTIFY_BTN_CLICK)) {
+                return "3";
+            }
+            if (!Intrinsics.areEqual(a.get("thread_type"), PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_PAGE_SHOW) && !Intrinsics.areEqual(a.get("thread_type"), PayUVEventType.PAY_AMOUNT_FULL_PAGE_CHANNEL_CLICK) && !Intrinsics.areEqual(a.get("thread_type"), PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_CLOSE_BTN_CLICK)) {
+                return "2";
+            }
+            return "1";
+        }
+        return (String) invokeL.objValue;
     }
 }

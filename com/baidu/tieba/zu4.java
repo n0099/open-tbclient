@@ -56,7 +56,7 @@ public class zu4 implements ItemCardHelper.c {
             hashMap.put("id", str);
             hashMap.put("resultCode", Integer.valueOf(i));
             hashMap.put("name", null);
-            kh6.a().d(webView, "orderGameApkResult", hashMap);
+            lh6.a().d(webView, "orderGameApkResult", hashMap);
         }
     }
 }

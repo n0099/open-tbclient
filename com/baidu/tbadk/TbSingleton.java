@@ -50,8 +50,8 @@ import com.baidu.tieba.debugtool.annotation.ModifyClass;
 import com.baidu.tieba.fb5;
 import com.baidu.tieba.frs.accelerator.PkgNameAndNodeInfoData;
 import com.baidu.tieba.ga5;
-import com.baidu.tieba.gq9;
 import com.baidu.tieba.ha5;
+import com.baidu.tieba.hq9;
 import com.baidu.tieba.ia5;
 import com.baidu.tieba.iu4;
 import com.baidu.tieba.ld5;
@@ -64,19 +64,19 @@ import com.baidu.tieba.q05;
 import com.baidu.tieba.qa5;
 import com.baidu.tieba.qd5;
 import com.baidu.tieba.qi;
-import com.baidu.tieba.sc9;
 import com.baidu.tieba.sd5;
 import com.baidu.tieba.sg;
 import com.baidu.tieba.tb5;
 import com.baidu.tieba.tbadkCore.util.MercatorModel;
+import com.baidu.tieba.tc9;
 import com.baidu.tieba.ua5;
 import com.baidu.tieba.v95;
-import com.baidu.tieba.vea;
 import com.baidu.tieba.wa5;
 import com.baidu.tieba.wallet.YYLiveConfig;
-import com.baidu.tieba.we9;
+import com.baidu.tieba.wea;
 import com.baidu.tieba.xa5;
 import com.baidu.tieba.xb5;
+import com.baidu.tieba.xe9;
 import com.baidu.tieba.za5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -208,7 +208,7 @@ public final class TbSingleton {
     public boolean mForceRefreshHomeRecommend;
     public boolean mFrsContentViewLoadingShow;
     public int mFrsCurTabType;
-    public gq9 mFrsResponseData;
+    public hq9 mFrsResponseData;
     public boolean mFrsRootViewLoadingShow;
     public boolean mHasAgreeToPlay;
     public Map<Long, Integer> mHasClickRedPot;
@@ -248,7 +248,7 @@ public final class TbSingleton {
     public NewGodData mNewGodData;
     public NewUserRedPackageData mNewUserRedPackageData;
     public q05 mPbToHomeUpdateData;
-    public sc9 mPcdnConfigData;
+    public tc9 mPcdnConfigData;
     public String mProfileGameCenterKey;
     public String mPubEnvValue;
     public HashMap mRoomDraft;
@@ -267,14 +267,14 @@ public final class TbSingleton {
     public boolean mTipsAutoPlayInVideoChannel;
     public boolean mTipsAutoPlayInVideoMiddle;
     public JSONArray mUbsABTestJsonArray;
-    public we9 mUploadAndClearModule;
+    public xe9 mUploadAndClearModule;
     public Bitmap mVideoCurrentFrame;
     public LinkedList<iu4> mVideoWatchTimeRecord;
     public String mWalletSignLink;
     public fb5 mWlConfigData;
     public String mWorldCupSponsorFlag;
     public YYLiveConfig mYYLiveConfig;
-    public vea mYYLiveTabConfig;
+    public wea mYYLiveTabConfig;
     public String msgCount;
     public boolean needRefreshForumSquare;
     public JSONObject newGodDataJson;
@@ -932,13 +932,13 @@ public final class TbSingleton {
         return (Map) invokeV.objValue;
     }
 
-    public gq9 getFrsResponseData() {
+    public hq9 getFrsResponseData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
             return this.mFrsResponseData;
         }
-        return (gq9) invokeV.objValue;
+        return (hq9) invokeV.objValue;
     }
 
     public String getFunnySpriteAvatar() {
@@ -1278,11 +1278,11 @@ public final class TbSingleton {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048649, this)) == null) {
-            we9 we9Var = this.mUploadAndClearModule;
-            if (we9Var == null) {
+            xe9 xe9Var = this.mUploadAndClearModule;
+            if (xe9Var == null) {
                 return null;
             }
-            return we9Var.a();
+            return xe9Var.a();
         }
         return (String) invokeV.objValue;
     }
@@ -1345,13 +1345,13 @@ public final class TbSingleton {
         return (q05) invokeV.objValue;
     }
 
-    public sc9 getPcdnConfigData() {
+    public tc9 getPcdnConfigData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048656, this)) == null) {
             return this.mPcdnConfigData;
         }
-        return (sc9) invokeV.objValue;
+        return (tc9) invokeV.objValue;
     }
 
     public int getPersonalizedRecSwitch() {
@@ -1742,13 +1742,13 @@ public final class TbSingleton {
         return (YYLiveConfig) invokeV.objValue;
     }
 
-    public vea getYYLiveTabConfig() {
+    public wea getYYLiveTabConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048700, this)) == null) {
             return this.mYYLiveTabConfig;
         }
-        return (vea) invokeV.objValue;
+        return (wea) invokeV.objValue;
     }
 
     public boolean hasAgreeToPlay() {
@@ -1818,11 +1818,11 @@ public final class TbSingleton {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048711, this)) == null) {
-            we9 we9Var = this.mUploadAndClearModule;
-            if (we9Var == null) {
+            xe9 xe9Var = this.mUploadAndClearModule;
+            if (xe9Var == null) {
                 return false;
             }
-            return we9Var.b();
+            return xe9Var.b();
         }
         return invokeV.booleanValue;
     }
@@ -2069,11 +2069,11 @@ public final class TbSingleton {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048742, this)) == null) {
-            we9 we9Var = this.mUploadAndClearModule;
-            if (we9Var == null) {
+            xe9 xe9Var = this.mUploadAndClearModule;
+            if (xe9Var == null) {
                 return false;
             }
-            return we9Var.c();
+            return xe9Var.c();
         }
         return invokeV.booleanValue;
     }
@@ -3060,7 +3060,7 @@ public final class TbSingleton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048850, this, jSONObject) == null) {
             if (this.mPcdnConfigData == null) {
-                this.mPcdnConfigData = new sc9();
+                this.mPcdnConfigData = new tc9();
             }
             this.mPcdnConfigData.d(jSONObject);
         }
@@ -3293,10 +3293,10 @@ public final class TbSingleton {
         }
     }
 
-    public void setUploadAndClearModule(we9 we9Var) {
+    public void setUploadAndClearModule(xe9 xe9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048885, this, we9Var) == null) {
-            this.mUploadAndClearModule = we9Var;
+        if (interceptable == null || interceptable.invokeL(1048885, this, xe9Var) == null) {
+            this.mUploadAndClearModule = xe9Var;
         }
     }
 
@@ -3429,10 +3429,10 @@ public final class TbSingleton {
         }
     }
 
-    public void setYYLiveTabConfig(vea veaVar) {
+    public void setYYLiveTabConfig(wea weaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048905, this, veaVar) == null) {
-            this.mYYLiveTabConfig = veaVar;
+        if (interceptable == null || interceptable.invokeL(1048905, this, weaVar) == null) {
+            this.mYYLiveTabConfig = weaVar;
         }
     }
 
@@ -3834,15 +3834,15 @@ public final class TbSingleton {
         }
     }
 
-    public void setFrsResponseData(gq9 gq9Var) {
+    public void setFrsResponseData(hq9 hq9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048796, this, gq9Var) == null) {
-            this.mFrsResponseData = gq9Var;
-            if (gq9Var != null && gq9Var.getForum() != null && !TextUtils.isEmpty(gq9Var.getForum().getName())) {
-                if (gq9Var.itemInfo != null) {
-                    this.frsItemInfoCache.put(gq9Var.getForum().getName(), gq9Var.itemInfo);
+        if (interceptable == null || interceptable.invokeL(1048796, this, hq9Var) == null) {
+            this.mFrsResponseData = hq9Var;
+            if (hq9Var != null && hq9Var.getForum() != null && !TextUtils.isEmpty(hq9Var.getForum().getName())) {
+                if (hq9Var.itemInfo != null) {
+                    this.frsItemInfoCache.put(hq9Var.getForum().getName(), hq9Var.itemInfo);
                 } else {
-                    this.frsItemInfoCache.remove(gq9Var.getForum().getName());
+                    this.frsItemInfoCache.remove(hq9Var.getForum().getName());
                 }
             }
         }

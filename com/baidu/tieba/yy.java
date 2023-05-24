@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class yy extends ax<jy4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ij6 f;
+    public jj6 f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public yy(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -34,7 +34,7 @@ public class yy extends ax<jy4> {
                 return;
             }
         }
-        this.f = new ij6(tbPageContext, bdUniqueId);
+        this.f = new jj6(tbPageContext, bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -42,8 +42,8 @@ public class yy extends ax<jy4> {
     /* renamed from: s */
     public void a(jy4 jy4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, jy4Var) == null) && (jy4Var instanceof mk6)) {
-            this.f.a((mk6) jy4Var);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, jy4Var) == null) && (jy4Var instanceof nk6)) {
+            this.f.a((nk6) jy4Var);
         }
     }
 

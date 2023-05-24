@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.atomData.LocalChannelTopicListActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.iw7;
+import com.baidu.tieba.jw7;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.sg;
 import com.baidu.tieba.ux;
@@ -104,7 +104,7 @@ public class PostAnimateFloatView extends FrameLayout implements ux {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                iw7.g();
+                jw7.g();
                 new LocalChannelTopicListActivityConfig(this.a.getContext()).start();
             }
         }

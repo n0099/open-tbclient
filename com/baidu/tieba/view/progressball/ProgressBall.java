@@ -11,12 +11,12 @@ import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a6a;
+import com.baidu.tieba.b6a;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.tbadkcore.databinding.ProgressBallBinding;
 import com.baidu.tieba.view.progressball.ProgressBall;
-import com.baidu.tieba.wp9;
 import com.baidu.tieba.wv5;
+import com.baidu.tieba.xp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -33,7 +33,7 @@ public final class ProgressBall extends RelativeLayout {
     public int c;
     public final Path d;
     public int e;
-    public a6a f;
+    public b6a f;
     public ProgressBallBinding g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -99,7 +99,7 @@ public final class ProgressBall extends RelativeLayout {
         }
         this.a = "res:///";
         this.d = new Path();
-        this.f = new a6a();
+        this.f = new b6a();
         a();
     }
 
@@ -136,7 +136,7 @@ public final class ProgressBall extends RelativeLayout {
         }
     }
 
-    public final void b(a6a data) {
+    public final void b(b6a data) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
@@ -160,7 +160,7 @@ public final class ProgressBall extends RelativeLayout {
                     Intrinsics.throwUninitializedPropertyAccessException("binding");
                     progressBallBinding3 = null;
                 }
-                progressBallBinding3.b.setForegroundColor(wp9.a(SkinManager.getColor(R.color.CAM_X0611), 0.6f));
+                progressBallBinding3.b.setForegroundColor(xp9.a(SkinManager.getColor(R.color.CAM_X0611), 0.6f));
                 ProgressBallBinding progressBallBinding4 = this.g;
                 if (progressBallBinding4 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -274,7 +274,7 @@ public final class ProgressBall extends RelativeLayout {
             } else {
                 this.e = i;
             }
-            post(new Runnable() { // from class: com.baidu.tieba.z5a
+            post(new Runnable() { // from class: com.baidu.tieba.a6a
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

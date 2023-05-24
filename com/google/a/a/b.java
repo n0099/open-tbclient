@@ -4,10 +4,10 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-import com.baidu.tieba.hya;
+import com.baidu.tieba.iya;
 /* loaded from: classes9.dex */
 public class b extends Binder implements IInterface {
-    public static hya a;
+    public static iya a;
 
     public boolean a(int i, Parcel parcel) {
         return false;

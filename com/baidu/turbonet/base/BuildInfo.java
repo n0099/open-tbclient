@@ -6,7 +6,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.StrictMode;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.wea;
+import com.baidu.tieba.xea;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -155,7 +155,7 @@ public class BuildInfo {
                 }
                 return Integer.toString(packageInfo.versionCode);
             } catch (PackageManager.NameNotFoundException unused) {
-                wea.a("BuildInfo", "versionCode not available.");
+                xea.a("BuildInfo", "versionCode not available.");
                 return "versionCode not available.";
             }
         }
@@ -174,7 +174,7 @@ public class BuildInfo {
                 }
                 return packageInfo.versionName;
             } catch (PackageManager.NameNotFoundException unused) {
-                wea.a("BuildInfo", "versionName not available");
+                xea.a("BuildInfo", "versionName not available");
                 return "versionName not available";
             }
         }

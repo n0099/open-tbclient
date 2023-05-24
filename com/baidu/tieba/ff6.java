@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ff6 extends jk1<hi6> {
+public class ff6 extends jk1<ii6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -19,7 +19,7 @@ public class ff6 extends jk1<hi6> {
     }
 
     /* loaded from: classes5.dex */
-    public static final class b implements hi6 {
+    public static final class b implements ii6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -41,7 +41,7 @@ public class ff6 extends jk1<hi6> {
             this();
         }
 
-        @Override // com.baidu.tieba.hi6
+        @Override // com.baidu.tieba.ii6
         public void a(View view2, int i) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) && view2 != null && i >= 0) {
@@ -67,12 +67,12 @@ public class ff6 extends jk1<hi6> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.jk1
     /* renamed from: a */
-    public hi6 createService() throws ServiceNotFoundException {
+    public ii6 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return new b(null);
         }
-        return (hi6) invokeV.objValue;
+        return (ii6) invokeV.objValue;
     }
 }

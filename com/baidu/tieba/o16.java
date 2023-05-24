@@ -7,7 +7,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.jf9;
+import com.baidu.tieba.kf9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,23 +23,23 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
 /* loaded from: classes6.dex */
-public final class o16 implements jf9 {
+public final class o16 implements kf9 {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern d;
     public static o16 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<jf9.a> a;
-    public final ConcurrentHashMap<String, jf9.b> b;
-    public jf9.c c;
+    public final List<kf9.a> a;
+    public final ConcurrentHashMap<String, kf9.b> b;
+    public kf9.c c;
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jf9.a a;
+        public final /* synthetic */ kf9.a a;
         public final /* synthetic */ o16 b;
 
-        public a(o16 o16Var, jf9.a aVar) {
+        public a(o16 o16Var, kf9.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,7 +112,7 @@ public final class o16 implements jf9 {
         this.c = null;
     }
 
-    @Override // com.baidu.tieba.jf9
+    @Override // com.baidu.tieba.kf9
     public boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -125,7 +125,7 @@ public final class o16 implements jf9 {
         return invokeL.booleanValue;
     }
 
-    public void e(jf9.a aVar) {
+    public void e(kf9.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             if (ri.E()) {
@@ -136,7 +136,7 @@ public final class o16 implements jf9 {
         }
     }
 
-    public final void f(jf9.a aVar) {
+    public final void f(kf9.a aVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) && !this.a.contains(aVar)) {
             this.a.add(aVar);
@@ -171,14 +171,14 @@ public final class o16 implements jf9 {
         return (String) invokeL.objValue;
     }
 
-    public void o(jf9.c cVar) {
+    public void o(kf9.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, cVar) == null) {
             this.c = cVar;
         }
     }
 
-    @Override // com.baidu.tieba.jf9
+    @Override // com.baidu.tieba.kf9
     public void b(Context context, String[] strArr, boolean z, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, strArr, Boolean.valueOf(z), bundle}) == null) {
@@ -186,7 +186,7 @@ public final class o16 implements jf9 {
         }
     }
 
-    @Override // com.baidu.tieba.jf9
+    @Override // com.baidu.tieba.kf9
     public boolean c(Context context, String[] strArr, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -196,7 +196,7 @@ public final class o16 implements jf9 {
         return invokeLLL.booleanValue;
     }
 
-    public boolean g(Context context, String str, String[] strArr, boolean z, jf9.d dVar, boolean z2, Bundle bundle) {
+    public boolean g(Context context, String str, String[] strArr, boolean z, kf9.d dVar, boolean z2, Bundle bundle) {
         InterceptResult invokeCommon;
         boolean z3;
         Interceptable interceptable = $ic;
@@ -205,15 +205,15 @@ public final class o16 implements jf9 {
                 return false;
             }
             String str2 = strArr[0];
-            jf9.b bVar = this.b.get(m(str2));
+            kf9.b bVar = this.b.get(m(str2));
             if (bVar != null) {
                 bVar.a(context, j(k(str2)));
                 return true;
             }
-            Iterator<jf9.a> it = this.a.iterator();
+            Iterator<kf9.a> it = this.a.iterator();
             while (true) {
                 if (it.hasNext()) {
-                    jf9.a next = it.next();
+                    kf9.a next = it.next();
                     if (next != null && next.a(context, strArr) != 3) {
                         z3 = true;
                         break;
@@ -234,7 +234,7 @@ public final class o16 implements jf9 {
         return invokeCommon.booleanValue;
     }
 
-    public boolean h(Context context, String[] strArr, boolean z, jf9.d dVar, boolean z2, Bundle bundle) {
+    public boolean h(Context context, String[] strArr, boolean z, kf9.d dVar, boolean z2, Bundle bundle) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{context, strArr, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle})) == null) {
@@ -249,7 +249,7 @@ public final class o16 implements jf9 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, context, strArr)) == null) {
             if (strArr != null && strArr.length != 0) {
-                for (jf9.a aVar : this.a) {
+                for (kf9.a aVar : this.a) {
                     if (aVar != null && (a2 = aVar.a(context, strArr)) != 3) {
                         return a2;
                     }
@@ -284,7 +284,7 @@ public final class o16 implements jf9 {
         return (Map) invokeL.objValue;
     }
 
-    public final void n(Context context, String str, String str2, boolean z, jf9.d dVar, boolean z2, Bundle bundle) {
+    public final void n(Context context, String str, String str2, boolean z, kf9.d dVar, boolean z2, Bundle bundle) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{context, str, str2, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle}) == null) && d.matcher(str2).find()) {
             this.c.a(context, str, str2, z, dVar, z2, bundle);

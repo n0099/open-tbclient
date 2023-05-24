@@ -35,11 +35,11 @@ import com.baidu.tieba.h5power.DescriptionTableInfo;
 import com.baidu.tieba.hp5;
 import com.baidu.tieba.hu4;
 import com.baidu.tieba.j05;
-import com.baidu.tieba.ks9;
-import com.baidu.tieba.lz9;
-import com.baidu.tieba.so7;
+import com.baidu.tieba.ls9;
+import com.baidu.tieba.mz9;
 import com.baidu.tieba.to7;
 import com.baidu.tieba.ts5;
+import com.baidu.tieba.uo7;
 import com.baidu.tieba.wo5;
 import com.baidu.tieba.xa;
 import com.baidu.tieba.xo5;
@@ -51,10 +51,10 @@ public class InitMessageManagerTask extends LaunchTask {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof ks9)) {
-                ks9 ks9Var = (ks9) customResponsedMessage.getData();
-                DescriptionTableInfo.setModuleSet(ks9Var.a);
-                DescriptionTableInfo.setDescriptionTable(ks9Var.b);
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof ls9)) {
+                ls9 ls9Var = (ls9) customResponsedMessage.getData();
+                DescriptionTableInfo.setModuleSet(ls9Var.a);
+                DescriptionTableInfo.setDescriptionTable(ls9Var.b);
             }
         }
     };
@@ -188,11 +188,11 @@ public class InitMessageManagerTask extends LaunchTask {
         messageManager.addMessageRule(new yo5(0));
         messageManager.addResponsedMessageRule(new ap5(0));
         messageManager.addRemovedMessageRule(new zo5(0));
+        messageManager.addResponsedMessageRule(new uo7());
         messageManager.addResponsedMessageRule(new to7());
-        messageManager.addResponsedMessageRule(new so7());
         messageManager.addResponsedMessageRule(new wo5());
         messageManager.addResponsedMessageRule(new xo5());
-        messageManager.addResponsedMessageRule(new lz9());
+        messageManager.addResponsedMessageRule(new mz9());
     }
 
     private void registerListener() {

@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ay7;
+import com.baidu.tieba.by7;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -35,7 +35,7 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
     public TextView d;
     public int e;
     public int f;
-    public ay7 g;
+    public by7 g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TopicTimelineCellCardView(Context context) {
@@ -142,19 +142,19 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getContext()).createNormalCfg(String.valueOf(this.g.b), "", "")));
     }
 
-    public void setData(ay7 ay7Var) {
+    public void setData(by7 by7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ay7Var) == null) {
-            if (ay7Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, by7Var) == null) {
+            if (by7Var == null) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            this.g = ay7Var;
-            this.c.setText(ay7Var.d);
-            this.d.setText(ay7Var.c);
-            if (StringUtils.isNull(ay7Var.e)) {
-                int i = ay7Var.f;
+            this.g = by7Var;
+            this.c.setText(by7Var.d);
+            this.d.setText(by7Var.c);
+            if (StringUtils.isNull(by7Var.e)) {
+                int i = by7Var.f;
                 if (i == 0) {
                     SkinManager.setBackgroundResource(this.b, R.drawable.topic_timeline_bg_one);
                     return;
@@ -168,10 +168,10 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
             }
             try {
                 GradientDrawable gradientDrawable = (GradientDrawable) getResources().getDrawable(R.drawable.obfuscated_res_0x7f081485);
-                gradientDrawable.setColor(Color.parseColor(ay7Var.e));
+                gradientDrawable.setColor(Color.parseColor(by7Var.e));
                 this.b.setBackgroundDrawable(gradientDrawable);
             } catch (Exception unused) {
-                int i2 = ay7Var.f;
+                int i2 = by7Var.f;
                 if (i2 == 0) {
                     SkinManager.setBackgroundResource(this.b, R.drawable.topic_timeline_bg_one);
                 } else if (i2 == 1) {

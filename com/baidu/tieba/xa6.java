@@ -72,12 +72,12 @@ public class xa6 extends xi5 {
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    public void g(c97 c97Var) {
+    public void g(d97 d97Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, c97Var) != null) || c97Var == null || !c97Var.h(5)) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, d97Var) != null) || d97Var == null || !d97Var.h(5)) {
             return;
         }
-        c97Var.a(this);
+        d97Var.a(this);
     }
 
     public void h(String str) {

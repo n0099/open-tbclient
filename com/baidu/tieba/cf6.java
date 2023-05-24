@@ -46,7 +46,7 @@ public class cf6 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, uri)) == null) {
             HashMap hashMap = new HashMap();
             Set<String> queryParameterNames = uri.getQueryParameterNames();
-            if (!yh6.a(queryParameterNames)) {
+            if (!zh6.a(queryParameterNames)) {
                 for (String str : queryParameterNames) {
                     hashMap.put("{" + str + "}", uri.getQueryParameter(str));
                 }
@@ -62,7 +62,7 @@ public class cf6 {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (yh6.b(a)) {
+            if (zh6.b(a)) {
                 TbadkCoreApplication inst = TbadkCoreApplication.getInst();
                 a.put("{device.cuid}", inst.getCuid());
                 a.put("{device.imei}", inst.getImei());

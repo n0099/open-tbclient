@@ -1,21 +1,21 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.c8b;
-import com.baidu.tieba.h7b;
-import com.baidu.tieba.hbb;
+import com.baidu.tieba.d8b;
 import com.baidu.tieba.i7b;
+import com.baidu.tieba.ibb;
 import com.baidu.tieba.j7b;
-import com.baidu.tieba.n7b;
+import com.baidu.tieba.k7b;
 import com.baidu.tieba.o7b;
-import com.baidu.tieba.tab;
-import com.baidu.tieba.y9b;
+import com.baidu.tieba.p7b;
+import com.baidu.tieba.uab;
+import com.baidu.tieba.z9b;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.exceptions.MissingBackpressureException;
 /* loaded from: classes10.dex */
-public final class OnSubscribePublishMulticast<T> extends AtomicInteger implements h7b.a<T>, i7b<T>, o7b {
+public final class OnSubscribePublishMulticast<T> extends AtomicInteger implements i7b.a<T>, j7b<T>, p7b {
     public static final PublishProducer<?>[] EMPTY = new PublishProducer[0];
     public static final PublishProducer<?>[] TERMINATED = new PublishProducer[0];
     public static final long serialVersionUID = -3741892510772238743L;
@@ -24,40 +24,40 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
     public Throwable error;
     public final a<T> parent;
     public final int prefetch;
-    public volatile j7b producer;
+    public volatile k7b producer;
     public final Queue<T> queue;
     public volatile PublishProducer<T>[] subscribers;
 
     /* loaded from: classes10.dex */
-    public static final class PublishProducer<T> extends AtomicLong implements j7b, o7b {
+    public static final class PublishProducer<T> extends AtomicLong implements k7b, p7b {
         public static final long serialVersionUID = 960704844171597367L;
-        public final n7b<? super T> actual;
+        public final o7b<? super T> actual;
         public final AtomicBoolean once = new AtomicBoolean();
         public final OnSubscribePublishMulticast<T> parent;
 
-        public PublishProducer(n7b<? super T> n7bVar, OnSubscribePublishMulticast<T> onSubscribePublishMulticast) {
-            this.actual = n7bVar;
+        public PublishProducer(o7b<? super T> o7bVar, OnSubscribePublishMulticast<T> onSubscribePublishMulticast) {
+            this.actual = o7bVar;
             this.parent = onSubscribePublishMulticast;
         }
 
-        @Override // com.baidu.tieba.o7b
+        @Override // com.baidu.tieba.p7b
         public boolean isUnsubscribed() {
             return this.once.get();
         }
 
-        @Override // com.baidu.tieba.o7b
+        @Override // com.baidu.tieba.p7b
         public void unsubscribe() {
             if (this.once.compareAndSet(false, true)) {
                 this.parent.remove(this);
             }
         }
 
-        @Override // com.baidu.tieba.j7b
+        @Override // com.baidu.tieba.k7b
         public void request(long j) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i >= 0) {
                 if (i != 0) {
-                    c8b.b(this, j);
+                    d8b.b(this, j);
                     this.parent.drain();
                     return;
                 }
@@ -68,46 +68,46 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
     }
 
     /* loaded from: classes10.dex */
-    public static final class a<T> extends n7b<T> {
+    public static final class a<T> extends o7b<T> {
         public final OnSubscribePublishMulticast<T> e;
 
         public a(OnSubscribePublishMulticast<T> onSubscribePublishMulticast) {
             this.e = onSubscribePublishMulticast;
         }
 
-        @Override // com.baidu.tieba.n7b
-        public void f(j7b j7bVar) {
-            this.e.setProducer(j7bVar);
+        @Override // com.baidu.tieba.o7b
+        public void f(k7b k7bVar) {
+            this.e.setProducer(k7bVar);
         }
 
-        @Override // com.baidu.tieba.i7b
+        @Override // com.baidu.tieba.j7b
         public void onError(Throwable th) {
             this.e.onError(th);
         }
 
-        @Override // com.baidu.tieba.i7b
+        @Override // com.baidu.tieba.j7b
         public void onNext(T t) {
             this.e.onNext(t);
         }
 
-        @Override // com.baidu.tieba.i7b
+        @Override // com.baidu.tieba.j7b
         public void onCompleted() {
             this.e.onCompleted();
         }
     }
 
-    @Override // com.baidu.tieba.o7b
+    @Override // com.baidu.tieba.p7b
     public boolean isUnsubscribed() {
         return this.parent.isUnsubscribed();
     }
 
-    @Override // com.baidu.tieba.i7b
+    @Override // com.baidu.tieba.j7b
     public void onCompleted() {
         this.done = true;
         drain();
     }
 
-    public n7b<T> subscriber() {
+    public o7b<T> subscriber() {
         return this.parent;
     }
 
@@ -124,7 +124,7 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         return publishProducerArr;
     }
 
-    @Override // com.baidu.tieba.o7b
+    @Override // com.baidu.tieba.p7b
     public void unsubscribe() {
         this.parent.unsubscribe();
     }
@@ -133,10 +133,10 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         if (i > 0) {
             this.prefetch = i;
             this.delayError = z;
-            if (hbb.b()) {
-                this.queue = new tab(i);
+            if (ibb.b()) {
+                this.queue = new uab(i);
             } else {
-                this.queue = new y9b(i);
+                this.queue = new z9b(i);
             }
             this.subscribers = (PublishProducer<T>[]) EMPTY;
             this.parent = new a<>(this);
@@ -163,10 +163,10 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         }
     }
 
-    public void call(n7b<? super T> n7bVar) {
-        PublishProducer<T> publishProducer = new PublishProducer<>(n7bVar, this);
-        n7bVar.b(publishProducer);
-        n7bVar.f(publishProducer);
+    public void call(o7b<? super T> o7bVar) {
+        PublishProducer<T> publishProducer = new PublishProducer<>(o7bVar, this);
+        o7bVar.b(publishProducer);
+        o7bVar.f(publishProducer);
         if (add(publishProducer)) {
             if (publishProducer.isUnsubscribed()) {
                 remove(publishProducer);
@@ -178,20 +178,20 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         }
         Throwable th = this.error;
         if (th != null) {
-            n7bVar.onError(th);
+            o7bVar.onError(th);
         } else {
-            n7bVar.onCompleted();
+            o7bVar.onCompleted();
         }
     }
 
-    @Override // com.baidu.tieba.i7b
+    @Override // com.baidu.tieba.j7b
     public void onError(Throwable th) {
         this.error = th;
         this.done = true;
         drain();
     }
 
-    @Override // com.baidu.tieba.i7b
+    @Override // com.baidu.tieba.j7b
     public void onNext(T t) {
         if (!this.queue.offer(t)) {
             this.parent.unsubscribe();
@@ -201,14 +201,14 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         drain();
     }
 
-    public void setProducer(j7b j7bVar) {
-        this.producer = j7bVar;
-        j7bVar.request(this.prefetch);
+    public void setProducer(k7b k7bVar) {
+        this.producer = k7bVar;
+        k7bVar.request(this.prefetch);
     }
 
-    @Override // com.baidu.tieba.h7b.a, com.baidu.tieba.v7b
+    @Override // com.baidu.tieba.i7b.a, com.baidu.tieba.w7b
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((n7b) ((n7b) obj));
+        call((o7b) ((o7b) obj));
     }
 
     public boolean checkTerminated(boolean z, boolean z2) {
@@ -302,12 +302,12 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
                     return;
                 }
                 if (j2 != 0) {
-                    j7b j7bVar = this.producer;
-                    if (j7bVar != null) {
-                        j7bVar.request(j2);
+                    k7b k7bVar = this.producer;
+                    if (k7bVar != null) {
+                        k7bVar.request(j2);
                     }
                     for (PublishProducer<T> publishProducer3 : publishProducerArr) {
-                        c8b.g(publishProducer3, j2);
+                        d8b.g(publishProducer3, j2);
                     }
                 }
             }

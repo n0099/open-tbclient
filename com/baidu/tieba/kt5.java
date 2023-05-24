@@ -83,7 +83,7 @@ public final class kt5 {
                 if (d <= i) {
                     return str4;
                 }
-                int b = gw6.b(str);
+                int b = hw6.b(str);
                 if (b == 0) {
                     String cutChineseAndEnglishWithEmoji = StringHelper.cutChineseAndEnglishWithEmoji(str, i, str2);
                     Intrinsics.checkNotNullExpressionValue(cutChineseAndEnglishWithEmoji, "cutChineseAndEnglishWithEmoji(string, length, end)");
@@ -187,7 +187,7 @@ public final class kt5 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, strArr, i)) == null) {
                 String[] strArr2 = new String[strArr.length + i];
-                Matcher matcher = gw6.a.matcher(str);
+                Matcher matcher = hw6.a.matcher(str);
                 int i2 = 0;
                 int i3 = 0;
                 while (matcher.find()) {
@@ -246,7 +246,7 @@ public final class kt5 {
                 if (str == null) {
                     return 0;
                 }
-                Matcher matcher = gw6.a.matcher(str);
+                Matcher matcher = hw6.a.matcher(str);
                 int i = 0;
                 while (matcher.find()) {
                     String group = matcher.group();

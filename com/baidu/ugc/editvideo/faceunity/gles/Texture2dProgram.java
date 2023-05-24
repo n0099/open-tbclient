@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.fna;
+import com.baidu.tieba.gna;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
 /* loaded from: classes8.dex */
@@ -196,7 +196,7 @@ public class Texture2dProgram {
                 throw new RuntimeException("Unhandled type " + programType);
         }
         if (this.mProgramHandle != 0) {
-            fna.c("Grafika", "Created program " + this.mProgramHandle + " (" + programType + SmallTailInfo.EMOTION_SUFFIX);
+            gna.c("Grafika", "Created program " + this.mProgramHandle + " (" + programType + SmallTailInfo.EMOTION_SUFFIX);
             int glGetAttribLocation = GLES20.glGetAttribLocation(this.mProgramHandle, "aPosition");
             this.maPositionLoc = glGetAttribLocation;
             GlUtil.checkLocation(glGetAttribLocation, "aPosition");
@@ -392,7 +392,7 @@ public class Texture2dProgram {
     }
 
     public void release() {
-        fna.c("Grafika", "deleting program " + this.mProgramHandle);
+        gna.c("Grafika", "deleting program " + this.mProgramHandle);
         GLES20.glDeleteProgram(this.mProgramHandle);
         this.mProgramHandle = -1;
     }

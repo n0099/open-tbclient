@@ -14,7 +14,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.m9;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.qi;
-import com.baidu.tieba.yg7;
+import com.baidu.tieba.zg7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -215,12 +215,12 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
         c();
     }
 
-    public void setData(yg7 yg7Var) {
+    public void setData(zg7 zg7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yg7Var) == null) {
-            this.a.setText(yg7Var.a);
-            this.b.setText(yg7Var.b);
-            this.d = yg7Var.c;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zg7Var) == null) {
+            this.a.setText(zg7Var.a);
+            this.b.setText(zg7Var.b);
+            this.d = zg7Var.c;
         }
     }
 

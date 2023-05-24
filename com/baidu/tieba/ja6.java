@@ -15,14 +15,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ja6 extends c87<ThreadData, FrsPageAlaEmptyLiveViewHolder> implements tj6 {
+public class ja6 extends d87<ThreadData, FrsPageAlaEmptyLiveViewHolder> implements uj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ta6 l;
     public String m;
-    public vj6<ThreadData> n;
+    public wj6<ThreadData> n;
 
-    @Override // com.baidu.tieba.tj6
+    @Override // com.baidu.tieba.uj6
     public void p(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
@@ -30,7 +30,7 @@ public class ja6 extends c87<ThreadData, FrsPageAlaEmptyLiveViewHolder> implemen
     }
 
     /* loaded from: classes6.dex */
-    public class a extends vj6<ThreadData> {
+    public class a extends wj6<ThreadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -51,7 +51,7 @@ public class ja6 extends c87<ThreadData, FrsPageAlaEmptyLiveViewHolder> implemen
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vj6
+        @Override // com.baidu.tieba.wj6
         /* renamed from: d */
         public void a(View view2, ThreadData threadData) {
             Interceptable interceptable = $ic;
@@ -104,7 +104,7 @@ public class ja6 extends c87<ThreadData, FrsPageAlaEmptyLiveViewHolder> implemen
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.c87, com.baidu.tieba.en
+    @Override // com.baidu.tieba.d87, com.baidu.tieba.en
     /* renamed from: H */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ThreadData threadData, FrsPageAlaEmptyLiveViewHolder frsPageAlaEmptyLiveViewHolder) {
         InterceptResult invokeCommon;
@@ -121,7 +121,7 @@ public class ja6 extends c87<ThreadData, FrsPageAlaEmptyLiveViewHolder> implemen
         return (View) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.tj6
+    @Override // com.baidu.tieba.uj6
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -129,7 +129,7 @@ public class ja6 extends c87<ThreadData, FrsPageAlaEmptyLiveViewHolder> implemen
         }
     }
 
-    @Override // com.baidu.tieba.c87, com.baidu.tieba.sj6
+    @Override // com.baidu.tieba.d87, com.baidu.tieba.tj6
     public void m(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, tbPageContext, bdUniqueId) == null) {

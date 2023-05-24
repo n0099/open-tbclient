@@ -47,12 +47,12 @@ import com.baidu.tieba.aj5;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.cp5;
 import com.baidu.tieba.dv4;
-import com.baidu.tieba.es9;
 import com.baidu.tieba.fj5;
 import com.baidu.tieba.fs9;
 import com.baidu.tieba.gs9;
-import com.baidu.tieba.i97;
+import com.baidu.tieba.hs9;
 import com.baidu.tieba.iv4;
+import com.baidu.tieba.j97;
 import com.baidu.tieba.jt4;
 import com.baidu.tieba.rn5;
 import com.baidu.tieba.yu4;
@@ -68,7 +68,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class TabWebFragment extends BaseWebViewFragment implements i97 {
+public class TabWebFragment extends BaseWebViewFragment implements j97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String e;
@@ -79,24 +79,24 @@ public class TabWebFragment extends BaseWebViewFragment implements i97 {
     public NestedScrollWebView j;
     public FrameLayout k;
     public ViewGroup l;
-    public es9 m;
+    public fs9 m;
     public boolean n;
     public boolean o;
     public boolean p;
     public boolean q;
-    public gs9 r;
+    public hs9 r;
     public CustomMessageListener s;
     public final CustomMessageListener t;
     public final View.OnClickListener u;
 
-    @Override // com.baidu.tieba.i97
+    @Override // com.baidu.tieba.j97
     public void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.i97
+    @Override // com.baidu.tieba.j97
     public void a0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -121,7 +121,7 @@ public class TabWebFragment extends BaseWebViewFragment implements i97 {
     }
 
     /* loaded from: classes5.dex */
-    public class a implements gs9 {
+    public class a implements hs9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TabWebFragment a;
@@ -144,7 +144,7 @@ public class TabWebFragment extends BaseWebViewFragment implements i97 {
             this.a = tabWebFragment;
         }
 
-        @Override // com.baidu.tieba.gs9
+        @Override // com.baidu.tieba.hs9
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -687,9 +687,9 @@ public class TabWebFragment extends BaseWebViewFragment implements i97 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             super.onDestroy();
-            es9 es9Var = this.m;
-            if (es9Var != null) {
-                es9Var.h();
+            fs9 fs9Var = this.m;
+            if (fs9Var != null) {
+                fs9Var.h();
             }
             aj5.e().b();
             q2();
@@ -754,7 +754,7 @@ public class TabWebFragment extends BaseWebViewFragment implements i97 {
         }
     }
 
-    @Override // com.baidu.tieba.i97
+    @Override // com.baidu.tieba.j97
     public void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
@@ -762,7 +762,7 @@ public class TabWebFragment extends BaseWebViewFragment implements i97 {
         }
     }
 
-    @Override // com.baidu.tieba.i97
+    @Override // com.baidu.tieba.j97
     public void h0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -780,17 +780,17 @@ public class TabWebFragment extends BaseWebViewFragment implements i97 {
         }
     }
 
-    public final fs9 h2() {
+    public final gs9 h2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, fs9.class, getPageContext());
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, gs9.class, getPageContext());
             if (runTask != null && runTask.getData() != null) {
-                return (fs9) runTask.getData();
+                return (gs9) runTask.getData();
             }
             return null;
         }
-        return (fs9) invokeV.objValue;
+        return (gs9) invokeV.objValue;
     }
 
     public final void p2() {
@@ -861,7 +861,7 @@ public class TabWebFragment extends BaseWebViewFragment implements i97 {
             }
             this.a = this.g;
             if (this.m == null) {
-                this.m = new es9();
+                this.m = new fs9();
             }
             if (this.m.b()) {
                 this.m.a(new XiubaTbJsBridge(getPageContext()));
@@ -917,9 +917,9 @@ public class TabWebFragment extends BaseWebViewFragment implements i97 {
                 }
                 o2();
                 this.j.reshow();
-                es9 es9Var = this.m;
-                if (es9Var != null) {
-                    es9Var.i(this.j, CommonTbJsBridge.RE_SHOW, null);
+                fs9 fs9Var = this.m;
+                if (fs9Var != null) {
+                    fs9Var.i(this.j, CommonTbJsBridge.RE_SHOW, null);
                 }
                 this.j.setWebViewSkinOverly(this.g);
             } else {

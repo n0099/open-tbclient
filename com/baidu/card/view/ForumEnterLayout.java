@@ -26,7 +26,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.jy4;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.rp9;
+import com.baidu.tieba.sp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -270,7 +270,7 @@ public class ForumEnterLayout extends RelativeLayout {
             i = 2;
         }
         if (str != null && i > 0) {
-            TiebaStatic.log(rp9.k(str, threadData, i));
+            TiebaStatic.log(sp9.k(str, threadData, i));
         }
     }
 

@@ -1,37 +1,63 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmOverloads;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
 public final class q47 {
     public static /* synthetic */ Interceptable $ic;
+    public static final q47 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @JvmOverloads
-    public static final boolean a(View view2, Object obj, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, view2, obj, z)) == null) {
-            Intrinsics.checkNotNullParameter(view2, "<this>");
-            if (Intrinsics.areEqual(view2.getTag(R.id.obfuscated_res_0x7f09283d), obj)) {
-                return true;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948041941, "Lcom/baidu/tieba/q47;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (z) {
-                view2.setTag(R.id.obfuscated_res_0x7f09283d, obj);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948041941, "Lcom/baidu/tieba/q47;");
+                return;
             }
-            return false;
         }
-        return invokeLLZ.booleanValue;
+        a = new q47();
     }
 
-    public static /* synthetic */ boolean b(View view2, Object obj, boolean z, int i, Object obj2) {
-        if ((i & 2) != 0) {
-            z = true;
+    public q47() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-        return a(view2, obj, z);
+    }
+
+    public final int a(String resName) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, resName)) == null) {
+            Intrinsics.checkNotNullParameter(resName, "resName");
+            try {
+                return dy6.a.getResources().getIdentifier(resName, EMABTest.TYPE_STRING, dy6.a.getPackageName());
+            } catch (Exception e) {
+                BdLog.e(e);
+                return 0;
+            }
+        }
+        return invokeL.intValue;
     }
 }

@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qv8;
+import com.baidu.tieba.rv8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -191,10 +191,10 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
             }
             return;
         }
-        qv8 qv8Var = new qv8();
-        qv8Var.a = this;
-        qv8Var.b = baseResp;
-        MessageManager.getInstance().runTask(2921351, null, qv8Var);
+        rv8 rv8Var = new rv8();
+        rv8Var.a = this;
+        rv8Var.b = baseResp;
+        MessageManager.getInstance().runTask(2921351, null, rv8Var);
         closeActivity();
     }
 }

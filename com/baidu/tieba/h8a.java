@@ -1,46 +1,121 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.write.editor.EditorInfoContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class h8a {
+public class h8a extends df5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public e8a a;
+    public Context t;
 
-    public h8a() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h8a(Context context, String str) {
+        super(context, (String) null, 15);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
+        this.o = false;
+        this.t = context;
+        this.n = 3;
+        this.m = new EditorInfoContainer(context, str);
+        this.p = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54, 57, 65};
     }
 
-    public e8a a() {
-        InterceptResult invokeV;
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ef5 ef5Var = this.m;
+            if (ef5Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) ef5Var).l();
+            }
         }
-        return (e8a) invokeV.objValue;
     }
 
-    public void b(e8a e8aVar) {
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e8aVar) == null) {
-            this.a = e8aVar;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ef5 ef5Var = this.m;
+            if (ef5Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) ef5Var).m();
+            }
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ef5 ef5Var = this.m;
+            if (ef5Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) ef5Var).n();
+            }
+        }
+    }
+
+    public void j(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
+            ef5 ef5Var = this.m;
+            if (ef5Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) ef5Var).s(str, i);
+            }
+        }
+    }
+
+    public void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            ef5 ef5Var = this.m;
+            if (ef5Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) ef5Var).t(i);
+            }
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            ef5 ef5Var = this.m;
+            if (ef5Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) ef5Var).v(z);
+            }
+        }
+    }
+
+    public void m(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            ef5 ef5Var = this.m;
+            if (ef5Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) ef5Var).setFrom(str);
+            }
+        }
+    }
+
+    public void n(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            ef5 ef5Var = this.m;
+            if (ef5Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) ef5Var).z(z);
+            }
         }
     }
 }

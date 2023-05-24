@@ -4,23 +4,23 @@ import android.app.Activity;
 import android.content.Context;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
-import com.baidu.tieba.agb;
-import com.baidu.tieba.cfb;
-import com.baidu.tieba.ffb;
-import com.baidu.tieba.gdb;
+import com.baidu.tieba.afb;
+import com.baidu.tieba.bgb;
+import com.baidu.tieba.dfb;
+import com.baidu.tieba.gfb;
 import com.baidu.tieba.hdb;
-import com.baidu.tieba.kdb;
-import com.baidu.tieba.oeb;
-import com.baidu.tieba.qfb;
-import com.baidu.tieba.rdb;
-import com.baidu.tieba.tdb;
-import com.baidu.tieba.teb;
-import com.baidu.tieba.ugb;
-import com.baidu.tieba.vcb;
-import com.baidu.tieba.vdb;
+import com.baidu.tieba.idb;
+import com.baidu.tieba.ldb;
+import com.baidu.tieba.peb;
+import com.baidu.tieba.rfb;
+import com.baidu.tieba.sdb;
+import com.baidu.tieba.udb;
+import com.baidu.tieba.ueb;
+import com.baidu.tieba.vgb;
+import com.baidu.tieba.wcb;
 import com.baidu.tieba.wdb;
 import com.baidu.tieba.xdb;
-import com.baidu.tieba.yeb;
+import com.baidu.tieba.ydb;
 import com.baidu.tieba.zeb;
 import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.IRLogDelegate;
@@ -57,29 +57,29 @@ import tv.athena.revenue.payui.view.IYYPayAmountView;
 import tv.athena.revenue.payui.view.WindowParams;
 @Keep
 /* loaded from: classes2.dex */
-public class YYPayUIKit implements kdb {
+public class YYPayUIKit implements ldb {
     public static final String TAG = "YYPayUiKit";
     public static Map<String, YYPayUIKit> mPayUIKitMap = new HashMap();
-    public static hdb mTestFunListenerr;
+    public static idb mTestFunListenerr;
     public Context mAppContext;
     public int mAppId;
     public AppPayServiceListener mAppPayServiceListener;
-    public gdb mControllerPayResultListener;
-    public yeb mPayFlowLifecycleManager;
-    public teb mPayFrequencyManager;
+    public hdb mControllerPayResultListener;
+    public zeb mPayFlowLifecycleManager;
+    public ueb mPayFrequencyManager;
     public PayUIKitConfig mPayUIKitConfig;
     public IThirdPartPayApi mThirdPartPayApi;
     public int mUserChannel;
-    public tdb mYYPayController;
+    public udb mYYPayController;
     public IFeedbackServiceProxy mFeedbackServiceProxy = null;
     public List<IYYPayListener> mYYPayListener = new ArrayList();
 
     /* loaded from: classes2.dex */
-    public class a implements gdb {
+    public class a implements hdb {
         public a() {
         }
 
-        @Override // com.baidu.tieba.gdb
+        @Override // com.baidu.tieba.hdb
         public void a(int i, String str, PayCallBackBean payCallBackBean) {
             YYPayUIKit.this.innerNotifyYYPayFailListener(i, str, payCallBackBean);
         }
@@ -98,13 +98,13 @@ public class YYPayUIKit implements kdb {
     }
 
     static {
-        H5PayManager.getInstance().setYYPayWebviewActClass(PayCommonWebActivity.class, new oeb());
-        wdb.a(new xdb());
+        H5PayManager.getInstance().setYYPayWebviewActClass(PayCommonWebActivity.class, new peb());
+        xdb.a(new ydb());
     }
 
-    private tdb getOrCreatePayController() {
+    private udb getOrCreatePayController() {
         if (this.mYYPayController == null) {
-            this.mYYPayController = new zeb(this.mAppContext, this.mAppId, this.mUserChannel, this.mControllerPayResultListener, this.mPayUIKitConfig);
+            this.mYYPayController = new afb(this.mAppContext, this.mAppId, this.mUserChannel, this.mControllerPayResultListener, this.mPayUIKitConfig);
         }
         return this.mYYPayController;
     }
@@ -115,7 +115,7 @@ public class YYPayUIKit implements kdb {
     }
 
     private void registerPayServiceListener() {
-        IAppPayService b2 = qfb.b(this.mAppId, this.mUserChannel);
+        IAppPayService b2 = rfb.b(this.mAppId, this.mUserChannel);
         if (b2 == null) {
             RLog.error(TAG, "registerPayServiceListener error null appPayService", new Object[0]);
             return;
@@ -127,7 +127,7 @@ public class YYPayUIKit implements kdb {
 
     private void unregisterPayServiceListener() {
         if (this.mAppPayServiceListener != null) {
-            IAppPayService b2 = qfb.b(this.mAppId, this.mUserChannel);
+            IAppPayService b2 = rfb.b(this.mAppId, this.mUserChannel);
             if (b2 != null) {
                 b2.removePayListener(this.mAppPayServiceListener);
             }
@@ -135,9 +135,9 @@ public class YYPayUIKit implements kdb {
         }
     }
 
-    @Override // com.baidu.tieba.kdb
+    @Override // com.baidu.tieba.ldb
     public void cancelAllRequest() {
-        IAppPayService b2 = qfb.b(this.mAppId, this.mUserChannel);
+        IAppPayService b2 = rfb.b(this.mAppId, this.mUserChannel);
         if (b2 != null) {
             RLog.info(TAG, "cancelAllRequest");
             b2.cancelAllRequest();
@@ -146,8 +146,8 @@ public class YYPayUIKit implements kdb {
         RLog.error(TAG, "onPayFlowFinish error appPayService null ", new Object[0]);
     }
 
-    @Override // com.baidu.tieba.kdb
-    public tdb getCurPayController() {
+    @Override // com.baidu.tieba.ldb
+    public udb getCurPayController() {
         return this.mYYPayController;
     }
 
@@ -158,7 +158,7 @@ public class YYPayUIKit implements kdb {
 
     public IThirdPartPayApi getOrCreateThirdPartPayApi() {
         if (this.mThirdPartPayApi == null) {
-            this.mThirdPartPayApi = (IThirdPartPayApi) vcb.a.a(IThirdPartPayApi.class, this.mAppId, this.mUserChannel, this.mAppContext, this.mPayUIKitConfig, this);
+            this.mThirdPartPayApi = (IThirdPartPayApi) wcb.a.a(IThirdPartPayApi.class, this.mAppId, this.mUserChannel, this.mAppContext, this.mPayUIKitConfig, this);
         }
         return this.mThirdPartPayApi;
     }
@@ -167,7 +167,7 @@ public class YYPayUIKit implements kdb {
         return this.mPayUIKitConfig;
     }
 
-    public vdb getViewLifecycle() {
+    public wdb getViewLifecycle() {
         return this.mPayFlowLifecycleManager.e();
     }
 
@@ -185,11 +185,11 @@ public class YYPayUIKit implements kdb {
     public YYPayUIKit(String str) {
         RLog.info(TAG, "create YYPayUiKit mapKey:" + str);
         preparePayResultListener();
-        this.mPayFlowLifecycleManager = new yeb(this);
-        this.mPayFrequencyManager = new teb();
+        this.mPayFlowLifecycleManager = new zeb(this);
+        this.mPayFrequencyManager = new ueb();
     }
 
-    @Override // com.baidu.tieba.kdb
+    @Override // com.baidu.tieba.ldb
     public synchronized void releasePayController(boolean z) {
         RLog.info(TAG, "releasePayController mAppId:" + this.mAppId + " userChannel:" + this.mUserChannel + " mYYPayController:" + this.mYYPayController + " innerRelease:" + z);
         if (this.mYYPayController != null) {
@@ -213,7 +213,7 @@ public class YYPayUIKit implements kdb {
     }
 
     public boolean isSupported(@NonNull Activity activity, @NonNull PayType payType) {
-        IAppPayService b2 = qfb.b(this.mAppId, this.mUserChannel);
+        IAppPayService b2 = rfb.b(this.mAppId, this.mUserChannel);
         if (b2 == null) {
             RLog.error(TAG, "isSupported error payService null", new Object[0]);
             return false;
@@ -221,28 +221,28 @@ public class YYPayUIKit implements kdb {
         return b2.isSupported(activity, payType);
     }
 
-    public void startThirdPartDialogPay(ThirdPartPayDialogParams thirdPartPayDialogParams, rdb rdbVar) {
+    public void startThirdPartDialogPay(ThirdPartPayDialogParams thirdPartPayDialogParams, sdb sdbVar) {
         IThirdPartPayApi orCreateThirdPartPayApi = getOrCreateThirdPartPayApi();
         if (orCreateThirdPartPayApi != null) {
-            orCreateThirdPartPayApi.startPayDialog(thirdPartPayDialogParams, rdbVar);
+            orCreateThirdPartPayApi.startPayDialog(thirdPartPayDialogParams, sdbVar);
         } else {
             RLog.error(TAG, "startThirdPartDialogPay error payApi null", new Object[0]);
         }
     }
 
-    public void startThirdPartDialogPayV2(ThirdPartPayDialogParams thirdPartPayDialogParams, rdb rdbVar) {
+    public void startThirdPartDialogPayV2(ThirdPartPayDialogParams thirdPartPayDialogParams, sdb sdbVar) {
         IThirdPartPayApi orCreateThirdPartPayApi = getOrCreateThirdPartPayApi();
         if (orCreateThirdPartPayApi != null) {
-            orCreateThirdPartPayApi.startPayDialogV2(thirdPartPayDialogParams, rdbVar);
+            orCreateThirdPartPayApi.startPayDialogV2(thirdPartPayDialogParams, sdbVar);
         } else {
             RLog.error(TAG, "startThirdPartDialogPayV2 error payApi null", new Object[0]);
         }
     }
 
-    public void startThirdPartPay(ThirdPartPayParams thirdPartPayParams, rdb rdbVar) {
+    public void startThirdPartPay(ThirdPartPayParams thirdPartPayParams, sdb sdbVar) {
         IThirdPartPayApi orCreateThirdPartPayApi = getOrCreateThirdPartPayApi();
         if (orCreateThirdPartPayApi != null) {
-            orCreateThirdPartPayApi.startPlay(thirdPartPayParams, rdbVar);
+            orCreateThirdPartPayApi.startPlay(thirdPartPayParams, sdbVar);
         } else {
             RLog.error(TAG, "startThirdPartPay error payApi null", new Object[0]);
         }
@@ -253,9 +253,9 @@ public class YYPayUIKit implements kdb {
         getOrCreatePayController().i(activity, viewParams);
     }
 
-    public void innerPayWayDialogForWeb(Activity activity, cfb cfbVar, ugb.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
+    public void innerPayWayDialogForWeb(Activity activity, dfb dfbVar, vgb.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
         RLog.info(TAG, "innerPayWayDialogForWeb");
-        getOrCreatePayController().h(activity, bVar, cfbVar, iPayCallback);
+        getOrCreatePayController().h(activity, bVar, dfbVar, iPayCallback);
     }
 
     public static synchronized void addLogDelegate(IRLogDelegate iRLogDelegate) {
@@ -280,8 +280,8 @@ public class YYPayUIKit implements kdb {
         PaySignMethodProxyFactory.instance().addPayServiceProxyMap(PayType.ALI_PAY_SIGN, iPaySignServiceProxy);
     }
 
-    public static void setTestFunListener(hdb hdbVar) {
-        mTestFunListenerr = hdbVar;
+    public static void setTestFunListener(idb idbVar) {
+        mTestFunListenerr = idbVar;
     }
 
     public static void setWechatSdkProxy(IWechatSdkServiceProxy iWechatSdkServiceProxy) {
@@ -299,17 +299,17 @@ public class YYPayUIKit implements kdb {
     }
 
     public PayFlowModel getPayFlowModel(PayFlowType payFlowType) {
-        tdb tdbVar = this.mYYPayController;
-        if (tdbVar != null) {
-            return tdbVar.j(payFlowType);
+        udb udbVar = this.mYYPayController;
+        if (udbVar != null) {
+            return udbVar.j(payFlowType);
         }
         return null;
     }
 
     public void refreshWindowParams(WindowParams windowParams) {
-        tdb tdbVar = this.mYYPayController;
-        if (tdbVar != null) {
-            tdbVar.refreshWindow(windowParams);
+        udb udbVar = this.mYYPayController;
+        if (udbVar != null) {
+            udbVar.refreshWindow(windowParams);
         }
         RLog.info(TAG, "refreshWindowParams params:" + windowParams + " mYYPayController:" + this.mYYPayController);
     }
@@ -351,7 +351,7 @@ public class YYPayUIKit implements kdb {
                 return mPayUIKitMap.get(uIKitMapKey);
             }
             if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
-                ffb.h(payUIKitConfig.revenueConfig.isTestEnv());
+                gfb.h(payUIKitConfig.revenueConfig.isTestEnv());
                 YYPayUIKit yYPayUIKit = new YYPayUIKit(uIKitMapKey);
                 yYPayUIKit.initYYPayUIKit(i, i2, payUIKitConfig.revenueConfig);
                 yYPayUIKit.mPayUIKitConfig = payUIKitConfig;
@@ -379,7 +379,7 @@ public class YYPayUIKit implements kdb {
     }
 
     public void signPay(Activity activity, PaySignInfo paySignInfo, IPaySignCallback iPaySignCallback) {
-        IAppPayService b2 = qfb.b(this.mAppId, this.mUserChannel);
+        IAppPayService b2 = rfb.b(this.mAppId, this.mUserChannel);
         if (b2 == null) {
             RLog.error(TAG, "isSupported error payService null", new Object[0]);
         } else {
@@ -432,7 +432,7 @@ public class YYPayUIKit implements kdb {
     public synchronized void releaseAllPayFlowView() {
         RLog.info(TAG, "releaseAllPayFlowView() mAppId:" + this.mAppId + " userChannel:" + this.mUserChannel);
         if (this.mAppContext != null) {
-            agb.a(this.mAppContext);
+            bgb.a(this.mAppContext);
         } else {
             RLog.error(TAG, "releaseAllPayFlowView error mAppContext null", new Object[0]);
         }
@@ -460,7 +460,7 @@ public class YYPayUIKit implements kdb {
             RLog.error(TAG, "onQQPayResult error appid is 0", new Object[0]);
             return;
         }
-        IAppPayService b2 = qfb.b(i2, this.mUserChannel);
+        IAppPayService b2 = rfb.b(i2, this.mUserChannel);
         if (b2 == null) {
             RLog.error(TAG, "onQQPayResult error payService is null", new Object[0]);
         } else {
@@ -475,7 +475,7 @@ public class YYPayUIKit implements kdb {
             RLog.error(TAG, "onWxPayResult error appid is 0", new Object[0]);
             return;
         }
-        IAppPayService b2 = qfb.b(i2, this.mUserChannel);
+        IAppPayService b2 = rfb.b(i2, this.mUserChannel);
         if (b2 == null) {
             RLog.error(TAG, "onWxPayResult error payService is null", new Object[0]);
         } else {

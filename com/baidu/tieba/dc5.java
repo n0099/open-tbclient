@@ -117,13 +117,13 @@ public class dc5 {
             if (i != 3 && i != 2) {
                 if (i != 8 && i != 4) {
                     if (i == 6) {
-                        return vq9.b(context, "com.sina.weibo");
+                        return wq9.b(context, "com.sina.weibo");
                     }
                     return true;
                 }
-                return vq9.b(context, "com.tencent.mobileqq");
+                return wq9.b(context, "com.tencent.mobileqq");
             }
-            return vq9.b(context, "com.tencent.mm");
+            return wq9.b(context, "com.tencent.mm");
         }
         return invokeLI.booleanValue;
     }

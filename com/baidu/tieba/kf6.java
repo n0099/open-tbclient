@@ -43,7 +43,7 @@ public class kf6 extends lf6 {
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            wh6.c("newHybrid", "remove k:" + str);
+            xh6.c("newHybrid", "remove k:" + str);
             AbsJsInterface absJsInterface = this.b.get(str);
             if (absJsInterface != null) {
                 absJsInterface.deAttachWebView();
@@ -76,13 +76,13 @@ public class kf6 extends lf6 {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Map<String, Class<? extends AbsJsInterface>> b = mh6.a().b();
+            Map<String, Class<? extends AbsJsInterface>> b = nh6.a().b();
             if (!b.isEmpty()) {
                 try {
                     e(b);
                 } catch (JsInterfaceException e) {
-                    if (!zg6.a()) {
-                        ((xh6) ServiceManager.getService(xh6.a)).a(e);
+                    if (!ah6.a()) {
+                        ((yh6) ServiceManager.getService(yh6.a)).a(e);
                         return;
                     }
                     throw e;
@@ -117,7 +117,7 @@ public class kf6 extends lf6 {
     public final void f(String str, Class<? extends AbsJsInterface> cls) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, cls) == null) {
-            wh6.c("newHybrid", "inject k:" + str + "  v:" + cls);
+            xh6.c("newHybrid", "inject k:" + str + "  v:" + cls);
             AbsJsInterface newInstance = cls.getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
             newInstance.attachWebView(this.a);
             this.b.put(str, newInstance);

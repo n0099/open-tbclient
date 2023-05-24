@@ -1,22 +1,31 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class u78 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BotsDTO.BotListDTO.UserDTO a;
-    public BotsDTO.BotListDTO.SkillDTO b;
-    public List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> c;
-    public boolean d;
+    @Nullable
+    public List<String> a;
+    @Nullable
+    public String b;
+    @Nullable
+    public String c;
+    @Nullable
+    public String d;
+    @Nullable
+    public String e;
 
     public u78() {
         Interceptable interceptable = $ic;
@@ -32,47 +41,76 @@ public class u78 {
         }
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = null;
-            this.b = null;
-            this.c = null;
-            this.d = false;
-        }
-    }
-
-    public boolean c() {
+    @Nullable
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
     @Nullable
-    public BotsDTO.BotListDTO.SkillDTO.ItemsDTO b() {
+    public List<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> list = this.c;
-            if (list != null && !list.isEmpty()) {
-                for (BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO : this.c) {
-                    if (itemsDTO.isFileType()) {
-                        return itemsDTO;
-                    }
-                }
-            }
-            return null;
+            return this.a;
         }
-        return (BotsDTO.BotListDTO.SkillDTO.ItemsDTO) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public void d(boolean z) {
+    @Nullable
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.d = z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Nullable
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Nullable
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void f(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.b = jSONObject.optString("hot_nums_text");
+        this.c = jSONObject.optString("add_url");
+        this.d = jSONObject.optString("manage_url");
+        this.e = jSONObject.optString("manager_switch");
+        JSONArray optJSONArray = jSONObject.optJSONArray("head_img");
+        if (optJSONArray != null && optJSONArray.length() > 0) {
+            if (this.a == null) {
+                this.a = new ArrayList();
+            }
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                String optString = optJSONArray.optString(i);
+                if (!TextUtils.isEmpty(optString)) {
+                    this.a.add(optString);
+                }
+            }
         }
     }
 }

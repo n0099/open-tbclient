@@ -1,13 +1,16 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.view.View;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.immessagecenter.chatgroup.data.ChatGroupInfo;
-import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tieba.immessagecenter.chatgroup.floatentrance.ChatFloatEntranceFragment;
 import com.baidu.tieba.immessagecenter.chatgroup.floatentrance.CollapseState;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
@@ -15,16 +18,63 @@ import java.util.List;
 public class y78 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public x78 a;
-    public CollapseState b;
-    public int c;
+    public z78 a;
+    public a88 b;
+    public x78 c;
+    public boolean d;
+    public long e;
 
-    public y78(x78 x78Var, z78 z78Var) {
+    /* loaded from: classes8.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ x78 a;
+        public final /* synthetic */ y78 b;
+
+        public a(y78 y78Var, x78 x78Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y78Var, x78Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = y78Var;
+            this.a = x78Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (TbadkCoreApplication.isLogin()) {
+                    y78 y78Var = this.b;
+                    if (y78Var.a.b.a == CollapseState.Icon.FORUM) {
+                        y78Var.d = true;
+                        f88.b(CommonStatisticKey.KEY_GROUP_CHAT_ENTRANCE_CLICK, this.a.w(), this.a.v(), String.valueOf(this.b.a.b.d), 14, null);
+                        GroupChatActivity.u1(view2.getContext(), this.b.a.b.d, -1, "");
+                        return;
+                    }
+                }
+                this.a.onClick(view2);
+            }
+        }
+    }
+
+    public y78(@NonNull ChatFloatEntranceFragment.t tVar, @NonNull x78 x78Var) {
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {x78Var, z78Var};
+            Object[] objArr = {tVar, x78Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,144 +84,103 @@ public class y78 {
                 return;
             }
         }
-        this.c = 0;
-        this.a = x78Var;
-        this.b = new CollapseState();
+        this.c = x78Var;
+        a88 a88Var = new a88(tVar, x78Var);
+        this.b = a88Var;
+        this.a = new z78(this, a88Var);
+        tVar.l.setOnClickListener(new a(this, x78Var));
+        long w = x78Var.w();
+        String v = x78Var.v();
+        String valueOf = String.valueOf(this.a.b.d);
+        if (d()) {
+            str = "1";
+        } else {
+            str = "2";
+        }
+        f88.d("c15207", w, v, valueOf, 1, str);
+        e(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public final void d(String str, long j) {
+    public void update(CollapseState collapseState, CollapseState collapseState2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048579, this, str, j) == null) {
-            if (!TextUtils.isEmpty(str) && j != 0) {
-                CollapseState collapseState = this.b;
-                collapseState.a = CollapseState.Icon.FORUM;
-                collapseState.e = str;
-                collapseState.d = j;
-                return;
-            }
-            CollapseState collapseState2 = this.b;
-            collapseState2.a = CollapseState.Icon.DEFAULT;
-            collapseState2.e = null;
-            collapseState2.d = 0L;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, collapseState, collapseState2) == null) {
+            this.b.update(collapseState, collapseState2);
         }
     }
 
-    public final void e(boolean z, boolean z2) {
+    public void b() {
+        int i;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            if (z) {
-                this.b.c = CollapseState.Tip.AT_ME;
-            } else if (z2) {
-                this.b.c = CollapseState.Tip.THREE_EXP;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (System.currentTimeMillis() - this.e > 5000) {
+                this.c.A1();
+                this.e = System.currentTimeMillis();
+            }
+            this.a.b(false);
+            long w = this.c.w();
+            String v = this.c.v();
+            String valueOf = String.valueOf(this.a.b.d);
+            if (this.a.b.a == CollapseState.Icon.DEFAULT) {
+                i = 3;
             } else {
-                this.b.c = CollapseState.Tip.DEFAULT;
+                i = 2;
             }
-        }
-    }
-
-    public void a(List<Long> list, long j, List list2, int i) {
-        List<Long> list3;
-        ChatRoomInfo chatRoomInfo;
-        boolean z;
-        boolean a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{list, Long.valueOf(j), list2, Integer.valueOf(i)}) == null) && (list3 = list) != null && list2 != null) {
-            long j2 = 0;
-            String str = null;
-            this.c = 0;
-            for (int i2 = 0; i2 < list2.size(); i2++) {
-                if (list2.get(i2) instanceof ChatGroupInfo) {
-                    List<ChatRoomInfo> roomInfoList = ((ChatGroupInfo) list2.get(i2)).getRoomInfoList();
-                    if (!ListUtils.isEmpty(roomInfoList)) {
-                        this.c += roomInfoList.size();
-                    }
-                }
-            }
-            int i3 = -1;
-            int i4 = 0;
-            boolean z2 = false;
-            boolean z3 = false;
-            int i5 = -1;
-            while (i4 < list2.size()) {
-                if (list2.get(i4) instanceof ChatGroupInfo) {
-                    List<ChatRoomInfo> roomInfoList2 = ((ChatGroupInfo) list2.get(i4)).getRoomInfoList();
-                    if (!ListUtils.isEmpty(roomInfoList2)) {
-                        int i6 = 0;
-                        while (i6 < roomInfoList2.size() && (chatRoomInfo = roomInfoList2.get(i6)) != null) {
-                            if (chatRoomInfo.getAtInfo() != null && chatRoomInfo.getAtInfo().getCountAll() > 0) {
-                                z = true;
-                            } else {
-                                z = false;
-                            }
-                            int indexOf = list3.indexOf(Long.valueOf(chatRoomInfo.getRoomId()));
-                            if (indexOf != i3) {
-                                if (z && !z2) {
-                                    j2 = chatRoomInfo.getRoomId();
-                                    str = chatRoomInfo.getAvatar();
-                                } else if (z && z2) {
-                                    if (i5 < 0 || indexOf < i5) {
-                                        j2 = chatRoomInfo.getRoomId();
-                                        str = chatRoomInfo.getAvatar();
-                                    }
-                                } else if (!z && !z2 && ((!(a = pb8.a(j)) || this.c == 1) && (i5 < 0 || indexOf < i5))) {
-                                    j2 = chatRoomInfo.getRoomId();
-                                    z3 = !a;
-                                    str = chatRoomInfo.getAvatar();
-                                    i5 = indexOf;
-                                    z2 = false;
-                                }
-                                i5 = indexOf;
-                                z2 = true;
-                                z3 = false;
-                            }
-                            i6++;
-                            list3 = list;
-                            i3 = -1;
-                        }
-                    }
-                }
-                i4++;
-                list3 = list;
-                i3 = -1;
-            }
-            CollapseState clone = this.b.clone();
-            e(z2, z3);
-            d(str, j2);
-            x78 x78Var = this.a;
-            if (x78Var != null) {
-                x78Var.update(clone, this.b);
-            }
-        }
-    }
-
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            CollapseState clone = this.b.clone();
-            if (z) {
-                this.b.b = CollapseState.State.EXPAND;
+            if (d()) {
+                str = "1";
             } else {
-                this.b.b = CollapseState.State.COLLAPSE;
+                str = "2";
             }
-            x78 x78Var = this.a;
-            if (x78Var != null) {
-                x78Var.update(clone, this.b);
-            }
+            f88.d("c15207", w, v, valueOf, i, str);
         }
     }
 
-    public void c(List<Long> list) {
+    public void c() {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            CollapseState clone = this.b.clone();
-            e(false, false);
-            if (this.c != 1) {
-                d(null, 0L);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.b(true);
+            long w = this.c.w();
+            String v = this.c.v();
+            String valueOf = String.valueOf(this.a.b.d);
+            if (d()) {
+                str = "1";
+            } else {
+                str = "2";
             }
-            x78 x78Var = this.a;
-            if (x78Var != null) {
-                x78Var.update(clone, this.b);
-            }
+            f88.d("c15207", w, v, valueOf, 1, str);
+        }
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            o65 m = o65.m();
+            return m.i(ChatFloatEntranceFragment.T + this.c.w(), true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.b.b(i);
+        }
+    }
+
+    public void g(List<Long> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, list) == null) && this.d) {
+            this.a.c(list);
+            this.d = false;
+        }
+    }
+
+    public void f(List<Long> list, long j, List list2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{list, Long.valueOf(j), list2, Integer.valueOf(i)}) == null) {
+            this.a.a(list, j, list2, i);
         }
     }
 }

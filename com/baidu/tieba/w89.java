@@ -21,7 +21,7 @@ public class w89 extends en<ha9, CardViewHolder<kb9>> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public w89(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), ha9.d);
+        super(tbPageContext.getPageActivity(), ha9.g);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,8 +60,8 @@ public class w89 extends en<ha9, CardViewHolder<kb9>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ha9Var, cardViewHolder})) == null) {
-            cardViewHolder.a().i(ha9Var);
             cardViewHolder.a().j(this.a, TbadkCoreApplication.getInst().getSkinType());
+            cardViewHolder.a().i(ha9Var);
             return cardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

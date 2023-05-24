@@ -74,7 +74,7 @@ public class vb2 implements d63 {
 
         /* renamed from: com.baidu.tieba.vb2$c$c  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0476c extends gb2 {
+        public class C0475c extends gb2 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c f;
@@ -84,16 +84,16 @@ public class vb2 implements d63 {
             public class a extends fb2 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ C0476c e;
+                public final /* synthetic */ C0475c e;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                public a(C0476c c0476c, String str, String str2) {
+                public a(C0475c c0475c, String str, String str2) {
                     super(str, str2);
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0476c, str, str2};
+                        Object[] objArr = {c0475c, str, str2};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -105,7 +105,7 @@ public class vb2 implements d63 {
                             return;
                         }
                     }
-                    this.e = c0476c;
+                    this.e = c0475c;
                 }
 
                 @Override // com.baidu.tieba.fb2
@@ -123,7 +123,7 @@ public class vb2 implements d63 {
             }
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0476c(c cVar, Context context) {
+            public C0475c(c cVar, Context context) {
                 super(context);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -282,7 +282,7 @@ public class vb2 implements d63 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return new C0476c(this, AppRuntime.getAppContext());
+                return new C0475c(this, AppRuntime.getAppContext());
             }
             return (cb2) invokeV.objValue;
         }

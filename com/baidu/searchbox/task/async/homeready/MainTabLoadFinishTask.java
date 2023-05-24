@@ -23,8 +23,8 @@ import com.baidu.tieba.p65;
 import com.baidu.tieba.rk;
 import com.baidu.tieba.t40;
 import com.baidu.tieba.ti;
-import com.baidu.tieba.yk8;
 import com.baidu.tieba.z25;
+import com.baidu.tieba.zk8;
 import java.io.UnsupportedEncodingException;
 import org.json.JSONArray;
 /* loaded from: classes4.dex */
@@ -95,7 +95,7 @@ public class MainTabLoadFinishTask extends LaunchTask {
                     str = "1";
                 }
                 TiebaStatic.log(statisticItem.param("obj_param1", str));
-                yk8 a = rk.a();
+                zk8 a = rk.a();
                 a.c(Config.DEVICE_PART, "Device Info: cuid: " + TbadkCoreApplication.getInst().getCuid() + " from: " + TbadkCoreApplication.getFrom() + " client_version: " + TbConfig.getVersion() + " os_version: " + ti.k());
                 return false;
             }
@@ -104,12 +104,12 @@ public class MainTabLoadFinishTask extends LaunchTask {
             String s = o65.m().s("key_cache_url_list", null);
             if (!TextUtils.isEmpty(s)) {
                 JSONArray jSONArray = new JSONArray(s);
-                yk8 defaultLog = DefaultLog.getInstance();
+                zk8 defaultLog = DefaultLog.getInstance();
                 defaultLog.c("WebPreheat", "冷启动预热H5:" + jSONArray);
                 ku5.e(jSONArray);
             }
         } catch (Throwable th) {
-            yk8 defaultLog2 = DefaultLog.getInstance();
+            zk8 defaultLog2 = DefaultLog.getInstance();
             defaultLog2.b("WebPreheat", "exception:" + th);
         }
     }

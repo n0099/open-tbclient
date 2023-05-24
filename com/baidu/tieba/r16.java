@@ -61,7 +61,7 @@ public class r16 implements NadAsyncRequester.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) {
             IAdBaseAsyncController.a aVar = this.g.get();
-            if (z && !xi8.e(list)) {
+            if (z && !yi8.e(list)) {
                 f(list);
                 c(list);
                 if (aVar != null) {
@@ -75,7 +75,7 @@ public class r16 implements NadAsyncRequester.b {
 
     public void d(int i, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIL(1048579, this, i, map) != null) || System.currentTimeMillis() - this.f < this.c * cf9.a) {
+        if ((interceptable != null && interceptable.invokeIL(1048579, this, i, map) != null) || System.currentTimeMillis() - this.f < this.c * df9.a) {
             return;
         }
         this.e.i(map, i);
@@ -103,12 +103,12 @@ public class r16 implements NadAsyncRequester.b {
             while (it.hasNext()) {
                 AdvertAppInfo next = it.next();
                 next.j = this.b;
-                if (ze9.l(next) && this.d) {
+                if (af9.l(next) && this.d) {
                     it.remove();
                 } else {
                     int i = next.i();
                     if (i != 0) {
-                        kh9.h(next, 0, i);
+                        lh9.h(next, 0, i);
                         it.remove();
                     }
                 }

@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.view.breathetip.BreatheTipWidget;
 import com.baidu.tieba.R;
 import com.baidu.tieba.g75;
 import com.baidu.tieba.h75;
-import com.baidu.tieba.j39;
-import com.baidu.tieba.lx8;
+import com.baidu.tieba.k39;
+import com.baidu.tieba.mx8;
 import com.baidu.tieba.o65;
 import com.baidu.tieba.oc5;
 import com.baidu.tieba.ri;
@@ -100,7 +100,7 @@ public class PbGodGuideController implements LifecycleObserver {
             breatheTipWidget.g(h75Var, g75Var);
             this.e = breatheTipWidget;
             if (breatheTipWidget.j((Activity) this.a, 3000L)) {
-                o65.m().z(j39.a, o65.m().n(j39.a, 0) + 1);
+                o65.m().z(k39.a, o65.m().n(k39.a, 0) + 1);
                 oc5.b("c15280", this.c, this.d);
             }
         }
@@ -129,12 +129,12 @@ public class PbGodGuideController implements LifecycleObserver {
         }
     }
 
-    public boolean b(lx8 lx8Var, Context context, View view2, String str, String str2) {
+    public boolean b(mx8 mx8Var, Context context, View view2, String str, String str2) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, lx8Var, context, view2, str, str2)) == null) {
-            j39.a();
-            if (!j39.c(lx8Var)) {
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, mx8Var, context, view2, str, str2)) == null) {
+            k39.a();
+            if (!k39.c(mx8Var)) {
                 return false;
             }
             this.a = new a(context, view2, str, str2);

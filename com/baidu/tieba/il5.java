@@ -35,14 +35,14 @@ public class il5 implements yk5<AgreeEvent> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, agreeEvent)) == null) {
             if (agreeEvent != null && agreeEvent.agreeData != null) {
-                hr9 hr9Var = new hr9();
-                hr9Var.b = agreeEvent.agreeData;
+                ir9 ir9Var = new ir9();
+                ir9Var.b = agreeEvent.agreeData;
                 String str = agreeEvent.agreeExtra;
                 if (AgreeEvent.IS_THREAD.equals(str)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, hr9Var));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, ir9Var));
                     return true;
                 } else if (AgreeEvent.IS_POST.equals(str)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016530, hr9Var));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016530, ir9Var));
                     return true;
                 }
             }

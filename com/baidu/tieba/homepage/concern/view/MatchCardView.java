@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.sq7;
+import com.baidu.tieba.tq7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -163,27 +163,27 @@ public class MatchCardView extends LinearLayout {
         }
     }
 
-    public void setData(sq7 sq7Var) {
+    public void setData(tq7 tq7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sq7Var) == null) && sq7Var != null && sq7Var.a() != null) {
-            this.j = sq7Var.a();
-            this.b.setText(sq7Var.a().team_name_a);
-            this.c.N(sq7Var.a().team_icon_a, 12, false);
-            this.d.setText(sq7Var.a().team_name_b);
-            this.e.N(sq7Var.a().team_icon_b, 12, false);
-            this.f.setText(sq7Var.a().name);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tq7Var) == null) && tq7Var != null && tq7Var.a() != null) {
+            this.j = tq7Var.a();
+            this.b.setText(tq7Var.a().team_name_a);
+            this.c.N(tq7Var.a().team_icon_a, 12, false);
+            this.d.setText(tq7Var.a().team_name_b);
+            this.e.N(tq7Var.a().team_icon_b, 12, false);
+            this.f.setText(tq7Var.a().name);
             int intValue = this.j.status.intValue();
             if (intValue != 2) {
                 if (intValue != 3) {
-                    this.g.setText(sq7Var.a().start_desc);
+                    this.g.setText(tq7Var.a().start_desc);
                     this.h.setText("未开始");
                 } else {
                     this.h.setText("已结束");
-                    this.g.setText(String.format("%d - %d", sq7Var.a().team_score_a, sq7Var.a().team_score_b));
+                    this.g.setText(String.format("%d - %d", tq7Var.a().team_score_a, tq7Var.a().team_score_b));
                 }
             } else {
                 this.h.setText("进行中");
-                this.g.setText(String.format("%d - %d", sq7Var.a().team_score_a, sq7Var.a().team_score_b));
+                this.g.setText(String.format("%d - %d", tq7Var.a().team_score_a, tq7Var.a().team_score_b));
             }
             a();
         }

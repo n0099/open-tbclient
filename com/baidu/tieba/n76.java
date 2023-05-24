@@ -341,7 +341,7 @@ public class n76 {
                 }
                 k(this.b, TbadkCoreApplication.getInst().getSkinType());
                 if (h66Var.d.getThreadAlaInfo().user_info != null) {
-                    StatisticItem.make("c14718").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_id", h66Var.getThreadData().getThreadAlaInfo().user_info.ala_id).param("obj_locate", yj6.f(this.o)).eventStat();
+                    StatisticItem.make("c14718").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_id", h66Var.getThreadData().getThreadAlaInfo().user_info.ala_id).param("obj_locate", zj6.f(this.o)).eventStat();
                     return;
                 }
                 return;

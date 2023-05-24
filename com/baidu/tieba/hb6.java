@@ -32,7 +32,7 @@ public class hb6 extends en<xb6, CardViewHolder<uc6>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public zy9 b;
+    public az9 b;
     public boolean c;
     public String d;
     public String e;
@@ -280,7 +280,7 @@ public class hb6 extends en<xb6, CardViewHolder<uc6>> {
                 d25Var.create(this.a).show();
             } else if (ViewHelper.checkUpIsLogin(this.a.getPageActivity())) {
                 if (this.b == null) {
-                    this.b = new zy9(this.a);
+                    this.b = new az9(this.a);
                 }
                 if (this.c) {
                     if (this.b.c()) {

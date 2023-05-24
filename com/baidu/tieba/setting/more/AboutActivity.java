@@ -17,14 +17,14 @@ import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.switchs.UploadLogButtonSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bj9;
-import com.baidu.tieba.ej9;
+import com.baidu.tieba.cj9;
 import com.baidu.tieba.f9;
-import com.baidu.tieba.jj9;
+import com.baidu.tieba.fj9;
 import com.baidu.tieba.kj9;
+import com.baidu.tieba.lj9;
 import com.baidu.tieba.o65;
-import com.baidu.tieba.rh8;
 import com.baidu.tieba.setting.model.AboutModel;
+import com.baidu.tieba.sh8;
 import com.baidu.tieba.xb5;
 import com.baidu.tieba.yu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,16 +36,16 @@ import java.util.Date;
 public class AboutActivity extends BaseActivity<AboutActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bj9 a;
+    public cj9 a;
     public AboutModel b;
     public c c;
     public String d;
-    public jj9 e;
-    public kj9 f;
+    public kj9 e;
+    public lj9 f;
     public int g;
 
     /* loaded from: classes7.dex */
-    public class a implements ej9 {
+    public class a implements fj9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AboutActivity a;
@@ -68,7 +68,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             this.a = aboutActivity;
         }
 
-        @Override // com.baidu.tieba.ej9
+        @Override // com.baidu.tieba.fj9
         public void a(int i) {
             String str;
             String fileDireciory;
@@ -98,7 +98,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                     } else if (i == 5) {
                         if (this.a.e == null) {
                             AboutActivity aboutActivity = this.a;
-                            aboutActivity.e = new jj9(aboutActivity.getActivity());
+                            aboutActivity.e = new kj9(aboutActivity.getActivity());
                             this.a.e.create(this.a.getPageContext());
                         }
                         this.a.e.show();
@@ -210,7 +210,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     public final void H1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            rh8.b().a(true);
+            sh8.b().a(true);
             AboutModel aboutModel = this.b;
             if (aboutModel == null) {
                 this.b = new AboutModel(this, new b(this));
@@ -218,9 +218,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 aboutModel.cancelLoadData();
             }
             this.b.Y();
-            bj9 bj9Var = this.a;
-            if (bj9Var != null) {
-                bj9Var.R();
+            cj9 cj9Var = this.a;
+            if (cj9Var != null) {
+                cj9Var.R();
             }
         }
     }
@@ -235,17 +235,17 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             if (aboutModel != null) {
                 aboutModel.cancelLoadData();
             }
-            bj9 bj9Var = this.a;
-            if (bj9Var != null) {
-                bj9Var.S();
+            cj9 cj9Var = this.a;
+            if (cj9Var != null) {
+                cj9Var.S();
             }
-            jj9 jj9Var = this.e;
-            if (jj9Var != null) {
-                jj9Var.dismiss();
-            }
-            kj9 kj9Var = this.f;
+            kj9 kj9Var = this.e;
             if (kj9Var != null) {
-                kj9Var.i();
+                kj9Var.dismiss();
+            }
+            lj9 lj9Var = this.f;
+            if (lj9Var != null) {
+                lj9Var.i();
                 this.f = null;
             }
         }
@@ -256,9 +256,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            bj9 bj9Var = this.a;
-            if (bj9Var != null) {
-                bj9Var.Y(i);
+            cj9 cj9Var = this.a;
+            if (cj9Var != null) {
+                cj9Var.Y(i);
             }
         }
     }
@@ -268,10 +268,10 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            this.f = new kj9();
-            bj9 bj9Var = new bj9(this, new a(this));
-            this.a = bj9Var;
-            bj9Var.W();
+            this.f = new lj9();
+            cj9 cj9Var = new cj9(this, new a(this));
+            this.a = cj9Var;
+            cj9Var.W();
             J1();
         }
     }
@@ -280,9 +280,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         xb5 xb5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            bj9 bj9Var = this.a;
-            if (bj9Var != null) {
-                bj9Var.S();
+            cj9 cj9Var = this.a;
+            if (cj9Var != null) {
+                cj9Var.S();
             }
             if (obj != null) {
                 xb5Var = (xb5) obj;
@@ -302,9 +302,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                         sendMessage(customMessage);
                     }
                 }
-                bj9 bj9Var2 = this.a;
-                if (bj9Var2 != null) {
-                    bj9Var2.W();
+                cj9 cj9Var2 = this.a;
+                if (cj9Var2 != null) {
+                    cj9Var2.W();
                     return;
                 }
                 return;
@@ -343,9 +343,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onResume();
-            bj9 bj9Var = this.a;
-            if (bj9Var != null) {
-                bj9Var.W();
+            cj9 cj9Var = this.a;
+            if (cj9Var != null) {
+                cj9Var.W();
             }
         }
     }

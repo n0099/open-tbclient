@@ -72,21 +72,21 @@ public class oy4 {
             ClogBuilder clogBuilder = new ClogBuilder();
             clogBuilder.y(ClogBuilder.LogType.SHOW).v(advertAppInfo.j).q(String.valueOf(advertAppInfo.position + 1)).r(oy4Var.d).s(oy4Var.e).t(oy4Var.c).w(String.valueOf(oy4Var.b)).p(advertAppInfo.g);
             e21.b(clogBuilder);
-            si8.b(si8.a(advertAppInfo));
+            ti8.b(ti8.a(advertAppInfo));
             oy4Var.h = true;
             i.add(oy4Var.g);
         }
     }
 
-    public static void f(qr9 qr9Var) {
+    public static void f(rr9 rr9Var) {
         oy4 oy4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, null, qr9Var) == null) && qr9Var != null && qr9Var.getAdvertAppInfo() != null && (oy4Var = qr9Var.getAdvertAppInfo().i) != null && !oy4Var.h && !a(oy4Var.g)) {
-            qr9Var.e1 = oy4Var.d;
-            qr9Var.f1 = oy4Var.e;
-            qr9Var.d1 = oy4Var.c;
+        if ((interceptable == null || interceptable.invokeL(65543, null, rr9Var) == null) && rr9Var != null && rr9Var.getAdvertAppInfo() != null && (oy4Var = rr9Var.getAdvertAppInfo().i) != null && !oy4Var.h && !a(oy4Var.g)) {
+            rr9Var.e1 = oy4Var.d;
+            rr9Var.f1 = oy4Var.e;
+            rr9Var.d1 = oy4Var.c;
             ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(ClogBuilder.LogType.SHOW).q(String.valueOf(qr9Var.j1 + 1)).w(String.valueOf(qr9Var.h1)).v(oy4Var.a).r(oy4Var.d).s(oy4Var.e).t(oy4Var.c).p(oy4Var.g);
+            clogBuilder.y(ClogBuilder.LogType.SHOW).q(String.valueOf(rr9Var.j1 + 1)).w(String.valueOf(rr9Var.h1)).v(oy4Var.a).r(oy4Var.d).s(oy4Var.e).t(oy4Var.c).p(oy4Var.g);
             e21.b(clogBuilder);
             oy4Var.h = true;
             i.add(oy4Var.g);
@@ -157,16 +157,16 @@ public class oy4 {
         }
     }
 
-    public static void d(ek6 ek6Var) {
+    public static void d(fk6 fk6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, ek6Var) == null) && ek6Var != null && ek6Var.c() != null && ek6Var.c().i != null && !ek6Var.c().i.h && !a(ek6Var.c().i.g)) {
-            ek6Var.c().j = ek6Var.c().i.a;
+        if ((interceptable == null || interceptable.invokeL(65541, null, fk6Var) == null) && fk6Var != null && fk6Var.c() != null && fk6Var.c().i != null && !fk6Var.c().i.h && !a(fk6Var.c().i.g)) {
+            fk6Var.c().j = fk6Var.c().i.a;
             ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(ClogBuilder.LogType.SHOW).v(ek6Var.c().j).q(String.valueOf(ek6Var.c().position + 1)).w(String.valueOf(ek6Var.c().i.b)).p(ek6Var.c().i.g);
+            clogBuilder.y(ClogBuilder.LogType.SHOW).v(fk6Var.c().j).q(String.valueOf(fk6Var.c().position + 1)).w(String.valueOf(fk6Var.c().i.b)).p(fk6Var.c().i.g);
             e21.b(clogBuilder);
-            si8.b(si8.a(ek6Var.c()));
-            ek6Var.c().i.h = true;
-            i.add(ek6Var.c().i.g);
+            ti8.b(ti8.a(fk6Var.c()));
+            fk6Var.c().i.h = true;
+            i.add(fk6Var.c().i.g);
         }
     }
 }

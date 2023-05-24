@@ -1,12 +1,12 @@
 package com.baidu.ugc.audioedit;
 
-import com.baidu.tieba.sja;
+import com.baidu.tieba.tja;
 import org.vinuxproject.sonic.Sonic;
 /* loaded from: classes8.dex */
-public class AudioSpeedOperator implements sja {
+public class AudioSpeedOperator implements tja {
     public Sonic mSonic;
 
-    @Override // com.baidu.tieba.sja
+    @Override // com.baidu.tieba.tja
     public int availableBytes() {
         Sonic sonic = this.mSonic;
         if (sonic != null) {
@@ -15,7 +15,7 @@ public class AudioSpeedOperator implements sja {
         return 0;
     }
 
-    @Override // com.baidu.tieba.sja
+    @Override // com.baidu.tieba.tja
     public void close() {
         Sonic sonic = this.mSonic;
         if (sonic != null) {
@@ -23,7 +23,7 @@ public class AudioSpeedOperator implements sja {
         }
     }
 
-    @Override // com.baidu.tieba.sja
+    @Override // com.baidu.tieba.tja
     public void flush() {
         Sonic sonic = this.mSonic;
         if (sonic != null) {
@@ -31,7 +31,7 @@ public class AudioSpeedOperator implements sja {
         }
     }
 
-    @Override // com.baidu.tieba.sja
+    @Override // com.baidu.tieba.tja
     public byte[] getOutPutBytes() {
         int availableBytes = availableBytes();
         byte[] bArr = new byte[availableBytes];
@@ -39,12 +39,12 @@ public class AudioSpeedOperator implements sja {
         return bArr;
     }
 
-    @Override // com.baidu.tieba.sja
+    @Override // com.baidu.tieba.tja
     public void init(int i, int i2) {
         this.mSonic = new Sonic(i, i2);
     }
 
-    @Override // com.baidu.tieba.sja
+    @Override // com.baidu.tieba.tja
     public boolean putBytes(byte[] bArr, int i) {
         Sonic sonic = this.mSonic;
         if (sonic != null) {
@@ -54,7 +54,7 @@ public class AudioSpeedOperator implements sja {
         return false;
     }
 
-    @Override // com.baidu.tieba.sja
+    @Override // com.baidu.tieba.tja
     public int receiveBytes(byte[] bArr, int i) {
         Sonic sonic = this.mSonic;
         if (sonic != null) {
@@ -63,7 +63,7 @@ public class AudioSpeedOperator implements sja {
         return 0;
     }
 
-    @Override // com.baidu.tieba.sja
+    @Override // com.baidu.tieba.tja
     public void setSpeed(float f) {
         Sonic sonic = this.mSonic;
         if (sonic != null) {

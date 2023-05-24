@@ -4,14 +4,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class s07 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<f37<?>> a;
-    public y07 b;
+    public long a;
+    public String b;
+    public float c;
+    public String d;
+    public int e;
+    public float f;
+    public List<String> g;
+    public String h;
+    public String i;
+    public int j;
+    public String k;
 
     public s07() {
         Interceptable interceptable = $ic;
@@ -23,9 +31,7 @@ public class s07 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList();
     }
 }

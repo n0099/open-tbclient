@@ -1,23 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.chatmessage.messages.CustomMsg;
+import com.baidu.android.imsdk.chatmessage.messages.ImageMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes6.dex */
-public final class og8 extends mg8<CustomMsg, re8> {
+public final class og8 extends ng8<ImageMsg, re8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.mg8
+    @Override // com.baidu.tieba.ng8
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return Integer.MAX_VALUE;
+            return 2;
         }
         return invokeV.intValue;
     }
@@ -37,29 +38,30 @@ public final class og8 extends mg8<CustomMsg, re8> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mg8
+    @Override // com.baidu.tieba.ng8
     /* renamed from: h */
-    public CustomMsg e(re8 re8Var) {
+    public ImageMsg e(re8 re8Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, re8Var)) == null) {
-            CustomMsg customMsg = new CustomMsg();
-            customMsg.setMsgId(Long.MAX_VALUE);
-            customMsg.setMsgKey(String.valueOf(System.currentTimeMillis()));
-            return customMsg;
+            return new ImageMsg();
         }
-        return (CustomMsg) invokeL.objValue;
+        return (ImageMsg) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mg8
+    @Override // com.baidu.tieba.ng8
     /* renamed from: i */
-    public re8 g(CustomMsg sdkMsg) {
+    public re8 g(ImageMsg sdkMsg) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sdkMsg)) == null) {
             Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
-            return new re8();
+            re8 re8Var = new re8();
+            re8Var.e(sdkMsg.getRemoteUrl());
+            re8Var.g(sdkMsg.getThumbUrl());
+            re8Var.d(StringsKt__StringsKt.trim((CharSequence) sdkMsg.getMsgContent().toString()).toString());
+            return re8Var;
         }
         return (re8) invokeL.objValue;
     }

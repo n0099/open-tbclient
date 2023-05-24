@@ -1,5 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface u99 {
-    void a();
+    xb9 c();
+
+    void e();
+
+    void f(String str);
 }

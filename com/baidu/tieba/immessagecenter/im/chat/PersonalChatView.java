@@ -37,7 +37,7 @@ import com.baidu.tieba.immessagecenter.im.chat.GamePlayServiceView;
 import com.baidu.tieba.immessagecenter.im.model.PersonalMsglistModel;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.pg;
-import com.baidu.tieba.q58;
+import com.baidu.tieba.r58;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.tieba.ze5;
@@ -500,7 +500,7 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
                 this.a = gamePlayServiceView;
                 this.mTool.addView(gamePlayServiceView, indexOfChild);
                 this.a.c(this);
-                q58.b(this.p);
+                r58.b(this.p);
             }
             ViewGroup viewGroup = this.mLayBottom;
             if (viewGroup instanceof BottomInputLayout) {
@@ -654,7 +654,7 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048588, this, i) == null) && i == 0) {
             UrlSchemaJumpHelper.jumpGameGodsPage(this.d, "com.baidu.tieba://unidispatch/GameGodsDetailPage?god_id=" + this.p + "&" + BdUniDispatchSchemeController.PARAM_FROM_NATIVE + "=1");
-            q58.a(this.p);
+            r58.a(this.p);
         }
     }
 

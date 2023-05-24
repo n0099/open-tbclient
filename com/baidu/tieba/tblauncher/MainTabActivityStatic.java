@@ -35,7 +35,7 @@ import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.j65;
 import com.baidu.tieba.o65;
 import com.baidu.tieba.pg;
-import com.baidu.tieba.r7a;
+import com.baidu.tieba.s7a;
 import com.baidu.tieba.wk5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -388,11 +388,11 @@ public class MainTabActivityStatic {
                             if (!StringUtils.isNull(str) && !StringUtils.isNull(str3)) {
                                 ForumWriteData forumWriteData = new ForumWriteData(str3, str, null, null);
                                 forumWriteData.writeCallFrom = "0";
-                                r7a.j(tbPageContext, "", forumWriteData);
+                                s7a.j(tbPageContext, "", forumWriteData);
                             } else {
                                 ForumWriteData forumWriteData2 = new ForumWriteData("", "", null, null);
                                 forumWriteData2.writeCallFrom = "0";
-                                r7a.j(tbPageContext, str2, forumWriteData2);
+                                s7a.j(tbPageContext, str2, forumWriteData2);
                             }
                             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_ENTRANCE_CLICKED).param("obj_locate", 4).param("obj_type", 2));
                             TiebaStatic.log(new StatisticItem("c12292").param("obj_locate", "3"));

@@ -46,7 +46,7 @@ public class xv3 {
 
         /* renamed from: com.baidu.tieba.xv3$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0501a extends RequestBody {
+        public class C0502a extends RequestBody {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ RequestBody a;
@@ -61,7 +61,7 @@ public class xv3 {
                 return invokeV.longValue;
             }
 
-            public C0501a(a aVar, RequestBody requestBody) {
+            public C0502a(a aVar, RequestBody requestBody) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -123,7 +123,7 @@ public class xv3 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, requestBody)) == null) {
-                return new C0501a(this, requestBody);
+                return new C0502a(this, requestBody);
             }
             return (RequestBody) invokeL.objValue;
         }

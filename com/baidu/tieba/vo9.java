@@ -1,5 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes8.dex */
-public interface vo9<T> {
-    void a(T t);
+public interface vo9<V> {
+    void a(V v);
 }

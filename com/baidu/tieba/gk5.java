@@ -30,7 +30,7 @@ public class gk5 {
     public int f;
     public int g;
     @Nullable
-    public rr9 h;
+    public sr9 h;
     @NonNull
     public HotTopicStat.Locate i;
     @Nullable
@@ -91,11 +91,11 @@ public class gk5 {
     }
 
     @NonNull
-    public gk5 c(@Nullable rr9 rr9Var) {
+    public gk5 c(@Nullable sr9 sr9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rr9Var)) == null) {
-            this.h = rr9Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sr9Var)) == null) {
+            this.h = sr9Var;
             return this;
         }
         return (gk5) invokeL.objValue;
@@ -208,11 +208,11 @@ public class gk5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            rr9 rr9Var = this.h;
-            if (rr9Var == null) {
+            sr9 sr9Var = this.h;
+            if (sr9Var == null) {
                 return null;
             }
-            return rr9Var.O();
+            return sr9Var.O();
         }
         return (String) invokeV.objValue;
     }

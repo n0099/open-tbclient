@@ -27,9 +27,9 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.browser.log.HybridLog;
 import com.baidu.tieba.frs.ForumWriteData;
-import com.baidu.tieba.ii9;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
+import com.baidu.tieba.ji9;
 import com.baidu.tieba.memberCenter.tail.data.TailEditActivityConfig;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.tieba.video.UserItemData;
@@ -47,18 +47,18 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class zv4 implements jh6 {
+public class zv4 implements kh6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.jh6
+    @Override // com.baidu.tieba.kh6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        ih6.a(this, webView, str, jSONObject);
+        jh6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.jh6
+    @Override // com.baidu.tieba.kh6
     public /* synthetic */ void onDestroy() {
-        ih6.b(this);
+        jh6.b(this);
     }
 
     /* loaded from: classes8.dex */
@@ -92,7 +92,7 @@ public class zv4 implements jh6 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return t28.f().i(this.a);
+                return u28.f().i(this.a);
             }
             return (ImMessageCenterPojo) invokeV.objValue;
         }
@@ -194,7 +194,7 @@ public class zv4 implements jh6 {
             if (cls == null) {
                 return;
             }
-            Context a2 = yg6.a(webView.getContext());
+            Context a2 = zg6.a(webView.getContext());
             if (a2 == null && TbadkCoreApplication.getInst().getCurrentActivity() != null) {
                 a2 = TbadkCoreApplication.getInst().getCurrentActivity();
             }
@@ -206,9 +206,9 @@ public class zv4 implements jh6 {
                 return;
             }
             for (Class<?> cls2 : cls.getInterfaces()) {
-                if (cls2.isAssignableFrom(gi9.class)) {
+                if (cls2.isAssignableFrom(hi9.class)) {
                     try {
-                        ((gi9) cls.newInstance()).dispatch(jSONObject, a2);
+                        ((hi9) cls.newInstance()).dispatch(jSONObject, a2);
                         return;
                     } catch (Exception e2) {
                         e2.printStackTrace();
@@ -219,7 +219,7 @@ public class zv4 implements jh6 {
         }
     }
 
-    @Override // com.baidu.tieba.jh6
+    @Override // com.baidu.tieba.kh6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -249,12 +249,12 @@ public class zv4 implements jh6 {
         return invokeLLLLL.booleanValue;
     }
 
-    public js9 c(WebView webView, String str, String str2) {
+    public ks9 c(WebView webView, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2)) == null) {
-            js9 js9Var = new js9();
-            Activity a2 = yg6.a(webView.getContext());
+            ks9 ks9Var = new ks9();
+            Activity a2 = zg6.a(webView.getContext());
             if (a2 != null) {
                 a2.finish();
                 if (qi.isEquals(str, "FictionalCharacterDetailsPage")) {
@@ -264,16 +264,16 @@ public class zv4 implements jh6 {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(a2, "FictionalCharacterDetailsPage", hashMap)));
                 }
             }
-            return js9Var;
+            return ks9Var;
         }
-        return (js9) invokeLLL.objValue;
+        return (ks9) invokeLLL.objValue;
     }
 
-    public js9 h(WebView webView, String str, int i) {
+    public ks9 h(WebView webView, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048583, this, webView, str, i)) == null) {
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             if (!TextUtils.isEmpty(str)) {
                 ForumDetailActivityConfig forumDetailActivityConfig = new ForumDetailActivityConfig(webView.getContext(), str, ForumDetailActivityConfig.FromType.BLUEV_SETTLE);
                 if (i == 1 || i == 2 || i == 3) {
@@ -282,12 +282,12 @@ public class zv4 implements jh6 {
                 forumDetailActivityConfig.setRequestCode(25070);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, forumDetailActivityConfig));
             }
-            return js9Var;
+            return ks9Var;
         }
-        return (js9) invokeLLI.objValue;
+        return (ks9) invokeLLI.objValue;
     }
 
-    public js9 j(WebView webView, String str, String str2) {
+    public ks9 j(WebView webView, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, webView, str, str2)) == null) {
@@ -296,16 +296,16 @@ public class zv4 implements jh6 {
                 forumRuleEditActivityConfig.setRequestCode(25070);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, forumRuleEditActivityConfig));
             }
-            return new js9();
+            return new ks9();
         }
-        return (js9) invokeLLL.objValue;
+        return (ks9) invokeLLL.objValue;
     }
 
-    public js9 r(WebView webView, String str, ArrayList<String> arrayList) {
+    public ks9 r(WebView webView, String str, ArrayList<String> arrayList) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048593, this, webView, str, arrayList)) == null) {
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             ReportThemeActivityConfig reportThemeActivityConfig = new ReportThemeActivityConfig(TbadkCoreApplication.getInst().getCurrentActivity(), str, arrayList);
             reportThemeActivityConfig.setRequestCode(12018);
             reportThemeActivityConfig.setIntentAction(IntentAction.ActivityForResult);
@@ -313,21 +313,21 @@ public class zv4 implements jh6 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 0);
-                js9Var.o(jSONObject.toString());
-                return js9Var;
+                ks9Var.o(jSONObject.toString());
+                return ks9Var;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return js9Var;
+                return ks9Var;
             }
         }
-        return (js9) invokeLLL.objValue;
+        return (ks9) invokeLLL.objValue;
     }
 
-    public js9 d(WebView webView, HashMap<String, List<ReportPrivateMsgData>> hashMap) {
+    public ks9 d(WebView webView, HashMap<String, List<ReportPrivateMsgData>> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, hashMap)) == null) {
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             List<ReportPrivateMsgData> list = hashMap.get("private_msg");
             try {
                 JSONArray jSONArray = new JSONArray();
@@ -346,24 +346,24 @@ public class zv4 implements jh6 {
                 }
                 jSONObject.put("resultCode", 1);
                 jSONObject.put("msgArray", jSONArray);
-                js9Var.o(jSONObject.toString());
-                return js9Var;
+                ks9Var.o(jSONObject.toString());
+                return ks9Var;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return js9Var;
+                return ks9Var;
             }
         }
-        return (js9) invokeLL.objValue;
+        return (ks9) invokeLL.objValue;
     }
 
-    public js9 e(WebView webView, HashMap<String, ArrayList<String>> hashMap) {
+    public ks9 e(WebView webView, HashMap<String, ArrayList<String>> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, hashMap)) == null) {
             if (hashMap == null) {
                 return null;
             }
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             try {
                 JSONObject jSONObject = new JSONObject();
                 ArrayList<String> arrayList = hashMap.get("tid");
@@ -373,23 +373,23 @@ public class zv4 implements jh6 {
                 }
                 jSONObject.put("resultCode", 1);
                 jSONObject.put("threadArray", jSONArray);
-                js9Var.o(jSONObject.toString());
-                return js9Var;
+                ks9Var.o(jSONObject.toString());
+                return ks9Var;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return js9Var;
+                return ks9Var;
             }
         }
-        return (js9) invokeLL.objValue;
+        return (ks9) invokeLL.objValue;
     }
 
-    public js9 q(WebView webView, HashMap hashMap) {
+    public ks9 q(WebView webView, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, webView, hashMap)) == null) {
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             if (hashMap == null) {
-                return js9Var;
+                return ks9Var;
             }
             JSONObject jSONObject = new JSONObject();
             try {
@@ -401,18 +401,18 @@ public class zv4 implements jh6 {
                 e.printStackTrace();
             }
             a(webView, CommonTbJsBridge.REFRESH_TAIL, jSONObject);
-            js9Var.o(jSONObject.toString());
-            return js9Var;
+            ks9Var.o(jSONObject.toString());
+            return ks9Var;
         }
-        return (js9) invokeLL.objValue;
+        return (ks9) invokeLL.objValue;
     }
 
-    public js9 f(WebView webView, String str, String str2, String str3, String str4, String str5, String str6, String str7) {
+    public ks9 f(WebView webView, String str, String str2, String str3, String str4, String str5, String str6, String str7) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{webView, str, str2, str3, str4, str5, str6, str7})) == null) {
-            js9 js9Var = new js9();
-            Context a2 = yg6.a(webView.getContext());
+            ks9 ks9Var = new ks9();
+            Context a2 = zg6.a(webView.getContext());
             if (a2 == null) {
                 a2 = webView.getContext();
             }
@@ -428,18 +428,18 @@ public class zv4 implements jh6 {
                 createSubPbActivityConfig.showOpenEditorTips(str5);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
             }
-            return js9Var;
+            return ks9Var;
         }
-        return (js9) invokeCommon.objValue;
+        return (ks9) invokeCommon.objValue;
     }
 
-    public js9 g(WebView webView, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11, String str12, String str13, String str14, String str15, String str16, String str17) {
+    public ks9 g(WebView webView, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11, String str12, String str13, String str14, String str15, String str16, String str17) {
         InterceptResult invokeCommon;
         String str18;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{webView, str, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12, str13, str14, str15, str16, str17})) == null) {
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             ArrayList arrayList = new ArrayList();
             VideoItemData videoItemData = new VideoItemData();
             videoItemData.thread_id = str;
@@ -468,22 +468,22 @@ public class zv4 implements jh6 {
             videoItemData.forum_id = str15;
             videoItemData.forum_name = str16;
             arrayList.add(videoItemData);
-            os5.d(yg6.a(webView.getContext()), arrayList, videoItemData.nid, z, 0, null, "from_nani_video", "personalize_page", "", VideoPlayActivityConfig.FROM_H5_SEARCH, "", "1".equals(str17), false, pg.g(str15, 0L));
-            return js9Var;
+            os5.d(zg6.a(webView.getContext()), arrayList, videoItemData.nid, z, 0, null, "from_nani_video", "personalize_page", "", VideoPlayActivityConfig.FROM_H5_SEARCH, "", "1".equals(str17), false, pg.g(str15, 0L));
+            return ks9Var;
         }
-        return (js9) invokeCommon.objValue;
+        return (ks9) invokeCommon.objValue;
     }
 
-    public js9 i(final WebView webView, final String str, final String str2, final String str3) {
+    public ks9 i(final WebView webView, final String str, final String str2, final String str3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView, str, str2, str3)) == null) {
-            js9 js9Var = new js9();
-            ii9.c().b(new ii9.c() { // from class: com.baidu.tieba.nv4
+            ks9 ks9Var = new ks9();
+            ji9.c().b(new ji9.c() { // from class: com.baidu.tieba.nv4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.ii9.c
+                @Override // com.baidu.tieba.ji9.c
                 public final void a(HashMap hashMap) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, hashMap) == null) {
@@ -491,18 +491,18 @@ public class zv4 implements jh6 {
                     }
                 }
             });
-            return js9Var;
+            return ks9Var;
         }
-        return (js9) invokeLLLL.objValue;
+        return (ks9) invokeLLLL.objValue;
     }
 
-    public js9 k(WebView webView, String str, int i) {
+    public ks9 k(WebView webView, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048586, this, webView, str, i)) == null) {
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             if (!TextUtils.isEmpty(str)) {
-                Context a2 = yg6.a(webView.getContext());
+                Context a2 = zg6.a(webView.getContext());
                 if (a2 == null) {
                     a2 = webView.getContext();
                 }
@@ -511,59 +511,59 @@ public class zv4 implements jh6 {
                     ((Activity) a2).finish();
                 }
             }
-            return js9Var;
+            return ks9Var;
         }
-        return (js9) invokeLLI.objValue;
+        return (ks9) invokeLLI.objValue;
     }
 
-    public js9 n(WebView webView, int i, String str) {
+    public ks9 n(WebView webView, int i, String str) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048588, this, webView, i, str)) == null) {
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             if (i == 1) {
-                Context a2 = yg6.a(webView.getContext());
+                Context a2 = zg6.a(webView.getContext());
                 if (a2 == null) {
                     a2 = webView.getContext();
                 }
-                if (vq9.b(a2, "com.tencent.mobileqq")) {
+                if (wq9.b(a2, "com.tencent.mobileqq")) {
                     dc5.e(8, a2);
                 } else {
                     BdToast.b(a2, a2.getText(R.string.share_qq_not_install)).o();
                 }
             }
-            return js9Var;
+            return ks9Var;
         }
-        return (js9) invokeLIL.objValue;
+        return (ks9) invokeLIL.objValue;
     }
 
-    public js9 l(WebView webView, String str, String str2, String str3) {
+    public ks9 l(WebView webView, String str, String str2, String str3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048587, this, webView, str, str2, str3)) == null) {
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             if (WriteActivityConfig.isAsyncWriting()) {
-                return js9Var;
+                return ks9Var;
             }
-            int a2 = r7a.a();
-            if (r7a.c(a2)) {
-                Context a3 = yg6.a(webView.getContext());
+            int a2 = s7a.a();
+            if (s7a.c(a2)) {
+                Context a3 = zg6.a(webView.getContext());
                 if (a3 == null) {
                     a3 = webView.getContext();
                 }
-                r7a.e(a3, a2, 0);
+                s7a.e(a3, a2, 0);
             }
-            if (r7a.b()) {
-                r7a.h(null, null, null, null, 0, Boolean.TRUE, str, str2, str3);
+            if (s7a.b()) {
+                s7a.h(null, null, null, null, 0, Boolean.TRUE, str, str2, str3);
             } else {
-                r7a.k(false, false, null, null, null, null, 0, Boolean.TRUE, str, str2, str3);
+                s7a.k(false, false, null, null, null, null, 0, Boolean.TRUE, str, str2, str3);
             }
-            return js9Var;
+            return ks9Var;
         }
-        return (js9) invokeLLLL.objValue;
+        return (ks9) invokeLLLL.objValue;
     }
 
-    public js9 o(WebView webView, HashMap hashMap) {
+    public ks9 o(WebView webView, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, webView, hashMap)) == null) {
@@ -574,14 +574,14 @@ public class zv4 implements jh6 {
                 e.printStackTrace();
             }
             a(webView, CommonTbJsBridge.RE_HIDE, jSONObject);
-            js9 js9Var = new js9();
-            js9Var.o(jSONObject.toString());
-            return js9Var;
+            ks9 ks9Var = new ks9();
+            ks9Var.o(jSONObject.toString());
+            return ks9Var;
         }
-        return (js9) invokeLL.objValue;
+        return (ks9) invokeLL.objValue;
     }
 
-    public js9 p(WebView webView, HashMap hashMap) {
+    public ks9 p(WebView webView, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, webView, hashMap)) == null) {
@@ -592,18 +592,18 @@ public class zv4 implements jh6 {
                 e.printStackTrace();
             }
             a(webView, CommonTbJsBridge.RE_SHOW, jSONObject);
-            js9 js9Var = new js9();
-            js9Var.o(jSONObject.toString());
-            return js9Var;
+            ks9 ks9Var = new ks9();
+            ks9Var.o(jSONObject.toString());
+            return ks9Var;
         }
-        return (js9) invokeLL.objValue;
+        return (ks9) invokeLL.objValue;
     }
 
-    public js9 s(WebView webView, String str, ArrayList<JSONObject> arrayList) {
+    public ks9 s(WebView webView, String str, ArrayList<JSONObject> arrayList) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048594, this, webView, str, arrayList)) == null) {
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             ArrayList arrayList2 = new ArrayList();
             if (!ListUtils.isEmpty(arrayList)) {
                 for (int i = 0; i < arrayList.size(); i++) {
@@ -619,13 +619,13 @@ public class zv4 implements jh6 {
             try {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("resultCode", 0);
-                js9Var.o(jSONObject2.toString());
-                return js9Var;
+                ks9Var.o(jSONObject2.toString());
+                return ks9Var;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return js9Var;
+                return ks9Var;
             }
         }
-        return (js9) invokeLLL.objValue;
+        return (ks9) invokeLLL.objValue;
     }
 }

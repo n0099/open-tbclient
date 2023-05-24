@@ -1,52 +1,59 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
 /* loaded from: classes8.dex */
-public final class z0b {
+public class z0b<TResult> {
     public static /* synthetic */ Interceptable $ic;
-    public static final z0b c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Executor a;
-    public final ExecutorService b;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948307549, "Lcom/baidu/tieba/z0b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948307549, "Lcom/baidu/tieba/z0b;");
-                return;
-            }
-        }
-        c = new z0b();
-    }
+    public final h0b<TResult> a;
 
     public z0b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = h0b.a();
-        this.b = h0b.d();
+        this.a = new h0b<>();
+    }
+
+    public void a(Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+            h0b<TResult> h0bVar = this.a;
+            synchronized (h0bVar.a) {
+                if (!h0bVar.b) {
+                    h0bVar.b = true;
+                    h0bVar.d = exc;
+                    h0bVar.a.notifyAll();
+                    h0bVar.b();
+                }
+            }
+        }
+    }
+
+    public void b(TResult tresult) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tresult) == null) {
+            h0b<TResult> h0bVar = this.a;
+            synchronized (h0bVar.a) {
+                if (!h0bVar.b) {
+                    h0bVar.b = true;
+                    h0bVar.c = tresult;
+                    h0bVar.a.notifyAll();
+                    h0bVar.b();
+                }
+            }
+        }
     }
 }

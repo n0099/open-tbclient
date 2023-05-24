@@ -19,12 +19,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.as7;
 import com.baidu.tieba.homepage.framework.indicator.PagerSlidingTabStrip;
 import com.baidu.tieba.homepage.personalize.view.NewHotTipLabelView;
 import com.baidu.tieba.ia5;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.sg;
-import com.baidu.tieba.zr7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -625,7 +625,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
             if (newHotTipLabelView != null) {
                 newHotTipLabelView.setVisibility(8);
                 this.d.setVisibility(8);
-                zr7.c("key_new_hot_tip_dismiss_time", System.currentTimeMillis());
+                as7.c("key_new_hot_tip_dismiss_time", System.currentTimeMillis());
                 this.c.c();
             }
             ViewTreeObserver viewTreeObserver = getViewTreeObserver();

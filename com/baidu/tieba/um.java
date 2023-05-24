@@ -116,7 +116,7 @@ public class um {
                 Context appContext = AppRuntime.getAppContext();
                 PackageInfo packageInfo = appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0);
                 if (packageInfo != null) {
-                    yk8 defaultLog = DefaultLog.getInstance();
+                    zk8 defaultLog = DefaultLog.getInstance();
                     defaultLog.a(TitanDownloadService.TAG, "cur host version code = " + packageInfo.versionCode);
                     return packageInfo.versionCode;
                 }

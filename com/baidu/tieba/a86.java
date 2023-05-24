@@ -103,7 +103,7 @@ public class a86 {
                 EmotionStrategy.getInstance().setErrorImageRes(R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, 125.0f, 125.0f);
                 EmotionStrategy.getInstance().setNetworkImageRes(R.drawable.new_pic_emotion_08, R.drawable.new_pic_emotion_08, R.drawable.new_pic_emotion_08, R.drawable.new_pic_emotion_08, 125.0f, 125.0f);
                 EmotionStrategy.getInstance().setPlaceHolderRes(R.drawable.obfuscated_res_0x7f080ec8, R.drawable.obfuscated_res_0x7f080ec9, R.drawable.obfuscated_res_0x7f080ec7, R.drawable.obfuscated_res_0x7f080ec8);
-                LiveFeedPageSdk.getInstance().initNetWork(new nn8());
+                LiveFeedPageSdk.getInstance().initNetWork(new on8());
                 LiveFeedPageSdk.getInstance().initHostInfo("tieba", b(TbadkCoreApplication.getInst().getSkinType()));
                 LiveFeedPageSdk.getInstance().initInvoke(new b86());
                 LiveFeedPageSdk.getInstance().setInit();

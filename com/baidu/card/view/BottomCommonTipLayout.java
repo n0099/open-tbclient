@@ -47,8 +47,8 @@ import com.baidu.tieba.lg;
 import com.baidu.tieba.m9;
 import com.baidu.tieba.n75;
 import com.baidu.tieba.nc5;
-import com.baidu.tieba.oz9;
-import com.baidu.tieba.wp9;
+import com.baidu.tieba.pz9;
+import com.baidu.tieba.xp9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -163,14 +163,14 @@ public final class BottomCommonTipLayout extends FrameLayout {
                     if (i == 2) {
                         BottomCommonTipLayout bottomCommonTipLayout = this.a.get();
                         Intrinsics.checkNotNull(bottomCommonTipLayout);
-                        oz9.b(bottomCommonTipLayout, this.b);
+                        pz9.b(bottomCommonTipLayout, this.b);
                         return;
                     }
                     return;
                 }
                 BottomCommonTipLayout bottomCommonTipLayout2 = this.a.get();
                 Intrinsics.checkNotNull(bottomCommonTipLayout2);
-                oz9.d(bottomCommonTipLayout2, this.b);
+                pz9.d(bottomCommonTipLayout2, this.b);
             }
         }
     }
@@ -406,7 +406,7 @@ public final class BottomCommonTipLayout extends FrameLayout {
             }
             n75 n75Var = new n75();
             if (!TextUtils.isEmpty(memberBroadcastData.getBtnBackgroundColor()) && !TextUtils.isEmpty(memberBroadcastData.getBtnTextColor())) {
-                n75Var.q(wp9.f(memberBroadcastData.getBtnBackgroundColor()), wp9.f(memberBroadcastData.getBtnTextColor()));
+                n75Var.q(xp9.f(memberBroadcastData.getBtnBackgroundColor()), xp9.f(memberBroadcastData.getBtnTextColor()));
             } else {
                 n75Var.w(R.color.CAM_X0108);
             }
@@ -424,7 +424,7 @@ public final class BottomCommonTipLayout extends FrameLayout {
                 }
             });
             if (!TextUtils.isEmpty(memberBroadcastData.getTextColor())) {
-                this.f.setTextColor(wp9.f(memberBroadcastData.getTextColor()));
+                this.f.setTextColor(xp9.f(memberBroadcastData.getTextColor()));
             }
             m(memberBroadcastData.getTbRichText());
         }

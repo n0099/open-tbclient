@@ -1,7 +1,7 @@
 package com.baidu.turbonet.net;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.wea;
+import com.baidu.tieba.xea;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -110,13 +110,13 @@ public abstract class ResponseStreamCallbackForUrlRequest extends UrlRequest.Cal
                 try {
                     requestBodyOutputStream.e();
                 } catch (Exception unused) {
-                    wea.h("ChromiumNetwork", "Exception when closing associated stream", new Object[0]);
+                    xea.h("ChromiumNetwork", "Exception when closing associated stream", new Object[0]);
                 }
             }
             try {
                 this.a.close();
             } catch (Exception unused2) {
-                wea.h("ChromiumNetwork", "Exception when closing output stream", new Object[0]);
+                xea.h("ChromiumNetwork", "Exception when closing output stream", new Object[0]);
             }
             g(urlRequest, urlResponseInfo);
         }
@@ -126,19 +126,19 @@ public abstract class ResponseStreamCallbackForUrlRequest extends UrlRequest.Cal
     public final void b(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo, UrlRequestException urlRequestException) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, urlRequest, urlResponseInfo, urlRequestException) == null) {
-            wea.c("ChromiumNetwork", "****** onFailed, url is: %s, error is: %s", urlResponseInfo.h(), urlRequestException);
+            xea.c("ChromiumNetwork", "****** onFailed, url is: %s, error is: %s", urlResponseInfo.h(), urlRequestException);
             RequestBodyOutputStream requestBodyOutputStream = this.b;
             if (requestBodyOutputStream != null) {
                 try {
                     requestBodyOutputStream.e();
                 } catch (Exception unused) {
-                    wea.h("ChromiumNetwork", "Exception when closing associated stream", new Object[0]);
+                    xea.h("ChromiumNetwork", "Exception when closing associated stream", new Object[0]);
                 }
             }
             try {
                 this.a.close();
             } catch (Exception unused2) {
-                wea.h("ChromiumNetwork", "Exception when closing output stream", new Object[0]);
+                xea.h("ChromiumNetwork", "Exception when closing output stream", new Object[0]);
             }
             h(urlRequest, urlResponseInfo, urlRequestException);
         }
@@ -149,7 +149,7 @@ public abstract class ResponseStreamCallbackForUrlRequest extends UrlRequest.Cal
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, urlRequest, urlResponseInfo, byteBuffer) == null) {
             byteBuffer.flip();
-            wea.h("ChromiumNetwork", "****** onReadCompleted ******%s", byteBuffer);
+            xea.h("ChromiumNetwork", "****** onReadCompleted ******%s", byteBuffer);
             this.a.write(byteBuffer.array(), byteBuffer.arrayOffset(), byteBuffer.limit());
             this.a.flush();
             byteBuffer.clear();
@@ -161,14 +161,14 @@ public abstract class ResponseStreamCallbackForUrlRequest extends UrlRequest.Cal
     public final void e(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, urlRequest, urlResponseInfo) == null) {
-            wea.h("ChromiumNetwork", "****** Response Started ******", new Object[0]);
-            wea.h("ChromiumNetwork", "*** Headers Are *** %s", urlResponseInfo.a());
+            xea.h("ChromiumNetwork", "****** Response Started ******", new Object[0]);
+            xea.h("ChromiumNetwork", "*** Headers Are *** %s", urlResponseInfo.a());
             this.a = new PipedOutputStreamAndroid25();
             try {
                 c.execute(new a(this, urlRequest, urlResponseInfo, new PipedInputStreamAndroid25(this.a, 4096)));
                 urlRequest.read(ByteBuffer.allocateDirect(32768));
             } catch (Exception e) {
-                wea.c("ChromiumNetwork", "Exception in onResponseStarted ", e);
+                xea.c("ChromiumNetwork", "Exception in onResponseStarted ", e);
                 throw e;
             }
         }
@@ -178,11 +178,11 @@ public abstract class ResponseStreamCallbackForUrlRequest extends UrlRequest.Cal
     public final void f(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, urlRequest, urlResponseInfo) == null) {
-            wea.h("ChromiumNetwork", "****** Request Completed, url is %s, status code is %d, total received bytes is %d", urlResponseInfo.h(), Integer.valueOf(urlResponseInfo.c()), Long.valueOf(urlResponseInfo.g()));
+            xea.h("ChromiumNetwork", "****** Request Completed, url is %s, status code is %d, total received bytes is %d", urlResponseInfo.h(), Integer.valueOf(urlResponseInfo.c()), Long.valueOf(urlResponseInfo.g()));
             try {
                 this.a.close();
             } catch (Exception unused) {
-                wea.c("ChromiumNetwork", "Exception when closing output stream", new Object[0]);
+                xea.c("ChromiumNetwork", "Exception when closing output stream", new Object[0]);
             }
         }
     }

@@ -89,7 +89,7 @@ import com.baidu.tieba.el5;
 import com.baidu.tieba.eu5;
 import com.baidu.tieba.fl5;
 import com.baidu.tieba.ft5;
-import com.baidu.tieba.fx9;
+import com.baidu.tieba.gx9;
 import com.baidu.tieba.gy4;
 import com.baidu.tieba.hx4;
 import com.baidu.tieba.in5;
@@ -116,8 +116,8 @@ import com.baidu.tieba.v65;
 import com.baidu.tieba.vn;
 import com.baidu.tieba.xk5;
 import com.baidu.tieba.y55;
-import com.baidu.tieba.yk8;
 import com.baidu.tieba.yr4;
+import com.baidu.tieba.zk8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -1308,7 +1308,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public void onStart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048661, this) == null) {
-            yk8 activityLog = ActivityLog.getInstance();
+            zk8 activityLog = ActivityLog.getInstance();
             activityLog.c(TAG, "onStart:" + this);
             super.onStart();
             flog = 0;
@@ -1471,7 +1471,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048647, this) == null) {
-            yk8 activityLog = ActivityLog.getInstance();
+            zk8 activityLog = ActivityLog.getInstance();
             activityLog.c(TAG, "onDestroy:" + this);
             hx4 hx4Var = this.mLayoutMode;
             if (hx4Var != null) {
@@ -2056,7 +2056,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public void finish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            yk8 activityLog = ActivityLog.getInstance();
+            zk8 activityLog = ActivityLog.getInstance();
             activityLog.c(TAG, "finish:" + this);
             ri.z(getApplicationContext(), getWindow().getDecorView());
             dismissAllDialog();
@@ -2135,7 +2135,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public void onStop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048662, this) == null) {
-            yk8 activityLog = ActivityLog.getInstance();
+            zk8 activityLog = ActivityLog.getInstance();
             activityLog.c(TAG, "onStop:" + this);
             super.onStop();
             if (this == TbadkCoreApplication.getInst().getCurrentActivity()) {
@@ -2151,7 +2151,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, motionEvent)) == null) {
             a35.l(false);
             bs4.a(motionEvent, getPageId(), getMissionTid());
-            fx9.getInstance().behaviorRecordEvent(motionEvent, this);
+            gx9.getInstance().behaviorRecordEvent(motionEvent, this);
             n26.K().H();
             EdgeFloatLifecycle.c().b(motionEvent);
             try {
@@ -2245,7 +2245,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         kx4 kx4Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048640, this, i2, i3, intent) == null) {
-            yk8 activityLog = ActivityLog.getInstance();
+            zk8 activityLog = ActivityLog.getInstance();
             activityLog.c(TAG, "onActivityResult:" + this + " requestCode:" + i2 + " resultCode:" + i3);
             super.onActivityResult(i2, i3, intent);
             if (!eu5.c(i2, i3, intent) && (kx4Var = this.mPermissionCallback) != null && Build.VERSION.SDK_INT >= 23 && i2 == 12016) {
@@ -2303,7 +2303,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048645, this, bundle) == null) {
-            yk8 activityLog = ActivityLog.getInstance();
+            zk8 activityLog = ActivityLog.getInstance();
             activityLog.c(TAG, "onCreate:" + this);
             boolean z = false;
             if (this.isAddSwipeBackLayout) {
@@ -2371,9 +2371,9 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048655, this) == null) {
-            yk8 activityLog = ActivityLog.getInstance();
+            zk8 activityLog = ActivityLog.getInstance();
             activityLog.c(TAG, "onPause:" + this);
-            fx9.getInstance().onPause(this);
+            gx9.getInstance().onPause(this);
             super.onPause();
             if (PermissionUtil.isAgreePrivacyPolicy() && TbSingleton.getInstance().isShowBackLabel && this == TbadkCoreApplication.getInst().getCurrentActivity()) {
                 hideFloatingWindow();
@@ -2466,11 +2466,11 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         String currentAccount;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048659, this) == null) {
-            yk8 activityLog = ActivityLog.getInstance();
+            zk8 activityLog = ActivityLog.getInstance();
             activityLog.c(TAG, "onResume:" + this);
             MenuKeyUtils.hideSoftMenuKey(getWindow());
             super.onResume();
-            fx9.getInstance().onResume(this);
+            gx9.getInstance().onResume(this);
             if (this.isInterceptStimeStat) {
                 setInterceptStimeStat(false);
             } else {

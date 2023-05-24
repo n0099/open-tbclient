@@ -4,7 +4,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.permission.DangerousPermissionStatistic;
 import com.baidu.tbadk.coreExtra.data.AuthTokenData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.mw8;
+import com.baidu.tieba.nw8;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -62,7 +62,7 @@ public class PbFloorAgreeResponseMessage extends JsonHttpResponsedMessage {
                 }
                 this.isFirstAgree = z;
             }
-            this.mActDialogData = mw8.a(optJSONObject);
+            this.mActDialogData = nw8.a(optJSONObject);
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("contri_info");
             ContriInfo contriInfo = new ContriInfo();
             this.mContriInfo = contriInfo;

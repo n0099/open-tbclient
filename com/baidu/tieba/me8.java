@@ -8,20 +8,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class me8 extends je8<ve8> implements f37<me8> {
+public final class me8 extends ke8<se8> implements g37<me8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String d;
-    public boolean e;
 
     public me8 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this : (me8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (me8) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public me8(ue8<ve8> data, String templateName) {
+    public me8(ve8<se8> data, String templateName) {
         super(data);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -32,7 +31,7 @@ public final class me8 extends je8<ve8> implements f37<me8> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ue8) newInitContext.callArgs[0]);
+                super((ve8) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -43,7 +42,7 @@ public final class me8 extends je8<ve8> implements f37<me8> {
         this.d = templateName;
     }
 
-    @Override // com.baidu.tieba.f37
+    @Override // com.baidu.tieba.g37
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -54,54 +53,9 @@ public final class me8 extends je8<ve8> implements f37<me8> {
     }
 
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.f37
+    @Override // com.baidu.tieba.g37
     public /* bridge */ /* synthetic */ me8 b() {
         i();
         return this;
-    }
-
-    public final boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.je8
-    public boolean f(je8<?> other) {
-        InterceptResult invokeL;
-        me8 me8Var;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, other)) == null) {
-            Intrinsics.checkNotNullParameter(other, "other");
-            if (super.f(other)) {
-                return true;
-            }
-            if (other instanceof me8) {
-                me8Var = (me8) other;
-            } else {
-                me8Var = null;
-            }
-            if (me8Var != null && this.e == me8Var.e) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (!z) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.e = z;
-        }
     }
 }

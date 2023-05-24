@@ -53,10 +53,10 @@ public class by extends ax<jy4> {
     }
 
     @Override // com.baidu.tieba.ax
-    public void p(vj6<jy4> vj6Var) {
+    public void p(wj6<jy4> wj6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, vj6Var) == null) {
-            this.f.setSubClickListener(vj6Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, wj6Var) == null) {
+            this.f.setSubClickListener(wj6Var);
         }
     }
 

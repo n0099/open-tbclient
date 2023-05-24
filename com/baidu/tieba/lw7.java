@@ -1,21 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.ThreadData;
-import java.util.List;
+import com.baidu.tbadk.core.data.ErrorData;
+import com.baidu.tieba.y65;
 /* loaded from: classes6.dex */
-public interface lw7 {
-    void J(String str, String str2, int i);
+public interface lw7 extends y65.g {
+    void g(ErrorData errorData);
 
-    void b();
+    void j();
 
-    boolean d();
-
-    void destory();
-
-    void f(BdUniqueId bdUniqueId);
-
-    void refresh();
-
-    List<ThreadData> u();
+    void s0(kx7 kx7Var);
 }

@@ -54,11 +54,11 @@ import com.baidu.tieba.df5;
 import com.baidu.tieba.ea5;
 import com.baidu.tieba.ff5;
 import com.baidu.tieba.frs.FrsTabItemData;
-import com.baidu.tieba.g8a;
+import com.baidu.tieba.h8a;
 import com.baidu.tieba.mt5;
 import com.baidu.tieba.o65;
-import com.baidu.tieba.p9a;
 import com.baidu.tieba.pr4;
+import com.baidu.tieba.q9a;
 import com.baidu.tieba.qi;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.se5;
@@ -497,7 +497,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             if (this.V == null) {
-                this.V = new p9a(getPageContext());
+                this.V = new q9a(getPageContext());
             }
             this.V.c(this.S);
         }
@@ -797,9 +797,9 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
             arrayList.add(5);
             this.S.d(new ff5(getActivity(), 2));
             if (this.U == null) {
-                g8a g8aVar = new g8a(getActivity(), this.k);
-                this.U = g8aVar;
-                g8aVar.h();
+                h8a h8aVar = new h8a(getActivity(), this.k);
+                this.U = h8aVar;
+                h8aVar.h();
                 this.U.i();
                 this.U.m("from_share_write");
                 this.U.j(this.p.getForumId(), this.j);

@@ -23,9 +23,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.ss9;
-import com.baidu.tieba.u18;
-import com.baidu.tieba.x08;
+import com.baidu.tieba.ts9;
+import com.baidu.tieba.v18;
+import com.baidu.tieba.y08;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URLDecoder;
 /* loaded from: classes6.dex */
-public class MsgPhotoLiveCardVew extends x08 {
+public class MsgPhotoLiveCardVew extends y08 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long H;
@@ -78,7 +78,7 @@ public class MsgPhotoLiveCardVew extends x08 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.H > 0) {
-                ss9 photoLiveReadThreadHistory = TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory();
+                ts9 photoLiveReadThreadHistory = TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory();
                 if (this.a.J == 1) {
                     TiebaStatic.log(TbadkCoreStatisticKey.PHOTO_LIVE_GREATCALL_MSG);
                     if (photoLiveReadThreadHistory != null && photoLiveReadThreadHistory.f(String.valueOf(this.a.H)) > 0) {
@@ -230,7 +230,7 @@ public class MsgPhotoLiveCardVew extends x08 {
         if ((interceptable != null && interceptable.invokeLLL(1048581, this, tbPageContext, chatMessage, view2) != null) || chatMessage == null) {
             return;
         }
-        u18.a a2 = u18.a(chatMessage.getContent());
+        v18.a a2 = v18.a(chatMessage.getContent());
         if (a2 == null) {
             this.H = 0L;
             return;

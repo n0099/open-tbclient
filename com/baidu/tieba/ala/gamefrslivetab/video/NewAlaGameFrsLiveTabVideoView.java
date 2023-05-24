@@ -35,18 +35,18 @@ import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.hi;
-import com.baidu.tieba.ph6;
 import com.baidu.tieba.qh6;
 import com.baidu.tieba.qi;
 import com.baidu.tieba.rh6;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.ri5;
-import com.baidu.tieba.rz9;
 import com.baidu.tieba.sh6;
 import com.baidu.tieba.si5;
-import com.baidu.tieba.uh6;
+import com.baidu.tieba.sz9;
+import com.baidu.tieba.th6;
 import com.baidu.tieba.us5;
 import com.baidu.tieba.vh6;
+import com.baidu.tieba.wh6;
 import com.baidu.tieba.yt5;
 import com.baidu.tieba.yu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -186,19 +186,19 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
     }
 
     /* loaded from: classes4.dex */
-    public class d implements vh6 {
+    public class d implements wh6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewAlaGameFrsLiveTabVideoView a;
 
-        @Override // com.baidu.tieba.vh6
+        @Override // com.baidu.tieba.wh6
         public /* synthetic */ void b(int i, int i2, int i3, int i4) {
-            uh6.b(this, i, i2, i3, i4);
+            vh6.b(this, i, i2, i3, i4);
         }
 
-        @Override // com.baidu.tieba.vh6
+        @Override // com.baidu.tieba.wh6
         public /* synthetic */ void d(int i, int i2, int i3, int i4) {
-            uh6.a(this, i, i2, i3, i4);
+            vh6.a(this, i, i2, i3, i4);
         }
 
         public d(NewAlaGameFrsLiveTabVideoView newAlaGameFrsLiveTabVideoView) {
@@ -219,7 +219,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
             this.a = newAlaGameFrsLiveTabVideoView;
         }
 
-        @Override // com.baidu.tieba.vh6
+        @Override // com.baidu.tieba.wh6
         public void onScrollChanged(int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4) != null) || Math.abs(i2 - this.a.i) <= 50) {
@@ -268,7 +268,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
     }
 
     /* loaded from: classes4.dex */
-    public class f implements ph6 {
+    public class f implements qh6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewAlaGameFrsLiveTabVideoView a;
@@ -291,7 +291,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
             this.a = newAlaGameFrsLiveTabVideoView;
         }
 
-        @Override // com.baidu.tieba.ph6
+        @Override // com.baidu.tieba.qh6
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -310,7 +310,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
     }
 
     /* loaded from: classes4.dex */
-    public class g implements rh6 {
+    public class g implements sh6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewAlaGameFrsLiveTabVideoView a;
@@ -333,7 +333,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
             this.a = newAlaGameFrsLiveTabVideoView;
         }
 
-        @Override // com.baidu.tieba.rh6
+        @Override // com.baidu.tieba.sh6
         public void d(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
@@ -343,7 +343,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
     }
 
     /* loaded from: classes4.dex */
-    public class h implements qh6 {
+    public class h implements rh6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewAlaGameFrsLiveTabVideoView a;
@@ -366,7 +366,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
             this.a = newAlaGameFrsLiveTabVideoView;
         }
 
-        @Override // com.baidu.tieba.qh6
+        @Override // com.baidu.tieba.rh6
         public void onPageFinished(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
@@ -380,7 +380,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
     }
 
     /* loaded from: classes4.dex */
-    public class i implements sh6 {
+    public class i implements th6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewAlaGameFrsLiveTabVideoView a;
@@ -403,7 +403,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
             this.a = newAlaGameFrsLiveTabVideoView;
         }
 
-        @Override // com.baidu.tieba.sh6
+        @Override // com.baidu.tieba.th6
         public void a(WebView webView, WebResourceRequest webResourceRequest, int i, CharSequence charSequence) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLIL(1048576, this, webView, webResourceRequest, i, charSequence) == null) {
@@ -885,7 +885,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, str)) == null) {
             if (!str.contains(UrlSchemaHelper.JUMP_TO_HOT_TOPIC) && !str.contains(UrlSchemaHelper.JUMP_TO_HOT_TOPIC_NEW)) {
                 if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_HOT_TOPIC_LIST_NEW)) {
-                    rz9.b();
+                    sz9.b();
                     return true;
                 }
                 return false;

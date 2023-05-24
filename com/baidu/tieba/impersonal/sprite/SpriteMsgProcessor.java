@@ -18,29 +18,29 @@ import com.baidu.android.imsdk.chatmessage.response.SendMsgResponse;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.main.manager.Bundle;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ag8;
+import com.baidu.tieba.bg8;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.SizedSyncTreeSet;
 import com.baidu.tieba.impersonal.sprite.SpriteMsgProcessor;
 import com.baidu.tieba.jj5;
 import com.baidu.tieba.lj5;
 import com.baidu.tieba.mj5;
-import com.baidu.tieba.ng8;
 import com.baidu.tieba.o65;
 import com.baidu.tieba.og8;
 import com.baidu.tieba.oj5;
-import com.baidu.tieba.pe8;
 import com.baidu.tieba.pg;
+import com.baidu.tieba.pg8;
 import com.baidu.tieba.pj5;
-import com.baidu.tieba.qg8;
+import com.baidu.tieba.qe8;
 import com.baidu.tieba.qi;
-import com.baidu.tieba.re8;
 import com.baidu.tieba.rg8;
+import com.baidu.tieba.se8;
 import com.baidu.tieba.sg8;
-import com.baidu.tieba.ue8;
+import com.baidu.tieba.tg8;
 import com.baidu.tieba.ve8;
+import com.baidu.tieba.we8;
 import com.baidu.tieba.wg;
-import com.baidu.tieba.yg8;
-import com.baidu.tieba.yk8;
+import com.baidu.tieba.zg8;
+import com.baidu.tieba.zk8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -74,21 +74,21 @@ public final class SpriteMsgProcessor implements oj5 {
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
     public final Lazy b;
-    public final ConcurrentHashMap<Long, SizedSyncTreeSet<pe8>> c;
-    public final ConcurrentHashMap<Long, SizedSyncTreeSet<pe8>> d;
-    public final ConcurrentHashMap<Long, SizedSyncTreeSet<pe8>> e;
+    public final ConcurrentHashMap<Long, SizedSyncTreeSet<qe8>> c;
+    public final ConcurrentHashMap<Long, SizedSyncTreeSet<qe8>> d;
+    public final ConcurrentHashMap<Long, SizedSyncTreeSet<qe8>> e;
     public final mj5 f;
-    public final qg8 g;
+    public final rg8 g;
     public final String h;
     public d i;
-    public final HashSet<ag8.b> j;
+    public final HashSet<bg8.b> j;
     public Comparator<ChatMsg> k;
-    public final Comparator<pe8> l;
+    public final Comparator<qe8> l;
 
     /* loaded from: classes6.dex */
     public interface d {
         @MainThread
-        void a(long j, List<? extends pe8> list, f fVar, e eVar);
+        void a(long j, List<? extends qe8> list, f fVar, e eVar);
     }
 
     /* loaded from: classes6.dex */
@@ -218,7 +218,7 @@ public final class SpriteMsgProcessor implements oj5 {
     }
 
     /* loaded from: classes6.dex */
-    public static final class b implements Comparator<pe8> {
+    public static final class b implements Comparator<qe8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -239,14 +239,14 @@ public final class SpriteMsgProcessor implements oj5 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
-        public int compare(pe8 pe8Var, pe8 pe8Var2) {
+        public int compare(qe8 qe8Var, qe8 qe8Var2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, pe8Var, pe8Var2)) == null) {
-                if (pe8Var == null || pe8Var2 == null || TextUtils.equals(pe8Var.b(), pe8Var2.b())) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, qe8Var, qe8Var2)) == null) {
+                if (qe8Var == null || qe8Var2 == null || TextUtils.equals(qe8Var.b(), qe8Var2.b())) {
                     return 0;
                 }
-                if (pe8Var.a() == 0 || pe8Var.a() - pe8Var2.a() > 0) {
+                if (qe8Var.a() == 0 || qe8Var.a() - qe8Var2.a() > 0) {
                     return 1;
                 }
                 return -1;
@@ -377,15 +377,15 @@ public final class SpriteMsgProcessor implements oj5 {
                 if (o != null) {
                     SpriteMsgProcessor spriteMsgProcessor2 = this.a;
                     I.add(o);
-                    yg8 r = spriteMsgProcessor2.r();
+                    zg8 r = spriteMsgProcessor2.r();
                     String msgKey2 = msg.getMsgKey();
                     Intrinsics.checkNotNullExpressionValue(msgKey2, "msg.msgKey");
                     r.c(msgKey2);
                 }
                 this.a.w(SpriteMsgProcessor.m.a(), I, new e(4));
-                HashSet<ag8.b> hashSet = this.a.j;
+                HashSet<bg8.b> hashSet = this.a.j;
                 ChatMsg chatMsg = this.b;
-                for (ag8.b bVar : hashSet) {
+                for (bg8.b bVar : hashSet) {
                     String msgKey3 = chatMsg.getMsgKey();
                     Intrinsics.checkNotNullExpressionValue(msgKey3, "msgData.msgKey");
                     bVar.d(msgKey3);
@@ -411,7 +411,7 @@ public final class SpriteMsgProcessor implements oj5 {
                 TreeSet<ChatMsg> treeSet = new TreeSet<>(this.a.l());
                 treeSet.add(sendMsgResponse.msg);
                 if (i != 0) {
-                    yk8 imSpriteSysLog = ImSpriteSysLog.getInstance();
+                    zk8 imSpriteSysLog = ImSpriteSysLog.getInstance();
                     String s = this.a.s();
                     StringBuilder sb = new StringBuilder();
                     sb.append("sendMessage responseCode : ");
@@ -442,12 +442,12 @@ public final class SpriteMsgProcessor implements oj5 {
                 } else {
                     this.a.w(SpriteMsgProcessor.m.a(), treeSet, new e(8));
                 }
-                qg8 qg8Var = this.a.g;
+                rg8 rg8Var = this.a.g;
                 ChatMsg chatMsg3 = sendMsgResponse.msg;
                 Intrinsics.checkNotNullExpressionValue(chatMsg3, "sendMsgResponse.msg");
-                ue8<?> d = qg8Var.d(chatMsg3);
+                ve8<?> d = rg8Var.d(chatMsg3);
                 if (d != null) {
-                    for (ag8.b bVar : this.a.j) {
+                    for (bg8.b bVar : this.a.j) {
                         bVar.b(i, errorMsg, d);
                     }
                 }
@@ -490,7 +490,7 @@ public final class SpriteMsgProcessor implements oj5 {
         Intrinsics.checkNotNullParameter(context, "context");
         this.a = context;
         new SparseArray();
-        this.b = LazyKt__LazyJVMKt.lazy(new Function0<yg8>(this) { // from class: com.baidu.tieba.impersonal.sprite.SpriteMsgProcessor$loadingHelper$2
+        this.b = LazyKt__LazyJVMKt.lazy(new Function0<zg8>(this) { // from class: com.baidu.tieba.impersonal.sprite.SpriteMsgProcessor$loadingHelper$2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SpriteMsgProcessor this$0;
@@ -519,30 +519,30 @@ public final class SpriteMsgProcessor implements oj5 {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
-            public final yg8 invoke() {
+            public final zg8 invoke() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return new yg8(this.this$0);
+                    return new zg8(this.this$0);
                 }
-                return (yg8) invokeV.objValue;
+                return (zg8) invokeV.objValue;
             }
         });
         this.c = new ConcurrentHashMap<>();
         this.d = new ConcurrentHashMap<>();
         this.e = new ConcurrentHashMap<>();
         this.f = lj5.a();
-        qg8 qg8Var = new qg8();
-        this.g = qg8Var;
+        rg8 rg8Var = new rg8();
+        this.g = rg8Var;
         this.h = "IMSprite";
-        qg8Var.b(TextMsg.class, 1);
+        rg8Var.b(TextMsg.class, 1);
         this.g.b(CustomMsg.class, Integer.MAX_VALUE);
         this.g.b(AudioMsg.class, 3);
         this.g.b(ImageMsg.class, 2);
-        this.g.a(1, new rg8());
-        this.g.a(Integer.MAX_VALUE, new og8());
-        this.g.a(3, new sg8());
-        this.g.a(2, new ng8());
+        this.g.a(1, new sg8());
+        this.g.a(Integer.MAX_VALUE, new pg8());
+        this.g.a(3, new tg8());
+        this.g.a(2, new og8());
         this.j = new HashSet<>();
         this.k = new a();
         this.l = new b();
@@ -552,7 +552,7 @@ public final class SpriteMsgProcessor implements oj5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65538, null, this$0, j) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            Iterator<pe8> it = this$0.m(n).iterator();
+            Iterator<qe8> it = this$0.m(n).iterator();
             boolean z = false;
             while (it.hasNext()) {
                 if (it.next().a() == j) {
@@ -563,7 +563,7 @@ public final class SpriteMsgProcessor implements oj5 {
             if (!z) {
                 return;
             }
-            wg.e(new Runnable() { // from class: com.baidu.tieba.tf8
+            wg.e(new Runnable() { // from class: com.baidu.tieba.uf8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -582,7 +582,7 @@ public final class SpriteMsgProcessor implements oj5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, this$0) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            SizedSyncTreeSet<pe8> m2 = this$0.m(n);
+            SizedSyncTreeSet<qe8> m2 = this$0.m(n);
             d dVar = this$0.i;
             if (dVar != null) {
                 dVar.a(n, new ArrayList(m2), f.b.a(true, false, false), new e(7));
@@ -595,7 +595,7 @@ public final class SpriteMsgProcessor implements oj5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, msgKey)) == null) {
             Intrinsics.checkNotNullParameter(msgKey, "msgKey");
-            Iterator<pe8> it = m(n).iterator();
+            Iterator<qe8> it = m(n).iterator();
             Intrinsics.checkNotNullExpressionValue(it, "set.iterator()");
             while (it.hasNext()) {
                 if (qi.isEquals(it.next().b(), msgKey)) {
@@ -608,14 +608,14 @@ public final class SpriteMsgProcessor implements oj5 {
         return (Boolean) invokeL.objValue;
     }
 
-    public final SizedSyncTreeSet<pe8> m(final long j) {
+    public final SizedSyncTreeSet<qe8> m(final long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048589, this, j)) == null) {
-            SizedSyncTreeSet<pe8> sizedSyncTreeSet = this.c.get(Long.valueOf(j));
+            SizedSyncTreeSet<qe8> sizedSyncTreeSet = this.c.get(Long.valueOf(j));
             if (sizedSyncTreeSet == null) {
-                SizedSyncTreeSet<pe8> sizedSyncTreeSet2 = new SizedSyncTreeSet<>(600, new TreeSet(this.l));
-                sizedSyncTreeSet2.setCallback(new SizedSyncTreeSet.a() { // from class: com.baidu.tieba.mf8
+                SizedSyncTreeSet<qe8> sizedSyncTreeSet2 = new SizedSyncTreeSet<>(600, new TreeSet(this.l));
+                sizedSyncTreeSet2.setCallback(new SizedSyncTreeSet.a() { // from class: com.baidu.tieba.nf8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -635,13 +635,13 @@ public final class SpriteMsgProcessor implements oj5 {
         return (SizedSyncTreeSet) invokeJ.objValue;
     }
 
-    public final SizedSyncTreeSet<pe8> q(long j) {
+    public final SizedSyncTreeSet<qe8> q(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048593, this, j)) == null) {
-            SizedSyncTreeSet<pe8> sizedSyncTreeSet = this.e.get(Long.valueOf(j));
+            SizedSyncTreeSet<qe8> sizedSyncTreeSet = this.e.get(Long.valueOf(j));
             if (sizedSyncTreeSet == null) {
-                SizedSyncTreeSet<pe8> sizedSyncTreeSet2 = new SizedSyncTreeSet<>(200, new TreeSet(this.l));
+                SizedSyncTreeSet<qe8> sizedSyncTreeSet2 = new SizedSyncTreeSet<>(200, new TreeSet(this.l));
                 this.e.put(Long.valueOf(j), sizedSyncTreeSet2);
                 return sizedSyncTreeSet2;
             }
@@ -650,13 +650,13 @@ public final class SpriteMsgProcessor implements oj5 {
         return (SizedSyncTreeSet) invokeJ.objValue;
     }
 
-    public final SizedSyncTreeSet<pe8> t(long j) {
+    public final SizedSyncTreeSet<qe8> t(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048596, this, j)) == null) {
-            SizedSyncTreeSet<pe8> sizedSyncTreeSet = this.d.get(Long.valueOf(j));
+            SizedSyncTreeSet<qe8> sizedSyncTreeSet = this.d.get(Long.valueOf(j));
             if (sizedSyncTreeSet == null) {
-                SizedSyncTreeSet<pe8> sizedSyncTreeSet2 = new SizedSyncTreeSet<>(new TreeSet(this.l));
+                SizedSyncTreeSet<qe8> sizedSyncTreeSet2 = new SizedSyncTreeSet<>(new TreeSet(this.l));
                 this.d.put(Long.valueOf(j), sizedSyncTreeSet2);
                 return sizedSyncTreeSet2;
             }
@@ -675,7 +675,7 @@ public final class SpriteMsgProcessor implements oj5 {
     public final void B(final long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            wg.d(new Runnable() { // from class: com.baidu.tieba.jf8
+            wg.d(new Runnable() { // from class: com.baidu.tieba.kf8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -709,7 +709,7 @@ public final class SpriteMsgProcessor implements oj5 {
         return (TreeSet) invokeL.objValue;
     }
 
-    public final void e(ag8.b bVar) {
+    public final void e(bg8.b bVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) && bVar != null) {
             this.j.add(bVar);
@@ -740,13 +740,13 @@ public final class SpriteMsgProcessor implements oj5 {
         return (Comparator) invokeV.objValue;
     }
 
-    public final yg8 r() {
+    public final zg8 r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return (yg8) this.b.getValue();
+            return (zg8) this.b.getValue();
         }
-        return (yg8) invokeV.objValue;
+        return (zg8) invokeV.objValue;
     }
 
     public final String s() {
@@ -786,7 +786,7 @@ public final class SpriteMsgProcessor implements oj5 {
         if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{this$0, Long.valueOf(j), Boolean.valueOf(z), collection}) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             if (!z) {
-                SizedSyncTreeSet<pe8> q = this$0.q(j);
+                SizedSyncTreeSet<qe8> q = this$0.q(j);
                 if (q.isEmpty() && (collection instanceof Collection)) {
                     q.addAll(collection);
                 }
@@ -801,12 +801,12 @@ public final class SpriteMsgProcessor implements oj5 {
             ArrayList arrayList2 = new ArrayList();
             Iterator it = arrayList.iterator();
             while (it.hasNext()) {
-                ue8<?> d2 = this$0.g.d((ChatMsg) it.next());
+                ve8<?> d2 = this$0.g.d((ChatMsg) it.next());
                 if (d2 != null) {
                     arrayList2.add(d2);
                 }
             }
-            for (ag8.b bVar : this$0.j) {
+            for (bg8.b bVar : this$0.j) {
                 bVar.a(arrayList2);
             }
             TreeSet<ChatMsg> treeSet = new TreeSet<>(this$0.k);
@@ -815,9 +815,9 @@ public final class SpriteMsgProcessor implements oj5 {
         }
     }
 
-    public final void u(int i, SizedSyncTreeSet<pe8> sizedSyncTreeSet) {
-        ue8<?> d2;
-        ue8<?> d3;
+    public final void u(int i, SizedSyncTreeSet<qe8> sizedSyncTreeSet) {
+        ve8<?> d2;
+        ve8<?> d3;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048597, this, i, sizedSyncTreeSet) == null) && i == 0 && !r().n(sizedSyncTreeSet)) {
             long g2 = r().g();
@@ -851,16 +851,16 @@ public final class SpriteMsgProcessor implements oj5 {
         }
     }
 
-    public final pe8 x(long j, ChatMsg chatMsg) {
+    public final qe8 x(long j, ChatMsg chatMsg) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(1048599, this, j, chatMsg)) == null) {
             return this.g.d(chatMsg);
         }
-        return (pe8) invokeJL.objValue;
+        return (qe8) invokeJL.objValue;
     }
 
-    public final void G(ue8<?> msg) {
+    public final void G(ve8<?> msg) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, msg) == null) {
             Intrinsics.checkNotNullParameter(msg, "msg");
@@ -885,11 +885,11 @@ public final class SpriteMsgProcessor implements oj5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, newMsgKey)) == null) {
             Intrinsics.checkNotNullParameter(newMsgKey, "newMsgKey");
-            ue8<?> ue8Var = new ue8<>();
-            ue8Var.e().j(Integer.MAX_VALUE);
-            ue8Var.i(new re8());
-            ue8Var.g().b(newMsgKey);
-            ChatMsg c2 = this.g.c(ue8Var);
+            ve8<?> ve8Var = new ve8<>();
+            ve8Var.e().j(Integer.MAX_VALUE);
+            ve8Var.i(new se8());
+            ve8Var.g().b(newMsgKey);
+            ChatMsg c2 = this.g.c(ve8Var);
             if (c2 != null) {
                 c2.setSendMsgTime(System.currentTimeMillis());
                 JSONObject jSONObject = new JSONObject();
@@ -906,9 +906,9 @@ public final class SpriteMsgProcessor implements oj5 {
     public final void f(final long j, TreeSet<ChatMsg> treeSet, final boolean z, final boolean z2, final boolean z3, final e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), treeSet, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), eVar}) == null) {
-            SizedSyncTreeSet<pe8> m2 = m(j);
-            SizedSyncTreeSet<pe8> t = t(j);
-            SizedSyncTreeSet<pe8> q = q(j);
+            SizedSyncTreeSet<qe8> m2 = m(j);
+            SizedSyncTreeSet<qe8> t = t(j);
+            SizedSyncTreeSet<qe8> q = q(j);
             t.clear();
             f a2 = f.b.a(z, z2, z3);
             Iterator<ChatMsg> it = treeSet.iterator();
@@ -920,11 +920,11 @@ public final class SpriteMsgProcessor implements oj5 {
                     e = e2;
                 }
                 try {
-                    pe8 j2 = j(j, msg, a2);
+                    qe8 j2 = j(j, msg, a2);
                     if (j2 != null) {
-                        ue8<?> ue8Var = (ue8) j2;
-                        if (eVar.getType() == 3 || eVar.getType() == 6 || (eVar.getType() == 4 && ue8Var.e().c() == 2)) {
-                            y(m2, ue8Var);
+                        ve8<?> ve8Var = (ve8) j2;
+                        if (eVar.getType() == 3 || eVar.getType() == 6 || (eVar.getType() == 4 && ve8Var.e().c() == 2)) {
+                            y(m2, ve8Var);
                         }
                         t.add(j2);
                     }
@@ -942,7 +942,7 @@ public final class SpriteMsgProcessor implements oj5 {
                 }
                 if (eVar.getType() != 8) {
                     final ArrayList arrayList = new ArrayList(m2);
-                    wg.c(new Runnable() { // from class: com.baidu.tieba.lf8
+                    wg.c(new Runnable() { // from class: com.baidu.tieba.mf8
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -962,7 +962,7 @@ public final class SpriteMsgProcessor implements oj5 {
     public final void h(final long j, final TreeSet<ChatMsg> treeSet, final boolean z, final boolean z2, final boolean z3, final e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j), treeSet, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), eVar}) == null) {
-            wg.d(new Runnable() { // from class: com.baidu.tieba.rf8
+            wg.d(new Runnable() { // from class: com.baidu.tieba.sf8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -977,20 +977,20 @@ public final class SpriteMsgProcessor implements oj5 {
         }
     }
 
-    public final pe8 j(long j, ChatMsg chatMsg, f fVar) throws JSONException {
+    public final qe8 j(long j, ChatMsg chatMsg, f fVar) throws JSONException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Long.valueOf(j), chatMsg, fVar})) == null) {
             return x(j, chatMsg);
         }
-        return (pe8) invokeCommon.objValue;
+        return (qe8) invokeCommon.objValue;
     }
 
     @Override // com.baidu.tieba.oj5
     public void onReceiveMessage(int i, int i2, final ArrayList<ChatMsg> arrayList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIIL(1048591, this, i, i2, arrayList) == null) && arrayList != null) {
-            wg.e(new Runnable() { // from class: com.baidu.tieba.uf8
+            wg.e(new Runnable() { // from class: com.baidu.tieba.vf8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -1011,13 +1011,13 @@ public final class SpriteMsgProcessor implements oj5 {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, msg, curMsgKey)) == null) {
             Intrinsics.checkNotNullParameter(msg, "msg");
             Intrinsics.checkNotNullParameter(curMsgKey, "curMsgKey");
-            ue8<?> ue8Var = new ue8<>();
-            ue8Var.e().j(1);
-            ve8 ve8Var = new ve8();
-            ve8Var.f(msg);
-            ue8Var.i(ve8Var);
-            ue8Var.g().b(curMsgKey);
-            ChatMsg c2 = this.g.c(ue8Var);
+            ve8<?> ve8Var = new ve8<>();
+            ve8Var.e().j(1);
+            we8 we8Var = new we8();
+            we8Var.f(msg);
+            ve8Var.i(we8Var);
+            ve8Var.g().b(curMsgKey);
+            ChatMsg c2 = this.g.c(ve8Var);
             if (c2 != null) {
                 c2.setMsgKey(String.valueOf(System.currentTimeMillis()));
                 c2.setSendMsgTime(System.currentTimeMillis());
@@ -1028,18 +1028,18 @@ public final class SpriteMsgProcessor implements oj5 {
         return (ChatMsg) invokeLL.objValue;
     }
 
-    public final void y(SizedSyncTreeSet<pe8> sizedSyncTreeSet, ue8<?> ue8Var) {
+    public final void y(SizedSyncTreeSet<qe8> sizedSyncTreeSet, ve8<?> ve8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048600, this, sizedSyncTreeSet, ue8Var) == null) {
-            pe8 last = sizedSyncTreeSet.last();
+        if (interceptable == null || interceptable.invokeLL(1048600, this, sizedSyncTreeSet, ve8Var) == null) {
+            qe8 last = sizedSyncTreeSet.last();
             if (last != null) {
-                ue8 ue8Var2 = (ue8) last;
-                if ((ue8Var2.f() instanceof re8) && !ue8Var2.e().d()) {
-                    if (!qi.isEmpty(ue8Var.g().a())) {
-                        r().m(ue8Var.g().a(), true);
+                ve8 ve8Var2 = (ve8) last;
+                if ((ve8Var2.f() instanceof se8) && !ve8Var2.e().d()) {
+                    if (!qi.isEmpty(ve8Var.g().a())) {
+                        r().m(ve8Var.g().a(), true);
                     }
                     if (r().j()) {
-                        sizedSyncTreeSet.remove(ue8Var2);
+                        sizedSyncTreeSet.remove(ve8Var2);
                         return;
                     }
                     return;

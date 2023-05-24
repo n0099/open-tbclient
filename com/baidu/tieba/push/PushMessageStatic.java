@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
 import com.baidu.tbadk.util.ChatStatusManager;
 import com.baidu.tieba.c65;
-import com.baidu.tieba.ce9;
 import com.baidu.tieba.de9;
 import com.baidu.tieba.ee9;
 import com.baidu.tieba.fe9;
+import com.baidu.tieba.ge9;
 import com.baidu.tieba.kb5;
 import com.baidu.tieba.lb5;
 import com.baidu.tieba.sg;
@@ -50,14 +50,14 @@ public class PushMessageStatic {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Ringtone a;
-            public final /* synthetic */ ee9 b;
+            public final /* synthetic */ fe9 b;
 
-            public C0435a(a aVar, Ringtone ringtone, ee9 ee9Var) {
+            public C0435a(a aVar, Ringtone ringtone, fe9 fe9Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, ringtone, ee9Var};
+                    Object[] objArr = {aVar, ringtone, fe9Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -68,7 +68,7 @@ public class PushMessageStatic {
                     }
                 }
                 this.a = ringtone;
-                this.b = ee9Var;
+                this.b = fe9Var;
             }
 
             @Override // com.baidu.tieba.kb5.h
@@ -79,16 +79,16 @@ public class PushMessageStatic {
                     if (ringtone != null) {
                         ringtone.stop();
                     }
-                    ee9 ee9Var = this.b;
-                    if (ee9Var != null) {
-                        ee9Var.l();
+                    fe9 fe9Var = this.b;
+                    if (fe9Var != null) {
+                        fe9Var.l();
                     }
                 }
             }
         }
 
         /* loaded from: classes7.dex */
-        public class b implements ee9.e {
+        public class b implements fe9.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ kb5 a;
@@ -111,7 +111,7 @@ public class PushMessageStatic {
                 this.a = kb5Var;
             }
 
-            @Override // com.baidu.tieba.ee9.e
+            @Override // com.baidu.tieba.fe9.e
             public void a(View view2) {
                 kb5 kb5Var;
                 Interceptable interceptable = $ic;
@@ -157,9 +157,9 @@ public class PushMessageStatic {
                         return;
                     }
                     if (currentActivity != null) {
-                        new ce9(currentActivity, this.b.getForegroundShowData().getExtData(), this.b.getForegroundShowData().getRemindInfo()).t();
+                        new de9(currentActivity, this.b.getForegroundShowData().getExtData(), this.b.getForegroundShowData().getRemindInfo()).t();
                     } else {
-                        de9.c().f(this.b.getForegroundShowData().getExtData(), this.b.getForegroundShowData().getRemindInfo());
+                        ee9.c().f(this.b.getForegroundShowData().getExtData(), this.b.getForegroundShowData().getRemindInfo());
                     }
                 }
             }
@@ -238,12 +238,12 @@ public class PushMessageStatic {
                         sg.a().post(new c(this, type, pushGeneralData));
                     }
                 } else {
-                    ee9 ee9Var = new ee9(currentPageContext);
-                    ee9Var.o(pushGeneralData);
-                    Ringtone f = fe9.f();
-                    kb5 f2 = lb5.f(ee9Var.m(), currentPageContext, null, 0L, remindInfo.getShowtime());
-                    f2.x(new C0435a(this, f, ee9Var));
-                    ee9Var.p(new b(this, f2));
+                    fe9 fe9Var = new fe9(currentPageContext);
+                    fe9Var.o(pushGeneralData);
+                    Ringtone f = ge9.f();
+                    kb5 f2 = lb5.f(fe9Var.m(), currentPageContext, null, 0L, remindInfo.getShowtime());
+                    f2.x(new C0435a(this, f, fe9Var));
+                    fe9Var.p(new b(this, f2));
                 }
                 wb.b().a("processLiveData", new d(this, isLiveData, remindInfo, extData));
             }
@@ -277,19 +277,19 @@ public class PushMessageStatic {
                 if (strArr != null && tbPageContext != null && strArr.length > 0) {
                     String str = strArr[0];
                     if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_PERSON_CHAT)) {
-                        fe9.e(tbPageContext.getContext(), str, true);
+                        ge9.e(tbPageContext.getContext(), str, true);
                         return 0;
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_ALBUM)) {
-                        fe9.a(tbPageContext.getContext(), str);
+                        ge9.a(tbPageContext.getContext(), str);
                         return 0;
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_SKILL_DETAIL)) {
-                        fe9.d(tbPageContext.getContext(), str);
+                        ge9.d(tbPageContext.getContext(), str);
                         return 0;
                     } else if (str.startsWith("com.baidu.tieba://unidispatch/GameGodsDetailPage")) {
-                        fe9.b(tbPageContext.getContext(), str);
+                        ge9.b(tbPageContext.getContext(), str);
                         return 0;
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_ORDER_PAGE)) {
-                        fe9.c(tbPageContext.getContext(), str);
+                        ge9.c(tbPageContext.getContext(), str);
                         return 0;
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_MAIN_PAGE)) {
                         UrlSchemaJumpHelper.jumpGamePlayPage(tbPageContext.getContext(), str);

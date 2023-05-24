@@ -1,117 +1,139 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.forumsearch.message.SearchPostForumHttpResponseMessage;
+import com.baidu.tieba.forumsearch.message.SearchPostForumRequestMessage;
+import com.baidu.tieba.forumsearch.message.SearchPostForumSocketResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Collection;
-import org.json.JSONArray;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class k77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public final BdUniqueId b;
+    public b c;
+    public fb d;
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            o65.m().B(o65.q("search_forum_history"), "");
-        }
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(boolean z, o77 o77Var);
     }
 
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || StringUtils.isNull(str)) {
-            return;
-        }
-        String s = o65.m().s(o65.q("search_forum_history"), "");
-        if (!StringUtils.isNull(s)) {
-            try {
-                JSONArray jSONArray = new JSONArray(s);
-                if (jSONArray.length() <= 0) {
+    /* loaded from: classes6.dex */
+    public class a extends fb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k77 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(k77 k77Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k77Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    Object obj = jSONArray.get(i);
-                    if (!str.equals(obj)) {
-                        arrayList.add((String) obj);
+            }
+            this.a = k77Var;
+        }
+
+        @Override // com.baidu.tieba.fb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                o77 o77Var = null;
+                boolean z = false;
+                if (responsedMessage != null && !responsedMessage.hasError() && responsedMessage.getOrginalMessage() != null && responsedMessage.getOrginalMessage().getTag() == this.a.b) {
+                    if (responsedMessage instanceof SearchPostForumHttpResponseMessage) {
+                        o77Var = ((SearchPostForumHttpResponseMessage) responsedMessage).getSearchData();
                     }
+                    if (responsedMessage instanceof SearchPostForumSocketResponseMessage) {
+                        o77Var = ((SearchPostForumSocketResponseMessage) responsedMessage).getSearchData();
+                    }
+                    if (this.a.c != null) {
+                        b bVar = this.a.c;
+                        if (o77Var != null) {
+                            z = true;
+                        }
+                        bVar.a(z, o77Var);
+                    }
+                } else if (this.a.c != null) {
+                    this.a.c.a(false, null);
                 }
-                o65.m().B(o65.q("search_forum_history"), new JSONArray((Collection) arrayList).toString());
-            } catch (JSONException e) {
-                e.printStackTrace();
             }
         }
     }
 
-    public static void d(String str) {
-        JSONArray jSONArray;
+    public k77(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, str) != null) || StringUtils.isNull(str)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        a aVar = new a(this, CmdConfigHttp.CMD_SEARCH_POST_FORUM, 309466);
+        this.d = aVar;
+        this.a = tbPageContext;
+        this.b = bdUniqueId;
+        aVar.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.d);
+    }
+
+    public void e(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.c = bVar;
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_SEARCH_POST_FORUM, this.b);
+        }
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || StringUtils.isNull(str)) {
             return;
         }
-        String s = o65.m().s(o65.q("search_forum_history"), "");
-        try {
-            if (StringUtils.isNull(s)) {
-                jSONArray = new JSONArray();
-            } else {
-                jSONArray = new JSONArray(s);
-            }
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(str);
-            int i = 1;
-            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                Object obj = jSONArray.get(i2);
-                if ((obj instanceof String) && !str.equals(obj)) {
-                    arrayList.add((String) obj);
-                    i++;
-                }
-                if (i == 6) {
-                    break;
-                }
-            }
-            o65.m().B(o65.q("search_forum_history"), new JSONArray((Collection) arrayList).toString());
-        } catch (JSONException e) {
-            e.printStackTrace();
+        if (!ri.F()) {
+            this.a.showToast(R.string.obfuscated_res_0x7f0f0db6);
+            return;
         }
-    }
-
-    public static ArrayList<String> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String s = o65.m().s(o65.q("search_forum_history"), "");
-            ArrayList<String> arrayList = null;
-            if (StringUtils.isNull(s)) {
-                return null;
-            }
-            try {
-                JSONArray jSONArray = new JSONArray(s);
-                if (jSONArray.length() <= 0) {
-                    return null;
-                }
-                ArrayList<String> arrayList2 = new ArrayList<>();
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    try {
-                        Object obj = jSONArray.get(i);
-                        if (obj instanceof String) {
-                            arrayList2.add((String) obj);
-                        }
-                    } catch (JSONException e) {
-                        e = e;
-                        arrayList = arrayList2;
-                        e.printStackTrace();
-                        return arrayList;
-                    }
-                }
-                return arrayList2;
-            } catch (JSONException e2) {
-                e = e2;
-            }
-        } else {
-            return (ArrayList) invokeV.objValue;
-        }
+        c();
+        MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_SEARCH_POST_FORUM, this.b);
+        SearchPostForumRequestMessage searchPostForumRequestMessage = new SearchPostForumRequestMessage();
+        searchPostForumRequestMessage.setTag(this.b);
+        searchPostForumRequestMessage.set_word(str);
+        MessageManager.getInstance().sendMessage(searchPostForumRequestMessage);
     }
 }

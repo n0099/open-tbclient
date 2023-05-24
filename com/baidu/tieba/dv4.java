@@ -20,7 +20,7 @@ public class dv4 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public g9 a;
-    public gs9 b;
+    public hs9 b;
 
     public dv4(g9 g9Var) {
         Interceptable interceptable = $ic;
@@ -40,10 +40,10 @@ public class dv4 extends WebChromeClient {
         this.a = g9Var;
     }
 
-    public void b(gs9 gs9Var) {
+    public void b(hs9 hs9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gs9Var) == null) {
-            this.b = gs9Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hs9Var) == null) {
+            this.b = hs9Var;
         }
     }
 
@@ -124,16 +124,16 @@ public class dv4 extends WebChromeClient {
     @Override // android.webkit.WebChromeClient
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
-        gs9 gs9Var;
+        hs9 hs9Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048583, this, webView, str, str2, str3, jsPromptResult)) == null) {
             if (!na5.a(str) && str2.startsWith("tiebaapp")) {
-                js9 js9Var = new js9();
-                js9Var.w(ns9.b(str2));
-                js9Var.y(301);
-                a(webView, js9Var.c(), js9Var.d());
+                ks9 ks9Var = new ks9();
+                ks9Var.w(os9.b(str2));
+                ks9Var.y(301);
+                a(webView, ks9Var.c(), ks9Var.d());
             }
-            if (na5.a(str) && (gs9Var = this.b) != null && gs9Var.onJsPrompt(str2, jsPromptResult)) {
+            if (na5.a(str) && (hs9Var = this.b) != null && hs9Var.onJsPrompt(str2, jsPromptResult)) {
                 return true;
             }
             jsPromptResult.cancel();

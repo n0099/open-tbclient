@@ -1,123 +1,89 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LcUpdateDialogActivityConfig;
+import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
 import com.baidu.tbadk.coreExtra.data.VersionData;
+import com.baidu.tbadk.switchs.LooperBlockSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.Date;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class dz9 {
+public class dz9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public VersionData a;
-    public final ClientUpdateInfo b;
-    public final String c;
-    public final boolean d;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    public static void a(ClientUpdateInfo clientUpdateInfo, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof dz9) {
-                dz9 dz9Var = (dz9) obj;
-                return Intrinsics.areEqual(this.a, dz9Var.a) && Intrinsics.areEqual(this.b, dz9Var.b) && Intrinsics.areEqual(this.c, dz9Var.c) && this.d == dz9Var.d;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: boolean */
-    /* JADX WARN: Multi-variable type inference failed */
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int hashCode = this.a.hashCode() * 31;
-            ClientUpdateInfo clientUpdateInfo = this.b;
-            int hashCode2 = (((hashCode + (clientUpdateInfo == null ? 0 : clientUpdateInfo.hashCode())) * 31) + this.c.hashCode()) * 31;
-            boolean z = this.d;
-            int i = z;
-            if (z != 0) {
-                i = 1;
-            }
-            return hashCode2 + i;
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "LcUpdateDataWrapper(versionData=" + this.a + ", updateInfo=" + this.b + ", apkMd5Rsa=" + this.c + ", isUserUpdate=" + this.d + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public dz9(VersionData versionData, ClientUpdateInfo clientUpdateInfo, String apkMd5Rsa, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {versionData, clientUpdateInfo, apkMd5Rsa, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if ((interceptable == null || interceptable.invokeLL(65536, null, clientUpdateInfo, str) == null) && clientUpdateInfo != null && !TextUtils.isEmpty(str)) {
+            if (!LooperBlockSwitch.getIsOn()) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LcUpdateDialogActivityConfig(TbadkCoreApplication.getInst().getApp(), clientUpdateInfo, str)));
                 return;
             }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("is_force_update", clientUpdateInfo.mIsForceUpdate);
+                jSONObject.put("status", clientUpdateInfo.mStatus);
+                jSONObject.put("reverson", clientUpdateInfo.mReverson);
+                jSONObject.put("content_url", clientUpdateInfo.mContentUrl);
+                jSONObject.put("apk_md5_rsa", str);
+            } catch (Exception e) {
+                BdLog.e(e);
+            }
+            a35.p(TbadkCoreApplication.getInst().getApp(), "lcUpdateDialog", jSONObject);
         }
-        Intrinsics.checkNotNullParameter(versionData, "versionData");
-        Intrinsics.checkNotNullParameter(apkMd5Rsa, "apkMd5Rsa");
-        this.a = versionData;
-        this.b = clientUpdateInfo;
-        this.c = apkMd5Rsa;
-        this.d = z;
     }
 
-    public final String a() {
-        InterceptResult invokeV;
+    public static void b(xb5 xb5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if ((interceptable != null && interceptable.invokeL(65537, null, xb5Var) != null) || xb5Var == null) {
+            return;
         }
-        return (String) invokeV.objValue;
+        VersionData u = xb5Var.u();
+        TbadkCoreApplication.getInst().setVersionData(u);
+        TbadkCoreApplication.getInst().refreshNewVersion(true);
+        if (u.forceUpdate()) {
+            if (xb5Var.k() != null && TbadkCoreApplication.getInst().getResumeNum() > 0 && !LooperBlockSwitch.getIsOn()) {
+                TbSingleton.getInstance();
+                TbSingleton.setExceptInsertAdDiaShow(true);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), u, xb5Var.j())));
+                return;
+            }
+            return;
+        }
+        Long valueOf = Long.valueOf(TbadkCoreApplication.getInst().getUpdateNotifyTime());
+        Long valueOf2 = Long.valueOf(new Date().getTime());
+        if (valueOf2.longValue() - valueOf.longValue() > 86400000 && u.getStrategy() == 0 && xb5Var.k() != null && TbadkCoreApplication.getInst().getResumeNum() > 0) {
+            TbSingleton.getInstance().setSyncModel(xb5Var);
+            if (TbSingleton.getInstance().hasPerformedFirstLoginTest() && !LooperBlockSwitch.getIsOn()) {
+                TbSingleton.getInstance();
+                TbSingleton.setExceptInsertAdDiaShow(true);
+                w06.d();
+            }
+            TbadkCoreApplication.getInst().setUpdateNotifyTime(valueOf2.longValue());
+        }
     }
 
-    public final ClientUpdateInfo b() {
-        InterceptResult invokeV;
+    public static void c(VersionData versionData, ClientUpdateInfo clientUpdateInfo, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{versionData, clientUpdateInfo, str, Boolean.valueOf(z)}) != null) || versionData == null) {
+            return;
         }
-        return (ClientUpdateInfo) invokeV.objValue;
-    }
-
-    public final VersionData c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        TbadkCoreApplication.getInst().setVersionData(versionData);
+        TbadkCoreApplication.getInst().refreshNewVersion(true);
+        if (TbadkCoreApplication.getInst().getResumeNum() > 0) {
+            if (versionData.forceUpdate()) {
+                a(clientUpdateInfo, str);
+            } else if ((Long.valueOf(new Date().getTime()).longValue() - Long.valueOf(TbadkCoreApplication.getInst().getUpdateNotifyTime()).longValue() > 86400000 || z) && versionData.getStrategy() == 0) {
+                a(clientUpdateInfo, str);
+            }
         }
-        return (VersionData) invokeV.objValue;
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
     }
 }

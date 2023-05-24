@@ -32,12 +32,12 @@ public class gy extends xy {
     }
 
     @Override // com.baidu.tieba.xy
-    public wc9 u() {
+    public xc9 u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new zc9(this.b, this.i);
+            return new ad9(this.b, this.i);
         }
-        return (wc9) invokeV.objValue;
+        return (xc9) invokeV.objValue;
     }
 }

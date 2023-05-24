@@ -5,11 +5,11 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fb8;
+import com.baidu.tieba.gb8;
 import com.baidu.tieba.immessagecenter.chatgroup.utility.tag.core.BaseTagItemViewHolder;
 import com.baidu.tieba.p45;
-import com.baidu.tieba.xb8;
 import com.baidu.tieba.yb8;
+import com.baidu.tieba.zb8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,21 +19,21 @@ public class TagItemViewHolder extends BaseTagItemViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TextView c;
-    public fb8 d;
+    public gb8 d;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yb8 a;
+        public final /* synthetic */ zb8 a;
         public final /* synthetic */ TagItemViewHolder b;
 
-        public a(TagItemViewHolder tagItemViewHolder, yb8 yb8Var) {
+        public a(TagItemViewHolder tagItemViewHolder, zb8 zb8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tagItemViewHolder, yb8Var};
+                Object[] objArr = {tagItemViewHolder, zb8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,7 +44,7 @@ public class TagItemViewHolder extends BaseTagItemViewHolder {
                 }
             }
             this.b = tagItemViewHolder;
-            this.a = yb8Var;
+            this.a = zb8Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -59,13 +59,13 @@ public class TagItemViewHolder extends BaseTagItemViewHolder {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TagItemViewHolder(View view2, yb8 yb8Var) {
+    public TagItemViewHolder(View view2, zb8 zb8Var) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, yb8Var};
+            Object[] objArr = {view2, zb8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -77,7 +77,7 @@ public class TagItemViewHolder extends BaseTagItemViewHolder {
             }
         }
         this.c = (TextView) view2;
-        view2.setOnClickListener(new a(this, yb8Var));
+        view2.setOnClickListener(new a(this, zb8Var));
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.utility.tag.core.BaseTagItemViewHolder
@@ -90,14 +90,14 @@ public class TagItemViewHolder extends BaseTagItemViewHolder {
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.utility.tag.core.BaseTagItemViewHolder
-    public void f(xb8 xb8Var, Context context, int i) {
+    public void f(yb8 yb8Var, Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, xb8Var, context, i) == null) {
-            super.f(xb8Var, context, i);
-            if (xb8Var instanceof fb8) {
-                fb8 fb8Var = (fb8) xb8Var;
-                this.d = fb8Var;
-                this.c.setText(fb8Var.c());
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, yb8Var, context, i) == null) {
+            super.f(yb8Var, context, i);
+            if (yb8Var instanceof gb8) {
+                gb8 gb8Var = (gb8) yb8Var;
+                this.d = gb8Var;
+                this.c.setText(gb8Var.c());
                 n();
             }
         }
@@ -114,8 +114,8 @@ public class TagItemViewHolder extends BaseTagItemViewHolder {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            fb8 fb8Var = this.d;
-            if (fb8Var != null && fb8Var.d()) {
+            gb8 gb8Var = this.d;
+            if (gb8Var != null && gb8Var.d()) {
                 p45 d = p45.d(this.c);
                 d.B(R.dimen.T_X08);
                 d.w(R.color.CAM_X0304);

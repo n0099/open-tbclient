@@ -7,17 +7,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class u6b extends w6b implements y6b {
+public class u6b extends x6b implements s6b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String c;
-
-    @Override // com.baidu.tieba.y6b
-    public void h(short s) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Short.valueOf(s)}) == null) {
-        }
-    }
 
     public u6b() {
         Interceptable interceptable = $ic;
@@ -29,25 +22,31 @@ public class u6b extends w6b implements y6b {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = "*";
     }
 
-    @Override // com.baidu.tieba.x6b
-    public String a() {
+    @Override // com.baidu.tieba.r6b
+    public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.c;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.y6b
-    public void c(String str) {
+    @Override // com.baidu.tieba.s6b
+    public void b(String str) throws IllegalArgumentException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.c = str;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (str != null) {
+                this.c = str;
+                return;
+            }
+            throw new IllegalArgumentException("http resource descriptor must not be null");
         }
     }
 }

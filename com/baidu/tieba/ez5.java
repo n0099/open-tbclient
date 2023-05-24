@@ -68,8 +68,8 @@ public class ez5 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016522 && wf9.l().i() != null) {
-                wf9.l().i().b();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016522 && xf9.l().i() != null) {
+                xf9.l().i().b();
             }
         }
     }
@@ -270,8 +270,8 @@ public class ez5 {
         MessageManager.getInstance().registerListener(this.f);
         MessageManager.getInstance().registerListener(this.d);
         MessageManager.getInstance().registerListener(this.g);
-        if (wf9.l().i() != null) {
-            wf9.l().i().c();
+        if (xf9.l().i() != null) {
+            xf9.l().i().c();
         }
         fz5.b().c(new e(this));
     }
@@ -296,7 +296,7 @@ public class ez5 {
                 BaseVM.m(7);
                 return false;
             }
-            qf9 i3 = wf9.l().i();
+            rf9 i3 = xf9.l().i();
             if (i3 != null) {
                 i = i3.a();
             } else {

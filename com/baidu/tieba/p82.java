@@ -98,12 +98,12 @@ public final class p82 {
 
         /* renamed from: com.baidu.tieba.p82$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0415b implements Runnable {
+        public class RunnableC0414b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ m82 a;
 
-            public RunnableC0415b(b bVar, m82 m82Var) {
+            public RunnableC0414b(b bVar, m82 m82Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -244,7 +244,7 @@ public final class p82 {
         public final void r() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-                this.c.c.offer(new RunnableC0415b(this, this.c.m()));
+                this.c.c.offer(new RunnableC0414b(this, this.c.m()));
             }
         }
 

@@ -48,7 +48,7 @@ public class o24 extends EventTargetImpl implements l24 {
 
         /* renamed from: com.baidu.tieba.o24$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0397a implements fo3 {
+        public class C0396a implements fo3 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -60,7 +60,7 @@ public class o24 extends EventTargetImpl implements l24 {
                 }
             }
 
-            public C0397a(a aVar) {
+            public C0396a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -176,7 +176,7 @@ public class o24 extends EventTargetImpl implements l24 {
                         AppRuntime.getAppContext().registerReceiver(this.a.h, intentFilter);
                     }
                     if (this.a.k == null) {
-                        this.a.k = new C0397a(this);
+                        this.a.k = new C0396a(this);
                         o24.L(this.a.k);
                     }
                 } else if (this.a.e != null) {

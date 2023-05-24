@@ -10,28 +10,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 import tbclient.BawuRoleInfoPub;
 import tbclient.ForumInfo;
-import tbclient.ForumRule;
 import tbclient.ForumRuleDetail.DataRes;
 /* loaded from: classes6.dex */
 public class od7 implements rn {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId m;
+    public static final BdUniqueId f;
     public transient /* synthetic */ FieldHolder $fh;
-    public ForumInfo a;
+    public String a;
     public String b;
     public String c;
-    public List<ForumRule> d;
-    public int e;
-    public String f;
-    public boolean g;
-    public String h;
-    public BawuRoleInfoPub i;
-    public String j;
-    public qd7 k;
-    public nd7 l;
+    public String d;
+    public String e;
 
     static {
         InterceptResult invokeClinit;
@@ -46,7 +37,7 @@ public class od7 implements rn {
                 return;
             }
         }
-        m = BdUniqueId.gen();
+        f = BdUniqueId.gen();
     }
 
     public od7() {
@@ -67,54 +58,45 @@ public class od7 implements rn {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
+            return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    public int b() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
+            return this.d;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public BawuRoleInfoPub c() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.i;
+            return this.e;
         }
-        return (BawuRoleInfoPub) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.j;
+            return this.a;
         }
         return (String) invokeV.objValue;
     }
 
-    public ForumInfo e() {
+    public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
+            return this.c;
         }
-        return (ForumInfo) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.rn
@@ -122,108 +104,53 @@ public class od7 implements rn {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return m;
+            return f;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public String h() {
-        InterceptResult invokeV;
+    public void f(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public List<ForumRule> k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.d;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public nd7 m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.l;
-        }
-        return (nd7) invokeV.objValue;
-    }
-
-    public void n(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, dataRes) == null) && dataRes != null) {
-            this.a = dataRes.forum;
-            this.b = dataRes.title;
-            this.c = dataRes.preface;
-            this.d = dataRes.rules;
-            this.e = dataRes.audit_status.intValue();
-            this.f = dataRes.audit_opinion;
-            boolean z = true;
-            if (dataRes.is_manager.intValue() != 1) {
-                z = false;
+        if (interceptable == null || interceptable.invokeL(1048581, this, dataRes) == null) {
+            this.c = dataRes.publish_time;
+            BawuRoleInfoPub bawuRoleInfoPub = dataRes.bazhu;
+            if (bawuRoleInfoPub != null) {
+                this.a = bawuRoleInfoPub.portrait;
+                this.e = bawuRoleInfoPub.name_show;
             }
-            this.g = z;
-            Long l = dataRes.forum_rule_id;
-            this.h = dataRes.publish_time;
-            this.i = dataRes.bazhu;
-            this.j = dataRes.cur_time;
-            qd7 qd7Var = new qd7();
-            this.k = qd7Var;
-            qd7Var.a(dataRes);
-            nd7 nd7Var = new nd7();
-            this.l = nd7Var;
-            nd7Var.f(dataRes);
+            ForumInfo forumInfo = dataRes.forum;
+            if (forumInfo != null) {
+                this.b = forumInfo.avatar;
+                this.d = forumInfo.forum_name;
+            }
         }
     }
 
-    public void o(BawuRoleInfoPub bawuRoleInfoPub) {
+    public void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, bawuRoleInfoPub) == null) {
-            this.i = bawuRoleInfoPub;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.b = str;
         }
     }
 
-    public void p(ForumInfo forumInfo) {
+    public void i(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, forumInfo) == null) {
-            this.a = forumInfo;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.d = str;
         }
     }
 
-    public void q(boolean z) {
+    public void k(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.g = z;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.e = str;
         }
     }
 
-    public void s(String str) {
+    public void l(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.c = str;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.a = str;
         }
     }
 }

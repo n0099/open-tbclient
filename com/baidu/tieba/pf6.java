@@ -85,8 +85,8 @@ public class pf6 {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (zg6.a()) {
-                wh6.a("newHybrid", b(this.a));
+            if (ah6.a()) {
+                xh6.a("newHybrid", b(this.a));
             }
             this.a.eventStat();
         }

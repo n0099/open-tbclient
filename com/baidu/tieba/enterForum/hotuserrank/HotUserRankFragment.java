@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
 import com.baidu.tieba.qi;
-import com.baidu.tieba.rt6;
-import com.baidu.tieba.tt6;
+import com.baidu.tieba.st6;
+import com.baidu.tieba.ut6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,9 +33,9 @@ public class HotUserRankFragment extends BaseFragment {
     public String c;
     public long d;
     public boolean e;
-    public tt6 f;
+    public ut6 f;
     public BdListView.p g;
-    public tt6.b h;
+    public ut6.b h;
 
     /* loaded from: classes5.dex */
     public class a implements BdListView.p {
@@ -72,7 +72,7 @@ public class HotUserRankFragment extends BaseFragment {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements tt6.b {
+    public class b implements ut6.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HotUserRankFragment a;
@@ -95,32 +95,32 @@ public class HotUserRankFragment extends BaseFragment {
             this.a = hotUserRankFragment;
         }
 
-        @Override // com.baidu.tieba.tt6.b
-        public void a(rt6 rt6Var) {
+        @Override // com.baidu.tieba.ut6.b
+        public void a(st6 st6Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, rt6Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, st6Var) == null) {
                 if (this.a.isLoadingViewAttached()) {
                     HotUserRankFragment hotUserRankFragment = this.a;
                     hotUserRankFragment.hideLoadingView(hotUserRankFragment.a);
                 }
-                if (rt6Var != null) {
+                if (st6Var != null) {
                     if (this.a.f.f() == 2) {
                         if (this.a.d <= 0 && !TextUtils.isEmpty(this.a.c)) {
-                            if (rt6Var.a != null) {
+                            if (st6Var.a != null) {
                                 if (this.a.e) {
-                                    rt6Var.a.a = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08c3), this.a.c);
+                                    st6Var.a.a = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08c3), this.a.c);
                                 } else {
-                                    rt6Var.a.a = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09db), this.a.c);
+                                    st6Var.a.a = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09db), this.a.c);
                                 }
                             }
                         } else {
-                            rt6Var.a.a = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0756);
+                            st6Var.a.a = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0756);
                         }
-                        this.a.b.g(rt6Var.a, !qi.isEmpty(this.a.c));
+                        this.a.b.g(st6Var.a, !qi.isEmpty(this.a.c));
                         if (this.a.isResumed() || this.a.getBaseFragmentActivity() != null) {
                             CustomMessage customMessage = new CustomMessage(2921447);
                             customMessage.setTag(this.a.getBaseFragmentActivity().getUniqueId());
-                            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921447, rt6Var);
+                            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921447, st6Var);
                             customResponsedMessage.setOrginalMessage(customMessage);
                             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                         }
@@ -135,7 +135,7 @@ public class HotUserRankFragment extends BaseFragment {
             }
         }
 
-        @Override // com.baidu.tieba.tt6.b
+        @Override // com.baidu.tieba.ut6.b
         public void onError(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -164,13 +164,13 @@ public class HotUserRankFragment extends BaseFragment {
         this.h = new b(this);
     }
 
-    public tt6 Q1() {
+    public ut6 Q1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.f;
         }
-        return (tt6) invokeV.objValue;
+        return (ut6) invokeV.objValue;
     }
 
     public final void R1() {
@@ -242,9 +242,9 @@ public class HotUserRankFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            tt6 tt6Var = new tt6(getUniqueId());
-            this.f = tt6Var;
-            tt6Var.n(this.h);
+            ut6 ut6Var = new ut6(getUniqueId());
+            this.f = ut6Var;
+            ut6Var.n(this.h);
         }
     }
 

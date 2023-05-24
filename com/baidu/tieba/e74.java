@@ -70,12 +70,12 @@ public class e74 extends UnitedSchemeBaseInterceptor {
 
         /* renamed from: com.baidu.tieba.e74$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0268a implements Runnable {
+        public class RunnableC0266a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0268a(a aVar) {
+            public RunnableC0266a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -192,7 +192,7 @@ public class e74 extends UnitedSchemeBaseInterceptor {
                 if (e74.a) {
                     Log.d("SwanGameLaunchAction", "onSuccess");
                 }
-                an3.e0(new RunnableC0268a(this));
+                an3.e0(new RunnableC0266a(this));
                 this.b.a1("1.6.0");
                 this.b.A0(true);
                 du2 d = this.e.d(this.b);

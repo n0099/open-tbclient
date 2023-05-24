@@ -6,8 +6,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetAutoModel;
-import com.baidu.tieba.fd8;
 import com.baidu.tieba.gd8;
+import com.baidu.tieba.hd8;
 import com.baidu.tieba.mm5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ReplyMeNetModel extends NetAutoModel<fd8, gd8, ReplyMessageFragment> {
+public class ReplyMeNetModel extends NetAutoModel<gd8, hd8, ReplyMessageFragment> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -44,13 +44,13 @@ public class ReplyMeNetModel extends NetAutoModel<fd8, gd8, ReplyMessageFragment
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ReplyMeNetModel(TbPageContext tbPageContext, fd8 fd8Var) {
-        super(tbPageContext, fd8Var);
+    public ReplyMeNetModel(TbPageContext tbPageContext, gd8 gd8Var) {
+        super(tbPageContext, gd8Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, fd8Var};
+            Object[] objArr = {tbPageContext, gd8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -65,11 +65,11 @@ public class ReplyMeNetModel extends NetAutoModel<fd8, gd8, ReplyMessageFragment
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<gd8> getResponseDataClass() {
+    public Class<hd8> getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return gd8.class;
+            return hd8.class;
         }
         return (Class) invokeV.objValue;
     }

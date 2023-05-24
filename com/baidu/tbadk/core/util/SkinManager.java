@@ -41,12 +41,12 @@ import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.c9;
 import com.baidu.tieba.d65;
-import com.baidu.tieba.e0a;
+import com.baidu.tieba.f0a;
 import com.baidu.tieba.n45;
 import com.baidu.tieba.o65;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.ti;
-import com.baidu.tieba.wp9;
+import com.baidu.tieba.xp9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -237,7 +237,7 @@ public class SkinManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65538, null, i, i2, i3, i4)) == null) {
             if (i != 0 && i2 != 0 && i3 != 0) {
-                return new ColorStateList(new int[][]{new int[]{16842912}, new int[]{-16842910}, new int[0]}, new int[]{getColor(i4, i2), wp9.a(getColor(i4, i3), RESOURCE_ALPHA_DISABLE), getColor(i4, i)});
+                return new ColorStateList(new int[][]{new int[]{16842912}, new int[]{-16842910}, new int[0]}, new int[]{getColor(i4, i2), xp9.a(getColor(i4, i3), RESOURCE_ALPHA_DISABLE), getColor(i4, i)});
             }
             return null;
         }
@@ -249,7 +249,7 @@ public class SkinManager {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLILL(65587, null, view2, i, orientation, fArr) == null) && view2 != null && i != 0 && orientation != null && fArr.length >= 8) {
             int color = getColor(i);
-            int[] iArr = {wp9.c(color), color};
+            int[] iArr = {xp9.c(color), color};
             if (Build.VERSION.SDK_INT >= 16) {
                 gradientDrawable = new GradientDrawable();
                 gradientDrawable.setOrientation(orientation);
@@ -310,7 +310,7 @@ public class SkinManager {
                 return null;
             }
             int color = getColor(TbadkCoreApplication.getInst().getSkinType(), i);
-            int a = wp9.a(color, RESOURCE_ALPHA_PRESS);
+            int a = xp9.a(color, RESOURCE_ALPHA_PRESS);
             return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[]{16842910, 16842908}, new int[0]}, new int[]{a, a, color});
         }
         return (ColorStateList) invokeI.objValue;
@@ -337,7 +337,7 @@ public class SkinManager {
             if (i <= 0) {
                 return null;
             }
-            return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[0]}, new int[]{wp9.a(getColor(i), RESOURCE_ALPHA_PRESS), getColor(i)});
+            return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[0]}, new int[]{xp9.a(getColor(i), RESOURCE_ALPHA_PRESS), getColor(i)});
         }
         return (ColorStateList) invokeI.objValue;
     }
@@ -384,7 +384,7 @@ public class SkinManager {
             if (themeColorInfo == null) {
                 return getColor(i);
             }
-            int b = e0a.b(themeColorInfo);
+            int b = f0a.b(themeColorInfo);
             if (b == 0 || b == Integer.MAX_VALUE) {
                 return getColor(i);
             }
@@ -714,7 +714,7 @@ public class SkinManager {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65571, null, i)) == null) {
-            return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[0]}, new int[]{wp9.a(i, RESOURCE_ALPHA_PRESS), i});
+            return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[0]}, new int[]{xp9.a(i, RESOURCE_ALPHA_PRESS), i});
         }
         return (ColorStateList) invokeI.objValue;
     }
@@ -949,7 +949,7 @@ public class SkinManager {
             } else {
                 color = getColor(i2, view2.getResources(), i);
             }
-            view2.setBackgroundColor(wp9.a(color, f));
+            view2.setBackgroundColor(xp9.a(color, f));
             if (paddingLeft != 0 || paddingRight != 0 || paddingTop != 0 || paddingBottom != 0) {
                 view2.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
             }
@@ -1087,7 +1087,7 @@ public class SkinManager {
             if (i <= 0) {
                 return null;
             }
-            return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[]{-16842910}, new int[0]}, new int[]{wp9.a(getColor(i2, i), RESOURCE_ALPHA_PRESS), wp9.a(getColor(i2, i), RESOURCE_ALPHA_DISABLE), getColor(i2, i)});
+            return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[]{-16842910}, new int[0]}, new int[]{xp9.a(getColor(i2, i), RESOURCE_ALPHA_PRESS), xp9.a(getColor(i2, i), RESOURCE_ALPHA_DISABLE), getColor(i2, i)});
         }
         return (ColorStateList) invokeII.objValue;
     }

@@ -478,7 +478,7 @@ public class t06 extends Dialog {
             CombineDownload combineDownload = this.c;
             if (combineDownload != null && combineDownload.showCombineDownload() && !TextUtils.isEmpty(this.c.getApkMD5RSA())) {
                 this.m.setText(this.c.getAppName());
-                if (!vq9.b(this.a, this.c.getAppProc()) && !TextUtils.isEmpty(this.c.getAppUrl())) {
+                if (!wq9.b(this.a, this.c.getAppProc()) && !TextUtils.isEmpty(this.c.getAppUrl())) {
                     this.m.setVisibility(0);
                     Drawable drawable = this.a.getResources().getDrawable(R.drawable.btn_dailog_choose_s);
                     drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());

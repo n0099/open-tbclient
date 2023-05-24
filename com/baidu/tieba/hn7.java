@@ -1,35 +1,41 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import tbclient.ThreadInfo;
-import tbclient.VoiceRoom;
-import tbclient.VoiceRoomListPage.VoiceRoomListPageResIdl;
+import java.util.HashMap;
+import tbclient.CommonReq;
+import tbclient.VoiceRoomListPage.DataReq;
+import tbclient.VoiceRoomListPage.VoiceRoomListPageReqIdl;
 /* loaded from: classes5.dex */
-public class hn7 implements nm5 {
+public class hn7 implements mm5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public List<ThreadInfo> a;
+    public final long a;
+    public final long b;
 
-    public hn7() {
+    @Override // com.baidu.tieba.lm5
+    public HashMap<String, String> S() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public hn7(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,64 +45,58 @@ public class hn7 implements nm5 {
                 return;
             }
         }
-        this.a = new ArrayList();
+        this.a = j;
+        this.b = j2;
     }
 
-    @NonNull
-    public List<VoiceRoomWrapper> a() {
+    @Override // com.baidu.tieba.lm5
+    public HashMap<String, Object> O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (ThreadInfo threadInfo : this.a) {
-                VoiceRoom voiceRoom = threadInfo.voice_room;
-                if (voiceRoom != null && b(voiceRoom)) {
-                    String str = threadInfo.fname;
-                    if (str == null) {
-                        str = "";
-                    }
-                    arrayList.add(new VoiceRoomWrapper(voiceRoom, str));
-                }
-            }
-            return arrayList;
+            HashMap<String, Object> hashMap = new HashMap<>();
+            hashMap.put(IntentConfig.CALL_FROM, Long.valueOf(this.a));
+            hashMap.put("fid", Long.valueOf(this.b));
+            hashMap.put("q_type", Integer.valueOf(rx4.c().e()));
+            hashMap.put("scr_dip", Double.valueOf(a()));
+            hashMap.put("scr_h", Integer.valueOf(ri.j(TbadkCoreApplication.getInst().getApp())));
+            hashMap.put("scr_w", Integer.valueOf(ri.l(TbadkCoreApplication.getInst().getApp())));
+            return hashMap;
         }
-        return (List) invokeV.objValue;
+        return (HashMap) invokeV.objValue;
     }
 
-    public final boolean b(@NonNull VoiceRoom voiceRoom) {
-        InterceptResult invokeL;
+    public final double a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voiceRoom)) == null) {
-            Long l = voiceRoom.room_id;
-            if (l != null && l.longValue() != 0 && !TextUtils.isEmpty(voiceRoom.room_name)) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
         }
-        return invokeL.booleanValue;
+        return invokeV.doubleValue;
     }
 
-    @Override // com.baidu.tieba.nm5
-    public void initByJson(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.om5
+    public Object p(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
             try {
-                JSONArray optJSONArray = jSONObject.optJSONArray("voice_room_list");
-                if (optJSONArray != null) {
-                    this.a = DataExt.toEntityList(optJSONArray.toString(), ThreadInfo.class);
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+                DataReq.Builder builder = new DataReq.Builder();
+                builder.call_from = Long.valueOf(this.a);
+                builder.fid = Long.valueOf(this.b);
+                CommonReq.Builder builder2 = new CommonReq.Builder();
+                builder2.q_type = Integer.valueOf(rx4.c().e());
+                builder2.scr_dip = Double.valueOf(a());
+                builder2.scr_h = Integer.valueOf(ri.j(TbadkCoreApplication.getInst().getApp()));
+                builder2.scr_w = Integer.valueOf(ri.l(TbadkCoreApplication.getInst().getApp()));
+                VoiceRoomListPageReqIdl.Builder builder3 = new VoiceRoomListPageReqIdl.Builder();
+                builder3.data = builder.build(false);
+                return builder3.build(false);
+            } catch (Exception unused) {
+                BdLog.d("data convert error");
+                return null;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.nm5
-    public void initByProtobuf(Message message) {
-        List<ThreadInfo> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, message) == null) && (message instanceof VoiceRoomListPageResIdl) && (list = ((VoiceRoomListPageResIdl) message).data.voice_room_list) != null) {
-            this.a = list;
-        }
+        return invokeZ.objValue;
     }
 }

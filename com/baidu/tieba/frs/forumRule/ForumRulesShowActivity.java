@@ -21,14 +21,14 @@ import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.tiejia.TiebaPlusRecommendCard;
 import com.baidu.tieba.frs.forumRule.model.ForumRulesShowModel;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.ld7;
-import com.baidu.tieba.nd7;
+import com.baidu.tieba.md7;
 import com.baidu.tieba.od7;
 import com.baidu.tieba.ox5;
 import com.baidu.tieba.pd7;
+import com.baidu.tieba.qd7;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.tieba.view.festivalview.FestivalTipView;
-import com.baidu.tieba.wd7;
+import com.baidu.tieba.xd7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,9 +40,9 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ForumRulesShowModel a;
-    public wd7 b;
+    public xd7 b;
     public String c;
-    public ld7 d;
+    public md7 d;
     public CustomMessageListener e;
 
     public gg<LinearLayout> A() {
@@ -181,7 +181,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
     }
 
     /* loaded from: classes5.dex */
-    public class a implements ld7 {
+    public class a implements md7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumRulesShowActivity a;
@@ -204,31 +204,31 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
             this.a = forumRulesShowActivity;
         }
 
-        @Override // com.baidu.tieba.ld7
-        public void a(nd7 nd7Var) {
+        @Override // com.baidu.tieba.md7
+        public void a(od7 od7Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, nd7Var) == null) && this.a.b != null) {
-                this.a.b.y(nd7Var);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, od7Var) == null) && this.a.b != null) {
+                this.a.b.y(od7Var);
             }
         }
 
-        @Override // com.baidu.tieba.ld7
-        public void b(List<pd7> list) {
+        @Override // com.baidu.tieba.md7
+        public void b(List<qd7> list) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && this.a.b != null) {
                 this.a.b.z(list);
             }
         }
 
-        @Override // com.baidu.tieba.ld7
-        public void d(od7 od7Var) {
+        @Override // com.baidu.tieba.md7
+        public void d(pd7 pd7Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, od7Var) == null) && this.a.b != null) {
-                this.a.b.x(od7Var);
+            if ((interceptable == null || interceptable.invokeL(1048579, this, pd7Var) == null) && this.a.b != null) {
+                this.a.b.x(pd7Var);
             }
         }
 
-        @Override // com.baidu.tieba.ld7
+        @Override // com.baidu.tieba.md7
         public void e(String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && this.a.b != null) {
@@ -236,7 +236,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
             }
         }
 
-        @Override // com.baidu.tieba.ld7
+        @Override // com.baidu.tieba.md7
         public void c(boolean z, String str) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, str) != null) || this.a.b == null) {
@@ -249,7 +249,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
             }
         }
 
-        @Override // com.baidu.tieba.ld7
+        @Override // com.baidu.tieba.md7
         public void f() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a.b != null) {
@@ -260,7 +260,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
             }
         }
 
-        @Override // com.baidu.tieba.ld7
+        @Override // com.baidu.tieba.md7
         public void finish() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.a.b != null) {
@@ -333,9 +333,9 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
             super.onChangeSkinType(i);
-            wd7 wd7Var = this.b;
-            if (wd7Var != null) {
-                wd7Var.onChangeSkinType(i);
+            xd7 xd7Var = this.b;
+            if (xd7Var != null) {
+                xd7Var.onChangeSkinType(i);
             }
         }
     }
@@ -355,9 +355,9 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
             this.c = str;
-            wd7 wd7Var = this.b;
-            if (wd7Var != null) {
-                wd7Var.setFrom(str);
+            xd7 xd7Var = this.b;
+            if (xd7Var != null) {
+                xd7Var.setFrom(str);
             }
         }
     }
@@ -391,9 +391,9 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
             if (getIntent() != null) {
                 this.c = getIntent().getStringExtra("from");
             }
-            wd7 wd7Var = new wd7(this, this.c);
-            this.b = wd7Var;
-            wd7Var.N(getRefreshView());
+            xd7 xd7Var = new xd7(this, this.c);
+            this.b = xd7Var;
+            xd7Var.N(getRefreshView());
         }
     }
 
@@ -406,9 +406,9 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
             if (forumRulesShowModel != null) {
                 forumRulesShowModel.destory();
             }
-            wd7 wd7Var = this.b;
-            if (wd7Var != null) {
-                wd7Var.B();
+            xd7 xd7Var = this.b;
+            if (xd7Var != null) {
+                xd7Var.B();
             }
         }
     }
@@ -431,13 +431,13 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
         }
     }
 
-    public wd7 y1() {
+    public xd7 y1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
             return this.b;
         }
-        return (wd7) invokeV.objValue;
+        return (xd7) invokeV.objValue;
     }
 
     public void Z(Context context, String str, boolean z) {

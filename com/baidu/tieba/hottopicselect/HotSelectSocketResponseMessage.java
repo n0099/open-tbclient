@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.c25;
-import com.baidu.tieba.i08;
+import com.baidu.tieba.j08;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,10 +19,10 @@ import tbclient.GetSugTopic.GetSugTopicResIdl;
 public class HotSelectSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public i08 mBangTopic;
-    public i08 mSugTopic;
-    public i08 mUserHisTopic;
-    public i08 mVideoTopic;
+    public j08 mBangTopic;
+    public j08 mSugTopic;
+    public j08 mUserHisTopic;
+    public j08 mVideoTopic;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotSelectSocketResponseMessage() {
@@ -42,40 +42,40 @@ public class HotSelectSocketResponseMessage extends SocketResponsedMessage {
         }
     }
 
-    public i08 getBangTopic() {
+    public j08 getBangTopic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.mBangTopic;
         }
-        return (i08) invokeV.objValue;
+        return (j08) invokeV.objValue;
     }
 
-    public i08 getSugTopic() {
+    public j08 getSugTopic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.mSugTopic;
         }
-        return (i08) invokeV.objValue;
+        return (j08) invokeV.objValue;
     }
 
-    public i08 getUserHisTopic() {
+    public j08 getUserHisTopic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.mUserHisTopic;
         }
-        return (i08) invokeV.objValue;
+        return (j08) invokeV.objValue;
     }
 
-    public i08 getVideoTopic() {
+    public j08 getVideoTopic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.mVideoTopic;
         }
-        return (i08) invokeV.objValue;
+        return (j08) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -111,36 +111,36 @@ public class HotSelectSocketResponseMessage extends SocketResponsedMessage {
                 return getSugTopicResIdl;
             }
             if (dataRes.user_his_topic != null) {
-                i08 i08Var = new i08();
-                i08Var.f(0);
-                i08Var.d(getSugTopicResIdl.data.user_his_topic);
-                this.mUserHisTopic = i08Var;
+                j08 j08Var = new j08();
+                j08Var.f(0);
+                j08Var.d(getSugTopicResIdl.data.user_his_topic);
+                this.mUserHisTopic = j08Var;
             }
             if (getSugTopicResIdl.data.bang_topic != null) {
-                i08 i08Var2 = new i08();
-                i08Var2.f(1);
-                i08Var2.d(getSugTopicResIdl.data.bang_topic);
-                this.mBangTopic = i08Var2;
+                j08 j08Var2 = new j08();
+                j08Var2.f(1);
+                j08Var2.d(getSugTopicResIdl.data.bang_topic);
+                this.mBangTopic = j08Var2;
             }
             if (getSugTopicResIdl.data.sug_topic != null) {
-                i08 i08Var3 = new i08();
-                i08Var3.d(getSugTopicResIdl.data.sug_topic);
-                this.mSugTopic = i08Var3;
+                j08 j08Var3 = new j08();
+                j08Var3.d(getSugTopicResIdl.data.sug_topic);
+                this.mSugTopic = j08Var3;
             }
             if (getSugTopicResIdl.data.video_topic != null) {
-                i08 i08Var4 = new i08();
-                i08Var4.d(getSugTopicResIdl.data.video_topic);
-                this.mVideoTopic = i08Var4;
+                j08 j08Var4 = new j08();
+                j08Var4.d(getSugTopicResIdl.data.video_topic);
+                this.mVideoTopic = j08Var4;
             }
             return getSugTopicResIdl;
         }
         return invokeIL.objValue;
     }
 
-    public void setVideoTopic(i08 i08Var) {
+    public void setVideoTopic(j08 j08Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, i08Var) == null) {
-            this.mVideoTopic = i08Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, j08Var) == null) {
+            this.mVideoTopic = j08Var;
         }
     }
 }

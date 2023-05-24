@@ -1,151 +1,75 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.d25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.SearchPostForum.DataRes;
+import tbclient.SearchPostForum.SearchForum;
 /* loaded from: classes6.dex */
-public class o77 extends wi6<l77> {
+public class o77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ImageView i;
-    public final TextView j;
-    public int k;
+    public SearchForum a;
+    public List<SearchForum> b;
+    public ArrayList<rn> c;
+    public String d;
 
-    @Override // com.baidu.tieba.wi6
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d02fb : invokeV.intValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wi6
-    /* renamed from: r */
-    public void i(l77 l77Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, l77Var) == null) {
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements d25.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(o77 o77Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o77Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.d25.e
-        public void onClick(d25 d25Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, d25Var) == null) {
-                k77.a();
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921020));
-                d25Var.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements d25.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(o77 o77Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o77Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.d25.e
-        public void onClick(d25 d25Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, d25Var) == null) {
-                d25Var.dismiss();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o77(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public o77(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = 3;
-        this.i = (ImageView) h().findViewById(R.id.obfuscated_res_0x7f090f12);
-        this.j = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090f18);
-        this.i.setOnClickListener(this);
+        this.d = str;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public ArrayList<rn> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && view2 == this.i) {
-            d25 d25Var = new d25(this.b.getPageActivity());
-            d25Var.setTitle(R.string.obfuscated_res_0x7f0f04b4);
-            d25Var.setCanceledOnTouchOutside(true);
-            d25Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04b2, new a(this));
-            d25Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03c3, new b(this));
-            d25Var.create(this.b);
-            d25Var.show();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
+        return (ArrayList) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.wi6
-    public void j(TbPageContext<?> tbPageContext, int i) {
+    public void b(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || this.k == i) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
             return;
         }
-        SkinManager.setBackgroundResource(this.i, R.drawable.icon_search_history_del);
-        SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0110);
-        this.k = i;
+        this.a = dataRes.exact_match;
+        this.b = dataRes.fuzzy_match;
+        this.c = new ArrayList<>();
+        n77 n77Var = new n77(this.d);
+        SearchForum searchForum = this.a;
+        if (searchForum != null) {
+            n77Var.l(searchForum);
+            this.c.add(n77Var);
+        }
+        List<SearchForum> list = this.b;
+        if (list == null) {
+            return;
+        }
+        for (SearchForum searchForum2 : list) {
+            if (searchForum2 != null) {
+                n77 n77Var2 = new n77(this.d);
+                n77Var2.l(searchForum2);
+                this.c.add(n77Var2);
+            }
+        }
     }
 }

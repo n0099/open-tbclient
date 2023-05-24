@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper;
-import com.baidu.tieba.in7;
+import com.baidu.tieba.jn7;
 import com.baidu.tieba.ju4;
 import com.baidu.tieba.ku4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +22,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class VoiceRoomListViewModel extends ViewModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final in7 a;
+    public final jn7 a;
     public final MutableLiveData<ku4<List<VoiceRoomWrapper>>> b;
 
     /* loaded from: classes5.dex */
@@ -73,7 +73,7 @@ public final class VoiceRoomListViewModel extends ViewModel {
                 return;
             }
         }
-        this.a = new in7();
+        this.a = new jn7();
         this.b = new MutableLiveData<>();
     }
 

@@ -25,7 +25,7 @@ public class q36 extends jk1<gj0> {
 
         /* renamed from: com.baidu.tieba.q36$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0440a implements ij0 {
+        public class C0438a implements ij0 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a f;
@@ -68,7 +68,7 @@ public class q36 extends jk1<gj0> {
                 return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? "Tieba" : (String) invokeV.objValue;
             }
 
-            public C0440a(a aVar) {
+            public C0438a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -282,7 +282,7 @@ public class q36 extends jk1<gj0> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new C0440a(this);
+                return new C0438a(this);
             }
             return (ij0) invokeV.objValue;
         }

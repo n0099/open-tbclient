@@ -38,8 +38,8 @@ import com.baidu.tieba.ala.alasquare.subtablist.mvc.AlaNewSquareSubListActivity;
 import com.baidu.tieba.j65;
 import com.baidu.tieba.o65;
 import com.baidu.tieba.xi5;
-import com.baidu.tieba.y77;
 import com.baidu.tieba.yi5;
+import com.baidu.tieba.z77;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -248,12 +248,12 @@ public class AlaSquareDelegateStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            y77 y77Var;
+            z77 z77Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof y77) && (y77Var = (y77) customResponsedMessage.getData()) != null && !ListUtils.isEmpty(y77Var.e())) {
-                for (FrsTabInfo frsTabInfo : y77Var.e()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof z77) && (z77Var = (z77) customResponsedMessage.getData()) != null && !ListUtils.isEmpty(z77Var.e())) {
+                for (FrsTabInfo frsTabInfo : z77Var.e()) {
                     if (frsTabInfo.tab_id.intValue() == 1120) {
-                        AlaSquareDelegateStatic.b(y77Var);
+                        AlaSquareDelegateStatic.b(z77Var);
                     }
                 }
             }
@@ -264,7 +264,7 @@ public class AlaSquareDelegateStatic {
     public static class f extends xi5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y77 c;
+        public final /* synthetic */ z77 c;
 
         @Override // com.baidu.tieba.xi5
         public TbFragmentTabIndicator c(Context context) {
@@ -286,12 +286,12 @@ public class AlaSquareDelegateStatic {
             return invokeV.booleanValue;
         }
 
-        public f(y77 y77Var) {
+        public f(z77 z77Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {y77Var};
+                Object[] objArr = {z77Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -301,7 +301,7 @@ public class AlaSquareDelegateStatic {
                     return;
                 }
             }
-            this.c = y77Var;
+            this.c = z77Var;
         }
 
         @Override // com.baidu.tieba.xi5
@@ -422,10 +422,10 @@ public class AlaSquareDelegateStatic {
         }
     }
 
-    public static void b(y77 y77Var) {
+    public static void b(z77 z77Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, y77Var) == null) && y77Var != null) {
-            y77Var.a(new f(y77Var));
+        if ((interceptable == null || interceptable.invokeL(65539, null, z77Var) == null) && z77Var != null) {
+            z77Var.a(new f(z77Var));
         }
     }
 

@@ -1,8 +1,8 @@
 package com.baidu.searchbox.task.sync.appcreate;
 
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
+import com.baidu.tieba.az8;
 import com.baidu.tieba.g55;
-import com.baidu.tieba.xy8;
 import com.baidu.tieba.yy8;
 import com.baidu.tieba.zy8;
 import org.json.JSONObject;
@@ -25,13 +25,13 @@ public class InitPbNetRequestTask extends LaunchTask {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        if (xy8.a().c() && g55.a().c == 1) {
-            new zy8().i(g55.a().d);
+        if (yy8.a().c() && g55.a().c == 1) {
+            new az8().i(g55.a().d);
         }
-        if (xy8.a().c() && g55.a().c == 2) {
+        if (yy8.a().c() && g55.a().c == 2) {
             try {
                 String str = g55.a().d;
-                yy8.l(new String[]{new JSONObject(str.substring(str.indexOf("tbyunpushnotifybody=") + 20)).getString("jump_scheme")});
+                zy8.l(new String[]{new JSONObject(str.substring(str.indexOf("tbyunpushnotifybody=") + 20)).getString("jump_scheme")});
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

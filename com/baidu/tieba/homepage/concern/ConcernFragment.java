@@ -39,13 +39,13 @@ import com.baidu.tieba.homepage.RequestGetMyPostNetMessage;
 import com.baidu.tieba.homepage.concern.ConcernPageView;
 import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
 import com.baidu.tieba.i05;
-import com.baidu.tieba.i97;
+import com.baidu.tieba.j97;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.sg;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.ut9;
+import com.baidu.tieba.vt9;
 import com.baidu.tieba.z25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -60,7 +60,7 @@ import tbclient.GetMyPost.User_Info;
 import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes5.dex */
-public class ConcernFragment extends BaseFragment implements i97 {
+public class ConcernFragment extends BaseFragment implements j97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ConcernPageView a;
@@ -75,14 +75,14 @@ public class ConcernFragment extends BaseFragment implements i97 {
     public final CustomMessageListener j;
     public final fb k;
 
-    @Override // com.baidu.tieba.i97
+    @Override // com.baidu.tieba.j97
     public void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.i97
+    @Override // com.baidu.tieba.j97
     public void a0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -182,7 +182,7 @@ public class ConcernFragment extends BaseFragment implements i97 {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof PostWriteCallBackData) && (postWriteCallBackData = (PostWriteCallBackData) customResponsedMessage.getData()) != null) {
                 long g = pg.g(postWriteCallBackData.getPostId(), 0L);
                 long g2 = pg.g(postWriteCallBackData.getThreadId(), 0L);
-                long g3 = pg.g(ut9.c(), 0L);
+                long g3 = pg.g(vt9.c(), 0L);
                 if (g != 0 && g2 != 0 && g3 != 0) {
                     sg.a().postDelayed(new a(this, g2, g, g3), 1000L);
                 } else if (!StringUtils.isNull(postWriteCallBackData.getVideoid())) {
@@ -283,7 +283,7 @@ public class ConcernFragment extends BaseFragment implements i97 {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof PostWriteCallBackData) && (postWriteCallBackData = (PostWriteCallBackData) customResponsedMessage.getData()) != null) {
                 long g = pg.g(postWriteCallBackData.getPostId(), 0L);
                 long g2 = pg.g(postWriteCallBackData.getThreadId(), 0L);
-                long g3 = pg.g(ut9.c(), 0L);
+                long g3 = pg.g(vt9.c(), 0L);
                 if (g != 0 && g2 != 0 && g3 != 0) {
                     sg.a().postDelayed(new a(this, g2, g, g3), 1000L);
                 } else if (!StringUtils.isNull(postWriteCallBackData.getVideoid())) {
@@ -595,7 +595,7 @@ public class ConcernFragment extends BaseFragment implements i97 {
         }
     }
 
-    @Override // com.baidu.tieba.i97
+    @Override // com.baidu.tieba.j97
     public void h0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
@@ -659,7 +659,7 @@ public class ConcernFragment extends BaseFragment implements i97 {
         }
     }
 
-    @Override // com.baidu.tieba.i97
+    @Override // com.baidu.tieba.j97
     public void y() {
         ConcernPageView concernPageView;
         Interceptable interceptable = $ic;
@@ -690,8 +690,8 @@ public class ConcernFragment extends BaseFragment implements i97 {
                 if (user2 != null && (user_Info = getMyPostResIdl.data.user_info) != null && user2.name.equals(user_Info.name)) {
                     builder.author = builder2.build(true);
                 }
-                builder.fname = ut9.d();
-                builder.fid = Long.valueOf(pg.g(ut9.d(), 0L));
+                builder.fname = vt9.d();
+                builder.fid = Long.valueOf(pg.g(vt9.d(), 0L));
                 i05Var.parserProtobuf(builder.build(true));
                 this.a.J(i05Var, true);
             }

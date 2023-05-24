@@ -12,7 +12,7 @@ import com.baidu.tbadk.widget.EllipsizeTagTitleView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.p45;
-import com.baidu.tieba.qx7;
+import com.baidu.tieba.rx7;
 import com.baidu.tieba.ux;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -51,15 +51,15 @@ public class LocalChannelTopicHolder extends TypeAdapter.ViewHolder implements u
         this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09252c);
     }
 
-    public void a(qx7 qx7Var) {
+    public void a(rx7 rx7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, qx7Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, rx7Var) == null) {
             this.b.setConrers(15);
             this.b.setPlaceHolder(1);
-            this.b.N(qx7Var.d, 10, false);
-            this.c.setTitleAndTag(this.itemView.getContext().getString(R.string.local_channel_topic_wrap, qx7Var.a), qx7Var.c);
-            if (!TextUtils.isEmpty(qx7Var.b)) {
-                this.d.setText(qx7Var.b);
+            this.b.N(rx7Var.d, 10, false);
+            this.c.setTitleAndTag(this.itemView.getContext().getString(R.string.local_channel_topic_wrap, rx7Var.a), rx7Var.c);
+            if (!TextUtils.isEmpty(rx7Var.b)) {
+                this.d.setText(rx7Var.b);
                 this.d.setVisibility(0);
                 return;
             }

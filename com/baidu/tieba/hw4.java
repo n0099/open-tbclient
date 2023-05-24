@@ -30,7 +30,7 @@ public class hw4 {
     public volatile boolean b;
     public String c;
     public Runnable d;
-    public ti6 e;
+    public ui6 e;
 
     public hw4() {
         Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public class hw4 {
     public final void f() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.d != null) {
-            bh6.a().e(this.d);
+            ch6.a().e(this.d);
             this.d = null;
         }
     }
@@ -81,7 +81,7 @@ public class hw4 {
                     }
                 }
             };
-            bh6.a().d(this.d, 10000L);
+            ch6.a().d(this.d, 10000L);
         }
     }
 
@@ -93,7 +93,7 @@ public class hw4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
             try {
-                if (this.e != null && !yh6.a(this.e.e())) {
+                if (this.e != null && !zh6.a(this.e.e())) {
                     Map<String, Pair<Long, Long>> f = this.e.f();
                     JSONArray jSONArray = new JSONArray();
                     for (Pair<String, Long> pair : this.e.e()) {
@@ -110,7 +110,7 @@ public class hw4 {
                         }
                         jSONArray.put(jSONObject2);
                     }
-                    if (!yh6.c(jSONArray)) {
+                    if (!zh6.c(jSONArray)) {
                         jSONObject.put(PrefetchEvent.MODULE, jSONArray);
                     }
                 }
@@ -132,7 +132,7 @@ public class hw4 {
                     return null;
                 }
             }
-            if (this.e != null && this.a && !this.b && ti6.k(this.e.g())) {
+            if (this.e != null && this.a && !this.b && ui6.k(this.e.g())) {
                 String g = this.e.g();
                 JSONObject jSONObject = new JSONObject();
                 String c = this.e.c();
@@ -210,7 +210,7 @@ public class hw4 {
                                 sb.append(optLong15 - optLong14);
                                 sb.append("，渲染:");
                                 sb.append(optLong22 - optLong15);
-                                wh6.b("newHybrid", sb.toString());
+                                xh6.b("newHybrid", sb.toString());
                                 try {
                                     b(jSONObject);
                                     StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.WEBVIEW_PERF_DATA_KEY).param("obj_param1", jSONObject.toString()).param(TiebaStatic.Params.OBJ_PARAM2, jSONObject.toString());

@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.j6a;
-import com.baidu.tieba.l6a;
+import com.baidu.tieba.k6a;
+import com.baidu.tieba.m6a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
 import com.baidu.ugc.editvideo.record.source.multimedia.VlogEditManager;
 /* loaded from: classes7.dex */
-public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements l6a {
+public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements m6a {
     public static /* synthetic */ Interceptable $ic = null;
     public static int k = 1;
     public static int l = 2;
@@ -99,7 +99,7 @@ public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         return invokeI.intValue;
     }
 
-    @Override // com.baidu.tieba.l6a
+    @Override // com.baidu.tieba.m6a
     public void a(int i, Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeIL(1048576, this, i, bitmap) != null) || this.j) {
@@ -150,7 +150,7 @@ public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 i3 = (int) (((multiMediaData.width * 1.0f) / i2) * i4);
             }
             this.g = i;
-            j6a.c(multiMediaData, TbadkCoreApplication.getInst().getContext(), i, i3, i4, this);
+            k6a.c(multiMediaData, TbadkCoreApplication.getInst().getContext(), i, i3, i4, this);
             notifyDataSetChanged();
         }
     }
@@ -171,7 +171,7 @@ public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 i3 = (int) (((multiMediaData.width * 1.0f) / i2) * i4);
             }
             this.g = i;
-            j6a.b(vlogEditManager, TbadkCoreApplication.getInst().getContext(), i, i3, i4, this);
+            k6a.b(vlogEditManager, TbadkCoreApplication.getInst().getContext(), i, i3, i4, this);
             notifyDataSetChanged();
         }
     }

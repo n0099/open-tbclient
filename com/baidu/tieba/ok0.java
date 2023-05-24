@@ -33,13 +33,13 @@ public class ok0 extends jk1<m61> {
 
         /* renamed from: com.baidu.tieba.ok0$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0405a extends km0<vk0> {
+        public class C0404a extends km0<vk0> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ m61.b b;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0405a(a aVar, Class cls, m61.b bVar) {
+            public C0404a(a aVar, Class cls, m61.b bVar) {
                 super(cls);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -96,7 +96,7 @@ public class ok0 extends jk1<m61> {
         public void a(Object obj, m61.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, obj, bVar) == null) {
-                gm0.a().b(obj, new C0405a(this, vk0.class, bVar));
+                gm0.a().b(obj, new C0404a(this, vk0.class, bVar));
             }
         }
 

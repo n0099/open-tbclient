@@ -1,44 +1,82 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.mobstat.Config;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.editortools.EditorTools;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.util.DataExt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.annotations.SerializedName;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class tba {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @SerializedName("n")
+    public String a;
+    @SerializedName("t")
+    public String b;
+    @SerializedName("c")
+    public String c;
+    @SerializedName("cs")
+    public List<a> d;
+    @SerializedName("e")
+    public List<String> e;
 
-    public static void a(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull te5 te5Var, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65536, null, tbPageContext, editorTools, te5Var, str) == null) {
-            if ("e1".equals(str)) {
-                bca.h(tbPageContext, editorTools, te5Var);
-            } else if (Config.SESSTION_TRACK_END_TIME.equals(str)) {
-                bca.j(tbPageContext, editorTools, te5Var);
-            } else if ("e3".equals(str)) {
-                bca.k(tbPageContext, editorTools, te5Var);
-            } else if ("e4".equals(str)) {
-                bca.g(tbPageContext, editorTools, te5Var);
-            } else if ("e5".equals(str)) {
-                bca.d(editorTools, te5Var);
-            } else if ("e6".equals(str)) {
-                bca.a(tbPageContext, editorTools, te5Var);
-            } else if ("e7".equals(str)) {
-                bca.l(tbPageContext, editorTools, te5Var);
-            } else if ("e8".equals(str)) {
-                bca.b(tbPageContext, editorTools, te5Var);
-            } else if ("e9".equals(str)) {
-                bca.i(tbPageContext, editorTools);
-            } else if ("e10".equals(str)) {
-                bca.c(tbPageContext, editorTools, te5Var);
-            } else if ("e11".equals(str)) {
-                bca.f(tbPageContext, editorTools, te5Var);
-            } else if ("e12".equals(str)) {
-                bca.e(tbPageContext, editorTools, te5Var);
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @SerializedName("id")
+        public String a;
+        @SerializedName("ext")
+        public String b;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
+    }
+
+    public tba() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Nullable
+    public static tba a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            try {
+                return (tba) DataExt.toEntity(str, tba.class);
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (tba) invokeL.objValue;
     }
 }

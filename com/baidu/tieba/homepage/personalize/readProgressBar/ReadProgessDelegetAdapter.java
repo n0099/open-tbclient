@@ -13,17 +13,17 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.bo;
 import com.baidu.tieba.en;
-import com.baidu.tieba.oj6;
+import com.baidu.tieba.pj6;
 import com.baidu.tieba.rn;
-import com.baidu.tieba.tv7;
 import com.baidu.tieba.uv7;
+import com.baidu.tieba.vv7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ReadProgessDelegetAdapter extends en<uv7, ViewHolder> {
+public class ReadProgessDelegetAdapter extends en<vv7, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TbPageContext<?> a;
@@ -33,16 +33,16 @@ public class ReadProgessDelegetAdapter extends en<uv7, ViewHolder> {
     public static class ViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public tv7 a;
+        public uv7 a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ViewHolder(tv7 tv7Var) {
-            super(tv7Var.h());
+        public ViewHolder(uv7 uv7Var) {
+            super(uv7Var.h());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tv7Var};
+                Object[] objArr = {uv7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -53,7 +53,7 @@ public class ReadProgessDelegetAdapter extends en<uv7, ViewHolder> {
                     return;
                 }
             }
-            this.a = tv7Var;
+            this.a = uv7Var;
         }
     }
 
@@ -120,7 +120,7 @@ public class ReadProgessDelegetAdapter extends en<uv7, ViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new ViewHolder(new tv7(this.a, viewGroup));
+            return new ViewHolder(new uv7(this.a, viewGroup));
         }
         return (ViewHolder) invokeL.objValue;
     }
@@ -128,12 +128,12 @@ public class ReadProgessDelegetAdapter extends en<uv7, ViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.en
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, uv7 uv7Var, ViewHolder viewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, vv7 vv7Var, ViewHolder viewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, uv7Var, viewHolder})) == null) {
-            oj6.b().a(new StatisticItem("c11272"));
-            viewHolder.a.i(uv7Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vv7Var, viewHolder})) == null) {
+            pj6.b().a(new StatisticItem("c11272"));
+            viewHolder.a.i(vv7Var);
             return viewHolder.getView();
         }
         return (View) invokeCommon.objValue;

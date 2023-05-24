@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import rx.internal.subscriptions.SequentialSubscription;
 /* loaded from: classes5.dex */
-public final class gcb implements o7b {
+public final class gcb implements p7b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final SequentialSubscription a;
@@ -29,7 +29,7 @@ public final class gcb implements o7b {
         this.a = new SequentialSubscription();
     }
 
-    @Override // com.baidu.tieba.o7b
+    @Override // com.baidu.tieba.p7b
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public final class gcb implements o7b {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.o7b
+    @Override // com.baidu.tieba.p7b
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -47,11 +47,11 @@ public final class gcb implements o7b {
         }
     }
 
-    public void a(o7b o7bVar) {
+    public void a(p7b p7bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, o7bVar) == null) {
-            if (o7bVar != null) {
-                this.a.update(o7bVar);
+        if (interceptable == null || interceptable.invokeL(1048576, this, p7bVar) == null) {
+            if (p7bVar != null) {
+                this.a.replace(p7bVar);
                 return;
             }
             throw new IllegalArgumentException("Subscription can not be null");

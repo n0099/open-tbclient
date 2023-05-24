@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,12 +7,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
 public abstract class qp9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<np9> a;
+    public final List<op9> a;
 
     public qp9() {
         Interceptable interceptable = $ic;
@@ -31,20 +29,12 @@ public abstract class qp9 {
         this.a = new ArrayList();
     }
 
-    public final List<np9> b() {
+    public final List<op9> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
         return (List) invokeV.objValue;
-    }
-
-    public final void a(np9 action) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, action) == null) {
-            Intrinsics.checkNotNullParameter(action, "action");
-            this.a.add(action);
-        }
     }
 }

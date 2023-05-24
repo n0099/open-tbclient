@@ -19,10 +19,10 @@ public class ot5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public List<dk6> b;
+    public List<ek6> b;
 
     /* loaded from: classes6.dex */
-    public class a implements Comparator<dk6> {
+    public class a implements Comparator<ek6> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -45,11 +45,11 @@ public class ot5 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
-        public int compare(dk6 dk6Var, dk6 dk6Var2) {
+        public int compare(ek6 ek6Var, ek6 ek6Var2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, dk6Var, dk6Var2)) == null) {
-                return dk6Var.sort() - dk6Var2.sort();
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, ek6Var, ek6Var2)) == null) {
+                return ek6Var.sort() - ek6Var2.sort();
             }
             return invokeLL.intValue;
         }
@@ -80,7 +80,7 @@ public class ot5 {
         return invokeV.booleanValue;
     }
 
-    public List<dk6> a(List<PbLinkData> list, List<PbGoodsData> list2) {
+    public List<ek6> a(List<PbLinkData> list, List<PbGoodsData> list2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, list, list2)) == null) {
@@ -89,7 +89,7 @@ public class ot5 {
         return (List) invokeLL.objValue;
     }
 
-    public List<dk6> b(List<PbLinkData> list, List<PbGoodsData> list2, List<CardLinkInfoData> list3) {
+    public List<ek6> b(List<PbLinkData> list, List<PbGoodsData> list2, List<CardLinkInfoData> list3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2, list3)) == null) {

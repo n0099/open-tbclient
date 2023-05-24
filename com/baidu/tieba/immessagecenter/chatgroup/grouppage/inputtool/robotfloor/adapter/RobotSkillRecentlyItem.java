@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.d78;
+import com.baidu.tieba.e78;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 /* loaded from: classes6.dex */
-public class RobotSkillRecentlyItem extends d78 implements Serializable {
+public class RobotSkillRecentlyItem extends e78 implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 5531600590149259914L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public class RobotSkillRecentlyItem extends d78 implements Serializable {
     public String skillName;
     public String uk;
 
-    @Override // com.baidu.tieba.d78
+    @Override // com.baidu.tieba.e78
     public int getViewType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

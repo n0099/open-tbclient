@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tieba.c25;
 import com.baidu.tieba.g9;
-import com.baidu.tieba.ho9;
 import com.baidu.tieba.io9;
+import com.baidu.tieba.jo9;
 import com.baidu.tieba.se;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -39,15 +39,15 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
 
     /* loaded from: classes7.dex */
     public interface c {
-        void a(boolean z, int i, io9 io9Var, String str, boolean z2);
+        void a(boolean z, int i, jo9 jo9Var, String str, boolean z2);
     }
 
     /* loaded from: classes7.dex */
-    public class b extends BdAsyncTask<Object, Integer, ho9> {
+    public class b extends BdAsyncTask<Object, Integer, io9> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
-        public ho9 b;
+        public io9 b;
         public final /* synthetic */ DirMenuModel c;
 
         public b(DirMenuModel dirMenuModel) {
@@ -67,7 +67,7 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
             }
             this.c = dirMenuModel;
             this.a = null;
-            this.b = new ho9();
+            this.b = new io9();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -90,7 +90,7 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public ho9 doInBackground(Object... objArr) {
+        public io9 doInBackground(Object... objArr) {
             InterceptResult invokeL;
             String str;
             String postNetData;
@@ -134,19 +134,19 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
                 }
                 return this.b;
             }
-            return (ho9) invokeL.objValue;
+            return (io9) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(ho9 ho9Var) {
+        public void onPostExecute(io9 io9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ho9Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, io9Var) == null) {
                 if (!this.c.f) {
-                    this.c.b.a(false, -1, null, ho9Var.b(), this.c.g);
-                } else if (ho9Var.h() != null) {
-                    this.c.b.a(true, ho9Var.a(), ho9Var.h(), ho9Var.b(), this.c.g);
+                    this.c.b.a(false, -1, null, io9Var.b(), this.c.g);
+                } else if (io9Var.h() != null) {
+                    this.c.b.a(true, io9Var.a(), io9Var.h(), io9Var.b(), this.c.g);
                 }
             }
         }

@@ -62,14 +62,15 @@ import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tbadk.switchs.FollowListSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.an6;
 import com.baidu.tieba.as8;
+import com.baidu.tieba.bn6;
 import com.baidu.tieba.bs8;
 import com.baidu.tieba.c9;
 import com.baidu.tieba.cs8;
 import com.baidu.tieba.d25;
+import com.baidu.tieba.ds8;
 import com.baidu.tieba.hx4;
-import com.baidu.tieba.k57;
+import com.baidu.tieba.l57;
 import com.baidu.tieba.myAttentionAndFans.ConcernSelectView;
 import com.baidu.tieba.myAttentionAndFans.PersonListModel;
 import com.baidu.tieba.nb5;
@@ -78,7 +79,6 @@ import com.baidu.tieba.ri;
 import com.baidu.tieba.s05;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.view.NavigationBarCoverTip;
-import com.baidu.tieba.zr8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -94,12 +94,12 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     public static final int Q;
     public transient /* synthetic */ FieldHolder $fh;
     public ConcernSelectView A;
-    public an6 B;
-    public an6 C;
+    public bn6 B;
+    public bn6 C;
     public View D;
     public TextView E;
     public TextView F;
-    public k57 G;
+    public l57 G;
     public AttentionMode H;
     public boolean I;
     public final AntiHelper.k J;
@@ -116,7 +116,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     public TextView f;
     public View g;
     public TextView h;
-    public zr8 i;
+    public as8 i;
     public PersonListModel j;
     public NoDataView k;
     public NoPressedRelativeLayout l;
@@ -752,7 +752,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     }
 
     /* loaded from: classes6.dex */
-    public class n implements k57.e {
+    public class n implements l57.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonListActivity a;
@@ -775,7 +775,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             this.a = personListActivity;
         }
 
-        @Override // com.baidu.tieba.k57.e
+        @Override // com.baidu.tieba.l57.e
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -784,7 +784,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             }
         }
 
-        @Override // com.baidu.tieba.k57.e
+        @Override // com.baidu.tieba.l57.e
         public void b(int i, String str, boolean z, int i2, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
@@ -1004,7 +1004,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                         str = "c14286";
                         str2 = YYLiveUtil.SOURCE_PERSON_LIST_OWNER;
                     }
-                    cs8.a(str, userData);
+                    ds8.a(str, userData);
                     AlaInfoData alaInfo = userData.getAlaInfo();
                     if (alaInfo != null && alaInfo.isLegalYYLiveData()) {
                         YYLiveUtil.jumpYYLiveRoom(this.b.getPageContext(), alaInfo, str2);
@@ -1187,12 +1187,12 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     }
 
     public final void u2(s05 s05Var, boolean z) {
-        zr8 zr8Var;
+        as8 as8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048604, this, s05Var, z) == null) && (zr8Var = this.i) != null) {
+        if ((interceptable == null || interceptable.invokeLZ(1048604, this, s05Var, z) == null) && (as8Var = this.i) != null) {
             if (!z) {
                 if (s05Var.d == 1) {
-                    zr8Var.e();
+                    as8Var.e();
                 }
                 this.i.f(s05Var.f);
                 this.i.a(s05Var);
@@ -1200,7 +1200,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                 this.i.notifyDataSetChanged();
                 return;
             }
-            zr8Var.f(false);
+            as8Var.f(false);
             this.i.a(s05Var);
             this.i.b();
             this.i.notifyDataSetChanged();
@@ -1224,9 +1224,9 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             if (this.C == null) {
-                an6 an6Var = new an6(getPageContext(), this.u);
-                this.C = an6Var;
-                an6Var.L(R.drawable.bg_tip_blue_up);
+                bn6 bn6Var = new bn6(getPageContext(), this.u);
+                this.C = bn6Var;
+                bn6Var.L(R.drawable.bg_tip_blue_up);
                 this.C.w(1);
                 this.C.n(3000);
                 this.C.Q(50);
@@ -1238,9 +1238,9 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     public final void s2() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048602, this) == null) && this.B == null) {
-            an6 an6Var = new an6(getPageContext(), this.A.h);
-            this.B = an6Var;
-            an6Var.L(R.drawable.bg_tip_blue_up);
+            bn6 bn6Var = new bn6(getPageContext(), this.A.h);
+            this.B = bn6Var;
+            bn6Var.L(R.drawable.bg_tip_blue_up);
             this.B.w(2);
             this.B.n(3000);
             this.B.Q(-10);
@@ -1284,9 +1284,9 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     }
 
     public void g2() {
-        an6 an6Var;
+        bn6 bn6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (an6Var = this.C) != null && an6Var.i()) {
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (bn6Var = this.C) != null && bn6Var.i()) {
             this.C.h();
         }
     }
@@ -1306,13 +1306,13 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             if (this.i != null) {
                 this.i = null;
             }
-            an6 an6Var = this.B;
-            if (an6Var != null) {
-                an6Var.h();
+            bn6 bn6Var = this.B;
+            if (bn6Var != null) {
+                bn6Var.h();
             }
-            an6 an6Var2 = this.C;
-            if (an6Var2 != null) {
-                an6Var2.h();
+            bn6 bn6Var2 = this.C;
+            if (bn6Var2 != null) {
+                bn6Var2.h();
             }
             this.p.i();
             this.j.g0();
@@ -1339,9 +1339,9 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     public final void t2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            zr8 zr8Var = this.i;
-            if (zr8Var != null) {
-                zr8Var.notifyDataSetChanged();
+            as8 as8Var = this.i;
+            if (as8Var != null) {
+                as8Var.notifyDataSetChanged();
             }
             this.j.i0();
         }
@@ -1453,9 +1453,9 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             setContentView(R.layout.obfuscated_res_0x7f0d07a2);
             i2(bundle);
             j2();
-            k57 k57Var = new k57(getPageContext(), getUniqueId());
-            this.G = k57Var;
-            k57Var.g(new n(this));
+            l57 l57Var = new l57(getPageContext(), getUniqueId());
+            this.G = l57Var;
+            l57Var.g(new n(this));
             registerListener(this.K);
             registerListener(this.L);
             this.j.f0();
@@ -1551,11 +1551,11 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             }
             int sex = this.j.getSex();
             if (getIntent().getBooleanExtra("follow", false)) {
-                this.i = new bs8(this, getIntent().getBooleanExtra("follow", false), z, sex, qVar, aVar, bVar, rVar);
+                this.i = new cs8(this, getIntent().getBooleanExtra("follow", false), z, sex, qVar, aVar, bVar, rVar);
                 this.d.setVisibility(0);
                 this.k = NoDataViewFactory.a(getPageContext().getPageActivity(), this.l, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NOFOLLOW, ri.g(getActivity(), R.dimen.tbds530)), null, null);
             } else {
-                this.i = new as8(getPageContext(), z, sex, qVar, bVar);
+                this.i = new bs8(getPageContext(), z, sex, qVar, bVar);
                 this.d.setVisibility(8);
                 this.k = NoDataViewFactory.a(getPageContext().getPageActivity(), this.l, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NOFOLLOW, ri.g(getActivity(), R.dimen.tbds530)), null, null);
             }
@@ -1747,9 +1747,9 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             SkinManager.setBackgroundResource(this.l, R.color.CAM_X0201);
             SkinManager.setBackgroundResource(this.a, R.color.CAM_X0201);
             this.o.onChangeSkinType(getPageContext(), i2);
-            zr8 zr8Var = this.i;
-            if (zr8Var != null) {
-                zr8Var.notifyDataSetChanged();
+            as8 as8Var = this.i;
+            if (as8Var != null) {
+                as8Var.notifyDataSetChanged();
             }
             NoDataView noDataView = this.k;
             if (noDataView != null) {
@@ -1803,9 +1803,9 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             if (bdListView != null) {
                 bdListView.setVisibility(8);
             }
-            zr8 zr8Var = this.i;
-            if (zr8Var != null) {
-                zr8Var.e();
+            as8 as8Var = this.i;
+            if (as8Var != null) {
+                as8Var.e();
             }
             PersonListModel personListModel = this.j;
             if (personListModel != null) {
@@ -1821,10 +1821,10 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     }
 
     public final void x1() {
-        zr8 zr8Var;
+        as8 as8Var;
         UserData userData;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048607, this) == null) && (zr8Var = this.i) != null && zr8Var.getItemViewType(this.z) == 0 && (userData = (UserData) this.i.getItem(this.z)) != null && userData.getUserId() != null && userData.getUserName() != null && !userData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+        if ((interceptable == null || interceptable.invokeV(1048607, this) == null) && (as8Var = this.i) != null && as8Var.getItemViewType(this.z) == 0 && (userData = (UserData) this.i.getItem(this.z)) != null && userData.getUserId() != null && userData.getUserName() != null && !userData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
             TiebaStatic.eventStat(getPageContext().getPageActivity(), "enter_chat", "personlistclick", 1, new Object[0]);
             try {
                 if (getPageContext() != null && getPageContext().getPageActivity() != null) {

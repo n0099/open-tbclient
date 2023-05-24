@@ -80,7 +80,7 @@ import com.baidu.tieba.f25;
 import com.baidu.tieba.fl5;
 import com.baidu.tieba.ft5;
 import com.baidu.tieba.fx4;
-import com.baidu.tieba.fx9;
+import com.baidu.tieba.gx9;
 import com.baidu.tieba.gy4;
 import com.baidu.tieba.hx4;
 import com.baidu.tieba.in5;
@@ -105,8 +105,8 @@ import com.baidu.tieba.ug;
 import com.baidu.tieba.v65;
 import com.baidu.tieba.vn;
 import com.baidu.tieba.xk5;
-import com.baidu.tieba.yk8;
 import com.baidu.tieba.yr4;
+import com.baidu.tieba.zk8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -884,7 +884,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void onStart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048665, this) == null) {
-            yk8 activityLog = ActivityLog.getInstance();
+            zk8 activityLog = ActivityLog.getInstance();
             activityLog.c("BaseActivity", "onStart:" + this);
             super.onStart();
             flog = 0;
@@ -1226,7 +1226,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048651, this) == null) {
-            yk8 activityLog = ActivityLog.getInstance();
+            zk8 activityLog = ActivityLog.getInstance();
             activityLog.c("BaseActivity", "onDestroy:" + this);
             closeLoadingDialog();
             GuidPageView guidPageView = this.mGuidPage;
@@ -1856,7 +1856,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void finish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            yk8 activityLog = ActivityLog.getInstance();
+            zk8 activityLog = ActivityLog.getInstance();
             activityLog.c("BaseActivity", "finish:" + this);
             ri.z(getApplicationContext(), getWindow().getDecorView());
             dismissAllDialog();
@@ -1911,7 +1911,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void onStop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048666, this) == null) {
-            yk8 activityLog = ActivityLog.getInstance();
+            zk8 activityLog = ActivityLog.getInstance();
             activityLog.c("BaseActivity", "onStop:" + this);
             super.onStop();
             if (this == TbadkCoreApplication.getInst().getCurrentActivity()) {
@@ -1967,7 +1967,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, motionEvent)) == null) {
             a35.l(false);
             bs4.a(motionEvent, getPageId(), getMissionTid());
-            fx9.getInstance().behaviorRecordEvent(motionEvent, this);
+            gx9.getInstance().behaviorRecordEvent(motionEvent, this);
             n26.K().H();
             EdgeFloatLifecycle.c().b(motionEvent);
             try {
@@ -2241,7 +2241,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         kx4 kx4Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048645, this, i, i2, intent) == null) {
-            yk8 activityLog = ActivityLog.getInstance();
+            zk8 activityLog = ActivityLog.getInstance();
             activityLog.c("BaseActivity", "onActivityResult:" + this + " requestCode:" + i + " resultCode:" + i2);
             super.onActivityResult(i, i2, intent);
             if (!eu5.c(i, i2, intent) && (kx4Var = this.mPermissionCallback) != null && Build.VERSION.SDK_INT >= 23 && i == 12016) {
@@ -2290,7 +2290,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048650, this, bundle) == null) {
-            yk8 activityLog = ActivityLog.getInstance();
+            zk8 activityLog = ActivityLog.getInstance();
             activityLog.c("BaseActivity", "onCreate:" + this);
             if (this.isAddSwipeBackLayout) {
                 SwipeBackLayout swipeBackLayout = new SwipeBackLayout(getPageContext().getPageActivity());
@@ -2334,9 +2334,9 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048658, this) == null) {
-            yk8 activityLog = ActivityLog.getInstance();
+            zk8 activityLog = ActivityLog.getInstance();
             activityLog.c("BaseActivity", "onPause:" + this);
-            fx9.getInstance().onPause(this);
+            gx9.getInstance().onPause(this);
             super.onPause();
             if (TbSingleton.getInstance().isShowBackLabel && this == TbadkCoreApplication.getInst().getCurrentActivity()) {
                 hideFloatingWindow();
@@ -2483,11 +2483,11 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048663, this) == null) {
-            yk8 activityLog = ActivityLog.getInstance();
+            zk8 activityLog = ActivityLog.getInstance();
             activityLog.c("BaseActivity", "onResume:" + this);
             MenuKeyUtils.hideSoftMenuKey(getWindow());
             super.onResume();
-            fx9.getInstance().onResume(this);
+            gx9.getInstance().onResume(this);
             if (this.isInterceptStimeStat) {
                 setInterceptStimeStat(false);
             } else {

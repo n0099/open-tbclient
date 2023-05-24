@@ -52,12 +52,12 @@ public class j72 implements Runnable {
 
         /* renamed from: com.baidu.tieba.j72$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0351a implements Runnable {
+        public class RunnableC0350a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0351a(a aVar) {
+            public RunnableC0350a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -147,7 +147,7 @@ public class j72 implements Runnable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, webSocketFrame) == null) {
                 this.a.d.offer(webSocketFrame.g());
-                this.a.f.postOnJSThread(new RunnableC0351a(this));
+                this.a.f.postOnJSThread(new RunnableC0350a(this));
             }
         }
 

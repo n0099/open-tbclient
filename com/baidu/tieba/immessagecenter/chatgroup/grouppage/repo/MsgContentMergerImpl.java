@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tbadk.net.FastRequest;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.g88;
+import com.baidu.tieba.h88;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.MsgContentMergerImpl;
-import com.baidu.tieba.w88;
 import com.baidu.tieba.wg;
 import com.baidu.tieba.wj5;
+import com.baidu.tieba.x88;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -281,7 +281,7 @@ public final class MsgContentMergerImpl implements wj5 {
                 super.b(i, errMsg, result);
                 final Function1<List<? extends ChatMsg>, Unit> function1 = this.b;
                 final List<ChatMsg> list = this.e;
-                wg.d(new Runnable() { // from class: com.baidu.tieba.ra8
+                wg.d(new Runnable() { // from class: com.baidu.tieba.sa8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -308,7 +308,7 @@ public final class MsgContentMergerImpl implements wj5 {
                 final MsgContentMergerImpl msgContentMergerImpl = this.c;
                 final long j = this.d;
                 final List<ChatMsg> list = this.e;
-                wg.d(new Runnable() { // from class: com.baidu.tieba.qa8
+                wg.d(new Runnable() { // from class: com.baidu.tieba.ra8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -367,7 +367,7 @@ public final class MsgContentMergerImpl implements wj5 {
             for (ChatMsg chatMsg : oriMsgList) {
                 String senderUid = chatMsg.getSenderUid();
                 Intrinsics.checkNotNullExpressionValue(senderUid, "it.senderUid");
-                arrayList.add(w88.b(senderUid));
+                arrayList.add(x88.b(senderUid));
             }
             ArrayList arrayList2 = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(oriMsgList, 10));
             for (ChatMsg chatMsg2 : oriMsgList) {
@@ -385,7 +385,7 @@ public final class MsgContentMergerImpl implements wj5 {
             fastRequest.Y(2000);
             fastRequest.d0(1);
             fastRequest.X(new a(callback, this, j, oriMsgList));
-            wg.e(new Runnable() { // from class: com.baidu.tieba.sa8
+            wg.e(new Runnable() { // from class: com.baidu.tieba.ta8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -426,7 +426,7 @@ public final class MsgContentMergerImpl implements wj5 {
                     if (userInfo != null) {
                         String senderUid = chatMsg.getSenderUid();
                         Intrinsics.checkNotNullExpressionValue(senderUid, "it.senderUid");
-                        obj2 = userInfo.get(w88.b(senderUid));
+                        obj2 = userInfo.get(x88.b(senderUid));
                     } else {
                         obj2 = null;
                     }
@@ -436,7 +436,7 @@ public final class MsgContentMergerImpl implements wj5 {
                     }
                     chatRoomContentExt = chatMsg.getChatRoomContentExt();
                 } catch (Exception e) {
-                    g88.g("merge_msg_content_exception", j, e);
+                    h88.g("merge_msg_content_exception", j, e);
                 }
                 if (chatRoomContentExt != null && chatRoomContentExt.length() != 0) {
                     z = false;

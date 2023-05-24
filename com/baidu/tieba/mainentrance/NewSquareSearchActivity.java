@@ -31,19 +31,19 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bm8;
 import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.c9;
-import com.baidu.tieba.dl8;
+import com.baidu.tieba.cm8;
 import com.baidu.tieba.el8;
-import com.baidu.tieba.em8;
 import com.baidu.tieba.fb;
+import com.baidu.tieba.fl8;
+import com.baidu.tieba.fm8;
 import com.baidu.tieba.j65;
-import com.baidu.tieba.ll8;
 import com.baidu.tieba.mainentrance.HotForumModel;
 import com.baidu.tieba.mainentrance.searchsuggestlist.SearchListHttpResMessage;
 import com.baidu.tieba.mainentrance.searchsuggestlist.SearchListNetMessage;
 import com.baidu.tieba.mainentrance.searchsuggestlist.SearchListSocketResMessage;
+import com.baidu.tieba.ml8;
 import com.baidu.tieba.o65;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.sg;
@@ -65,7 +65,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     public boolean b;
     public boolean c;
     public HotForumModel d;
-    public bm8 e;
+    public cm8 e;
     public boolean f;
     public final fb g;
     public CustomMessageListener h;
@@ -352,9 +352,9 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDestroy();
-            bm8 bm8Var = this.e;
-            if (bm8Var != null) {
-                bm8Var.onDestroy();
+            cm8 cm8Var = this.e;
+            if (cm8Var != null) {
+                cm8Var.onDestroy();
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921504, null));
             TbPageExtraHelper.setPrePageKey(getCurrentPageKey());
@@ -470,9 +470,9 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
             registerListener(this.g);
             registerListener(this.h);
             if (yu4.b("https://tieba.baidu.com/mo/q/hybrid/search?keyword=")) {
-                this.e = new ll8(this, this.c);
+                this.e = new ml8(this, this.c);
             } else {
-                this.e = new em8(this, this.c);
+                this.e = new fm8(this, this.c);
             }
             D1();
             this.d = new HotForumModel(getPageContext(), this);
@@ -508,9 +508,9 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onPause();
-            bm8 bm8Var = this.e;
-            if (bm8Var != null) {
-                bm8Var.onPause();
+            cm8 cm8Var = this.e;
+            if (cm8Var != null) {
+                cm8Var.onPause();
             }
             MessageManager.getInstance().unRegisterTask(2016568);
         }
@@ -521,9 +521,9 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onResume();
-            bm8 bm8Var = this.e;
-            if (bm8Var != null) {
-                bm8Var.onResume();
+            cm8 cm8Var = this.e;
+            if (cm8Var != null) {
+                cm8Var.onResume();
             }
             registerGetShareContentTask();
             TbSingleton.getInstance().setFromWhichSearchSource("");
@@ -549,7 +549,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     }
 
     @Override // com.baidu.tieba.mainentrance.HotForumModel.b
-    public void r(List<dl8> list, List<el8> list2, HotSearchInfoData hotSearchInfoData, String str) {
+    public void r(List<el8> list, List<fl8> list2, HotSearchInfoData hotSearchInfoData, String str) {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048593, this, list, list2, hotSearchInfoData, str) == null) {

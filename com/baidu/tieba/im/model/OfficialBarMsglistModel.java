@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b48;
+import com.baidu.tieba.c48;
 import com.baidu.tieba.et5;
-import com.baidu.tieba.g28;
+import com.baidu.tieba.h28;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.data.MsgPageData;
@@ -31,9 +31,9 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 import com.baidu.tieba.im.model.MsglistModel;
 import com.baidu.tieba.it5;
-import com.baidu.tieba.j38;
-import com.baidu.tieba.u08;
-import com.baidu.tieba.v28;
+import com.baidu.tieba.k38;
+import com.baidu.tieba.v08;
+import com.baidu.tieba.w28;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,7 +50,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
     public boolean hasFake;
     public CustomMessageListener mCustomMessageListener;
     public int mUserType;
-    public g28 officialBarMenuDatas;
+    public h28 officialBarMenuDatas;
 
     /* loaded from: classes6.dex */
     public static class MsgContent extends OrmObject {
@@ -339,18 +339,18 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return j38.n().o(String.valueOf(b48.k), -9);
+            return k38.n().o(String.valueOf(c48.k), -9);
         }
         return invokeV.longValue;
     }
 
-    public g28 getOfficialBarMenuDatas() {
+    public h28 getOfficialBarMenuDatas() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.officialBarMenuDatas;
         }
-        return (g28) invokeV.objValue;
+        return (h28) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
@@ -414,7 +414,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        return Boolean.valueOf(v28.w().c(String.valueOf(this.this$0.mUser.getUserId()), String.valueOf(this.val$msg.getMsgId())));
+                        return Boolean.valueOf(w28.w().c(String.valueOf(this.this$0.mUser.getUserId()), String.valueOf(this.val$msg.getMsgId())));
                     }
                     return (Boolean) invokeV.objValue;
                 }
@@ -458,7 +458,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        return Boolean.valueOf(v28.w().o(String.valueOf(this.this$0.mUser.getUserId()), String.valueOf(this.val$msg.getMsgId())));
+                        return Boolean.valueOf(w28.w().o(String.valueOf(this.this$0.mUser.getUserId()), String.valueOf(this.val$msg.getMsgId())));
                     }
                     return (Boolean) invokeV.objValue;
                 }
@@ -475,10 +475,10 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
         }
     }
 
-    public void setOfficialBarMenuDatas(g28 g28Var) {
+    public void setOfficialBarMenuDatas(h28 h28Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, g28Var) == null) {
-            this.officialBarMenuDatas = g28Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, h28Var) == null) {
+            this.officialBarMenuDatas = h28Var;
         }
     }
 
@@ -513,10 +513,10 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public boolean loadFirst(u08 u08Var) {
+    public boolean loadFirst(v08 v08Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, u08Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, v08Var)) == null) {
             if (this.mUser == null) {
                 return false;
             }

@@ -12,7 +12,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.Direction;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b28;
+import com.baidu.tieba.c28;
 import com.baidu.tieba.n75;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.ri;
@@ -27,12 +27,12 @@ public class GamePersonalChatTitleView extends RelativeLayout {
     public View a;
     public TextView b;
     public TBSpecificationBtn c;
-    public b28 d;
+    public c28 d;
     public b e;
 
     /* loaded from: classes7.dex */
     public interface b {
-        void a(@NonNull b28 b28Var);
+        void a(@NonNull c28 c28Var);
     }
 
     /* loaded from: classes7.dex */
@@ -132,11 +132,11 @@ public class GamePersonalChatTitleView extends RelativeLayout {
         e();
     }
 
-    public void h(b28 b28Var) {
+    public void h(c28 c28Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, b28Var) == null) {
-            this.d = b28Var;
-            this.b.setText(b28Var.c());
+        if (interceptable == null || interceptable.invokeL(1048581, this, c28Var) == null) {
+            this.d = c28Var;
+            this.b.setText(c28Var.c());
         }
     }
 

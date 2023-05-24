@@ -139,7 +139,7 @@ public class mp5 {
             this.p = op5Var;
             op5Var.M(this.c);
             this.a.add(this.p);
-            np5 np5Var = new np5(this.b, jk6.Q0);
+            np5 np5Var = new np5(this.b, kk6.Q0);
             this.q = np5Var;
             this.a.add(np5Var);
             this.c.addAdapters(this.a);

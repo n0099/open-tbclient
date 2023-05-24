@@ -115,9 +115,9 @@ public class sc5 {
         ItemInfo C0;
         List<ItemPoint> list;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, context, threadData) == null) && (context instanceof g97)) {
-            g97 g97Var = (g97) context;
-            if (!g97Var.M() || threadData == null || threadData.getItem() != null || (C0 = g97Var.C0()) == null) {
+        if ((interceptable == null || interceptable.invokeLL(65537, null, context, threadData) == null) && (context instanceof h97)) {
+            h97 h97Var = (h97) context;
+            if (!h97Var.M() || threadData == null || threadData.getItem() != null || (C0 = h97Var.C0()) == null) {
                 return;
             }
             Item.Builder builder = new Item.Builder();
@@ -446,7 +446,7 @@ public class sc5 {
                 shareDialogConfig.mIsVoiceRoom = z6;
                 shareDialogConfig.setIsAlaLive(z7);
                 a(shareDialogConfig, i2);
-                bn6.c().l(shareDialogConfig);
+                cn6.c().l(shareDialogConfig);
             }
             z2 = true;
             if (threadData.getThreadAlaInfo() != null) {
@@ -528,7 +528,7 @@ public class sc5 {
             shareDialogConfig2.mIsVoiceRoom = z6;
             shareDialogConfig2.setIsAlaLive(z7);
             a(shareDialogConfig2, i2);
-            bn6.c().l(shareDialogConfig2);
+            cn6.c().l(shareDialogConfig2);
         }
     }
 }

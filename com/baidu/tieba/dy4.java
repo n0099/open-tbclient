@@ -251,8 +251,8 @@ public class dy4 {
         }
         this.f = false;
         this.g = new a(this, CmdConfigHttp.CMD_GET_BIGDAY_INFO, 309609);
-        zq9.h(309609, GetBigdayInfoSocketResMessage.class, false, false);
-        zq9.c(309609, CmdConfigHttp.CMD_GET_BIGDAY_INFO, "c/s/getBigday", GetBigdayInfoHttpResMessage.class, false, false, true, false);
+        ar9.h(309609, GetBigdayInfoSocketResMessage.class, false, false);
+        ar9.c(309609, CmdConfigHttp.CMD_GET_BIGDAY_INFO, "c/s/getBigday", GetBigdayInfoHttpResMessage.class, false, false, true, false);
         MessageManager.getInstance().registerListener(this.g);
         this.c = new SparseArray<>();
     }

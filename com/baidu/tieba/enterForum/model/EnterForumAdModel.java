@@ -10,9 +10,9 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.m9;
-import com.baidu.tieba.rp9;
-import com.baidu.tieba.tp9;
-import com.baidu.tieba.vs6;
+import com.baidu.tieba.sp9;
+import com.baidu.tieba.up9;
+import com.baidu.tieba.ws6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class EnterForumAdModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vs6 a;
+    public ws6 a;
     public boolean b;
     public HttpMessageListener c;
 
@@ -111,13 +111,13 @@ public class EnterForumAdModel extends BdBaseModel {
         MessageManager.getInstance().registerListener(this.c);
     }
 
-    public vs6 Z() {
+    public ws6 Z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (vs6) invokeV.objValue;
+        return (ws6) invokeV.objValue;
     }
 
     public void a0() {
@@ -128,10 +128,10 @@ public class EnterForumAdModel extends BdBaseModel {
     }
 
     public void b0(Context context) {
-        vs6 vs6Var;
+        ws6 ws6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && !this.b && (vs6Var = this.a) != null && vs6Var.a()) {
-            tp9.g().c(m9.a(context).getUniqueId(), rp9.f("a025", "common_fill", true, 1, 5));
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && !this.b && (ws6Var = this.a) != null && ws6Var.a()) {
+            up9.g().c(m9.a(context).getUniqueId(), sp9.f("a025", "common_fill", true, 1, 5));
             this.b = true;
         }
     }

@@ -45,7 +45,7 @@ import org.json.JSONObject;
 public class xb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vea A;
+    public wea A;
     public NewGodData B;
     public ka5 C;
     public o95 D;
@@ -138,7 +138,7 @@ public class xb5 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                yk8 defaultLog = DefaultLog.getInstance();
+                zk8 defaultLog = DefaultLog.getInstance();
                 defaultLog.c("WebPreheat", "sync返回预热H5:" + this.a);
                 ku5.e(this.a);
             }
@@ -217,7 +217,7 @@ public class xb5 {
             try {
                 C(new JSONObject(str));
             } catch (Exception e) {
-                yk8 a2 = rk.a();
+                zk8 a2 = rk.a();
                 a2.b(Config.DEVICE_PART, "sync exception1: " + e.getMessage());
                 BdLog.e(e.getMessage());
             }
@@ -329,9 +329,9 @@ public class xb5 {
             YYLiveConfig yYLiveConfig = new YYLiveConfig();
             this.z = yYLiveConfig;
             yYLiveConfig.parseJson(A(jSONObject, "yy_live_config"));
-            vea veaVar = new vea();
-            this.A = veaVar;
-            veaVar.b(z(jSONObject, "yy_live_tab"));
+            wea weaVar = new wea();
+            this.A = weaVar;
+            weaVar.b(z(jSONObject, "yy_live_tab"));
             this.n.c(jSONObject.optJSONObject("hot_notify_config"));
             TbSingleton.getInstance().setHotNotifyConfig(this.n);
             ey4.b().f(this.x);
@@ -353,22 +353,22 @@ public class xb5 {
             TbSingleton.getInstance().setPcdnConfigData(jSONObject.optJSONObject("pcdn_config"));
             JSONArray z10 = z(jSONObject, "offpack");
             if (z10 != null && z10.length() > 0 && (jSONObject2 = z10.getJSONObject(0)) != null) {
-                we9 we9Var = new we9();
-                we9Var.e(jSONObject2.optString("mod_name"));
+                xe9 xe9Var = new xe9();
+                xe9Var.e(jSONObject2.optString("mod_name"));
                 if (jSONObject2.optInt("upload_offline_web_cache") == 1) {
                     z7 = true;
                 } else {
                     z7 = false;
                 }
-                we9Var.f(z7);
+                xe9Var.f(z7);
                 if (jSONObject2.optInt("clear_offline_web_cache") == 1) {
                     z8 = true;
                 } else {
                     z8 = false;
                 }
-                we9Var.d(z8);
-                if (!TextUtils.isEmpty(we9Var.a())) {
-                    TbSingleton.getInstance().setUploadAndClearModule(we9Var);
+                xe9Var.d(z8);
+                if (!TextUtils.isEmpty(xe9Var.a())) {
+                    TbSingleton.getInstance().setUploadAndClearModule(xe9Var);
                 }
             }
             String optString2 = jSONObject.optString("proxy_ip");
@@ -403,16 +403,16 @@ public class xb5 {
                 }
             }
             o65.m().z("key_personalized_rec_switch", jSONObject.optInt("personalized_rec_switch"));
-            eh8 eh8Var = new eh8();
+            fh8 fh8Var = new fh8();
             JSONObject optJSONObject6 = jSONObject.optJSONObject("recent_client_info");
             if (optJSONObject6 != null) {
-                eh8Var.d(RecentClientInfo.parseJson(optJSONObject6));
+                fh8Var.d(RecentClientInfo.parseJson(optJSONObject6));
             }
             JSONObject optJSONObject7 = jSONObject.optJSONObject("new_user_interest_board_config");
             if (optJSONObject7 != null) {
-                eh8Var.c(ch8.e(optJSONObject7));
+                fh8Var.c(dh8.e(optJSONObject7));
             }
-            InterestPanelShowManager.a().c(eh8Var);
+            InterestPanelShowManager.a().c(fh8Var);
             JSONObject optJSONObject8 = jSONObject.optJSONObject("bottom_bubble_config");
             if (optJSONObject8 != null) {
                 fj5.f().k(optJSONObject8);
@@ -430,7 +430,7 @@ public class xb5 {
             }
             tbSingleton3.showStampMissionDialog = z4;
             int optInt4 = jSONObject.optInt("afSearch_tab", 0);
-            oi9 d = oi9.d();
+            pi9 d = pi9.d();
             if (optInt4 == 1) {
                 z5 = true;
             } else {
@@ -446,16 +446,16 @@ public class xb5 {
             }
             tbSingleton4.setIsNeedRemindLiveRoom(z6);
             JSONObject optJSONObject9 = jSONObject.optJSONObject("search_guide");
-            qw8.b().a();
+            rw8.b().a();
             if (optJSONObject9 != null && (optJSONObject = optJSONObject9.optJSONObject("pb")) != null) {
                 if (optJSONObject.optInt("is_show", 0) != 1) {
                     z9 = false;
                 }
                 int optInt6 = optJSONObject.optInt("pos", -1);
-                rx8 rx8Var = new rx8();
-                rx8Var.a = z9;
-                rx8Var.b = optInt6;
-                qw8.b().d(rx8Var);
+                sx8 sx8Var = new sx8();
+                sx8Var.a = z9;
+                sx8Var.b = optInt6;
+                rw8.b().d(sx8Var);
             }
             re5.g().a(AgreeMaterial.W(jSONObject.optJSONObject("agree_material")));
             JSONObject optJSONObject10 = jSONObject.optJSONObject("live_activity_guide");
@@ -493,7 +493,7 @@ public class xb5 {
             HotEventData.getInstance().parsJson(jSONObject.optJSONObject("thread_recommend_info"));
             this.G = userGrowthTaskListData;
         } catch (Exception e) {
-            yk8 a2 = rk.a();
+            zk8 a2 = rk.a();
             a2.b(Config.DEVICE_PART, "sync exception2: " + e.getMessage());
             BdLog.e(e.getMessage());
         }
@@ -722,13 +722,13 @@ public class xb5 {
         return (YYLiveConfig) invokeV.objValue;
     }
 
-    public vea x() {
+    public wea x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
             return this.A;
         }
-        return (vea) invokeV.objValue;
+        return (wea) invokeV.objValue;
     }
 
     public String y() {

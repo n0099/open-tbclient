@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface uj6 {
-    void j(boolean z);
+    void a(String str);
+
+    void p(int i);
 }

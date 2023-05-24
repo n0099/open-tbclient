@@ -1,281 +1,292 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.e7b;
-import com.baidu.tieba.h7b;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.i7b;
+import com.baidu.tieba.l7b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.exceptions.MissingBackpressureException;
 import rx.internal.operators.NotificationLite;
-import rx.internal.util.BackpressureDrainManager;
 /* loaded from: classes7.dex */
-public class r8b<T> implements h7b.b<T, T> {
+public final class r8b<T> implements i7b.b<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Long a;
-    public final u7b b;
-    public final e7b.d c;
+    public final l7b a;
+    public final boolean b;
+    public final int c;
 
     /* loaded from: classes7.dex */
-    public static final class a<T> extends n7b<T> implements BackpressureDrainManager.a {
+    public static final class a<T> extends o7b<T> implements v7b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ConcurrentLinkedQueue<Object> e;
-        public final AtomicLong f;
-        public final n7b<? super T> g;
-        public final AtomicBoolean h;
-        public final BackpressureDrainManager i;
-        public final u7b j;
-        public final e7b.d k;
+        public final o7b<? super T> e;
+        public final l7b.a f;
+        public final boolean g;
+        public final Queue<Object> h;
+        public final int i;
+        public volatile boolean j;
+        public final AtomicLong k;
+        public final AtomicLong l;
+        public Throwable m;
+        public long n;
 
-        public a(n7b<? super T> n7bVar, Long l, u7b u7bVar, e7b.d dVar) {
-            AtomicLong atomicLong;
+        /* renamed from: com.baidu.tieba.r8b$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class C0447a implements k7b {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public C0447a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // com.baidu.tieba.k7b
+            public void request(long j) {
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeJ(1048576, this, j) == null) && j > 0) {
+                    d8b.b(this.a.k, j);
+                    this.a.i();
+                }
+            }
+        }
+
+        public a(l7b l7bVar, o7b<? super T> o7bVar, boolean z, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {n7bVar, l, u7bVar, dVar};
+                Object[] objArr = {l7bVar, o7bVar, Boolean.valueOf(z), Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.e = new ConcurrentLinkedQueue<>();
-            this.h = new AtomicBoolean(false);
-            this.g = n7bVar;
-            if (l != null) {
-                atomicLong = new AtomicLong(l.longValue());
+            this.k = new AtomicLong();
+            this.l = new AtomicLong();
+            this.e = o7bVar;
+            this.f = l7bVar.createWorker();
+            this.g = z;
+            i = i <= 0 ? u9b.c : i;
+            this.i = i - (i >> 2);
+            if (ibb.b()) {
+                this.h = new uab(i);
             } else {
-                atomicLong = null;
+                this.h = new z9b(i);
             }
-            this.f = atomicLong;
-            this.j = u7bVar;
-            this.i = new BackpressureDrainManager(this);
-            this.k = dVar;
+            e(i);
         }
 
-        @Override // rx.internal.util.BackpressureDrainManager.a
-        public void a(Throwable th) {
+        public boolean g(boolean z, boolean z2, o7b<? super T> o7bVar, Queue<Object> queue) {
+            InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                if (th != null) {
-                    this.g.onError(th);
-                } else {
-                    this.g.onCompleted();
-                }
-            }
-        }
-
-        @Override // rx.internal.util.BackpressureDrainManager.a
-        public boolean accept(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-                return NotificationLite.a(this.g, obj);
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.i7b
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048582, this, th) == null) && !this.h.get()) {
-                this.i.terminateAndDrain(th);
-            }
-        }
-
-        @Override // com.baidu.tieba.i7b
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048583, this, t) != null) || !g()) {
-                return;
-            }
-            this.e.offer(NotificationLite.h(t));
-            this.i.drain();
-        }
-
-        @Override // com.baidu.tieba.n7b
-        public void d() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                e(Long.MAX_VALUE);
-            }
-        }
-
-        public j7b h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.i;
-            }
-            return (j7b) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.i7b
-        public void onCompleted() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !this.h.get()) {
-                this.i.terminateAndDrain();
-            }
-        }
-
-        @Override // rx.internal.util.BackpressureDrainManager.a
-        public Object peek() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-                return this.e.peek();
-            }
-            return invokeV.objValue;
-        }
-
-        @Override // rx.internal.util.BackpressureDrainManager.a
-        public Object poll() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-                Object poll = this.e.poll();
-                AtomicLong atomicLong = this.f;
-                if (atomicLong != null && poll != null) {
-                    atomicLong.incrementAndGet();
-                }
-                return poll;
-            }
-            return invokeV.objValue;
-        }
-
-        /* JADX WARN: Removed duplicated region for block: B:36:0x003d A[EXC_TOP_SPLITTER, SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:40:0x004d A[SYNTHETIC] */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public final boolean g() {
-            InterceptResult invokeV;
-            long j;
-            boolean z;
-            u7b u7bVar;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (this.f == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), o7bVar, queue})) == null) {
+                if (o7bVar.isUnsubscribed()) {
+                    queue.clear();
                     return true;
-                }
-                do {
-                    j = this.f.get();
-                    if (j <= 0) {
-                        try {
-                        } catch (MissingBackpressureException e) {
-                            if (this.h.compareAndSet(false, true)) {
-                                unsubscribe();
-                                this.g.onError(e);
-                            }
-                        }
-                        if (this.k.a() && poll() != null) {
-                            z = true;
-                            u7bVar = this.j;
-                            if (u7bVar != null) {
-                                try {
-                                    u7bVar.call();
-                                } catch (Throwable th) {
-                                    t7b.e(th);
-                                    this.i.terminateAndDrain(th);
-                                    return false;
+                } else if (z) {
+                    if (this.g) {
+                        if (z2) {
+                            Throwable th = this.m;
+                            try {
+                                if (th != null) {
+                                    o7bVar.onError(th);
+                                } else {
+                                    o7bVar.onCompleted();
                                 }
-                            }
-                            if (!z) {
                                 return false;
+                            } finally {
                             }
                         }
-                        z = false;
-                        u7bVar = this.j;
-                        if (u7bVar != null) {
+                        return false;
+                    }
+                    Throwable th2 = this.m;
+                    if (th2 != null) {
+                        queue.clear();
+                        try {
+                            o7bVar.onError(th2);
+                            return true;
+                        } finally {
                         }
-                        if (!z) {
+                    } else if (z2) {
+                        try {
+                            o7bVar.onCompleted();
+                            return true;
+                        } finally {
+                        }
+                    } else {
+                        return false;
+                    }
+                } else {
+                    return false;
+                }
+            }
+            return invokeCommon.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.v7b
+        public void call() {
+            int i;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                long j = this.n;
+                Queue<Object> queue = this.h;
+                o7b<? super T> o7bVar = this.e;
+                long j2 = 1;
+                do {
+                    long j3 = this.k.get();
+                    while (true) {
+                        i = (j3 > j ? 1 : (j3 == j ? 0 : -1));
+                        if (i == 0) {
+                            break;
+                        }
+                        boolean z2 = this.j;
+                        Object poll = queue.poll();
+                        if (poll == null) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        if (g(z2, z, o7bVar, queue)) {
+                            return;
+                        }
+                        if (z) {
+                            break;
+                        }
+                        o7bVar.onNext((Object) NotificationLite.e(poll));
+                        j++;
+                        if (j == this.i) {
+                            j3 = d8b.g(this.k, j);
+                            e(j);
+                            j = 0;
                         }
                     }
-                } while (!this.f.compareAndSet(j, j - 1));
-                return true;
+                    if (i == 0 && g(this.j, queue.isEmpty(), o7bVar, queue)) {
+                        return;
+                    }
+                    this.n = j;
+                    j2 = this.l.addAndGet(-j2);
+                } while (j2 != 0);
             }
-            return invokeV.booleanValue;
         }
-    }
 
-    /* loaded from: classes7.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final r8b<?> a;
-        public transient /* synthetic */ FieldHolder $fh;
+        public void h() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                o7b<? super T> o7bVar = this.e;
+                o7bVar.f(new C0447a(this));
+                o7bVar.b(this.f);
+                o7bVar.b(this);
+            }
+        }
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-503850513, "Lcom/baidu/tieba/r8b$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-503850513, "Lcom/baidu/tieba/r8b$b;");
+        public void i() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.l.getAndIncrement() == 0) {
+                this.f.b(this);
+            }
+        }
+
+        @Override // com.baidu.tieba.j7b
+        public void onCompleted() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && !isUnsubscribed() && !this.j) {
+                this.j = true;
+                i();
+            }
+        }
+
+        @Override // com.baidu.tieba.j7b
+        public void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, th) == null) {
+                if (!isUnsubscribed() && !this.j) {
+                    this.m = th;
+                    this.j = true;
+                    i();
                     return;
                 }
+                sbb.j(th);
             }
-            a = new r8b<>();
+        }
+
+        @Override // com.baidu.tieba.j7b
+        public void onNext(T t) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048582, this, t) == null) && !isUnsubscribed() && !this.j) {
+                if (!this.h.offer(NotificationLite.h(t))) {
+                    onError(new MissingBackpressureException());
+                } else {
+                    i();
+                }
+            }
         }
     }
 
-    public r8b() {
+    public r8b(l7b l7bVar, boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {l7bVar, Boolean.valueOf(z), Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = e7b.b;
+        this.a = l7bVar;
+        this.b = z;
+        this.c = i <= 0 ? u9b.c : i;
     }
 
-    public static <T> r8b<T> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return (r8b<T>) b.a;
-        }
-        return (r8b) invokeV.objValue;
-    }
-
-    public n7b<? super T> call(n7b<? super T> n7bVar) {
+    public o7b<? super T> call(o7b<? super T> o7bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, n7bVar)) == null) {
-            a aVar = new a(n7bVar, this.a, this.b, this.c);
-            n7bVar.b(aVar);
-            n7bVar.f(aVar.h());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, o7bVar)) == null) {
+            l7b l7bVar = this.a;
+            if (l7bVar instanceof j9b) {
+                return o7bVar;
+            }
+            if (l7bVar instanceof o9b) {
+                return o7bVar;
+            }
+            a aVar = new a(l7bVar, o7bVar, this.b, this.c);
+            aVar.h();
             return aVar;
         }
-        return (n7b) invokeL.objValue;
+        return (o7b) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.h7b.b, com.baidu.tieba.z7b
+    @Override // com.baidu.tieba.i7b.b, com.baidu.tieba.a8b
     public /* bridge */ /* synthetic */ Object call(Object obj) {
-        return call((n7b) ((n7b) obj));
+        return call((o7b) ((o7b) obj));
     }
 }

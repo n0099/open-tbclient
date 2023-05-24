@@ -27,10 +27,10 @@ public class bq5 extends pp5<o15, ThreadCardViewHolder<o15>> {
     public transient /* synthetic */ FieldHolder $fh;
     public FollowUserButton.a g;
     public NEGFeedBackView.b h;
-    public vj6<o15> i;
+    public wj6<o15> i;
 
     /* loaded from: classes5.dex */
-    public class a extends vj6<o15> {
+    public class a extends wj6<o15> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ bq5 b;
@@ -54,7 +54,7 @@ public class bq5 extends pp5<o15, ThreadCardViewHolder<o15>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vj6
+        @Override // com.baidu.tieba.wj6
         /* renamed from: d */
         public void a(View view2, o15 o15Var) {
             Interceptable interceptable = $ic;

@@ -11,15 +11,15 @@ import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class mm6 implements i37 {
+public final class mm6 implements j37 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.i37
+    @Override // com.baidu.tieba.j37
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TbadkCoreStatisticKey.HOT_TOPIC_CLICK : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TbadkCoreStatisticKey.KEY_ITEM_THROUGH_CLICK : (String) invokeV.objValue;
     }
 
     public mm6() {
@@ -36,14 +36,20 @@ public final class mm6 implements i37 {
         }
     }
 
-    @Override // com.baidu.tieba.i37
-    public Map<String, String> a(uz6 businessInfo) {
+    @Override // com.baidu.tieba.j37
+    public Map<String, String> a(vz6 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
             Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
             HashMap hashMap = new HashMap();
-            hashMap.put("obj_locate", "index");
+            Map<String, String> a = businessInfo.a();
+            hashMap.put("obj_locate", "2");
+            String str = a.get("item_id");
+            if (str == null) {
+                str = "";
+            }
+            hashMap.put("obj_type", str);
             return hashMap;
         }
         return (Map) invokeL.objValue;

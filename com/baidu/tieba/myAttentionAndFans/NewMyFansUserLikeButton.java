@@ -47,13 +47,13 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
 
         /* renamed from: com.baidu.tieba.myAttentionAndFans.NewMyFansUserLikeButton$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0385a implements o25.e {
+        public class C0387a implements o25.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ View a;
             public final /* synthetic */ a b;
 
-            public C0385a(a aVar, View view2) {
+            public C0387a(a aVar, View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -173,7 +173,7 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
                         o25Var.t(this.b.t.getString(R.string.confirm_unlike));
                         ArrayList arrayList = new ArrayList();
                         k25 k25Var = new k25(this.b.t.getString(R.string.obfuscated_res_0x7f0f04b2), o25Var);
-                        k25Var.m(new C0385a(this, view2));
+                        k25Var.m(new C0387a(this, view2));
                         arrayList.add(k25Var);
                         o25Var.o(new b(this));
                         o25Var.l(arrayList);

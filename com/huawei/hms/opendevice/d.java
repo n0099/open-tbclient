@@ -2,8 +2,8 @@ package com.huawei.hms.opendevice;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.tieba.b3b;
-import com.baidu.tieba.q3b;
+import com.baidu.tieba.c3b;
+import com.baidu.tieba.r3b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -165,9 +165,9 @@ public abstract class d {
                 try {
                     httpURLConnection = a(context, str, map, a.b.a());
                     if (httpURLConnection == null) {
-                        q3b.c(null);
-                        q3b.b(null);
-                        q3b.b(null);
+                        r3b.c(null);
+                        r3b.b(null);
+                        r3b.b(null);
                         s.a(httpURLConnection);
                         HMSLog.i("PushHttpClient", "close connection");
                         return null;
@@ -185,9 +185,9 @@ public abstract class d {
                         HMSLog.w("PushHttpClient", sb.toString());
                         outputStream = r82;
                         inputStream7 = inputStream5;
-                        q3b.c(outputStream);
-                        q3b.b(inputStream7);
-                        q3b.b(inputStream6);
+                        r3b.c(outputStream);
+                        r3b.b(inputStream7);
+                        r3b.b(inputStream6);
                         s.a(httpURLConnection);
                         HMSLog.i("PushHttpClient", "close connection");
                         return null;
@@ -202,9 +202,9 @@ public abstract class d {
                         HMSLog.w("PushHttpClient", sb2.toString());
                         outputStream = r82;
                         inputStream7 = inputStream5;
-                        q3b.c(outputStream);
-                        q3b.b(inputStream7);
-                        q3b.b(inputStream6);
+                        r3b.c(outputStream);
+                        r3b.b(inputStream7);
+                        r3b.b(inputStream6);
                         s.a(httpURLConnection);
                         HMSLog.i("PushHttpClient", "close connection");
                         return null;
@@ -219,9 +219,9 @@ public abstract class d {
                         HMSLog.w("PushHttpClient", sb3.toString());
                         outputStream = r82;
                         inputStream7 = inputStream5;
-                        q3b.c(outputStream);
-                        q3b.b(inputStream7);
-                        q3b.b(inputStream6);
+                        r3b.c(outputStream);
+                        r3b.b(inputStream7);
+                        r3b.b(inputStream6);
                         s.a(httpURLConnection);
                         HMSLog.i("PushHttpClient", "close connection");
                         return null;
@@ -249,9 +249,9 @@ public abstract class d {
                             inputStream6 = new BufferedInputStream(inputStream5);
                             try {
                                 String a2 = s.a(inputStream6);
-                                q3b.c(r82);
-                                q3b.b(inputStream5);
-                                q3b.b(inputStream6);
+                                r3b.c(r82);
+                                r3b.b(inputStream5);
+                                r3b.b(inputStream6);
                                 s.a(httpURLConnection);
                                 HMSLog.i("PushHttpClient", "close connection");
                                 return a2;
@@ -262,9 +262,9 @@ public abstract class d {
                                 HMSLog.w("PushHttpClient", sb5.toString());
                                 outputStream = r82;
                                 inputStream7 = inputStream5;
-                                q3b.c(outputStream);
-                                q3b.b(inputStream7);
-                                q3b.b(inputStream6);
+                                r3b.c(outputStream);
+                                r3b.b(inputStream7);
+                                r3b.b(inputStream6);
                                 s.a(httpURLConnection);
                                 HMSLog.i("PushHttpClient", "close connection");
                                 return null;
@@ -275,9 +275,9 @@ public abstract class d {
                                 HMSLog.w("PushHttpClient", sb22.toString());
                                 outputStream = r82;
                                 inputStream7 = inputStream5;
-                                q3b.c(outputStream);
-                                q3b.b(inputStream7);
-                                q3b.b(inputStream6);
+                                r3b.c(outputStream);
+                                r3b.b(inputStream7);
+                                r3b.b(inputStream6);
                                 s.a(httpURLConnection);
                                 HMSLog.i("PushHttpClient", "close connection");
                                 return null;
@@ -288,9 +288,9 @@ public abstract class d {
                                 HMSLog.w("PushHttpClient", sb32.toString());
                                 outputStream = r82;
                                 inputStream7 = inputStream5;
-                                q3b.c(outputStream);
-                                q3b.b(inputStream7);
-                                q3b.b(inputStream6);
+                                r3b.c(outputStream);
+                                r3b.b(inputStream7);
+                                r3b.b(inputStream6);
                                 s.a(httpURLConnection);
                                 HMSLog.i("PushHttpClient", "close connection");
                                 return null;
@@ -307,9 +307,9 @@ public abstract class d {
                             r10 = 0;
                             r8 = r82;
                             inputStream = inputStream5;
-                            q3b.c(r8);
-                            q3b.b(inputStream);
-                            q3b.b(r10);
+                            r3b.c(r8);
+                            r3b.b(inputStream);
+                            r3b.b(r10);
                             s.a(httpURLConnection2);
                             HMSLog.i("PushHttpClient", "close connection");
                             throw th;
@@ -324,9 +324,9 @@ public abstract class d {
                         HMSLog.w("PushHttpClient", sb52.toString());
                         outputStream = r82;
                         inputStream7 = inputStream5;
-                        q3b.c(outputStream);
-                        q3b.b(inputStream7);
-                        q3b.b(inputStream6);
+                        r3b.c(outputStream);
+                        r3b.b(inputStream7);
+                        r3b.b(inputStream6);
                         s.a(httpURLConnection);
                         HMSLog.i("PushHttpClient", "close connection");
                         return null;
@@ -340,9 +340,9 @@ public abstract class d {
                         HMSLog.w("PushHttpClient", sb222.toString());
                         outputStream = r82;
                         inputStream7 = inputStream5;
-                        q3b.c(outputStream);
-                        q3b.b(inputStream7);
-                        q3b.b(inputStream6);
+                        r3b.c(outputStream);
+                        r3b.b(inputStream7);
+                        r3b.b(inputStream6);
                         s.a(httpURLConnection);
                         HMSLog.i("PushHttpClient", "close connection");
                         return null;
@@ -356,9 +356,9 @@ public abstract class d {
                         HMSLog.w("PushHttpClient", sb322.toString());
                         outputStream = r82;
                         inputStream7 = inputStream5;
-                        q3b.c(outputStream);
-                        q3b.b(inputStream7);
-                        q3b.b(inputStream6);
+                        r3b.c(outputStream);
+                        r3b.b(inputStream7);
+                        r3b.b(inputStream6);
                         s.a(httpURLConnection);
                         HMSLog.i("PushHttpClient", "close connection");
                         return null;
@@ -432,9 +432,9 @@ public abstract class d {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65538, null, context, httpURLConnection) == null) && (httpURLConnection instanceof HttpsURLConnection)) {
             HttpsURLConnection httpsURLConnection = (HttpsURLConnection) httpURLConnection;
-            b3b b3bVar = null;
+            c3b c3bVar = null;
             try {
-                b3bVar = b3b.b(context);
+                c3bVar = c3b.b(context);
             } catch (IOException unused) {
                 HMSLog.w("PushHttpClient", "Get SocketFactory IO Exception.");
             } catch (IllegalAccessException unused2) {
@@ -448,9 +448,9 @@ public abstract class d {
             } catch (GeneralSecurityException unused6) {
                 HMSLog.w("PushHttpClient", "Get SocketFactory General Security Exception.");
             }
-            if (b3bVar != null) {
-                httpsURLConnection.setSSLSocketFactory(b3bVar);
-                httpsURLConnection.setHostnameVerifier(b3b.i);
+            if (c3bVar != null) {
+                httpsURLConnection.setSSLSocketFactory(c3bVar);
+                httpsURLConnection.setHostnameVerifier(c3b.i);
                 return;
             }
             throw new Exception("No ssl socket factory set.");

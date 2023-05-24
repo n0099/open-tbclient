@@ -1,448 +1,383 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.BIMManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.data.AtSelectData;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AtUserInfo;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.ReMsgInfo;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.SingleTextImageMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TextGenImageMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TextMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes6.dex */
-public class n98 {
+public final class n98 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947957404, "Lcom/baidu/tieba/n98;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947957404, "Lcom/baidu/tieba/n98;");
-                return;
-            }
-        }
-        a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08e4);
-        b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08e5);
-    }
-
-    public static String a(@Nullable String str, @Nullable String str2) {
-        InterceptResult invokeLL;
+    public static final void a(final String filePath, final int i, final int i2, final k98 callback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str2;
-            }
-            if (TextUtils.isEmpty(str2)) {
-                return String.format(b, str);
-            }
-            return String.format(a, str, str2);
-        }
-        return (String) invokeLL.objValue;
-    }
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{filePath, Integer.valueOf(i), Integer.valueOf(i2), callback}) == null) {
+            Intrinsics.checkNotNullParameter(filePath, "filePath");
+            Intrinsics.checkNotNullParameter(callback, "callback");
+            wg.d(new Runnable() { // from class: com.baidu.tieba.j98
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static AtUserInfo j(@NonNull BotsDTO.BotListDTO.UserDTO userDTO, @NonNull String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, userDTO, str)) == null) {
-            xs5.d(i(userDTO));
-            return AtUserInfo.create(AtUserInfo.AtType.USER, Long.parseLong(BIMManager.getBdUidFromBdUK(userDTO.getUk())), str, userDTO.getPortrait(), 0);
-        }
-        return (AtUserInfo) invokeLL.objValue;
-    }
-
-    public static String b(@NonNull List<AtSelectData> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (AtSelectData atSelectData : list) {
-                sb.append("@");
-                sb.append(atSelectData.getNameShow());
-                sb.append(" ");
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(@NonNull String str, @NonNull BotsDTO.BotListDTO.SkillDTO skillDTO, @Nullable List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> list, @NonNull List<AtSelectData> list2) {
-        InterceptResult invokeLLLL;
-        List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO> opts;
-        BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext;
-        List<AtSelectData> atUserInfos;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, str, skillDTO, list, list2)) == null) {
-            StringBuilder sb = new StringBuilder();
-            StringBuilder sb2 = new StringBuilder();
-            if (list != null && !list.isEmpty()) {
-                for (BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO : list) {
-                    if (itemsDTO != null && (opts = itemsDTO.getOpts()) != null && !opts.isEmpty()) {
-                        if (itemsDTO.isNormalType()) {
-                            sb.append(a(itemsDTO.getName(), opts.get(0).getName()));
-                            sb.append("\n");
-                        } else if (itemsDTO.isFileType()) {
-                            sb2.append(a(itemsDTO.getName(), null));
-                            sb2.append("\n");
-                        } else if (itemsDTO.isAtType() && (ext = opts.get(0).getExt()) != null && (atUserInfos = ext.getAtUserInfos()) != null && !atUserInfos.isEmpty()) {
-                            list2.addAll(atUserInfos);
-                            sb.append(a(itemsDTO.getName(), b(atUserInfos)));
-                            sb.append("\n");
-                        }
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        n98.b(filePath, i, i2, callback);
                     }
                 }
-            }
-            if (!TextUtils.isEmpty(skillDTO.getAlias()) && !TextUtils.isEmpty(str)) {
-                sb.append(a(skillDTO.getAlias(), str));
-                sb.append("\n");
-            }
-            sb.append((CharSequence) sb2);
-            return sb.toString();
-        }
-        return (String) invokeLLLL.objValue;
-    }
-
-    public static String d(@NonNull String str, @NonNull String str2, boolean z) {
-        InterceptResult invokeLLZ;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("@");
-            sb.append(str);
-            if (z) {
-                str3 = " ";
-            } else {
-                str3 = "\n";
-            }
-            sb.append(str3);
-            sb.append(str2);
-            return sb.toString();
-        }
-        return (String) invokeLLZ.objValue;
-    }
-
-    @NonNull
-    public static String f(@NonNull BotsDTO.BotListDTO.UserDTO userDTO, @NonNull BotsDTO.BotListDTO.SkillDTO skillDTO, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65542, null, userDTO, skillDTO, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(userDTO.getNameShow());
-            if (!z) {
-                sb.append("/");
-                sb.append(skillDTO.getName());
-            }
-            return sb.toString();
-        }
-        return (String) invokeLLZ.objValue;
-    }
-
-    public static HashMap<String, Object> g(@NonNull BotsDTO.BotListDTO.SkillDTO skillDTO, @Nullable List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> list, @Nullable String str) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, skillDTO, list, str)) == null) {
-            HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put("type", Integer.valueOf(skillDTO.getType()));
-            if (str == null) {
-                str = "";
-            }
-            hashMap.put("promot", str);
-            hashMap.put("scene", "tieba_group_chat");
-            e(hashMap, list);
-            return hashMap;
-        }
-        return (HashMap) invokeLLL.objValue;
-    }
-
-    public static void e(@NonNull Map<String, Object> map, @Nullable List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65541, null, map, list) == null) && list != null && list.size() > 0) {
-            for (BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO : list) {
-                if (itemsDTO != null) {
-                    o(map, itemsDTO);
-                }
-            }
+            });
         }
     }
 
-    @NonNull
-    public static String h(@NonNull String str, @NonNull String str2, @NonNull BotsDTO.BotListDTO.SkillDTO skillDTO, @Nullable List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> list, @NonNull List<AtSelectData> list2) {
-        InterceptResult invokeLLLLL;
-        String str3;
-        List<AtSelectData> atUserInfos;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x00b8 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x00ba */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:80:0x014c */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0073 A[Catch: all -> 0x0126, Exception -> 0x012a, TryCatch #12 {Exception -> 0x012a, all -> 0x0126, blocks: (B:7:0x0039, B:9:0x004f, B:20:0x0073, B:21:0x0079, B:24:0x0089, B:47:0x00d6, B:51:0x00e7, B:53:0x00ee, B:54:0x00f7, B:15:0x0059), top: B:89:0x0039 }] */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0087  */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x00e5  */
+    /* JADX WARN: Type inference failed for: r7v0 */
+    /* JADX WARN: Type inference failed for: r7v12, types: [int] */
+    /* JADX WARN: Type inference failed for: r7v17 */
+    /* JADX WARN: Type inference failed for: r7v18 */
+    /* JADX WARN: Type inference failed for: r7v19 */
+    /* JADX WARN: Type inference failed for: r7v2 */
+    /* JADX WARN: Type inference failed for: r7v4, types: [java.io.ByteArrayInputStream] */
+    /* JADX WARN: Type inference failed for: r7v5, types: [java.io.ByteArrayInputStream] */
+    /* JADX WARN: Type inference failed for: r7v6 */
+    /* JADX WARN: Type inference failed for: r7v9 */
+    /* JADX WARN: Type inference failed for: r9v0 */
+    /* JADX WARN: Type inference failed for: r9v1 */
+    /* JADX WARN: Type inference failed for: r9v10 */
+    /* JADX WARN: Type inference failed for: r9v11 */
+    /* JADX WARN: Type inference failed for: r9v14, types: [android.graphics.Bitmap] */
+    /* JADX WARN: Type inference failed for: r9v15 */
+    /* JADX WARN: Type inference failed for: r9v2, types: [java.io.FileOutputStream] */
+    /* JADX WARN: Type inference failed for: r9v3, types: [java.io.FileOutputStream] */
+    /* JADX WARN: Type inference failed for: r9v5, types: [android.graphics.Bitmap] */
+    /* JADX WARN: Type inference failed for: r9v6 */
+    /* JADX WARN: Type inference failed for: r9v7 */
+    /* JADX WARN: Type inference failed for: r9v8 */
+    /* JADX WARN: Type inference failed for: r9v9 */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static final void b(final String filePath, int i, int i2, final k98 callback) {
+        ByteArrayOutputStream byteArrayOutputStream;
+        ?? r7;
+        Object obj;
+        Bitmap bitmap;
+        BitmapFactory.Options options;
+        int i3;
+        int i4;
+        Bitmap.CompressFormat compressFormat;
+        int ceil;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65544, null, str, str2, skillDTO, list, list2)) == null) {
-            xs5.b(str);
-            String replaceAll = str.replaceAll(skillDTO.getAliasHolder(), skillDTO.getAlias()).replaceAll(skillDTO.getKeyboardHolder(), str2);
-            if (list != null && !list.isEmpty()) {
-                for (BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO : list) {
-                    if (itemsDTO != null) {
-                        String value = itemsDTO.getValue();
-                        replaceAll = replaceAll.replaceAll(itemsDTO.getNameHolder(), itemsDTO.getName()).replaceAll(itemsDTO.getAliasHolder(), itemsDTO.getAlias());
-                        List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO> opts = itemsDTO.getOpts();
-                        if (opts != null && !opts.isEmpty() && !TextUtils.isEmpty(value)) {
-                            BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO optsDTO = opts.get(0);
-                            if (itemsDTO.isNormalType()) {
-                                replaceAll = replaceAll.replaceAll(optsDTO.getNameHolder(value), optsDTO.getName()).replaceAll(optsDTO.getAliasHolder(value), optsDTO.getAlias());
-                            } else if (itemsDTO.isAtType()) {
-                                BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext = optsDTO.getExt();
-                                if (ext != null && (atUserInfos = ext.getAtUserInfos()) != null && !atUserInfos.isEmpty()) {
-                                    list2.addAll(atUserInfos);
-                                    str3 = b(atUserInfos);
-                                } else {
-                                    str3 = "";
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{filePath, Integer.valueOf(i), Integer.valueOf(i2), callback}) == null) {
+            Intrinsics.checkNotNullParameter(filePath, "$filePath");
+            Intrinsics.checkNotNullParameter(callback, "$callback");
+            final String str = filePath + "_backup";
+            Bitmap bitmap2 = null;
+            try {
+                byteArrayOutputStream = new ByteArrayOutputStream();
+                try {
+                    options = new BitmapFactory.Options();
+                    options.inJustDecodeBounds = false;
+                    bitmap = BitmapFactory.decodeFile(filePath, options);
+                    try {
+                        i3 = options.outWidth;
+                        i4 = options.outHeight;
+                        compressFormat = Bitmap.CompressFormat.JPEG;
+                        String str2 = options.outMimeType;
+                        Intrinsics.checkNotNullExpressionValue(str2, "options.outMimeType");
+                        if (StringsKt__StringsJVMKt.endsWith$default(str2, "png", false, 2, null)) {
+                            compressFormat = Bitmap.CompressFormat.PNG;
+                        }
+                    } catch (Exception e) {
+                        e = e;
+                        obj = null;
+                        bitmap2 = bitmap;
+                        bitmap = obj;
+                        r7 = obj;
+                        try {
+                            e.printStackTrace();
+                            g(bitmap2, r7, byteArrayOutputStream, bitmap);
+                            wg.e(new Runnable() { // from class: com.baidu.tieba.g98
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+
+                                @Override // java.lang.Runnable
+                                public final void run() {
+                                    Interceptable interceptable2 = $ic;
+                                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                        n98.f(k98.this, filePath);
+                                    }
                                 }
-                                replaceAll = replaceAll.replaceAll(optsDTO.getNameHolder(value), str3).replaceAll(optsDTO.getAliasHolder(value), str3);
+                            });
+                            return;
+                        } catch (Throwable th) {
+                            th = th;
+                            g(bitmap2, r7, byteArrayOutputStream, bitmap);
+                            throw th;
+                        }
+                    } catch (Throwable th2) {
+                        th = th2;
+                        r7 = 0;
+                        bitmap2 = bitmap;
+                        bitmap = r7;
+                        g(bitmap2, r7, byteArrayOutputStream, bitmap);
+                        throw th;
+                    }
+                } catch (Exception e2) {
+                    e = e2;
+                    obj = null;
+                } catch (Throwable th3) {
+                    th = th3;
+                    r7 = 0;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                byteArrayOutputStream = null;
+                obj = null;
+            } catch (Throwable th4) {
+                th = th4;
+                byteArrayOutputStream = null;
+                r7 = 0;
+            }
+            try {
+                try {
+                    try {
+                        if (i4 <= i && i4 <= i2) {
+                            ceil = 1;
+                            if (ceil > 1) {
+                                options.inSampleSize = ceil;
+                                bitmap = BitmapFactory.decodeFile(filePath, options);
+                            }
+                            bitmap.compress(compressFormat, 100, byteArrayOutputStream);
+                            r7 = byteArrayOutputStream.toByteArray().length;
+                            if (r7 > 5242880) {
+                                if (ceil > 1) {
+                                    ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
+                                    Bitmap decodeStream = BitmapFactory.decodeStream(byteArrayInputStream);
+                                    FileOutputStream fileOutputStream = new FileOutputStream(new File(str));
+                                    if (decodeStream.compress(compressFormat, 100, fileOutputStream)) {
+                                        fileOutputStream.flush();
+                                    }
+                                    wg.e(new Runnable() { // from class: com.baidu.tieba.e98
+                                        public static /* synthetic */ Interceptable $ic;
+                                        public transient /* synthetic */ FieldHolder $fh;
+
+                                        @Override // java.lang.Runnable
+                                        public final void run() {
+                                            Interceptable interceptable2 = $ic;
+                                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                                n98.c(k98.this, str);
+                                            }
+                                        }
+                                    });
+                                    g(decodeStream, byteArrayInputStream, byteArrayOutputStream, fileOutputStream);
+                                    g(decodeStream, byteArrayInputStream, byteArrayOutputStream, fileOutputStream);
+                                    return;
+                                }
+                                wg.e(new Runnable() { // from class: com.baidu.tieba.d98
+                                    public static /* synthetic */ Interceptable $ic;
+                                    public transient /* synthetic */ FieldHolder $fh;
+
+                                    @Override // java.lang.Runnable
+                                    public final void run() {
+                                        Interceptable interceptable2 = $ic;
+                                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                            n98.d(k98.this, filePath);
+                                        }
+                                    }
+                                });
+                                g(bitmap, null, byteArrayOutputStream, null);
+                                g(bitmap, null, byteArrayOutputStream, null);
+                                return;
+                            }
+                            int i5 = 90;
+                            while (byteArrayOutputStream.toByteArray().length > 5242880) {
+                                byteArrayOutputStream.reset();
+                                bitmap.compress(compressFormat, i5, byteArrayOutputStream);
+                                i5 -= 10;
+                            }
+                            ByteArrayInputStream byteArrayInputStream2 = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
+                            Bitmap decodeStream2 = BitmapFactory.decodeStream(byteArrayInputStream2);
+                            FileOutputStream fileOutputStream2 = new FileOutputStream(new File(str));
+                            if (decodeStream2.compress(compressFormat, 100, fileOutputStream2)) {
+                                fileOutputStream2.flush();
+                            }
+                            wg.e(new Runnable() { // from class: com.baidu.tieba.h98
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+
+                                @Override // java.lang.Runnable
+                                public final void run() {
+                                    Interceptable interceptable2 = $ic;
+                                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                        n98.e(k98.this, str);
+                                    }
+                                }
+                            });
+                            g(decodeStream2, byteArrayInputStream2, byteArrayOutputStream, fileOutputStream2);
+                            g(decodeStream2, byteArrayInputStream2, byteArrayOutputStream, fileOutputStream2);
+                            return;
+                        }
+                        if (r7 > 5242880) {
+                        }
+                    } catch (Exception e4) {
+                        e = e4;
+                        Bitmap bitmap3 = bitmap;
+                        bitmap = 0;
+                        bitmap2 = bitmap3;
+                        r7 = r7;
+                        e.printStackTrace();
+                        g(bitmap2, r7, byteArrayOutputStream, bitmap);
+                        wg.e(new Runnable() { // from class: com.baidu.tieba.g98
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+
+                            @Override // java.lang.Runnable
+                            public final void run() {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                    n98.f(k98.this, filePath);
+                                }
+                            }
+                        });
+                        return;
+                    } catch (Throwable th5) {
+                        th = th5;
+                        Bitmap bitmap4 = bitmap;
+                        bitmap = 0;
+                        bitmap2 = bitmap4;
+                        g(bitmap2, r7, byteArrayOutputStream, bitmap);
+                        throw th;
+                    }
+                } catch (Exception e5) {
+                    e = e5;
+                    bitmap2 = 1;
+                    r7 = r7;
+                    bitmap = bitmap;
+                    e.printStackTrace();
+                    g(bitmap2, r7, byteArrayOutputStream, bitmap);
+                    wg.e(new Runnable() { // from class: com.baidu.tieba.g98
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+
+                        @Override // java.lang.Runnable
+                        public final void run() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                n98.f(k98.this, filePath);
                             }
                         }
-                    }
+                    });
+                    return;
+                } catch (Throwable th6) {
+                    th = th6;
+                    bitmap2 = 1;
+                    g(bitmap2, r7, byteArrayOutputStream, bitmap);
+                    throw th;
                 }
-            }
-            return replaceAll;
-        }
-        return (String) invokeLLLLL.objValue;
-    }
+            } catch (Exception e6) {
+                e = e6;
+                bitmap = 0;
+                bitmap2 = 1;
+                r7 = r7;
+                bitmap = bitmap;
+                e.printStackTrace();
+                g(bitmap2, r7, byteArrayOutputStream, bitmap);
+                wg.e(new Runnable() { // from class: com.baidu.tieba.g98
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
 
-    public static TextMsg l(@NonNull String str, @Nullable BaseMsg baseMsg, @NonNull u78 u78Var, @Nullable List<AtSelectData> list, @Nullable Map<String, Integer> map) {
-        InterceptResult invokeLLLLL;
-        boolean z;
-        String c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65548, null, str, baseMsg, u78Var, list, map)) == null) {
-            BotsDTO.BotListDTO.UserDTO userDTO = u78Var.a;
-            BotsDTO.BotListDTO.SkillDTO skillDTO = u78Var.b;
-            List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> list2 = u78Var.c;
-            if (userDTO != null && skillDTO != null && i(userDTO)) {
-                ArrayList arrayList = new ArrayList();
-                if (list != null) {
-                    arrayList.addAll(list);
-                }
-                String showTemplate = skillDTO.getShowTemplate(list2);
-                if (showTemplate != null && !TextUtils.isEmpty(showTemplate)) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (z) {
-                    c = h(showTemplate, str, skillDTO, list2, arrayList);
-                } else {
-                    c = c(str, skillDTO, list2, arrayList);
-                }
-                String f = f(userDTO, skillDTO, z);
-                String q = q(d(f, c, z));
-                TextMsg create = TextMsg.create(q);
-                create.addAtUserInfo(j(userDTO, f));
-                create.addAtUserInfo(n(q, arrayList));
-                HashMap<String, Object> g = g(skillDTO, list2, str);
-                if (baseMsg == null) {
-                    create.setRobotParams(g);
-                    return create;
-                }
-                if (u78Var.c()) {
-                    create.setReMsgInfo(ReMsgInfo.create(baseMsg, baseMsg.getThumbnailText().toString()));
-                }
-                if (baseMsg.getReMsgInfo() != null) {
-                    if (baseMsg instanceof TextGenImageMsg) {
-                        g.put("last_promot", ((TextGenImageMsg) baseMsg).getLastPrompt());
-                    }
-                    g.put("user_msg_id", Long.valueOf(baseMsg.getReMsgInfo().getMsgId()));
-                    g.put("user_msg_key", baseMsg.getReMsgInfo().getMsgKey());
-                }
-                if (baseMsg.getTaskInfo() != null) {
-                    g.put("robot_msg_id", Long.valueOf(baseMsg.getTaskInfo().getOriginMsgId()));
-                    g.put("robot_msg_key", baseMsg.getTaskInfo().getOriginMsgKey());
-                }
-                create.setRobotParams(g);
-                return create;
-            }
-            return k(str, list, map);
-        }
-        return (TextMsg) invokeLLLLL.objValue;
-    }
-
-    public static boolean i(@NonNull BotsDTO.BotListDTO.UserDTO userDTO) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, userDTO)) == null) {
-            try {
-                String bdUidFromBdUK = BIMManager.getBdUidFromBdUK(userDTO.getUk());
-                if (TextUtils.isEmpty(bdUidFromBdUK)) {
-                    return false;
-                }
-                Long.parseLong(bdUidFromBdUK);
-                return true;
-            } catch (Exception unused) {
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String q(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, str)) == null) {
-            if (str.endsWith("\n")) {
-                return str.substring(0, str.length() - 1);
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @NonNull
-    public static TextMsg k(@NonNull String str, @Nullable List<AtSelectData> list, @Nullable Map<String, Integer> map) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, str, list, map)) == null) {
-            TextMsg create = TextMsg.create(str);
-            create.addAtUserInfo(p(list, map));
-            return create;
-        }
-        return (TextMsg) invokeLLL.objValue;
-    }
-
-    public static TextMsg m(@NonNull String str, @Nullable BaseMsg baseMsg, @Nullable u78 u78Var, @Nullable List<AtSelectData> list, @Nullable Map<String, Integer> map) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65549, null, str, baseMsg, u78Var, list, map)) == null) {
-            if (u78Var == null) {
-                return k(str, list, map);
-            }
-            return l(str, baseMsg, u78Var, list, map);
-        }
-        return (TextMsg) invokeLLLLL.objValue;
-    }
-
-    @NonNull
-    public static List<AtUserInfo> n(@NonNull String str, @NonNull List<AtSelectData> list) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, str, list)) == null) {
-            HashMap hashMap = new HashMap();
-            for (AtSelectData atSelectData : list) {
-                int i = 0;
-                String str2 = "@" + atSelectData.getNameShow();
-                while (true) {
-                    int indexOf = str.indexOf(str2, i);
-                    if (indexOf == -1) {
-                        break;
-                    }
-                    i = indexOf + 1;
-                    if (hashMap.get(Integer.valueOf(indexOf)) == null) {
-                        AtUserInfo.AtType atType = AtUserInfo.AtType.USER;
-                        if (AtSelectData.AT_ALL_FAKE_UID.equals(atSelectData.getUid())) {
-                            atType = AtUserInfo.AtType.ALL;
-                        }
-                        hashMap.put(Integer.valueOf(indexOf), AtUserInfo.create(atType, pg.g(atSelectData.getUid(), 0L), atSelectData.getNameShow(), atSelectData.getPortrait(), indexOf));
-                    }
-                }
-            }
-            return new ArrayList(hashMap.values());
-        }
-        return (List) invokeLL.objValue;
-    }
-
-    @NonNull
-    public static List<AtUserInfo> p(@Nullable List<AtSelectData> list, @Nullable Map<String, Integer> map) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, list, map)) == null) {
-            if (list != null && !list.isEmpty() && map != null && !map.isEmpty()) {
-                ArrayList arrayList = new ArrayList();
-                for (AtSelectData atSelectData : list) {
-                    AtUserInfo.AtType atType = AtUserInfo.AtType.USER;
-                    if (AtSelectData.AT_ALL_FAKE_UID.equals(atSelectData.getUid())) {
-                        atType = AtUserInfo.AtType.ALL;
-                    }
-                    arrayList.add(AtUserInfo.create(atType, pg.g(atSelectData.getUid(), 0L), atSelectData.getNameShow(), atSelectData.getPortrait(), map.get(atSelectData.getUid()).intValue()));
-                }
-                return arrayList;
-            }
-            return Collections.emptyList();
-        }
-        return (List) invokeLL.objValue;
-    }
-
-    public static void o(@NonNull Map<String, Object> map, @NonNull BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO) {
-        BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext;
-        List<AtSelectData> atUserInfos;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65551, null, map, itemsDTO) == null) {
-            Map map2 = (Map) map.get("opts");
-            if (map2 == null) {
-                map2 = new HashMap();
-                map.put("opts", map2);
-            }
-            List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO> opts = itemsDTO.getOpts();
-            if (opts != null && !opts.isEmpty()) {
-                String str = null;
-                if (itemsDTO.isNormalType()) {
-                    str = opts.get(0).getName();
-                } else if (itemsDTO.isFileType()) {
-                    BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext2 = opts.get(0).getExt();
-                    if (ext2 != null) {
-                        str = ext2.getPicPath();
-                    }
-                } else if (itemsDTO.isAtType() && (ext = opts.get(0).getExt()) != null && (atUserInfos = ext.getAtUserInfos()) != null && !atUserInfos.isEmpty()) {
-                    StringBuilder sb = new StringBuilder();
-                    for (int i = 0; i < atUserInfos.size(); i++) {
-                        sb.append(BIMManager.getBdUKFromBdUid(atUserInfos.get(i).getUid()));
-                        if (i < atUserInfos.size() - 1) {
-                            sb.append(",");
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            n98.f(k98.this, filePath);
                         }
                     }
-                    str = sb.toString();
-                }
-                if (str != null && !str.isEmpty()) {
-                    map2.put(itemsDTO.getValue(), str);
-                }
+                });
+                return;
+            } catch (Throwable th7) {
+                th = th7;
+                bitmap = 0;
+                bitmap2 = 1;
+                g(bitmap2, r7, byteArrayOutputStream, bitmap);
+                throw th;
             }
+            ceil = (int) Math.ceil(i3 / i);
+            int ceil2 = (int) Math.ceil(i4 / i2);
+            if (ceil <= ceil2) {
+                ceil = ceil2;
+            }
+            if (ceil > 1) {
+            }
+            bitmap.compress(compressFormat, 100, byteArrayOutputStream);
+            r7 = byteArrayOutputStream.toByteArray().length;
         }
     }
 
-    @NonNull
-    public static BaseChatMsg<?> r(@NonNull TextMsg textMsg, @Nullable u78 u78Var) {
-        InterceptResult invokeLL;
-        BotsDTO.BotListDTO.SkillDTO.ItemsDTO b2;
-        List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO> opts;
-        BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext;
+    public static final void c(k98 callback, String toFilePath) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, textMsg, u78Var)) == null) {
-            if (u78Var != null && (b2 = u78Var.b()) != null && (opts = b2.getOpts()) != null && !opts.isEmpty() && (ext = opts.get(0).getExt()) != null) {
-                SingleTextImageMsg create = SingleTextImageMsg.create(textMsg.getText(), ext.getPicPath(), ext.getPicSize());
-                create.fillSdkMsg4Base(textMsg);
-                create.setRobotParams(textMsg.getRobotParams());
-                create.setFileItem(b2);
-                return create;
-            }
-            return textMsg;
+        if (interceptable == null || interceptable.invokeLL(65538, null, callback, toFilePath) == null) {
+            Intrinsics.checkNotNullParameter(callback, "$callback");
+            Intrinsics.checkNotNullParameter(toFilePath, "$toFilePath");
+            callback.onFinish(toFilePath);
         }
-        return (BaseChatMsg) invokeLL.objValue;
+    }
+
+    public static final void d(k98 callback, String filePath) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, callback, filePath) == null) {
+            Intrinsics.checkNotNullParameter(callback, "$callback");
+            Intrinsics.checkNotNullParameter(filePath, "$filePath");
+            callback.onFinish(filePath);
+        }
+    }
+
+    public static final void e(k98 callback, String toFilePath) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, callback, toFilePath) == null) {
+            Intrinsics.checkNotNullParameter(callback, "$callback");
+            Intrinsics.checkNotNullParameter(toFilePath, "$toFilePath");
+            callback.onFinish(toFilePath);
+        }
+    }
+
+    public static final void f(k98 callback, String filePath) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, callback, filePath) == null) {
+            Intrinsics.checkNotNullParameter(callback, "$callback");
+            Intrinsics.checkNotNullParameter(filePath, "$filePath");
+            callback.onFinish(filePath);
+        }
+    }
+
+    public static final void g(Bitmap bitmap, ByteArrayInputStream byteArrayInputStream, ByteArrayOutputStream byteArrayOutputStream, FileOutputStream fileOutputStream) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65542, null, bitmap, byteArrayInputStream, byteArrayOutputStream, fileOutputStream) == null) {
+            if (bitmap != null && !bitmap.isRecycled()) {
+                bitmap.recycle();
+            }
+            if (byteArrayOutputStream != null) {
+                byteArrayOutputStream.close();
+            }
+            if (byteArrayInputStream != null) {
+                byteArrayInputStream.close();
+            }
+            if (fileOutputStream != null) {
+                fileOutputStream.close();
+            }
+        }
     }
 }

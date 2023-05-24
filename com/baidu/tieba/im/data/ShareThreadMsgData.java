@@ -22,7 +22,7 @@ import com.baidu.tieba.im.db.pojo.TiebaPlusInfoPojo;
 import com.baidu.tieba.im.db.pojo.TogetherHiPojo;
 import com.baidu.tieba.k15;
 import com.baidu.tieba.pg;
-import com.baidu.tieba.y28;
+import com.baidu.tieba.z28;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -541,25 +541,25 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
                     }
                     if (pbContentPojo.item != null) {
                         Item.Builder builder8 = new Item.Builder();
-                        y28 y28Var = pbContentPojo.item;
-                        builder8.item_id = y28Var.a;
-                        builder8.item_name = y28Var.b;
-                        builder8.icon_size = y28Var.c;
-                        builder8.icon_url = y28Var.d;
-                        if (y28Var.e != null) {
+                        z28 z28Var = pbContentPojo.item;
+                        builder8.item_id = z28Var.a;
+                        builder8.item_name = z28Var.b;
+                        builder8.icon_size = z28Var.c;
+                        builder8.icon_url = z28Var.d;
+                        if (z28Var.e != null) {
                             builder8.tags = new ArrayList(pbContentPojo.item.e);
                         }
-                        y28 y28Var2 = pbContentPojo.item;
-                        builder8.score = y28Var2.f;
-                        builder8.star = y28Var2.g;
-                        builder8.button_name = y28Var2.h;
-                        builder8.button_link = y28Var2.i;
-                        builder8.item_appid = y28Var2.j;
-                        builder8.category_id = y28Var2.k;
-                        builder8.button_link_type = y28Var2.l;
-                        builder8.apk_name = y28Var2.m;
-                        builder8.forum_name = y28Var2.n;
-                        if (y28Var2.o != null) {
+                        z28 z28Var2 = pbContentPojo.item;
+                        builder8.score = z28Var2.f;
+                        builder8.star = z28Var2.g;
+                        builder8.button_name = z28Var2.h;
+                        builder8.button_link = z28Var2.i;
+                        builder8.item_appid = z28Var2.j;
+                        builder8.category_id = z28Var2.k;
+                        builder8.button_link_type = z28Var2.l;
+                        builder8.apk_name = z28Var2.m;
+                        builder8.forum_name = z28Var2.n;
+                        if (z28Var2.o != null) {
                             ApkDetail.Builder builder9 = new ApkDetail.Builder();
                             ApkDetailPojo apkDetailPojo = pbContentPojo.item.o;
                             builder9.developer = apkDetailPojo.developer;

@@ -45,12 +45,12 @@ public class pz2 {
 
         /* renamed from: com.baidu.tieba.pz2$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0438a implements ut1.a {
+        public class C0437a implements ut1.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ File[] a;
 
-            public C0438a(a aVar, File[] fileArr) {
+            public C0437a(a aVar, File[] fileArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public class pz2 {
                     fileArr = new File[]{b};
                 }
                 if (u != null) {
-                    u.d(p, null, fileArr, new C0438a(this, fileArr));
+                    u.d(p, null, fileArr, new C0437a(this, fileArr));
                 }
             }
         }

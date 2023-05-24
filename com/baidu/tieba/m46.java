@@ -62,7 +62,7 @@ public class m46 implements jq3 {
 
         /* renamed from: com.baidu.tieba.m46$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class DialogInterface$OnClickListenerC0377b implements DialogInterface.OnClickListener {
+        public class DialogInterface$OnClickListenerC0379b implements DialogInterface.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
@@ -72,14 +72,14 @@ public class m46 implements jq3 {
             public class a implements sp1 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ DialogInterface$OnClickListenerC0377b a;
+                public final /* synthetic */ DialogInterface$OnClickListenerC0379b a;
 
-                public a(DialogInterface$OnClickListenerC0377b dialogInterface$OnClickListenerC0377b) {
+                public a(DialogInterface$OnClickListenerC0379b dialogInterface$OnClickListenerC0379b) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {dialogInterface$OnClickListenerC0377b};
+                        Object[] objArr = {dialogInterface$OnClickListenerC0379b};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -89,7 +89,7 @@ public class m46 implements jq3 {
                             return;
                         }
                     }
-                    this.a = dialogInterface$OnClickListenerC0377b;
+                    this.a = dialogInterface$OnClickListenerC0379b;
                 }
 
                 @Override // com.baidu.tieba.sp1
@@ -105,7 +105,7 @@ public class m46 implements jq3 {
                 }
             }
 
-            public DialogInterface$OnClickListenerC0377b(b bVar) {
+            public DialogInterface$OnClickListenerC0379b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -267,7 +267,7 @@ public class m46 implements jq3 {
                 k83.a aVar = new k83.a(this.b);
                 aVar.V(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f008f));
                 aVar.x(string);
-                aVar.P(string2, new DialogInterface$OnClickListenerC0377b(this));
+                aVar.P(string2, new DialogInterface$OnClickListenerC0379b(this));
                 aVar.C(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f008a), new a(this));
                 aVar.X();
             }

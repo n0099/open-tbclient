@@ -31,8 +31,8 @@ public class dk5 implements tj1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new mx7());
-            arrayList.add(new yh9());
+            arrayList.add(new nx7());
+            arrayList.add(new zh9());
             return arrayList;
         }
         return invokeV.objValue;

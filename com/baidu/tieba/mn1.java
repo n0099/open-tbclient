@@ -49,13 +49,13 @@ public class mn1 {
 
         /* renamed from: com.baidu.tieba.mn1$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0382a extends ko1 {
+        public class C0384a extends ko1 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ym1.a b;
             public final /* synthetic */ a c;
 
-            public C0382a(a aVar, ym1.a aVar2) {
+            public C0384a(a aVar, ym1.a aVar2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -116,7 +116,7 @@ public class mn1 {
                     for (int i = 0; i < this.d.size(); i++) {
                         ym1.a aVar2 = (ym1.a) this.d.get(i);
                         if (aVar2 != null) {
-                            mo1.c().b(new C0382a(this, aVar2));
+                            mo1.c().b(new C0384a(this, aVar2));
                         }
                     }
                 }

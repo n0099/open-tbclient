@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,15 +11,15 @@ import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class om6 implements i37 {
+public final class om6 implements j37 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.i37
+    @Override // com.baidu.tieba.j37
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c13692" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? CommonStatisticKey.KEY_CLICK_VIDEO_TOPIC : (String) invokeV.objValue;
     }
 
     public om6() {
@@ -35,21 +36,19 @@ public final class om6 implements i37 {
         }
     }
 
-    @Override // com.baidu.tieba.i37
-    public Map<String, String> a(uz6 businessInfo) {
+    @Override // com.baidu.tieba.j37
+    public Map<String, String> a(vz6 businessInfo) {
         InterceptResult invokeL;
-        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
             Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
             HashMap hashMap = new HashMap();
-            if (pg.e(businessInfo.a().get("is_video_work"), 0) == 1) {
-                str = "1";
-            } else {
-                str = "0";
+            String str = businessInfo.a().get("topic_id");
+            if (str == null) {
+                str = "";
             }
-            hashMap.put("obj_source", str);
-            hashMap.put("obj_locate", "3");
+            hashMap.put("topic_id", str);
+            hashMap.put("obj_locate", "4");
             return hashMap;
         }
         return (Map) invokeL.objValue;

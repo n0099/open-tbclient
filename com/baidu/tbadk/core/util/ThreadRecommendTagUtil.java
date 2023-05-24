@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.data.ThreadRecommendTagData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.f85;
 import com.baidu.tieba.n45;
-import com.baidu.tieba.wp9;
+import com.baidu.tieba.xp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,11 +50,11 @@ public class ThreadRecommendTagUtil {
                 if (!isElementValid(themeColorInfo.dark)) {
                     return 0;
                 }
-                return wp9.f(themeColorInfo.dark.common_color);
+                return xp9.f(themeColorInfo.dark.common_color);
             } else if (!isElementValid(themeColorInfo.day)) {
                 return 0;
             } else {
-                return wp9.f(themeColorInfo.day.common_color);
+                return xp9.f(themeColorInfo.day.common_color);
             }
         }
         return invokeL.intValue;

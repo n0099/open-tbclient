@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.be9;
+import com.baidu.tieba.ce9;
 import com.baidu.tieba.gi;
-import com.baidu.tieba.jr8;
+import com.baidu.tieba.kr8;
 import com.baidu.tieba.pb5;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.rx4;
@@ -98,7 +98,7 @@ public class SyncLoginService extends BdBaseService {
     }
 
     /* loaded from: classes7.dex */
-    public class b extends BdAsyncTask<String, Integer, jr8> {
+    public class b extends BdAsyncTask<String, Integer, kr8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -126,10 +126,10 @@ public class SyncLoginService extends BdBaseService {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(jr8 jr8Var) {
+        public void onPostExecute(kr8 kr8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jr8Var) == null) {
-                super.onPostExecute(jr8Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kr8Var) == null) {
+                super.onPostExecute(kr8Var);
                 this.b.mSyncTask = null;
             }
         }
@@ -141,21 +141,21 @@ public class SyncLoginService extends BdBaseService {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public jr8 doInBackground(String... strArr) {
+        public kr8 doInBackground(String... strArr) {
             InterceptResult invokeL;
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                jr8 jr8Var = null;
+                kr8 kr8Var = null;
                 try {
                     this.a = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/switch");
-                    if (be9.b()) {
+                    if (ce9.b()) {
                         this.a.addPostData(HttpRequest.OS_VERSION, ti.k());
                     } else {
-                        this.a.addPostData(HttpRequest.NEED_DECRYPT, be9.c());
-                        String g = be9.g(HttpRequest.OS_VERSION);
+                        this.a.addPostData(HttpRequest.NEED_DECRYPT, ce9.c());
+                        String g = ce9.g(HttpRequest.OS_VERSION);
                         if (!TextUtils.isEmpty(g)) {
-                            this.a.addPostData(g, be9.j());
+                            this.a.addPostData(g, ce9.j());
                         }
                     }
                     StringBuffer stringBuffer = new StringBuffer(15);
@@ -207,22 +207,22 @@ public class SyncLoginService extends BdBaseService {
                     if (!this.a.getNetContext().getResponse().isRequestSuccess()) {
                         return null;
                     }
-                    jr8 jr8Var2 = new jr8();
+                    kr8 kr8Var2 = new kr8();
                     try {
-                        jr8Var2.a(postNetData);
+                        kr8Var2.a(postNetData);
                         String unused = SyncLoginService.mStatistics = null;
-                        return jr8Var2;
+                        return kr8Var2;
                     } catch (Exception e) {
                         e = e;
-                        jr8Var = jr8Var2;
+                        kr8Var = kr8Var2;
                         BdLog.e(e.getMessage());
-                        return jr8Var;
+                        return kr8Var;
                     }
                 } catch (Exception e2) {
                     e = e2;
                 }
             } else {
-                return (jr8) invokeL.objValue;
+                return (kr8) invokeL.objValue;
             }
         }
 

@@ -2,6 +2,7 @@ package com.baidu.tieba;
 
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.ThreadCardViewHolder;
@@ -18,13 +19,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class gt7 extends at7<o15, ThreadCardViewHolder<ThreadData>> {
+public class gt7 extends bt7<o15, ThreadCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vj6<ThreadData> e;
+    public wj6<ThreadData> e;
 
     /* loaded from: classes5.dex */
-    public class a extends vj6<ThreadData> {
+    public class a extends wj6<ThreadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ gt7 b;
@@ -48,7 +49,7 @@ public class gt7 extends at7<o15, ThreadCardViewHolder<ThreadData>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vj6
+        @Override // com.baidu.tieba.wj6
         /* renamed from: d */
         public void a(View view2, ThreadData threadData) {
             Interceptable interceptable = $ic;
@@ -100,7 +101,7 @@ public class gt7 extends at7<o15, ThreadCardViewHolder<ThreadData>> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public gt7(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, ThreadData.TYPE_CONTENT_TEXT_NORMAL);
+        super(tbPageContext, ThreadData.TYPE_CONTENT_SINGLE_V_NORMAL);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -128,12 +129,12 @@ public class gt7 extends at7<o15, ThreadCardViewHolder<ThreadData>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             py.b bVar = new py.b(this.b.getPageActivity(), false);
-            dy dyVar = new dy(this.b.getPageActivity());
-            dyVar.setFrom("index");
-            dyVar.x(t());
-            bVar.n(dyVar);
+            cy cyVar = new cy(this.b.getPageActivity());
+            cyVar.setFrom("hot_topic");
+            cyVar.u(t());
+            bVar.n(cyVar);
             py k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.c);
-            k.s(0);
+            k.s(2);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
             threadCardViewHolder.i(this.mPageId);
             setOnAdapterItemClickListener(new b(this));
@@ -143,7 +144,7 @@ public class gt7 extends at7<o15, ThreadCardViewHolder<ThreadData>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.at7, com.baidu.tieba.en
+    @Override // com.baidu.tieba.bt7, com.baidu.tieba.en
     /* renamed from: B */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, o15 o15Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
         InterceptResult invokeCommon;
@@ -156,6 +157,13 @@ public class gt7 extends at7<o15, ThreadCardViewHolder<ThreadData>> {
                 threadCardViewHolder.e(o15Var.t);
                 threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
                 threadCardViewHolder.a().q(this.e);
+                cy cyVar = (cy) threadCardViewHolder.a().g();
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) cyVar.f.d.getLayoutParams();
+                layoutParams.width = o15Var.u;
+                layoutParams.height = o15Var.v;
+                if (cyVar.f.d.getVisibility() != 8) {
+                    cyVar.f.d.setLayoutParams(layoutParams);
+                }
                 y(threadCardViewHolder.getView(), o15Var.t, i, i);
                 return threadCardViewHolder.getView();
             }

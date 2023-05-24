@@ -40,7 +40,7 @@ import com.baidu.tieba.ri;
 import com.baidu.tieba.rx4;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import com.baidu.tieba.tx;
-import com.baidu.tieba.vj6;
+import com.baidu.tieba.wj6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -65,7 +65,7 @@ public class NewGridImageLayout extends LinearLayout implements tx<jy4>, View.On
     public String i;
     public boolean j;
     public boolean k;
-    public vj6<jy4> l;
+    public wj6<jy4> l;
     public boolean m;
     public boolean n;
     public LinkedList<MediaData> o;
@@ -106,7 +106,7 @@ public class NewGridImageLayout extends LinearLayout implements tx<jy4>, View.On
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            vj6<jy4> subClickListener;
+            wj6<jy4> subClickListener;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (subClickListener = this.a.getSubClickListener()) != null) {
                 view2.setTag("2");
@@ -141,7 +141,7 @@ public class NewGridImageLayout extends LinearLayout implements tx<jy4>, View.On
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            vj6<jy4> subClickListener;
+            wj6<jy4> subClickListener;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (subClickListener = this.a.getSubClickListener()) != null) {
                 view2.setTag("1");
@@ -527,10 +527,10 @@ public class NewGridImageLayout extends LinearLayout implements tx<jy4>, View.On
         }
     }
 
-    public void setSubClickListener(vj6<jy4> vj6Var) {
+    public void setSubClickListener(wj6<jy4> wj6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, vj6Var) == null) {
-            this.l = vj6Var;
+        if (interceptable == null || interceptable.invokeL(1048597, this, wj6Var) == null) {
+            this.l = wj6Var;
         }
     }
 
@@ -593,13 +593,13 @@ public class NewGridImageLayout extends LinearLayout implements tx<jy4>, View.On
         return invokeL.booleanValue;
     }
 
-    public vj6<jy4> getSubClickListener() {
+    public wj6<jy4> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.l;
         }
-        return (vj6) invokeV.objValue;
+        return (wj6) invokeV.objValue;
     }
 
     public final void k(ThreadData threadData) {

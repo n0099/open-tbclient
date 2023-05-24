@@ -33,7 +33,7 @@ public class cx1 {
 
         /* renamed from: com.baidu.tieba.cx1$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0255a implements Animator.AnimatorListener {
+        public class C0246a implements Animator.AnimatorListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -52,7 +52,7 @@ public class cx1 {
                 }
             }
 
-            public C0255a(a aVar) {
+            public C0246a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -116,7 +116,7 @@ public class cx1 {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 AnimatorSet animatorSet = new AnimatorSet();
                 animatorSet.play(this.b.d(this.a, 150L));
-                animatorSet.addListener(new C0255a(this));
+                animatorSet.addListener(new C0246a(this));
                 animatorSet.start();
                 this.b.a.add(animatorSet);
             }

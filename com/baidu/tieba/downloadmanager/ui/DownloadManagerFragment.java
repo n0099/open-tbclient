@@ -19,13 +19,13 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hr6;
-import com.baidu.tieba.jr6;
+import com.baidu.tieba.ir6;
 import com.baidu.tieba.kr6;
-import com.baidu.tieba.mr6;
+import com.baidu.tieba.lr6;
+import com.baidu.tieba.nr6;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.rr6;
 import com.baidu.tieba.si5;
+import com.baidu.tieba.sr6;
 import com.baidu.tieba.y65;
 import com.baidu.tieba.z65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,11 +51,11 @@ public class DownloadManagerFragment extends BaseFragment implements BdListView.
     public int j;
     public boolean k;
     public int l;
-    public jr6 m;
-    public List<hr6> n;
-    public List<hr6> o;
+    public kr6 m;
+    public List<ir6> n;
+    public List<ir6> o;
     public final y65.g p;
-    public mr6 q;
+    public nr6 q;
 
     /* loaded from: classes5.dex */
     public class a implements y65.g {
@@ -95,7 +95,7 @@ public class DownloadManagerFragment extends BaseFragment implements BdListView.
     }
 
     /* loaded from: classes5.dex */
-    public class b implements mr6 {
+    public class b implements nr6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DownloadManagerFragment a;
@@ -118,8 +118,8 @@ public class DownloadManagerFragment extends BaseFragment implements BdListView.
             this.a = downloadManagerFragment;
         }
 
-        @Override // com.baidu.tieba.mr6
-        public void a(List<hr6> list, List<hr6> list2, int i) {
+        @Override // com.baidu.tieba.nr6
+        public void a(List<ir6> list, List<ir6> list2, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048576, this, list, list2, i) == null) {
                 DownloadManagerFragment downloadManagerFragment = this.a;
@@ -137,7 +137,7 @@ public class DownloadManagerFragment extends BaseFragment implements BdListView.
             }
         }
 
-        @Override // com.baidu.tieba.mr6
+        @Override // com.baidu.tieba.nr6
         public void b(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -441,17 +441,17 @@ public class DownloadManagerFragment extends BaseFragment implements BdListView.
             } else {
                 O1();
                 arrayList.addAll(this.n);
-                hr6 clone = ((hr6) arrayList.get(arrayList.size() - 1)).clone();
+                ir6 clone = ((ir6) arrayList.get(arrayList.size() - 1)).clone();
                 clone.d = false;
                 arrayList.remove(arrayList.get(arrayList.size() - 1));
                 arrayList.add(clone);
             }
             if (ListUtils.getCount(this.o) != 0) {
-                hr6 hr6Var = new hr6();
-                hr6Var.d = false;
-                arrayList.add(hr6Var);
+                ir6 ir6Var = new ir6();
+                ir6Var.d = false;
+                arrayList.add(ir6Var);
                 arrayList.addAll(this.o);
-                hr6 clone2 = ((hr6) arrayList.get(arrayList.size() - 1)).clone();
+                ir6 clone2 = ((ir6) arrayList.get(arrayList.size() - 1)).clone();
                 clone2.d = false;
                 arrayList.remove(arrayList.get(arrayList.size() - 1));
                 arrayList.add(clone2);
@@ -518,7 +518,7 @@ public class DownloadManagerFragment extends BaseFragment implements BdListView.
                 }
             }
             if (this.m == null) {
-                jr6 a2 = kr6.a(this, this.j);
+                kr6 a2 = lr6.a(this, this.j);
                 this.m = a2;
                 a2.d(this.q);
             }
@@ -537,7 +537,7 @@ public class DownloadManagerFragment extends BaseFragment implements BdListView.
             this.c = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             this.c.setOnSrollToBottomListener(this);
-            new rr6(this, this.c, this.j, this.l);
+            new sr6(this, this.c, this.j, this.l);
             PbListView pbListView = new PbListView(getContext());
             this.e = pbListView;
             pbListView.a();

@@ -121,10 +121,10 @@ public class cr5 {
                         o15Var12.t = threadData;
                         o15Var12.position = i;
                         arrayList.add(o15Var12);
-                    } else if (jk6.W(threadData)) {
-                        jk6 jk6Var = new jk6(threadData);
-                        jk6Var.g = threadData.getTid();
-                        arrayList.add(jk6Var);
+                    } else if (kk6.W(threadData)) {
+                        kk6 kk6Var = new kk6(threadData);
+                        kk6Var.g = threadData.getTid();
+                        arrayList.add(kk6Var);
                     } else {
                         o15 o15Var13 = new o15();
                         o15Var13.t = threadData;

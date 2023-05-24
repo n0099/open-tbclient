@@ -1,29 +1,107 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.ArrayList;
 import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.FeedLiveComponent;
+import tbclient.FeedLinkComponent;
+import tbclient.PbLinkInfo;
 /* loaded from: classes6.dex */
 public final class m17 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(FeedLiveComponent feedLiveComponent, List<f37<?>> dataList, h07 feedExtraData) {
+    public static final void a(FeedLinkComponent feedLinkComponent, List<g37<? extends Object>> mutableList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, feedLiveComponent, dataList, feedExtraData) == null) {
-            Intrinsics.checkNotNullParameter(feedLiveComponent, "<this>");
-            Intrinsics.checkNotNullParameter(dataList, "dataList");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            o07 o07Var = new o07();
-            o07Var.a = feedLiveComponent.top_label;
-            o07Var.b = feedLiveComponent.bottom_label;
-            o07Var.c = feedLiveComponent.audience_label;
-            o07Var.d = feedLiveComponent.cover_url;
-            o07Var.f = feedLiveComponent.schema;
-            o07Var.e = i07.b(feedExtraData, "live_head_show");
-            dataList.add(new g37(new cz6(o07Var, null, 2, null), "live"));
+        if (interceptable == null || interceptable.invokeLL(65536, null, feedLinkComponent, mutableList) == null) {
+            Intrinsics.checkNotNullParameter(feedLinkComponent, "<this>");
+            Intrinsics.checkNotNullParameter(mutableList, "mutableList");
+            List<PbLinkInfo> list = feedLinkComponent.links;
+            if (list != null) {
+                ArrayList arrayList = new ArrayList();
+                for (PbLinkInfo it : list) {
+                    Intrinsics.checkNotNullExpressionValue(it, "it");
+                    o07 b = b(it);
+                    if (b != null) {
+                        arrayList.add(b);
+                    }
+                }
+                if (arrayList.size() > 1) {
+                    mutableList.add(new fz6(arrayList));
+                } else {
+                    mutableList.add(new iz6((o07) arrayList.get(0)));
+                }
+            }
         }
+    }
+
+    public static final o07 b(PbLinkInfo pbLinkInfo) {
+        InterceptResult invokeL;
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        String str5;
+        int intValue;
+        String str6;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, pbLinkInfo)) == null) {
+            Intrinsics.checkNotNullParameter(pbLinkInfo, "<this>");
+            String str7 = pbLinkInfo.title;
+            if (str7 == null) {
+                str = "";
+            } else {
+                str = str7;
+            }
+            String str8 = pbLinkInfo.to_url;
+            if (str8 == null) {
+                str2 = "";
+            } else {
+                str2 = str8;
+            }
+            String str9 = pbLinkInfo.pic_url;
+            if (str9 == null) {
+                str3 = "";
+            } else {
+                str3 = str9;
+            }
+            String str10 = pbLinkInfo.link_from;
+            if (str10 == null) {
+                str4 = "";
+            } else {
+                str4 = str10;
+            }
+            String str11 = pbLinkInfo.ext_txt;
+            if (str11 == null) {
+                str5 = "";
+            } else {
+                str5 = str11;
+            }
+            Integer num = pbLinkInfo.sort;
+            int i = 0;
+            if (num == null) {
+                intValue = 0;
+            } else {
+                intValue = num.intValue();
+            }
+            Integer num2 = pbLinkInfo.url_type;
+            if (num2 != null) {
+                i = num2.intValue();
+            }
+            String str12 = pbLinkInfo.content1;
+            if (str12 == null) {
+                str6 = "";
+            } else {
+                str6 = str12;
+            }
+            String str13 = pbLinkInfo.content2;
+            if (str13 == null) {
+                str13 = "";
+            }
+            return new o07(str, str2, str3, str4, str5, intValue, i, str6, str13);
+        }
+        return (o07) invokeL.objValue;
     }
 }

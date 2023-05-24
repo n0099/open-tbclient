@@ -10,28 +10,28 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.b16;
-import com.baidu.tieba.b87;
 import com.baidu.tieba.c16;
 import com.baidu.tieba.c87;
+import com.baidu.tieba.d87;
 import com.baidu.tieba.tbadkCore.FrsViewData;
-import com.baidu.tieba.tj6;
 import com.baidu.tieba.ua6;
-import com.baidu.tieba.vj6;
+import com.baidu.tieba.uj6;
+import com.baidu.tieba.wj6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class FrsAlaShareItemAdapter extends c87<ThreadData, FrsPageAlaShareHolder> implements tj6, c16 {
+public class FrsAlaShareItemAdapter extends d87<ThreadData, FrsPageAlaShareHolder> implements uj6, c16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String l;
     public ua6 m;
     public String n;
-    public vj6<ThreadData> o;
+    public wj6<ThreadData> o;
 
-    @Override // com.baidu.tieba.tj6
+    @Override // com.baidu.tieba.uj6
     public void p(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
@@ -67,7 +67,7 @@ public class FrsAlaShareItemAdapter extends c87<ThreadData, FrsPageAlaShareHolde
     }
 
     /* loaded from: classes4.dex */
-    public class a extends vj6<ThreadData> {
+    public class a extends wj6<ThreadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsAlaShareItemAdapter b;
@@ -91,7 +91,7 @@ public class FrsAlaShareItemAdapter extends c87<ThreadData, FrsPageAlaShareHolde
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vj6
+        @Override // com.baidu.tieba.wj6
         /* renamed from: d */
         public void a(View view2, ThreadData threadData) {
             CustomMessage customMessage;
@@ -138,7 +138,7 @@ public class FrsAlaShareItemAdapter extends c87<ThreadData, FrsPageAlaShareHolde
         this.o = new a(this);
     }
 
-    @Override // com.baidu.tieba.tj6
+    @Override // com.baidu.tieba.uj6
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -176,7 +176,7 @@ public class FrsAlaShareItemAdapter extends c87<ThreadData, FrsPageAlaShareHolde
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.c87, com.baidu.tieba.en
+    @Override // com.baidu.tieba.d87, com.baidu.tieba.en
     /* renamed from: J */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ThreadData threadData, FrsPageAlaShareHolder frsPageAlaShareHolder) {
         InterceptResult invokeCommon;
@@ -199,8 +199,8 @@ public class FrsAlaShareItemAdapter extends c87<ThreadData, FrsPageAlaShareHolde
                     ua6Var.b(this.n);
                 }
                 frsPageAlaShareHolder.a.a(this.l);
-                b87.j(frsPageAlaShareHolder.a.O(), this.b);
-                b87.j(frsPageAlaShareHolder.a.Q(), this.b);
+                c87.j(frsPageAlaShareHolder.a.O(), this.b);
+                c87.j(frsPageAlaShareHolder.a.Q(), this.b);
                 frsPageAlaShareHolder.a.i(threadData);
                 threadData.updateShowStatus();
             }

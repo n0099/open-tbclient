@@ -51,6 +51,14 @@ public class vh7 extends PriorityOrganizer.Task {
     }
 
     @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            t();
+        }
+    }
+
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
     public boolean w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -58,16 +66,14 @@ public class vh7 extends PriorityOrganizer.Task {
             if (a35.j()) {
                 return false;
             }
-            return gl7.a(TbSingleton.getInstance().getFrsResponseData(), this.m);
+            hq9 frsResponseData = TbSingleton.getInstance().getFrsResponseData();
+            ra7 ra7Var = new ra7(this.n.getPageContext());
+            this.m.M4(ra7Var);
+            boolean j = ra7Var.j(frsResponseData);
+            this.m.K4(j);
+            this.m.P4(j);
+            return j;
         }
         return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            t();
-        }
     }
 }

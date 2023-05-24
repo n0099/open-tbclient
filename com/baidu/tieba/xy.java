@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public abstract class xy extends ax<jy4> implements bc9 {
+public abstract class xy extends ax<jy4> implements cc9 {
     public static /* synthetic */ Interceptable $ic;
     public static final int v;
     public static int w;
@@ -47,7 +47,7 @@ public abstract class xy extends ax<jy4> implements bc9 {
     public RoundCornerFrameLayout i;
     public RoundRelativeLayout j;
     public AbsDownloadGuide k;
-    public wc9 l;
+    public xc9 l;
     public String m;
     public String n;
     public BdUniqueId o;
@@ -58,7 +58,7 @@ public abstract class xy extends ax<jy4> implements bc9 {
     public final View.OnClickListener t;
     public az.b u;
 
-    public abstract wc9 u();
+    public abstract xc9 u();
 
     public void y() {
         Interceptable interceptable = $ic;
@@ -251,26 +251,26 @@ public abstract class xy extends ax<jy4> implements bc9 {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (aVar.b() == 1) {
                     xy xyVar = this.a;
-                    hj6.l(xyVar.g, xyVar.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    ij6.l(xyVar.g, xyVar.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                     return false;
                 } else if (aVar.b() == 2) {
-                    wc9 wc9Var = this.a.l;
-                    if (wc9Var != null) {
-                        wc9Var.onScroll();
+                    xc9 xc9Var = this.a.l;
+                    if (xc9Var != null) {
+                        xc9Var.onScroll();
                         return false;
                     }
                     return false;
                 } else if (aVar.b() == 3) {
-                    wc9 wc9Var2 = this.a.l;
-                    if (wc9Var2 != null) {
-                        wc9Var2.onVolumeUp();
+                    xc9 xc9Var2 = this.a.l;
+                    if (xc9Var2 != null) {
+                        xc9Var2.onVolumeUp();
                         return false;
                     }
                     return false;
                 } else if (aVar.b() == 6) {
-                    wc9 wc9Var3 = this.a.l;
-                    if (wc9Var3 != null) {
-                        return wc9Var3.onBackPress();
+                    xc9 xc9Var3 = this.a.l;
+                    if (xc9Var3 != null) {
+                        return xc9Var3.onBackPress();
                     }
                     return false;
                 } else if (aVar.b() == 7) {
@@ -359,11 +359,11 @@ public abstract class xy extends ax<jy4> implements bc9 {
         }
     }
 
-    public void D(rc9 rc9Var) {
-        wc9 wc9Var;
+    public void D(sc9 sc9Var) {
+        xc9 xc9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, rc9Var) == null) && (wc9Var = this.l) != null) {
-            wc9Var.setStatistic(rc9Var);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, sc9Var) == null) && (xc9Var = this.l) != null) {
+            xc9Var.setStatistic(sc9Var);
         }
     }
 
@@ -371,9 +371,9 @@ public abstract class xy extends ax<jy4> implements bc9 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
             this.m = str;
-            wc9 wc9Var = this.l;
-            if (wc9Var != null) {
-                wc9Var.setFrom(str);
+            xc9 xc9Var = this.l;
+            if (xc9Var != null) {
+                xc9Var.setFrom(str);
             }
         }
     }
@@ -382,14 +382,14 @@ public abstract class xy extends ax<jy4> implements bc9 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
             this.n = str;
-            wc9 wc9Var = this.l;
-            if (wc9Var != null) {
-                wc9Var.setStageType(str);
+            xc9 xc9Var = this.l;
+            if (xc9Var != null) {
+                xc9Var.setStageType(str);
             }
         }
     }
 
-    @Override // com.baidu.tieba.bc9
+    @Override // com.baidu.tieba.cc9
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -399,7 +399,7 @@ public abstract class xy extends ax<jy4> implements bc9 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.bc9
+    @Override // com.baidu.tieba.cc9
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -413,7 +413,7 @@ public abstract class xy extends ax<jy4> implements bc9 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.bc9
+    @Override // com.baidu.tieba.cc9
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -423,21 +423,21 @@ public abstract class xy extends ax<jy4> implements bc9 {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.bc9
+    @Override // com.baidu.tieba.cc9
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            wc9 wc9Var = this.l;
-            if (wc9Var == null) {
+            xc9 xc9Var = this.l;
+            if (xc9Var == null) {
                 return false;
             }
-            return wc9Var.isFullScreen();
+            return xc9Var.isFullScreen();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.bc9
+    @Override // com.baidu.tieba.cc9
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -447,7 +447,7 @@ public abstract class xy extends ax<jy4> implements bc9 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.bc9
+    @Override // com.baidu.tieba.cc9
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -457,7 +457,7 @@ public abstract class xy extends ax<jy4> implements bc9 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.bc9
+    @Override // com.baidu.tieba.cc9
     public void startPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
@@ -468,7 +468,7 @@ public abstract class xy extends ax<jy4> implements bc9 {
         }
     }
 
-    @Override // com.baidu.tieba.bc9
+    @Override // com.baidu.tieba.cc9
     public void stopPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
@@ -476,13 +476,13 @@ public abstract class xy extends ax<jy4> implements bc9 {
         }
     }
 
-    public wc9 t() {
+    public xc9 t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             return this.l;
         }
-        return (wc9) invokeV.objValue;
+        return (xc9) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.ax
@@ -499,7 +499,7 @@ public abstract class xy extends ax<jy4> implements bc9 {
                 this.g = (TextView) this.f.findViewById(R.id.video_seg_title);
                 this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.frame_video);
                 this.j = (RoundRelativeLayout) this.f.findViewById(R.id.download_guide_layout);
-                wc9 u = u();
+                xc9 u = u();
                 this.l = u;
                 u.setUniqueId(this.o);
                 this.l.setFrom(this.m);
@@ -528,7 +528,7 @@ public abstract class xy extends ax<jy4> implements bc9 {
         jy4 jy4Var;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048589, this, tbPageContext, i) == null) && (jy4Var = this.h) != null && jy4Var.getThreadData() != null) {
-            hj6.l(this.g, this.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+            ij6.l(this.g, this.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
             this.i.c(i);
             this.i.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0209));
             AbsDownloadGuide absDownloadGuide = this.k;

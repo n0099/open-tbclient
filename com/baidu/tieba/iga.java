@@ -1,9 +1,10 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.net.MailTo;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.logsystem.basic.upload.Constant;
+import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,43 +12,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONArray;
+import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class iga {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static volatile iga c;
+    public static final boolean n;
     public transient /* synthetic */ FieldHolder $fh;
-    public jga a;
-
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public Map<String, JSONObject> b;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = 0;
-            this.b = new HashMap();
-        }
-    }
+    public int a;
+    public int b;
+    public JSONObject c;
+    public JSONObject d;
+    public JSONObject e;
+    public String f;
+    public int g;
+    public int h;
+    public int i;
+    public int j;
+    public int k;
+    public int l;
+    public List<vfa> m;
 
     static {
         InterceptResult invokeClinit;
@@ -62,156 +50,282 @@ public class iga {
                 return;
             }
         }
-        b = mga.m();
+        n = nga.m();
     }
 
-    public iga() {
+    public JSONObject a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public List<vfa> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.m;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.j;
+        }
+        return invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.i;
+        }
+        return invokeV.intValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.h;
+        }
+        return invokeV.intValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.k;
+        }
+        return invokeV.intValue;
+    }
+
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.l;
+        }
+        return invokeV.intValue;
+    }
+
+    public iga(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, jSONObject};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        this.m = new ArrayList();
+        this.c = jSONObject;
+    }
+
+    public iga(List<vfa> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.m = new ArrayList();
+        if (list != null && list.size() > 0) {
+            this.m.addAll(list);
         }
     }
 
-    public static iga f() {
+    public boolean l() {
         InterceptResult invokeV;
+        JSONObject optJSONObject;
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        boolean z5;
+        boolean z6;
+        boolean z7;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (iga.class) {
-                    if (c == null) {
-                        c = new iga();
-                    }
-                }
-            }
-            return c;
-        }
-        return (iga) invokeV.objValue;
-    }
-
-    public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            rfa o = rfa.o();
-            if (o != null && !o.g("2980", 32)) {
-                return false;
-            }
-            if (o != null && o.d("2980")) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            rfa o = rfa.o();
-            if (o != null && !o.g("2980", 32)) {
-                return false;
-            }
-            if (o != null && o.d("2980")) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void a(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048576, this, str, z) != null) || TextUtils.isEmpty(str) || !TextUtils.isDigitsOnly(str) || !b()) {
-            return;
-        }
-        this.a.c(str, z);
-    }
-
-    public boolean d(wga wgaVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, wgaVar)) == null) {
-            if (wgaVar == null || wgaVar.w() || !c()) {
-                return false;
-            }
-            this.a.f();
-            Map<String, a> v = this.a.v(7);
-            if (v != null && v.size() != 0) {
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    boolean z = false;
-                    for (String str : v.keySet()) {
-                        a aVar = v.get(str);
-                        if (aVar != null && !TextUtils.isEmpty(str)) {
-                            JSONObject jSONObject2 = new JSONObject();
-                            JSONArray jSONArray = new JSONArray();
-                            for (JSONObject jSONObject3 : aVar.b.values()) {
-                                jSONArray.put(jSONObject3);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            try {
+                if (this.c != null && this.c.length() != 0) {
+                    JSONObject jSONObject = this.c;
+                    this.d = jSONObject.optJSONObject("set");
+                    this.a = jSONObject.optInt("threshold", 10000);
+                    this.b = jSONObject.optInt("timeup", 604800000);
+                    this.f = jSONObject.optString("step");
+                    jSONObject.optString(StickerDataChangeType.REPLACE);
+                    this.e = jSONObject.optJSONObject("del");
+                    this.g = jSONObject.optInt("all_size", 614400);
+                    this.h = jSONObject.optInt("single_size", 153600);
+                    this.i = jSONObject.optInt("real_size", 614400);
+                    this.j = jSONObject.optInt("non_real_size", 614400);
+                    this.k = jSONObject.optInt("trigger_number", 100);
+                    this.l = jSONObject.optInt("trigger_interval", 180);
+                    int i = 1;
+                    if (this.d != null) {
+                        Iterator<String> keys = this.d.keys();
+                        while (keys.hasNext()) {
+                            String next = keys.next();
+                            if (!TextUtils.isEmpty(next) && (optJSONObject = this.d.optJSONObject(next)) != null && optJSONObject.length() != 0) {
+                                JSONObject optJSONObject2 = optJSONObject.optJSONObject("data");
+                                String optString = optJSONObject.optString("version");
+                                if (optJSONObject2 != null && !TextUtils.isEmpty(optString)) {
+                                    if (optJSONObject2.optInt(SetImageWatermarkTypeReqMsg.SWITCH, i) != 0) {
+                                        z = true;
+                                    } else {
+                                        z = false;
+                                    }
+                                    if (optJSONObject2.optInt(Constant.IS_REAL, 0) == 1) {
+                                        z2 = true;
+                                    } else {
+                                        z2 = false;
+                                    }
+                                    if (optJSONObject2.optInt("isAbtest", 0) == 1) {
+                                        z3 = true;
+                                    } else {
+                                        z3 = false;
+                                    }
+                                    Iterator<String> it = keys;
+                                    vfa vfaVar = new vfa(next, z, z2, optJSONObject2.optInt("timeout", 60), optJSONObject2.optInt("type", 0), z3);
+                                    if (yfa.a(next)) {
+                                        if (optJSONObject2.optInt("isSend", 1) == 1) {
+                                            z7 = true;
+                                        } else {
+                                            z7 = false;
+                                        }
+                                        vfaVar.y(z7);
+                                    }
+                                    if (optJSONObject2.has("rate")) {
+                                        vfaVar.D(optJSONObject2.getInt("rate"));
+                                    }
+                                    if (optJSONObject2.has("c")) {
+                                        vfaVar.u(optJSONObject2.getString("c"));
+                                    }
+                                    if (optJSONObject2.has("limitUnit")) {
+                                        vfaVar.A(optJSONObject2.getInt("limitUnit"));
+                                    }
+                                    if (optJSONObject2.has("limitCnt")) {
+                                        vfaVar.z(optJSONObject2.getInt("limitCnt"));
+                                    }
+                                    if (optJSONObject2.has(Constant.ID_TYPE)) {
+                                        vfaVar.w(optJSONObject2.getInt(Constant.ID_TYPE));
+                                    }
+                                    if (optJSONObject2.optInt("ch", 0) == 1) {
+                                        z4 = true;
+                                    } else {
+                                        z4 = false;
+                                    }
+                                    vfaVar.C(z4);
+                                    if (optJSONObject2.has("dfc")) {
+                                        if (optJSONObject2.getInt("dfc") == 1) {
+                                            z6 = true;
+                                        } else {
+                                            z6 = false;
+                                        }
+                                        vfaVar.x(z6);
+                                    }
+                                    if (optJSONObject2.has("reallog")) {
+                                        if (optJSONObject2.getInt("reallog") == 1) {
+                                            z5 = true;
+                                        } else {
+                                            z5 = false;
+                                        }
+                                        vfaVar.E(z5);
+                                    }
+                                    if (optJSONObject2.has("gflow")) {
+                                        vfaVar.v(optJSONObject2.getInt("gflow"));
+                                    }
+                                    if (optJSONObject2.has("uploadType")) {
+                                        vfaVar.F(optJSONObject2.optInt("uploadType", -1));
+                                    }
+                                    int optInt = optJSONObject2.optInt("lcache", 2);
+                                    if (optInt == 1 || optInt == 0) {
+                                        vfaVar.B(optInt);
+                                    }
+                                    vfaVar.G(optString);
+                                    this.m.add(vfaVar);
+                                    keys = it;
+                                    i = 1;
+                                }
                             }
-                            jSONObject2.put("total", aVar.a);
-                            jSONObject2.put("data", jSONArray);
-                            jSONObject.put(str.replace("-", ""), jSONObject2);
-                            z = true;
                         }
-                    }
-                    if (z) {
-                        yfa yfaVar = new yfa("2980");
-                        yfaVar.y(jSONObject);
-                        yfaVar.B(System.currentTimeMillis());
-                        wgaVar.c(yfaVar, yfaVar.g());
-                        wgaVar.a(v.keySet());
                         return true;
                     }
-                } catch (JSONException e) {
+                    return true;
+                }
+                return false;
+            } catch (JSONException e) {
+                if (n) {
                     e.printStackTrace();
                 }
+                return false;
             }
-            return false;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public void e(Map<String, a> map, String str, String str2, int i, int i2) {
-        a aVar;
+    public void m(List<vfa> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{map, str, str2, Integer.valueOf(i), Integer.valueOf(i2)}) != null) || map == null) {
-            return;
-        }
-        if (map.containsKey(str)) {
-            aVar = map.get(str);
-        } else {
-            a aVar2 = new a();
-            map.put(str, aVar2);
-            aVar = aVar2;
-        }
-        Map<String, JSONObject> map2 = aVar.b;
-        if (map2.containsKey(str2) && b) {
-            Log.e("UBCArrivalStatics", "*******duplicate ubc id record: " + str2);
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("id", str2);
-            jSONObject.put("c", i);
-            jSONObject.put(MailTo.CC, i2);
-            aVar.a += i;
-            map2.put(str2, jSONObject);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void g(jga jgaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jgaVar) == null) {
-            this.a = jgaVar;
+        if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
+            this.m = list;
         }
     }
 }

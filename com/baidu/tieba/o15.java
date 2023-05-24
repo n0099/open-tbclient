@@ -199,8 +199,8 @@ public class o15 extends jy4 implements rn {
                         }
                         return ThreadData.TYPE_FRS_HOTTOPIC;
                     }
-                    pr9 pr9Var = this.t.funAdData;
-                    if (pr9Var != null && pr9Var.h()) {
+                    qr9 qr9Var = this.t.funAdData;
+                    if (qr9Var != null && qr9Var.h()) {
                         if (this.t.funAdData.i()) {
                             return AdvertAppInfo.G;
                         }

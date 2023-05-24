@@ -88,9 +88,9 @@ public class eu5 {
                 if (postWriteCallBackData == null) {
                     return false;
                 }
-                nt9.g().f(true, postWriteCallBackData, b, c, d);
+                ot9.g().f(true, postWriteCallBackData, b, c, d);
             } else {
-                nt9.g().f(false, a, null, c, d);
+                ot9.g().f(false, a, null, c, d);
             }
             a = null;
             b = null;

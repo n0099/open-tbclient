@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,14 +9,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Item;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class ox8 implements rn {
     public static /* synthetic */ Interceptable $ic;
-    public static BdUniqueId c;
+    public static BdUniqueId j;
     public transient /* synthetic */ FieldHolder $fh;
-    public Item a;
+    public String a;
     public String b;
+    public int c;
+    public int d;
+    public boolean e;
+    public String f;
+    public String g;
+    public boolean h;
+    public List<String> i;
 
     static {
         InterceptResult invokeClinit;
@@ -30,7 +38,7 @@ public class ox8 implements rn {
                 return;
             }
         }
-        c = BdUniqueId.gen();
+        j = BdUniqueId.gen();
     }
 
     @Override // com.baidu.tieba.rn
@@ -38,17 +46,17 @@ public class ox8 implements rn {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c;
+            return j;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public ox8(Item item) {
+    public ox8(ForumData forumData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {item};
+            Object[] objArr = {forumData};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -58,6 +66,43 @@ public class ox8 implements rn {
                 return;
             }
         }
-        this.a = item;
+        this.e = false;
+        if (forumData == null) {
+            return;
+        }
+        this.a = forumData.getName();
+        this.b = forumData.getImage_url();
+        this.c = forumData.getPost_num();
+        this.d = forumData.getMember_num();
+        this.f = forumData.getId();
+        this.h = forumData.isLike() == 1;
+    }
+
+    public ox8(k15 k15Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {k15Var};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.e = false;
+        if (k15Var == null) {
+            return;
+        }
+        this.a = k15Var.b;
+        this.b = k15Var.c;
+        this.c = k15Var.g;
+        this.d = k15Var.h;
+        this.f = k15Var.a;
+        this.h = k15Var.e();
+        this.i = k15Var.f();
     }
 }

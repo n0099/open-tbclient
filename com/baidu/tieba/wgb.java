@@ -2,38 +2,36 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagItemInfo;
+import com.yy.mobile.framework.revenuesdk.payapi.PayType;
+import java.util.ArrayList;
 import java.util.List;
-import tv.athena.revenue.payui.model.ImageLoaderSupplier;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
 /* loaded from: classes8.dex */
 public class wgb extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public List<GiftBagItemInfo> b;
-    public PayUIKitConfig c;
+    public Context a;
+    public int b;
+    public List<ifb> c;
+    public PayUIKitConfig d;
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
     }
 
     /* loaded from: classes8.dex */
@@ -41,8 +39,8 @@ public class wgb extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TextView a;
-        public TextView b;
-        public ImageView c;
+        public ImageView b;
+        public View c;
         public TextView d;
 
         public a(wgb wgbVar) {
@@ -62,12 +60,12 @@ public class wgb extends BaseAdapter {
         }
     }
 
-    public wgb(Context context, List<GiftBagItemInfo> list, PayUIKitConfig payUIKitConfig) {
+    public wgb(Context context, PayUIKitConfig payUIKitConfig, List<ifb> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, list, payUIKitConfig};
+            Object[] objArr = {context, payUIKitConfig, list};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -77,33 +75,46 @@ public class wgb extends BaseAdapter {
                 return;
             }
         }
+        this.c = new ArrayList();
         this.a = context;
-        this.b = list;
-        this.c = payUIKitConfig;
+        this.c = list;
+        this.d = payUIKitConfig;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
-    public GiftBagItemInfo getItem(int i) {
+    public ifb getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<GiftBagItemInfo> list = this.b;
-            if (list != null && !list.isEmpty() && i >= 0 && i < this.b.size()) {
-                return this.b.get(i);
-            }
-            return null;
+            return this.c.get(i);
         }
-        return (GiftBagItemInfo) invokeI.objValue;
+        return (ifb) invokeI.objValue;
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b.size();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c.size();
         }
         return invokeV.intValue;
     }
@@ -114,48 +125,53 @@ public class wgb extends BaseAdapter {
         a aVar;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
-                ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(this.a, jgb.a.a(this.c));
-                if (getCount() <= 2) {
-                    i2 = R.layout.pay_ui_item_pay_gift_bag_big;
-                } else {
-                    i2 = R.layout.pay_ui_item_pay_gift_bag_small;
-                }
-                view2 = LayoutInflater.from(contextThemeWrapper).inflate(i2, (ViewGroup) null);
+                view2 = LayoutInflater.from(this.a).inflate(R.layout.pay_ui_item_pay_amount_way_choose, viewGroup, false);
                 aVar = new a(this);
-                aVar.a = (TextView) view2.findViewById(R.id.tv_gift_name);
-                aVar.c = (ImageView) view2.findViewById(R.id.img_gift);
-                aVar.b = (TextView) view2.findViewById(R.id.tv_num);
-                aVar.d = (TextView) view2.findViewById(R.id.tv_type);
+                aVar.a = (TextView) view2.findViewById(R.id.way_tv_title);
+                aVar.b = (ImageView) view2.findViewById(R.id.recharge_way_bg);
+                aVar.d = (TextView) view2.findViewById(R.id.tv_tips);
+                aVar.c = view2.findViewById(R.id.amount_new_rl);
                 view2.setTag(aVar);
             } else {
                 aVar = (a) view2.getTag();
             }
-            GiftBagItemInfo item = getItem(i);
-            if (TextUtils.isEmpty(item.name)) {
-                aVar.a.setVisibility(4);
-            } else {
-                aVar.a.setVisibility(0);
-                aVar.a.setText(item.name);
+            ifb item = getItem(i);
+            aVar.a.setText(item.a());
+            PayType payType = item.a;
+            if (PayType.ALI_PAY.equals(payType)) {
+                aVar.b.setBackgroundResource(R.drawable.pay_ui_pay_channel_zhifubao_icon);
+            } else if (PayType.WECHAT_PAY.equals(payType)) {
+                aVar.b.setBackgroundResource(R.drawable.pay_ui_pay_channel_weixin_icon);
+            } else if (PayType.DXM_PAY.equals(payType)) {
+                aVar.b.setBackgroundResource(R.drawable.pay_ui_pay_channel_dxm_icon);
+            } else if (PayType.DXM_PAY_KJ.equals(payType)) {
+                aVar.b.setBackgroundResource(R.drawable.pay_ui_pay_channel_dxmkj_icon);
+            } else if (PayType.UNION_PAY.equals(payType)) {
+                aVar.b.setBackgroundResource(R.drawable.pay_ui_pay_channel_unionpay_icon);
+            } else if (PayType.QQ_PAY.equals(payType)) {
+                aVar.b.setBackgroundResource(R.drawable.pay_ui_pay_channel_qqpay_icon);
+            } else if (PayType.DXM_PAY_H5.equals(payType)) {
+                aVar.b.setBackgroundResource(R.drawable.pay_ui_pay_channel_dxm_icon);
             }
-            if (!TextUtils.isEmpty(item.countDisplay) && !StringUtil.NULL_STRING.equals(item.countDisplay)) {
-                aVar.b.setVisibility(0);
-                aVar.b.setText(item.countDisplay);
+            aVar.a.setTextColor(this.a.getResources().getColor(R.color.pay_ui_font_color_6));
+            if (kgb.a.b(this.d)) {
+                i2 = R.drawable.pay_ui_selector_amount_way_list_item_red;
             } else {
-                aVar.b.setVisibility(4);
+                i2 = R.drawable.pay_ui_selector_amount_way_list_item_yellow;
             }
-            if (!TextUtils.isEmpty(item.typeName) && !StringUtil.NULL_STRING.equals(item.typeName)) {
-                aVar.d.setVisibility(0);
-                aVar.d.setText(item.typeName);
+            aVar.c.setBackgroundResource(i2);
+            if (this.b == i) {
+                aVar.c.setSelected(true);
             } else {
+                aVar.c.setSelected(false);
+            }
+            if (TextUtils.isEmpty(item.c)) {
                 aVar.d.setVisibility(4);
-            }
-            PayUIKitConfig payUIKitConfig = this.c;
-            if (payUIKitConfig != null && payUIKitConfig.imageLoaderSupplier != null) {
-                this.c.imageLoaderSupplier.onLoad(this.a, aVar.c, new ImageLoaderSupplier.ImageParam(item.imgUrl, -1, -1));
             } else {
-                RLog.error("PayGiftListAdapter", "getView error mPayUIKitConfig null", new Object[0]);
+                aVar.d.setVisibility(0);
+                aVar.d.setText(item.c);
             }
             return view2;
         }

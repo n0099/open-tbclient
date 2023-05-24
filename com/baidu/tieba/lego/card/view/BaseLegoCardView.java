@@ -21,14 +21,14 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gj8;
-import com.baidu.tieba.hj6;
-import com.baidu.tieba.ki8;
+import com.baidu.tieba.hj8;
+import com.baidu.tieba.ij6;
 import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
 import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.baidu.tieba.oj6;
-import com.baidu.tieba.qq9;
-import com.baidu.tieba.yi8;
+import com.baidu.tieba.li8;
+import com.baidu.tieba.pj6;
+import com.baidu.tieba.rq9;
+import com.baidu.tieba.zi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,7 +37,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends LinearLayout implements gj8<T> {
+public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends LinearLayout implements hj8<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -50,38 +50,38 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     public ImageView h;
     public TbPageContext i;
     public int j;
-    public ki8 k;
+    public li8 k;
     public boolean l;
 
-    @Override // com.baidu.tieba.gj8
+    @Override // com.baidu.tieba.hj8
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.gj8
+    @Override // com.baidu.tieba.hj8
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.gj8
+    @Override // com.baidu.tieba.hj8
     public void f(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.gj8
+    @Override // com.baidu.tieba.hj8
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.gj8
+    @Override // com.baidu.tieba.hj8
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -90,14 +90,14 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
 
     public abstract View q();
 
-    @Override // com.baidu.tieba.gj8
+    @Override // com.baidu.tieba.hj8
     public final void setFromCDN(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.gj8
+    @Override // com.baidu.tieba.hj8
     public void setMulDel(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
@@ -238,8 +238,8 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
                 }
             }
             statisticItem.param("obj_locate", getStatPosition());
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, hj6.e());
-            oj6.b().a(statisticItem);
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, ij6.e());
+            pj6.b().a(statisticItem);
         }
     }
 
@@ -379,20 +379,20 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     public final void m(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, t) == null) {
-            oj6.b().d(true);
+            pj6.b().d(true);
             v(t);
         }
     }
 
-    @Override // com.baidu.tieba.gj8
-    public final void setAfterClickSchemeListener(ki8 ki8Var) {
+    @Override // com.baidu.tieba.hj8
+    public final void setAfterClickSchemeListener(li8 li8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, ki8Var) == null) {
-            this.k = ki8Var;
+        if (interceptable == null || interceptable.invokeL(1048596, this, li8Var) == null) {
+            this.k = li8Var;
         }
     }
 
-    @Override // com.baidu.tieba.gj8
+    @Override // com.baidu.tieba.hj8
     public final void setBusinessType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
@@ -414,7 +414,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         }
     }
 
-    @Override // com.baidu.tieba.gj8
+    @Override // com.baidu.tieba.hj8
     public final void setPosition(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
@@ -425,10 +425,10 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     public void v(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, t) == null) {
-            int c = qq9.c(this.i, t.getScheme());
-            ki8 ki8Var = this.k;
-            if (ki8Var != null) {
-                ki8Var.a(c, null);
+            int c = rq9.c(this.i, t.getScheme());
+            li8 li8Var = this.k;
+            if (li8Var != null) {
+                li8Var.a(c, null);
             }
         }
     }
@@ -507,7 +507,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
 
     /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.baidu.tieba.lego.card.view.BaseLegoCardView<T extends com.baidu.tieba.lego.card.model.BaseLegoCardInfo> */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.baidu.tieba.gj8
+    @Override // com.baidu.tieba.hj8
     public final void update(Object obj) {
         ICardInfo iCardInfo;
         ICardInfo updateCard;
@@ -533,7 +533,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     public final void x(View view2, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(1048608, this, view2, i, i2, i3) == null) {
-            if (!yi8.a(i) && !yi8.a(i2)) {
+            if (!zi8.a(i) && !zi8.a(i2)) {
                 if (r()) {
                     i = i2;
                 }
@@ -547,7 +547,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     public final void y(TextView textView, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(1048609, this, textView, i, i2, i3) == null) {
-            if (!yi8.a(i) && !yi8.a(i2)) {
+            if (!zi8.a(i) && !zi8.a(i2)) {
                 if (r()) {
                     i = i2;
                 }

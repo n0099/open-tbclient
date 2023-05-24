@@ -20,7 +20,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ee0;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.xf9;
+import com.baidu.tieba.yf9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -304,7 +304,7 @@ public class McnVideoAdView extends FrameLayout {
         String str;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (context = this.a) != null && (ee0Var = this.j) != null && (str = ee0Var.d) != null) {
-            xf9.a(context, str, null, null, null);
+            yf9.a(context, str, null, null, null);
             c cVar = this.k;
             if (cVar != null) {
                 cVar.b(this.j);

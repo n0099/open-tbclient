@@ -84,11 +84,11 @@ public class xp1 extends jx1 {
 
         /* renamed from: com.baidu.tieba.xp1$b$b  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC0500b implements Runnable {
+        public class RunnableC0501b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0500b(b bVar) {
+            public RunnableC0501b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -188,7 +188,7 @@ public class xp1 extends jx1 {
                     int optInt = jSONObject.optInt("errno", -1);
                     if (optInt != 0) {
                         if (this.a) {
-                            an3.e0(new RunnableC0500b(this));
+                            an3.e0(new RunnableC0501b(this));
                         }
                         this.c.N(this.b, optInt, jSONObject.optString("errmsg"), false);
                         return;

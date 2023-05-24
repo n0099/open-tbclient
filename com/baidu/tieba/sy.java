@@ -86,13 +86,13 @@ public class sy extends hx {
     }
 
     @Override // com.baidu.tieba.ax
-    public void p(vj6<jy4> vj6Var) {
+    public void p(wj6<jy4> wj6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, vj6Var) == null) {
-            super.p(vj6Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, wj6Var) == null) {
+            super.p(wj6Var);
             BjhArticleLayout bjhArticleLayout = this.i;
             if (bjhArticleLayout != null) {
-                bjhArticleLayout.setSubClickListener(vj6Var);
+                bjhArticleLayout.setSubClickListener(wj6Var);
             }
         }
     }

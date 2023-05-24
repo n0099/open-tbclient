@@ -3,8 +3,8 @@ package com.baidu.tieba.gift.giftTab;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.eo7;
-import com.baidu.tieba.io7;
+import com.baidu.tieba.fo7;
+import com.baidu.tieba.jo7;
 import com.baidu.tieba.uz4;
 import com.baidu.tieba.vz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,11 +27,11 @@ public class DefaultGiftListHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String addFreeUrl;
-    public ArrayList<eo7> categoryList;
+    public ArrayList<fo7> categoryList;
     public int currencyType;
     public int freeChance;
     public ArrayList<uz4> giftList;
-    public ArrayList<io7> numberList;
+    public ArrayList<jo7> numberList;
     public long sceneId;
     public vz4 urlTitleData;
 
@@ -112,9 +112,9 @@ public class DefaultGiftListHttpResponseMessage extends TbHttpResponsedMessage {
                 this.categoryList = new ArrayList<>();
                 for (PresentCategoryList presentCategoryList : getGiftListResIdl.data.list) {
                     if (presentCategoryList != null) {
-                        eo7 eo7Var = new eo7();
-                        eo7Var.d(presentCategoryList);
-                        this.categoryList.add(eo7Var);
+                        fo7 fo7Var = new fo7();
+                        fo7Var.d(presentCategoryList);
+                        this.categoryList.add(fo7Var);
                     }
                 }
             }
@@ -123,9 +123,9 @@ public class DefaultGiftListHttpResponseMessage extends TbHttpResponsedMessage {
                 this.numberList = new ArrayList<>();
                 for (PresentNumInfo presentNumInfo : getGiftListResIdl.data.num_info) {
                     if (presentNumInfo != null) {
-                        io7 io7Var = new io7();
-                        io7Var.c(presentNumInfo);
-                        this.numberList.add(io7Var);
+                        jo7 jo7Var = new jo7();
+                        jo7Var.c(presentNumInfo);
+                        this.numberList.add(jo7Var);
                     }
                 }
             }
@@ -141,7 +141,7 @@ public class DefaultGiftListHttpResponseMessage extends TbHttpResponsedMessage {
         return (String) invokeV.objValue;
     }
 
-    public ArrayList<eo7> getCategoryList() {
+    public ArrayList<fo7> getCategoryList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -168,7 +168,7 @@ public class DefaultGiftListHttpResponseMessage extends TbHttpResponsedMessage {
         return (ArrayList) invokeV.objValue;
     }
 
-    public ArrayList<io7> getGiftNumberList() {
+    public ArrayList<jo7> getGiftNumberList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {

@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import android.os.Looper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,13 +8,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
-public final class r7b {
+public class r7b {
     public static /* synthetic */ Interceptable $ic;
-    public static final AtomicReference<r7b> b;
+    public static final r7b a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final k7b a;
+
+    public l7b b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (l7b) invokeV.objValue;
+    }
+
+    public v7b c(v7b v7bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v7bVar)) == null) ? v7bVar : (v7b) invokeL.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -29,33 +42,7 @@ public final class r7b {
                 return;
             }
         }
-        b = new AtomicReference<>();
-    }
-
-    public static r7b a() {
-        r7b r7bVar;
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            do {
-                r7b r7bVar2 = b.get();
-                if (r7bVar2 != null) {
-                    return r7bVar2;
-                }
-                r7bVar = new r7b();
-            } while (!b.compareAndSet(null, r7bVar));
-            return r7bVar;
-        }
-        return (r7b) invokeV.objValue;
-    }
-
-    public static k7b b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return a().a;
-        }
-        return (k7b) invokeV.objValue;
+        a = new r7b();
     }
 
     public r7b() {
@@ -68,14 +55,16 @@ public final class r7b {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        k7b b2 = p7b.a().b().b();
-        if (b2 != null) {
-            this.a = b2;
-        } else {
-            this.a = new s7b(Looper.getMainLooper());
+    }
+
+    public static r7b a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
         }
+        return (r7b) invokeV.objValue;
     }
 }

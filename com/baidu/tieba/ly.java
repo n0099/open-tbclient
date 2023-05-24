@@ -53,9 +53,9 @@ public class ly extends hx {
         if (interceptable == null || interceptable.invokeL(1048576, this, jy4Var) == null) {
             if (!z(jy4Var) && jy4Var != null && jy4Var.getThreadData() != null && !y(jy4Var) && ListUtils.getCount(jy4Var.getThreadData().getLinkDataList()) + ListUtils.getCount(jy4Var.getThreadData().getGoodsDataList()) == 1) {
                 if (jy4Var.getThreadData().getLinkDataList().size() >= 1) {
-                    this.h.a((dk6) ListUtils.getItem(jy4Var.getThreadData().getLinkDataList(), 0));
+                    this.h.a((ek6) ListUtils.getItem(jy4Var.getThreadData().getLinkDataList(), 0));
                 } else if (jy4Var.getThreadData().getGoodsDataList().size() >= 1) {
-                    this.h.a((dk6) ListUtils.getItem(jy4Var.getThreadData().getGoodsDataList(), 0));
+                    this.h.a((ek6) ListUtils.getItem(jy4Var.getThreadData().getGoodsDataList(), 0));
                 }
                 this.h.setVisibility(0);
                 return;

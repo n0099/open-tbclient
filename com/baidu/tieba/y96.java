@@ -40,7 +40,7 @@ public class y96 {
     public transient /* synthetic */ FieldHolder $fh;
     public ca6 A;
     public o96 B;
-    public hf7 C;
+    public if7 C;
     public NavigationBar D;
     public TbPageContext a;
     public int b;
@@ -609,7 +609,7 @@ public class y96 {
             this.B = new o96(this.a, this.j);
             this.i.setOnClickListener(new b(this));
             if (this.d) {
-                this.C = new hf7(this.a.getPageActivity(), this.e, this.d);
+                this.C = new if7(this.a.getPageActivity(), this.e, this.d);
                 this.j.setOnTouchListener(new c(this));
             }
         }

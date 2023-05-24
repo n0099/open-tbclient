@@ -1,36 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.h7b;
+import com.baidu.tieba.i7b;
+import com.baidu.tieba.l7b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.producers.SingleDelayedProducer;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
-public final class m8b<T> implements h7b.b<Boolean, T> {
+public final class m8b implements i7b.a<Long> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final z7b<? super T, Boolean> a;
-    public final boolean b;
+    public final long a;
+    public final TimeUnit b;
+    public final l7b c;
 
     /* loaded from: classes6.dex */
-    public class a extends n7b<T> {
+    public class a implements v7b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public boolean e;
-        public boolean f;
-        public final /* synthetic */ SingleDelayedProducer g;
-        public final /* synthetic */ n7b h;
-        public final /* synthetic */ m8b i;
+        public final /* synthetic */ o7b a;
 
-        public a(m8b m8bVar, SingleDelayedProducer singleDelayedProducer, n7b n7bVar) {
+        public a(m8b m8bVar, o7b o7bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {m8bVar, singleDelayedProducer, n7bVar};
+                Object[] objArr = {m8bVar, o7bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -40,62 +36,29 @@ public final class m8b<T> implements h7b.b<Boolean, T> {
                     return;
                 }
             }
-            this.i = m8bVar;
-            this.g = singleDelayedProducer;
-            this.h = n7bVar;
+            this.a = o7bVar;
         }
 
-        @Override // com.baidu.tieba.i7b
-        public void onCompleted() {
+        @Override // com.baidu.tieba.v7b
+        public void call() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.f) {
-                this.f = true;
-                if (this.e) {
-                    this.g.setValue(Boolean.FALSE);
-                } else {
-                    this.g.setValue(Boolean.valueOf(this.i.b));
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    this.a.onNext(0L);
+                    this.a.onCompleted();
+                } catch (Throwable th) {
+                    u7b.f(th, this.a);
                 }
-            }
-        }
-
-        @Override // com.baidu.tieba.i7b
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                if (!this.f) {
-                    this.f = true;
-                    this.h.onError(th);
-                    return;
-                }
-                rbb.j(th);
-            }
-        }
-
-        @Override // com.baidu.tieba.i7b
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) != null) || this.f) {
-                return;
-            }
-            this.e = true;
-            try {
-                if (this.i.a.call(t).booleanValue()) {
-                    this.f = true;
-                    this.g.setValue(Boolean.valueOf(true ^ this.i.b));
-                    unsubscribe();
-                }
-            } catch (Throwable th) {
-                t7b.g(th, this, t);
             }
         }
     }
 
-    public m8b(z7b<? super T, Boolean> z7bVar, boolean z) {
+    public m8b(long j, TimeUnit timeUnit, l7b l7bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {z7bVar, Boolean.valueOf(z)};
+            Object[] objArr = {Long.valueOf(j), timeUnit, l7bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -105,22 +68,19 @@ public final class m8b<T> implements h7b.b<Boolean, T> {
                 return;
             }
         }
-        this.a = z7bVar;
-        this.b = z;
+        this.a = j;
+        this.b = timeUnit;
+        this.c = l7bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.h7b.b, com.baidu.tieba.z7b
-    public n7b<? super T> call(n7b<? super Boolean> n7bVar) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.i7b.a, com.baidu.tieba.w7b
+    public void call(o7b<? super Long> o7bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, n7bVar)) == null) {
-            SingleDelayedProducer singleDelayedProducer = new SingleDelayedProducer(n7bVar);
-            a aVar = new a(this, singleDelayedProducer, n7bVar);
-            n7bVar.b(aVar);
-            n7bVar.f(singleDelayedProducer);
-            return aVar;
+        if (interceptable == null || interceptable.invokeL(1048576, this, o7bVar) == null) {
+            l7b.a createWorker = this.c.createWorker();
+            o7bVar.b(createWorker);
+            createWorker.c(new a(this, o7bVar), this.a, this.b);
         }
-        return (n7b) invokeL.objValue;
     }
 }

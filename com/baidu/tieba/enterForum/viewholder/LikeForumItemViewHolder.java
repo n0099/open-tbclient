@@ -24,12 +24,12 @@ import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.R;
+import com.baidu.tieba.at6;
 import com.baidu.tieba.enterForum.adapter.LikeForumItemAdapter;
 import com.baidu.tieba.iz4;
 import com.baidu.tieba.qm5;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.y05;
-import com.baidu.tieba.zs6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -200,12 +200,12 @@ public class LikeForumItemViewHolder extends RecyclerView.ViewHolder {
         this.f.setStrokeColorResId(R.color.CAM_X0201);
     }
 
-    public void e(zs6 zs6Var) {
+    public void e(at6 at6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, zs6Var) != null) || zs6Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, at6Var) != null) || at6Var == null) {
             return;
         }
-        j(zs6Var);
+        j(at6Var);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.d, R.drawable.icon_pure_ba_checkedin16_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
         SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
     }
@@ -256,31 +256,31 @@ public class LikeForumItemViewHolder extends RecyclerView.ViewHolder {
         this.b.setBackgroundDrawable(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0205));
         this.b.setVisibility(0);
         this.c.setVisibility(0);
-        if (iz4Var instanceof zs6) {
-            zs6 zs6Var = (zs6) iz4Var;
-            this.c.setText(zs6Var.k());
+        if (iz4Var instanceof at6) {
+            at6 at6Var = (at6) iz4Var;
+            this.c.setText(at6Var.k());
             ImageView imageView = this.d;
-            if (zs6Var.w() == 0) {
+            if (at6Var.w() == 0) {
                 i = 8;
             } else {
                 i = 0;
             }
             imageView.setVisibility(i);
-            if (zs6Var.i() == 0) {
+            if (at6Var.i() == 0) {
                 this.e.setVisibility(8);
             } else {
                 this.e.setVisibility(0);
-                SkinManager.setImageResource(this.e, BitmapHelper.getGradeResourceIdInEnterForum(zs6Var.i()));
+                SkinManager.setImageResource(this.e, BitmapHelper.getGradeResourceIdInEnterForum(at6Var.i()));
             }
             this.f.setShowOval(true);
-            this.f.N(zs6Var.e(), 10, false);
+            this.f.N(at6Var.e(), 10, false);
             this.f.setShowOuterBorder(false);
             this.f.setShowInnerBorder(true);
             this.f.setStrokeWith(ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
             this.f.setStrokeColorResId(R.color.CAM_X0401);
-            this.g.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f09c8), StringHelper.numberUniformFormatExtraWithRoundInt(zs6Var.n())));
+            this.g.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f09c8), StringHelper.numberUniformFormatExtraWithRoundInt(at6Var.n())));
             SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0109);
-            if (YYLiveUtil.isLiveRoom(zs6Var.k())) {
+            if (YYLiveUtil.isLiveRoom(at6Var.k())) {
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CARD_ENTER_FORUM_SHOW);
                 TiebaStaticHelper.addYYParam(statisticItem);
                 TiebaStatic.log(statisticItem);

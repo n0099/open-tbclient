@@ -22,10 +22,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class sp5 extends pp5<o15, ThreadCardViewHolder<o15>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vj6<o15> g;
+    public wj6<o15> g;
 
     /* loaded from: classes7.dex */
-    public class a extends vj6<o15> {
+    public class a extends wj6<o15> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ sp5 b;
@@ -49,7 +49,7 @@ public class sp5 extends pp5<o15, ThreadCardViewHolder<o15>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vj6
+        @Override // com.baidu.tieba.wj6
         /* renamed from: d */
         public void a(View view2, o15 o15Var) {
             Interceptable interceptable = $ic;

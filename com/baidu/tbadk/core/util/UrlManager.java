@@ -22,7 +22,7 @@ import com.baidu.tieba.ox5;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.sg;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.yk8;
+import com.baidu.tieba.zk8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -547,7 +547,7 @@ public class UrlManager {
                 return false;
             }
             String str2 = strArr[0];
-            yk8 activityLog = ActivityLog.getInstance();
+            zk8 activityLog = ActivityLog.getInstance();
             activityLog.c("scheme", "dealOneLinkWithDialog:" + str2);
             if (str2.startsWith(UrlSchemaHelper.SCHEMA_TB_FLUTTER)) {
                 try {
@@ -639,7 +639,7 @@ public class UrlManager {
                 return 3;
             }
             String str = strArr[0];
-            yk8 activityLog = ActivityLog.getInstance();
+            zk8 activityLog = ActivityLog.getInstance();
             activityLog.c("scheme", "dealOneLinkWithOutJumpWebView:" + str);
             UrlSchemaHandler urlSchemaHandler = this.mHandlers.get(getSchemaKey(str));
             if (urlSchemaHandler != null) {

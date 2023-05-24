@@ -15,7 +15,7 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSys
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TipsSysMsg;
 import com.baidu.tieba.p45;
-import com.baidu.tieba.qb8;
+import com.baidu.tieba.rb8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -123,7 +123,7 @@ public class TipsAdapter extends BaseSysAdapter<TipsSysMsg, Holder> {
             d2.B(R.dimen.T_X09);
             holder.a.setText(tipsSysMsg.getTips());
             if (-7014 == tipsSysMsg.getSysMsgType()) {
-                qb8.a("c15095", 1, this.i, this.j, TbadkCoreApplication.getCurrentAccount());
+                rb8.a("c15095", 1, this.i, this.j, TbadkCoreApplication.getCurrentAccount());
             }
             return holder.getView();
         }

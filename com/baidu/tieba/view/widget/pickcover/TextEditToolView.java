@@ -24,9 +24,9 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 import com.baidu.tieba.n75;
 import com.baidu.tieba.p45;
-import com.baidu.tieba.wna;
-import com.baidu.tieba.x6a;
-import com.baidu.tieba.yna;
+import com.baidu.tieba.xna;
+import com.baidu.tieba.y6a;
+import com.baidu.tieba.zna;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
     public View d;
     public View e;
     public TBSpecificationBtn f;
-    public x6a g;
+    public y6a g;
     public TextPaint h;
     public int i;
     public boolean j;
@@ -192,9 +192,9 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
             if (view2 == this.f) {
                 String obj = this.b.getText().toString();
                 j();
-                x6a x6aVar = this.g;
-                if (x6aVar != null) {
-                    x6aVar.g(obj);
+                y6a y6aVar = this.g;
+                if (y6aVar != null) {
+                    y6aVar.g(obj);
                 }
             } else if (view2 == this.c) {
                 this.b.setText("");
@@ -237,7 +237,7 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
             setLayoutParams(layoutParams);
         }
         this.m = false;
-        if (!TextUtils.equals(str, wna.l(R.string.obfuscated_res_0x7f0f16cf))) {
+        if (!TextUtils.equals(str, xna.l(R.string.obfuscated_res_0x7f0f16cf))) {
             this.b.setText(str);
         }
         setVisibility(0);
@@ -297,10 +297,10 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
         }
     }
 
-    public void setOnTextWordsEditListener(x6a x6aVar) {
+    public void setOnTextWordsEditListener(y6a y6aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, x6aVar) == null) {
-            this.g = x6aVar;
+        if (interceptable == null || interceptable.invokeL(1048585, this, y6aVar) == null) {
+            this.g = y6aVar;
         }
     }
 
@@ -361,9 +361,9 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
             if (this.h == null) {
                 TextPaint textPaint = new TextPaint();
                 this.h = textPaint;
-                textPaint.setTextSize(wna.j(R.dimen.obfuscated_res_0x7f0702b7));
+                textPaint.setTextSize(xna.j(R.dimen.obfuscated_res_0x7f0702b7));
             }
-            StaticLayout staticLayout = new StaticLayout(str, this.h, yna.c(), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
+            StaticLayout staticLayout = new StaticLayout(str, this.h, zna.c(), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
             int i2 = 0;
             if (staticLayout.getLineCount() > i) {
                 str = str.substring(0, staticLayout.getLineStart(i) - 1);
@@ -373,9 +373,9 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
                 i2 = this.b.getText().length();
             }
             this.b.setSelection(i2);
-            x6a x6aVar = this.g;
-            if (x6aVar != null && this.m) {
-                x6aVar.k(str);
+            y6a y6aVar = this.g;
+            if (y6aVar != null && this.m) {
+                y6aVar.k(str);
             }
         }
     }

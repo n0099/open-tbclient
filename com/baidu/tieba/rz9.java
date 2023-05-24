@@ -1,70 +1,144 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.tbadk.TbPageContext;
+import android.app.Application;
+import android.app.KeyguardManager;
+import android.app.WallpaperManager;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.PowerManager;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.internal.Intrinsics;
-@JvmName(name = "TopicListUtil")
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class rz9 {
+public class rz9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public KeyguardManager a;
+    public PowerManager b;
+    public PowerManager.WakeLock c;
+    public KeyguardManager.KeyguardLock d;
+    public Context e;
 
-    @JvmOverloads
-    public static final void b() {
+    public rz9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            e(null, null, 3, null);
-        }
-    }
-
-    @JvmOverloads
-    public static final void c(TbPageContext<?> tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, tbPageContext) == null) {
-            e(tbPageContext, null, 2, null);
-        }
-    }
-
-    public static final void a(int i, String fid, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), fid, Integer.valueOf(i2)}) == null) {
-            Intrinsics.checkNotNullParameter(fid, "fid");
-            TiebaStatic.log(new StatisticItem("c15112").param("obj_type", i).param("fid", fid).param("obj_locate", i2));
-        }
-    }
-
-    @JvmOverloads
-    public static final void d(TbPageContext<?> tbPageContext, String listType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, tbPageContext, listType) == null) {
-            Intrinsics.checkNotNullParameter(listType, "listType");
-            String str = "https://tieba.baidu.com/mo/q/hybrid/hotTopicRank?customfullscreen=1&nonavigationbar=1&list_type=" + listType;
-            if (Intrinsics.areEqual("all", listType)) {
-                str = str + "&page_key=a078";
-            }
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (currentActivity != null) {
-                yu4.v(currentActivity, null, str, true);
-            } else if (tbPageContext != null) {
-                yu4.v(tbPageContext.getPageActivity(), null, str, true);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        try {
+            Application app = TbadkCoreApplication.getInst().getApp();
+            this.e = app;
+            PowerManager powerManager = (PowerManager) app.getSystemService("power");
+            this.b = powerManager;
+            PowerManager.WakeLock newWakeLock = powerManager.newWakeLock(268435462, "ScreenLockNotify");
+            this.c = newWakeLock;
+            newWakeLock.setReferenceCounted(false);
+            KeyguardManager keyguardManager = (KeyguardManager) this.e.getSystemService("keyguard");
+            this.a = keyguardManager;
+            this.d = keyguardManager.newKeyguardLock("ScreenLockUtils");
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
     }
 
-    public static /* synthetic */ void e(TbPageContext tbPageContext, String str, int i, Object obj) {
-        if ((i & 1) != 0) {
-            tbPageContext = null;
+    public static Drawable a() {
+        InterceptResult invokeV;
+        Bitmap bitmap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            TbadkCoreApplication inst = TbadkCoreApplication.getInst();
+            try {
+                Drawable drawable = WallpaperManager.getInstance(inst).getDrawable();
+                if (drawable == null || (bitmap = ((BitmapDrawable) drawable).getBitmap()) == null) {
+                    return null;
+                }
+                int min = Math.min(ri.l(inst), bitmap.getWidth());
+                int min2 = Math.min(ri.j(inst), bitmap.getHeight());
+                try {
+                    try {
+                        return new BitmapDrawable(Bitmap.createBitmap(bitmap, 0, 0, min, min2));
+                    } catch (Throwable unused) {
+                        return new BitmapDrawable(Bitmap.createBitmap(bitmap, 0, 0, min, min2));
+                    }
+                } catch (Throwable th) {
+                    BdLog.e(th.getMessage());
+                    return null;
+                }
+            } catch (Exception unused2) {
+            }
+        } else {
+            return (Drawable) invokeV.objValue;
         }
-        if ((i & 2) != 0) {
-            str = "all";
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                return ((Boolean) KeyguardManager.class.getMethod("isKeyguardSecure", new Class[0]).invoke(this.a, new Object[0])).booleanValue();
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return false;
+            }
         }
-        d(tbPageContext, str);
+        return invokeV.booleanValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b.isScreenOn();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            try {
+                this.d.reenableKeyguard();
+                if (this.c != null) {
+                    this.c.release();
+                    this.c = null;
+                }
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            try {
+                if (this.c == null) {
+                    PowerManager.WakeLock newWakeLock = this.b.newWakeLock(268435462, "ScreenLockNotify");
+                    this.c = newWakeLock;
+                    newWakeLock.setReferenceCounted(false);
+                }
+                if (this.c != null) {
+                    this.c.acquire(10000L);
+                    this.d.disableKeyguard();
+                }
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
+        }
     }
 }

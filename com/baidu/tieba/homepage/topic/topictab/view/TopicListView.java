@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
-import com.baidu.tieba.iy7;
 import com.baidu.tieba.jy7;
+import com.baidu.tieba.ky7;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.ri5;
 import com.baidu.tieba.rn;
@@ -35,10 +35,10 @@ public class TopicListView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public TbPageContext<?> b;
-    public iy7 c;
+    public jy7 c;
     public BdSwipeRefreshLayout d;
     public BdTypeRecyclerView e;
-    public jy7 f;
+    public ky7 f;
     public z65 g;
     public ri5 h;
     public si5 i;
@@ -100,9 +100,9 @@ public class TopicListView extends FrameLayout {
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, bdUniqueId) == null) {
-            jy7 jy7Var = this.f;
-            if (jy7Var != null) {
-                jy7Var.c(bdUniqueId);
+            ky7 ky7Var = this.f;
+            if (ky7Var != null) {
+                ky7Var.c(bdUniqueId);
             }
             z65 z65Var = this.g;
             if (z65Var != null) {
@@ -111,10 +111,10 @@ public class TopicListView extends FrameLayout {
         }
     }
 
-    public void setPresenter(iy7 iy7Var) {
+    public void setPresenter(jy7 jy7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, iy7Var) == null) {
-            this.c = iy7Var;
+        if (interceptable == null || interceptable.invokeL(1048594, this, jy7Var) == null) {
+            this.c = jy7Var;
         }
     }
 
@@ -267,9 +267,9 @@ public class TopicListView extends FrameLayout {
         if (si5Var != null) {
             si5Var.onChangeSkinType();
         }
-        jy7 jy7Var = this.f;
-        if (jy7Var != null) {
-            jy7Var.a();
+        ky7 ky7Var = this.f;
+        if (ky7Var != null) {
+            ky7Var.a();
         }
         PbListView pbListView = this.k;
         if (pbListView != null) {

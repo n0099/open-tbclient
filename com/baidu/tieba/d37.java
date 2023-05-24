@@ -1,19 +1,30 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class d37 implements r27 {
+public class d37 implements x27 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Runnable> a;
-    public boolean b;
+    @Inject(force = false)
+    public xj1<x27> a;
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            vj1 b = vj1.b();
+            this.a = b;
+            b.a(new y27());
+        }
+    }
 
     public d37() {
         Interceptable interceptable = $ic;
@@ -25,47 +36,33 @@ public class d37 implements r27 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        b();
     }
 
-    public final boolean b() {
+    @Override // com.baidu.tieba.x27
+    @NonNull
+    public List<f37<?, ?>> a() {
         InterceptResult invokeV;
-        Runnable runnable;
+        List<x27> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            WeakReference<Runnable> weakReference = this.a;
-            if (weakReference != null) {
-                runnable = weakReference.get();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            xj1<x27> xj1Var = this.a;
+            if (xj1Var == null) {
+                list = null;
             } else {
-                runnable = null;
+                list = xj1Var.getList();
             }
-            if (runnable != null) {
-                runnable.run();
+            if (list != null) {
+                for (x27 x27Var : list) {
+                    arrayList.addAll(x27Var.a());
+                }
             }
-            if (runnable != null) {
-                return true;
-            }
-            return false;
+            return arrayList;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.r27
-    public final void a(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            Intrinsics.checkNotNullParameter(runnable, "runnable");
-            this.b = true;
-            this.a = new WeakReference<>(runnable);
-        }
-    }
-
-    public final void c(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
-            Intrinsics.checkNotNullParameter(runnable, "runnable");
-            this.a = new WeakReference<>(runnable);
-        }
+        return (List) invokeV.objValue;
     }
 }

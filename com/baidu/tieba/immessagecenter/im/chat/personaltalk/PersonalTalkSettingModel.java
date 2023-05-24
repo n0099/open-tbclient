@@ -31,10 +31,10 @@ import com.baidu.tieba.im.settingcache.PersonalSettingItemData;
 import com.baidu.tieba.immessagecenter.RequestQueryUserInfoMessage;
 import com.baidu.tieba.is5;
 import com.baidu.tieba.it5;
-import com.baidu.tieba.k48;
+import com.baidu.tieba.l48;
 import com.baidu.tieba.sb5;
-import com.baidu.tieba.t28;
 import com.baidu.tieba.tw4;
+import com.baidu.tieba.u28;
 import com.baidu.tieba.userblock.UserBlockInfoModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -112,7 +112,7 @@ public class PersonalTalkSettingModel extends BdBaseModel {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return k48.j().a(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a));
+                return l48.j().a(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a));
             }
             return (PersonalSettingItemData) invokeV.objValue;
         }
@@ -394,7 +394,7 @@ public class PersonalTalkSettingModel extends BdBaseModel {
             IMUserListHttpResponseMsg iMUserListHttpResponseMsg = (IMUserListHttpResponseMsg) httpResponsedMessage;
             if (!ListUtils.isEmpty(iMUserListHttpResponseMsg.getUserDataResultList())) {
                 this.a.k = iMUserListHttpResponseMsg.getUserDataResultList().get(0);
-                this.a.l = t28.f().g(String.valueOf(this.a.getUid()), 2);
+                this.a.l = u28.f().g(String.valueOf(this.a.getUid()), 2);
                 if (this.a.n != null) {
                     this.a.n.M();
                 }

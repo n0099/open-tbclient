@@ -10,8 +10,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.qm6;
 import com.baidu.tieba.rm6;
+import com.baidu.tieba.sm6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,8 +25,8 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
     public int a;
     public int b;
     public int c;
-    public ArrayList<qm6> d;
-    public rm6 e;
+    public ArrayList<rm6> d;
+    public sm6 e;
     public boolean f;
     public b g;
     public HttpMessageListener h;
@@ -35,7 +35,7 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
     public interface b {
         void a();
 
-        void b(int i, String str, ArrayList<qm6> arrayList, rm6 rm6Var, boolean z);
+        void b(int i, String str, ArrayList<rm6> arrayList, sm6 sm6Var, boolean z);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -227,11 +227,11 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
         }
     }
 
-    public final void c0(ArrayList<qm6> arrayList, rm6 rm6Var, boolean z) {
+    public final void c0(ArrayList<rm6> arrayList, sm6 sm6Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, arrayList, rm6Var, z) == null) {
-            if (rm6Var != null) {
-                this.e = rm6Var;
+        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, arrayList, sm6Var, z) == null) {
+            if (sm6Var != null) {
+                this.e = sm6Var;
             }
             this.f = z;
             if (arrayList == null) {

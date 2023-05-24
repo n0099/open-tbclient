@@ -1,128 +1,25 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import com.baidu.minivideo.plugin.capture.download.core.DownloadStatusDeliveryImpl;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.download.exception.DownloadException;
-import java.util.concurrent.Executor;
 /* loaded from: classes5.dex */
-public class fla implements zka {
+public class fla implements yka {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Executor a;
+    public ala a;
+    public zka b;
 
-    /* loaded from: classes5.dex */
-    public class a implements Executor {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Handler a;
-
-        public a(fla flaVar, Handler handler) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {flaVar, handler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = handler;
-        }
-
-        @Override // java.util.concurrent.Executor
-        public void execute(Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-                this.a.post(runnable);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final yka a;
-        public final wka b;
-
-        public b(yka ykaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ykaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ykaVar;
-            this.b = ykaVar.a();
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                switch (this.a.h()) {
-                    case 102:
-                        lna.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CONNECTING");
-                        this.b.c();
-                        return;
-                    case 103:
-                        lna.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CONNECTED length: " + this.a.e() + " acceptRanges: " + this.a.i());
-                        this.b.b(this.a.e(), this.a.i());
-                        return;
-                    case 104:
-                        lna.a(DownloadStatusDeliveryImpl.TAG, "STATUS_PROGRESS finished: " + this.a.d() + " length: " + this.a.e() + " percent: " + this.a.f());
-                        this.b.g(this.a.d(), this.a.e(), this.a.f());
-                        return;
-                    case 105:
-                        lna.a(DownloadStatusDeliveryImpl.TAG, "STATUS_COMPLETED Path:" + this.a.g());
-                        if (!this.a.b()) {
-                            this.a.l(true);
-                            this.b.a(this.a.g());
-                            return;
-                        }
-                        return;
-                    case 106:
-                        lna.a(DownloadStatusDeliveryImpl.TAG, "STATUS_PAUSED");
-                        this.b.e();
-                        return;
-                    case 107:
-                        lna.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CANCELED");
-                        this.b.d();
-                        return;
-                    case 108:
-                        lna.c(DownloadStatusDeliveryImpl.TAG, "STATUS_FAILED error: " + this.a.c().getCause());
-                        this.b.f((DownloadException) this.a.c());
-                        return;
-                    default:
-                        return;
-                }
-            }
-        }
-    }
-
-    public fla(Handler handler) {
+    public fla(ala alaVar, xka xkaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {handler};
+            Object[] objArr = {alaVar, xkaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -132,14 +29,107 @@ public class fla implements zka {
                 return;
             }
         }
-        this.a = new a(this, handler);
+        this.a = alaVar;
+        zka zkaVar = new zka();
+        this.b = zkaVar;
+        zkaVar.k(xkaVar);
     }
 
-    @Override // com.baidu.tieba.zka
-    public void a(yka ykaVar) {
+    @Override // com.baidu.tieba.yka
+    public void a(DownloadException downloadException) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ykaVar) == null) {
-            this.a.execute(new b(ykaVar));
+        if (interceptable == null || interceptable.invokeL(1048576, this, downloadException) == null) {
+            this.b.m(downloadException);
+            this.b.r(108);
+            this.a.a(this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.yka
+    public void b(DownloadException downloadException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadException) == null) {
+            this.b.m(downloadException);
+            this.b.r(108);
+            this.a.a(this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.yka
+    public void onDownloadCompleted(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.b.r(105);
+            this.b.q(str);
+            this.a.a(this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.yka
+    public void onConnectCanceled() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b.r(107);
+            this.a.a(this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.yka
+    public void onConnecting() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b.r(102);
+            this.a.a(this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.yka
+    public void onDownloadCanceled() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b.r(107);
+            this.a.a(this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.yka
+    public void onDownloadPaused() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.b.r(106);
+            this.a.a(this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.yka
+    public void onStarted() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.b.r(101);
+            this.b.a().h();
+        }
+    }
+
+    @Override // com.baidu.tieba.yka
+    public void onConnected(long j, long j2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+            this.b.s(j);
+            this.b.j(z);
+            this.b.r(103);
+            this.a.a(this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.yka
+    public void onDownloadProgress(long j, long j2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
+            this.b.n(j);
+            this.b.o(j2);
+            this.b.p(i);
+            this.b.r(104);
+            this.a.a(this.b);
         }
     }
 }

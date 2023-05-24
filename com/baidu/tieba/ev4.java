@@ -215,7 +215,7 @@ public class ev4 {
                         yu4.o(tbPageContext.getPageActivity(), str4);
                         return 1;
                     } else if (UtilHelper.isNativeAdURL(str4)) {
-                        xf9.a(tbPageContext.getPageActivity(), str4, null, null, null);
+                        yf9.a(tbPageContext.getPageActivity(), str4, null, null, null);
                         return 1;
                     } else if (!str4.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE) && !str4.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE_2)) {
                         if ((str4.contains(UrlSchemaHelper.SCHEMA_TYPE_FINISH_THIS_PAGE) || str4.startsWith(UrlSchemaHelper.SCHEMA_TYPE_CLOSE_WEBVIEW)) && tbPageContext.getPageActivity() != null) {

@@ -106,7 +106,7 @@ public final class bm {
         public final void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                yk8 defaultLog = DefaultLog.getInstance();
+                zk8 defaultLog = DefaultLog.getInstance();
                 defaultLog.c("libnama check", "abi:" + a() + ", process: " + d() + ", thread:" + Thread.currentThread().getId() + ", msg: " + str);
             }
         }
@@ -119,7 +119,7 @@ public final class bm {
                 if (str != null && !TextUtils.isEmpty(name)) {
                     boolean z = false;
                     if (StringsKt__StringsKt.contains$default((CharSequence) name, (CharSequence) "nama", false, 2, (Object) null)) {
-                        yk8 defaultLog = DefaultLog.getInstance();
+                        zk8 defaultLog = DefaultLog.getInstance();
                         StringBuilder sb = new StringBuilder();
                         if ((str2 == null || str2.length() == 0) ? true : true) {
                             str2 = "";

@@ -26,9 +26,9 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.c25;
-import com.baidu.tieba.fo9;
 import com.baidu.tieba.go9;
-import com.baidu.tieba.io9;
+import com.baidu.tieba.ho9;
+import com.baidu.tieba.jo9;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.se;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -45,7 +45,7 @@ public class BarFolderFirstDirActivity extends BaseActivity<BarFolderFirstDirAct
     public static String h = "st_type";
     public transient /* synthetic */ FieldHolder $fh;
     public ProgressBar a;
-    public fo9 b;
+    public go9 b;
     public b c;
     public ListView d;
     public ViewGroup e;
@@ -93,18 +93,18 @@ public class BarFolderFirstDirActivity extends BaseActivity<BarFolderFirstDirAct
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-            ArrayList<io9> c;
-            io9 io9Var;
+            ArrayList<jo9> c;
+            jo9 jo9Var;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) != null) || (c = this.a.b.c()) == null || i >= c.size() || (io9Var = c.get(i)) == null) {
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) != null) || (c = this.a.b.c()) == null || i >= c.size() || (jo9Var = c.get(i)) == null) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2902025, new ForumListActivityConfig(this.a.getPageContext().getPageActivity(), io9Var.b, io9Var.a, io9Var.c)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2902025, new ForumListActivityConfig(this.a.getPageContext().getPageActivity(), jo9Var.b, jo9Var.a, jo9Var.c)));
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b extends BdAsyncTask<Object, go9, go9> {
+    public class b extends BdAsyncTask<Object, ho9, ho9> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -132,21 +132,21 @@ public class BarFolderFirstDirActivity extends BaseActivity<BarFolderFirstDirAct
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(go9 go9Var) {
+        public void onPostExecute(ho9 ho9Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, go9Var) == null) && go9Var != null) {
-                this.b.C1(go9Var, false);
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ho9Var) == null) && ho9Var != null) {
+                this.b.C1(ho9Var, false);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: d */
-        public void onProgressUpdate(go9... go9VarArr) {
+        public void onProgressUpdate(ho9... ho9VarArr) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, go9VarArr) == null) {
-                super.onProgressUpdate(go9VarArr);
-                this.b.C1(go9VarArr[0], false);
+            if (interceptable == null || interceptable.invokeL(1048579, this, ho9VarArr) == null) {
+                super.onProgressUpdate(ho9VarArr);
+                this.b.C1(ho9VarArr[0], false);
             }
         }
 
@@ -171,11 +171,11 @@ public class BarFolderFirstDirActivity extends BaseActivity<BarFolderFirstDirAct
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public go9 doInBackground(Object... objArr) {
+        public ho9 doInBackground(Object... objArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                go9 go9Var = new go9();
+                ho9 ho9Var = new ho9();
                 c25.d();
                 se<String> e = c25.e("tb.first_dir");
                 String str = e.get("first_dir_cache_key");
@@ -183,8 +183,8 @@ public class BarFolderFirstDirActivity extends BaseActivity<BarFolderFirstDirAct
                 boolean z2 = false;
                 if (str != null) {
                     if (!str.equals("")) {
-                        go9Var.e(str);
-                        publishProgress(go9Var);
+                        ho9Var.e(str);
+                        publishProgress(ho9Var);
                         z2 = z;
                         this.a = new NetWork(TbConfig.SERVER_ADDRESS + "c/f/forum/forumdir");
                         if (this.b.f != null) {
@@ -192,7 +192,7 @@ public class BarFolderFirstDirActivity extends BaseActivity<BarFolderFirstDirAct
                         }
                         String postNetData = this.a.postNetData();
                         if (!this.a.getNetContext().getResponse().isRequestSuccess()) {
-                            go9Var.e(postNetData);
+                            ho9Var.e(postNetData);
                             String trim = (postNetData + "").trim();
                             if (trim.equals((str + "").trim())) {
                                 if (z2) {
@@ -202,9 +202,9 @@ public class BarFolderFirstDirActivity extends BaseActivity<BarFolderFirstDirAct
                                 e.e("first_dir_cache_key", postNetData, 86400000L);
                             }
                         } else {
-                            go9Var.g(this.a.getErrorString());
+                            ho9Var.g(this.a.getErrorString());
                         }
-                        return go9Var;
+                        return ho9Var;
                     }
                 }
                 z = false;
@@ -215,9 +215,9 @@ public class BarFolderFirstDirActivity extends BaseActivity<BarFolderFirstDirAct
                 String postNetData2 = this.a.postNetData();
                 if (!this.a.getNetContext().getResponse().isRequestSuccess()) {
                 }
-                return go9Var;
+                return ho9Var;
             }
-            return (go9) invokeL.objValue;
+            return (ho9) invokeL.objValue;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -311,7 +311,7 @@ public class BarFolderFirstDirActivity extends BaseActivity<BarFolderFirstDirAct
             navigationBar.setTitleText(getResources().getString(R.string.obfuscated_res_0x7f0f0314));
             this.g.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.d = (ListView) findViewById(R.id.obfuscated_res_0x7f0914dd);
-            this.b = new fo9(getPageContext().getPageActivity(), new go9(), true);
+            this.b = new go9(getPageContext().getPageActivity(), new ho9(), true);
             TextView textView = new TextView(getActivity());
             textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + ri.g(getActivity(), R.dimen.obfuscated_res_0x7f07026f)));
             this.d.addHeaderView(textView);
@@ -323,20 +323,20 @@ public class BarFolderFirstDirActivity extends BaseActivity<BarFolderFirstDirAct
         }
     }
 
-    public void C1(go9 go9Var, boolean z) {
+    public void C1(ho9 ho9Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, go9Var, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ho9Var, z) == null) {
             this.a.setVisibility(8);
             this.d.setEnabled(true);
             this.c = null;
             if (z) {
                 return;
             }
-            if (go9Var.c()) {
-                showToast(go9Var.b());
+            if (ho9Var.c()) {
+                showToast(ho9Var.b());
                 return;
             }
-            this.b.d(go9Var.h());
+            this.b.d(ho9Var.h());
             this.d.setVisibility(4);
             this.b.notifyDataSetChanged();
             this.d.setVisibility(0);

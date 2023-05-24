@@ -10,13 +10,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.novel.ReadRecordsData;
+import com.baidu.tieba.az9;
 import com.baidu.tieba.en5;
-import com.baidu.tieba.fs9;
+import com.baidu.tieba.gs9;
 import com.baidu.tieba.hi;
-import com.baidu.tieba.js9;
+import com.baidu.tieba.ks9;
 import com.baidu.tieba.qo;
 import com.baidu.tieba.t95;
-import com.baidu.tieba.zy9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ import org.json.JSONObject;
 import tbclient.BlockPopInfo;
 @qo
 /* loaded from: classes4.dex */
-public class UegTbJsBridge implements fs9 {
+public class UegTbJsBridge implements gs9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERFACE_NAME = "CommonJSBridge";
     public static final String METHOD_BIND_MOBILE_NUMBER = "bindMobileNumber";
@@ -70,17 +70,17 @@ public class UegTbJsBridge implements fs9 {
         }
     }
 
-    public js9 novelPayResultToClient(boolean z) {
+    public ks9 novelPayResultToClient(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             if (z) {
                 en5.d();
             }
-            return js9Var;
+            return ks9Var;
         }
-        return (js9) invokeZ.objValue;
+        return (ks9) invokeZ.objValue;
     }
 
     public UegTbJsBridge(TbPageContext<?> tbPageContext) {
@@ -101,37 +101,37 @@ public class UegTbJsBridge implements fs9 {
         this.mTbPageContext = tbPageContext;
     }
 
-    public js9 bindingMobileNumber() {
+    public ks9 bindingMobileNumber() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             try {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2921372, t95.b()));
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return js9Var;
+            return ks9Var;
         }
-        return (js9) invokeV.objValue;
+        return (ks9) invokeV.objValue;
     }
 
-    public js9 callNativeSMS(String str, String str2) {
+    public ks9 callNativeSMS(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             Context pageActivity = this.mTbPageContext.getPageActivity();
             if (pageActivity == null) {
                 pageActivity = this.mContext;
             }
             UtilHelper.smsTo(pageActivity, str, str2);
-            return js9Var;
+            return ks9Var;
         }
-        return (js9) invokeLL.objValue;
+        return (ks9) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.fs9
+    @Override // com.baidu.tieba.gs9
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -188,24 +188,24 @@ public class UegTbJsBridge implements fs9 {
         return invokeLLLL.booleanValue;
     }
 
-    public js9 recordNovelInfo(String str, String str2, String str3, String str4, String str5) {
+    public ks9 recordNovelInfo(String str, String str2, String str3, String str4, String str5) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048580, this, str, str2, str3, str4, str5)) == null) {
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             ReadRecordsData readRecordsData = new ReadRecordsData(str, str2, str3, str4, str5);
             readRecordsData.W(true);
             en5.e(str2, readRecordsData);
-            return js9Var;
+            return ks9Var;
         }
-        return (js9) invokeLLLLL.objValue;
+        return (ks9) invokeLLLLL.objValue;
     }
 
-    public js9 setBlockPopInfo(int i, String str, String str2, String str3, String str4, int i2) {
+    public ks9 setBlockPopInfo(int i, String str, String str2, String str3, String str4, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), str, str2, str3, str4, Integer.valueOf(i2)})) == null) {
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             try {
                 BlockPopInfo.Builder builder = new BlockPopInfo.Builder();
                 builder.can_post = Integer.valueOf(i);
@@ -215,13 +215,13 @@ public class UegTbJsBridge implements fs9 {
                 builder.ok_info = str4;
                 builder.ahead_type = Integer.valueOf(i2);
                 BlockPopInfo build = builder.build(false);
-                zy9.h(build);
-                zy9.g(build);
+                az9.h(build);
+                az9.g(build);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return js9Var;
+            return ks9Var;
         }
-        return (js9) invokeCommon.objValue;
+        return (ks9) invokeCommon.objValue;
     }
 }

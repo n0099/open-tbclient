@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.data.HotEventData;
-import com.baidu.tieba.an6;
+import com.baidu.tieba.bn6;
 import com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager;
 import com.baidu.tieba.t25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +21,7 @@ public class v25 extends t25 {
     public SpriteAnimationTipManager e;
 
     /* loaded from: classes7.dex */
-    public class a implements an6.e {
+    public class a implements bn6.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ v25 a;
@@ -44,7 +44,7 @@ public class v25 extends t25 {
             this.a = v25Var;
         }
 
-        @Override // com.baidu.tieba.an6.e
+        @Override // com.baidu.tieba.bn6.e
         public void onDismiss() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -54,7 +54,7 @@ public class v25 extends t25 {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements an6.e {
+    public class b implements bn6.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ v25 a;
@@ -77,7 +77,7 @@ public class v25 extends t25 {
             this.a = v25Var;
         }
 
-        @Override // com.baidu.tieba.an6.e
+        @Override // com.baidu.tieba.bn6.e
         public void onDismiss() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -120,7 +120,7 @@ public class v25 extends t25 {
                 spriteAnimationTipManager.p();
             }
             mc5.s(false);
-            in6.b().b(new hp9(null, 1));
+            jn6.b().b(new ip9(null, 1));
         }
     }
 
@@ -130,9 +130,9 @@ public class v25 extends t25 {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             if (a35.j()) {
                 aVar.a(false);
-                yk8 defaultLog = DefaultLog.getInstance();
+                zk8 defaultLog = DefaultLog.getInstance();
                 defaultLog.b("HotEventTip", "S级事件弹窗无法展示，云弹窗正在展示：" + a35.i());
-            } else if (2 == ex9.a().b().a().c && 1 == ex9.a().b().b().c && 6 == ex9.a().b().c().c) {
+            } else if (2 == fx9.a().b().a().c && 1 == fx9.a().b().b().c && 6 == fx9.a().b().c().c) {
                 DefaultLog.getInstance().b("HotEventTip", "直播tab不展示S级事件");
                 aVar.a(false);
             } else {

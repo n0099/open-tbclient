@@ -15,11 +15,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a98;
 import com.baidu.tieba.es5;
 import com.baidu.tieba.rn;
 import com.baidu.tieba.tx4;
 import com.baidu.tieba.xs5;
-import com.baidu.tieba.z88;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -58,7 +58,7 @@ public abstract class BaseMsg extends OrmObject implements Serializable, rn, Clo
     @es5(serialize = false)
     public boolean isSysMsg;
     @es5(serialize = false)
-    public z88 itemEventCallback;
+    public a98 itemEventCallback;
     public int itemStatus;
     @Nullable
     @es5(serialize = false)
@@ -256,14 +256,14 @@ public abstract class BaseMsg extends OrmObject implements Serializable, rn, Clo
     }
 
     @NonNull
-    public <T extends BaseMsg> z88<T> getItemEventCallback() {
+    public <T extends BaseMsg> a98<T> getItemEventCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             xs5.b(this.itemEventCallback);
             return this.itemEventCallback;
         }
-        return (z88) invokeV.objValue;
+        return (a98) invokeV.objValue;
     }
 
     public int getItemStatus() {
@@ -392,10 +392,10 @@ public abstract class BaseMsg extends OrmObject implements Serializable, rn, Clo
         }
     }
 
-    public void setItemEventCallback(@NonNull z88 z88Var) {
+    public void setItemEventCallback(@NonNull a98 a98Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, z88Var) == null) {
-            this.itemEventCallback = z88Var;
+        if (interceptable == null || interceptable.invokeL(1048603, this, a98Var) == null) {
+            this.itemEventCallback = a98Var;
         }
     }
 

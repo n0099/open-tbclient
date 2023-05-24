@@ -1,446 +1,461 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.LinearGradient;
+import android.graphics.Paint;
+import android.graphics.Shader;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.message.FestivalTaskRequestMessage;
+import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.resourceLoaderProc.EmotionShareLoaderProc;
-import com.baidu.tbadk.switchs.QqShareH5Switch;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.mutiprocess.share.ShareEvent;
 import com.baidu.tieba.sharesdk.bean.ShareEntity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.connect.share.QQShare;
-import com.tencent.tauth.IUiListener;
-import com.tencent.tauth.Tencent;
-import com.tencent.tauth.UiError;
 import java.io.File;
-import java.util.Iterator;
+import java.net.URI;
+import java.net.URISyntaxException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class tj9 extends sj9 {
+public abstract class tj9 implements zj9 {
     public static /* synthetic */ Interceptable $ic;
+    public static String h;
+    public static String i;
+    public static String j;
     public transient /* synthetic */ FieldHolder $fh;
-    public Tencent k;
-    public int l;
-    public IUiListener m;
-    public final kg<EmotionShareLoaderProc.EmotionShare> n;
-    public kg<cn> o;
+    public BdUniqueId a;
+    public Context b;
+    public String c;
+    public String d;
+    public ShareEntity e;
+    public boolean f;
+    public String g;
 
-    /* loaded from: classes7.dex */
-    public class b extends kg<cn> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tj9 a;
-
-        /* loaded from: classes7.dex */
-        public class a extends BdAsyncTask<cn, Void, Bitmap> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            /* renamed from: b */
-            public Bitmap doInBackground(cn... cnVarArr) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cnVarArr)) == null) {
-                    if (cnVarArr.length > 0 && cnVarArr[0] != null) {
-                        Bitmap p = cnVarArr[0].p();
-                        tj9 tj9Var = this.a.a;
-                        return tj9Var.u(p, tj9Var.e, true);
-                    }
-                    return null;
-                }
-                return (Bitmap) invokeL.objValue;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            public void onPostExecute(Bitmap bitmap) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
-                    super.onPostExecute((a) bitmap);
-                    tj9 tj9Var = this.a.a;
-                    tj9Var.I(tj9Var.e, tj9Var.m);
-                }
-            }
-        }
-
-        public b(tj9 tj9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tj9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tj9Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.kg
-        public void onLoaded(cn cnVar, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, cnVar, str, i) == null) {
-                super.onLoaded((b) cnVar, str, i);
-                if (cnVar != null) {
-                    a aVar = new a(this);
-                    aVar.setPriority(3);
-                    aVar.execute(cnVar);
-                }
-            }
+    public void n(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, intent) == null) {
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class a extends kg<EmotionShareLoaderProc.EmotionShare> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tj9 a;
-
-        public a(tj9 tj9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tj9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tj9Var;
-        }
-
-        @Override // com.baidu.tieba.kg
-        public void onCancelled(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                super.onCancelled(str);
-                tj9 tj9Var = this.a;
-                tj9Var.t(3, tj9Var.l);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.kg
-        /* renamed from: a */
-        public void onLoaded(EmotionShareLoaderProc.EmotionShare emotionShare, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, emotionShare, str, i) == null) {
-                super.onLoaded(emotionShare, str, i);
-                if (emotionShare != null && emotionShare.image != null && !TextUtils.isEmpty(emotionShare.path)) {
-                    tj9 tj9Var = this.a;
-                    tj9Var.J(emotionShare.path, tj9Var.m);
-                    return;
-                }
-                tj9 tj9Var2 = this.a;
-                tj9Var2.t(2, tj9Var2.l);
-            }
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class c implements IUiListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public zj9 a;
-        public final /* synthetic */ tj9 b;
-
-        @Override // com.tencent.tauth.IUiListener
-        public void onWarning(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            }
-        }
-
-        public c(tj9 tj9Var, zj9 zj9Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948183270, "Lcom/baidu/tieba/tj9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tj9Var, zj9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = tj9Var;
-            this.a = zj9Var;
-        }
-
-        public final void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                FileHelper.deleteFile(new File(sj9.h + sj9.i));
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948183270, "Lcom/baidu/tieba/tj9;");
+                return;
             }
         }
-
-        @Override // com.tencent.tauth.IUiListener
-        public void onCancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                zj9 zj9Var = this.a;
-                if (zj9Var != null) {
-                    zj9Var.c1(this.b.l, 3);
-                }
-                a();
-            }
-        }
-
-        @Override // com.tencent.tauth.IUiListener
-        public void onComplete(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                zj9 zj9Var = this.a;
-                if (zj9Var != null) {
-                    zj9Var.c1(this.b.l, 1);
-                }
-                tj9 tj9Var = this.b;
-                tj9Var.t(1, tj9Var.l);
-                a();
-            }
-        }
-
-        @Override // com.tencent.tauth.IUiListener
-        public void onError(UiError uiError) {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, uiError) == null) {
-                zj9 zj9Var = this.a;
-                if (zj9Var != null) {
-                    zj9Var.c1(this.b.l, 2);
-                }
-                if (uiError != null) {
-                    str = uiError.errorMessage;
-                } else {
-                    str = null;
-                }
-                tj9 tj9Var = this.b;
-                tj9Var.D(2, str, tj9Var.l);
-                a();
-            }
-        }
+        h = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/share";
+        i = "temp_video_thumb.png";
+        j = "_temp_share_pic.png";
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public tj9(Context context) {
-        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.l = 8;
-        this.n = new a(this);
-        this.o = new b(this);
-        this.k = Tencent.createInstance("101462192", context.getApplicationContext());
+        this.b = context;
     }
 
-    public final void H(ShareEntity shareEntity, zj9 zj9Var) {
-        String str;
+    public void A(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, shareEntity, zj9Var) != null) || shareEntity == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.c = str;
         }
-        Intent intent = new Intent("android.intent.action.SEND");
-        intent.setType("text/plain");
-        Iterator<ResolveInfo> it = this.b.getPackageManager().queryIntentActivities(intent, 0).iterator();
-        while (true) {
-            if (it.hasNext()) {
-                ResolveInfo next = it.next();
-                if (TextUtils.equals("com.tencent.mobileqq", next.activityInfo.packageName)) {
-                    str = next.activityInfo.name;
-                    break;
+    }
+
+    public void B(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            E(str, BdToast.ToastIcon.FAILURE);
+        }
+    }
+
+    public void C(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            E(str, BdToast.ToastIcon.SUCCESS);
+        }
+    }
+
+    public Bitmap f(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
+            return BitmapHelper.getCashBitmap(i2);
+        }
+        return (Bitmap) invokeI.objValue;
+    }
+
+    public Bitmap h(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, uri)) == null) {
+            return BitmapHelper.loadBitmap(uri.getPath());
+        }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    public Bitmap i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            return BitmapHelper.loadBitmap(str);
+        }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    public boolean o(Uri uri) {
+        InterceptResult invokeL;
+        File file;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, uri)) == null) {
+            if (uri == null) {
+                return false;
+            }
+            try {
+                file = new File(new URI(uri.toString()));
+            } catch (IllegalArgumentException | URISyntaxException unused) {
+            }
+            if (!file.isFile() || !file.exists()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean p(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            File file = new File(str);
+            if (!file.isFile() || !file.exists()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void s(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, bdUniqueId) == null) {
+            this.a = bdUniqueId;
+        }
+    }
+
+    public void x(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
+            this.f = z;
+        }
+    }
+
+    public void y(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
+            this.d = str;
+        }
+    }
+
+    public void z(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
+            this.g = str;
+        }
+    }
+
+    public void D(int i2, String str, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3)}) == null) {
+            if (i2 == 1) {
+                if (TextUtils.isEmpty(str)) {
+                    str = m(R.string.share_success, new Object[0]);
                 }
-            } else {
-                str = "";
-                break;
-            }
-        }
-        Intent intent2 = new Intent("android.intent.action.SEND");
-        intent2.setType("text/plain");
-        intent2.putExtra("android.intent.extra.SUBJECT", shareEntity.getTitle());
-        intent2.putExtra("android.intent.extra.TEXT", shareEntity.getContent());
-        intent2.setClassName("com.tencent.mobileqq", str);
-        intent2.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-        if (bk9.startActivity(this.b, intent2)) {
-            if (zj9Var != null) {
-                zj9Var.c1(this.l, 1);
-                return;
-            }
-            return;
-        }
-        if (zj9Var != null) {
-            zj9Var.c1(this.l, 2);
-        }
-        t(2, this.l);
-    }
-
-    public final void I(ShareEntity shareEntity, IUiListener iUiListener) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareEntity, iUiListener) == null) && shareEntity != null && iUiListener != null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("title", shareEntity.getTitle());
-            if (shareEntity.getReadCount() >= 0) {
-                if (shareEntity.getReadCount() < 10000) {
-                    bundle.putString("summary", this.b.getString(R.string.obfuscated_res_0x7f0f1312));
-                } else {
-                    bundle.putString("summary", StringHelper.numberUniformFormatExtra(shareEntity.getReadCount()) + this.b.getString(R.string.obfuscated_res_0x7f0f1311));
-                }
-            } else {
-                bundle.putString("summary", shareEntity.getContent());
-            }
-            bundle.putString("targetUrl", shareEntity.getLinkUrl());
-            bundle.putInt("req_type", 1);
-            if (shareEntity.getIsVideoThread() && !StringUtils.isNull(shareEntity.getImgUrl()) && !shareEntity.getImgUrl().startsWith("http")) {
-                bundle.putString("imageLocalUrl", shareEntity.getImgUrl());
-            } else {
-                bundle.putString("imageUrl", shareEntity.getImgUrl());
-            }
-            this.k.shareToQQ((Activity) this.b, bundle, iUiListener);
-        }
-    }
-
-    public final void K(ShareEntity shareEntity, IUiListener iUiListener) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, shareEntity, iUiListener) == null) && shareEntity != null && iUiListener != null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("title", bk9.a(this.b));
-            if (!StringUtils.isNull(shareEntity.getTitle())) {
-                bundle.putString("summary", shareEntity.getTitle());
-            } else if (!StringUtils.isNull(shareEntity.getContent())) {
-                bundle.putString("summary", shareEntity.getContent());
-            } else {
-                bundle.putString("summary", this.b.getString(R.string.obfuscated_res_0x7f0f1312));
-            }
-            bundle.putString("targetUrl", shareEntity.getLinkUrl());
-            if (!StringUtils.isNull(shareEntity.getImgUrl())) {
-                bundle.putString("imageUrl", shareEntity.getImgUrl());
-            } else {
-                bundle.putString("imageUrl", "http://tb3.bdstatic.com/public/img/fcf10e29473417fa5e0d4a1e6.fcf10e29.png");
-            }
-            bundle.putString(QQShare.SHARE_TO_QQ_MINI_PROGRAM_APPID, "1111264064");
-            bundle.putString(QQShare.SHARE_TO_QQ_MINI_PROGRAM_TYPE, "3");
-            bundle.putString(QQShare.SHARE_TO_QQ_MINI_PROGRAM_PATH, "pages/pb/pb?tid=" + shareEntity.getTid());
-            bundle.putInt("req_type", 7);
-            this.k.shareToQQ((Activity) this.b, bundle, iUiListener);
-        }
-    }
-
-    public final void J(String str, IUiListener iUiListener) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, iUiListener) == null) && !TextUtils.isEmpty(str) && iUiListener != null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("imageLocalUrl", str);
-            bundle.putInt("req_type", 5);
-            bundle.putInt("cflag", 2);
-            this.k.shareToQQ((Activity) this.b, bundle, iUiListener);
-        }
-    }
-
-    @Override // com.baidu.tieba.yj9
-    public void a(ShareEntity shareEntity, zj9 zj9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, shareEntity, zj9Var) == null) {
-            if (shareEntity != null && this.k != null) {
-                this.e = shareEntity;
-                Context context = this.b;
-                if (context != null && (context instanceof Activity)) {
-                    this.m = new c(this, zj9Var);
-                    if (!QqShareH5Switch.isOn() && !StringUtils.isNull(shareEntity.getTid()) && !"0".equals(shareEntity.getTid())) {
-                        K(shareEntity, this.m);
-                        return;
-                    }
-                    String imgUrl = shareEntity.getImgUrl();
-                    if (p(shareEntity.getLocalFile())) {
-                        J(shareEntity.getLocalFile(), this.m);
-                        return;
-                    } else if (shareEntity.getShareType() != 0 && !TextUtils.isEmpty(imgUrl) && (imgUrl.startsWith("http://") || imgUrl.startsWith("https://"))) {
-                        lg.h().k(imgUrl, 34, this.n, 0, 0, j(), new Object[0]);
-                        return;
-                    } else if (!TextUtils.isEmpty(shareEntity.getLinkUrl()) && !TextUtils.isEmpty(shareEntity.getTitle())) {
-                        if (this.e.getIsVideoThread()) {
-                            lg.h().k(shareEntity.getImgUrl(), 10, this.o, 0, 0, j(), new Object[0]);
-                            return;
-                        } else {
-                            I(shareEntity, this.m);
-                            return;
-                        }
-                    } else if (o(shareEntity.getImageUri())) {
-                        J(shareEntity.getImageUri().getPath(), this.m);
-                        return;
-                    } else {
-                        H(shareEntity, zj9Var);
-                        return;
-                    }
-                }
-                t(2, this.l);
-                if (zj9Var != null) {
-                    zj9Var.c1(0, 2);
+                ShareEntity shareEntity = this.e;
+                if (shareEntity != null && !TextUtils.isEmpty(shareEntity.getFestivalTaskType())) {
+                    v();
                     return;
                 }
-                return;
-            }
-            t(2, this.l);
-            if (zj9Var != null) {
-                zj9Var.c1(0, 2);
+                JSONObject jSONObject = new JSONObject();
+                ShareEntity shareEntity2 = this.e;
+                if (shareEntity2 != null) {
+                    try {
+                        jSONObject.put("thread_id", shareEntity2.getTid());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (this.f && pr4.d().c("share_thread", jSONObject.toString())) {
+                    return;
+                }
+                C(str);
+                w();
+            } else if (i2 == 3) {
+                if (TextUtils.isEmpty(str)) {
+                    str = m(R.string.share_cancel, new Object[0]);
+                }
+                B(str);
+            } else if (i2 == 2) {
+                if (TextUtils.isEmpty(str)) {
+                    str = m(R.string.share_failed, new Object[0]);
+                }
+                B(str);
             }
         }
+    }
+
+    public void E(String str, BdToast.ToastIcon toastIcon) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, toastIcon) == null) {
+            BdToast b = BdToast.b(d(), str);
+            b.g(toastIcon);
+            b.o();
+        }
+    }
+
+    public Bitmap k(Bitmap bitmap, int i2) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048590, this, bitmap, i2)) == null) {
+            return BitmapHelper.resizeBitmap(bitmap, i2, i2, false);
+        }
+        return (Bitmap) invokeLI.objValue;
+    }
+
+    public String m(int i2, Object... objArr) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048592, this, i2, objArr)) == null) {
+            return d().getString(i2, objArr);
+        }
+        return (String) invokeIL.objValue;
+    }
+
+    public void t(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048599, this, i2, i3) == null) {
+            D(i2, null, i3);
+            c(i2, i3);
+        }
+    }
+
+    public void b(int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(1048581, this, i2, i3, i4) == null) {
+            ShareEvent shareEvent = new ShareEvent();
+            shareEvent.status = i2;
+            shareEvent.tid = this.c;
+            shareEvent.channel = i3;
+            shareEvent.extLiveInfo = this.d;
+            shareEvent.from = i4;
+            el5.i(shareEvent);
+        }
+    }
+
+    public Bitmap l(Bitmap bitmap, int i2, int i3) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048591, this, bitmap, i2, i3)) == null) {
+            return BitmapHelper.resizeBitmap(bitmap, i2, i3, false);
+        }
+        return (Bitmap) invokeLII.objValue;
+    }
+
+    public final void c(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
+            if (!TextUtils.isEmpty(this.c)) {
+                b(i2, i3, 0);
+            } else if (!StringUtils.isNull(this.d)) {
+                b(i2, i3, 0);
+            } else {
+                ShareEntity shareEntity = this.e;
+                if (shareEntity != null && shareEntity.isFromDuXiaoMan()) {
+                    b(i2, i3, 1);
+                }
+            }
+        }
+    }
+
+    public Context d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return TbadkCoreApplication.getInst().getContext();
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public Bitmap e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return BitmapHelper.getCashBitmap(R.drawable.tb_launcher_icon);
+        }
+        return (Bitmap) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public BdUniqueId j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            BdUniqueId bdUniqueId = this.a;
+            if (bdUniqueId != null) {
+                return bdUniqueId;
+            }
+            l9 c = m9.c(this.b);
+            if (c != null) {
+                return c.getUniqueId();
+            }
+            return bdUniqueId;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public final void w() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048602, this) == null) && g() != null) {
+            StatisticItem statisticItem = new StatisticItem("c14390");
+            statisticItem.addParam("topic_id", g());
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public cn q(ShareEntity shareEntity) {
+        InterceptResult invokeL;
+        Bundle bundle;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, shareEntity)) == null) {
+            if (shareEntity == null || (bundle = shareEntity.diskPicOperate) == null) {
+                return null;
+            }
+            String string = bundle.getString("path");
+            String string2 = bundle.getString("name");
+            if (TextUtils.isEmpty(string) || TextUtils.isEmpty(string2)) {
+                return null;
+            }
+            boolean z = bundle.getBoolean("isSubDir", true);
+            boolean z2 = bundle.getBoolean("isSdcard", false);
+            boolean z3 = bundle.getBoolean("isSavedCache", true);
+            boolean z4 = bundle.getBoolean("formatData", true);
+            ec ecVar = new ec(string, string2, DiskFileOperate.Action.READ);
+            ecVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+            ecVar.setSubFolder(z);
+            ecVar.setIsFormatData(z4);
+            ecVar.setSdCard(z2);
+            ecVar.setSavedCache(z3);
+            if (!ac.f().call(ecVar) || !ecVar.isSuccess()) {
+                return null;
+            }
+            ecVar.formatData(ecVar.getData());
+            Bitmap bitmap = ecVar.getBitmap();
+            if (bitmap == null) {
+                return null;
+            }
+            return new cn(bitmap, ecVar.isGif());
+        }
+        return (cn) invokeL.objValue;
+    }
+
+    public Bitmap u(Bitmap bitmap, ShareEntity shareEntity, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048600, this, bitmap, shareEntity, z)) == null) {
+            if (bitmap == null) {
+                return null;
+            }
+            Bitmap k = k(bitmap, (ri.g(this.b, R.dimen.tbds113) * Math.max(bitmap.getWidth(), bitmap.getHeight())) / Math.min(bitmap.getWidth(), bitmap.getHeight()));
+            Bitmap createBitmap = Bitmap.createBitmap(k.getWidth(), k.getHeight(), Bitmap.Config.ARGB_8888);
+            Canvas canvas = new Canvas(createBitmap);
+            canvas.drawBitmap(k, 0.0f, 0.0f, (Paint) null);
+            LinearGradient linearGradient = new LinearGradient(0.0f, 0.0f, 0.0f, k.getHeight(), this.b.getResources().getColor(R.color.CAM_X0601), this.b.getResources().getColor(R.color.CAM_X0605), Shader.TileMode.CLAMP);
+            Paint paint = new Paint();
+            paint.setShader(linearGradient);
+            canvas.drawRect(0.0f, 0.0f, k.getWidth(), k.getHeight(), paint);
+            Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f080792, R.color.CAM_X0101, null, false);
+            if (pureDrawable != null) {
+                int min = (int) (Math.min(k.getWidth(), k.getHeight()) * 0.3f);
+                int width = (k.getWidth() - min) / 2;
+                int height = (k.getHeight() - min) / 2;
+                pureDrawable.setBounds(width, height, width + min, min + height);
+                pureDrawable.draw(canvas);
+            }
+            if (z) {
+                String saveFileAsPNG = FileHelper.saveFileAsPNG(h, i, createBitmap, 100);
+                if (!StringUtils.isNull(saveFileAsPNG)) {
+                    shareEntity.setImageUri(Uri.parse(saveFileAsPNG));
+                }
+            }
+            return createBitmap;
+        }
+        return (Bitmap) invokeLLZ.objValue;
+    }
+
+    public final void v() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048601, this) != null) || this.e == null) {
+            return;
+        }
+        MessageManager.getInstance().sendMessage(new FestivalTaskRequestMessage(this.e.getFestivalTaskType()).tid(this.e.getFestivalTaskTid()).sharedUid(this.e.getFloorAuthorUid()));
     }
 }

@@ -38,8 +38,8 @@ import com.baidu.tieba.hi;
 import com.baidu.tieba.qi;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.ri5;
-import com.baidu.tieba.rz9;
 import com.baidu.tieba.si5;
+import com.baidu.tieba.sz9;
 import com.baidu.tieba.us5;
 import com.baidu.tieba.yt5;
 import com.baidu.tieba.yu4;
@@ -880,7 +880,7 @@ public class AlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, str)) == null) {
             if (!str.contains(UrlSchemaHelper.JUMP_TO_HOT_TOPIC) && !str.contains(UrlSchemaHelper.JUMP_TO_HOT_TOPIC_NEW)) {
                 if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_HOT_TOPIC_LIST_NEW)) {
-                    rz9.b();
+                    sz9.b();
                     return true;
                 }
                 return false;

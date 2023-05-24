@@ -17,10 +17,10 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.searchbox.v8engine.V8ExceptionInfo;
-import com.baidu.tieba.gs9;
-import com.baidu.tieba.js9;
+import com.baidu.tieba.hs9;
+import com.baidu.tieba.ks9;
 import com.baidu.tieba.na5;
-import com.baidu.tieba.ns9;
+import com.baidu.tieba.os9;
 import com.baidu.tieba.qi;
 import com.baidu.tieba.ug;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TbWebChromeClient extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gs9 callback;
+    public hs9 callback;
     public TBWebViewActivity mActivity;
 
     public TbWebChromeClient(TBWebViewActivity tBWebViewActivity) {
@@ -64,10 +64,10 @@ public class TbWebChromeClient extends WebChromeClient {
         }
     }
 
-    public void setOnJsPromptCallback(gs9 gs9Var) {
+    public void setOnJsPromptCallback(hs9 hs9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, gs9Var) == null) {
-            this.callback = gs9Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, hs9Var) == null) {
+            this.callback = hs9Var;
         }
     }
 
@@ -148,16 +148,16 @@ public class TbWebChromeClient extends WebChromeClient {
     @Override // android.webkit.WebChromeClient
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
-        gs9 gs9Var;
+        hs9 hs9Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048581, this, webView, str, str2, str3, jsPromptResult)) == null) {
             if (!na5.a(str) && str2.startsWith("tiebaapp")) {
-                js9 js9Var = new js9();
-                js9Var.w(ns9.b(str2));
-                js9Var.y(301);
-                callJsMethod(webView, js9Var.c(), js9Var.d());
+                ks9 ks9Var = new ks9();
+                ks9Var.w(os9.b(str2));
+                ks9Var.y(301);
+                callJsMethod(webView, ks9Var.c(), ks9Var.d());
             }
-            if (na5.a(str) && (gs9Var = this.callback) != null && gs9Var.onJsPrompt(str2, jsPromptResult)) {
+            if (na5.a(str) && (hs9Var = this.callback) != null && hs9Var.onJsPrompt(str2, jsPromptResult)) {
                 return true;
             }
             jsPromptResult.cancel();

@@ -22,7 +22,7 @@ import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.data.ShareIMCommonCardData;
 import com.baidu.tieba.qi;
-import com.baidu.tieba.rr9;
+import com.baidu.tieba.sr9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -216,10 +216,10 @@ public class ShareItem {
             return (ForwardInfo) invokeLI.objValue;
         }
 
-        public static ForwardInfo generateForwardInfo(ThreadData threadData, int i, rr9 rr9Var) {
+        public static ForwardInfo generateForwardInfo(ThreadData threadData, int i, sr9 sr9Var) {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData, i, rr9Var)) == null) {
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData, i, sr9Var)) == null) {
                 String str = null;
                 if (threadData == null) {
                     return null;
@@ -241,8 +241,8 @@ public class ShareItem {
                     forwardInfo.originalBaijiahaoData = originalThreadInfo.p;
                     forwardInfo.originalTid = originalThreadInfo.f;
                     if (i == 1) {
-                        if (rr9Var != null && rr9Var.a0() != null) {
-                            str = rr9Var.a0().toString();
+                        if (sr9Var != null && sr9Var.a0() != null) {
+                            str = sr9Var.a0().toString();
                         } else if (threadData.getAbstract() != null) {
                             str = threadData.getAbstractText().toString();
                         }
@@ -255,8 +255,8 @@ public class ShareItem {
                     if (threadData.getAuthor() != null && !TextUtils.isEmpty(threadData.getAuthor().getName_show())) {
                         forwardInfo.transmitThreadAuthorNameShow = threadData.getAuthor().getName_show();
                     }
-                    if (i == 1 && rr9Var != null && qi.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && rr9Var.p() != null) {
-                        forwardInfo.transmitThreadAuthorNameShow = rr9Var.p().getName_show();
+                    if (i == 1 && sr9Var != null && qi.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && sr9Var.p() != null) {
+                        forwardInfo.transmitThreadAuthorNameShow = sr9Var.p().getName_show();
                     }
                     if (i == 2 && qi.isEmpty(forwardInfo.transmitThreadAuthorNameShow)) {
                         forwardInfo.transmitThreadAuthorNameShow = TbadkCoreApplication.getCurrentAccountNameShow();

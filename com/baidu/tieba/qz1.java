@@ -33,13 +33,13 @@ public class qz1 extends mz1 {
 
         /* renamed from: com.baidu.tieba.qz1$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0447a implements fj3.c {
+        public class C0445a implements fj3.c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ yz1 a;
             public final /* synthetic */ a b;
 
-            public C0447a(a aVar, yz1 yz1Var) {
+            public C0445a(a aVar, yz1 yz1Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,7 +101,7 @@ public class qz1 extends mz1 {
                 yz1 yz1Var = new yz1("compassChange", jSONObject, str);
                 fj3 i = fj3.i();
                 i.l(this.a.getContext());
-                i.o(new C0447a(this, yz1Var));
+                i.o(new C0445a(this, yz1Var));
                 g62.i("CompassApi", "start listen compass");
                 i.p();
                 yz1Var.b(this.a);

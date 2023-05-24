@@ -9,10 +9,10 @@ import com.baidu.card.view.GridIconLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dp7;
+import com.baidu.tieba.ep7;
 import com.baidu.tieba.gr5;
 import com.baidu.tieba.hq5;
-import com.baidu.tieba.iw7;
+import com.baidu.tieba.jw7;
 import com.baidu.tieba.m9;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.w45;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ActivityPageHeaderView extends LinearLayout implements gr5<dp7> {
+public class ActivityPageHeaderView extends LinearLayout implements gr5<ep7> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
@@ -81,7 +81,7 @@ public class ActivityPageHeaderView extends LinearLayout implements gr5<dp7> {
         public void d(View view2, wy4 wy4Var, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, wy4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                iw7.a("c13751", wy4Var, i + 1, this.a.d);
+                jw7.a("c13751", wy4Var, i + 1, this.a.d);
             }
         }
     }
@@ -116,7 +116,7 @@ public class ActivityPageHeaderView extends LinearLayout implements gr5<dp7> {
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
                 wy4 wy4Var = new wy4();
                 wy4Var.e(str);
-                iw7.a("c13750", wy4Var, i, this.a.d);
+                jw7.a("c13750", wy4Var, i, this.a.d);
             }
         }
 
@@ -126,7 +126,7 @@ public class ActivityPageHeaderView extends LinearLayout implements gr5<dp7> {
         public void a(int i, wy4 wy4Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, wy4Var) == null) {
-                iw7.b("c13750", wy4Var, i, this.a.d);
+                jw7.b("c13750", wy4Var, i, this.a.d);
             }
         }
     }
@@ -192,7 +192,7 @@ public class ActivityPageHeaderView extends LinearLayout implements gr5<dp7> {
         public void a(View view2, boolean z, Object obj) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Boolean.valueOf(z), obj}) == null) && z) {
-                iw7.c("c13751", this.a.d);
+                jw7.c("c13751", this.a.d);
             }
         }
     }
@@ -257,11 +257,11 @@ public class ActivityPageHeaderView extends LinearLayout implements gr5<dp7> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.hr5
     /* renamed from: e */
-    public hq5 a(dp7 dp7Var) {
+    public hq5 a(ep7 ep7Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dp7Var)) == null) {
-            if (dp7Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ep7Var)) == null) {
+            if (ep7Var == null) {
                 return null;
             }
             setPadding(0, ri.g(getContext(), R.dimen.tbds44), 0, ri.g(getContext(), R.dimen.tbds60));
@@ -276,7 +276,7 @@ public class ActivityPageHeaderView extends LinearLayout implements gr5<dp7> {
                 addView(this.b);
                 this.b.setIWindowChangedListener(new c(this));
             }
-            this.b.a(dp7Var.f);
+            this.b.a(ep7Var.f);
             if (this.c == null) {
                 GridIconLayout gridIconLayout = new GridIconLayout(getContext());
                 this.c = gridIconLayout;
@@ -287,7 +287,7 @@ public class ActivityPageHeaderView extends LinearLayout implements gr5<dp7> {
                 this.c.setVerticalSpace(ri.g(getContext(), R.dimen.tbds61));
                 this.c.setMaxItem(10);
             }
-            this.c.a(dp7Var.g);
+            this.c.a(ep7Var.g);
             return new hq5();
         }
         return (hq5) invokeL.objValue;

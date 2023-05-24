@@ -32,7 +32,7 @@ public class y84 extends g53 implements d63 {
     public int f;
 
     /* loaded from: classes8.dex */
-    public class a implements v7b<String> {
+    public class a implements w7b<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
@@ -60,7 +60,7 @@ public class y84 extends g53 implements d63 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.v7b
+        @Override // com.baidu.tieba.w7b
         public void call(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -168,7 +168,7 @@ public class y84 extends g53 implements d63 {
                 Log.i("SwanGameReloadDelegate", "execCall: target = " + this.f);
                 Log.i("SwanGameReloadDelegate", "execCall: waitCallback = " + checkProcessId);
             }
-            h7b.h("").m(Schedulers.io()).y(new a(this, checkProcessId, bundle));
+            i7b.h("").m(Schedulers.io()).y(new a(this, checkProcessId, bundle));
         }
     }
 }

@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h57;
+import com.baidu.tieba.i57;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -26,7 +26,7 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public ArrayList<h57> b;
+    public ArrayList<i57> b;
     public View.OnClickListener c;
     public View.OnClickListener d;
 
@@ -100,7 +100,7 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
         return invokeV.intValue;
     }
 
-    public ArrayList<h57> m() {
+    public ArrayList<i57> m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -128,16 +128,16 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
         }
     }
 
-    public final h57 n(int i) {
+    public final i57 n(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return (h57) ListUtils.getItem(this.b, i);
+            return (i57) ListUtils.getItem(this.b, i);
         }
-        return (h57) invokeI.objValue;
+        return (i57) invokeI.objValue;
     }
 
-    public void r(ArrayList<h57> arrayList) {
+    public void r(ArrayList<i57> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, arrayList) == null) {
             this.b = arrayList;
@@ -165,22 +165,22 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
             if (j == 0 || ListUtils.isEmpty(this.b)) {
                 return false;
             }
-            h57 h57Var = null;
-            Iterator<h57> it = this.b.iterator();
+            i57 i57Var = null;
+            Iterator<i57> it = this.b.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
-                h57 next = it.next();
+                i57 next = it.next();
                 if (next != null && next.a == j) {
-                    h57Var = next;
+                    i57Var = next;
                     break;
                 }
             }
-            if (h57Var != null) {
-                this.b.remove(h57Var);
+            if (i57Var != null) {
+                this.b.remove(i57Var);
             }
-            if (h57Var == null) {
+            if (i57Var == null) {
                 return false;
             }
             return true;
@@ -204,7 +204,7 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: p */
     public void onBindViewHolder(FansViewHolder fansViewHolder, int i) {
-        h57 n;
+        i57 n;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, fansViewHolder, i) != null) || fansViewHolder == null || (n = n(i)) == null) {
             return;

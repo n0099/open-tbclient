@@ -38,7 +38,7 @@ public class je5 implements ne5 {
     public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
-            lg9 n = lg9.n();
+            mg9 n = mg9.n();
             if (i == 3) {
                 n.v(downloadData);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016484, downloadData));
@@ -46,7 +46,7 @@ public class je5 implements ne5 {
                 n.B(downloadData);
             }
             ke5.a(downloadData);
-            lg9.n().y(downloadData);
+            mg9.n().y(downloadData);
         }
     }
 
@@ -62,7 +62,7 @@ public class je5 implements ne5 {
         }
         ke5.c(downloadData);
         NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
-        lg9.n().y(downloadData);
+        mg9.n().y(downloadData);
         if (downloadData.isNeedInvokeApk()) {
             String str = downloadData.getId().replace(".", "_") + Constant.FILE.SUFFIX.BUNDLE_SUFFIX;
             if (downloadData.getApkDownloadData() != null) {
@@ -113,7 +113,7 @@ public class je5 implements ne5 {
             edit.putLong(downloadData.getId(), downloadData.getSize());
             edit.commit();
         }
-        lg9.n().C(downloadData);
-        lg9.n().y(downloadData);
+        mg9.n().C(downloadData);
+        mg9.n().y(downloadData);
     }
 }

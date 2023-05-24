@@ -18,21 +18,22 @@ public class d99 extends en<na9, CardViewHolder<pb9>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
+    public v99 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d99(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), na9.e);
+    public d99(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), na9.b, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -53,6 +54,13 @@ public class d99 extends en<na9, CardViewHolder<pb9>> {
         return (CardViewHolder) invokeL.objValue;
     }
 
+    public void u(v99 v99Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, v99Var) == null) {
+            this.b = v99Var;
+        }
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.en
     /* renamed from: t */
@@ -60,8 +68,10 @@ public class d99 extends en<na9, CardViewHolder<pb9>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, na9Var, cardViewHolder})) == null) {
-            cardViewHolder.a().i(na9Var);
-            cardViewHolder.a().j(this.a, TbadkCoreApplication.getInst().getSkinType());
+            pb9 a = cardViewHolder.a();
+            a.i(na9Var);
+            a.j(this.a, TbadkCoreApplication.getInst().getSkinType());
+            a.t(this.b);
             return cardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

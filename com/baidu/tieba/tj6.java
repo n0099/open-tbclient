@@ -1,7 +1,12 @@
 package com.baidu.tieba;
+
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes7.dex */
 public interface tj6 {
-    void a(String str);
+    String from();
 
-    void p(int i);
+    void m(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId);
+
+    void setFrom(String str);
 }

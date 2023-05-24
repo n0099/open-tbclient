@@ -6,7 +6,7 @@ import android.webkit.WebView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.browser.exception.TbWebViewException;
-import com.baidu.tieba.gg6;
+import com.baidu.tieba.hg6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,12 +19,12 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class we6 {
     public static /* synthetic */ Interceptable $ic;
-    public static y7b<String> a;
+    public static z7b<String> a;
     public static final List<String> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static class a implements fg6 {
+    public static class a implements gg6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -42,7 +42,7 @@ public class we6 {
             }
         }
 
-        @Override // com.baidu.tieba.fg6
+        @Override // com.baidu.tieba.gg6
         public boolean a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -96,14 +96,14 @@ public class we6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            y7b<String> y7bVar = a;
-            if (y7bVar == null) {
-                if (!zg6.a()) {
+            z7b<String> z7bVar = a;
+            if (z7bVar == null) {
+                if (!ah6.a()) {
                     return "";
                 }
                 throw new TbWebViewException("TBWebKit need call initUserAgent first !");
             }
-            return y7bVar.call();
+            return z7bVar.call();
         }
         return (String) invokeV.objValue;
     }
@@ -111,9 +111,9 @@ public class we6 {
     public static void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            gg6.a aVar = new gg6.a();
+            hg6.a aVar = new hg6.a();
             aVar.c(new a());
-            jg6.b().c(aVar);
+            kg6.b().c(aVar);
         }
     }
 
@@ -121,11 +121,11 @@ public class we6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, application, we6Var) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (yg6.getContext() == null) {
-                yg6.b(application);
+            if (zg6.getContext() == null) {
+                zg6.b(application);
             }
-            if (zg6.a()) {
-                bh6.a().f(new Runnable() { // from class: com.baidu.tieba.te6
+            if (ah6.a()) {
+                ch6.a().f(new Runnable() { // from class: com.baidu.tieba.te6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -138,7 +138,7 @@ public class we6 {
                     }
                 });
             }
-            bh6.a().c(new Runnable() { // from class: com.baidu.tieba.ue6
+            ch6.a().c(new Runnable() { // from class: com.baidu.tieba.ue6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -151,22 +151,22 @@ public class we6 {
                 }
             });
             if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-                lg6.l().p();
+                mg6.l().p();
             }
-            wh6.b("newHybrid", "init WebView Env 耗时：" + (System.currentTimeMillis() - currentTimeMillis) + "ms");
+            xh6.b("newHybrid", "init WebView Env 耗时：" + (System.currentTimeMillis() - currentTimeMillis) + "ms");
         }
     }
 
-    public static void e(y7b<String> y7bVar) {
+    public static void e(z7b<String> z7bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, y7bVar) == null) {
-            a = y7bVar;
+        if (interceptable == null || interceptable.invokeL(65542, null, z7bVar) == null) {
+            a = z7bVar;
         }
     }
 
     public static /* synthetic */ void g(Application application) {
         d();
-        ah6.a().execute(new Runnable() { // from class: com.baidu.tieba.ve6
+        bh6.a().execute(new Runnable() { // from class: com.baidu.tieba.ve6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -174,17 +174,17 @@ public class we6 {
             public final void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    fh6.a();
+                    gh6.a();
                 }
             }
         });
-        xe6.c().d(application);
+        xe6.f().g(application);
     }
 
     public void h(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            zg6.b(z);
+            ah6.b(z);
         }
     }
 }

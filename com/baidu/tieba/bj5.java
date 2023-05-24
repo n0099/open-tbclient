@@ -113,18 +113,18 @@ public final class bj5 {
         }
     }
 
-    public static final qn6 a(String resPath, boolean z, int i) {
+    public static final rn6 a(String resPath, boolean z, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{resPath, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
             Intrinsics.checkNotNullParameter(resPath, "resPath");
-            qn6 qn6Var = new qn6();
-            qn6Var.d(resPath);
-            qn6Var.c(z);
-            qn6Var.e(i);
-            return qn6Var;
+            rn6 rn6Var = new rn6();
+            rn6Var.d(resPath);
+            rn6Var.c(z);
+            rn6Var.e(i);
+            return rn6Var;
         }
-        return (qn6) invokeCommon.objValue;
+        return (rn6) invokeCommon.objValue;
     }
 
     public static final String b(String spriteTalk, int i) {
@@ -154,10 +154,10 @@ public final class bj5 {
             if (currentActivity == null || currentActivity.isFinishing()) {
                 return false;
             }
-            if (currentActivity instanceof hv9) {
-                return ex9.d.a().d();
+            if (currentActivity instanceof iv9) {
+                return fx9.d.a().d();
             }
-            if (!FunnySpriteSwitch.Companion.isOn() || !FunnySpriteResDownloadUtil.k().invoke().booleanValue() || !new bl8("key_sprite_dialog_disappear").f()) {
+            if (!FunnySpriteSwitch.Companion.isOn() || !FunnySpriteResDownloadUtil.k().invoke().booleanValue() || !new cl8("key_sprite_dialog_disappear").f()) {
                 return false;
             }
             return true;
@@ -169,7 +169,7 @@ public final class bj5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            yk8 defaultLog = DefaultLog.getInstance();
+            zk8 defaultLog = DefaultLog.getInstance();
             defaultLog.c("SpriteTip", "tryRequestFirstTip isShowSpriteDialog:" + TbSingleton.getInstance().isShowSpriteDialog);
             if (!TbSingleton.getInstance().isShowSpriteDialog) {
                 return false;
@@ -187,7 +187,7 @@ public final class bj5 {
             Intrinsics.checkNotNullParameter(result, "result");
             try {
                 a = new JSONObject(result).optJSONObject("data").optString("msg_key");
-                yk8 defaultLog = DefaultLog.getInstance();
+                zk8 defaultLog = DefaultLog.getInstance();
                 defaultLog.c("sendSpriteMsg", "发送接口success：" + a + WebvttCueParser.CHAR_SPACE + result);
             } catch (Exception e) {
                 DefaultLog.getInstance().b("sendSpriteMsg", "发送接口数据解析失败");
@@ -199,7 +199,7 @@ public final class bj5 {
     public static final void f(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65542, null, i) == null) {
-            if (i != 2 && 2 == ex9.d.a().b().a().c && 1 == ex9.d.a().b().b().c && 6 == ex9.d.a().b().c().c) {
+            if (i != 2 && 2 == fx9.d.a().b().a().c && 1 == fx9.d.a().b().b().c && 6 == fx9.d.a().b().c().c) {
                 DefaultLog.getInstance().c("SpriteTip", "requestSpriteTip：直播tab不请求轻互动");
                 return;
             }

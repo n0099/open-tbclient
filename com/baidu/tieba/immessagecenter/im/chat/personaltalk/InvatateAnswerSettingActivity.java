@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tieba.hx4;
-import com.baidu.tieba.jc8;
+import com.baidu.tieba.kc8;
 import com.baidu.tieba.o65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class InvatateAnswerSettingActivity extends BaseActivity<InvatateAnswerSettingActivity> implements BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jc8 a;
+    public kc8 a;
 
     public InvatateAnswerSettingActivity() {
         Interceptable interceptable = $ic;
@@ -38,18 +38,18 @@ public class InvatateAnswerSettingActivity extends BaseActivity<InvatateAnswerSe
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r6v1, resolved type: com.baidu.tieba.o65 */
-    /* JADX DEBUG: Multi-variable search result rejected for r6v2, resolved type: com.baidu.tieba.jc8 */
+    /* JADX DEBUG: Multi-variable search result rejected for r6v2, resolved type: com.baidu.tieba.kc8 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r5v2 */
     /* JADX WARN: Type inference failed for: r5v3, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r5v6 */
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
     public void d0(View view2, BdSwitchView.SwitchState switchState) {
-        jc8 jc8Var;
+        kc8 kc8Var;
         PersonalTalkSettingViewSettingView personalTalkSettingViewSettingView;
         ?? r5;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, view2, switchState) == null) && view2 != null && (jc8Var = this.a) != null && (personalTalkSettingViewSettingView = jc8Var.n) != null && view2 == personalTalkSettingViewSettingView.getChatNeglectSwitch()) {
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, view2, switchState) == null) && view2 != null && (kc8Var = this.a) != null && (personalTalkSettingViewSettingView = kc8Var.n) != null && view2 == personalTalkSettingViewSettingView.getChatNeglectSwitch()) {
             if (BdSwitchView.SwitchState.ON == switchState) {
                 r5 = 1;
             } else {
@@ -84,9 +84,9 @@ public class InvatateAnswerSettingActivity extends BaseActivity<InvatateAnswerSe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            jc8 jc8Var = new jc8(this);
-            this.a = jc8Var;
-            jc8Var.b(this);
+            kc8 kc8Var = new kc8(this);
+            this.a = kc8Var;
+            kc8Var.b(this);
         }
     }
 }

@@ -66,7 +66,7 @@ public class z66 {
                     YYLiveUtil.jumpToYYLiveRoom(tbPageContext, str, str2, str3, "" + threadAlaInfo.roomId, threadAlaInfo.mYyExtData.streamInfo, YYLiveUtil.SOURCE_HOME_LIVE_TAB_FOLLOW_CARD);
                     AlaUserInfoData alaUserInfoData = threadAlaInfo.user_info;
                     if (alaUserInfoData != null) {
-                        StatisticItem.make("c14719").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_id", alaUserInfoData.ala_id).param("obj_locate", yj6.f(this.b)).eventStat();
+                        StatisticItem.make("c14719").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_id", alaUserInfoData.ala_id).param("obj_locate", zj6.f(this.b)).eventStat();
                         return;
                     }
                     return;

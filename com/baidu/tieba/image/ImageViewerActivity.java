@@ -69,51 +69,51 @@ import com.baidu.tbadk.mutiprocess.prePageKey.PrePageKeyEvent;
 import com.baidu.tbadk.switchs.ImagePrePageLimitSwitch;
 import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.an6;
 import com.baidu.tieba.b65;
-import com.baidu.tieba.b68;
-import com.baidu.tieba.bf9;
+import com.baidu.tieba.bn6;
 import com.baidu.tieba.bs4;
 import com.baidu.tieba.c65;
 import com.baidu.tieba.c68;
+import com.baidu.tieba.cf9;
 import com.baidu.tieba.cl5;
 import com.baidu.tieba.compatible.CompatibleUtile;
+import com.baidu.tieba.d68;
 import com.baidu.tieba.de5;
 import com.baidu.tieba.ds5;
 import com.baidu.tieba.e21;
 import com.baidu.tieba.el5;
 import com.baidu.tieba.fi0;
-import com.baidu.tieba.g68;
 import com.baidu.tieba.gi0;
 import com.baidu.tieba.gs5;
-import com.baidu.tieba.hr9;
+import com.baidu.tieba.h68;
 import com.baidu.tieba.hs5;
-import com.baidu.tieba.i68;
+import com.baidu.tieba.ir9;
 import com.baidu.tieba.j68;
 import com.baidu.tieba.k68;
+import com.baidu.tieba.l68;
 import com.baidu.tieba.lr4;
-import com.baidu.tieba.mn7;
-import com.baidu.tieba.n68;
+import com.baidu.tieba.nn7;
+import com.baidu.tieba.o68;
 import com.baidu.tieba.oe5;
-import com.baidu.tieba.on7;
 import com.baidu.tieba.p45;
-import com.baidu.tieba.p68;
 import com.baidu.tieba.person.ProfileVirtualImageInfo;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.pn5;
+import com.baidu.tieba.pn7;
+import com.baidu.tieba.q68;
 import com.baidu.tieba.qi;
 import com.baidu.tieba.qt5;
-import com.baidu.tieba.r68;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.rn5;
 import com.baidu.tieba.s68;
 import com.baidu.tieba.sn5;
 import com.baidu.tieba.sr5;
-import com.baidu.tieba.sz9;
+import com.baidu.tieba.t68;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
-import com.baidu.tieba.ur9;
+import com.baidu.tieba.tz9;
 import com.baidu.tieba.view.SortSwitchButton;
-import com.baidu.tieba.xi8;
+import com.baidu.tieba.vr9;
+import com.baidu.tieba.yi8;
 import com.baidu.tieba.yj5;
 import com.baidu.tieba.zj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -132,7 +132,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String A;
-    public r68 A0;
+    public s68 A0;
     public String B;
     public boolean B0;
     public String C;
@@ -147,7 +147,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
     public final CustomMessageListener G0;
     public String H;
     public DragImageView.h H0;
-    public p68 I;
+    public q68 I;
     public View.OnClickListener I0;
     public final boolean J;
     public UrlDragImageView.p J0;
@@ -189,7 +189,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
     public boolean e0;
     public AlaLiveTipView f;
     public boolean f0;
-    public an6 g;
+    public bn6 g;
     public LiveRemindData g0;
     public boolean h;
     public int h0;
@@ -200,7 +200,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
     public View k;
     public ImageView l;
     public LinearLayout m;
-    public n68 n;
+    public o68 n;
     public VoiceManager o;
     public View p;
     public int q;
@@ -212,14 +212,14 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
     public int t0;
     public Map<String, ImageUrlData> u;
     public String u0;
-    public c68 v;
+    public d68 v;
     public String v0;
-    public i68 w;
+    public j68 w;
     public String w0;
-    public k68 x;
+    public l68 x;
     public String x0;
-    public an6 y;
-    public s68 y0;
+    public bn6 y;
+    public t68 y0;
     public String z;
     public View z0;
 
@@ -313,7 +313,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (this.b.g == null) {
                     ImageViewerActivity imageViewerActivity = this.b;
-                    imageViewerActivity.g = new an6(imageViewerActivity.getPageContext(), this.b.f);
+                    imageViewerActivity.g = new bn6(imageViewerActivity.getPageContext(), this.b.f);
                     this.b.g.L(R.drawable.bg_tip_blue_up);
                     this.b.g.o(32);
                     this.b.g.N(true);
@@ -399,7 +399,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 String str = (String) ListUtils.getItem(this.a.t, this.a.q);
-                if (!this.a.J || !this.a.M2() || !on7.d(str) || !this.a.f0) {
+                if (!this.a.J || !this.a.M2() || !pn7.d(str) || !this.a.f0) {
                     this.a.R2();
                     return;
                 }
@@ -454,7 +454,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
                 if (this.a.e != null) {
                     this.a.e.setEnabled(false);
                 }
-                String a = b68.a((String) ListUtils.getItem(this.a.t, this.a.q));
+                String a = c68.a((String) ListUtils.getItem(this.a.t, this.a.q));
                 ImageViewerActivity imageViewerActivity = this.a;
                 imageViewerActivity.d3(a, !imageViewerActivity.U, true);
                 if (this.a.U) {
@@ -462,7 +462,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
                 } else {
                     i2 = 8;
                 }
-                j68.f(i2, this.a.A, this.a.z);
+                k68.f(i2, this.a.A, this.a.z);
                 return true;
             }
             return invokeI.booleanValue;
@@ -710,7 +710,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
                 }
                 boolean z3 = true;
                 if (i == 1 && this.a.I != null) {
-                    if ((this.a.q == 0 || this.a.I.w(this.a.q)) && !mn7.m().v(mn7.r()) && this.a.I.A(this.a.q)) {
+                    if ((this.a.q == 0 || this.a.I.w(this.a.q)) && !nn7.m().v(nn7.r()) && this.a.I.A(this.a.q)) {
                         this.a.j.setUrlData(this.a.t);
                         if (this.a.C0) {
                             if (this.a.y0 != null && this.a.y0.j()) {
@@ -803,7 +803,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
                 }
                 if (this.a.N2()) {
                     StatisticItem statisticItem = new StatisticItem("c15006");
-                    j68.b(statisticItem, this.a.z, this.a.C, TbadkCoreApplication.getCurrentAccount(), this.a.A);
+                    k68.b(statisticItem, this.a.z, this.a.C, TbadkCoreApplication.getCurrentAccount(), this.a.A);
                     TiebaStatic.log(statisticItem);
                     this.a.A3();
                     return;
@@ -857,7 +857,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             } else if (alaInfo.isChushou) {
                 this.a.startActivity(new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(BdUniDispatchSchemeController.SCHEME + "://" + BdUniDispatchSchemeController.HOST + BdUniDispatchSchemeController.PATH_CHUSHOU_ALA_ROOM + "?" + BdUniDispatchSchemeController.PARAM_CHUSHOU_THIRD_LIVE_TYPE + "=" + alaInfo.thirdLiveType + "&" + BdUniDispatchSchemeController.PARAM_CHUSHOU_ROOM_ID + "=" + alaInfo.thirdRoomId)));
             }
-            j68.d(this.a.z, this.a.C, this.a.A, alaInfo);
+            k68.d(this.a.z, this.a.C, this.a.A, alaInfo);
         }
     }
 
@@ -993,7 +993,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             AgreeData agreeData;
             AgreeData agreeData2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof hr9) && this.a.u != null && (agreeData = ((hr9) customResponsedMessage.getData()).b) != null && !TextUtils.isEmpty(agreeData.threadId) && !TextUtils.isEmpty(agreeData.postId)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ir9) && this.a.u != null && (agreeData = ((ir9) customResponsedMessage.getData()).b) != null && !TextUtils.isEmpty(agreeData.threadId) && !TextUtils.isEmpty(agreeData.postId)) {
                 for (ImageUrlData imageUrlData : this.a.u.values()) {
                     if (imageUrlData != null) {
                         String valueOf = String.valueOf(imageUrlData.threadId);
@@ -1044,7 +1044,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             AgreeData agreeData;
             AgreeData agreeData2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof hr9) && this.a.u != null && (agreeData = ((hr9) customResponsedMessage.getData()).b) != null && !TextUtils.isEmpty(agreeData.threadId) && !TextUtils.isEmpty(agreeData.postId)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ir9) && this.a.u != null && (agreeData = ((ir9) customResponsedMessage.getData()).b) != null && !TextUtils.isEmpty(agreeData.threadId) && !TextUtils.isEmpty(agreeData.postId)) {
                 for (ImageUrlData imageUrlData : this.a.u.values()) {
                     if (imageUrlData != null) {
                         String valueOf = String.valueOf(imageUrlData.threadId);
@@ -1216,7 +1216,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                j68.f(3, this.a.A, this.a.z);
+                k68.f(3, this.a.A, this.a.z);
                 if (cl5.a(this.a) && this.a.n != null && this.a.j.getCurrentUrlDragImageView() != null) {
                     this.a.n.u(this.a.j.getCurrentUrlDragImageView().getmAssistUrlData(), this.a.v);
                 }
@@ -1292,7 +1292,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
     }
 
     /* loaded from: classes6.dex */
-    public class u implements c68.b {
+    public class u implements d68.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ImageViewerActivity a;
@@ -1315,7 +1315,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             this.a = imageViewerActivity;
         }
 
-        @Override // com.baidu.tieba.c68.b
+        @Override // com.baidu.tieba.d68.b
         public void a(ArrayList<String> arrayList, int i, int i2, boolean z, String str, boolean z2, AdvertAppInfo advertAppInfo, boolean z3) {
             boolean z4;
             boolean z5;
@@ -1369,13 +1369,13 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
                 this.a.setSwipeBackEnabled(false);
             }
             if (this.a.J && this.a.I != null) {
-                p68 p68Var = this.a.I;
+                q68 q68Var = this.a.I;
                 if (this.a.v.c0() == 1) {
                     z6 = true;
                 } else {
                     z6 = false;
                 }
-                p68Var.D(z6);
+                q68Var.D(z6);
                 if (this.a.B0 || this.a.I.v(this.a.U2())) {
                     this.a.I.C(this.a.T2(), this.a.r);
                     this.a.I.s(this.a.U);
@@ -1412,7 +1412,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             this.a.Y2();
         }
 
-        @Override // com.baidu.tieba.c68.b
+        @Override // com.baidu.tieba.d68.b
         public void b(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -1459,7 +1459,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
     }
 
     /* loaded from: classes6.dex */
-    public class v implements bf9 {
+    public class v implements cf9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ImageViewerActivity a;
@@ -1482,7 +1482,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             this.a = imageViewerActivity;
         }
 
-        @Override // com.baidu.tieba.bf9
+        @Override // com.baidu.tieba.cf9
         public <T> void a(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
@@ -1623,14 +1623,14 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             }
             if (this.T) {
                 ArrayList arrayList = new ArrayList(2);
-                ur9 ur9Var = new ur9();
-                ur9Var.c(0);
-                ur9Var.d(getString(R.string.obfuscated_res_0x7f0f029a));
-                arrayList.add(ur9Var);
-                ur9 ur9Var2 = new ur9();
-                ur9Var2.c(1);
-                ur9Var2.d(getString(R.string.host_name));
-                arrayList.add(ur9Var2);
+                vr9 vr9Var = new vr9();
+                vr9Var.c(0);
+                vr9Var.d(getString(R.string.obfuscated_res_0x7f0f029a));
+                arrayList.add(vr9Var);
+                vr9 vr9Var2 = new vr9();
+                vr9Var2.c(1);
+                vr9Var2.d(getString(R.string.host_name));
+                arrayList.add(vr9Var2);
                 SortSwitchButton sortSwitchButton = (SortSwitchButton) this.z0.findViewById(R.id.host_all_switch_btn);
                 this.e = sortSwitchButton;
                 sortSwitchButton.setNeedDayNight(false);
@@ -1654,14 +1654,14 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             MessageManager.getInstance().unRegisterListener(this.G0);
             TbadkCoreApplication.getInst().delRemoteActivity(this);
             TbImageMemoryCache.u().H();
-            i68 i68Var = this.w;
+            j68 j68Var = this.w;
             ArrayList<String> arrayList = this.t;
             int i2 = this.q;
-            i68Var.c(arrayList, i2, i2);
+            j68Var.c(arrayList, i2, i2);
             this.w.i();
-            c68 c68Var = this.v;
-            if (c68Var != null) {
-                String X = c68Var.X();
+            d68 d68Var = this.v;
+            if (d68Var != null) {
+                String X = d68Var.X();
                 String b0 = this.v.b0();
                 this.v.o0();
                 this.v.i0(null);
@@ -1672,9 +1672,9 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
                 str2 = null;
             }
             this.w.l(this.j.getPageCount(), "", this.z, this.A, str, str2);
-            k68 k68Var = this.x;
-            if (k68Var != null) {
-                k68Var.C();
+            l68 l68Var = this.x;
+            if (l68Var != null) {
+                l68Var.C();
             }
             this.j.w();
             this.n.n();
@@ -1686,13 +1686,13 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             TbadkCoreApplication.getInst().setSkinTypeValue(this.N);
             P2();
             O2();
-            s68 s68Var = this.y0;
-            if (s68Var != null) {
-                s68Var.k();
+            t68 t68Var = this.y0;
+            if (t68Var != null) {
+                t68Var.k();
             }
-            p68 p68Var = this.I;
-            if (p68Var != null) {
-                p68Var.y();
+            q68 q68Var = this.I;
+            if (q68Var != null) {
+                q68Var.y();
             }
             el5.i(new PrePageKeyEvent(getCurrentPageKey()));
             getWindow().getDecorView().setOnSystemUiVisibilityChangeListener(null);
@@ -1807,13 +1807,13 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             this.j.z(i2);
             this.N = i2;
             UtilHelper.changeStatusBarIconAndTextColor(true, this);
-            k68 k68Var = this.x;
-            if (k68Var != null) {
-                k68Var.z();
+            l68 l68Var = this.x;
+            if (l68Var != null) {
+                l68Var.z();
             }
-            n68 n68Var = this.n;
-            if (n68Var != null) {
-                n68Var.m(this.s0);
+            o68 o68Var = this.n;
+            if (o68Var != null) {
+                o68Var.m(this.s0);
             }
         }
     }
@@ -1932,17 +1932,17 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             p3();
             e3();
             f3();
-            this.x = new k68(this);
+            this.x = new l68(this);
             i3();
             this.x.x(this.j);
             y3();
             s3();
             g3();
             b3();
-            i68 i68Var = this.w;
+            j68 j68Var = this.w;
             ArrayList<String> arrayList = this.t;
             int i2 = this.q;
-            i68Var.c(arrayList, i2, i2);
+            j68Var.c(arrayList, i2, i2);
         }
     }
 
@@ -1998,12 +1998,12 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             if (!this.R) {
                 return false;
             }
-            s68 s68Var = this.y0;
-            if (s68Var != null && s68Var.h(this.q)) {
+            t68 t68Var = this.y0;
+            if (t68Var != null && t68Var.h(this.q)) {
                 return true;
             }
-            p68 p68Var = this.I;
-            if (p68Var == null || !p68Var.t(this.q)) {
+            q68 q68Var = this.I;
+            if (q68Var == null || !q68Var.t(this.q)) {
                 return false;
             }
             return true;
@@ -2039,16 +2039,16 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
 
     public final void Y2() {
         ImageUrlData imageUrlData;
-        i68 i68Var;
+        j68 j68Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             String str = (String) ListUtils.getItem(this.t, this.q);
             Map<String, ImageUrlData> map = this.u;
-            if (map != null && str != null && (imageUrlData = map.get(str)) != null && (i68Var = this.w) != null) {
+            if (map != null && str != null && (imageUrlData = map.get(str)) != null && (j68Var = this.w) != null) {
                 String str2 = this.A;
                 String str3 = this.D;
                 int i2 = this.q;
-                i68Var.e(str2, str3, i2, this.r - i2, imageUrlData.mHeigth, imageUrlData.mWidth, this.H);
+                j68Var.e(str2, str3, i2, this.r - i2, imageUrlData.mHeigth, imageUrlData.mWidth, this.H);
             }
         }
     }
@@ -2057,9 +2057,9 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             this.m = (LinearLayout) findViewById(R.id.image_viewer_reply_root);
-            n68 n68Var = new n68(getPageContext(), this.m);
-            this.n = n68Var;
-            n68Var.r(this.r0);
+            o68 o68Var = new o68(getPageContext(), this.m);
+            this.n = o68Var;
+            o68Var.r(this.r0);
             this.n.s(this.s0);
             this.n.m(this.s0);
         }
@@ -2170,18 +2170,18 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
     }
 
     public final void O2() {
-        an6 an6Var;
+        bn6 bn6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (an6Var = this.g) != null) {
-            an6Var.h();
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (bn6Var = this.g) != null) {
+            bn6Var.h();
         }
     }
 
     public final void P2() {
-        an6 an6Var;
+        bn6 bn6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (an6Var = this.y) != null) {
-            an6Var.h();
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (bn6Var = this.y) != null) {
+            bn6Var.h();
         }
     }
 
@@ -2392,7 +2392,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
         ImageUrlData imageUrlData;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, bundle) == null) {
-            this.w = new i68();
+            this.w = new j68();
             boolean k2 = cl5.k();
             String b2 = cl5.b();
             String f2 = cl5.f();
@@ -2400,7 +2400,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             D3();
             if (bundle != null) {
                 this.W = bundle.getBoolean(ImageViewerConfig.IS_BJH);
-                ArrayList<String> c2 = g68.d().c();
+                ArrayList<String> c2 = h68.d().c();
                 if (!ListUtils.isEmpty(c2)) {
                     this.t = new ArrayList<>(c2);
                 }
@@ -2420,7 +2420,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
                 this.T = bundle.getBoolean(ImageViewerConfig.IS_SHOW_HOST, true);
                 this.i0 = bundle.getInt("thread_type");
                 this.U = bundle.getBoolean(ImageViewerConfig.SEE_HOST, false);
-                Map<String, String> b3 = g68.d().b();
+                Map<String, String> b3 = h68.d().b();
                 this.j0 = bundle.getString(IntentConfig.SOURCE_RECT_IN_SCREEN);
                 this.Y = bundle.getBoolean(ImageViewerConfig.IS_GODREPLY_IMAGE);
                 boolean z2 = bundle.getBoolean("is_login");
@@ -2461,7 +2461,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
                 if (serializable2 instanceof ProfileVirtualImageInfo) {
                     ProfileVirtualImageInfo.getInstance().parseRemoteInfo((ProfileVirtualImageInfo) serializable2);
                 }
-                g68.d().a();
+                h68.d().a();
                 z = z2;
                 str = string;
                 str2 = string2;
@@ -2543,7 +2543,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             if (this.W) {
                 a2 = null;
             } else {
-                a2 = b68.a((String) ListUtils.getItem(this.t, this.q));
+                a2 = c68.a((String) ListUtils.getItem(this.t, this.q));
             }
             this.O = a2;
             if (this.U) {
@@ -2560,9 +2560,9 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
     public final void d3(String str, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            c68 c68Var = new c68(this.t, this.u, this.z, this.C, this.A, this.B, str, this.E, this.D, this.i0, z2, this.t0, this.u0, this.v0, this.w0, this.x0);
-            this.v = c68Var;
-            c68Var.m0(this.j0);
+            d68 d68Var = new d68(this.t, this.u, this.z, this.C, this.A, this.B, str, this.E, this.D, this.i0, z2, this.t0, this.u0, this.v0, this.w0, this.x0);
+            this.v = d68Var;
+            d68Var.m0(this.j0);
             this.v.k0(this.Z);
             this.v.l0(z);
             this.v.e0(this.O);
@@ -2596,7 +2596,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             this.d.setTextSize(0, ri.g(this, R.dimen.tbds44));
             p45.d(this.d).A(R.array.S_O_X001);
             this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.d, (View.OnClickListener) null);
-            if (b68.b((String) ListUtils.getItem(this.t, this.q))) {
+            if (c68.b((String) ListUtils.getItem(this.t, this.q))) {
                 this.b.setVisibility(0);
             }
         }
@@ -2606,9 +2606,9 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048636, this) == null) && !this.V && this.e != null) {
             if (this.y == null) {
-                an6 an6Var = new an6(getPageContext(), this.e);
-                this.y = an6Var;
-                an6Var.L(R.drawable.pic_sign_tip);
+                bn6 bn6Var = new bn6(getPageContext(), this.e);
+                this.y = bn6Var;
+                bn6Var.L(R.drawable.pic_sign_tip);
                 this.y.o(48);
                 this.y.N(true);
                 this.y.n(5000);
@@ -2642,20 +2642,20 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             this.j.setCurrentItem(L2(), false);
             this.j.setOnScrollOutListener(this.P0);
             if (this.A0 == null) {
-                r68 r68Var = new r68(this.t, getPageContext(), this.z, this.C, this.A);
-                this.A0 = r68Var;
-                r68Var.i(this.b.getFixedNavHeight());
+                s68 s68Var = new s68(this.t, getPageContext(), this.z, this.C, this.A);
+                this.A0 = s68Var;
+                s68Var.i(this.b.getFixedNavHeight());
             }
             this.j.k(this.A0);
             if (this.J && this.f0) {
                 if (this.I == null) {
-                    this.I = new p68(this.t, this.z, this.A, this.R, this.q, getPageContext());
+                    this.I = new q68(this.t, this.z, this.A, this.R, this.q, getPageContext());
                 }
                 this.I.B(null);
                 this.j.k(this.I);
             }
             if (this.y0 == null) {
-                this.y0 = new s68(this.t, this.z, this.C, this.a0, this.R, getPageContext(), this.H0, this.u);
+                this.y0 = new t68(this.t, this.z, this.C, this.a0, this.R, getPageContext(), this.H0, this.u);
             }
             this.j.k(this.y0);
             this.j.setOriImgSelectedCallback(this.J0);
@@ -2666,9 +2666,9 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             this.j.setOnDownloadImageListener(this.x);
             this.j.setOnReplyClickListener(this.I0);
             this.j.setYoungterCoverSomeView(this.e0);
-            i68 i68Var = this.w;
-            if (i68Var != null) {
-                i68Var.d(this.E, this.A, this.D);
+            j68 j68Var = this.w;
+            if (j68Var != null) {
+                j68Var.d(this.E, this.A, this.D);
             }
         }
     }
@@ -2684,7 +2684,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             ArrayList<String> arrayList = this.t;
             if (arrayList != null && !arrayList.contains("####mLiveRoomPageProvider")) {
                 ArrayList<String> arrayList2 = this.t;
-                xi8.b(arrayList2, "####mLiveRoomPageProvider", arrayList2.size());
+                yi8.b(arrayList2, "####mLiveRoomPageProvider", arrayList2.size());
                 return;
             }
             return;
@@ -2754,7 +2754,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             this.o = x0;
             x0.onCreate(getPageContext());
             if (Build.VERSION.SDK_INT >= 28 && (TbSingleton.getInstance().isCutoutScreen(this) || TbSingleton.getInstance().isNotchScreen(this))) {
-                sz9.b(1, getWindow().getAttributes(), getWindow());
+                tz9.b(1, getWindow().getAttributes(), getWindow());
             }
             if (!TbSingleton.getInstance().hasDownloadEmotion() && BdNetTypeUtil.isWifiNet() && TbadkCoreApplication.isLogin()) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2004611));
@@ -2769,7 +2769,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
         if (interceptable == null || interceptable.invokeL(1048628, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
             bundle.putBoolean(ImageViewerConfig.IS_BJH, this.W);
-            g68.d().f(this.t);
+            h68.d().f(this.t);
             bundle.putInt("index", this.q);
             bundle.putString("fid", this.z);
             bundle.putString("tid", this.A);
@@ -2796,7 +2796,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
                         }
                     }
                 }
-                g68.d().e(hashMap);
+                h68.d().e(hashMap);
             } else if (map instanceof ConcurrentHashMap) {
                 ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
                 for (Map.Entry<String, ImageUrlData> entry2 : this.u.entrySet()) {
@@ -2808,7 +2808,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
                         }
                     }
                 }
-                g68.d().e(concurrentHashMap);
+                h68.d().e(concurrentHashMap);
             }
             bundle.putString("from", this.D);
             bundle.putInt("thread_type", this.i0);
@@ -2833,10 +2833,10 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
     }
 
     public final void w3(int i2) {
-        c68 c68Var;
+        d68 d68Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048641, this, i2) == null) && (c68Var = this.v) != null) {
-            ArrayList<AlaInfoData> W = c68Var.W();
+        if ((interceptable == null || interceptable.invokeI(1048641, this, i2) == null) && (d68Var = this.v) != null) {
+            ArrayList<AlaInfoData> W = d68Var.W();
             if (W != null && W.size() > 0) {
                 X2(true);
                 W2(W.get(i2 % W.size()));
@@ -2847,11 +2847,11 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
     }
 
     public final void z3(long j2, int i2) {
-        p68 p68Var;
+        q68 q68Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048645, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
-            s68 s68Var = this.y0;
-            if ((s68Var != null && s68Var.j()) || ((p68Var = this.I) != null && p68Var.u())) {
+            t68 t68Var = this.y0;
+            if ((t68Var != null && t68Var.j()) || ((q68Var = this.I) != null && q68Var.u())) {
                 this.d.setText("");
             } else if (j2 > 0) {
                 this.d.setText(String.format(Locale.CHINA, "%d/%d", Long.valueOf(j2), Integer.valueOf(i2)));

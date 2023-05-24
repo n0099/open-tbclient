@@ -12,7 +12,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.l97;
+import com.baidu.tieba.m97;
 import com.baidu.tieba.o65;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.yu4;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements l97 {
+public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements m97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
@@ -221,7 +221,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements l97 
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.l97
+    @Override // com.baidu.tieba.m97
     public NavigationBar m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

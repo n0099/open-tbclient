@@ -1,26 +1,25 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.AvatarPendantActivityConfig;
-import com.baidu.tbadk.core.atomData.BubbleGroupActivityConfig;
-import com.baidu.tbadk.core.atomData.SignAllForumActivityConfig;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tbadk.core.util.tbselector.shadow.ShadowDrawable;
 import com.baidu.tieba.memberCenter.memberpay.MemberPayResult;
-import com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic;
+import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,88 +30,37 @@ import java.util.List;
 public class vp8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<MemberPayResult.VipPayPrivilegeData> a;
-    public LayoutInflater b;
-    public Context c;
-    public b d;
+    public List<MemberPayResult.e> a;
+    public final LayoutInflater b;
+    public final int c;
+    public final int d;
+    public final int e;
+    public final int f;
+    public final int g;
 
-    /* loaded from: classes8.dex */
-    public interface b {
-        void a(String str);
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? i : invokeI.longValue;
     }
 
     /* loaded from: classes8.dex */
-    public class a implements View.OnClickListener {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ MemberPayResult.VipPayPrivilegeData a;
-        public final /* synthetic */ c b;
-        public final /* synthetic */ bl8 c;
-        public final /* synthetic */ vp8 d;
+        public RelativeLayout a;
+        public LinearLayout b;
+        public TextView c;
+        public TextView d;
+        public TextView e;
+        public TextView f;
+        public TextView g;
+        public RoundRelativeLayout h;
+        public ImageView i;
+        public LinearLayout j;
 
-        public a(vp8 vp8Var, MemberPayResult.VipPayPrivilegeData vipPayPrivilegeData, c cVar, bl8 bl8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vp8Var, vipPayPrivilegeData, cVar, bl8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = vp8Var;
-            this.a = vipPayPrivilegeData;
-            this.b = cVar;
-            this.c = bl8Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                String str = this.a.mLinkUrl;
-                if (!str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_POST_BUBBLE) && !str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PENDANT_LIST) && !str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PERSONAL_BG) && !str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PERSONAL_CARD_DETAIL) && !str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_ONE_KEY_SIGN)) {
-                    yu4.s(this.d.b.getContext(), str);
-                } else {
-                    if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_POST_BUBBLE)) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new BubbleGroupActivityConfig(this.d.c)));
-                    }
-                    if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PENDANT_LIST)) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AvatarPendantActivityConfig(this.d.c)));
-                    }
-                    if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PERSONAL_BG) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PERSONAL_CARD_DETAIL)) {
-                        MemberCenterStatic.a((TbPageContext) m9.a(this.d.c), new String[]{str});
-                    }
-                    if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_ONE_KEY_SIGN)) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SignAllForumActivityConfig(this.d.c)));
-                    }
-                }
-                if (this.d.d != null) {
-                    this.d.d.a(this.a.mEquityId);
-                }
-                if (!TextUtils.equals("click", this.a.getDynamicDisappear())) {
-                    return;
-                }
-                this.d.e(this.b.d, this.c);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TbImageView a;
-        public TextView b;
-        public RelativeLayout c;
-        public final TextView d;
-
-        public c(vp8 vp8Var, View view2) {
+        public a(vp8 vp8Var, View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -127,19 +75,26 @@ public class vp8 extends BaseAdapter {
                     return;
                 }
             }
-            this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0916c3);
-            this.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0916c7);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0916c6);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0916c5);
+            this.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091e8c);
+            this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090792);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092662);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092664);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092661);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092663);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092638);
+            this.h = (RoundRelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c67);
+            this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ee1);
+            this.h.setRoundLayoutRadius(new float[]{vp8Var.g, vp8Var.g, vp8Var.g, vp8Var.g, vp8Var.g, vp8Var.g, 0.0f, vp8Var.g});
+            this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c66);
         }
     }
 
-    public vp8(Context context) {
+    public vp8(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -149,114 +104,158 @@ public class vp8 extends BaseAdapter {
                 return;
             }
         }
-        this.b = LayoutInflater.from(context);
-        this.c = context;
+        this.b = LayoutInflater.from(tbPageContext.getPageActivity());
+        this.c = tbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds294);
+        this.d = tbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds416);
+        this.e = tbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.M_H_X007);
+        this.f = tbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.M_H_X004);
+        this.g = tbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds42);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: f */
-    public MemberPayResult.VipPayPrivilegeData getItem(int i) {
+    /* renamed from: b */
+    public MemberPayResult.e getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            List<MemberPayResult.VipPayPrivilegeData> list = this.a;
-            if (list == null) {
-                return null;
-            }
-            return list.get(i);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return (MemberPayResult.e) ListUtils.getItem(this.a, i);
         }
-        return (MemberPayResult.VipPayPrivilegeData) invokeI.objValue;
+        return (MemberPayResult.e) invokeI.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    public void f(List<MemberPayResult.e> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            if (this.a == null) {
-                return 0L;
-            }
-            return i;
-        }
-        return invokeI.longValue;
-    }
-
-    public void h(List<MemberPayResult.VipPayPrivilegeData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             this.a = list;
         }
     }
 
-    public void i(b bVar) {
+    public MemberPayResult.e c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
-            this.d = bVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (ListUtils.isEmpty(this.a)) {
+                return null;
+            }
+            for (MemberPayResult.e eVar : this.a) {
+                if (eVar != null && eVar.i) {
+                    return eVar;
+                }
+            }
+            return null;
+        }
+        return (MemberPayResult.e) invokeV.objValue;
+    }
+
+    public final void d(int i, MemberPayResult.e eVar, a aVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, eVar, aVar) == null) && eVar != null && eVar.f >= 0) {
+            aVar.g.setText(h(eVar.b, 7));
+            if (TextUtils.isEmpty(eVar.c)) {
+                aVar.f.setVisibility(4);
+            } else {
+                aVar.f.setVisibility(0);
+                aVar.f.setText(h(eVar.c, 10));
+            }
+            TextView textView = aVar.e;
+            textView.setText("" + (eVar.f / 100));
+            if (TextUtils.isEmpty(eVar.d)) {
+                aVar.j.setVisibility(4);
+                aVar.h.setVisibility(4);
+                aVar.d.setVisibility(4);
+            } else {
+                aVar.h.setVisibility(0);
+                aVar.d.setVisibility(0);
+                aVar.j.setVisibility(0);
+                aVar.d.setText(eVar.d);
+            }
+            if (i == 0) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.a.getLayoutParams();
+                layoutParams.width = this.c;
+                layoutParams.height = this.d;
+                layoutParams.leftMargin = this.e;
+                layoutParams.rightMargin = this.f;
+                aVar.a.setLayoutParams(layoutParams);
+            } else {
+                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) aVar.a.getLayoutParams();
+                layoutParams2.width = this.c;
+                layoutParams2.height = this.d;
+                layoutParams2.leftMargin = 0;
+                layoutParams2.rightMargin = this.f;
+                aVar.a.setLayoutParams(layoutParams2);
+            }
+            SkinManager.setViewTextColor(aVar.c, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(aVar.d, (int) R.color.CAM_X0101);
+            SkinManager.setBackgroundResource(aVar.d, R.drawable.member_price_tag_bg_shape);
+            p45.d(aVar.d).C(R.string.F_X02);
+            SkinManager.setViewTextColor(aVar.e, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(aVar.f, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(aVar.g, (int) R.color.CAM_X0105);
+            p45.d(aVar.g).C(R.string.F_X01);
+            e(aVar);
+            g(eVar, aVar);
         }
     }
 
-    public final void e(View view2, bl8 bl8Var) {
+    public void e(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, bl8Var) == null) {
-            if (view2 != null) {
-                view2.setVisibility(8);
-            }
-            if (bl8Var != null) {
-                bl8Var.i();
-            }
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            TBSelector.makeShadowDrawable().setShape(1).setShapeRadius(UtilHelper.getDimenPixelSize(R.dimen.tbds42)).setShadowColor(R.color.CAM_X0301).setShadowAlpha(200).setShadowSide(ShadowDrawable.NO_TOP).setShadowRadius(UtilHelper.getDimenPixelSize(R.dimen.tbds16)).setOffsetX(0).setOffsetY(UtilHelper.getDimenPixelSize(R.dimen.tbds45)).into(aVar.j);
         }
     }
 
-    public final void g(MemberPayResult.VipPayPrivilegeData vipPayPrivilegeData, c cVar) {
-        bl8 bl8Var;
-        boolean z;
+    public final void g(MemberPayResult.e eVar, a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, vipPayPrivilegeData, cVar) != null) || vipPayPrivilegeData == null) {
-            return;
-        }
-        cVar.b.setText(vipPayPrivilegeData.mTitle);
-        SkinManager.setViewTextColor(cVar.b, (int) R.color.CAM_X0105);
-        al8 al8Var = null;
-        if (TextUtils.equals("click", vipPayPrivilegeData.getDynamicDisappear())) {
-            bl8 bl8Var2 = new bl8("pay_panel_member_privilege_bubble_" + vipPayPrivilegeData.mTitle);
-            al8 al8Var2 = new al8("pay_panel_member_privilege_bubble_" + vipPayPrivilegeData.mTitle);
-            z = bl8Var2.g(al8Var2.f(vipPayPrivilegeData.getDynamicText()));
-            al8Var = al8Var2;
-            bl8Var = bl8Var2;
-        } else {
-            bl8Var = null;
-            z = false;
-        }
-        if (!TextUtils.isEmpty(vipPayPrivilegeData.getDynamicText()) && !z) {
-            cVar.d.setText(vipPayPrivilegeData.getDynamicText());
-            if (al8Var != null) {
-                al8Var.update(vipPayPrivilegeData.getDynamicText());
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, eVar, aVar) == null) && eVar != null && aVar != null) {
+            SkinManager.setViewTextColor(aVar.e, (int) R.color.CAM_X0301);
+            SkinManager.setViewTextColor(aVar.c, (int) R.color.CAM_X0301);
+            aVar.i.setVisibility(8);
+            if (eVar.i) {
+                SkinManager.setBackgroundResource(aVar.b, R.drawable.member_price_bg_shape_s);
+                p45 d = p45.d(aVar.b);
+                d.e(R.string.A_X09);
+                d.o(R.string.J_X07);
+                d.l(R.color.CAM_X0335);
+                d.k(R.string.A_X05);
+                d.m(R.dimen.L_X04);
+                d.f(R.color.CAM_X0335);
+                p45 d2 = p45.d(aVar.g);
+                d2.C(R.string.F_X02);
+                d2.w(R.color.CAM_X0311);
+                p45 d3 = p45.d(aVar.f);
+                d3.w(R.color.CAM_X0311);
+                d3.B(R.dimen.T_X09);
+                d3.C(R.string.F_X02);
+                if (aVar.f.getVisibility() == 0) {
+                    aVar.i.setVisibility(0);
+                    return;
+                } else {
+                    aVar.i.setVisibility(8);
+                    return;
+                }
             }
-            cVar.d.setTextColor(SkinManager.getColor(R.color.CAM_X0101));
-            p45 d = p45.d(cVar.d);
-            d.m(R.dimen.tbds3);
-            d.l(R.color.CAM_X0402);
-            d.o(R.string.J_X01);
-            d.h(vipPayPrivilegeData.getDynamicColor());
-            cVar.d.setVisibility(0);
-        } else {
-            cVar.d.setVisibility(8);
+            SkinManager.setBackgroundResource(aVar.b, R.drawable.member_price_bg_shape_n);
+            p45 d4 = p45.d(aVar.b);
+            d4.n(0);
+            d4.o(R.string.J_X07);
+            d4.l(R.color.CAM_X0335);
+            d4.m(R.dimen.L_X04);
+            d4.k(R.string.A_X09);
+            d4.f(R.color.CAM_X0201);
+            p45 d5 = p45.d(aVar.f);
+            d5.w(R.color.CAM_X0109);
+            d5.B(R.dimen.T_X09);
+            d5.C(R.string.F_X01);
         }
-        cVar.a.N(vipPayPrivilegeData.mIconUrl, 10, false);
-        cVar.c.setOnClickListener(new a(this, vipPayPrivilegeData, cVar, bl8Var));
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<MemberPayResult.VipPayPrivilegeData> list = this.a;
-            if (list == null) {
-                return 0;
-            }
-            return list.size();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return ListUtils.getCount(this.a);
         }
         return invokeV.intValue;
     }
@@ -265,14 +264,38 @@ public class vp8 extends BaseAdapter {
     public View getView(int i, View view2, ViewGroup viewGroup) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
-                view2 = this.b.inflate(R.layout.obfuscated_res_0x7f0d05ea, (ViewGroup) null);
-                view2.setTag(new c(this, view2));
+                view2 = this.b.inflate(R.layout.obfuscated_res_0x7f0d05e9, (ViewGroup) null);
+                view2.setTag(new a(this, view2));
             }
-            g(getItem(i), (c) view2.getTag());
+            d(i, getItem(i), (a) view2.getTag());
             return view2;
         }
         return (View) invokeILL.objValue;
+    }
+
+    public final String h(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, str, i)) == null) {
+            if (str.length() > i) {
+                return str.substring(0, i - 1) + StringHelper.STRING_MORE;
+            }
+            return str;
+        }
+        return (String) invokeLI.objValue;
+    }
+
+    public void i(MemberPayResult.e eVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, eVar) == null) && eVar != null && !ListUtils.isEmpty(this.a)) {
+            for (MemberPayResult.e eVar2 : this.a) {
+                if (eVar2 != null) {
+                    eVar2.i = eVar2.a.equals(eVar.a);
+                }
+            }
+            notifyDataSetChanged();
+        }
     }
 }

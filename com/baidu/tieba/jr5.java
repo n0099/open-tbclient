@@ -41,7 +41,7 @@ public class jr5<Q extends lq5, P extends jq5> extends er5<Q, P> {
     public fr5 k;
     public gr5<P> l;
     public BdListView.p m;
-    public hc9 n;
+    public ic9 n;
     public View.OnClickListener o;
     public final BdListView.p p;
     public final RecyclerView.OnScrollListener q;
@@ -438,10 +438,10 @@ public class jr5<Q extends lq5, P extends jq5> extends er5<Q, P> {
 
     public final void B(boolean z) {
         BdTypeRecyclerView bdTypeRecyclerView;
-        hc9 hc9Var;
+        ic9 ic9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && (bdTypeRecyclerView = this.h) != null && (hc9Var = this.n) != null) {
-            hc9Var.n(bdTypeRecyclerView.getFirstVisiblePosition(), this.h.getLastVisiblePosition(), z, true);
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && (bdTypeRecyclerView = this.h) != null && (ic9Var = this.n) != null) {
+            ic9Var.n(bdTypeRecyclerView.getFirstVisiblePosition(), this.h.getLastVisiblePosition(), z, true);
         }
     }
 
@@ -476,9 +476,9 @@ public class jr5<Q extends lq5, P extends jq5> extends er5<Q, P> {
     public void i(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, bdUniqueId) == null) {
-            hc9 hc9Var = this.n;
-            if (hc9Var != null) {
-                hc9Var.u(bdUniqueId);
+            ic9 ic9Var = this.n;
+            if (ic9Var != null) {
+                ic9Var.u(bdUniqueId);
             }
             rq5 rq5Var = this.d;
             if (rq5Var != null) {
@@ -541,9 +541,9 @@ public class jr5<Q extends lq5, P extends jq5> extends er5<Q, P> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
             if (i == 1 || i == 0 || i == 2) {
-                hc9 hc9Var = new hc9(this.f, this.h);
-                this.n = hc9Var;
-                hc9Var.p(i);
+                ic9 ic9Var = new ic9(this.f, this.h);
+                this.n = ic9Var;
+                ic9Var.p(i);
                 this.n.u(this.e);
             }
         }
@@ -559,10 +559,10 @@ public class jr5<Q extends lq5, P extends jq5> extends er5<Q, P> {
     }
 
     public void A() {
-        hc9 hc9Var;
+        ic9 ic9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (hc9Var = this.n) != null) {
-            hc9Var.r(true);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (ic9Var = this.n) != null) {
+            ic9Var.r(true);
             B(false);
         }
     }
@@ -621,10 +621,10 @@ public class jr5<Q extends lq5, P extends jq5> extends er5<Q, P> {
 
     @Override // com.baidu.tieba.er5
     public void e() {
-        hc9 hc9Var;
+        ic9 ic9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (hc9Var = this.n) != null) {
-            hc9Var.h();
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (ic9Var = this.n) != null) {
+            ic9Var.h();
         }
     }
 
@@ -706,10 +706,10 @@ public class jr5<Q extends lq5, P extends jq5> extends er5<Q, P> {
     }
 
     public final void y() {
-        hc9 hc9Var;
+        ic9 ic9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048608, this) == null) && (hc9Var = this.n) != null) {
-            hc9Var.z();
+        if ((interceptable == null || interceptable.invokeV(1048608, this) == null) && (ic9Var = this.n) != null) {
+            ic9Var.z();
             this.n.r(false);
         }
     }

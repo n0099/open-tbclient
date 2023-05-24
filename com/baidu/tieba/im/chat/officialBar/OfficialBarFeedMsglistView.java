@@ -43,21 +43,21 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c38;
+import com.baidu.tieba.a38;
+import com.baidu.tieba.d38;
 import com.baidu.tieba.e9;
 import com.baidu.tieba.et5;
 import com.baidu.tieba.g9;
 import com.baidu.tieba.gm5;
 import com.baidu.tieba.im.chat.officialBar.OfficialBarFeedMsglistAdapter;
 import com.baidu.tieba.it5;
-import com.baidu.tieba.n38;
 import com.baidu.tieba.o38;
+import com.baidu.tieba.p38;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.s18;
-import com.baidu.tieba.v28;
+import com.baidu.tieba.t18;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.tieba.view.RoundRelativeLayout;
-import com.baidu.tieba.z28;
+import com.baidu.tieba.w28;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -84,7 +84,7 @@ public class OfficialBarFeedMsglistView extends e9<OfficialBarFeedActivity> impl
     public View j;
     public View k;
     public ViewGroup l;
-    public s18 m;
+    public t18 m;
     public BdTypeListView n;
     public boolean o;
     public String p;
@@ -164,7 +164,7 @@ public class OfficialBarFeedMsglistView extends e9<OfficialBarFeedActivity> impl
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 if (!StringUtils.isNull(this.a)) {
-                    v28.w().z(Long.parseLong(this.a), this.b);
+                    w28.w().z(Long.parseLong(this.a), this.b);
                     return null;
                 }
                 return null;
@@ -295,7 +295,7 @@ public class OfficialBarFeedMsglistView extends e9<OfficialBarFeedActivity> impl
         }
     }
 
-    public void F(LongSparseArray<c38> longSparseArray) {
+    public void F(LongSparseArray<d38> longSparseArray) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, longSparseArray) == null) && longSparseArray != null && longSparseArray.size() > 0) {
             this.m.e(longSparseArray);
@@ -367,9 +367,9 @@ public class OfficialBarFeedMsglistView extends e9<OfficialBarFeedActivity> impl
             if (this.c != null) {
                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f080b24, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }
-            s18 s18Var = this.m;
-            if (s18Var != null) {
-                s18Var.notifyDataSetChanged();
+            t18 t18Var = this.m;
+            if (t18Var != null) {
+                t18Var.notifyDataSetChanged();
             }
         }
     }
@@ -385,9 +385,9 @@ public class OfficialBarFeedMsglistView extends e9<OfficialBarFeedActivity> impl
                 layoutParams.topMargin = ri.g(this.mContext.getPageActivity(), R.dimen.tbds_7);
                 this.n.setLayoutParams(layoutParams);
             }
-            s18 s18Var = new s18(this.b, this.n, this);
-            this.m = s18Var;
-            s18Var.d(this.o);
+            t18 t18Var = new t18(this.b, this.n, this);
+            this.m = t18Var;
+            t18Var.d(this.o);
             ((ProgressBar) baseActivity.findViewById(R.id.msg_progress)).setVisibility(8);
             this.n.setItemsCanFocus(true);
             this.n.setFocusable(false);
@@ -411,7 +411,7 @@ public class OfficialBarFeedMsglistView extends e9<OfficialBarFeedActivity> impl
         }
     }
 
-    public void E(List<o38> list, List<z28> list2) {
+    public void E(List<p38> list, List<a38> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, list, list2) == null) {
             this.m.c(list);
@@ -432,25 +432,25 @@ public class OfficialBarFeedMsglistView extends e9<OfficialBarFeedActivity> impl
             }
             HashSet hashSet = new HashSet();
             if (list != null) {
-                for (o38 o38Var : list) {
-                    if (o38Var.c() != null) {
-                        hashSet.add(o38Var.c().b());
+                for (p38 p38Var : list) {
+                    if (p38Var.c() != null) {
+                        hashSet.add(p38Var.c().b());
                     }
                 }
             }
             ArrayList<? extends gm5> arrayList = new ArrayList<>(10);
             for (int i = 0; i < 10 && i < list2.size(); i++) {
-                z28 z28Var = list2.get(i);
+                a38 a38Var = list2.get(i);
                 OfficialBarFeedMsglistAdapter.a aVar = new OfficialBarFeedMsglistAdapter.a();
-                aVar.f(z28Var.c());
-                aVar.g(z28Var.a());
-                aVar.i(z28Var.d());
-                if (!hashSet.contains(z28Var.b())) {
+                aVar.f(a38Var.c());
+                aVar.g(a38Var.a());
+                aVar.i(a38Var.d());
+                if (!hashSet.contains(a38Var.b())) {
                     aVar.i(0);
                 }
-                aVar.j(z28Var.e());
-                aVar.h(Long.parseLong(z28Var.b()));
-                aVar.k(z28Var.f());
+                aVar.j(a38Var.e());
+                aVar.h(Long.parseLong(a38Var.b()));
+                aVar.k(a38Var.f());
                 arrayList.add(aVar);
             }
             this.d.l(arrayList);
@@ -460,7 +460,7 @@ public class OfficialBarFeedMsglistView extends e9<OfficialBarFeedActivity> impl
         }
     }
 
-    public final void y(n38.a aVar, Context context) {
+    public final void y(o38.a aVar, Context context) {
         String str;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(1048587, this, aVar, context) != null) || aVar == null) {
@@ -557,8 +557,8 @@ public class OfficialBarFeedMsglistView extends e9<OfficialBarFeedActivity> impl
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
                 statisticItem.param("fid", aVar.c());
                 TiebaStatic.log(statisticItem);
-            } else if (obj instanceof n38.a) {
-                y((n38.a) obj, this.b.getPageActivity());
+            } else if (obj instanceof o38.a) {
+                y((o38.a) obj, this.b.getPageActivity());
             }
         }
     }

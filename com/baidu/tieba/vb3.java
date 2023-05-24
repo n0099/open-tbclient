@@ -78,7 +78,7 @@ public class vb3 extends db3 {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements v7b<Boolean> {
+    public class b implements w7b<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -110,7 +110,7 @@ public class vb3 extends db3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.v7b
+        @Override // com.baidu.tieba.w7b
         public void call(Boolean bool) {
             g93 M;
             b63 y;
@@ -137,7 +137,7 @@ public class vb3 extends db3 {
     }
 
     /* loaded from: classes7.dex */
-    public class c implements z7b<String, Boolean> {
+    public class c implements a8b<String, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -167,7 +167,7 @@ public class vb3 extends db3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.z7b
+        @Override // com.baidu.tieba.a8b
         public Boolean call(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -256,7 +256,7 @@ public class vb3 extends db3 {
             bj2 l = bj2.l();
             l.n(4);
             aj2.b k = l.k();
-            h7b.h(str2).A(Schedulers.io()).j(new c(this, str, str3, str4, k)).m(r7b.b()).y(new b(this, str, k, callbackHandler, unitedSchemeEntity, str5));
+            i7b.h(str2).A(Schedulers.io()).j(new c(this, str, str3, str4, k)).m(s7b.b()).y(new b(this, str, k, callbackHandler, unitedSchemeEntity, str5));
         }
     }
 }

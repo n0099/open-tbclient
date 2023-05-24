@@ -63,12 +63,12 @@ public class jf5 implements sh5 {
                 BdLog.e(th);
             }
             try {
-                Class.forName("com.baidu.tieba.fs6");
+                Class.forName("com.baidu.tieba.gs6");
             } catch (Throwable th2) {
                 BdLog.e(th2);
             }
             try {
-                Class.forName("com.baidu.tieba.hs6");
+                Class.forName("com.baidu.tieba.is6");
             } catch (Throwable th3) {
                 BdLog.e(th3);
             }

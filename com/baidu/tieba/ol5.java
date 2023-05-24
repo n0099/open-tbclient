@@ -34,7 +34,7 @@ public class ol5 implements yk5<HistoryEvent> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, historyEvent)) == null) {
             if (historyEvent != null && !TextUtils.isEmpty(historyEvent.tid)) {
-                hj6.a(historyEvent.tid);
+                ij6.a(historyEvent.tid);
                 return true;
             }
             return false;

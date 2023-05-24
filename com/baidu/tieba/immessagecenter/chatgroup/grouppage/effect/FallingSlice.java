@@ -14,8 +14,8 @@ import com.baidu.tbadk.widget.falling.FallingView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.gv5;
 import com.baidu.tieba.immessagecenter.slice.Slice;
-import com.baidu.tieba.qb8;
-import com.baidu.tieba.r98;
+import com.baidu.tieba.rb8;
+import com.baidu.tieba.s98;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class FallingSlice extends Slice {
     public final TbPageContext<?> j;
     public c k;
     @Nullable
-    public r98 l;
+    public s98 l;
     public long m;
     public boolean n;
     public final gv5 o;
@@ -69,7 +69,7 @@ public class FallingSlice extends Slice {
                     str = "";
                 }
                 if (fallingEventType == FallingEventType.CLICK) {
-                    qb8.f("c15184", str, this.a.m, this.a.n);
+                    rb8.f("c15184", str, this.a.m, this.a.n);
                 }
             }
         }
@@ -217,16 +217,16 @@ public class FallingSlice extends Slice {
         }
     }
 
-    public void b0(@NonNull FallingData fallingData, long j, boolean z, @Nullable r98 r98Var) {
+    public void b0(@NonNull FallingData fallingData, long j, boolean z, @Nullable s98 s98Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{fallingData, Long.valueOf(j), Boolean.valueOf(z), r98Var}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{fallingData, Long.valueOf(j), Boolean.valueOf(z), s98Var}) == null) {
             this.m = j;
             this.n = z;
-            this.l = r98Var;
+            this.l = s98Var;
             ChatFallingView chatFallingView = this.k.b;
             if (chatFallingView != null) {
                 chatFallingView.x(fallingData, this.j, false);
-                qb8.f("c15183", fallingData.getAffect(), this.m, z);
+                rb8.f("c15183", fallingData.getAffect(), this.m, z);
             }
         }
     }

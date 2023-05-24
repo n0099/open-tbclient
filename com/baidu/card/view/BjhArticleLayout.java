@@ -18,13 +18,13 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hj6;
+import com.baidu.tieba.ij6;
 import com.baidu.tieba.jy4;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.tx;
 import com.baidu.tieba.ux;
-import com.baidu.tieba.vj6;
+import com.baidu.tieba.wj6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ public class BjhArticleLayout extends RelativeLayout implements tx<jy4>, View.On
     public float f;
     public float g;
     public float h;
-    public vj6<jy4> i;
+    public wj6<jy4> i;
     public View.OnClickListener j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -101,9 +101,9 @@ public class BjhArticleLayout extends RelativeLayout implements tx<jy4>, View.On
             if (onClickListener != null) {
                 onClickListener.onClick(view2);
             }
-            vj6<jy4> vj6Var = this.i;
-            if (vj6Var != null) {
-                vj6Var.a(view2, this.e);
+            wj6<jy4> wj6Var = this.i;
+            if (wj6Var != null) {
+                wj6Var.a(view2, this.e);
             }
         }
     }
@@ -115,10 +115,10 @@ public class BjhArticleLayout extends RelativeLayout implements tx<jy4>, View.On
         }
     }
 
-    public void setSubClickListener(vj6<jy4> vj6Var) {
+    public void setSubClickListener(wj6<jy4> wj6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, vj6Var) == null) {
-            this.i = vj6Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, wj6Var) == null) {
+            this.i = wj6Var;
         }
     }
 
@@ -191,7 +191,7 @@ public class BjhArticleLayout extends RelativeLayout implements tx<jy4>, View.On
             } else {
                 i = R.color.CAM_X0105;
             }
-            hj6.l(textView, id, i, R.color.CAM_X0109);
+            ij6.l(textView, id, i, R.color.CAM_X0109);
         }
     }
 
@@ -227,7 +227,7 @@ public class BjhArticleLayout extends RelativeLayout implements tx<jy4>, View.On
                 } else {
                     i2 = R.color.CAM_X0105;
                 }
-                hj6.l(textView, id, i2, R.color.CAM_X0109);
+                ij6.l(textView, id, i2, R.color.CAM_X0109);
             }
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0101);
             TBSelector.makeDrawableSelector().setShape(0).defaultColorNotAutoChangeSkinType(R.color.CAM_X0606).radius(this.f).into(this.b);

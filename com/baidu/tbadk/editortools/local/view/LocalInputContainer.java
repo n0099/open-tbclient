@@ -31,12 +31,12 @@ import com.baidu.tbadk.editortools.local.view.LocalInputContainer;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ea5;
 import com.baidu.tieba.ef5;
-import com.baidu.tieba.gw6;
 import com.baidu.tieba.hw6;
+import com.baidu.tieba.iw6;
 import com.baidu.tieba.n75;
 import com.baidu.tieba.p45;
-import com.baidu.tieba.r7a;
 import com.baidu.tieba.ri;
+import com.baidu.tieba.s7a;
 import com.baidu.tieba.se5;
 import com.baidu.tieba.xf5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -255,7 +255,7 @@ public class LocalInputContainer extends RelativeLayout implements ef5 {
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ea5Var) != null) || ea5Var.getType() != EmotionGroupType.LOCAL) {
             return;
         }
-        hw6.b(getContext(), ea5Var, this.c);
+        iw6.b(getContext(), ea5Var, this.c);
     }
 
     public /* synthetic */ void m(View view2) {
@@ -339,11 +339,11 @@ public class LocalInputContainer extends RelativeLayout implements ef5 {
                         this.c.setText((CharSequence) null);
                         return;
                     } else {
-                        hw6.g(getContext(), str, new hw6.i() { // from class: com.baidu.tieba.ag5
+                        iw6.g(getContext(), str, new iw6.i() { // from class: com.baidu.tieba.ag5
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
-                            @Override // com.baidu.tieba.hw6.i
+                            @Override // com.baidu.tieba.iw6.i
                             public final void a(SpannableStringBuilder spannableStringBuilder) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -365,7 +365,7 @@ public class LocalInputContainer extends RelativeLayout implements ef5 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.c.getSelectionStart() > 0 && this.c.getText() != null) {
             String substring = this.c.getText().toString().substring(0, this.c.getSelectionStart());
-            Matcher matcher = gw6.b.matcher(substring);
+            Matcher matcher = hw6.b.matcher(substring);
             if (matcher.find()) {
                 this.c.getText().delete(this.c.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.c.getSelectionStart()).toString();
                 return;
@@ -613,9 +613,9 @@ public class LocalInputContainer extends RelativeLayout implements ef5 {
             p45.d(this).f(R.color.CAM_X0207);
             p45.d(this.b).w(R.color.CAM_X0107);
             if (i == 0) {
-                r7a.l(this.c, R.drawable.edittext_cursor);
+                s7a.l(this.c, R.drawable.edittext_cursor);
             } else {
-                r7a.l(this.c, R.drawable.edittext_cursor_2);
+                s7a.l(this.c, R.drawable.edittext_cursor_2);
             }
             this.c.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             this.c.setHintTextColor(SkinManager.getColor(i, (int) R.color.CAM_X0109));

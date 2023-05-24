@@ -33,7 +33,7 @@ import com.baidu.tieba.j85;
 import com.baidu.tieba.l85;
 import com.baidu.tieba.m85;
 import com.baidu.tieba.n85;
-import com.baidu.tieba.po7;
+import com.baidu.tieba.qo7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -558,15 +558,15 @@ public class SpanGroupManager {
                     String substring = group.substring(18, group.length() - 7);
                     int start = matcher.start();
                     int end = matcher.end();
-                    po7 po7Var = null;
+                    qo7 qo7Var = null;
                     try {
-                        po7Var = po7.g(new JSONObject(substring));
+                        qo7Var = qo7.g(new JSONObject(substring));
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    if (po7Var != null) {
+                    if (qo7Var != null) {
                         TbLinkSpanGroup tbLinkSpanGroup = new TbLinkSpanGroup(TbLinkSpanGroup.LINK_TYPE.PARSED_EXTERNAL_LINK);
-                        hz4 b2 = hz4.b(tbLinkSpanGroup, po7Var);
+                        hz4 b2 = hz4.b(tbLinkSpanGroup, qo7Var);
                         tbLinkSpanGroup.a(text, start, end, (int) this.c.getTextSize());
                         b2.h = substring;
                         tbLinkSpanGroup.C(b2.d);

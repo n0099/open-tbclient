@@ -1,78 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
+import java.util.List;
+import tbclient.Anti;
+import tbclient.DynamicInfo;
+import tbclient.ForumDynamic;
+import tbclient.HotUserRankEntry;
+import tbclient.PostInfoList;
+import tbclient.Profile.NicknameInfo;
+import tbclient.Profile.TAInfo;
+import tbclient.Profile.UserAgreeInfo;
+import tbclient.Profile.UserGodInfo;
+import tbclient.TbBookrack;
+import tbclient.ThreadInfo;
+import tbclient.User;
 /* loaded from: classes7.dex */
-public class t59 implements rn {
-    public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId d;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
+public interface t59 {
+    Anti GetAntiStat();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948132337, "Lcom/baidu/tieba/t59;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948132337, "Lcom/baidu/tieba/t59;");
-                return;
-            }
-        }
-        d = BdUniqueId.gen();
-    }
+    List<PostInfoList> GetPostList();
 
-    public t59() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    User GetUser();
 
-    @Override // com.baidu.tieba.rn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return d;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
+    TbBookrack getBookrackData();
 
-    public t59(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.b = i;
-        this.a = i2;
-    }
+    List<ForumDynamic> getConcernedForumList();
+
+    List<DynamicInfo> getDynamicInfoList();
+
+    int getErrorCode();
+
+    ro7 getGoodsWindowInfo();
+
+    HotUserRankEntry getHotRankEntry();
+
+    AlaLiveInfoCoreData getLiveInfo();
+
+    List<AlaLiveInfoCoreData> getLiveReplayInfo();
+
+    int getMaskType();
+
+    List<ThreadInfo> getNewestThreadList();
+
+    NicknameInfo getNicknameInfo();
+
+    TAInfo getTaInfo();
+
+    UserAgreeInfo getUserAgreeInfo();
+
+    UserGodInfo getUserGodInfo();
 }

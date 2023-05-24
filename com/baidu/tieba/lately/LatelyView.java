@@ -18,7 +18,7 @@ import com.baidu.tbadk.data.VisitedForumData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.adapter.SelectForumItemAdapter;
 import com.baidu.tieba.enterForum.data.RecentlyVisitedForumData;
-import com.baidu.tieba.ht6;
+import com.baidu.tieba.it6;
 import com.baidu.tieba.jz5;
 import com.baidu.tieba.ri5;
 import com.baidu.tieba.si5;
@@ -238,7 +238,7 @@ public class LatelyView extends FrameLayout implements jz5<String> {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            RecentlyVisitedForumData j = ht6.n().j();
+            RecentlyVisitedForumData j = it6.n().j();
             if (j == null) {
                 i(false, false);
                 return;

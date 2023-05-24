@@ -6,19 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.CustomGrid;
+import tbclient.BannerImage;
 /* loaded from: classes4.dex */
-public class b79 {
+public class b79 implements t45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public int c;
-    public String d;
-    public int e;
-    public long f;
-    public String g;
-    public String h;
 
     public b79() {
         Interceptable interceptable = $ic;
@@ -34,37 +28,42 @@ public class b79 {
         }
     }
 
-    public void a(CustomGrid customGrid) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, customGrid) == null) {
-            this.a = customGrid.title;
-            this.b = customGrid.action_uri;
-            this.c = customGrid.action_type.intValue();
-            this.d = customGrid.icon;
-            this.e = customGrid.type.intValue();
-            this.g = customGrid.desc;
-            this.h = customGrid.mark_text;
-            this.f = customGrid.red_point_version.longValue();
-        }
-    }
-
-    public k79 b() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            k79 k79Var = new k79();
-            k79Var.e = this.a;
-            k79Var.n = true;
-            k79Var.l = this.d;
-            k79Var.g = this.b;
-            k79Var.a = this.e;
-            k79Var.m = this.c;
-            m79 m79Var = new m79();
-            m79Var.b = this.g;
-            m79Var.i = this.h;
-            k79Var.i = m79Var;
-            return k79Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (k79) invokeV.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.t45
+    public String getPicLinkUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.t45
+    public String getPicUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void b(BannerImage bannerImage) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bannerImage) != null) || bannerImage == null) {
+            return;
+        }
+        this.a = bannerImage.img_url;
+        this.b = bannerImage.ahead_url;
+        String str = bannerImage.title;
     }
 }

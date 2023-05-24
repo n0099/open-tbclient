@@ -21,8 +21,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.tieba.apa;
-import com.baidu.tieba.cpa;
-import com.baidu.tieba.xoa;
+import com.baidu.tieba.bpa;
+import com.baidu.tieba.dpa;
 import com.baidu.tieba.yoa;
 import com.baidu.tieba.zoa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,7 +43,7 @@ import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class ValidationActivity extends Activity implements View.OnClickListener, xoa {
+public class ValidationActivity extends Activity implements View.OnClickListener, yoa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ValidationWebView a;
@@ -130,12 +130,12 @@ public class ValidationActivity extends Activity implements View.OnClickListener
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
                 ValidationLog.e(ValidationLog.TAG, str2);
-                zoa a = zoa.a(str2);
+                apa a = apa.a(str2);
                 if (a == null) {
                     jsPromptResult.cancel();
                     return true;
                 }
-                BaseInterpreter a2 = yoa.b().a(a.b());
+                BaseInterpreter a2 = zoa.b().a(a.b());
                 if (a2 == null) {
                     jsPromptResult.cancel();
                     return true;
@@ -319,7 +319,7 @@ public class ValidationActivity extends Activity implements View.OnClickListener
         }
     }
 
-    @Override // com.baidu.tieba.xoa
+    @Override // com.baidu.tieba.yoa
     public void a(String str, Object obj) {
         char c2;
         Interceptable interceptable = $ic;
@@ -380,7 +380,7 @@ public class ValidationActivity extends Activity implements View.OnClickListener
         int height;
         int a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (height = this.e.getHeight()) == (a2 = apa.a(this, i))) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (height = this.e.getHeight()) == (a2 = bpa.a(this, i))) {
             return;
         }
         ValueAnimator valueAnimator = this.j;
@@ -438,7 +438,7 @@ public class ValidationActivity extends Activity implements View.OnClickListener
             this.a.setWebChromeClient(new b(this));
             this.a.setWebViewClient(new c(this));
             this.a.setWebViewClient(new d(this));
-            this.a.loadUrl(cpa.b(cpa.a("https://wappass.baidu.com/static/activity/pass-machine.html"), this.i));
+            this.a.loadUrl(dpa.b(dpa.a("https://wappass.baidu.com/static/activity/pass-machine.html"), this.i));
         }
     }
 

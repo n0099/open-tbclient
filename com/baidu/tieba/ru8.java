@@ -3,144 +3,25 @@ package com.baidu.tieba;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NoDataView;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.widget.dragsort.SimpleDragSortListView;
-import com.baidu.tieba.faceshop.EmotionPackageData;
-import com.baidu.tieba.wu5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class ru8 implements Object<List<EmotionPackageData>> {
+public class ru8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public SimpleDragSortListView b;
+    public View a;
+    public TextView b;
     public View c;
-    public lu8 d;
-    public pu8 e;
-    public ri5 f;
-    public FrameLayout g;
-    public boolean h;
-    public ju8 i;
-    public NoDataView j;
-    public NoNetworkView k;
-
-    /* loaded from: classes7.dex */
-    public class a implements wu5.i {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ru8 a;
-
-        public a(ru8 ru8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ru8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ru8Var;
-        }
-
-        @Override // com.baidu.tieba.wu5.i
-        public void a(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-                this.a.d.a(i, i2);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ List a;
-        public final /* synthetic */ ru8 b;
-
-        public b(ru8 ru8Var, List list) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ru8Var, list};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ru8Var;
-            this.a = list;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.j();
-                if (this.b.d != null && this.a != null) {
-                    this.b.d.update(this.a);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ru8 a;
-
-        public c(ru8 ru8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ru8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ru8Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.d != null) {
-                this.a.d.update();
-            }
-        }
-    }
+    public View d;
+    public LinearLayout e;
 
     public ru8(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
@@ -157,150 +38,78 @@ public class ru8 implements Object<List<EmotionPackageData>> {
                 return;
             }
         }
-        this.h = false;
-        this.a = tbPageContext;
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0315, (ViewGroup) null, false);
-        this.c = inflate;
-        this.g = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091793);
-        this.k = (NoNetworkView) this.c.findViewById(R.id.view_no_network);
-        this.e = new pu8(this.c.findViewById(R.id.obfuscated_res_0x7f0909aa), tbPageContext.getString(R.string.obfuscated_res_0x7f0f05fe));
-        SimpleDragSortListView simpleDragSortListView = (SimpleDragSortListView) this.c.findViewById(R.id.obfuscated_res_0x7f091792);
-        this.b = simpleDragSortListView;
-        simpleDragSortListView.setDivider(null);
-        this.b.setOverScrollMode(2);
-        this.b.setVerticalScrollBarEnabled(false);
-        k();
-        this.d = new lu8(tbPageContext, this.b, this.i);
-        l();
-        this.k.a(this);
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d028c, (ViewGroup) null, false);
+        this.d = inflate;
+        LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090997);
+        this.e = linearLayout;
+        linearLayout.setVisibility(8);
+        this.a = this.d.findViewById(R.id.obfuscated_res_0x7f09099a);
+        this.b = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0909a0);
+        View findViewById = this.d.findViewById(R.id.obfuscated_res_0x7f090994);
+        this.c = findViewById;
+        findViewById.setVisibility(8);
     }
 
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && z) {
-            l();
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921054));
-        }
-    }
-
-    public View c() {
+    public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+            return this.d;
         }
         return (View) invokeV.objValue;
     }
 
-    public void d() {
-        FrameLayout frameLayout;
+    public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f != null && (frameLayout = this.g) != null) {
-            frameLayout.setVisibility(8);
-            this.f.dettachView(this.g);
-            this.f = null;
-        }
-    }
-
-    public final void f() {
-        NoDataView noDataView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (noDataView = this.j) != null && noDataView.getParent() == this.g) {
-            this.j.setVisibility(8);
-            this.g.removeView(this.j);
-            this.g.setVisibility(8);
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            sg.a().post(new c(this));
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            d();
-            f();
-        }
-    }
-
-    public final void j() {
-        SimpleDragSortListView simpleDragSortListView;
-        pu8 pu8Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (simpleDragSortListView = this.b) != null && !this.h && (pu8Var = this.e) != null) {
-            this.h = true;
-            simpleDragSortListView.setEmptyView(pu8Var.a());
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            ju8 ju8Var = new ju8(this.b);
-            this.i = ju8Var;
-            ju8Var.c(new a(this));
-        }
-    }
-
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            pu8 pu8Var = this.e;
-            if (pu8Var != null) {
-                pu8Var.b(i);
-            }
-            FrameLayout frameLayout = this.g;
-            if (frameLayout != null) {
-                SkinManager.setBackgroundColor(frameLayout, R.color.CAM_X0201, i);
-            }
-            pu8 pu8Var2 = this.e;
-            if (pu8Var2 != null) {
-                SkinManager.setBackgroundColor(pu8Var2.a(), R.color.CAM_X0201, i);
-            }
-            SimpleDragSortListView simpleDragSortListView = this.b;
-            if (simpleDragSortListView != null) {
-                SkinManager.setBackgroundColor(simpleDragSortListView, R.color.CAM_X0201, i);
-            }
-            NoNetworkView noNetworkView = this.k;
-            if (noNetworkView != null) {
-                noNetworkView.d(this.a, i);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (ju8.b().a()) {
+                this.c.setVisibility(0);
+            } else {
+                this.c.setVisibility(8);
             }
         }
     }
 
-    public final void l() {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.a != null && this.g != null) {
-            i();
-            this.g.setVisibility(0);
-            ri5 ri5Var = new ri5(this.a.getPageActivity());
-            this.f = ri5Var;
-            ri5Var.attachView(this.g, true);
-            this.f.onChangeSkinType();
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.a != null && this.g != null) {
-            i();
-            this.g.setVisibility(0);
-            NoDataView b2 = NoDataViewFactory.b(this.a.getPageActivity(), this.g, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, ri.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07034d)), NoDataViewFactory.e.d(null, this.a.getString(R.string.obfuscated_res_0x7f0f0601)), null, true);
-            this.j = b2;
-            b2.setVisibility(0);
-            this.j.d(this.a);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            View view2 = this.a;
+            if (view2 != null) {
+                SkinManager.setBackgroundColor(view2, R.color.CAM_X0204, i);
+            }
+            LinearLayout linearLayout = this.e;
+            if (linearLayout != null) {
+                SkinManager.setBackgroundColor(linearLayout, R.color.CAM_X0204, i);
+            }
+            TextView textView = this.b;
+            if (textView != null) {
+                SkinManager.setViewTextColor(textView, R.color.CAM_X0107, i);
+                SkinManager.setBackgroundColor(this.b, R.color.CAM_X0204, i);
+            }
+            View view3 = this.c;
+            if (view3 != null) {
+                SkinManager.setViewTextColor(view3, R.color.CAM_X0107, i);
+                SkinManager.setBackgroundColor(this.c, R.color.CAM_X0204, i);
+            }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    public void update(List<EmotionPackageData> list) {
+    public void update(Integer num) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
-            sg.a().post(new b(this, list));
+        if ((interceptable != null && interceptable.invokeL(1048579, this, num) != null) || num == null) {
+            return;
+        }
+        if (num.intValue() == 0) {
+            this.e.setVisibility(8);
+        } else {
+            this.b.setText(String.format(jj.a(R.string.obfuscated_res_0x7f0f060b), num));
+            this.e.setVisibility(0);
+        }
+        if (ju8.b().a()) {
+            this.c.setVisibility(0);
+        } else {
+            this.c.setVisibility(8);
         }
     }
 }

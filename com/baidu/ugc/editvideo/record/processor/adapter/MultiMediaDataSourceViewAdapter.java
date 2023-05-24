@@ -9,10 +9,10 @@ import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
 import com.baidu.minivideo.plugin.capture.bean.FaceItem;
 import com.baidu.tieba.dg0;
-import com.baidu.tieba.fna;
+import com.baidu.tieba.gna;
 import com.baidu.tieba.ig0;
-import com.baidu.tieba.ija;
-import com.baidu.tieba.kna;
+import com.baidu.tieba.jja;
+import com.baidu.tieba.lna;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
 import com.baidu.ugc.editvideo.data.MultiMediaDataTrack;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
@@ -160,7 +160,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSourceView
     public void addCoverStickerData(final MultiMediaData multiMediaData) {
-        if (kna.e(this.mMediaRenderers)) {
+        if (lna.e(this.mMediaRenderers)) {
             return;
         }
         runOnDraw(new Runnable() { // from class: com.baidu.ugc.editvideo.record.processor.adapter.MultiMediaDataSourceViewAdapter.1
@@ -179,7 +179,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSourceView
     public void addCoverStickerDataList(final List<MultiMediaData> list) {
-        if (kna.e(this.mMediaRenderers)) {
+        if (lna.e(this.mMediaRenderers)) {
             return;
         }
         runOnDraw(new Runnable() { // from class: com.baidu.ugc.editvideo.record.processor.adapter.MultiMediaDataSourceViewAdapter.2
@@ -214,7 +214,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSourceView
     public void cancelStickerSelected() {
-        if (kna.e(this.mMediaRenderers)) {
+        if (lna.e(this.mMediaRenderers)) {
             return;
         }
         for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
@@ -272,14 +272,14 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
                     }
                 }
             } catch (Exception e) {
-                fna.g(e);
+                gna.g(e);
             }
         }
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSourceView
     public void deleteCoverStickerData(final MultiMediaData multiMediaData) {
-        if (kna.e(this.mMediaRenderers)) {
+        if (lna.e(this.mMediaRenderers)) {
             return;
         }
         runOnDraw(new Runnable() { // from class: com.baidu.ugc.editvideo.record.processor.adapter.MultiMediaDataSourceViewAdapter.4
@@ -298,7 +298,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSourceView
     public void deleteStickerData(MultiMediaData multiMediaData, String str) {
-        if (TextUtils.isEmpty(str) || kna.e(this.mMediaRenderers)) {
+        if (TextUtils.isEmpty(str) || lna.e(this.mMediaRenderers)) {
             return;
         }
         for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
@@ -312,7 +312,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSourceView
     public List<MultiMediaData> getCoverStickerDataList() {
-        if (kna.e(this.mMediaRenderers)) {
+        if (lna.e(this.mMediaRenderers)) {
             return new ArrayList(1);
         }
         for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
@@ -353,7 +353,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     @Override // com.baidu.ugc.editvideo.record.preview.OnMediaPreviewTouchEventListener
     public PointF getStickerCenterPoint() {
         OnMediaPreviewTouchEventListener onMediaPreviewTouchEventListener;
-        if (!TextUtils.isEmpty(this.mEditTrackType) && isStickerLayer() && !kna.e(this.mMediaRenderers)) {
+        if (!TextUtils.isEmpty(this.mEditTrackType) && isStickerLayer() && !lna.e(this.mMediaRenderers)) {
             for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
                 if (TextUtils.equals(this.mEditTrackType, "cover_sticker")) {
                     if (iMediaRenderer instanceof MultiMediaCoverStickerRenderer) {
@@ -384,7 +384,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSourceView
     public void moveBoundsCheckEnabled(boolean z) {
-        if (kna.e(this.mMediaRenderers)) {
+        if (lna.e(this.mMediaRenderers)) {
             return;
         }
         for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
@@ -397,7 +397,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.OnMultiMediaCaptureCallback
     public void needDrawEffect(boolean z) {
-        if (kna.e(this.mIEffectProcessorList)) {
+        if (lna.e(this.mIEffectProcessorList)) {
             return;
         }
         for (int i = 0; i < this.mIEffectProcessorList.size(); i++) {
@@ -411,7 +411,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSourceView
     public void notifyStickerDataChange(String str) {
-        if (kna.e(this.mMediaRenderers)) {
+        if (lna.e(this.mMediaRenderers)) {
             return;
         }
         for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
@@ -441,7 +441,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
                     }
                 });
             }
-        } else if (!kna.e(this.mIEffectProcessorList)) {
+        } else if (!lna.e(this.mIEffectProcessorList)) {
             for (IEffectProcessor iEffectProcessor : this.mIEffectProcessorList) {
                 if (iEffectProcessor instanceof AEffectProcessor) {
                     ((AEffectProcessor) iEffectProcessor).updateMediaTracks(list);
@@ -463,7 +463,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
                     }
                 });
             }
-        } else if (!kna.e(this.mIEffectProcessorList)) {
+        } else if (!lna.e(this.mIEffectProcessorList)) {
             for (IEffectProcessor iEffectProcessor : this.mIEffectProcessorList) {
                 if (iEffectProcessor instanceof AEffectProcessor) {
                     ((AEffectProcessor) iEffectProcessor).changeEffect(map, list);
@@ -552,7 +552,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
 
     @Override // com.baidu.ugc.editvideo.record.preview.OnMediaPreviewTouchEventListener
     public boolean onTouchDown(float f, float f2, float f3, float f4) {
-        if (!TextUtils.isEmpty(this.mEditTrackType) && !kna.e(this.mMediaRenderers) && isStickerLayer()) {
+        if (!TextUtils.isEmpty(this.mEditTrackType) && !lna.e(this.mMediaRenderers) && isStickerLayer()) {
             for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
                 if (TextUtils.equals(this.mEditTrackType, "cover_sticker")) {
                     if (iMediaRenderer instanceof MultiMediaCoverStickerRenderer) {
@@ -575,7 +575,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
             return;
         }
         if (isStickerLayer()) {
-            if (kna.e(this.mMediaRenderers)) {
+            if (lna.e(this.mMediaRenderers)) {
                 return;
             }
             for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
@@ -613,7 +613,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     @Override // com.baidu.ugc.editvideo.record.preview.OnMediaPreviewTouchEventListener
     public void onTouchUp(float f, float f2) {
         OnMediaPreviewTouchEventListener onMediaPreviewTouchEventListener;
-        if (TextUtils.isEmpty(this.mEditTrackType) || !isStickerLayer() || kna.e(this.mMediaRenderers)) {
+        if (TextUtils.isEmpty(this.mEditTrackType) || !isStickerLayer() || lna.e(this.mMediaRenderers)) {
             return;
         }
         for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
@@ -640,7 +640,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSourceView
     public void replaceCoverStickerData(final MultiMediaData multiMediaData) {
-        if (kna.e(this.mMediaRenderers)) {
+        if (lna.e(this.mMediaRenderers)) {
             return;
         }
         runOnDraw(new Runnable() { // from class: com.baidu.ugc.editvideo.record.processor.adapter.MultiMediaDataSourceViewAdapter.3
@@ -664,7 +664,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSourceView
     public void setCurrentStickerData(int i, String str) {
-        if (TextUtils.isEmpty(str) || kna.e(this.mMediaRenderers)) {
+        if (TextUtils.isEmpty(str) || lna.e(this.mMediaRenderers)) {
             return;
         }
         for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
@@ -691,7 +691,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     }
 
     public void setOnChangeCoverStickerListener(OnChangeStickerListener onChangeStickerListener) {
-        if (kna.e(this.mMediaRenderers)) {
+        if (lna.e(this.mMediaRenderers)) {
             return;
         }
         for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
@@ -703,7 +703,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     }
 
     public void setOnChangeStickerListener(OnChangeStickerListener onChangeStickerListener) {
-        if (kna.e(this.mMediaRenderers)) {
+        if (lna.e(this.mMediaRenderers)) {
             return;
         }
         for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
@@ -722,13 +722,13 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
         }
         ig0 ig0Var = new ig0();
         this.mVlogEditCore = ig0Var;
-        ig0Var.a(ija.c().getContext());
+        ig0Var.a(jja.c().getContext());
         onDrawUpdateTextureListener.setVlogCore(this.mVlogEditCore);
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSourceView
     public void setStickerDeleteButton(String str, String str2) {
-        if (kna.e(this.mMediaRenderers)) {
+        if (lna.e(this.mMediaRenderers)) {
             return;
         }
         for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
@@ -741,7 +741,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSourceView
     public void setStickerEditButton(String str, String str2) {
-        if (kna.e(this.mMediaRenderers)) {
+        if (lna.e(this.mMediaRenderers)) {
             return;
         }
         for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
@@ -754,7 +754,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSourceView
     public void setStickerMaxScale(float f) {
-        if (kna.e(this.mMediaRenderers)) {
+        if (lna.e(this.mMediaRenderers)) {
             return;
         }
         for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
@@ -767,7 +767,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSourceView
     public void setStickerMinScale(float f) {
-        if (kna.e(this.mMediaRenderers)) {
+        if (lna.e(this.mMediaRenderers)) {
             return;
         }
         for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
@@ -780,7 +780,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSourceView
     public void setStickerRotationButton(String str, String str2) {
-        if (kna.e(this.mMediaRenderers)) {
+        if (lna.e(this.mMediaRenderers)) {
             return;
         }
         for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
@@ -794,7 +794,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSourceView
     public void setUpEditLayer(String str) {
         this.mEditTrackType = str;
-        if (kna.e(this.mMediaRenderers)) {
+        if (lna.e(this.mMediaRenderers)) {
             return;
         }
         for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {

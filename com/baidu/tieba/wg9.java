@@ -1,12 +1,11 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class wg9 {
@@ -14,6 +13,7 @@ public class wg9 {
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
+    public String c;
 
     public wg9() {
         Interceptable interceptable = $ic;
@@ -29,17 +29,14 @@ public class wg9 {
         }
     }
 
-    @Nullable
-    public static wg9 a(@Nullable JSONObject jSONObject) {
+    public static wg9 a(@NonNull JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
             wg9 wg9Var = new wg9();
-            wg9Var.a = jSONObject.optString("text");
-            wg9Var.b = jSONObject.optString(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR);
+            wg9Var.a = jSONObject.optString("lottie");
+            wg9Var.b = jSONObject.optString("text");
+            wg9Var.c = jSONObject.optString("cmd");
             return wg9Var;
         }
         return (wg9) invokeL.objValue;

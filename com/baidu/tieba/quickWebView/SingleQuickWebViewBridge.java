@@ -5,10 +5,10 @@ import android.webkit.JsPromptResult;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tieba.js9;
+import com.baidu.tieba.ks9;
 import com.baidu.tieba.qo;
 import com.baidu.tieba.quickWebView.data.QuickWebViewBridgeData;
-import com.baidu.tieba.se9;
+import com.baidu.tieba.te9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,16 +23,16 @@ public class SingleQuickWebViewBridge extends CommonTbJsBridge {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String REQUEST_BY_NATIVE;
-    public se9 mProxy;
+    public te9 mProxy;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SingleQuickWebViewBridge(Context context, se9 se9Var) {
+    public SingleQuickWebViewBridge(Context context, te9 te9Var) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, se9Var};
+            Object[] objArr = {context, te9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,10 +44,10 @@ public class SingleQuickWebViewBridge extends CommonTbJsBridge {
             }
         }
         this.REQUEST_BY_NATIVE = "requestByNative";
-        this.mProxy = se9Var;
+        this.mProxy = te9Var;
     }
 
-    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, com.baidu.tieba.fs9
+    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, com.baidu.tieba.gs9
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -71,11 +71,11 @@ public class SingleQuickWebViewBridge extends CommonTbJsBridge {
         return invokeLLLL.booleanValue;
     }
 
-    public js9 requestByNative(String str, String str2, String str3, JSONObject jSONObject) {
+    public ks9 requestByNative(String str, String str2, String str3, JSONObject jSONObject) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, jSONObject)) == null) {
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             QuickWebViewBridgeData quickWebViewBridgeData = new QuickWebViewBridgeData();
             quickWebViewBridgeData.url = str;
             quickWebViewBridgeData.type = str2;
@@ -90,28 +90,28 @@ public class SingleQuickWebViewBridge extends CommonTbJsBridge {
                 quickWebViewBridgeData.data = hashMap;
             }
             quickWebViewBridgeData.begin = System.currentTimeMillis();
-            se9 se9Var = this.mProxy;
-            if (se9Var != null) {
-                se9Var.k(quickWebViewBridgeData, quickWebViewBridgeData.callBack, true);
+            te9 te9Var = this.mProxy;
+            if (te9Var != null) {
+                te9Var.k(quickWebViewBridgeData, quickWebViewBridgeData.callBack, true);
             }
-            js9Var.x(str);
-            return js9Var;
+            ks9Var.x(str);
+            return ks9Var;
         }
-        return (js9) invokeLLLL.objValue;
+        return (ks9) invokeLLLL.objValue;
     }
 
-    public js9 requestByNativeToH5(HashMap<String, String> hashMap) {
+    public ks9 requestByNativeToH5(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap)) == null) {
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             if (hashMap != null && hashMap.get("result") != null) {
-                js9Var.o(hashMap.get("result"));
-                js9Var.x(hashMap.get("NotificationKey"));
+                ks9Var.o(hashMap.get("result"));
+                ks9Var.x(hashMap.get("NotificationKey"));
             }
-            js9Var.A(true);
-            return js9Var;
+            ks9Var.A(true);
+            return ks9Var;
         }
-        return (js9) invokeL.objValue;
+        return (ks9) invokeL.objValue;
     }
 }

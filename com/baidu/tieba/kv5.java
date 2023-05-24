@@ -54,8 +54,8 @@ public class kv5 implements ov5 {
     public boolean j;
     public boolean k;
     public String l;
-    public final es9 m;
-    public final gs9 n;
+    public final fs9 m;
+    public final hs9 n;
 
     @Override // com.baidu.tieba.dp5
     public void O(float f) {
@@ -92,7 +92,7 @@ public class kv5 implements ov5 {
     }
 
     /* loaded from: classes6.dex */
-    public class a implements gs9 {
+    public class a implements hs9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ kv5 a;
@@ -115,7 +115,7 @@ public class kv5 implements ov5 {
             this.a = kv5Var;
         }
 
-        @Override // com.baidu.tieba.gs9
+        @Override // com.baidu.tieba.hs9
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -350,9 +350,9 @@ public class kv5 implements ov5 {
         View inflate = LayoutInflater.from(context).inflate(R.layout.layout_float_web_content_view, (ViewGroup) linearLayout, true);
         this.d = (NestedScrollWebView) inflate.findViewById(R.id.obfuscated_res_0x7f0928e3);
         this.e = (FrameLayout) inflate.findViewById(R.id.load_state_container);
-        es9 es9Var = new es9();
-        this.m = es9Var;
-        es9Var.a(new CommonTbJsBridge(context));
+        fs9 fs9Var = new fs9();
+        this.m = fs9Var;
+        fs9Var.a(new CommonTbJsBridge(context));
         this.m.a(new UegTbJsBridge(context));
         yu4.j(context);
         w();
@@ -409,10 +409,10 @@ public class kv5 implements ov5 {
 
     @Override // com.baidu.tieba.ov5
     public void onDestroy() {
-        es9 es9Var;
+        fs9 fs9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (es9Var = this.m) != null) {
-            es9Var.h();
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (fs9Var = this.m) != null) {
+            fs9Var.h();
         }
     }
 
@@ -429,9 +429,9 @@ public class kv5 implements ov5 {
             e.printStackTrace();
         }
         r(MissionEvent.MESSAGE_PAUSE);
-        es9 es9Var = this.m;
-        if (es9Var != null) {
-            es9Var.i(this.d, CommonTbJsBridge.RE_HIDE, null);
+        fs9 fs9Var = this.m;
+        if (fs9Var != null) {
+            fs9Var.i(this.d, CommonTbJsBridge.RE_HIDE, null);
         }
     }
 
@@ -477,9 +477,9 @@ public class kv5 implements ov5 {
             e.printStackTrace();
         }
         r("onResume");
-        es9 es9Var = this.m;
-        if (es9Var != null) {
-            es9Var.i(this.d, CommonTbJsBridge.RE_SHOW, null);
+        fs9 fs9Var = this.m;
+        if (fs9Var != null) {
+            fs9Var.i(this.d, CommonTbJsBridge.RE_SHOW, null);
             if (CurrentPageTypeHelper.currentPageType != CurrentPageTypeHelper.PageType.WEB && CurrentPageTypeHelper.currentPageType != CurrentPageTypeHelper.PageType.NONE && CurrentPageTypeHelper.currentPageType != CurrentPageTypeHelper.PageType.NATIVE_WEB && !this.k) {
                 this.m.i(this.d, CommonTbJsBridge.GO_BACK_FROM_NATIVE, null);
             }

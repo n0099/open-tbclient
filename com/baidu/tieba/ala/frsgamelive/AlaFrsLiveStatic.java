@@ -20,9 +20,9 @@ import com.baidu.tieba.ala.frsgamelive.message.AlaGameFrsLiveThreadsRespMessage;
 import com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsStoryLiveGatherActivity;
 import com.baidu.tieba.ala.gamefrslivelist.AlaGameFrsLiveListActivity;
 import com.baidu.tieba.ala.gamelist.mvc.AlaAllGameLiveEntryActivity;
-import com.baidu.tieba.c97;
 import com.baidu.tieba.d97;
 import com.baidu.tieba.da6;
+import com.baidu.tieba.e97;
 import com.baidu.tieba.ea6;
 import com.baidu.tieba.w96;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -70,18 +70,18 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof d97)) {
+            if (!(data instanceof e97)) {
                 return;
             }
-            d97 d97Var = (d97) data;
+            e97 e97Var = (e97) data;
             w96 w96Var = new w96(true);
             w96Var.b().e = 2;
-            w96Var.h(d97Var.c());
-            w96Var.i(d97Var.d());
-            w96Var.g(d97Var.b());
+            w96Var.h(e97Var.c());
+            w96Var.i(e97Var.d());
+            w96Var.g(e97Var.b());
             w96Var.j(1);
             w96Var.k(false);
-            d97Var.a(w96Var);
+            e97Var.a(w96Var);
         }
     }
 
@@ -118,19 +118,19 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof c97)) {
+            if (!(data instanceof d97)) {
                 return;
             }
-            c97 c97Var = (c97) data;
+            d97 d97Var = (d97) data;
             w96 w96Var = new w96(true);
             w96Var.b().e = 9;
-            w96Var.h(c97Var.c());
-            w96Var.i(c97Var.d());
-            w96Var.g(c97Var.b());
+            w96Var.h(d97Var.c());
+            w96Var.i(d97Var.d());
+            w96Var.g(d97Var.b());
             w96Var.j(1);
             w96Var.k(true);
-            if (c97Var.h(9)) {
-                c97Var.a(w96Var);
+            if (d97Var.h(9)) {
+                d97Var.a(w96Var);
             }
         }
     }
@@ -168,18 +168,18 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof d97)) {
+            if (!(data instanceof e97)) {
                 return;
             }
-            d97 d97Var = (d97) data;
+            e97 e97Var = (e97) data;
             w96 w96Var = new w96(false);
             w96Var.b().e = 1;
-            w96Var.h(d97Var.c());
-            w96Var.i(d97Var.d());
-            w96Var.g(d97Var.b());
+            w96Var.h(e97Var.c());
+            w96Var.i(e97Var.d());
+            w96Var.g(e97Var.b());
             w96Var.j(2);
             w96Var.k(false);
-            d97Var.a(w96Var);
+            e97Var.a(w96Var);
         }
     }
 
@@ -216,16 +216,16 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof d97)) {
+            if (!(data instanceof e97)) {
                 return;
             }
-            d97 d97Var = (d97) data;
+            e97 e97Var = (e97) data;
             ea6 ea6Var = new ea6();
             ea6Var.b().e = 3;
-            ea6Var.g(d97Var.c());
-            ea6Var.h(d97Var.d());
+            ea6Var.g(e97Var.c());
+            ea6Var.h(e97Var.d());
             ea6Var.i(false);
-            d97Var.a(ea6Var);
+            e97Var.a(ea6Var);
         }
     }
 
@@ -262,18 +262,18 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof c97)) {
+            if (!(data instanceof d97)) {
                 return;
             }
-            c97 c97Var = (c97) data;
+            d97 d97Var = (d97) data;
             ea6 ea6Var = new ea6();
             ea6Var.b().e = 8;
             ea6Var.b().b = R.string.obfuscated_res_0x7f0f027d;
-            ea6Var.g(c97Var.c());
-            ea6Var.h(c97Var.d());
+            ea6Var.g(d97Var.c());
+            ea6Var.h(d97Var.d());
             ea6Var.i(true);
-            if (c97Var.h(8)) {
-                c97Var.a(ea6Var);
+            if (d97Var.h(8)) {
+                d97Var.a(ea6Var);
             }
         }
     }
@@ -311,15 +311,15 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof c97)) {
+            if (!(data instanceof d97)) {
                 return;
             }
-            c97 c97Var = (c97) data;
+            d97 d97Var = (d97) data;
             da6 da6Var = new da6();
-            da6Var.i(c97Var.c());
-            da6Var.j(c97Var.d());
-            da6Var.h(c97Var.b());
-            da6Var.g(c97Var);
+            da6Var.i(d97Var.c());
+            da6Var.j(d97Var.d());
+            da6Var.h(d97Var.b());
+            da6Var.g(d97Var);
         }
     }
 

@@ -19,9 +19,9 @@ import com.baidu.tbadk.editortools.view.CommonTabHost;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.se5;
-import com.baidu.tieba.tq8;
-import com.baidu.tieba.uo8;
-import com.baidu.tieba.vq8;
+import com.baidu.tieba.uq8;
+import com.baidu.tieba.vo8;
+import com.baidu.tieba.wq8;
 import com.baidu.tieba.ye5;
 import com.baidu.tieba.ze5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -219,9 +219,9 @@ public class PrivilegeDeskView extends CommonTabHost {
         this.t = new c(this);
         this.u = new d(this);
         r(context);
-        vq8 vq8Var = new vq8(context, 1);
-        p(new uo8(context));
-        q(vq8Var);
+        wq8 wq8Var = new wq8(context, 1);
+        p(new vo8(context));
+        q(wq8Var);
         this.q = context;
     }
 
@@ -269,20 +269,20 @@ public class PrivilegeDeskView extends CommonTabHost {
         }
     }
 
-    public final void p(uo8 uo8Var) {
+    public final void p(vo8 vo8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, uo8Var) == null) {
-            DLauncher dLauncher = (DLauncher) ye5.a(getContext(), uo8Var, 6);
+        if (interceptable == null || interceptable.invokeL(1048581, this, vo8Var) == null) {
+            DLauncher dLauncher = (DLauncher) ye5.a(getContext(), vo8Var, 6);
             this.p = dLauncher;
             dLauncher.setOnClickListener(this.u);
             this.m.add(this.p);
         }
     }
 
-    public final void q(vq8 vq8Var) {
+    public final void q(wq8 wq8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, vq8Var) == null) {
-            DLauncher dLauncher = (DLauncher) ye5.a(getContext(), vq8Var, 6);
+        if (interceptable == null || interceptable.invokeL(1048582, this, wq8Var) == null) {
+            DLauncher dLauncher = (DLauncher) ye5.a(getContext(), wq8Var, 6);
             this.o = dLauncher;
             dLauncher.setOnClickListener(this.t);
             this.m.add(this.o);
@@ -311,9 +311,9 @@ public class PrivilegeDeskView extends CommonTabHost {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setShowDelete(false);
-            tq8 tq8Var = new tq8();
-            tq8Var.z(this.m);
-            h(tq8Var);
+            uq8 uq8Var = new uq8();
+            uq8Var.z(this.m);
+            h(uq8Var);
             t();
             s();
         }

@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class LogoActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xm6 a;
+    public ym6 a;
     public b06 b;
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.on5
@@ -141,9 +141,9 @@ public class LogoActivity extends BaseFragmentActivity {
             if (getIntent() != null) {
                 TbadkCoreApplication.setIntent((Intent) getIntent().getParcelableExtra(LogoActivityConfig.EXTRAINTENT));
             }
-            xm6 xm6Var = new xm6(this);
-            this.a = xm6Var;
-            xm6Var.k();
+            ym6 ym6Var = new ym6(this);
+            this.a = ym6Var;
+            ym6Var.k();
         }
     }
 

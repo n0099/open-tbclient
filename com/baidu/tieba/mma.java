@@ -1,278 +1,97 @@
 package com.baidu.tieba;
 
 import android.graphics.SurfaceTexture;
-import androidx.core.view.InputDeviceCompat;
+import android.opengl.GLES20;
+import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qma;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.record.RecordConstants;
-import java.io.File;
+import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
 /* loaded from: classes6.dex */
-public class mma {
+public class mma extends jma {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public float e;
-    public float f;
-    public qma g;
-    public qma.f h;
-    public qma.b i;
-    public qma.e j;
-    public wma k;
-    public String l;
-    public int m;
-    public SurfaceTexture n;
-    public int o;
-    public int p;
-    public xma q;
-    public boolean r;
-    public boolean s;
-    public int t;
-    public int u;
-    public boolean v;
+    public boolean B;
 
-    public mma() {
+    @Override // com.baidu.tieba.ima, com.baidu.tieba.xma
+    public void a(rma rmaVar, SurfaceTexture surfaceTexture) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, rmaVar, surfaceTexture) == null) {
+            rmaVar.h(this.mFullScreen2D, this.t, GlUtil.IDENTITY_MATRIX);
+            rmaVar.f(surfaceTexture);
         }
-        this.a = RecordConstants.VIDEO_CONSTANT_WIDTH;
-        this.b = RecordConstants.VIDEO_CONSTANT_HEIGHT;
-        this.c = RecordConstants.DEFAULT_BIT_RATE_GTE_API18;
-        this.d = 1;
-        this.e = 1.0f;
-        this.f = 0.0f;
-        this.p = -100;
-        this.s = false;
-        this.t = 10000;
-        this.u = 30;
     }
 
-    public String a() {
+    public final void i(int i, float[] fArr, int i2, int i3, int i4, int i5, int i6, int i7, float[] fArr2, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), fArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), fArr2, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            GLES20.glBindFramebuffer(36160, i2);
+            GLES20.glFramebufferTexture2D(36160, 36064, 3553, i3, 0);
+            GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+            GLES20.glClear(16640);
+            if (this.z) {
+                if (z) {
+                    int i8 = this.j;
+                    int i9 = this.k;
+                    if (i8 > i9) {
+                        int i10 = this.p;
+                        float f = (i10 * 1.0f) / i8;
+                        GLES20.glViewport(0, (this.q - ((int) (i9 * f))) / 2, i10, (int) (i9 * f));
+                    } else {
+                        GLES20.glViewport(0, 0, this.p, this.q);
+                    }
+                    this.o.drawFrame(this.l, fArr2);
+                }
+                if (z2) {
+                    GLES20.glViewport(0, 0, this.p, this.q);
+                } else {
+                    GLES20.glViewport(i4 + this.w, ((this.q - i7) - i5) - this.x, i6, i7);
+                }
+                this.mFullScreen2D.drawFrame(i, fArr);
+            } else {
+                GLES20.glViewport(0, 0, this.p, this.q);
+                this.mFullScreen2D.drawFrame(i, fArr);
+                if (z) {
+                    int i11 = i4 + this.w;
+                    int i12 = this.q;
+                    int i13 = this.k;
+                    GLES20.glViewport(i11, ((i12 - i13) - i5) - this.x, this.j, i13);
+                    this.o.drawFrame(this.l, fArr2);
+                }
+            }
+            GLES20.glBindFramebuffer(36160, 0);
+        }
+    }
+
+    public boolean j(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) ? (this.z && d(motionEvent)) || (!this.z && e(motionEvent)) : invokeL.booleanValue;
+    }
+
+    public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            qma qmaVar = this.g;
-            if (qmaVar != null) {
-                qmaVar.c();
-                this.g.l(null);
-            }
-            return this.l;
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.B : invokeV.booleanValue;
     }
 
-    public void b(float f) {
+    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
+    public void onDrawFrame(dg0 dg0Var, int i, float[] fArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
-            this.f = f;
-        }
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.o = i;
-        }
-    }
-
-    public void d(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) || i <= 0 || i2 <= 0) {
-            return;
-        }
-        if (this.o <= 0) {
-            this.o = RecordConstants.VIDEO_CONSTANT_WIDTH;
-        }
-        this.a = i;
-        this.b = i2;
-        if (i2 > i) {
-            int i3 = this.o;
-            i2 = ((i2 * i3) / i) - (((i3 * i2) / i) % 16);
-            i = i3;
-        } else if (i2 < i) {
-            int i4 = this.o;
-            i = ((i * i4) / i2) - (((i4 * i) / i2) % 16);
-            i2 = i4;
-        }
-        this.a = i;
-        this.b = i2;
-    }
-
-    public void e(SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, surfaceTexture) == null) {
-            this.n = surfaceTexture;
-        }
-    }
-
-    public void f(qma.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.i = bVar;
-        }
-    }
-
-    public void g(qma.e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, eVar) == null) {
-            this.j = eVar;
-        }
-    }
-
-    public void h(wma wmaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, wmaVar) == null) {
-            this.k = wmaVar;
-        }
-    }
-
-    public void i(xma xmaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, xmaVar) == null) {
-            this.q = xmaVar;
-        }
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.l = str;
+        if ((interceptable == null || interceptable.invokeLIL(1048580, this, dg0Var, i, fArr) == null) && this.s && this.l != 0) {
             try {
-                qma qmaVar = new qma();
-                this.g = qmaVar;
-                qmaVar.d(this.e);
-                this.g.B(this.p);
-                if (this.f != 0.0f) {
-                    this.g.A(this.f);
-                }
-                this.g.l(this.h);
-                this.g.i(this.i);
-                this.g.k(this.j);
-                this.g.r(this.q);
-                this.g.E(this.r);
-                this.g.I(this.s);
-                this.g.s(this.v);
+                this.mTextureId = i;
+                this.m.updateTexImage();
+                this.m.getTransformMatrix(this.n);
+                f();
+                i(i, fArr, this.v, this.t, this.f, this.g, this.h, this.i, this.n, !this.B, false);
+                GLES20.glViewport(0, 0, this.p, this.q);
+                this.mFullScreen2D.drawFrame(this.t, GlUtil.IDENTITY_MATRIX);
+                i(i, fArr, this.v, this.t, this.f, this.g, this.h, this.i, this.n, false, true);
             } catch (Throwable th) {
-                fna.c("VideoRecorder", th.toString());
+                gna.c("followvideo", th.toString());
             }
-        }
-    }
-
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.v = z;
-        }
-    }
-
-    public void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.r = z;
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.m++;
-            try {
-                if (this.g != null && this.g.u(2)) {
-                    File file = new File(this.l);
-                    if (!file.getParentFile().exists()) {
-                        file.getParentFile().mkdirs();
-                    }
-                    if (this.f == 90.0f || this.f == 270.0f) {
-                        int i = this.a;
-                        this.a = this.b;
-                        this.b = i;
-                    }
-                    this.g.j(new qma.d(file, this.a, this.b, this.c, this.u, null, this.n.getTimestamp(), this.t));
-                }
-                if (this.g == null || this.m % this.d != 0 || this.k == null) {
-                    return;
-                }
-                this.k.a(this.g, this.n);
-            } catch (Throwable th) {
-                fna.c("VideoRecorder", th.toString());
-            }
-        }
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.u = i;
-        }
-    }
-
-    public void p(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.s = z;
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.t = i;
-        }
-    }
-
-    public boolean r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            qma qmaVar = this.g;
-            if (qmaVar != null) {
-                return qmaVar.u(1);
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void s(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            this.p = i;
-        }
-    }
-
-    public void t(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048595, this, f) == null) {
-            this.e = f;
-            if (Math.abs(f - 3.0f) < 0.01f) {
-                this.d = 2;
-                return;
-            }
-            int i = (Math.abs(this.e - 2.0f) > 0.01f ? 1 : (Math.abs(this.e - 2.0f) == 0.01f ? 0 : -1));
-            this.d = 1;
         }
     }
 }

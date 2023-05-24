@@ -17,13 +17,13 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.LineCountNotifyTextView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ai8;
+import com.baidu.tieba.bi8;
 import com.baidu.tieba.cp5;
 import com.baidu.tieba.lego.card.model.OnePicInfoCard;
-import com.baidu.tieba.oi8;
-import com.baidu.tieba.ts9;
-import com.baidu.tieba.vi8;
-import com.baidu.tieba.yi8;
+import com.baidu.tieba.pi8;
+import com.baidu.tieba.us9;
+import com.baidu.tieba.wi8;
+import com.baidu.tieba.zi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -154,7 +154,7 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
     public void v(OnePicInfoCard onePicInfoCard) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onePicInfoCard) == null) {
-            ai8.e(onePicInfoCard).d(TiebaStatic.Params.OBJ_URL, onePicInfoCard.getScheme()).b("obj_locate", getStatPosition()).a(onePicInfoCard);
+            bi8.e(onePicInfoCard).d(TiebaStatic.Params.OBJ_URL, onePicInfoCard.getScheme()).b("obj_locate", getStatPosition()).a(onePicInfoCard);
             super.v(onePicInfoCard);
         }
     }
@@ -165,7 +165,7 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
         if ((interceptable != null && interceptable.invokeL(65541, this, onePicInfoCard) != null) || this.q == null) {
             return;
         }
-        if (onePicInfoCard != null && !yi8.a(onePicInfoCard.gettBgColor()) && !yi8.a(onePicInfoCard.gettBgColorN())) {
+        if (onePicInfoCard != null && !zi8.a(onePicInfoCard.gettBgColor()) && !zi8.a(onePicInfoCard.gettBgColorN())) {
             TextView textView = this.q;
             if (r()) {
                 i = onePicInfoCard.gettBgColorN();
@@ -178,14 +178,14 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
         SkinManager.setBackgroundResource(this.q, R.drawable.label_bg_tie_n);
     }
 
-    public final void G(TextView textView, TbImageView tbImageView, vi8 vi8Var) {
+    public final void G(TextView textView, TbImageView tbImageView, wi8 wi8Var) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, textView, tbImageView, vi8Var) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, textView, tbImageView, wi8Var) == null) {
             if (r()) {
-                str = vi8Var.b;
+                str = wi8Var.b;
             } else {
-                str = vi8Var.a;
+                str = wi8Var.a;
             }
             if (!TextUtils.isEmpty(str)) {
                 textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
@@ -193,12 +193,12 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
                 tbImageView.N(str, 10, false);
             } else {
                 tbImageView.setVisibility(8);
-                textView.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(oi8.a(vi8Var.c)), (Drawable) null, (Drawable) null, (Drawable) null);
+                textView.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(pi8.a(wi8Var.c)), (Drawable) null, (Drawable) null, (Drawable) null);
             }
             try {
-                textView.setText(StringHelper.numberUniformFormat(Long.parseLong(vi8Var.d)));
+                textView.setText(StringHelper.numberUniformFormat(Long.parseLong(wi8Var.d)));
             } catch (NumberFormatException unused) {
-                textView.setText(vi8Var.d);
+                textView.setText(wi8Var.d);
             }
         }
     }
@@ -262,7 +262,7 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
                 this.r.setVisibility(8);
                 this.u.setVisibility(8);
             }
-            ts9 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+            us9 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
             if (readThreadHistory != null && readThreadHistory.d(String.valueOf(onePicInfoCard.getItemId()))) {
                 this.x = R.color.CAM_X0108;
             } else {

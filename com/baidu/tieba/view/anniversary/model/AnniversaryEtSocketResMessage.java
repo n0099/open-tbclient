@@ -3,7 +3,7 @@ package com.baidu.tieba.view.anniversary.model;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.v4a;
+import com.baidu.tieba.w4a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.VideoTemplate.VideoTemplateResIdl;
 public class AnniversaryEtSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public v4a resultData;
+    public w4a resultData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AnniversaryEtSocketResMessage() {
@@ -38,13 +38,13 @@ public class AnniversaryEtSocketResMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public v4a getResultData() {
+    public w4a getResultData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.resultData;
         }
-        return (v4a) invokeV.objValue;
+        return (w4a) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -61,9 +61,9 @@ public class AnniversaryEtSocketResMessage extends SocketResponsedMessage {
                     setErrorString(videoTemplateResIdl.error.usermsg);
                 }
                 if (videoTemplateResIdl.data != null) {
-                    v4a v4aVar = new v4a();
-                    this.resultData = v4aVar;
-                    v4aVar.g(videoTemplateResIdl.data);
+                    w4a w4aVar = new w4a();
+                    this.resultData = w4aVar;
+                    w4aVar.g(videoTemplateResIdl.data);
                 }
             }
             return videoTemplateResIdl;

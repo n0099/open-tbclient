@@ -6,8 +6,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.mm5;
 import com.baidu.tieba.nr5;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.sn7;
 import com.baidu.tieba.ss5;
+import com.baidu.tieba.tn7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -88,7 +88,7 @@ public class FrsCommonTabRequestData extends OrmObject implements mm5 {
             builder.request_times = Integer.valueOf(this.requestTimes);
             builder.is_general_tab = Integer.valueOf(this.isGeneralTab);
             builder.sort_type = Integer.valueOf(this.sortType);
-            String d = sn7.e().d("frs_feed");
+            String d = tn7.e().d("frs_feed");
             builder.ad_bear_sid = d;
             builder.ad_bear_context = nr5.g(d, nr5.f());
             builder.ad_bear_sid_price = Double.valueOf(nr5.i());

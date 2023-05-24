@@ -1,61 +1,44 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.feed.component.CardSocialBarView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class j47 implements w27 {
+public class j47 extends q27<CardSocialBarView, qz6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public j47() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j47(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.w27
-    public List<e37<?, ?>> a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.f37
+    /* renamed from: e */
+    public void b(@NonNull CardSocialBarView cardSocialBarView, @NonNull qz6 qz6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new h47("recommend_card_person_attention"));
-            arrayList.add(new t37("mount"));
-            arrayList.add(new e47("img_text"));
-            arrayList.add(new g47("sideway_card"));
-            arrayList.add(new c47("common_card"));
-            arrayList.add(new f47("live_card"));
-            arrayList.add(new u37("card_multi_link"));
-            arrayList.add(new p37("mount_app"));
-            arrayList.add(new b47("feed_voice"));
-            arrayList.add(new i47("social_bar"));
-            arrayList.add(new s37("live"));
-            arrayList.add(new z37("video"));
-            arrayList.add(new x37("card_single_link"));
-            arrayList.add(new y37("title"));
-            arrayList.add(new r37("feed_head"));
-            arrayList.add(new d47("delegate-layout"));
-            arrayList.add(new k47("video_card"));
-            arrayList.add(new q37("feed_entrybar"));
-            arrayList.add(new a47("virtual_head"));
-            arrayList.add(new v37("origin_card"));
-            arrayList.add(new w37("pic"));
-            arrayList.add(new o37("abstract"));
-            return arrayList;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cardSocialBarView, qz6Var) == null) {
+            cardSocialBarView.update(qz6Var);
         }
-        return (List) invokeV.objValue;
     }
 }

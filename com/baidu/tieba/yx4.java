@@ -73,7 +73,7 @@ public class yx4 {
             public void onClick(View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    tz9.b(true);
+                    uz9.b(true);
                 }
             }
         }
@@ -153,7 +153,7 @@ public class yx4 {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2008015, currentAccount));
                     nb5.h0().X(true);
                     NotificationHelper.cancelAllNotification(TbadkCoreApplication.getInst());
-                    uq9.y("");
+                    vq9.y("");
                     tx4.t().g(currentAccount, false);
                     BdCacheService.n().a(currentAccount);
                     o65.m().e(currentAccount);

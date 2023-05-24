@@ -23,9 +23,9 @@ import com.baidu.tieba.au4;
 import com.baidu.tieba.bu4;
 import com.baidu.tieba.cn;
 import com.baidu.tieba.du4;
-import com.baidu.tieba.eu8;
 import com.baidu.tieba.face.data.FaceData;
 import com.baidu.tieba.fu8;
+import com.baidu.tieba.gu8;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.th5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,9 +44,9 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
     public transient /* synthetic */ FieldHolder $fh;
     public bu4 a;
     public GridView b;
-    public fu8 c;
+    public gu8 c;
     public List<ImageFileInfo> d;
-    public eu8 e;
+    public fu8 e;
     public NoDataView f;
     public BaseFragmentActivity g;
 
@@ -148,9 +148,9 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            fu8 fu8Var = this.c;
-            if (fu8Var != null) {
-                return fu8Var.f();
+            gu8 gu8Var = this.c;
+            if (gu8Var != null) {
+                return gu8Var.f();
             }
             return null;
         }
@@ -176,13 +176,13 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
         }
     }
 
-    public void O1(eu8 eu8Var) {
+    public void O1(fu8 fu8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, eu8Var) == null) {
-            this.e = eu8Var;
-            fu8 fu8Var = this.c;
-            if (fu8Var != null) {
-                fu8Var.j(eu8Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, fu8Var) == null) {
+            this.e = fu8Var;
+            gu8 gu8Var = this.c;
+            if (gu8Var != null) {
+                gu8Var.j(fu8Var);
             }
         }
     }
@@ -194,9 +194,9 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.d = new ArrayList();
             this.a = new bu4(getActivity());
-            fu8 fu8Var = new fu8(this.g, this.d);
-            this.c = fu8Var;
-            fu8Var.j(this.e);
+            gu8 gu8Var = new gu8(this.g, this.d);
+            this.c = gu8Var;
+            gu8Var.j(this.e);
             this.b.setAdapter((ListAdapter) this.c);
             this.b.setOnScrollListener(this);
             if (getArguments() != null && (serializable = getArguments().getSerializable(PickFaceTabActivityConfig.CHOOSED_LIST)) != null && (serializable instanceof ArrayList)) {
@@ -214,9 +214,9 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
     }
 
     public final void N1() {
-        fu8 fu8Var;
+        gu8 gu8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (fu8Var = this.c) != null && fu8Var.g() != null) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (gu8Var = this.c) != null && gu8Var.g() != null) {
             int childCount = this.b.getChildCount();
             int firstVisiblePosition = this.b.getFirstVisiblePosition();
             for (int i = 0; i < childCount; i++) {

@@ -378,7 +378,7 @@ public final class qm {
             String string = this.l.getString(BaiduIdentityManager.KEY_LAST_TN, "");
             String l = l(context);
             if (!(!TextUtils.equals(string, l)) && !TextUtils.isEmpty(string)) {
-                yk8 defaultLog = DefaultLog.getInstance();
+                zk8 defaultLog = DefaultLog.getInstance();
                 defaultLog.c(TitanDownloadService.TAG, "load tn from local, lastTn = " + string);
                 return string;
             }
@@ -386,7 +386,7 @@ public final class qm {
             edit.putString(BaiduIdentityManager.KEY_LAST_TN, l);
             edit.apply();
             i(l);
-            yk8 defaultLog2 = DefaultLog.getInstance();
+            zk8 defaultLog2 = DefaultLog.getInstance();
             defaultLog2.c(TitanDownloadService.TAG, "load tn from apk, lastTn = " + l);
             return l;
         }
@@ -412,14 +412,14 @@ public final class qm {
             String string = this.l.getString("uid_v3", "");
             if (TextUtils.isEmpty(string)) {
                 String k = k(context);
-                yk8 defaultLog = DefaultLog.getInstance();
+                zk8 defaultLog = DefaultLog.getInstance();
                 defaultLog.c(TitanDownloadService.TAG, "new generated uid " + k);
                 SharedPreferences.Editor edit = this.l.edit();
                 edit.putString("uid_v3", k);
                 edit.apply();
                 return k;
             }
-            yk8 defaultLog2 = DefaultLog.getInstance();
+            zk8 defaultLog2 = DefaultLog.getInstance();
             defaultLog2.c(TitanDownloadService.TAG, "load uid from local " + string);
             return string;
         }
@@ -441,7 +441,7 @@ public final class qm {
                 edit.apply();
                 string = str;
             } else {
-                yk8 defaultLog = DefaultLog.getInstance();
+                zk8 defaultLog = DefaultLog.getInstance();
                 defaultLog.c(TitanDownloadService.TAG, "load tn from local, tn = " + string);
             }
             if (TextUtils.isEmpty(string)) {

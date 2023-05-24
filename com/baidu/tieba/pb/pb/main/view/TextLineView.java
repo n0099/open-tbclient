@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.sw8;
+import com.baidu.tieba.tw8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -107,7 +107,7 @@ public class TextLineView extends TextView {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, sw8.TextLineView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, tw8.TextLineView);
         this.b = obtainStyledAttributes.getDimensionPixelSize(2, 0);
         this.c = obtainStyledAttributes.getDimensionPixelSize(3, 0);
         this.d = obtainStyledAttributes.getDimensionPixelSize(0, 0);

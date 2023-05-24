@@ -11,7 +11,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.d78;
+import com.baidu.tieba.e78;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,12 +23,12 @@ public class BaseItemViewHolder extends RecyclerView.ViewHolder {
     @Nullable
     public TbPageContext a;
     @Nullable
-    public d78 b;
+    public e78 b;
     public CustomMessageListener c;
 
-    public void d(@NonNull d78 d78Var, @NonNull TbPageContext tbPageContext, int i) {
+    public void d(@NonNull e78 e78Var, @NonNull TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048579, this, d78Var, tbPageContext, i) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048579, this, e78Var, tbPageContext, i) == null) {
         }
     }
 
@@ -102,33 +102,33 @@ public class BaseItemViewHolder extends RecyclerView.ViewHolder {
         this.c = new a(this, 2001304);
     }
 
-    public final void a(@NonNull d78 d78Var, @NonNull TbPageContext tbPageContext, int i) {
+    public final void a(@NonNull e78 e78Var, @NonNull TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, d78Var, tbPageContext, i) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, e78Var, tbPageContext, i) == null) {
             if (this.b != null && this.a != null) {
-                h(d78Var, tbPageContext, i);
-                this.b = d78Var;
+                h(e78Var, tbPageContext, i);
+                this.b = e78Var;
                 this.a = tbPageContext;
                 return;
             }
-            b(d78Var, tbPageContext, i);
+            b(e78Var, tbPageContext, i);
         }
     }
 
-    public final void b(@NonNull d78 d78Var, @NonNull TbPageContext tbPageContext, int i) {
+    public final void b(@NonNull e78 e78Var, @NonNull TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d78Var, tbPageContext, i) == null) {
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e78Var, tbPageContext, i) == null) {
             this.a = tbPageContext;
-            this.b = d78Var;
-            d(d78Var, tbPageContext, i);
+            this.b = e78Var;
+            d(e78Var, tbPageContext, i);
         }
     }
 
-    public void h(@NonNull d78 d78Var, @NonNull TbPageContext tbPageContext, int i) {
+    public void h(@NonNull e78 e78Var, @NonNull TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048583, this, d78Var, tbPageContext, i) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048583, this, e78Var, tbPageContext, i) == null) {
             i();
-            b(d78Var, tbPageContext, i);
+            b(e78Var, tbPageContext, i);
         }
     }
 

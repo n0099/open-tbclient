@@ -70,7 +70,7 @@ public class oy extends cx implements tx<ThreadData> {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 String jumpUrl = this.a.getJumpUrl();
                 if (!StringUtils.isNull(jumpUrl)) {
-                    UrlManager.getInstance().dealOneLink(this.b.e, new String[]{vs9.a(jumpUrl, "0", "", String.valueOf(this.a.getCardId()))});
+                    UrlManager.getInstance().dealOneLink(this.b.e, new String[]{ws9.a(jumpUrl, "0", "", String.valueOf(this.a.getCardId()))});
                     return;
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(this.b.e.getPageActivity(), this.a.getCardId())));

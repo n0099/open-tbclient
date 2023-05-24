@@ -21,8 +21,8 @@ import com.baidu.tbadk.core.util.ViewSingleClickCompat;
 import com.baidu.tieba.R;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
 import com.baidu.tieba.p45;
-import com.baidu.tieba.qb8;
-import com.baidu.tieba.s88;
+import com.baidu.tieba.rb8;
+import com.baidu.tieba.t88;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,7 +43,7 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
     public final int f;
     public final int g;
     @NonNull
-    public s88 h;
+    public t88 h;
     public View.OnClickListener i;
 
     /* loaded from: classes6.dex */
@@ -112,17 +112,17 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
                 if (abilityItem.getStyleConf() != null && abilityItem.getStyleConf().getContent() != null) {
                     str = abilityItem.getStyleConf().getContent();
                 }
-                qb8.e("c15187", str, this.a.c);
+                rb8.e("c15187", str, this.a.c);
             }
         }
     }
 
-    public DirectChatAdapter(Context context, @NonNull s88 s88Var) {
+    public DirectChatAdapter(Context context, @NonNull t88 t88Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, s88Var};
+            Object[] objArr = {context, t88Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -135,7 +135,7 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
         this.d = new ArrayList();
         this.i = new a(this);
         this.a = context;
-        this.h = s88Var;
+        this.h = t88Var;
         this.f = context.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
         this.e = context.getResources().getDimensionPixelSize(R.dimen.M_W_X004);
         this.g = context.getResources().getDimensionPixelSize(R.dimen.M_W_X006);
@@ -158,7 +158,7 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
             }
             String content = styleConf.getContent();
             if (!TextUtils.isEmpty(content) && !this.d.contains(content)) {
-                qb8.e("c15186", content, this.c);
+                rb8.e("c15186", content, this.c);
                 this.d.add(content);
             }
             viewHolder.a.setTag(abilityItem);

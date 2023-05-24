@@ -22,7 +22,7 @@ import com.baidu.tbadk.img.effect.ImageOperation;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.cn;
-import com.baidu.tieba.dea;
+import com.baidu.tieba.eea;
 import com.baidu.tieba.fi5;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.ri;
@@ -60,7 +60,7 @@ public final class WorkPublishVideoView extends RelativeLayout {
     public String m;
     public final Path n;
     public final RectF o;
-    public dea p;
+    public eea p;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public WorkPublishVideoView(Context context) {
@@ -383,9 +383,9 @@ public final class WorkPublishVideoView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            dea deaVar = this$0.p;
-            if (deaVar != null) {
-                deaVar.b();
+            eea eeaVar = this$0.p;
+            if (eeaVar != null) {
+                eeaVar.b();
             }
         }
     }
@@ -394,9 +394,9 @@ public final class WorkPublishVideoView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            dea deaVar = this$0.p;
-            if (deaVar != null) {
-                deaVar.a();
+            eea eeaVar = this$0.p;
+            if (eeaVar != null) {
+                eeaVar.a();
             }
         }
     }
@@ -405,9 +405,9 @@ public final class WorkPublishVideoView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            dea deaVar = this$0.p;
-            if (deaVar != null) {
-                deaVar.c();
+            eea eeaVar = this$0.p;
+            if (eeaVar != null) {
+                eeaVar.c();
             }
         }
     }
@@ -460,13 +460,13 @@ public final class WorkPublishVideoView extends RelativeLayout {
         return invokeV.intValue;
     }
 
-    public final dea getIWriteVideoPreviewListener() {
+    public final eea getIWriteVideoPreviewListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.p;
         }
-        return (dea) invokeV.objValue;
+        return (eea) invokeV.objValue;
     }
 
     public final void i() {
@@ -628,7 +628,7 @@ public final class WorkPublishVideoView extends RelativeLayout {
                 Intrinsics.throwUninitializedPropertyAccessException("mRootView");
                 view7 = null;
             }
-            view7.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.nea
+            view7.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.oea
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -645,7 +645,7 @@ public final class WorkPublishVideoView extends RelativeLayout {
                 Intrinsics.throwUninitializedPropertyAccessException("coverBtn");
                 textView2 = null;
             }
-            textView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pea
+            textView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.qea
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -663,7 +663,7 @@ public final class WorkPublishVideoView extends RelativeLayout {
             } else {
                 textView = textView3;
             }
-            textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.oea
+            textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pea
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -709,7 +709,7 @@ public final class WorkPublishVideoView extends RelativeLayout {
             }
             wh5 wh5Var2 = this.j;
             Intrinsics.checkNotNull(wh5Var2);
-            wh5Var2.d(imageFileInfo, new th5() { // from class: com.baidu.tieba.mea
+            wh5Var2.d(imageFileInfo, new th5() { // from class: com.baidu.tieba.nea
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -772,10 +772,10 @@ public final class WorkPublishVideoView extends RelativeLayout {
         }
     }
 
-    public final void setIWriteVideoPreviewListener(dea deaVar) {
+    public final void setIWriteVideoPreviewListener(eea eeaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, deaVar) == null) {
-            this.p = deaVar;
+        if (interceptable == null || interceptable.invokeL(1048585, this, eeaVar) == null) {
+            this.p = eeaVar;
         }
     }
 

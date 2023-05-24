@@ -15,9 +15,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.gift.myGiftList.MyGiftListModel;
-import com.baidu.tieba.lo7;
+import com.baidu.tieba.mo7;
 import com.baidu.tieba.nb5;
-import com.baidu.tieba.no7;
+import com.baidu.tieba.oo7;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.y65;
@@ -32,7 +32,7 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public MyGiftListModel b;
-    public no7 c;
+    public oo7 c;
     public String d;
     public int e;
     public String f;
@@ -70,23 +70,23 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
         }
 
         @Override // com.baidu.tieba.gift.myGiftList.MyGiftListModel.b
-        public void a(int i, String str, boolean z, lo7 lo7Var) {
+        public void a(int i, String str, boolean z, mo7 mo7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z), lo7Var}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z), mo7Var}) == null) {
                 this.a.closeLoadingDialog();
                 this.a.c.D().setVisibility(8);
                 this.a.c.C();
                 if (i != 0) {
                     this.a.showToast(str);
                     if (z) {
-                        this.a.c.J(lo7Var);
+                        this.a.c.J(mo7Var);
                         return;
                     } else {
                         this.a.c.M(str, true);
                         return;
                     }
                 }
-                this.a.c.J(lo7Var);
+                this.a.c.J(mo7Var);
             }
         }
     }
@@ -354,9 +354,9 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
     public final void I1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            no7 no7Var = new no7(this, this.n, this.a);
-            this.c = no7Var;
-            no7Var.K(new b(this));
+            oo7 oo7Var = new oo7(this, this.n, this.a);
+            this.c = oo7Var;
+            oo7Var.K(new b(this));
             E1();
         }
     }

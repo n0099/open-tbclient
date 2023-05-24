@@ -1,47 +1,35 @@
 package com.baidu.tieba;
 
+import com.baidu.tieba.vgb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.PayType;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import java.util.ArrayList;
 import java.util.List;
+import tv.athena.revenue.payui.view.IYYPayAmountView;
 /* loaded from: classes5.dex */
 public class ggb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static List<hfb> a(List<PayWayInfo> list) {
-        InterceptResult invokeL;
+    public static vgb.b a(efb efbVar, List<PayWayInfo> list, String str, IYYPayAmountView.ViewParams viewParams) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (list != null && list.size() != 0) {
-                for (int i = 0; i < list.size(); i++) {
-                    PayWayInfo payWayInfo = list.get(i);
-                    if (PayType.ALI_PAY.getChannel().equals(payWayInfo.payChannel) && PayType.ALI_PAY.getMethod().equals(payWayInfo.payMethod)) {
-                        arrayList.add(new hfb(PayType.ALI_PAY, payWayInfo.name, payWayInfo.tips, 0.0d, false, payWayInfo.perFreePassAmount, payWayInfo.passFreeAlwaysConfirm));
-                    } else if (PayType.WECHAT_PAY.getChannel().equals(payWayInfo.payChannel) && PayType.WECHAT_PAY.getMethod().equals(payWayInfo.payMethod)) {
-                        arrayList.add(new hfb(PayType.WECHAT_PAY, payWayInfo.name, payWayInfo.tips));
-                    } else if (PayType.DXM_PAY.getChannel().equals(payWayInfo.payChannel) && PayType.DXM_PAY.getMethod().equals(payWayInfo.payMethod)) {
-                        arrayList.add(new hfb(PayType.DXM_PAY, payWayInfo.name, payWayInfo.tips));
-                    } else if (PayType.DXM_PAY_KJ.getChannel().equals(payWayInfo.payChannel) && PayType.DXM_PAY_KJ.getMethod().equals(payWayInfo.payMethod)) {
-                        arrayList.add(new hfb(PayType.DXM_PAY_KJ, payWayInfo.name, payWayInfo.tips));
-                    } else if (PayType.QQ_PAY.getChannel().equals(payWayInfo.payChannel) && PayType.QQ_PAY.getMethod().equals(payWayInfo.payMethod)) {
-                        arrayList.add(new hfb(PayType.QQ_PAY, payWayInfo.name, payWayInfo.tips));
-                    } else if (PayType.UNION_PAY.getChannel().equals(payWayInfo.payChannel) && PayType.UNION_PAY.getMethod().equals(payWayInfo.payMethod)) {
-                        arrayList.add(new hfb(PayType.UNION_PAY, payWayInfo.name, payWayInfo.tips));
-                    } else if (PayType.DXM_PAY_H5.getChannel().equals(payWayInfo.payChannel) && PayType.DXM_PAY_H5.getMethod().equals(payWayInfo.payMethod)) {
-                        arrayList.add(new hfb(PayType.DXM_PAY_H5, payWayInfo.name, payWayInfo.tips));
-                    }
-                }
-                return arrayList;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, efbVar, list, str, viewParams)) == null) {
+            vgb.b bVar = new vgb.b();
+            bVar.c = efbVar;
+            bVar.a = list;
+            bVar.b = str;
+            if (viewParams != null) {
+                bVar.d = viewParams.appCustomExpand;
+                bVar.f = viewParams.viewEventListener;
+                bVar.e = viewParams.clientInfoExpand;
+                bVar.h = viewParams.windowParams;
+                bVar.i = viewParams.showFaqPage;
+                bVar.j = viewParams.splitOrderPayScene;
             }
-            RLog.info("PayWayInfoUtils", "createRechargeWayList but mPayWayInfoList null");
-            return arrayList;
+            return bVar;
         }
-        return (List) invokeL.objValue;
+        return (vgb.b) invokeLLLL.objValue;
     }
 }

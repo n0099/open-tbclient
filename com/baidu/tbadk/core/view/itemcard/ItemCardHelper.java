@@ -39,7 +39,7 @@ import com.baidu.tieba.u75;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.tieba.view.ScreenTopToast;
 import com.baidu.tieba.w75;
-import com.baidu.tieba.wp9;
+import com.baidu.tieba.xp9;
 import com.baidu.tieba.yu4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -671,7 +671,7 @@ public class ItemCardHelper {
                 textView.setTextColor(SkinManager.getColor(TbadkCoreApplication.getInst().getSkinType(), (int) R.color.CAM_X0101));
                 d2.o(R.string.J_X01);
                 d2.l(R.color.transparent);
-                d2.h(wp9.f(m));
+                d2.h(xp9.f(m));
             } else if (TbadkCoreApplication.getInst().getSkinType() == 4) {
                 p45.d(textView).w(R.color.CAM_X0103);
                 d2.m(R.dimen.tbds1);
@@ -679,9 +679,9 @@ public class ItemCardHelper {
                 d2.o(R.string.J_X01);
                 d2.f(R.color.CAM_X0209);
             } else {
-                textView.setTextColor(wp9.a(wp9.f(m), n45.b(R.string.A_X01)));
+                textView.setTextColor(xp9.a(xp9.f(m), n45.b(R.string.A_X01)));
                 d2.m(R.dimen.tbds1);
-                d2.u(wp9.a(wp9.f(m), n45.b(R.string.A_X07)));
+                d2.u(xp9.a(xp9.f(m), n45.b(R.string.A_X07)));
                 d2.o(R.string.J_X01);
                 d2.f(R.color.CAM_X0209);
             }

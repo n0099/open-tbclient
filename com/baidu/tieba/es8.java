@@ -1,94 +1,102 @@
 package com.baidu.tieba;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
-import android.text.TextUtils;
-import androidx.core.app.NotificationCompat;
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.framework.task.SocketMessageTask;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.collectTab.CollectFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.myCollection.CollectUpdateReceiver;
-import com.baidu.tieba.myCollection.message.GetStoreRemindTimeHttpResponseMessage;
-import com.baidu.tieba.myCollection.message.GetStoreRemindTimeRequestMessage;
-import com.baidu.tieba.myCollection.message.GetStoreRemindTimeSocketResponseMessage;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tieba.myCollection.CollectTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-import org.json.JSONArray;
-import org.json.JSONException;
 /* loaded from: classes5.dex */
 public class es8 {
     public static /* synthetic */ Interceptable $ic;
-    public static es8 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile boolean a;
+    public final TextView a;
+    public final FragmentTabHost b;
+    public int c;
+    public Fragment d;
+    public final NavigationBar e;
+    public final NoNetworkView f;
+    public CollectTabActivity g;
+    public boolean h;
+    public List i;
+    public ViewPager.OnPageChangeListener j;
 
     /* loaded from: classes5.dex */
-    public class a extends fb {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ es8 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(es8 es8Var, int i, int i2) {
-            super(i, i2);
+        public a(es8 es8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {es8Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                Object[] objArr = {es8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = es8Var;
         }
 
-        @Override // com.baidu.tieba.fb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                List<String> list = Collections.EMPTY_LIST;
-                if (responsedMessage instanceof GetStoreRemindTimeHttpResponseMessage) {
-                    list = ((GetStoreRemindTimeHttpResponseMessage) responsedMessage).getTimeList();
-                } else if (responsedMessage instanceof GetStoreRemindTimeSocketResponseMessage) {
-                    list = ((GetStoreRemindTimeSocketResponseMessage) responsedMessage).getTimeList();
-                }
-                if (!list.isEmpty()) {
-                    o65.m().B("collect_update_time_key", new JSONArray((Collection) list).toString());
-                    es8.b().g();
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.j()) {
+                    ri.Q(this.a.g, "请先退出编辑状态");
+                } else if (this.a.g != null) {
+                    this.a.g.finish();
                 }
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements Comparator<Calendar> {
+    public class b implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ es8 a;
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrollStateChanged(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            }
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrolled(int i, float f, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
+            }
+        }
 
         public b(es8 es8Var) {
             Interceptable interceptable = $ic;
@@ -102,30 +110,30 @@ public class es8 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = es8Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(Calendar calendar, Calendar calendar2) {
-            InterceptResult invokeLL;
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageSelected(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, calendar, calendar2)) == null) {
-                if (calendar.before(calendar2)) {
-                    return -1;
-                }
-                return 1;
+            if (interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) {
+                return;
             }
-            return invokeLL.intValue;
+            this.a.m(i);
+            this.a.c(false);
         }
     }
 
-    public es8() {
+    @SuppressLint({"ResourceAsColor"})
+    public es8(CollectTabActivity collectTabActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {collectTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -135,148 +143,188 @@ public class es8 {
                 return;
             }
         }
-        this.a = false;
-        MessageManager.getInstance().registerListener(new a(this, CmdConfigHttp.CMD_GET_STORE_REMIND_TIME, 309117));
-        zq9.g(309117, GetStoreRemindTimeSocketResponseMessage.class, false, SocketMessageTask.DupLicateMode.REMOVE_ME, true);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_STORE_REMIND_TIME, zq9.a("c/f/livegroup/getStoreRemindTime", 309117));
-        tbHttpMessageTask.setIsNeedLogin(true);
-        tbHttpMessageTask.setIsNeedAddCommenParam(true);
-        tbHttpMessageTask.setResponsedClass(GetStoreRemindTimeHttpResponseMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        this.c = -1;
+        this.h = false;
+        this.j = new b(this);
+        this.g = collectTabActivity;
+        FragmentTabHost fragmentTabHost = (FragmentTabHost) collectTabActivity.findViewById(R.id.obfuscated_res_0x7f09225e);
+        this.b = fragmentTabHost;
+        fragmentTabHost.setup(this.g.getSupportFragmentManager());
+        this.b.setOnPageChangeListener(this.j);
+        this.e = (NavigationBar) this.g.findViewById(R.id.navigation_bar);
+        this.f = (NoNetworkView) this.g.findViewById(R.id.view_no_network);
+        this.e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
+        this.e.setCenterTextTitle(this.g.getPageContext().getString(R.string.my_mark));
+        TextView textView = (TextView) this.e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.navigation_right_button_layout, this.g).findViewById(R.id.right_textview);
+        this.a = textView;
+        textView.setText(R.string.obfuscated_res_0x7f0f05d4);
+        this.a.setOnClickListener(this.g);
+        this.e.onChangeSkinType(this.g.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        k(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void g() {
-        Calendar c;
-        Context context;
+    @SuppressLint({"ResourceAsColor"})
+    public void l(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (c = c()) == null || (context = TbadkCoreApplication.getInst().getContext()) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.a.setEnabled(z);
+            if (!z) {
+                this.a.setText(R.string.obfuscated_res_0x7f0f05d4);
+                SkinManager.setNavbarTitleColor(this.a, R.color.navi_op_text, R.color.navi_op_text_skin);
+            }
         }
-        AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
-        Intent intent = new Intent(CollectUpdateReceiver.ACTION_NAME);
-        intent.setPackage(context.getPackageName());
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(14, 0);
-        if (c.before(calendar)) {
-            c.set(6, calendar.get(6) + 1);
-        }
-        alarmManager.set(1, c.getTimeInMillis(), PendingIntent.getBroadcast(context, 0, intent, 134217728));
     }
 
-    public static es8 b() {
-        InterceptResult invokeV;
+    public final void m(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (es8.class) {
-                    if (b == null) {
-                        b = new es8();
-                    }
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            FragmentTabHost.c g = this.b.g(i);
+            this.c = g.a;
+            this.d = g.c;
+        }
+    }
+
+    @SuppressLint({"ResourceAsColor"})
+    public void c(boolean z) {
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            Fragment fragment = this.d;
+            if (fragment instanceof CollectFragment) {
+                CollectFragment collectFragment = (CollectFragment) fragment;
+                if (!collectFragment.H1()) {
+                    z = false;
+                }
+                l(collectFragment.H1());
+                i = collectFragment.getType();
+            } else {
+                i = -1;
+            }
+            this.h = z;
+            TextView textView = this.a;
+            if (z) {
+                i2 = R.string.obfuscated_res_0x7f0f0595;
+            } else {
+                i2 = R.string.obfuscated_res_0x7f0f05d4;
+            }
+            textView.setText(i2);
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            int i3 = R.color.navi_op_text;
+            if (skinType == 2) {
+                SkinManager.setNavbarTitleColor(this.a, R.color.navi_op_text, R.color.navi_op_text_skin);
+            } else {
+                TextView textView2 = this.a;
+                if (this.h) {
+                    i3 = R.color.CAM_X0302;
+                }
+                SkinManager.setNavbarTitleColor(textView2, i3, R.color.navi_op_text_skin);
+            }
+            Bundle bundle = new Bundle();
+            bundle.putBoolean("is_edit_state", this.h);
+            bundle.putInt("fragment_type", i);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2022208, bundle));
+        }
+    }
+
+    public void i(ArrayList<xi5> arrayList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, arrayList) == null) && arrayList != null && !arrayList.isEmpty()) {
+            this.i = arrayList;
+            this.b.t();
+            for (int i = 0; i < arrayList.size(); i++) {
+                xi5 xi5Var = arrayList.get(i);
+                if (xi5Var != null && xi5Var.d()) {
+                    d(xi5Var, (FragmentTabIndicator) xi5Var.c(this.g.getPageContext().getPageActivity()));
                 }
             }
-            return b;
+            this.b.k(0);
+            this.b.setCurrentTab(0);
+            if (arrayList.size() == 1) {
+                this.b.getFragmentTabWidget().setVisibility(8);
+            }
+            m(0);
         }
-        return (es8) invokeV.objValue;
     }
 
-    public void d() {
+    public final void d(xi5 xi5Var, FragmentTabIndicator fragmentTabIndicator) {
+        yi5 b2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && a()) {
-            MessageManager.getInstance().sendMessage(new GetStoreRemindTimeRequestMessage());
-            h();
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xi5Var, fragmentTabIndicator) != null) || (b2 = xi5Var.b()) == null) {
+            return;
         }
+        FragmentTabHost.c cVar = new FragmentTabHost.c();
+        cVar.c = b2.a;
+        cVar.a = b2.e;
+        fragmentTabIndicator.setText(b2.b);
+        fragmentTabIndicator.setTextSize(0, this.g.getResources().getDimension(R.dimen.obfuscated_res_0x7f0702b7));
+        fragmentTabIndicator.setTextColorResId(R.color.s_actionbar_text_color);
+        fragmentTabIndicator.e(TbadkCoreApplication.getInst().getSkinType());
+        fragmentTabIndicator.setTipPosType(1);
+        cVar.b = fragmentTabIndicator;
+        cVar.d = xi5Var;
+        this.b.b(cVar);
     }
 
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            o65.m().A("collect_request_time_key", System.currentTimeMillis());
-        }
-    }
-
-    public boolean a() {
+    public TextView e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            long o = o65.m().o("collect_request_time_key", -1L);
-            if (o == -1) {
-                return true;
-            }
-            long currentTimeMillis = System.currentTimeMillis() - o;
-            if (currentTimeMillis > 0 && TimeUnit.MILLISECONDS.toDays(currentTimeMillis) >= 1) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (TextView) invokeV.objValue;
+    }
+
+    public Fragment f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (Fragment) invokeV.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return ListUtils.getCount(this.i);
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.h;
         }
         return invokeV.booleanValue;
     }
 
-    public final Calendar c() {
-        InterceptResult invokeV;
+    public void k(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String s = o65.m().s("collect_update_time_key", null);
-            if (TextUtils.isEmpty(s)) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            Calendar calendar = Calendar.getInstance();
-            try {
-                JSONArray jSONArray = new JSONArray(s);
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    String optString = jSONArray.optString(i);
-                    if (!TextUtils.isEmpty(optString)) {
-                        Calendar calendar2 = (Calendar) calendar.clone();
-                        calendar2.setTime(simpleDateFormat.parse(optString));
-                        calendar2.set(calendar.get(1), calendar.get(2), calendar.get(5));
-                        arrayList.add(calendar2);
-                    }
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.b.s(i);
+            if (this.b.getTabWrapper() != null) {
+                if (h() <= 1) {
+                    this.b.getTabWrapper().setVisibility(8);
+                } else {
+                    this.b.getTabWrapper().setVisibility(0);
                 }
-            } catch (ParseException e) {
-                BdLog.e(e.getMessage());
-                e.printStackTrace();
-                return null;
-            } catch (JSONException e2) {
-                BdLog.e(e2.getMessage());
-                return null;
-            } catch (Exception e3) {
-                BdLog.e(e3.getMessage());
             }
-            if (arrayList.isEmpty()) {
-                return null;
-            }
-            Collections.sort(arrayList, new b(this));
-            Calendar calendar3 = (Calendar) arrayList.get(0);
-            Calendar calendar4 = (Calendar) arrayList.get(arrayList.size() - 1);
-            if (arrayList.size() != 1 && !calendar3.after(calendar) && !calendar4.before(calendar)) {
-                for (int i2 = 1; i2 < arrayList.size(); i2++) {
-                    Calendar calendar5 = (Calendar) arrayList.get(i2);
-                    if (!calendar5.before(calendar)) {
-                        return calendar5;
-                    }
-                }
-                return null;
-            }
-            return calendar3;
-        }
-        return (Calendar) invokeV.objValue;
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            if (this.a) {
-                z = false;
-            }
-            o65.m().w("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), z);
-        }
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.a = z;
+            SkinManager.setNavbarTitleColor(this.a, R.color.navi_op_text, R.color.navi_op_text_skin);
+            this.e.onChangeSkinType(this.g.getPageContext(), i);
+            this.f.d(this.g.getPageContext(), i);
         }
     }
 }

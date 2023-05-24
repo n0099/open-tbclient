@@ -50,12 +50,12 @@ public class vq3 extends i03 {
 
         /* renamed from: com.baidu.tieba.vq3$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0481a implements zn3<String> {
+        public class C0480a implements zn3<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0481a(a aVar) {
+            public C0480a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -116,7 +116,7 @@ public class vq3 extends i03 {
                 if (!ee3.h(je3Var)) {
                     ee3.q(je3Var, this.a, this.b);
                 } else {
-                    vq3.z(this.c, new C0481a(this));
+                    vq3.z(this.c, new C0480a(this));
                 }
             }
         }

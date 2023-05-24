@@ -82,20 +82,20 @@ public class gz5 implements kk1<fk5> {
         }
 
         @Override // com.baidu.tieba.newdetail.HotTopicDetailModel.d
-        public void p(int i, @Nullable rz7 rz7Var) {
+        public void p(int i, @Nullable sz7 sz7Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(1048579, this, i, rz7Var) == null) && this.c != null) {
-                if (rz7Var != null) {
+            if ((interceptable == null || interceptable.invokeIL(1048579, this, i, sz7Var) == null) && this.c != null) {
+                if (sz7Var != null) {
                     ArrayList arrayList = new ArrayList();
-                    for (ck6 ck6Var : rz7Var.a) {
-                        if (ck6Var instanceof ck6) {
-                            ThreadData threadData = ck6Var.getThreadData();
+                    for (dk6 dk6Var : sz7Var.a) {
+                        if (dk6Var instanceof dk6) {
+                            ThreadData threadData = dk6Var.getThreadData();
                             if (!TextUtils.equals(threadData.getTid(), "0")) {
                                 arrayList.add(threadData);
                             }
                         }
                     }
-                    this.c.b(arrayList, rz7Var.e());
+                    this.c.b(arrayList, sz7Var.e());
                 }
                 this.c.a();
             }

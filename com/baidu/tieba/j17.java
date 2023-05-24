@@ -1,144 +1,305 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.live.frame.PageInfo;
-import com.baidu.tieba.m27;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.data.VirtualImageCustomState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
-import tbclient.FeedItem;
+import kotlin.text.StringsKt__StringNumberConversionsKt;
+import tbclient.BaseTextColor;
+import tbclient.CustomState;
+import tbclient.FeedHeadComponent;
+import tbclient.FeedHeadFigure;
+import tbclient.FeedHeadFigureComponent;
+import tbclient.FeedHeadIcon;
+import tbclient.FeedHeadImg;
+import tbclient.FeedHeadSymbol;
+import tbclient.FeedHeadText;
 import tbclient.FeedKV;
 /* loaded from: classes6.dex */
 public final class j17 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final zy6 a(FeedItem item, String apkDetailStr, long j, String tid, String forumName, String pageFrom) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{item, apkDetailStr, Long.valueOf(j), tid, forumName, pageFrom})) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(apkDetailStr, "apkDetailStr");
-            Intrinsics.checkNotNullParameter(tid, "tid");
-            Intrinsics.checkNotNullParameter(forumName, "forumName");
-            Intrinsics.checkNotNullParameter(pageFrom, "pageFrom");
-            JSONObject jSONObject = new JSONObject(apkDetailStr);
-            tz6 tz6Var = new tz6();
-            tz6Var.l = jSONObject.optString("appid");
-            tz6Var.m = item.name;
-            tz6Var.b = item.icon_url;
-            Double d = item.icon_ratio;
-            if (d != null) {
-                d.doubleValue();
-                tz6Var.c = (float) item.icon_ratio.doubleValue();
-            }
-            tz6Var.n = jSONObject.optString("apk_name");
-            tz6Var.o = jSONObject.optString("version");
-            tz6Var.p = jSONObject.optInt("version_code");
-            tz6Var.q = jSONObject.optLong("size");
-            tz6Var.r = item.button_link;
-            tz6Var.e = 1;
-            Double d2 = item.score;
-            if (d2 != null) {
-                d2.doubleValue();
-                tz6Var.f = (float) item.score.doubleValue();
-            }
-            tz6Var.g = item.tags;
-            tz6Var.s = jSONObject.optString("developer");
-            tz6Var.t = jSONObject.optString("publisher");
-            tz6Var.u = jSONObject.optString("authority_url");
-            tz6Var.v = jSONObject.optString("privacy_url");
-            tz6Var.w = jSONObject.optInt("pkg_source");
-            tz6Var.h = item.button_name;
-            tz6Var.a = j;
-            tz6Var.k = forumName;
-            g27 g27Var = new g27();
-            g27Var.a = tid;
-            g27Var.b = pageFrom;
-            return new zy6(tz6Var, g27Var, false, 4, null);
-        }
-        return (zy6) invokeCommon.objValue;
-    }
-
-    public static final dz6 b(FeedItem item, long j, String tid, String forumName, String pageFrom) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{item, Long.valueOf(j), tid, forumName, pageFrom})) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(tid, "tid");
-            Intrinsics.checkNotNullParameter(forumName, "forumName");
-            Intrinsics.checkNotNullParameter(pageFrom, "pageFrom");
-            r07 r07Var = new r07();
-            r07Var.a = j;
-            r07Var.b = item.icon_url;
-            Double d = item.icon_ratio;
-            if (d != null) {
-                d.doubleValue();
-                r07Var.c = (float) item.icon_ratio.doubleValue();
-            }
-            r07Var.d = item.name;
-            r07Var.e = 1;
-            Double d2 = item.score;
-            if (d2 != null) {
-                d2.doubleValue();
-                r07Var.f = (float) item.score.doubleValue();
-            }
-            r07Var.g = item.tags;
-            r07Var.h = item.button_name;
-            r07Var.i = item.button_link;
-            r07Var.k = forumName;
-            h27 h27Var = new h27();
-            h27Var.a = tid;
-            h27Var.b = pageFrom;
-            return new dz6(r07Var, h27Var, false, 4, null);
-        }
-        return (dz6) invokeCommon.objValue;
-    }
-
-    public static final void c(FeedItem feedItem, List<f37<?>> dataList, h07 feedExtraData) {
+    public static final boolean a(List<FeedKV> list) {
+        InterceptResult invokeL;
         String str;
-        String str2;
-        String str3;
-        Map<String, String> a;
-        String str4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, feedItem, dataList, feedExtraData) == null) {
-            Intrinsics.checkNotNullParameter(feedItem, "<this>");
-            Intrinsics.checkNotNullParameter(dataList, "dataList");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            m27.a aVar = m27.a;
-            List<FeedKV> business_info = feedItem.business_info;
-            Intrinsics.checkNotNullExpressionValue(business_info, "business_info");
-            HashMap<String, String> a2 = aVar.a(business_info);
-            String str5 = a2.get("apk_detail");
-            String str6 = feedExtraData.a().a().get("thread_id");
-            if (str6 == null) {
-                str = "";
-            } else {
-                str = str6;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            if (list != null) {
+                for (FeedKV feedKV : list) {
+                    if (feedKV != null) {
+                        str = feedKV.key;
+                    } else {
+                        str = null;
+                    }
+                    if (Intrinsics.areEqual(str, "author_is_living")) {
+                        return Intrinsics.areEqual(feedKV.value, "1");
+                    }
+                }
+                return false;
             }
-            long g = pg.g(a2.get("item_id"), 0L);
-            String str7 = a2.get("forum_name");
-            if (str7 == null) {
-                str2 = "";
-            } else {
-                str2 = str7;
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static final String b(List<FeedKV> list) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            if (list != null) {
+                for (FeedKV feedKV : list) {
+                    if (feedKV != null) {
+                        str = feedKV.key;
+                    } else {
+                        str = null;
+                    }
+                    if (Intrinsics.areEqual(str, "user_id")) {
+                        return feedKV.value;
+                    }
+                }
             }
-            i37 i37Var = feedExtraData.d().get(PageInfo.KEY);
-            if (i37Var == null || (a = i37Var.a(new uz6())) == null || (str4 = a.get("page_from")) == null) {
-                str3 = "";
-            } else {
-                str3 = str4;
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static final String d(String str) {
+        InterceptResult invokeL;
+        Long longOrNull;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (str != null && (longOrNull = StringsKt__StringNumberConversionsKt.toLongOrNull(str)) != null) {
+                long longValue = longOrNull.longValue() * 1000;
+                String formatTimeForJustNow = StringHelper.getFormatTimeForJustNow(longValue);
+                if (StringHelper.isThisYear(formatTimeForJustNow)) {
+                    return StringHelper.getFormatTimeShort(longValue);
+                }
+                return formatTimeForJustNow;
             }
-            if (str5 == null) {
-                dataList.add(new g37(b(feedItem, g, str, str2, str3), "mount"));
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static final b07 h(FeedHeadFigure feedHeadFigure) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, feedHeadFigure)) == null) {
+            Intrinsics.checkNotNullParameter(feedHeadFigure, "<this>");
+            String img_url = feedHeadFigure.img_url;
+            if (Intrinsics.areEqual(feedHeadFigure.bg_type, "tone")) {
+                i = 1;
             } else {
-                dataList.add(new g37(a(feedItem, str5, g, str, str2, str3), "mount_app"));
+                i = 2;
+            }
+            String bg_value = feedHeadFigure.bg_value;
+            String str = feedHeadFigure.corner_url;
+            Intrinsics.checkNotNullExpressionValue(img_url, "img_url");
+            Intrinsics.checkNotNullExpressionValue(bg_value, "bg_value");
+            return new b07(img_url, bg_value, i, str);
+        }
+        return (b07) invokeL.objValue;
+    }
+
+    public static final String c(String str) {
+        InterceptResult invokeL;
+        Long longOrNull;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (str != null && (longOrNull = StringsKt__StringNumberConversionsKt.toLongOrNull(str)) != null) {
+                return StringHelper.getFormatTimeForAlaCardCreate(longOrNull.longValue() * 1000);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static final VirtualImageCustomState m(CustomState customState) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, customState)) == null) {
+            Intrinsics.checkNotNullParameter(customState, "<this>");
+            VirtualImageCustomState virtualImageCustomState = new VirtualImageCustomState();
+            virtualImageCustomState.parseProto(customState);
+            return virtualImageCustomState;
+        }
+        return (VirtualImageCustomState) invokeL.objValue;
+    }
+
+    public static final void e(FeedHeadComponent feedHeadComponent, List<g37<?>> mutableList, z07 z07Var, z07 z07Var2, k07 k07Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{feedHeadComponent, mutableList, z07Var, z07Var2, k07Var, Boolean.valueOf(z)}) == null) {
+            Intrinsics.checkNotNullParameter(feedHeadComponent, "<this>");
+            Intrinsics.checkNotNullParameter(mutableList, "mutableList");
+            if (feedHeadComponent.image_data != null) {
+                FeedHeadImg image_data = feedHeadComponent.image_data;
+                Intrinsics.checkNotNullExpressionValue(image_data, "image_data");
+                mutableList.add(new cz6(new xz6(g(image_data, z), j(feedHeadComponent.main_data, feedHeadComponent.schema), j(feedHeadComponent.extra_data, feedHeadComponent.schema), z07Var, z07Var2), k07Var, feedHeadComponent.schema, null, null, null, 56, null));
             }
         }
+    }
+
+    public static final void f(FeedHeadFigureComponent feedHeadFigureComponent, List<g37<?>> mutableList, z07 z07Var, z07 z07Var2, k07 k07Var) {
+        VirtualImageCustomState virtualImageCustomState;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65541, null, feedHeadFigureComponent, mutableList, z07Var, z07Var2, k07Var) == null) {
+            Intrinsics.checkNotNullParameter(feedHeadFigureComponent, "<this>");
+            Intrinsics.checkNotNullParameter(mutableList, "mutableList");
+            FeedHeadFigure image_data = feedHeadFigureComponent.image_data;
+            if (image_data != null) {
+                Intrinsics.checkNotNullExpressionValue(image_data, "image_data");
+                b07 h = h(image_data);
+                List<e07> j = j(feedHeadFigureComponent.main_data, feedHeadFigureComponent.schema);
+                List<e07> j2 = j(feedHeadFigureComponent.extra_data, feedHeadFigureComponent.schema);
+                CustomState customState = feedHeadFigureComponent.custom_state;
+                if (customState != null) {
+                    virtualImageCustomState = m(customState);
+                } else {
+                    virtualImageCustomState = null;
+                }
+                mutableList.add(new mz6(new a07(h, j, j2, virtualImageCustomState, z07Var, z07Var2), k07Var, feedHeadFigureComponent.schema, b(feedHeadFigureComponent.business_info), null, null, null, null, 240, null));
+            }
+        }
+    }
+
+    public static final yz6 g(FeedHeadImg feedHeadImg, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65542, null, feedHeadImg, z)) == null) {
+            Intrinsics.checkNotNullParameter(feedHeadImg, "<this>");
+            String img_url = feedHeadImg.img_url;
+            Intrinsics.checkNotNullExpressionValue(img_url, "img_url");
+            Integer shape_type = feedHeadImg.shape_type;
+            Intrinsics.checkNotNullExpressionValue(shape_type, "shape_type");
+            return new yz6(img_url, shape_type.intValue(), feedHeadImg.schema, feedHeadImg.pendant_url, feedHeadImg.corner_url, z);
+        }
+        return (yz6) invokeLZ.objValue;
+    }
+
+    public static final List<e07> j(List<FeedHeadSymbol> list, String str) {
+        InterceptResult invokeLL;
+        e07 i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, list, str)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (list != null) {
+                for (FeedHeadSymbol feedHeadSymbol : list) {
+                    if (feedHeadSymbol != null && (i = i(feedHeadSymbol, str)) != null) {
+                        arrayList.add(i);
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    public static final e07 i(FeedHeadSymbol feedHeadSymbol, String str) {
+        InterceptResult invokeLL;
+        FeedHeadText text;
+        FeedHeadIcon icon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, feedHeadSymbol, str)) == null) {
+            Intrinsics.checkNotNullParameter(feedHeadSymbol, "<this>");
+            Integer num = feedHeadSymbol.type;
+            boolean z = false;
+            if (num != null && num.intValue() == 2 && (icon = feedHeadSymbol.icon) != null) {
+                Intrinsics.checkNotNullExpressionValue(icon, "icon");
+                String str2 = feedHeadSymbol.schema;
+                if (!((str2 == null || str2.length() == 0) ? true : true)) {
+                    str = feedHeadSymbol.schema;
+                }
+                return k(icon, str);
+            }
+            Integer num2 = feedHeadSymbol.type;
+            if (num2 != null && num2.intValue() == 1 && (text = feedHeadSymbol.text) != null) {
+                Intrinsics.checkNotNullExpressionValue(text, "text");
+                String str3 = feedHeadSymbol.schema;
+                if (!((str3 == null || str3.length() == 0) ? true : true)) {
+                    str = feedHeadSymbol.schema;
+                }
+                return l(text, str);
+            }
+            return null;
+        }
+        return (e07) invokeLL.objValue;
+    }
+
+    public static final g07 l(FeedHeadText feedHeadText, String str) {
+        InterceptResult invokeLL;
+        String str2;
+        c07 c07Var;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, feedHeadText, str)) == null) {
+            Intrinsics.checkNotNullParameter(feedHeadText, "<this>");
+            Integer num = feedHeadText.type;
+            if (num != null && num.intValue() == 1) {
+                str2 = d(feedHeadText.text);
+            } else if (num != null && num.intValue() == 2) {
+                str2 = c(feedHeadText.text);
+            } else {
+                str2 = feedHeadText.text;
+            }
+            if (str2 == null) {
+                str2 = "";
+            }
+            String str3 = str2;
+            BaseTextColor color = feedHeadText.color;
+            if (color != null) {
+                Intrinsics.checkNotNullExpressionValue(color, "color");
+                c07Var = h17.a(color);
+            } else {
+                c07Var = null;
+            }
+            c07 c07Var2 = c07Var;
+            Integer priority = feedHeadText.priority;
+            Intrinsics.checkNotNullExpressionValue(priority, "priority");
+            int intValue = priority.intValue();
+            Integer num2 = feedHeadText.can_degrade;
+            if (num2 != null && num2.intValue() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            return new g07(str3, c07Var2, str, intValue, z, feedHeadText.degrade_len, feedHeadText.suffix, feedHeadText.degrade_priority);
+        }
+        return (g07) invokeLL.objValue;
+    }
+
+    public static final f07 k(FeedHeadIcon feedHeadIcon, String str) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, feedHeadIcon, str)) == null) {
+            Intrinsics.checkNotNullParameter(feedHeadIcon, "<this>");
+            String url = feedHeadIcon.url;
+            Intrinsics.checkNotNullExpressionValue(url, "url");
+            Integer width = feedHeadIcon.width;
+            Intrinsics.checkNotNullExpressionValue(width, "width");
+            int intValue = width.intValue();
+            Integer height = feedHeadIcon.height;
+            Intrinsics.checkNotNullExpressionValue(height, "height");
+            int intValue2 = height.intValue();
+            Integer priority = feedHeadIcon.priority;
+            Intrinsics.checkNotNullExpressionValue(priority, "priority");
+            int intValue3 = priority.intValue();
+            Integer num = feedHeadIcon.can_degrade;
+            if (num != null && num.intValue() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            return new f07(url, str, intValue, intValue2, intValue3, z, feedHeadIcon.degrade_url, feedHeadIcon.degrade_width, feedHeadIcon.degrade_height, feedHeadIcon.degrade_priority);
+        }
+        return (f07) invokeLL.objValue;
     }
 }

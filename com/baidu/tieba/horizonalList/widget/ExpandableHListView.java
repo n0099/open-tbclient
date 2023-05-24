@@ -19,10 +19,10 @@ import android.widget.ListAdapter;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
+import com.baidu.tieba.au9;
 import com.baidu.tieba.horizonalList.widget.AdapterView;
 import com.baidu.tieba.horizonalList.widget.ExpandableHListConnector;
-import com.baidu.tieba.hz7;
-import com.baidu.tieba.zt9;
+import com.baidu.tieba.iz7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -363,7 +363,7 @@ public class ExpandableHListView extends HListView {
         }
         this.l = new Rect();
         this.m = new Rect();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, zt9.ExpandableHListView, i, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, au9.ExpandableHListView, i, 0);
         setGroupIndicator(obtainStyledAttributes.getDrawable(5));
         setChildIndicator(obtainStyledAttributes.getDrawable(1));
         this.d = obtainStyledAttributes.getDimensionPixelSize(7, 0);
@@ -382,11 +382,11 @@ public class ExpandableHListView extends HListView {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{view2, Integer.valueOf(i), Long.valueOf(j)})) == null) {
             ExpandableHListConnector.b i2 = this.a.i(i);
             long b2 = b(i2.a);
-            hz7 hz7Var = i2.a;
+            iz7 iz7Var = i2.a;
             boolean z2 = true;
-            if (hz7Var.d == 2) {
+            if (iz7Var.d == 2) {
                 d dVar = this.t;
-                if (dVar != null && dVar.a(this, view2, hz7Var.a, b2)) {
+                if (dVar != null && dVar.a(this, view2, iz7Var.a, b2)) {
                     i2.d();
                     return true;
                 } else if (i2.b()) {
@@ -403,16 +403,16 @@ public class ExpandableHListView extends HListView {
                     if (fVar != null) {
                         fVar.a(i2.a.a);
                     }
-                    hz7 hz7Var2 = i2.a;
-                    int i3 = hz7Var2.a;
-                    int headerViewsCount = hz7Var2.c + getHeaderViewsCount();
+                    iz7 iz7Var2 = i2.a;
+                    int i3 = iz7Var2.a;
+                    int headerViewsCount = iz7Var2.c + getHeaderViewsCount();
                     smoothScrollToPosition(this.b.getChildrenCount(i3) + headerViewsCount, headerViewsCount);
                 }
             } else if (this.u != null) {
                 playSoundEffect(0);
                 c cVar = this.u;
-                hz7 hz7Var3 = i2.a;
-                return cVar.a(this, view2, hz7Var3.a, hz7Var3.b, b2);
+                iz7 iz7Var3 = i2.a;
+                return cVar.a(this, view2, iz7Var3.a, iz7Var3.b, b2);
             } else {
                 z2 = false;
             }
@@ -431,14 +431,14 @@ public class ExpandableHListView extends HListView {
         return invokeI.intValue;
     }
 
-    public final long b(hz7 hz7Var) {
+    public final long b(iz7 iz7Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hz7Var)) == null) {
-            if (hz7Var.d == 1) {
-                return this.b.getChildId(hz7Var.a, hz7Var.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iz7Var)) == null) {
+            if (iz7Var.d == 1) {
+                return this.b.getChildId(iz7Var.a, iz7Var.b);
             }
-            return this.b.getGroupId(hz7Var.a);
+            return this.b.getGroupId(iz7Var.a);
         }
         return invokeL.longValue;
     }
@@ -588,7 +588,7 @@ public class ExpandableHListView extends HListView {
     public void setSelectedGroup(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
-            hz7 d2 = hz7.d(i);
+            iz7 d2 = iz7.d(i);
             ExpandableHListConnector.b h = this.a.h(d2);
             d2.e();
             super.setSelection(a(h.a.c));
@@ -605,9 +605,9 @@ public class ExpandableHListView extends HListView {
                 return new AdapterView.b(view2, i, j);
             }
             ExpandableHListConnector.b i2 = this.a.i(d(i));
-            hz7 hz7Var = i2.a;
-            long b2 = b(hz7Var);
-            long a2 = hz7Var.a();
+            iz7 iz7Var = i2.a;
+            long b2 = b(iz7Var);
+            long a2 = iz7Var.a();
             i2.d();
             return new b(view2, a2, b2);
         }

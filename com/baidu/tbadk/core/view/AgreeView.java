@@ -57,9 +57,9 @@ import com.baidu.tieba.a75;
 import com.baidu.tieba.cl5;
 import com.baidu.tieba.g75;
 import com.baidu.tieba.h75;
-import com.baidu.tieba.hr9;
 import com.baidu.tieba.i55;
 import com.baidu.tieba.in5;
+import com.baidu.tieba.ir9;
 import com.baidu.tieba.k65;
 import com.baidu.tieba.nn5;
 import com.baidu.tieba.nx;
@@ -74,7 +74,7 @@ import com.baidu.tieba.re5;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.sg;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
-import com.baidu.tieba.ye9;
+import com.baidu.tieba.ze9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -116,7 +116,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
     public TextView f;
     public TBLottieAnimationView g;
     public AgreeData h;
-    public hr9 i;
+    public ir9 i;
     public ScaleAnimation j;
     public Animator.AnimatorListener k;
     public boolean l;
@@ -579,17 +579,17 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             AgreeView agreeView;
-            hr9 hr9Var;
+            ir9 ir9Var;
             AgreeData agreeData;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || (agreeView = this.a.get()) == null || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof hr9) || (hr9Var = (hr9) customResponsedMessage.getData()) == null || (agreeData = hr9Var.b) == null || agreeView.h == null || TextUtils.isEmpty(agreeView.h.postId) || agreeData == null || TextUtils.isEmpty(agreeData.postId) || !agreeView.h.postId.equals(agreeData.postId) || agreeView.h.isInThread) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || (agreeView = this.a.get()) == null || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof ir9) || (ir9Var = (ir9) customResponsedMessage.getData()) == null || (agreeData = ir9Var.b) == null || agreeView.h == null || TextUtils.isEmpty(agreeView.h.postId) || agreeData == null || TextUtils.isEmpty(agreeData.postId) || !agreeView.h.postId.equals(agreeData.postId) || agreeView.h.isInThread) {
                 return;
             }
             if (agreeView.n) {
                 if (agreeView.h.indexOfPic == agreeData.indexOfPic) {
                     return;
                 }
-            } else if (agreeView.i.a == hr9Var.a) {
+            } else if (agreeView.i.a == ir9Var.a) {
                 return;
             }
             agreeView.a0(agreeData);
@@ -627,10 +627,10 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             AgreeView agreeView;
-            hr9 hr9Var;
+            ir9 ir9Var;
             AgreeData agreeData;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (agreeView = this.a.get()) != null && customResponsedMessage != null && (customResponsedMessage.getData() instanceof hr9) && (hr9Var = (hr9) customResponsedMessage.getData()) != null && (agreeData = hr9Var.b) != null && agreeView.h != null && agreeData != null && agreeView.i != null && !agreeView.h.isInPost && agreeView.i.a != hr9Var.a) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (agreeView = this.a.get()) != null && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ir9) && (ir9Var = (ir9) customResponsedMessage.getData()) != null && (agreeData = ir9Var.b) != null && agreeView.h != null && agreeData != null && agreeView.i != null && !agreeView.h.isInPost && agreeView.i.a != ir9Var.a) {
                 String str = agreeData.nid;
                 if (agreeView.h.baijiahaoData != null && !"0".equals(str) && !TextUtils.isEmpty(str)) {
                     if (!TextUtils.equals(str, agreeView.h.baijiahaoData.oriUgcNid)) {
@@ -1445,9 +1445,9 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
             HeadCustomImageView headCustomImageView = new HeadCustomImageView(getContext());
             this.m = headCustomImageView;
             headCustomImageView.setId(R.id.bottom_head_custom_image_view);
-            hr9 hr9Var = new hr9();
-            this.i = hr9Var;
-            hr9Var.a = getPageId();
+            ir9 ir9Var = new ir9();
+            this.i = ir9Var;
+            ir9Var.a = getPageId();
             this.I = new k65();
             G();
             SkinManager.setLottieAnimation(this.e, this.t);
@@ -1684,13 +1684,13 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
         return invokeV.booleanValue;
     }
 
-    public hr9 getMsgData() {
+    public ir9 getMsgData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
             return this.i;
         }
-        return (hr9) invokeV.objValue;
+        return (ir9) invokeV.objValue;
     }
 
     public BdUniqueId getPageId() {
@@ -2031,7 +2031,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
                                         agreeData4.hasAgree = true;
                                         agreeData4.agreeNum++;
                                         c0(true);
-                                        ye9.g().l(getTbPageContext());
+                                        ze9.g().l(getTbPageContext());
                                     }
                                     py4 py4Var12 = this.p;
                                     if (py4Var12 != null) {
@@ -2046,7 +2046,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
                                     agreeData5.hasAgree = true;
                                     agreeData5.agreeNum++;
                                     c0(true);
-                                    ye9.g().l(getTbPageContext());
+                                    ze9.g().l(getTbPageContext());
                                 }
                                 py4 py4Var13 = this.p;
                                 if (py4Var13 != null) {

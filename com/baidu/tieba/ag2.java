@@ -112,11 +112,11 @@ public final class ag2 implements vu2 {
 
         /* renamed from: com.baidu.tieba.ag2$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0222a implements Runnable {
+        public class RunnableC0224a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0222a(a aVar) {
+            public RunnableC0224a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -163,7 +163,7 @@ public final class ag2 implements vu2 {
                 g62.k("SwanAppCoreRuntime", "sReleaseCallback:isSwanAppRunning" + z);
                 if (!z) {
                     f93.K().y().Y(15);
-                    an3.e0(new RunnableC0222a(this));
+                    an3.e0(new RunnableC0224a(this));
                 }
             }
         }

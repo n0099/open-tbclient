@@ -29,7 +29,7 @@ import com.baidu.tieba.kg;
 import com.baidu.tieba.lg;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.stamp.view.SignStampIconsView;
-import com.baidu.tieba.vo9;
+import com.baidu.tieba.wo9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,7 +55,7 @@ public class SignStampIconsView extends LinearLayout {
     public static final int m;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public vo9 b;
+    public wo9 b;
     public List<ImageView> c;
 
     /* loaded from: classes7.dex */
@@ -285,7 +285,7 @@ public class SignStampIconsView extends LinearLayout {
             linearLayout.setGravity(1);
             linearLayout.addView(tbImageView);
             linearLayout.addView(textView);
-            linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ap9
+            linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.bp9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -321,9 +321,9 @@ public class SignStampIconsView extends LinearLayout {
                 h(linearLayout.getChildAt(0), 1.44f, 1.44f, 70L);
             }
         }
-        vo9 vo9Var = this.b;
-        if (vo9Var != null) {
-            vo9Var.a(aVar);
+        wo9 wo9Var = this.b;
+        if (wo9Var != null) {
+            wo9Var.a(aVar);
         }
     }
 
@@ -401,10 +401,10 @@ public class SignStampIconsView extends LinearLayout {
         }
     }
 
-    public void setSignStampIconClickListener(vo9 vo9Var) {
+    public void setSignStampIconClickListener(wo9 wo9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, vo9Var) == null) {
-            this.b = vo9Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, wo9Var) == null) {
+            this.b = wo9Var;
         }
     }
 }

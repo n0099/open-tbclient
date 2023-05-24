@@ -44,8 +44,8 @@ import com.baidu.tieba.bh5;
 import com.baidu.tieba.ea5;
 import com.baidu.tieba.ef5;
 import com.baidu.tieba.fa5;
-import com.baidu.tieba.gw6;
 import com.baidu.tieba.hw6;
+import com.baidu.tieba.iw6;
 import com.baidu.tieba.n45;
 import com.baidu.tieba.n75;
 import com.baidu.tieba.nf5;
@@ -53,8 +53,8 @@ import com.baidu.tieba.o65;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.person.ProfileVirtualImageInfo;
 import com.baidu.tieba.pg;
-import com.baidu.tieba.r7a;
 import com.baidu.tieba.ri;
+import com.baidu.tieba.s7a;
 import com.baidu.tieba.se5;
 import com.baidu.tieba.sg;
 import com.baidu.tieba.tg5;
@@ -236,7 +236,7 @@ public class PbNewInputContainer extends LinearLayout implements ef5, View.OnCli
     }
 
     /* loaded from: classes4.dex */
-    public class a implements hw6.i {
+    public class a implements iw6.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ bh5 a;
@@ -261,7 +261,7 @@ public class PbNewInputContainer extends LinearLayout implements ef5, View.OnCli
             this.a = bh5Var;
         }
 
-        @Override // com.baidu.tieba.hw6.i
+        @Override // com.baidu.tieba.iw6.i
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(1048576, this, spannableStringBuilder) != null) {
@@ -279,7 +279,7 @@ public class PbNewInputContainer extends LinearLayout implements ef5, View.OnCli
     }
 
     /* loaded from: classes4.dex */
-    public class b implements hw6.i {
+    public class b implements iw6.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbNewInputContainer a;
@@ -302,7 +302,7 @@ public class PbNewInputContainer extends LinearLayout implements ef5, View.OnCli
             this.a = pbNewInputContainer;
         }
 
-        @Override // com.baidu.tieba.hw6.i
+        @Override // com.baidu.tieba.iw6.i
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -613,7 +613,7 @@ public class PbNewInputContainer extends LinearLayout implements ef5, View.OnCli
     }
 
     /* loaded from: classes4.dex */
-    public class k implements hw6.i {
+    public class k implements iw6.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbNewInputContainer a;
@@ -636,7 +636,7 @@ public class PbNewInputContainer extends LinearLayout implements ef5, View.OnCli
             this.a = pbNewInputContainer;
         }
 
-        @Override // com.baidu.tieba.hw6.i
+        @Override // com.baidu.tieba.iw6.i
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -1070,7 +1070,7 @@ public class PbNewInputContainer extends LinearLayout implements ef5, View.OnCli
                         if (TextUtils.isEmpty((String) obj6)) {
                             this.b.setText((CharSequence) null);
                         } else {
-                            hw6.g(getContext(), (String) se5Var.c, new k(this));
+                            iw6.g(getContext(), (String) se5Var.c, new k(this));
                         }
                     } else if (obj6 instanceof bh5) {
                         this.l = null;
@@ -1084,10 +1084,10 @@ public class PbNewInputContainer extends LinearLayout implements ef5, View.OnCli
                             this.b.setText((CharSequence) null);
                         } else {
                             if (!TextUtils.isEmpty(bh5Var.b)) {
-                                hw6.g(getContext(), bh5Var.b, new a(this, bh5Var));
+                                iw6.g(getContext(), bh5Var.b, new a(this, bh5Var));
                             }
                             if (!TextUtils.isEmpty(bh5Var.a)) {
-                                hw6.g(getContext(), bh5Var.a, new b(this));
+                                iw6.g(getContext(), bh5Var.a, new b(this));
                             }
                         }
                     }
@@ -1098,7 +1098,7 @@ public class PbNewInputContainer extends LinearLayout implements ef5, View.OnCli
             }
         } else if (this.b.getSelectionStart() > 0) {
             String substring = this.b.getText().toString().substring(0, this.b.getSelectionStart());
-            Matcher matcher = gw6.b.matcher(substring);
+            Matcher matcher = hw6.b.matcher(substring);
             if (matcher.find()) {
                 int length = substring.length() - matcher.replaceFirst("").length();
                 String substring2 = this.b.getText().toString().substring(this.b.getSelectionStart() - length, this.b.getSelectionStart());
@@ -1160,12 +1160,12 @@ public class PbNewInputContainer extends LinearLayout implements ef5, View.OnCli
                 return;
             }
             String obj = this.b.getText().toString();
-            if (this.r && gw6.a(obj) >= 10 && getContext() != null) {
+            if (this.r && hw6.a(obj) >= 10 && getContext() != null) {
                 CustomToast.newInstance().showToast(R.string.too_many_face);
                 return;
             }
             this.y.add(ea5Var);
-            hw6.b(getContext(), ea5Var, this.b);
+            iw6.b(getContext(), ea5Var, this.b);
         }
     }
 
@@ -1173,12 +1173,12 @@ public class PbNewInputContainer extends LinearLayout implements ef5, View.OnCli
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048589, this, ea5Var) == null) && ea5Var != null && !TextUtils.isEmpty(ea5Var.d()) && !TextUtils.isEmpty(ea5Var.g())) {
             String obj = this.b.getText().toString();
-            if (this.r && gw6.a(obj) >= 10 && getContext() != null) {
+            if (this.r && hw6.a(obj) >= 10 && getContext() != null) {
                 CustomToast.newInstance().showToast(R.string.too_many_face);
                 return;
             }
             this.y.add(ea5Var);
-            hw6.c(getContext(), ea5Var, this.b);
+            iw6.c(getContext(), ea5Var, this.b);
         }
     }
 
@@ -1286,7 +1286,7 @@ public class PbNewInputContainer extends LinearLayout implements ef5, View.OnCli
             this.b.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.T_X06));
             this.b.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             this.b.setHintTextColor(getResources().getColor(R.color.CAM_X0109));
-            r7a.l(this.b, R.drawable.edittext_cursor);
+            s7a.l(this.b, R.drawable.edittext_cursor);
             this.b.setLineSpacing(ri.g(context, R.dimen.M_T_X002), 1.0f);
             this.b.setPadding(ri.g(context, R.dimen.M_W_X006), ri.g(context, R.dimen.M_H_X004), ri.g(context, R.dimen.M_W_X006), ri.g(context, R.dimen.M_H_X004));
             this.b.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
@@ -1309,10 +1309,10 @@ public class PbNewInputContainer extends LinearLayout implements ef5, View.OnCli
             SkinManager.setBackgroundColor(this.e, R.color.CAM_X0207, i2);
             SkinManager.setBackgroundColor(this, R.color.CAM_X0207, i2);
             if (i2 == 0) {
-                r7a.l(this.b, R.drawable.edittext_cursor);
+                s7a.l(this.b, R.drawable.edittext_cursor);
                 this.b.setHintTextColor(SkinManager.getColor(i2, (int) R.color.CAM_X0109));
             } else {
-                r7a.l(this.b, R.drawable.edittext_cursor_2);
+                s7a.l(this.b, R.drawable.edittext_cursor_2);
                 this.b.setHintTextColor(SkinManager.getColor(i2, (int) R.color.CAM_X0109));
             }
             this.c.l(i2);

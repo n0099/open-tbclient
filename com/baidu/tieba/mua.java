@@ -1,67 +1,36 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.ViewGroup;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.channel.GdtHelper;
-import com.qq.e.ads.nativ.widget.NativeAdContainer;
-import java.lang.ref.WeakReference;
-import java.util.HashSet;
-import java.util.Set;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class mua implements GdtHelper.GdtNativeContainerCreator {
+public class mua {
     public static /* synthetic */ Interceptable $ic;
-    public static final mua b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<WeakReference<NativeAdContainer>> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947986544, "Lcom/baidu/tieba/mua;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947986544, "Lcom/baidu/tieba/mua;");
-                return;
-            }
-        }
-        b = new mua();
-    }
-
-    public mua() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new HashSet();
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.channel.GdtHelper.GdtNativeContainerCreator
-    public ViewGroup generateGdtNativeContainer(Context context) {
+    public static RippedAd a(JSONObject jSONObject) {
         InterceptResult invokeL;
+        String str;
+        String str2;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            NativeAdContainer nativeAdContainer = new NativeAdContainer(context);
-            this.a.add(new WeakReference<>(nativeAdContainer));
-            return nativeAdContainer;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
+            JSONObject optJSONObject = jSONObject.optJSONObject("ext");
+            if (optJSONObject != null) {
+                str2 = optJSONObject.optString("appname");
+                str3 = optJSONObject.optString("pkg_name");
+                str = optJSONObject.optString("pkgurl");
+            } else {
+                str = null;
+                str2 = null;
+                str3 = null;
+            }
+            RippedAd.Builder builder = new RippedAd.Builder();
+            builder.setCorporation(jSONObject.optString("corporation_name")).setTitle(jSONObject.optString("txt")).setDescription(jSONObject.optString("desc")).setAppName(str2).setAppPkg(str3).setAppUrl(str).setIconUrl(jSONObject.optString("img2")).setImageUrl(jSONObject.optString("img")).setVideoImageUrl(null).setVideoUrl(jSONObject.optString("video")).setClickUrl(jSONObject.optString("rl")).setDeepLinkUrl(jSONObject.optString("customized_invoke_url")).setConvUrl(null);
+            return builder.build();
         }
-        return (ViewGroup) invokeL.objValue;
+        return (RippedAd) invokeL.objValue;
     }
 }

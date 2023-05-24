@@ -29,12 +29,12 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kh9;
+import com.baidu.tieba.lh9;
 import com.baidu.tieba.n95;
 import com.baidu.tieba.o65;
 import com.baidu.tieba.qi;
-import com.baidu.tieba.si8;
-import com.baidu.tieba.xf9;
+import com.baidu.tieba.ti8;
+import com.baidu.tieba.yf9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -612,7 +612,7 @@ public class RightFloatLayerView extends RelativeLayout {
             } else {
                 valueOf = String.valueOf(i2);
             }
-            kh9.d("TIEBA_LAYER_DEEPLINK", str, 0, 706, str3, null, valueOf, null, null, null);
+            lh9.d("TIEBA_LAYER_DEEPLINK", str, 0, 706, str3, null, valueOf, null, null, null);
         }
     }
 
@@ -775,7 +775,7 @@ public class RightFloatLayerView extends RelativeLayout {
             String str = n95Var.l;
             String str2 = n95Var.o;
             String str3 = n95Var.m;
-            int a2 = xf9.a(getContext(), str, str2, str3, null);
+            int a2 = yf9.a(getContext(), str, str2, str3, null);
             s(str3, 2);
             u(str3, a2);
             w(n95Var);
@@ -812,7 +812,7 @@ public class RightFloatLayerView extends RelativeLayout {
     public void r(n95 n95Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, n95Var) == null) {
-            si8.b(n95Var);
+            ti8.b(n95Var);
         }
     }
 
@@ -876,7 +876,7 @@ public class RightFloatLayerView extends RelativeLayout {
     public void w(n95 n95Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, n95Var) == null) {
-            si8.d(n95Var);
+            ti8.d(n95Var);
         }
     }
 
@@ -959,7 +959,7 @@ public class RightFloatLayerView extends RelativeLayout {
     public final void s(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048590, this, str, i2) == null) {
-            kh9.d("TIEBA_LAYER", str, 0, i2, "layer", null, null, null, null, null);
+            lh9.d("TIEBA_LAYER", str, 0, i2, "layer", null, null, null, null, null);
         }
     }
 }

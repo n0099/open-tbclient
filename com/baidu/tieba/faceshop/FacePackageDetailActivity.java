@@ -27,8 +27,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.f9;
 import com.baidu.tieba.faceshop.FaceBuyData;
 import com.baidu.tieba.qi;
-import com.baidu.tieba.sw6;
-import com.baidu.tieba.vw6;
+import com.baidu.tieba.tw6;
+import com.baidu.tieba.ww6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,7 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FacePackageDetailModel a;
-    public vw6 b;
+    public ww6 b;
     public FacePackageDownloadModel c;
     public FaceBuyModel d;
     public float e;
@@ -197,11 +197,11 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
                         this.b.showToast(str2);
                         return;
                     } else {
-                        sw6.f().i(this.a);
+                        tw6.f().i(this.a);
                         return;
                     }
                 }
-                sw6.f().i(this.a);
+                tw6.f().i(this.a);
             }
         }
     }
@@ -412,9 +412,9 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             super.onChangeSkinType(i);
-            vw6 vw6Var = this.b;
-            if (vw6Var != null) {
-                vw6Var.l(i);
+            ww6 ww6Var = this.b;
+            if (ww6Var != null) {
+                ww6Var.l(i);
             }
         }
     }
@@ -452,10 +452,10 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
     public final void I1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b = new vw6(getPageContext());
+            this.b = new ww6(getPageContext());
             C1();
             registerListener(this.k);
-            sw6.f();
+            tw6.f();
         }
     }
 
@@ -507,9 +507,9 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onDetachedFromWindow();
-            vw6 vw6Var = this.b;
-            if (vw6Var != null) {
-                vw6Var.p();
+            ww6 ww6Var = this.b;
+            if (ww6Var != null) {
+                ww6Var.p();
             }
         }
     }
@@ -518,9 +518,9 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            vw6 vw6Var = this.b;
-            if (vw6Var != null) {
-                vw6Var.m();
+            ww6 ww6Var = this.b;
+            if (ww6Var != null) {
+                ww6Var.m();
             }
             super.onResume();
         }
@@ -537,7 +537,7 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
     public void E1(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3) == null) {
-            sw6.f().j(str, str2, str3);
+            tw6.f().j(str, str2, str3);
         }
     }
 
@@ -589,11 +589,11 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
                 this.e = motionEvent.getX();
                 this.f = motionEvent.getY();
             }
-            vw6 vw6Var = this.b;
-            if (vw6Var == null) {
+            ww6 ww6Var = this.b;
+            if (ww6Var == null) {
                 return super.dispatchTouchEvent(motionEvent);
             }
-            if (vw6Var.j()) {
+            if (ww6Var.j()) {
                 int action = motionEvent.getAction();
                 if (action != 1) {
                     if (action == 2) {
@@ -681,10 +681,10 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
-        vw6 vw6Var;
+        ww6 ww6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, view2) == null) && this.a != null && (vw6Var = this.b) != null) {
-            if (view2 == vw6Var.e()) {
+        if ((interceptable == null || interceptable.invokeL(1048590, this, view2) == null) && this.a != null && (ww6Var = this.b) != null) {
+            if (view2 == ww6Var.e()) {
                 if (!TbadkCoreApplication.isLogin()) {
                     TbadkCoreApplication.getInst().login(getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(getPageContext().getPageActivity(), true, 11003)));
                     return;
@@ -704,7 +704,7 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
                         downloadData.setStatus(1);
                         downloadData.setStatusMsg(null);
                         downloadData.setType(11);
-                        sw6.f().i(downloadData);
+                        tw6.f().i(downloadData);
                         if (!qi.isEmpty(d0)) {
                             if (this.a.c0() != null && this.a.c0().faces_list != null) {
                                 E1(this.a.getPid(), this.a.c0().faces_list.pname, d0);
@@ -721,9 +721,9 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
                 downloadData2.setStatus(4);
                 downloadData2.setStatusMsg(null);
                 downloadData2.setType(11);
-                sw6.f().i(downloadData2);
+                tw6.f().i(downloadData2);
                 this.a.i0(false);
-                sw6.f().e(this.a.getPid());
+                tw6.f().e(this.a.getPid());
             }
             super.onClick(view2);
         }

@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class m66 extends en<k87, FrsNoListItemViewHolder> {
+public class m66 extends en<l87, FrsNoListItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
@@ -24,7 +24,7 @@ public class m66 extends en<k87, FrsNoListItemViewHolder> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m66(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), k87.b);
+        super(tbPageContext.getPageActivity(), l87.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,8 +47,8 @@ public class m66 extends en<k87, FrsNoListItemViewHolder> {
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
     @Override // com.baidu.tieba.en
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, k87 k87Var, FrsNoListItemViewHolder frsNoListItemViewHolder) {
-        t(i, view2, viewGroup, k87Var, frsNoListItemViewHolder);
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, l87 l87Var, FrsNoListItemViewHolder frsNoListItemViewHolder) {
+        t(i, view2, viewGroup, l87Var, frsNoListItemViewHolder);
         return view2;
     }
 
@@ -69,10 +69,10 @@ public class m66 extends en<k87, FrsNoListItemViewHolder> {
         return (FrsNoListItemViewHolder) invokeL.objValue;
     }
 
-    public View t(int i, View view2, ViewGroup viewGroup, k87 k87Var, FrsNoListItemViewHolder frsNoListItemViewHolder) {
+    public View t(int i, View view2, ViewGroup viewGroup, l87 l87Var, FrsNoListItemViewHolder frsNoListItemViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, k87Var, frsNoListItemViewHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, l87Var, frsNoListItemViewHolder})) == null) {
             frsNoListItemViewHolder.d.setTextOption(NoDataViewFactory.e.d(null, this.a.getContext().getResources().getString(R.string.no_data_common_txt)));
             frsNoListItemViewHolder.d.f(this.a, TbadkCoreApplication.getInst().getSkinType());
             return view2;

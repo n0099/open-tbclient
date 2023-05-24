@@ -1,26 +1,25 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.AbsDelegateAdapterList;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.ActHot;
+import tbclient.ActPost;
+import tbclient.LinkInfo;
 /* loaded from: classes5.dex */
 public class gr9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AbsDelegateAdapterList a;
-    public Context b;
+    public ArrayList<er9> a;
+    public ArrayList<fr9> b;
 
-    public gr9(Context context, AbsDelegateAdapterList absDelegateAdapterList) {
+    public gr9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, absDelegateAdapterList};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,25 +29,30 @@ public class gr9 {
                 return;
             }
         }
-        this.b = context;
-        this.a = absDelegateAdapterList;
+        this.a = new ArrayList<>();
+        this.b = new ArrayList<>();
     }
 
-    public AbsDelegateAdapterList a() {
-        InterceptResult invokeV;
+    public void a(ActPost actPost) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, actPost) != null) || actPost == null) {
+            return;
         }
-        return (AbsDelegateAdapterList) invokeV.objValue;
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        String str = actPost.list_head;
+        for (ActHot actHot : actPost.act_hot) {
+            if (actHot != null) {
+                er9 er9Var = new er9();
+                er9Var.a(actHot);
+                this.a.add(er9Var);
+            }
         }
-        return (Context) invokeV.objValue;
+        List<LinkInfo> list = actPost.link_info;
+        for (LinkInfo linkInfo : list) {
+            if (list != null) {
+                fr9 fr9Var = new fr9();
+                fr9Var.a(linkInfo);
+                this.b.add(fr9Var);
+            }
+        }
     }
 }

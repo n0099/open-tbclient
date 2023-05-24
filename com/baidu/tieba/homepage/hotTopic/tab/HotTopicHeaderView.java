@@ -29,14 +29,14 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.as7;
 import com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabNewRankListLayout;
 import com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabRankListLayout;
 import com.baidu.tieba.o65;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.rs7;
-import com.baidu.tieba.rz9;
-import com.baidu.tieba.zr7;
+import com.baidu.tieba.ss7;
+import com.baidu.tieba.sz9;
 import com.baidu.tieba.zw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -94,7 +94,7 @@ public class HotTopicHeaderView extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                rz9.b();
+                sz9.b();
             }
         }
     }
@@ -275,7 +275,7 @@ public class HotTopicHeaderView extends LinearLayout {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view2, Integer.valueOf(i), Long.valueOf(j), str})) == null) {
-            if ((!"镇吧神贴".equals(str) && !"精选热吧".equals(str)) || !zr7.a(j, this.m)) {
+            if ((!"镇吧神贴".equals(str) && !"精选热吧".equals(str)) || !as7.a(j, this.m)) {
                 return null;
             }
             View view3 = new View(getContext());
@@ -365,13 +365,13 @@ public class HotTopicHeaderView extends LinearLayout {
                 if (hotTopicTabRankListLayout != null) {
                     hotTopicTabRankListLayout.setVisibility(0);
                     this.c.setOnItemCoverListener(this.j);
-                    this.c.a(new rs7(hotThreadListResIdl.data.topic_list));
+                    this.c.a(new ss7(hotThreadListResIdl.data.topic_list));
                 }
                 HotTopicTabNewRankListLayout hotTopicTabNewRankListLayout = this.f;
                 if (hotTopicTabNewRankListLayout != null) {
                     hotTopicTabNewRankListLayout.setVisibility(0);
                     this.f.setOnItemCoverListener(this.j);
-                    this.f.a(new rs7(hotThreadListResIdl.data.topic_list));
+                    this.f.a(new ss7(hotThreadListResIdl.data.topic_list));
                 }
             } else {
                 this.d.setVisibility(8);

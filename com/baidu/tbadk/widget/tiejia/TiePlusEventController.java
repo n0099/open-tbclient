@@ -30,12 +30,12 @@ import com.baidu.tbadk.util.TiePlusHelper;
 import com.baidu.tbadk.widget.tiejia.TiePlusStat;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ce5;
-import com.baidu.tieba.d57;
-import com.baidu.tieba.hr6;
+import com.baidu.tieba.e57;
+import com.baidu.tieba.ir6;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.ux5;
 import com.baidu.tieba.vx5;
-import com.baidu.tieba.xf9;
+import com.baidu.tieba.yf9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -64,7 +64,7 @@ public class TiePlusEventController implements LifecycleObserver {
     @NonNull
     public final TiePlusHelper d;
     public PermissionJudgePolicy e;
-    public d57 f;
+    public e57 f;
     public CustomMessageListener g;
     public CustomMessageListener h;
 
@@ -290,7 +290,7 @@ public class TiePlusEventController implements LifecycleObserver {
                     str = str3;
                 }
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_DXX_GUIDE_START_DOWNLOAD).addParam("tid", str2).addParam("order_id", str).addParam(TiePlusStat.RichTextType.STAT_KEY, 1).addParam("packageName", this.b.n().app_package));
-                hr6 hr6Var = new hr6();
+                ir6 ir6Var = new ir6();
                 ItemData itemData = new ItemData();
                 itemData.buttonLink = this.b.n().download_url;
                 itemData.buttonName = ItemCardHelper.b;
@@ -309,9 +309,9 @@ public class TiePlusEventController implements LifecycleObserver {
                 builder.pkg_source = 2;
                 itemData.itemId = pg.g(this.b.n().app_id, 0L);
                 itemData.apkDetail = builder.build(true);
-                hr6Var.a = itemData;
-                hr6Var.b = 1;
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921627, hr6Var));
+                ir6Var.a = itemData;
+                ir6Var.b = 1;
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921627, ir6Var));
             }
         }
     }
@@ -437,7 +437,7 @@ public class TiePlusEventController implements LifecycleObserver {
     public final void l(vx5 vx5Var) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vx5Var) == null) && vx5Var != null && vx5Var.n() != null) {
-            if (xf9.i(vx5Var.n().app_package)) {
+            if (yf9.i(vx5Var.n().app_package)) {
                 UtilHelper.startAppByPkgName(vx5Var.n().app_package);
                 return;
             }
@@ -447,7 +447,7 @@ public class TiePlusEventController implements LifecycleObserver {
             downloadData.setSource(2);
             downloadData.setType(12);
             if (this.f == null) {
-                this.f = new d57();
+                this.f = new e57();
             }
             int e2 = this.f.e(downloadData);
             if (e2 != 1 && e2 != 5) {

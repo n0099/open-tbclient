@@ -1,11 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import java.io.File;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public interface gga {
-    public static final ServiceReference a = new ServiceReference("ubc", "yalog");
+    boolean a(JSONObject jSONObject, boolean z, boolean z2);
 
-    void a(String str, String str2);
-
-    void b(String str, String str2);
+    boolean b(File file, long j, boolean z, boolean z2);
 }

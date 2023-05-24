@@ -49,7 +49,7 @@ import com.baidu.tieba.ax8;
 import com.baidu.tieba.bb5;
 import com.baidu.tieba.bx8;
 import com.baidu.tieba.cx8;
-import com.baidu.tieba.ex8;
+import com.baidu.tieba.dx8;
 import com.baidu.tieba.f9;
 import com.baidu.tieba.fb;
 import com.baidu.tieba.fx8;
@@ -57,8 +57,9 @@ import com.baidu.tieba.g9;
 import com.baidu.tieba.gx8;
 import com.baidu.tieba.hx4;
 import com.baidu.tieba.hx8;
-import com.baidu.tieba.j49;
-import com.baidu.tieba.jz9;
+import com.baidu.tieba.ix8;
+import com.baidu.tieba.k49;
+import com.baidu.tieba.kz9;
 import com.baidu.tieba.o65;
 import com.baidu.tieba.pb.chosen.cache.ReadChosenPbCacheResponse;
 import com.baidu.tieba.pb.chosen.net.zan.ChosenZanNetMessage;
@@ -71,9 +72,8 @@ import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.vg5;
 import com.baidu.tieba.vn;
-import com.baidu.tieba.ww8;
 import com.baidu.tieba.xg5;
-import com.baidu.tieba.yw8;
+import com.baidu.tieba.xw8;
 import com.baidu.tieba.zw8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -82,38 +82,38 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ExcPbPage.ExcellentPbThreadInfo;
 import tbclient.ExcPbPage.UserInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements VoiceManager.j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public sg5 A;
     public View.OnClickListener B;
     public final NewWriteModel.d C;
-    public ex8.a D;
+    public fx8.a D;
     public View.OnClickListener E;
     public CustomMessageListener F;
     public CustomMessageListener G;
-    public gx8.c H;
-    public fx8.e I;
+    public hx8.c H;
+    public gx8.e I;
     public fb J;
     public CustomMessageListener K;
     public fb L;
     public CustomMessageListener M;
     public RelativeLayout a;
     public BdListView b;
-    public fx8 c;
-    public gx8 d;
+    public gx8 c;
+    public hx8 d;
     public NavigationBar e;
-    public ex8 f;
-    public hx8 g;
+    public fx8 f;
+    public ix8 g;
     public TextView h;
     public View i;
-    public cx8 j;
-    public zw8 k;
+    public dx8 j;
+    public ax8 k;
     public LikeModel l;
-    public bx8 m;
-    public ax8 n;
-    public ww8 o;
+    public cx8 m;
+    public bx8 n;
+    public xw8 o;
     public vg5 p;
     public DataModel<PbChosenActivity> q;
     public String r;
@@ -143,20 +143,20 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? "a013" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class a implements fx8.e {
+    /* loaded from: classes7.dex */
+    public class a implements gx8.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbChosenActivity a;
 
         /* renamed from: com.baidu.tieba.pb.chosen.PbChosenActivity$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0426a extends f9 {
+        /* loaded from: classes7.dex */
+        public class C0424a extends f9 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0426a(a aVar) {
+            public C0424a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -201,7 +201,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
             this.a = pbChosenActivity;
         }
 
-        @Override // com.baidu.tieba.fx8.e
+        @Override // com.baidu.tieba.gx8.e
         public void a(String str) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || StringUtils.isNull(str)) {
@@ -213,7 +213,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
             }
         }
 
-        @Override // com.baidu.tieba.fx8.e
+        @Override // com.baidu.tieba.gx8.e
         public void b(String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
@@ -221,7 +221,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
             }
         }
 
-        @Override // com.baidu.tieba.fx8.e
+        @Override // com.baidu.tieba.gx8.e
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -234,7 +234,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                         pbChosenActivity.l = new LikeModel(pbChosenActivity.getPageContext());
                     }
                     this.a.l.setFrom("from_frs");
-                    this.a.l.setLoadDataCallBack(new C0426a(this));
+                    this.a.l.setLoadDataCallBack(new C0424a(this));
                     this.a.l.m0(this.a.k.getThreadInfo().forum.forum_name, String.valueOf(this.a.k.getThreadInfo().forum.forum_id));
                     if (this.a.k != null && this.a.k.getThreadInfo() != null) {
                         StatisticItem statisticItem = new StatisticItem("c10322");
@@ -246,7 +246,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b extends fb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -278,19 +278,19 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             String errorText;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && (responsedMessage instanceof zw8)) {
-                zw8 zw8Var = (zw8) responsedMessage;
-                int erroCode = zw8Var.getErroCode();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && (responsedMessage instanceof ax8)) {
+                ax8 ax8Var = (ax8) responsedMessage;
+                int erroCode = ax8Var.getErroCode();
                 this.a.u = true;
                 if (erroCode == 0) {
-                    this.a.b2(zw8Var);
+                    this.a.b2(ax8Var);
                 } else {
                     PbChosenActivity pbChosenActivity = this.a;
                     pbChosenActivity.hideLoadingView(pbChosenActivity.a);
-                    if (StringUtils.isNull(zw8Var.getErrorText())) {
+                    if (StringUtils.isNull(ax8Var.getErrorText())) {
                         errorText = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0db6);
                     } else {
-                        errorText = zw8Var.getErrorText();
+                        errorText = ax8Var.getErrorText();
                     }
                     this.a.showToast(errorText);
                 }
@@ -305,7 +305,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -349,7 +349,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class d extends fb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -407,7 +407,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -444,19 +444,19 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
             long longExtra = this.a.getIntent().getLongExtra(PbChosenActivityConfig.KEY_TID, 0L);
             long longExtra2 = this.a.getIntent().getLongExtra(PbChosenActivityConfig.KEY_TAG_CODE, 0L);
             long longExtra3 = this.a.getIntent().getLongExtra("thread_id", 0L);
-            zw8 chosenData = ((ReadChosenPbCacheResponse) customResponsedMessage).getChosenData();
+            ax8 chosenData = ((ReadChosenPbCacheResponse) customResponsedMessage).getChosenData();
             if (chosenData != null && chosenData.getThreadInfo() != null && chosenData.getThreadInfo().excid != null && longExtra == chosenData.getThreadInfo().excid.longValue()) {
                 this.a.u = true;
                 this.a.b2(chosenData);
             }
             if (this.a.n == null) {
-                this.a.n = new ax8();
+                this.a.n = new bx8();
             }
             this.a.n.c(this.a, longExtra, longExtra2, longExtra3);
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class f implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -496,7 +496,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class g implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -529,7 +529,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class h implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -565,7 +565,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class i extends DataModel<PbChosenActivity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -738,7 +738,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class j implements AbsListView.OnScrollListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -779,7 +779,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class k implements sg5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -812,7 +812,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class l implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -846,7 +846,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class m implements NewWriteModel.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -878,7 +878,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                 if (z) {
                     this.a.p.b().q();
                     this.a.g.e(true);
-                } else if (postWriteCallBackData != null && bb5Var == null && postWriteCallBackData.getErrorCode() != 227001 && !jz9.d(postWriteCallBackData.getErrorCode())) {
+                } else if (postWriteCallBackData != null && bb5Var == null && postWriteCallBackData.getErrorCode() != 227001 && !kz9.d(postWriteCallBackData.getErrorCode())) {
                     if (AntiHelper.m(postWriteCallBackData.getErrorCode(), postWriteCallBackData.getErrorString())) {
                         AntiHelper.u(this.a.getPageContext().getPageActivity(), postWriteCallBackData.getErrorString());
                     } else {
@@ -889,8 +889,8 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class n implements ex8.a {
+    /* loaded from: classes7.dex */
+    public class n implements fx8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbChosenActivity a;
@@ -913,7 +913,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
             this.a = pbChosenActivity;
         }
 
-        @Override // com.baidu.tieba.ex8.a
+        @Override // com.baidu.tieba.fx8.a
         public void a(String str) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || !this.a.checkUpIsLogin() || this.a.k == null || this.a.k.getThreadInfo() == null || StringUtils.isNull(str)) {
@@ -927,7 +927,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class o implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -966,14 +966,14 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                 }
                 if (this.a.o == null) {
                     PbChosenActivity pbChosenActivity = this.a;
-                    pbChosenActivity.o = new ww8(pbChosenActivity);
+                    pbChosenActivity.o = new xw8(pbChosenActivity);
                 }
                 this.a.o.e(this.a.k, this.a.r);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class p extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1011,7 +1011,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class q extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1049,8 +1049,8 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class r implements gx8.c {
+    /* loaded from: classes7.dex */
+    public class r implements hx8.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbChosenActivity a;
@@ -1073,7 +1073,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
             this.a = pbChosenActivity;
         }
 
-        @Override // com.baidu.tieba.gx8.c
+        @Override // com.baidu.tieba.hx8.c
         public void a(long j, String str) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeJL(1048576, this, j, str) != null) || StringUtils.isNull(str)) {
@@ -1085,21 +1085,21 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
             }
         }
 
-        @Override // com.baidu.tieba.gx8.c
+        @Override // com.baidu.tieba.hx8.c
         public void b(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && this.a.k != null && this.a.k.getThreadInfo() != null && this.a.k.getThreadInfo().excid != null) {
                 if (this.a.m == null) {
-                    this.a.m = new bx8();
+                    this.a.m = new cx8();
                 }
                 if (z) {
-                    bx8 bx8Var = this.a.m;
+                    cx8 cx8Var = this.a.m;
                     PbChosenActivity pbChosenActivity = this.a;
-                    bx8Var.c(pbChosenActivity, pbChosenActivity.k.getThreadInfo().excid.longValue(), this.a.k.getThreadInfo().thread_id.longValue(), this.a.k.getThreadInfo().post_id.longValue(), 2);
+                    cx8Var.c(pbChosenActivity, pbChosenActivity.k.getThreadInfo().excid.longValue(), this.a.k.getThreadInfo().thread_id.longValue(), this.a.k.getThreadInfo().post_id.longValue(), 2);
                 } else {
-                    bx8 bx8Var2 = this.a.m;
+                    cx8 cx8Var2 = this.a.m;
                     PbChosenActivity pbChosenActivity2 = this.a;
-                    bx8Var2.c(pbChosenActivity2, pbChosenActivity2.k.getThreadInfo().excid.longValue(), this.a.k.getThreadInfo().thread_id.longValue(), this.a.k.getThreadInfo().post_id.longValue(), 1);
+                    cx8Var2.c(pbChosenActivity2, pbChosenActivity2.k.getThreadInfo().excid.longValue(), this.a.k.getThreadInfo().thread_id.longValue(), this.a.k.getThreadInfo().post_id.longValue(), 1);
                 }
                 TiebaStatic.log(new StatisticItem("pb_new_like").param("obj_source", this.a.k.getThreadInfo().source.intValue()).param("abtest", this.a.k.getThreadInfo().abtest));
             }
@@ -1193,7 +1193,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
     public final void Z1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            CustomMessageTask customMessageTask = new CustomMessageTask(2001314, new yw8());
+            CustomMessageTask customMessageTask = new CustomMessageTask(2001314, new zw8());
             CustomMessage customMessage = new CustomMessage(2001314);
             customMessage.setTag(getUniqueId());
             MessageManager.getInstance().sendMessage(customMessage, customMessageTask);
@@ -1277,9 +1277,9 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
     }
 
     public final void W1(boolean z, CustomResponsedMessage<?> customResponsedMessage) {
-        zw8 zw8Var;
+        ax8 ax8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, customResponsedMessage) == null) && customResponsedMessage != null && (zw8Var = this.k) != null && zw8Var.getThreadInfo() != null && this.k.getThreadInfo().forum.forum_id != null) {
+        if ((interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, customResponsedMessage) == null) && customResponsedMessage != null && (ax8Var = this.k) != null && ax8Var.getThreadInfo() != null && this.k.getThreadInfo().forum.forum_id != null) {
             Object data = customResponsedMessage.getData();
             if ((data instanceof Long) && ((Long) data).longValue() == this.k.getThreadInfo().forum.forum_id.longValue()) {
                 this.c.f(z);
@@ -1323,11 +1323,11 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
     @Override // com.baidu.tbadk.BaseActivity
     public rn5 getPageStayDurationItem() {
         InterceptResult invokeV;
-        zw8 zw8Var;
+        ax8 ax8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             rn5 pageStayDurationItem = super.getPageStayDurationItem();
-            if (pageStayDurationItem != null && (zw8Var = this.k) != null && zw8Var.getThreadInfo() != null && this.k.getThreadInfo().forum != null) {
+            if (pageStayDurationItem != null && (ax8Var = this.k) != null && ax8Var.getThreadInfo() != null && this.k.getThreadInfo().forum != null) {
                 pageStayDurationItem.t(this.k.getThreadInfo().forum.forum_id.longValue());
                 pageStayDurationItem.C(this.k.getThreadInfo().thread_id.longValue());
             }
@@ -1346,31 +1346,31 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         long longExtra2 = getIntent().getLongExtra(PbChosenActivityConfig.KEY_TAG_CODE, 0L);
         long longExtra3 = getIntent().getLongExtra("thread_id", 0L);
         if (this.n == null) {
-            this.n = new ax8();
+            this.n = new bx8();
         }
         this.n.c(this, longExtra, longExtra2, longExtra3);
         hideNetRefreshView(this.a);
         showLoadingView(this.a, true);
     }
 
-    public final void b2(zw8 zw8Var) {
+    public final void b2(ax8 ax8Var) {
         Long l2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, zw8Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, ax8Var) == null) {
             hideLoadingView(this.a);
-            if (zw8Var != null && !zw8Var.isEmpty()) {
+            if (ax8Var != null && !ax8Var.isEmpty()) {
                 this.t = true;
                 this.g.e(true);
-                this.k = zw8Var;
-                UserInfo userInfo = zw8Var.getUserInfo();
+                this.k = ax8Var;
+                UserInfo userInfo = ax8Var.getUserInfo();
                 if (userInfo != null) {
                     this.c.update(userInfo);
                 }
-                ex8 ex8Var = this.f;
-                if (ex8Var != null) {
-                    ex8Var.d(zw8Var.getPostList(), zw8Var.getUserList());
+                fx8 fx8Var = this.f;
+                if (fx8Var != null) {
+                    fx8Var.d(ax8Var.getPostList(), ax8Var.getUserList());
                 }
-                ExcellentPbThreadInfo threadInfo = zw8Var.getThreadInfo();
+                ExcellentPbThreadInfo threadInfo = ax8Var.getThreadInfo();
                 if (threadInfo != null) {
                     if (this.h != null && (l2 = threadInfo.post_num) != null) {
                         String numFormatOver10000 = StringHelper.numFormatOver10000(l2.longValue());
@@ -1379,9 +1379,9 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                     }
                     this.d.update(threadInfo);
                     this.c.j(getPageContext().getPageActivity(), threadInfo);
-                    j49 j49Var = new j49();
-                    j49Var.c(getPageContext(), zw8Var.getThreadInfo().content);
-                    this.j.d(j49Var.a());
+                    k49 k49Var = new k49();
+                    k49Var.c(getPageContext(), ax8Var.getThreadInfo().content);
+                    this.j.d(k49Var.a());
                     this.j.notifyDataSetChanged();
                 }
                 this.b.setVisibility(0);
@@ -1407,7 +1407,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
             long longExtra = intent.getLongExtra(PersonalChatActivityConfig.KEY_USER_ID, -1L);
             String stringExtra = intent.getStringExtra(PersonalChatActivityConfig.KEY_USER_NAME);
             String stringExtra2 = intent.getStringExtra(PersonalChatActivityConfig.KEY_USER_PORTAIT);
-            ww8.d(this, this.k, longExtra, stringExtra, intent.getStringExtra("name_show"), stringExtra2, this.r);
+            xw8.d(this, this.k, longExtra, stringExtra, intent.getStringExtra("name_show"), stringExtra2, this.r);
         }
     }
 
@@ -1454,16 +1454,16 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
             this.b = bdListView;
             bdListView.setOnTouchListener(new f(this));
             this.b.setOnScrollListener(this.z);
-            cx8 cx8Var = new cx8(getPageContext().getPageActivity());
-            this.j = cx8Var;
-            this.b.setAdapter((ListAdapter) cx8Var);
-            hx8 hx8Var = new hx8(findViewById(R.id.obfuscated_res_0x7f0906ed));
-            this.g = hx8Var;
-            hx8Var.b(this.B);
+            dx8 dx8Var = new dx8(getPageContext().getPageActivity());
+            this.j = dx8Var;
+            this.b.setAdapter((ListAdapter) dx8Var);
+            ix8 ix8Var = new ix8(findViewById(R.id.obfuscated_res_0x7f0906ed));
+            this.g = ix8Var;
+            ix8Var.b(this.B);
             this.g.d(this.E);
-            this.c = new fx8(getPageContext().getPageActivity());
-            this.d = new gx8(getPageContext().getPageActivity());
-            this.f = new ex8(getPageContext().getPageActivity(), this.D);
+            this.c = new gx8(getPageContext().getPageActivity());
+            this.d = new hx8(getPageContext().getPageActivity());
+            this.f = new fx8(getPageContext().getPageActivity(), this.D);
             this.c.g(this.I);
             this.d.i(this.H);
             this.b.addHeaderView(this.c.c());
@@ -1517,8 +1517,8 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             super.onStop();
-            zw8 zw8Var = this.k;
-            if (zw8Var != null && zw8Var.getThreadInfo() != null && this.k.getThreadInfo().excid != null) {
+            ax8 ax8Var = this.k;
+            if (ax8Var != null && ax8Var.getThreadInfo() != null && this.k.getThreadInfo().excid != null) {
                 long elapsedRealtime = SystemClock.elapsedRealtime() - this.v;
                 Activity pageActivity = getPageContext().getPageActivity();
                 TiebaStatic.eventStat(pageActivity, "pb_new_duration", null, 1, "duration", elapsedRealtime + "", PbChosenActivityConfig.KEY_TID, this.k.getThreadInfo().excid);

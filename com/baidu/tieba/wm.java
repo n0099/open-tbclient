@@ -92,7 +92,7 @@ public class wm {
     public static void b(Context context, sm smVar, PackageInfo packageInfo, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, smVar, packageInfo, Boolean.valueOf(z)}) == null) {
-            yk8 defaultLog = DefaultLog.getInstance();
+            zk8 defaultLog = DefaultLog.getInstance();
             defaultLog.c(TitanDownloadService.TAG, "install file: " + packageInfo.filePath);
             PatchManager.getInstance().installPatch(Uri.fromFile(new File(packageInfo.filePath)), null, new a(smVar, packageInfo, z));
         }

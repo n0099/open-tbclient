@@ -1,30 +1,23 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayOutputStream;
-import java.util.concurrent.Callable;
-import java.util.zip.DataFormatException;
-import java.util.zip.Inflater;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class mza implements Callable<lza> {
+public class mza {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Intent a;
+    public int a;
+    public long b;
+    public String c;
 
-    public mza(Intent intent) {
+    public mza() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {intent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,63 +27,47 @@ public class mza implements Callable<lza> {
                 return;
             }
         }
-        this.a = intent;
+        this.a = 0;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX WARN: Type inference failed for: r1v0, types: [com.baidu.tieba.lza, java.lang.Object] */
-    @Override // java.util.concurrent.Callable
-    public lza call() throws Exception {
+    public String a() {
         InterceptResult invokeV;
-        byte[] bArr;
-        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Intent intent = this.a;
-            if (intent == null) {
-                return null;
-            }
-            long j = 0;
-            try {
-                j = intent.getLongExtra("msg_id", 0L);
-            } catch (Exception e) {
-                pza.b("PassByMsgIntentParser", "parserMsgId", e);
-            }
-            try {
-                bArr = this.a.getByteArrayExtra("msg_content");
-            } catch (Exception e2) {
-                pza.b("PassByMsgIntentParser", "parseMsgContent", e2);
-                bArr = null;
-            }
-            Inflater inflater = new Inflater();
-            inflater.setInput(bArr);
-            byte[] bArr2 = new byte[256];
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(256);
-            while (!inflater.finished()) {
-                try {
-                    byteArrayOutputStream.write(bArr2, 0, inflater.inflate(bArr2));
-                } catch (DataFormatException unused) {
-                    inflater.end();
-                    str = null;
-                } catch (Throwable th) {
-                    inflater.end();
-                    throw th;
-                }
-            }
-            inflater.end();
-            str = byteArrayOutputStream.toString(IMAudioTransRequest.CHARSET);
-            if (str == null) {
-                return null;
-            }
-            String optString = new JSONObject(str).optString("data");
-            if (TextUtils.isEmpty(optString)) {
-                return null;
-            }
-            lza lzaVar = new lza();
-            lzaVar.d(j);
-            lzaVar.c(optString);
-            return lzaVar;
+            return this.c;
         }
-        return invokeV.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public void d(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.b = j;
+        }
     }
 }

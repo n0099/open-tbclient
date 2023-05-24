@@ -11,9 +11,9 @@ import com.baidu.mobstat.Config;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.ui.animview.praise.element.eruption.strategy.IEruptionStrategyGroup;
 import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
-import com.baidu.tieba.vqa;
 import com.baidu.tieba.wqa;
 import com.baidu.tieba.xqa;
+import com.baidu.tieba.yqa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +37,7 @@ import java.util.Set;
 /* loaded from: classes8.dex */
 public class SVG {
     public static /* synthetic */ Interceptable $ic = null;
-    public static xqa e = null;
+    public static yqa e = null;
     public static boolean f = true;
     public transient /* synthetic */ FieldHolder $fh;
     public d0 a;
@@ -2406,12 +2406,12 @@ public class SVG {
             return invokeF.floatValue;
         }
 
-        public float c(wqa wqaVar) {
+        public float c(xqa xqaVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wqaVar)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xqaVar)) == null) {
                 if (this.b == Unit.percent) {
-                    b a0 = wqaVar.a0();
+                    b a0 = xqaVar.a0();
                     if (a0 == null) {
                         return this.a;
                     }
@@ -2422,46 +2422,46 @@ public class SVG {
                     }
                     return (this.a * ((float) (Math.sqrt((f * f) + (f2 * f2)) / 1.414213562373095d))) / 100.0f;
                 }
-                return e(wqaVar);
+                return e(xqaVar);
             }
             return invokeL.floatValue;
         }
 
-        public float d(wqa wqaVar, float f) {
+        public float d(xqa xqaVar, float f) {
             InterceptResult invokeLF;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLF = interceptable.invokeLF(1048579, this, wqaVar, f)) == null) {
+            if (interceptable == null || (invokeLF = interceptable.invokeLF(1048579, this, xqaVar, f)) == null) {
                 if (this.b == Unit.percent) {
                     return (this.a * f) / 100.0f;
                 }
-                return e(wqaVar);
+                return e(xqaVar);
             }
             return invokeLF.floatValue;
         }
 
-        public float e(wqa wqaVar) {
+        public float e(xqa xqaVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, wqaVar)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, xqaVar)) == null) {
                 switch (a.a[this.b.ordinal()]) {
                     case 1:
                         return this.a;
                     case 2:
-                        return this.a * wqaVar.Y();
+                        return this.a * xqaVar.Y();
                     case 3:
-                        return this.a * wqaVar.Z();
+                        return this.a * xqaVar.Z();
                     case 4:
-                        return this.a * wqaVar.b0();
+                        return this.a * xqaVar.b0();
                     case 5:
-                        return (this.a * wqaVar.b0()) / 2.54f;
+                        return (this.a * xqaVar.b0()) / 2.54f;
                     case 6:
-                        return (this.a * wqaVar.b0()) / 25.4f;
+                        return (this.a * xqaVar.b0()) / 25.4f;
                     case 7:
-                        return (this.a * wqaVar.b0()) / 72.0f;
+                        return (this.a * xqaVar.b0()) / 72.0f;
                     case 8:
-                        return (this.a * wqaVar.b0()) / 6.0f;
+                        return (this.a * xqaVar.b0()) / 6.0f;
                     case 9:
-                        b a0 = wqaVar.a0();
+                        b a0 = xqaVar.a0();
                         if (a0 == null) {
                             return this.a;
                         }
@@ -2473,18 +2473,18 @@ public class SVG {
             return invokeL.floatValue;
         }
 
-        public float f(wqa wqaVar) {
+        public float f(xqa xqaVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, wqaVar)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, xqaVar)) == null) {
                 if (this.b == Unit.percent) {
-                    b a0 = wqaVar.a0();
+                    b a0 = xqaVar.a0();
                     if (a0 == null) {
                         return this.a;
                     }
                     return (this.a * a0.d) / 100.0f;
                 }
-                return e(wqaVar);
+                return e(xqaVar);
             }
             return invokeL.floatValue;
         }
@@ -3366,13 +3366,13 @@ public class SVG {
         this.d = new HashMap();
     }
 
-    public static xqa g() {
+    public static yqa g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             return e;
         }
-        return (xqa) invokeV.objValue;
+        return (yqa) invokeV.objValue;
     }
 
     public void b() {
@@ -3528,40 +3528,40 @@ public class SVG {
         return (j0) invokeLL.objValue;
     }
 
-    public Picture n(int i2, int i3, vqa vqaVar) {
+    public Picture n(int i2, int i3, wqa wqaVar) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3, vqaVar)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3, wqaVar)) == null) {
             Picture picture = new Picture();
             Canvas beginRecording = picture.beginRecording(i2, i3);
-            if (vqaVar == null || vqaVar.f == null) {
-                if (vqaVar == null) {
-                    vqaVar = new vqa();
+            if (wqaVar == null || wqaVar.f == null) {
+                if (wqaVar == null) {
+                    wqaVar = new wqa();
                 } else {
-                    vqaVar = new vqa(vqaVar);
+                    wqaVar = new wqa(wqaVar);
                 }
-                vqaVar.h(0.0f, 0.0f, i2, i3);
+                wqaVar.h(0.0f, 0.0f, i2, i3);
             }
-            new wqa(beginRecording, this.b).O0(this, vqaVar);
+            new xqa(beginRecording, this.b).O0(this, wqaVar);
             picture.endRecording();
             return picture;
         }
         return (Picture) invokeIIL.objValue;
     }
 
-    public Picture o(vqa vqaVar) {
+    public Picture o(wqa wqaVar) {
         InterceptResult invokeL;
         b bVar;
         o oVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, vqaVar)) == null) {
-            if (vqaVar != null && vqaVar.f()) {
-                bVar = vqaVar.d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, wqaVar)) == null) {
+            if (wqaVar != null && wqaVar.f()) {
+                bVar = wqaVar.d;
             } else {
                 bVar = this.a.o;
             }
-            if (vqaVar != null && vqaVar.g()) {
-                return n((int) Math.ceil(vqaVar.f.b()), (int) Math.ceil(vqaVar.f.c()), vqaVar);
+            if (wqaVar != null && wqaVar.g()) {
+                return n((int) Math.ceil(wqaVar.f.b()), (int) Math.ceil(wqaVar.f.c()), wqaVar);
             }
             d0 d0Var = this.a;
             o oVar2 = d0Var.r;
@@ -3569,20 +3569,20 @@ public class SVG {
                 Unit unit = oVar2.b;
                 Unit unit2 = Unit.percent;
                 if (unit != unit2 && (oVar = d0Var.s) != null && oVar.b != unit2) {
-                    return n((int) Math.ceil(oVar2.b(this.b)), (int) Math.ceil(this.a.s.b(this.b)), vqaVar);
+                    return n((int) Math.ceil(oVar2.b(this.b)), (int) Math.ceil(this.a.s.b(this.b)), wqaVar);
                 }
             }
             o oVar3 = this.a.r;
             if (oVar3 != null && bVar != null) {
                 float b2 = oVar3.b(this.b);
-                return n((int) Math.ceil(b2), (int) Math.ceil((bVar.d * b2) / bVar.c), vqaVar);
+                return n((int) Math.ceil(b2), (int) Math.ceil((bVar.d * b2) / bVar.c), wqaVar);
             }
             o oVar4 = this.a.s;
             if (oVar4 != null && bVar != null) {
                 float b3 = oVar4.b(this.b);
-                return n((int) Math.ceil((bVar.c * b3) / bVar.d), (int) Math.ceil(b3), vqaVar);
+                return n((int) Math.ceil((bVar.c * b3) / bVar.d), (int) Math.ceil(b3), wqaVar);
             }
-            return n(512, 512, vqaVar);
+            return n(512, 512, wqaVar);
         }
         return (Picture) invokeL.objValue;
     }

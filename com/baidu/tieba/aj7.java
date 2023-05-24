@@ -1,128 +1,38 @@
 package com.baidu.tieba;
 
-import android.widget.FrameLayout;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* compiled from: TopViewLogic.java */
 /* loaded from: classes4.dex */
-public class aj7 {
+public final /* synthetic */ class aj7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final FrsFragment a;
-    public z97 b;
-    public TextView c;
-    public boolean d;
-    public int e;
 
-    public aj7(FrsFragment frsFragment) {
+    public static void a(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = -1;
-        if (frsFragment != null) {
-            this.a = frsFragment;
-            if (UtilHelper.canUseStyleImmersiveSticky()) {
-                UtilHelper.getStatusBarHeight();
-                return;
-            }
-            return;
-        }
-        throw new NullPointerException("FrsFragment is null");
-    }
-
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (i >= 0) {
-                d(true);
-                e(i);
-                return;
-            }
-            d(false);
-            e(i);
+        if (interceptable == null || interceptable.invokeL(65536, null, view2) == null) {
+            SkinManager.setBackgroundColor(view2, R.color.CAM_X0204);
         }
     }
 
-    public void d(boolean z) {
+    public static void b(@NonNull TextView textView, @ColorInt int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.d = z;
+        if (interceptable == null || interceptable.invokeLI(65537, null, textView, i) == null) {
+            Context context = textView.getContext();
+            TBSelector.makeDrawableSelector().setShape(0).cornerRadius(ri.g(context, R.dimen.tbds10)).defaultColorValueNotAutoChangeSkinType(i).into(textView);
+            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
+            textView.setTextSize(0, ri.g(context, R.dimen.T_X10));
+            ViewGroup.LayoutParams layoutParams = textView.getLayoutParams();
+            layoutParams.width = ri.g(context, R.dimen.tbds74);
+            layoutParams.height = ri.g(context, R.dimen.tbds40);
         }
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void b() {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.d && (i = this.e) >= 0) {
-                f(i);
-            }
-            this.d = false;
-        }
-    }
-
-    public void c() {
-        z97 z97Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (z97Var = this.b) != null) {
-            z97Var.e();
-        }
-    }
-
-    public final void f(int i) {
-        i87 x1;
-        FrameLayout v0;
-        String string;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048581, this, i) != null) || (x1 = this.a.x1()) == null || x1.g0() == null || (v0 = x1.v0()) == null) {
-            return;
-        }
-        if (this.c == null && this.a.getPageContext() != null) {
-            TextView textView = new TextView(this.a.getPageContext().getPageActivity());
-            this.c = textView;
-            textView.setTextSize(0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b5));
-            this.c.setGravity(17);
-        }
-        if (this.c != null) {
-            if (i > 0) {
-                string = String.format(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_refresh_return), Integer.valueOf(i));
-            } else {
-                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1378);
-            }
-            this.c.setText(string);
-        }
-        SkinManager.setBackgroundResource(this.c, R.color.CAM_X0302);
-        SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0112);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, ri.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0703e6));
-        if (this.b == null) {
-            this.b = new z97();
-        }
-        this.b.h(this.c, v0, layoutParams, 2000);
-        this.e = -1;
     }
 }

@@ -10,7 +10,6 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
 import com.baidu.tieba.fb;
 import com.baidu.tieba.g9;
-import com.baidu.tieba.hh8;
 import com.baidu.tieba.ih8;
 import com.baidu.tieba.interestlabel.message.RequestGetLabelMessage;
 import com.baidu.tieba.interestlabel.message.RequestSubLabelMessage;
@@ -18,6 +17,7 @@ import com.baidu.tieba.interestlabel.message.ResponseHttpGetLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseHttpSubLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseSocketGetLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseSocketSubLabelMessage;
+import com.baidu.tieba.jh8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,8 +29,8 @@ public class LabelSettingModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
-    public ih8 b;
-    public hh8 c;
+    public jh8 b;
+    public ih8 c;
     public fb d;
     public fb e;
 
@@ -74,18 +74,18 @@ public class LabelSettingModel extends BdBaseModel {
 
         @Override // com.baidu.tieba.fb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            hh8 hh8Var;
+            ih8 ih8Var;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && responsedMessage != null && responsedMessage.getOrginalMessage() != null) {
                 if (((responsedMessage instanceof ResponseHttpGetLabelMessage) || (responsedMessage instanceof ResponseSocketGetLabelMessage)) && this.a.unique_id == responsedMessage.getOrginalMessage().getTag() && this.a.b != null) {
-                    ih8 ih8Var = this.a.b;
+                    jh8 jh8Var = this.a.b;
                     LabelRequestEnum labelRequestEnum = LabelRequestEnum.GET_LABEL;
                     if (responsedMessage.getError() == 0) {
-                        hh8Var = this.a.c;
+                        ih8Var = this.a.c;
                     } else {
-                        hh8Var = null;
+                        ih8Var = null;
                     }
-                    ih8Var.a(labelRequestEnum, hh8Var, responsedMessage.getError());
+                    jh8Var.a(labelRequestEnum, ih8Var, responsedMessage.getError());
                 }
             }
         }
@@ -158,7 +158,7 @@ public class LabelSettingModel extends BdBaseModel {
         this.d = new a(this, CmdConfigHttp.CMD_GET_INTEREST_LABEL_LIST, 309467);
         this.e = new b(this, CmdConfigHttp.CMD_SUB_INTEREST_LABEL_LIST, 309468);
         this.a = tbPageContext;
-        this.c = new hh8();
+        this.c = new ih8();
         registerListener(this.d);
         registerListener(this.e);
     }
@@ -177,10 +177,10 @@ public class LabelSettingModel extends BdBaseModel {
         }
     }
 
-    public void b0(ih8 ih8Var) {
+    public void b0(jh8 jh8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ih8Var) == null) {
-            this.b = ih8Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jh8Var) == null) {
+            this.b = jh8Var;
         }
     }
 
@@ -188,9 +188,9 @@ public class LabelSettingModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                ih8 ih8Var = this.b;
-                if (ih8Var != null) {
-                    ih8Var.a(LabelRequestEnum.GET_LABEL, null, -1);
+                jh8 jh8Var = this.b;
+                if (jh8Var != null) {
+                    jh8Var.a(LabelRequestEnum.GET_LABEL, null, -1);
                     return;
                 }
                 return;

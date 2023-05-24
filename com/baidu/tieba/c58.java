@@ -11,7 +11,7 @@ public class c58 extends z48 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c58() {
-        super(j48.j(), 2001150);
+        super(k48.j(), 2001144);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -20,7 +20,7 @@ public class c58 extends z48 {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
-                super((f48) objArr[0], ((Integer) objArr[1]).intValue());
+                super((g48) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

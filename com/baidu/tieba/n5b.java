@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,146 +10,249 @@ import java.io.IOException;
 import java.io.InputStream;
 import org.brotli.dec.BrotliRuntimeException;
 /* loaded from: classes6.dex */
-public class n5b extends InputStream {
+public final class n5b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
-    public int b;
-    public int c;
-    public final v5b d;
+    public final byte[] a;
+    public final int[] b;
+    public final u5b c;
+    public InputStream d;
+    public boolean e;
+    public long f;
+    public int g;
+    public int h;
+    public int i;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public n5b(InputStream inputStream) throws IOException {
-        this(inputStream, 16384, null);
+    public n5b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((InputStream) objArr2[0], ((Integer) objArr2[1]).intValue(), (byte[]) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new byte[4160];
+        this.b = new int[1040];
+        this.c = new u5b();
+        this.i = 0;
     }
 
-    public n5b(InputStream inputStream, int i, byte[] bArr) throws IOException {
+    public static void a(n5b n5bVar, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, Integer.valueOf(i), bArr};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if ((interceptable != null && interceptable.invokeLZ(65537, null, n5bVar, z) != null) || !n5bVar.e) {
+            return;
+        }
+        int i = ((n5bVar.h << 2) + ((n5bVar.g + 7) >> 3)) - 8;
+        int i2 = n5bVar.i;
+        if (i <= i2) {
+            if (z && i != i2) {
+                throw new BrotliRuntimeException("Unused bytes after end");
+            }
+            return;
+        }
+        throw new BrotliRuntimeException("Read after end");
+    }
+
+    public static void e(n5b n5bVar, InputStream inputStream) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, n5bVar, inputStream) == null) {
+            if (n5bVar.d == null) {
+                u5b.b(n5bVar.c, n5bVar.a, n5bVar.b);
+                n5bVar.d = inputStream;
+                n5bVar.f = 0L;
+                n5bVar.g = 64;
+                n5bVar.h = 1024;
+                n5bVar.e = false;
+                h(n5bVar);
                 return;
             }
+            throw new IllegalStateException("Bit reader already has associated input stream");
         }
-        v5b v5bVar = new v5b();
-        this.d = v5bVar;
-        if (i > 0) {
+    }
+
+    public static void b(n5b n5bVar) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, n5bVar) == null) {
+            InputStream inputStream = n5bVar.d;
+            n5bVar.d = null;
             if (inputStream != null) {
-                this.a = new byte[i];
-                this.b = 0;
-                this.c = 0;
-                try {
-                    v5b.c(v5bVar, inputStream);
-                    if (bArr != null) {
-                        p5b.s(this.d, bArr);
-                        return;
+                inputStream.close();
+            }
+        }
+    }
+
+    public static void d(n5b n5bVar) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, n5bVar) == null) && (i = n5bVar.g) >= 32) {
+            int[] iArr = n5bVar.b;
+            int i2 = n5bVar.h;
+            n5bVar.h = i2 + 1;
+            n5bVar.f = (iArr[i2] << 32) | (n5bVar.f >>> 32);
+            n5bVar.g = i - 32;
+        }
+    }
+
+    public static int f(n5b n5bVar) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, n5bVar)) == null) {
+            if (n5bVar.e) {
+                i = (n5bVar.i + 3) >> 2;
+            } else {
+                i = 1024;
+            }
+            return i - n5bVar.h;
+        }
+        return invokeL.intValue;
+    }
+
+    public static void g(n5b n5bVar) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65543, null, n5bVar) == null) && (i = (64 - n5bVar.g) & 7) != 0 && i(n5bVar, i) != 0) {
+            throw new BrotliRuntimeException("Corrupted padding bits");
+        }
+    }
+
+    public static void h(n5b n5bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, n5bVar) == null) {
+            j(n5bVar);
+            a(n5bVar, false);
+            d(n5bVar);
+            d(n5bVar);
+        }
+    }
+
+    public static void k(n5b n5bVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65547, null, n5bVar) == null) && n5bVar.g == 64) {
+            h(n5bVar);
+        }
+    }
+
+    public static void c(n5b n5bVar, byte[] bArr, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(65539, null, n5bVar, bArr, i, i2) == null) {
+            if ((n5bVar.g & 7) == 0) {
+                while (true) {
+                    int i3 = n5bVar.g;
+                    if (i3 == 64 || i2 == 0) {
+                        break;
                     }
+                    bArr[i] = (byte) (n5bVar.f >>> i3);
+                    n5bVar.g = i3 + 8;
+                    i2--;
+                    i++;
+                }
+                if (i2 == 0) {
                     return;
-                } catch (BrotliRuntimeException e) {
-                    throw new IOException("Brotli decoder initialization failed", e);
                 }
-            }
-            throw new IllegalArgumentException("source is null");
-        }
-        throw new IllegalArgumentException("Bad buffer size:" + i);
-    }
-
-    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            v5b.a(this.d);
-        }
-    }
-
-    @Override // java.io.InputStream
-    public int read() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.c >= this.b) {
-                byte[] bArr = this.a;
-                int read = read(bArr, 0, bArr.length);
-                this.b = read;
-                this.c = 0;
-                if (read == -1) {
-                    return -1;
+                int min = Math.min(f(n5bVar), i2 >> 2);
+                if (min > 0) {
+                    int i4 = min << 2;
+                    System.arraycopy(n5bVar.a, n5bVar.h << 2, bArr, i, i4);
+                    i += i4;
+                    i2 -= i4;
+                    n5bVar.h += min;
                 }
-            }
-            byte[] bArr2 = this.a;
-            int i = this.c;
-            this.c = i + 1;
-            return bArr2[i] & 255;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2)) == null) {
-            if (i >= 0) {
-                if (i2 >= 0) {
-                    int i3 = i + i2;
-                    if (i3 <= bArr.length) {
-                        if (i2 == 0) {
-                            return 0;
-                        }
-                        int max = Math.max(this.b - this.c, 0);
-                        if (max != 0) {
-                            max = Math.min(max, i2);
-                            System.arraycopy(this.a, this.c, bArr, i, max);
-                            this.c += max;
-                            i += max;
-                            i2 -= max;
-                            if (i2 == 0) {
-                                return max;
-                            }
-                        }
-                        try {
-                            this.d.Z = bArr;
-                            this.d.U = i;
-                            this.d.V = i2;
-                            this.d.W = 0;
-                            p5b.i(this.d);
-                            if (this.d.W == 0) {
-                                return -1;
-                            }
-                            return this.d.W + max;
-                        } catch (BrotliRuntimeException e) {
-                            throw new IOException("Brotli stream decoding failed", e);
-                        }
+                if (i2 == 0) {
+                    return;
+                }
+                if (f(n5bVar) > 0) {
+                    d(n5bVar);
+                    while (i2 != 0) {
+                        long j = n5bVar.f;
+                        int i5 = n5bVar.g;
+                        bArr[i] = (byte) (j >>> i5);
+                        n5bVar.g = i5 + 8;
+                        i2--;
+                        i++;
                     }
-                    throw new IllegalArgumentException("Buffer overflow: " + i3 + " > " + bArr.length);
+                    a(n5bVar, false);
+                    return;
                 }
-                throw new IllegalArgumentException("Bad length: " + i2);
+                while (i2 > 0) {
+                    try {
+                        int read = n5bVar.d.read(bArr, i, i2);
+                        if (read != -1) {
+                            i += read;
+                            i2 -= read;
+                        } else {
+                            throw new BrotliRuntimeException("Unexpected end of input");
+                        }
+                    } catch (IOException e) {
+                        throw new BrotliRuntimeException("Failed to read input", e);
+                    }
+                }
+                return;
             }
-            throw new IllegalArgumentException("Bad offset: " + i);
+            throw new BrotliRuntimeException("Unaligned copyBytes");
         }
-        return invokeLII.intValue;
+    }
+
+    public static int i(n5b n5bVar, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, n5bVar, i)) == null) {
+            d(n5bVar);
+            long j = n5bVar.f;
+            int i2 = n5bVar.g;
+            int i3 = ((int) (j >>> i2)) & ((1 << i) - 1);
+            n5bVar.g = i2 + i;
+            return i3;
+        }
+        return invokeLI.intValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x003b, code lost:
+        r4.e = true;
+        r4.i = r1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x0040, code lost:
+        r1 = r1 + 3;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void j(n5b n5bVar) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65546, null, n5bVar) != null) || (i = n5bVar.h) <= 1015) {
+            return;
+        }
+        if (n5bVar.e) {
+            if (f(n5bVar) >= -2) {
+                return;
+            }
+            throw new BrotliRuntimeException("No more input");
+        }
+        int i2 = i << 2;
+        int i3 = 4096 - i2;
+        byte[] bArr = n5bVar.a;
+        System.arraycopy(bArr, i2, bArr, 0, i3);
+        n5bVar.h = 0;
+        while (true) {
+            if (i3 >= 4096) {
+                break;
+            }
+            try {
+                int read = n5bVar.d.read(n5bVar.a, i3, 4096 - i3);
+                if (read <= 0) {
+                    break;
+                }
+                i3 += read;
+            } catch (IOException e) {
+                throw new BrotliRuntimeException("Failed to read input", e);
+            }
+        }
+        u5b.a(n5bVar.c, i3 >> 2);
     }
 }

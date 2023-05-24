@@ -4,7 +4,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.framing.Framedata;
 /* loaded from: classes6.dex */
 public class p6b extends l6b {
@@ -13,7 +12,7 @@ public class p6b extends l6b {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public p6b() {
-        super(Framedata.Opcode.TEXT);
+        super(Framedata.Opcode.PONG);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -29,15 +28,24 @@ public class p6b extends l6b {
         }
     }
 
-    @Override // com.baidu.tieba.l6b, com.baidu.tieba.m6b
-    public void h() throws InvalidDataException {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public p6b(o6b o6bVar) {
+        super(Framedata.Opcode.PONG);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.h();
-            if (d7b.b(a())) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {o6bVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Framedata.Opcode) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            throw new InvalidDataException(1007, "Received text is no valid utf8 string!");
         }
+        j(o6bVar.a());
     }
 }

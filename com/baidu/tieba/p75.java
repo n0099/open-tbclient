@@ -116,7 +116,7 @@ public class p75 extends TBSpecificationButtonConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
             int color = SkinManager.getColor(this.r, this.d);
-            int[] iArr = {wp9.c(color), color};
+            int[] iArr = {xp9.c(color), color};
             if (Build.VERSION.SDK_INT >= 16) {
                 gradientDrawable = new GradientDrawable();
                 gradientDrawable.setOrientation(this.s);

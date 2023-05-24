@@ -10,20 +10,20 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.aa6;
 import com.baidu.tieba.e66;
 import com.baidu.tieba.v96;
-import com.baidu.tieba.wi6;
+import com.baidu.tieba.xi6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class AlaGameFrsLiveGameCardView extends wi6<v96> {
+public class AlaGameFrsLiveGameCardView extends xi6<v96> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext i;
     public aa6 j;
 
-    @Override // com.baidu.tieba.wi6
+    @Override // com.baidu.tieba.xi6
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -88,7 +88,7 @@ public class AlaGameFrsLiveGameCardView extends wi6<v96> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wi6
+    @Override // com.baidu.tieba.xi6
     /* renamed from: s */
     public void i(v96 v96Var) {
         ThreadData threadData;
@@ -107,7 +107,7 @@ public class AlaGameFrsLiveGameCardView extends wi6<v96> {
         }
     }
 
-    @Override // com.baidu.tieba.wi6
+    @Override // com.baidu.tieba.xi6
     public void j(TbPageContext<?> tbPageContext, int i) {
         aa6 aa6Var;
         Interceptable interceptable = $ic;

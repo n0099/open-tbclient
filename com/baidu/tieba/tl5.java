@@ -64,8 +64,8 @@ public class tl5 implements yk5<LocationEvent> {
             }
             if (socketResponsedMessage.getError() == 0 && (locationData = locationEvent.locationData) != null) {
                 LocationModel.X(locationData);
-                ps9.a().f(System.currentTimeMillis());
-                ps9.a().d(locationEvent.locationData);
+                qs9.a().f(System.currentTimeMillis());
+                qs9.a().d(locationEvent.locationData);
             }
             el5.i(locationEvent);
         }
@@ -111,7 +111,7 @@ public class tl5 implements yk5<LocationEvent> {
                 locationSocketResponsedMessage.setLocationData(locationEvent.locationData);
                 MessageManager.getInstance().dispatchResponsedMessage(locationSocketResponsedMessage);
             } else if (locationEvent.locationData != null && locationEvent.needRefresh) {
-                ps9.a().d(locationEvent.locationData);
+                qs9.a().d(locationEvent.locationData);
             } else {
                 MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(locationEvent.isShowLocation, locationEvent.locName, locationEvent.locAddr, locationEvent.locSn));
             }

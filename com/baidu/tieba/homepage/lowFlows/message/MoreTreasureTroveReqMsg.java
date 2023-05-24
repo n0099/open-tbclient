@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.gh9;
+import com.baidu.tieba.hh9;
 import com.baidu.tieba.ss5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -50,7 +50,7 @@ public class MoreTreasureTroveReqMsg extends NetMessage {
                 builder.tab_code = this.tabCode;
                 builder.lf_user = this.lfUser;
                 builder.lf_user_taskid = this.taskId;
-                builder.app_pos = gh9.e().a();
+                builder.app_pos = hh9.e().a();
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
                     ss5.c(builder, true, true, false);
                 }

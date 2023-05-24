@@ -76,7 +76,7 @@ public final class j45 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogName) == null) {
             Intrinsics.checkNotNullParameter(dialogName, "dialogName");
-            yk8 yunDialogLog = YunDialogLog.getInstance();
+            zk8 yunDialogLog = YunDialogLog.getInstance();
             yunDialogLog.c("YunDialogManager", "重置弹窗 " + dialogName + " 的本地频次记录");
             b.z(a(dialogName), 0);
         }

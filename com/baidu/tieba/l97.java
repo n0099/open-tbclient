@@ -1,7 +1,9 @@
 package com.baidu.tieba;
-
-import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes6.dex */
 public interface l97 {
-    NavigationBar m();
+    void C1();
+
+    void h();
+
+    void p0(boolean z);
 }

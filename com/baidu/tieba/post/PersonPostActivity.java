@@ -36,17 +36,17 @@ import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fd9;
+import com.baidu.tieba.ar9;
 import com.baidu.tieba.gd9;
 import com.baidu.tieba.hd9;
-import com.baidu.tieba.ld9;
+import com.baidu.tieba.id9;
+import com.baidu.tieba.md9;
 import com.baidu.tieba.o65;
 import com.baidu.tieba.personExtra.PersonExtraStatic;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageHttpResponseMessage;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageSocketResponsedMessage;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.vn;
-import com.baidu.tieba.zq9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,7 +55,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class PersonPostActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener, VoiceManager.j, hd9, fd9 {
+public class PersonPostActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener, VoiceManager.j, id9, gd9 {
     public static /* synthetic */ Interceptable $ic;
     public static final String r;
     public transient /* synthetic */ FieldHolder $fh;
@@ -259,13 +259,13 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         this.q = new c(this, 2016493);
     }
 
-    @Override // com.baidu.tieba.hd9
+    @Override // com.baidu.tieba.id9
     public void B() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.n != null) {
             for (int i = 0; i < this.n.getCount(); i++) {
-                if (this.n.getItem(i) instanceof gd9) {
-                    ((gd9) this.n.getItem(i)).O0();
+                if (this.n.getItem(i) instanceof hd9) {
+                    ((hd9) this.n.getItem(i)).O0();
                 }
             }
         }
@@ -274,8 +274,8 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
     public final void B1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            zq9.h(303002, UserPostPageSocketResponsedMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, zq9.a("c/u/feed/userpost", 303002));
+            ar9.h(303002, UserPostPageSocketResponsedMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, ar9.a("c/u/feed/userpost", 303002));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -288,19 +288,19 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
     @Override // com.baidu.adp.base.BdBaseFragmentActivity
     public vn onGetPreLoadListView() {
         InterceptResult invokeV;
-        ld9 ld9Var;
+        md9 md9Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             PersonPostAdapter personPostAdapter = this.n;
             if (personPostAdapter != null) {
                 PersonThreadFragment c2 = personPostAdapter.c();
                 if (c2 != null) {
-                    ld9Var = c2.Q1();
+                    md9Var = c2.Q1();
                 } else {
-                    ld9Var = null;
+                    md9Var = null;
                 }
-                if (ld9Var != null && ld9Var.f() != null) {
-                    return ld9Var.f().getPreLoadHandle();
+                if (md9Var != null && md9Var.f() != null) {
+                    return md9Var.f().getPreLoadHandle();
                 }
             }
             return null;
@@ -626,7 +626,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         }
     }
 
-    @Override // com.baidu.tieba.fd9
+    @Override // com.baidu.tieba.gd9
     public void p0(boolean z) {
         ImageView imageView;
         Interceptable interceptable = $ic;

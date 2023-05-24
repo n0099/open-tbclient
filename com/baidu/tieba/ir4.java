@@ -40,12 +40,12 @@ public final class ir4 implements fm4 {
 
         /* renamed from: com.baidu.tieba.ir4$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0346a implements Runnable {
+        public class RunnableC0344a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0346a(a aVar) {
+            public RunnableC0344a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,7 +114,7 @@ public final class ir4 implements fm4 {
                             z = false;
                         }
                     }
-                    if (z && f93.M().postDelayed(new RunnableC0346a(this), 1000L)) {
+                    if (z && f93.M().postDelayed(new RunnableC0344a(this), 1000L)) {
                         return;
                     }
                 }

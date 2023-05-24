@@ -1,61 +1,119 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.pb.chosen.cache.ReadChosenPbCacheResponse;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import tbclient.ExcPbPage.DataRes;
-import tbclient.ExcPbPage.ExcPbPageResIdl;
+import java.util.List;
+import tbclient.ExcPbPage.ExcContent;
+import tbclient.ExcPbPage.ExcellentPbThreadInfo;
+import tbclient.ExcPbPage.UserInfo;
+import tbclient.Post;
+import tbclient.User;
 /* loaded from: classes8.dex */
-public class yw8 implements CustomMessageTask.CustomRunnable<Object> {
+public class yw8 implements ax8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public UserInfo a;
+    public ExcellentPbThreadInfo b;
+    public List<Post> c;
+    public List<User> d;
 
-    public yw8() {
+    @Override // com.baidu.tieba.ax8
+    public int getErroCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.ax8
+    public String getErrorText() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public yw8(UserInfo userInfo, ExcellentPbThreadInfo excellentPbThreadInfo, List<Post> list, List<User> list2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {userInfo, excellentPbThreadInfo, list, list2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = userInfo;
+        this.b = excellentPbThreadInfo;
+        this.c = list;
+        this.d = list2;
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        InterceptResult invokeL;
-        ExcPbPageResIdl excPbPageResIdl;
-        DataRes dataRes;
+    @Override // com.baidu.tieba.ax8
+    public List<Post> getPostList() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            xw8 xw8Var = null;
-            if (customMessage == null || customMessage.getCmd() != 2001314) {
-                return null;
-            }
-            c25.d();
-            byte[] bArr = c25.b("tb.pb_normal").get("chosen_pb_page_cache");
-            if (bArr != null) {
-                try {
-                    excPbPageResIdl = (ExcPbPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcPbPageResIdl.class);
-                } catch (Exception unused) {
-                    excPbPageResIdl = null;
-                }
-                if (excPbPageResIdl != null && (dataRes = excPbPageResIdl.data) != null) {
-                    xw8Var = new xw8(dataRes.user_info, dataRes.thread_info, dataRes.post_list, dataRes.user_list);
-                }
-            }
-            return new ReadChosenPbCacheResponse(xw8Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ax8
+    public ExcellentPbThreadInfo getThreadInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (ExcellentPbThreadInfo) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ax8
+    public UserInfo getUserInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return (UserInfo) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ax8
+    public List<User> getUserList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ax8
+    public boolean isEmpty() {
+        InterceptResult invokeV;
+        List<ExcContent> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            ExcellentPbThreadInfo excellentPbThreadInfo = this.b;
+            if (excellentPbThreadInfo == null || (list = excellentPbThreadInfo.content) == null || list.size() <= 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

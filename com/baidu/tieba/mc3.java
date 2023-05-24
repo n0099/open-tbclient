@@ -37,7 +37,7 @@ public class mc3 extends f02 {
 
         /* renamed from: com.baidu.tieba.mc3$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0379a implements Runnable {
+        public class RunnableC0381a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ JSONObject a;
@@ -47,18 +47,18 @@ public class mc3 extends f02 {
 
             /* renamed from: com.baidu.tieba.mc3$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class C0380a implements vg4 {
+            public class C0382a implements vg4 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String a;
-                public final /* synthetic */ RunnableC0379a b;
+                public final /* synthetic */ RunnableC0381a b;
 
-                public C0380a(RunnableC0379a runnableC0379a, String str) {
+                public C0382a(RunnableC0381a runnableC0381a, String str) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {runnableC0379a, str};
+                        Object[] objArr = {runnableC0381a, str};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -68,7 +68,7 @@ public class mc3 extends f02 {
                             return;
                         }
                     }
-                    this.b = runnableC0379a;
+                    this.b = runnableC0381a;
                     this.a = str;
                 }
 
@@ -80,8 +80,8 @@ public class mc3 extends f02 {
                             g62.c("PreloadPackageApi", "preloadPackage keyMap null");
                             return;
                         }
-                        RunnableC0379a runnableC0379a = this.b;
-                        runnableC0379a.d.a.z(map.get(this.b.b), this.a, runnableC0379a.c);
+                        RunnableC0381a runnableC0381a = this.b;
+                        runnableC0381a.d.a.z(map.get(this.b.b), this.a, runnableC0381a.c);
                     }
                 }
 
@@ -94,7 +94,7 @@ public class mc3 extends f02 {
                 }
             }
 
-            public RunnableC0379a(a aVar, JSONObject jSONObject, String str, String str2) {
+            public RunnableC0381a(a aVar, JSONObject jSONObject, String str, String str2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -122,7 +122,7 @@ public class mc3 extends f02 {
                     boolean g = vl4.e().g(!an3.G());
                     String optString = this.a.optString(PrefetchEvent.EVENT_KEY_PAGE_URL);
                     if (g) {
-                        qg4.e(Collections.singletonList(this.b), mc3.f.c(), new C0380a(this, optString));
+                        qg4.e(Collections.singletonList(this.b), mc3.f.c(), new C0382a(this, optString));
                     } else {
                         this.d.a.z(this.b, optString, this.c);
                     }
@@ -160,7 +160,7 @@ public class mc3 extends f02 {
                 if (!mc3.f.a(1)) {
                     return new g12(402, "over single max limit");
                 }
-                am3.h().execute(new RunnableC0379a(this, jSONObject, optString, str), "PreloadPackageApi");
+                am3.h().execute(new RunnableC0381a(this, jSONObject, optString, str), "PreloadPackageApi");
                 return g12.f();
             }
             return (g12) invokeLLL.objValue;

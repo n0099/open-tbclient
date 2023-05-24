@@ -37,14 +37,14 @@ import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class pv4 implements jh6 {
+public class pv4 implements kh6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AliAuthHttpProxy a;
 
-    @Override // com.baidu.tieba.jh6
+    @Override // com.baidu.tieba.kh6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        ih6.a(this, webView, str, jSONObject);
+        jh6.a(this, webView, str, jSONObject);
     }
 
     public pv4() {
@@ -61,7 +61,7 @@ public class pv4 implements jh6 {
         }
     }
 
-    @Override // com.baidu.tieba.jh6
+    @Override // com.baidu.tieba.kh6
     public void onDestroy() {
         AliAuthHttpProxy aliAuthHttpProxy;
         Interceptable interceptable = $ic;
@@ -70,7 +70,7 @@ public class pv4 implements jh6 {
         }
     }
 
-    @Override // com.baidu.tieba.jh6
+    @Override // com.baidu.tieba.kh6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -110,22 +110,22 @@ public class pv4 implements jh6 {
         return invokeLLLLL.booleanValue;
     }
 
-    public js9 c(WebView webView) {
+    public ks9 c(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView)) == null) {
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             try {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2921372, t95.b()));
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return js9Var;
+            return ks9Var;
         }
-        return (js9) invokeL.objValue;
+        return (ks9) invokeL.objValue;
     }
 
-    public js9 d(WebView webView) {
+    public ks9 d(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, webView)) == null) {
@@ -134,11 +134,11 @@ public class pv4 implements jh6 {
             }
             return this.a.l();
         }
-        return (js9) invokeL.objValue;
+        return (ks9) invokeL.objValue;
     }
 
     public /* synthetic */ void f(WebView webView) {
-        kh6.a().d(webView, "commonLogin", new HashMap<String, Object>(this) { // from class: com.baidu.tbadk.browser.bridge.AccountJsBridgePlugin$1
+        lh6.a().d(webView, "commonLogin", new HashMap<String, Object>(this) { // from class: com.baidu.tbadk.browser.bridge.AccountJsBridgePlugin$1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ pv4 this$0;
@@ -165,21 +165,21 @@ public class pv4 implements jh6 {
         });
     }
 
-    public js9 e(WebView webView, int i, String str) {
+    public ks9 e(WebView webView, int i, String str) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048580, this, webView, i, str)) == null) {
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             JSONObject jSONObject = new JSONObject();
-            Activity a = yg6.a(webView.getContext());
+            Activity a = zg6.a(webView.getContext());
             if (a == null) {
                 try {
                     jSONObject.put("resultCode", 0);
                 } catch (JSONException e) {
                     BdLog.e(e);
                 }
-                js9Var.o(jSONObject.toString());
-                return js9Var;
+                ks9Var.o(jSONObject.toString());
+                return ks9Var;
             }
             LoginActivityConfig loginActivityConfig = new LoginActivityConfig((Context) a, true);
             loginActivityConfig.setThirdPartyLoginForResult(i, str);
@@ -190,10 +190,10 @@ public class pv4 implements jh6 {
             } catch (JSONException e2) {
                 BdLog.e(e2);
             }
-            js9Var.o(jSONObject.toString());
-            return js9Var;
+            ks9Var.o(jSONObject.toString());
+            return ks9Var;
         }
-        return (js9) invokeLIL.objValue;
+        return (ks9) invokeLIL.objValue;
     }
 
     public final String g(WebView webView, String str) {
@@ -214,12 +214,12 @@ public class pv4 implements jh6 {
         return (String) invokeLL.objValue;
     }
 
-    public js9 k(WebView webView, String str) {
+    public ks9 k(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, webView, str)) == null) {
-            js9 js9Var = new js9();
-            Activity a = yg6.a(webView.getContext());
+            ks9 ks9Var = new ks9();
+            Activity a = zg6.a(webView.getContext());
             if (a != null) {
                 ViewHelper.checkUpIsLoginFromH5(a, webView.getOriginalUrl(), str);
             }
@@ -227,29 +227,29 @@ public class pv4 implements jh6 {
             jSResultData.setStatus(1);
             jSResultData.setErrorCode("0");
             jSResultData.setErrorMsg("");
-            js9Var.o(OrmObject.jsonStrWithObject(jSResultData));
-            return js9Var;
+            ks9Var.o(OrmObject.jsonStrWithObject(jSResultData));
+            return ks9Var;
         }
-        return (js9) invokeLL.objValue;
+        return (ks9) invokeLL.objValue;
     }
 
-    public js9 h(WebView webView, HashMap<String, String> hashMap) {
+    public ks9 h(WebView webView, HashMap<String, String> hashMap) {
         InterceptResult invokeLL;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, webView, hashMap)) == null) {
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             int i2 = -1;
             try {
                 i2 = Integer.parseInt(hashMap.get("status"));
-                js9Var.y(i2);
-                js9Var.u(hashMap.get("message"));
+                ks9Var.y(i2);
+                ks9Var.u(hashMap.get("message"));
                 if (i2 == 0) {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("avatar", hashMap.get("avatar"));
                     jSONObject.put("nick_name", hashMap.get("nick_name"));
                     jSONObject.put("alipay_user_id", hashMap.get("alipay_user_id"));
-                    js9Var.o(jSONObject.toString());
+                    ks9Var.o(jSONObject.toString());
                 }
             } catch (Exception e) {
                 BdLog.e(e);
@@ -261,30 +261,30 @@ public class pv4 implements jh6 {
                 i = 1;
             }
             TiebaStatic.log(statisticItem.param("obj_param1", i));
-            return js9Var;
+            return ks9Var;
         }
-        return (js9) invokeLL.objValue;
+        return (ks9) invokeLL.objValue;
     }
 
-    public js9 j(WebView webView, String str) {
+    public ks9 j(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, webView, str)) == null) {
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             JSONObject jSONObject = new JSONObject();
             if (!qi.isEmpty(str)) {
                 try {
                     if (qi.isEmpty(str)) {
                         jSONObject.put("resultCode", 0);
-                        js9Var.o(jSONObject.toString());
-                        return js9Var;
+                        ks9Var.o(jSONObject.toString());
+                        return ks9Var;
                     }
                     String customLoginCssFileName = FileHelper.getCustomLoginCssFileName(str);
                     String customLoginCssStoragePath = FileHelper.getCustomLoginCssStoragePath(str);
                     if (!FileHelper.checkIsCssFile(customLoginCssStoragePath)) {
                         jSONObject.put("resultCode", 0);
-                        js9Var.o(jSONObject.toString());
-                        return js9Var;
+                        ks9Var.o(jSONObject.toString());
+                        return ks9Var;
                     }
                     DownloadData downloadData = new DownloadData(customLoginCssFileName, customLoginCssFileName, str, null);
                     downloadData.setPath(customLoginCssStoragePath);
@@ -294,19 +294,19 @@ public class pv4 implements jh6 {
                     BdLog.e(e);
                 }
             }
-            js9Var.o(jSONObject.toString());
-            return js9Var;
+            ks9Var.o(jSONObject.toString());
+            return ks9Var;
         }
-        return (js9) invokeLL.objValue;
+        return (ks9) invokeLL.objValue;
     }
 
-    public js9 i(final WebView webView, String str, String str2, String str3, String str4) {
+    public ks9 i(final WebView webView, String str, String str2, String str3, String str4) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView, str, str2, str3, str4)) == null) {
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             if (TbadkCoreApplication.isLogin()) {
-                bh6.a().c(new Runnable() { // from class: com.baidu.tieba.kv4
+                ch6.a().c(new Runnable() { // from class: com.baidu.tieba.kv4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -318,10 +318,10 @@ public class pv4 implements jh6 {
                         }
                     }
                 });
-                return js9Var;
+                return ks9Var;
             }
             if ((str.equals("0") || str.equals("")) && str4 != null) {
-                Activity a = yg6.a(webView.getContext());
+                Activity a = zg6.a(webView.getContext());
                 if (a != null) {
                     ViewHelper.checkUpIsLoginFromH5(a, webView.getOriginalUrl(), str4);
                 }
@@ -329,11 +329,11 @@ public class pv4 implements jh6 {
                 jSResultData.setStatus(1);
                 jSResultData.setErrorCode("0");
                 jSResultData.setErrorMsg("");
-                js9Var.o(OrmObject.jsonStrWithObject(jSResultData));
+                ks9Var.o(OrmObject.jsonStrWithObject(jSResultData));
             }
             if ((str3 != null && !StringUtils.isNull(str) && (str.equals("1") || str.equals("2"))) || str.equals("3") || str.equals("100")) {
                 JSONObject jSONObject = new JSONObject();
-                Activity a2 = yg6.a(webView.getContext());
+                Activity a2 = zg6.a(webView.getContext());
                 if (a2 == null) {
                     try {
                         jSONObject.put("resultCode", 0);
@@ -341,11 +341,11 @@ public class pv4 implements jh6 {
                     } catch (JSONException e) {
                         BdLog.e(e);
                     }
-                    js9Var.o(jSONObject.toString());
-                    return js9Var;
+                    ks9Var.o(jSONObject.toString());
+                    return ks9Var;
                 }
                 if (!StringUtils.isNull(str) && str.equals("100")) {
-                    DialogLoginHelper.checkUpIsLogin(new LoginDialogData(yg6.a(webView.getContext()), LoginDialogData.SCHEMA_LOGIN));
+                    DialogLoginHelper.checkUpIsLogin(new LoginDialogData(zg6.a(webView.getContext()), LoginDialogData.SCHEMA_LOGIN));
                 }
                 if (!StringUtils.isNull(str) && (str.equals("1") || str.equals("2") || str.equals("3"))) {
                     LoginActivityConfig loginActivityConfig = new LoginActivityConfig((Context) a2, true);
@@ -358,18 +358,18 @@ public class pv4 implements jh6 {
                 } catch (JSONException e2) {
                     BdLog.e(e2);
                 }
-                js9Var.o(jSONObject.toString());
+                ks9Var.o(jSONObject.toString());
             }
-            return js9Var;
+            return ks9Var;
         }
-        return (js9) invokeLLLLL.objValue;
+        return (ks9) invokeLLLLL.objValue;
     }
 
-    public js9 l(WebView webView, HashMap<String, Object> hashMap) {
+    public ks9 l(WebView webView, HashMap<String, Object> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, webView, hashMap)) == null) {
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             JSONObject jSONObject = new JSONObject();
             if (hashMap != null && hashMap.get("hasLogin") != null && Boolean.TRUE.equals(hashMap.get("hasLogin"))) {
                 try {
@@ -377,8 +377,8 @@ public class pv4 implements jh6 {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                js9Var.o(jSONObject.toString());
-                return js9Var;
+                ks9Var.o(jSONObject.toString());
+                return ks9Var;
             } else if (hashMap != null && hashMap.get("isLogin") != null && Boolean.TRUE.equals(hashMap.get("isLogin")) && (!hashMap.containsKey("resultCode") || ((Integer) hashMap.get("resultCode")).intValue() != 0)) {
                 try {
                     jSONObject.put("resultCode", 1);
@@ -388,19 +388,19 @@ public class pv4 implements jh6 {
                     e2.printStackTrace();
                 }
                 a(webView, CommonTbJsBridge.RESULT_THIRD_PARTY_LOGIN, jSONObject);
-                js9Var.o(jSONObject.toString());
-                return js9Var;
+                ks9Var.o(jSONObject.toString());
+                return ks9Var;
             } else {
                 try {
                     jSONObject.put("resultCode", 0);
                 } catch (JSONException e3) {
                     e3.printStackTrace();
                 }
-                js9Var.o(jSONObject.toString());
-                js9Var.q(403, "登录失败！");
-                return js9Var;
+                ks9Var.o(jSONObject.toString());
+                ks9Var.q(403, "登录失败！");
+                return ks9Var;
             }
         }
-        return (js9) invokeLL.objValue;
+        return (ks9) invokeLL.objValue;
     }
 }

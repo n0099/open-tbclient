@@ -1,20 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import tbclient.PbPage.ForumHeadlineImgInfo;
 /* loaded from: classes7.dex */
 public class rx8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
+    public String a;
 
     public rx8() {
         Interceptable interceptable = $ic;
@@ -26,37 +23,26 @@ public class rx8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = "";
     }
 
-    public static rx8 a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                rx8 rx8Var = new rx8();
-                rx8Var.a = jSONObject.optBoolean("show", false);
-                rx8Var.b = jSONObject.optInt(CriusAttrConstants.POSITION, -1);
-                return rx8Var;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (rx8) invokeL.objValue;
-    }
-
-    public String toString() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "{\"show\":" + this.a + ",\"position\":" + this.b + '}';
+            return this.a;
         }
         return (String) invokeV.objValue;
+    }
+
+    public void b(ForumHeadlineImgInfo forumHeadlineImgInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumHeadlineImgInfo) != null) || forumHeadlineImgInfo == null) {
+            return;
+        }
+        this.a = forumHeadlineImgInfo.img_url;
     }
 }

@@ -1,59 +1,76 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class rx7 {
+public class rx7 implements rn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public px7 a;
-    public ArrayList<qx7> b;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948137080, "Lcom/baidu/tieba/rx7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948137080, "Lcom/baidu/tieba/rx7;");
+                return;
+            }
+        }
+        e = BdUniqueId.gen();
+    }
 
     public rx7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.rn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return e;
+        }
+        return (BdUniqueId) invokeV.objValue;
     }
 
     public static rx7 a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
             if (jSONObject == null) {
                 return null;
             }
             rx7 rx7Var = new rx7();
-            JSONObject optJSONObject = jSONObject.optJSONObject("guide_content");
-            JSONArray optJSONArray = jSONObject.optJSONArray("hot_topic");
-            rx7Var.a = px7.a(optJSONObject);
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                rx7Var.b = new ArrayList<>();
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    try {
-                        qx7 a = qx7.a(optJSONArray.getJSONObject(i));
-                        if (a != null) {
-                            rx7Var.b.add(a);
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
+            rx7Var.a = jSONObject.optString("title");
+            rx7Var.b = jSONObject.optString("desc");
+            rx7Var.c = jSONObject.optString("tag");
+            rx7Var.d = jSONObject.optString("img");
             return rx7Var;
         }
         return (rx7) invokeL.objValue;

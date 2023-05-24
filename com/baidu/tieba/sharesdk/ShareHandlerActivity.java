@@ -7,18 +7,18 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
-import com.baidu.tieba.ck9;
+import com.baidu.tieba.ak9;
+import com.baidu.tieba.dk9;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.model.ShareReportModel;
 import com.baidu.tieba.qi;
 import com.baidu.tieba.sharesdk.bean.ShareEntity;
-import com.baidu.tieba.sj9;
 import com.baidu.tieba.tj9;
 import com.baidu.tieba.uj9;
 import com.baidu.tieba.vj9;
 import com.baidu.tieba.wj9;
 import com.baidu.tieba.xj9;
-import com.baidu.tieba.zj9;
+import com.baidu.tieba.yj9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,14 +29,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.share.WbShareCallback;
 import com.tencent.tauth.Tencent;
 /* loaded from: classes7.dex */
-public class ShareHandlerActivity extends ShareBaseActivity implements zj9, WbShareCallback {
+public class ShareHandlerActivity extends ShareBaseActivity implements ak9, WbShareCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public int b;
     public ShareEntity c;
-    public sj9 d;
-    public wj9 e;
+    public tj9 d;
+    public xj9 e;
     public ShareReportModel f;
     public PermissionJudgePolicy g;
 
@@ -94,9 +94,9 @@ public class ShareHandlerActivity extends ShareBaseActivity implements zj9, WbSh
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            sj9 sj9Var = this.d;
-            if (sj9Var != null) {
-                sj9Var.r();
+            tj9 tj9Var = this.d;
+            if (tj9Var != null) {
+                tj9Var.r();
             }
             ShareReportModel shareReportModel = this.f;
             if (shareReportModel != null) {
@@ -121,43 +121,43 @@ public class ShareHandlerActivity extends ShareBaseActivity implements zj9, WbSh
 
     @Override // com.sina.weibo.sdk.share.WbShareCallback
     public void onWbShareCancel() {
-        wj9 wj9Var;
+        xj9 xj9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (wj9Var = this.e) != null) {
-            wj9Var.N();
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (xj9Var = this.e) != null) {
+            xj9Var.N();
         }
     }
 
     @Override // com.sina.weibo.sdk.share.WbShareCallback
     public void onWbShareFail() {
-        wj9 wj9Var;
+        xj9 xj9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (wj9Var = this.e) != null) {
-            wj9Var.O();
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (xj9Var = this.e) != null) {
+            xj9Var.O();
         }
     }
 
     @Override // com.sina.weibo.sdk.share.WbShareCallback
     public void onWbShareSuccess() {
-        wj9 wj9Var;
+        xj9 xj9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (wj9Var = this.e) != null) {
-            wj9Var.P();
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (xj9Var = this.e) != null) {
+            xj9Var.P();
         }
     }
 
-    @Override // com.baidu.tieba.zj9
+    @Override // com.baidu.tieba.ak9
     public void c1(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
             if (i2 == 1) {
-                ck9.b(i, this.c);
+                dk9.b(i, this.c);
             }
             if (i2 == 3) {
                 if (i != 8 && i != 6) {
-                    ck9.a(i, this.c);
+                    dk9.a(i, this.c);
                 } else {
-                    ck9.b(i, this.c);
+                    dk9.b(i, this.c);
                 }
             }
             if (this.c.getStats() != null) {
@@ -178,9 +178,9 @@ public class ShareHandlerActivity extends ShareBaseActivity implements zj9, WbSh
         if (interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
             if (i != 10103 && i != 10104) {
-                sj9 sj9Var = this.d;
-                if (sj9Var != null) {
-                    sj9Var.n(intent);
+                tj9 tj9Var = this.d;
+                if (tj9Var != null) {
+                    tj9Var.n(intent);
                     return;
                 }
                 return;
@@ -208,14 +208,14 @@ public class ShareHandlerActivity extends ShareBaseActivity implements zj9, WbSh
             }
             y1(shareEntity.getStats());
             this.b = this.c.getShareTo();
-            sj9 sj9Var = this.d;
-            if (sj9Var != null) {
-                sj9Var.r();
+            tj9 tj9Var = this.d;
+            if (tj9Var != null) {
+                tj9Var.r();
                 this.d = null;
             }
-            wj9 wj9Var = this.e;
-            if (wj9Var != null) {
-                wj9Var.r();
+            xj9 xj9Var = this.e;
+            if (xj9Var != null) {
+                xj9Var.r();
                 this.e = null;
             }
             int i = this.b;
@@ -227,28 +227,28 @@ public class ShareHandlerActivity extends ShareBaseActivity implements zj9, WbSh
                                 if (i != 4) {
                                     this.d = null;
                                 } else {
-                                    this.d = new uj9(this);
+                                    this.d = new vj9(this);
                                 }
                             } else {
-                                this.d = new xj9(this, 3);
+                                this.d = new yj9(this, 3);
                             }
                         } else {
-                            this.d = new xj9(this, 2);
+                            this.d = new yj9(this, 2);
                         }
                     } else {
-                        this.d = new tj9(this);
+                        this.d = new uj9(this);
                     }
                 } else {
-                    wj9 wj9Var2 = new wj9(this, this, this);
-                    this.e = wj9Var2;
-                    this.d = wj9Var2;
+                    xj9 xj9Var2 = new xj9(this, this, this);
+                    this.e = xj9Var2;
+                    this.d = xj9Var2;
                 }
             } else {
-                this.d = new vj9(this);
+                this.d = new wj9(this);
             }
-            sj9 sj9Var2 = this.d;
-            if (sj9Var2 != null) {
-                sj9Var2.A(this.c.getTid());
+            tj9 tj9Var2 = this.d;
+            if (tj9Var2 != null) {
+                tj9Var2.A(this.c.getTid());
                 this.d.y(this.c.getExtLiveInfo());
                 if (!GroupInfoData.isValidGroup(this.c.groupData)) {
                     this.d.x(true);
@@ -265,9 +265,9 @@ public class ShareHandlerActivity extends ShareBaseActivity implements zj9, WbSh
                     return;
                 }
             }
-            sj9 sj9Var3 = this.d;
-            if (sj9Var3 != null) {
-                sj9Var3.s(getUniqueId());
+            tj9 tj9Var3 = this.d;
+            if (tj9Var3 != null) {
+                tj9Var3.s(getUniqueId());
                 this.d.n(getIntent());
                 this.d.a(this.c, this);
                 return;
@@ -287,9 +287,9 @@ public class ShareHandlerActivity extends ShareBaseActivity implements zj9, WbSh
             if (intent != null) {
                 intent.getIntExtra("extra_skin", 3);
             }
-            sj9 sj9Var = this.d;
-            if (sj9Var != null) {
-                sj9Var.n(intent);
+            tj9 tj9Var = this.d;
+            if (tj9Var != null) {
+                tj9Var.n(intent);
             }
         }
     }

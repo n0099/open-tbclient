@@ -1,22 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.p0b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.CountDownLatch;
+/* JADX WARN: Incorrect class signature, class is equals to this class: <TResult:Ljava/lang/Object;>Ljava/lang/Object;Lcom/baidu/tieba/l0b;Lcom/baidu/tieba/x0b;Lcom/baidu/tieba/y0b<TTResult;>; */
 /* loaded from: classes6.dex */
-public class l0b implements p0b.a {
+public class l0b<TResult> implements x0b, x0b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ m0b a;
+    public final CountDownLatch a;
 
-    public l0b(m0b m0bVar) {
+    public l0b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {m0bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,6 +25,6 @@ public class l0b implements p0b.a {
                 return;
             }
         }
-        this.a = m0bVar;
+        this.a = new CountDownLatch(1);
     }
 }

@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class p69 extends en<l79, CardViewHolder<e89>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public e89 b;
+    public TbPageContext a;
+    public wj6<l79> b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public p69(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -48,10 +48,18 @@ public class p69 extends en<l79, CardViewHolder<e89>> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            this.b = new e89(this.a, this.mType);
-            return new CardViewHolder<>(this.b);
+            e89 e89Var = new e89(this.a);
+            e89Var.n(this.b);
+            return new CardViewHolder<>(e89Var);
         }
         return (CardViewHolder) invokeL.objValue;
+    }
+
+    public void u(wj6<l79> wj6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, wj6Var) == null) {
+            this.b = wj6Var;
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */

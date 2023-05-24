@@ -4,17 +4,17 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.itemtab.card.CardItemRecentUpdateLayout;
+import com.baidu.tieba.frs.itemtab.card.CardItemHotVideoLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class pg7 extends ax<wg7> {
+public class pg7 extends ax<jy4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CardItemRecentUpdateLayout f;
+    public CardItemHotVideoLayout f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public pg7(Context context) {
@@ -34,16 +34,16 @@ public class pg7 extends ax<wg7> {
                 return;
             }
         }
-        this.f = new CardItemRecentUpdateLayout(context);
+        this.f = new CardItemHotVideoLayout(context);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.tx
     /* renamed from: s */
-    public void a(wg7 wg7Var) {
+    public void a(jy4 jy4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, wg7Var) == null) {
-            this.f.setData(wg7Var.c());
+        if (interceptable == null || interceptable.invokeL(1048579, this, jy4Var) == null) {
+            this.f.setData((wg7) jy4Var);
         }
     }
 

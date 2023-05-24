@@ -11,7 +11,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b28;
+import com.baidu.tieba.c28;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -29,7 +29,7 @@ public class GameContactsItemView extends RelativeLayout {
     public CircleStrokeHeadImageView a;
     public MessageRedDotView b;
     public View c;
-    public b28 d;
+    public c28 d;
 
     static {
         InterceptResult invokeClinit;
@@ -71,13 +71,13 @@ public class GameContactsItemView extends RelativeLayout {
         }
     }
 
-    public b28 getGameMatchUser() {
+    public c28 getGameMatchUser() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.d;
         }
-        return (b28) invokeV.objValue;
+        return (c28) invokeV.objValue;
     }
 
     public void h() {
@@ -215,12 +215,12 @@ public class GameContactsItemView extends RelativeLayout {
         }
     }
 
-    public void setGameMatchUser(@NonNull b28 b28Var) {
+    public void setGameMatchUser(@NonNull c28 c28Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, b28Var) != null) || b28Var.equals(this.d)) {
+        if ((interceptable != null && interceptable.invokeL(1048586, this, c28Var) != null) || c28Var.equals(this.d)) {
             return;
         }
-        this.d = b28Var;
+        this.d = c28Var;
         i();
     }
 }

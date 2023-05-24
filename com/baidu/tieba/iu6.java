@@ -3,7 +3,6 @@ package com.baidu.tieba;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.ThreadCardViewHolder;
@@ -28,10 +27,10 @@ public class iu6 extends en<o15, ThreadCardViewHolder<ThreadData>> {
     public TbPageContext<?> c;
     public boolean d;
     public xn e;
-    public vj6<ThreadData> f;
+    public wj6<ThreadData> f;
 
     /* loaded from: classes6.dex */
-    public class a extends vj6<ThreadData> {
+    public class a extends wj6<ThreadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ iu6 b;
@@ -55,13 +54,13 @@ public class iu6 extends en<o15, ThreadCardViewHolder<ThreadData>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vj6
+        @Override // com.baidu.tieba.wj6
         /* renamed from: d */
         public void a(View view2, ThreadData threadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
-                oj6.b().d(true);
-                os6.a(view2, threadData, this.b.b);
+                pj6.b().d(true);
+                ps6.a(view2, threadData, this.b.b);
             }
         }
     }
@@ -154,10 +153,10 @@ public class iu6 extends en<o15, ThreadCardViewHolder<ThreadData>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
             py.b bVar = new py.b(this.c.getPageActivity(), false);
-            cy cyVar = new cy(this.c.getPageActivity());
-            cyVar.setFrom("index");
-            cyVar.u(this.d);
-            bVar.n(cyVar);
+            zx zxVar = new zx(this.c.getPageActivity());
+            zxVar.setFrom("index");
+            zxVar.y(this.d);
+            bVar.n(zxVar);
             py k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.e);
             k.s(2);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
@@ -182,14 +181,7 @@ public class iu6 extends en<o15, ThreadCardViewHolder<ThreadData>> {
                 threadCardViewHolder.e(o15Var.t);
                 threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
                 threadCardViewHolder.a().q(this.f);
-                os6.b(o15Var, this.b);
-                cy cyVar = (cy) threadCardViewHolder.a().g();
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) cyVar.f.d.getLayoutParams();
-                layoutParams.width = o15Var.u;
-                layoutParams.height = o15Var.v;
-                if (cyVar.f.d.getVisibility() != 8) {
-                    cyVar.f.d.setLayoutParams(layoutParams);
-                }
+                ps6.b(o15Var, this.b);
                 return threadCardViewHolder.getView();
             }
             return null;

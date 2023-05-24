@@ -1,125 +1,44 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.AddLinkActivityConfig;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class uba implements wba {
+public class uba {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final TbPageContext<?> a;
-    @NonNull
-    public final yaa b;
 
-    public uba(@NonNull TbPageContext<?> tbPageContext, @NonNull yaa yaaVar) {
+    public static void a(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull te5 te5Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, yaaVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLLLL(65536, null, tbPageContext, editorTools, te5Var, str) == null) {
+            if ("e1".equals(str)) {
+                cca.h(tbPageContext, editorTools, te5Var);
+            } else if (Config.SESSTION_TRACK_END_TIME.equals(str)) {
+                cca.j(tbPageContext, editorTools, te5Var);
+            } else if ("e3".equals(str)) {
+                cca.k(tbPageContext, editorTools, te5Var);
+            } else if ("e4".equals(str)) {
+                cca.g(tbPageContext, editorTools, te5Var);
+            } else if ("e5".equals(str)) {
+                cca.d(editorTools, te5Var);
+            } else if ("e6".equals(str)) {
+                cca.a(tbPageContext, editorTools, te5Var);
+            } else if ("e7".equals(str)) {
+                cca.l(tbPageContext, editorTools, te5Var);
+            } else if ("e8".equals(str)) {
+                cca.b(tbPageContext, editorTools, te5Var);
+            } else if ("e9".equals(str)) {
+                cca.i(tbPageContext, editorTools);
+            } else if ("e10".equals(str)) {
+                cca.c(tbPageContext, editorTools, te5Var);
+            } else if ("e11".equals(str)) {
+                cca.f(tbPageContext, editorTools, te5Var);
+            } else if ("e12".equals(str)) {
+                cca.e(tbPageContext, editorTools, te5Var);
             }
-        }
-        this.a = tbPageContext;
-        this.b = yaaVar;
-    }
-
-    @Override // com.baidu.tieba.te5
-    public void C(se5 se5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, se5Var) == null) {
-            int i = se5Var.a;
-            if (i != 14 && i != 48) {
-                if (i == 60) {
-                    this.b.u();
-                    return;
-                } else if (i != 12 && i != 13 && i != 46 && i != 49) {
-                    if (i == 21) {
-                        this.b.h();
-                        TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 5));
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddLinkActivityConfig(this.a.getPageActivity(), 25049, "", true, null)));
-                        return;
-                    } else if (i == 24) {
-                        this.b.z(se5Var);
-                        return;
-                    } else if (i == 3) {
-                        this.b.z(se5Var);
-                        return;
-                    } else if (i == 16) {
-                        this.b.z(se5Var);
-                        return;
-                    } else if (i == 43) {
-                        TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 4));
-                        o65.m().w("hot_topic_has_click", true);
-                        this.b.D(new se5(2, 26, null));
-                        this.b.p(true);
-                        this.b.m();
-                        return;
-                    } else if (i == 10) {
-                        this.b.z(se5Var);
-                        return;
-                    } else if (i == 11) {
-                        this.b.z(se5Var);
-                        return;
-                    } else if (i == 25) {
-                        this.b.z(se5Var);
-                        return;
-                    } else if (i == 22) {
-                        this.b.z(se5Var);
-                        return;
-                    } else if (i == 59) {
-                        this.b.z(se5Var);
-                        return;
-                    } else if (i == 61) {
-                        this.b.z(se5Var);
-                        return;
-                    } else if (i == 69) {
-                        this.b.v();
-                        return;
-                    } else if (i == 55) {
-                        Object obj = se5Var.c;
-                        if (obj instanceof Boolean) {
-                            this.b.k(((Boolean) obj).booleanValue());
-                            return;
-                        }
-                        return;
-                    } else if (i == 66) {
-                        Object obj2 = se5Var.c;
-                        if (obj2 instanceof Boolean) {
-                            this.b.y(((Boolean) obj2).booleanValue());
-                            return;
-                        }
-                        return;
-                    } else if (i == 74) {
-                        this.b.z(se5Var);
-                        return;
-                    } else {
-                        return;
-                    }
-                } else {
-                    this.b.x(new int[]{10, 34});
-                    this.b.i();
-                    return;
-                }
-            }
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 1));
-            this.b.r();
         }
     }
 }

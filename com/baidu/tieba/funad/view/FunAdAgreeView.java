@@ -33,13 +33,13 @@ import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a75;
 import com.baidu.tieba.cl5;
-import com.baidu.tieba.hr9;
 import com.baidu.tieba.in5;
+import com.baidu.tieba.ir9;
 import com.baidu.tieba.qe5;
 import com.baidu.tieba.re5;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
-import com.baidu.tieba.ye9;
+import com.baidu.tieba.ze9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -62,7 +62,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
     public TBLottieAnimationView f;
     public TextView g;
     public AgreeData h;
-    public hr9 i;
+    public ir9 i;
     public ScaleAnimation j;
     public boolean k;
     public boolean l;
@@ -158,10 +158,10 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof hr9)) {
-                hr9 hr9Var = (hr9) customResponsedMessage.getData();
-                AgreeData agreeData = hr9Var.b;
-                if (this.a.h != null && agreeData != null && this.a.i != null && !this.a.h.isInPost && this.a.i.a != hr9Var.a) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ir9)) {
+                ir9 ir9Var = (ir9) customResponsedMessage.getData();
+                AgreeData agreeData = ir9Var.b;
+                if (this.a.h != null && agreeData != null && this.a.i != null && !this.a.h.isInPost && this.a.i.a != ir9Var.a) {
                     String str = agreeData.nid;
                     if (!"0".equals(str) && !TextUtils.isEmpty(str)) {
                         if (this.a.h.baijiahaoData == null || !TextUtils.equals(str, this.a.h.baijiahaoData.oriUgcNid)) {
@@ -212,9 +212,9 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof hr9)) {
-                hr9 hr9Var = (hr9) customResponsedMessage.getData();
-                AgreeData agreeData = hr9Var.b;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ir9)) {
+                ir9 ir9Var = (ir9) customResponsedMessage.getData();
+                AgreeData agreeData = ir9Var.b;
                 if (this.a.h == null || TextUtils.isEmpty(this.a.h.postId) || agreeData == null || TextUtils.isEmpty(agreeData.postId) || !this.a.h.postId.equals(agreeData.postId) || this.a.h.isInThread) {
                     return;
                 }
@@ -222,7 +222,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
                     if (this.a.h.indexOfPic == agreeData.indexOfPic) {
                         return;
                     }
-                } else if (this.a.i.a == hr9Var.a) {
+                } else if (this.a.i.a == ir9Var.a) {
                     return;
                 }
                 this.a.v(agreeData);
@@ -873,9 +873,9 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
             textView2.setText(R.string.obfuscated_res_0x7f0f084c);
             this.g.setTextSize(0, ri.g(context, R.dimen.T_X09));
             this.g.setOnClickListener(this.E);
-            hr9 hr9Var = new hr9();
-            this.i = hr9Var;
-            hr9Var.a = getPageId();
+            ir9 ir9Var = new ir9();
+            this.i = ir9Var;
+            ir9Var.a = getPageId();
             o();
             setAgreeAnimationResource();
             setAgreeAlone(true);
@@ -1098,14 +1098,14 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
                     agreeData2.hasAgree = true;
                     agreeData2.agreeNum++;
                     x(true);
-                    ye9.g().l(getTbPageContext());
+                    ze9.g().l(getTbPageContext());
                 }
             } else {
                 agreeData2.agreeType = 2;
                 agreeData2.hasAgree = true;
                 agreeData2.agreeNum++;
                 x(true);
-                ye9.g().l(getTbPageContext());
+                ze9.g().l(getTbPageContext());
             }
             in5 findPageExtraByView2 = TbPageExtraHelper.findPageExtraByView(this);
             if (findPageExtraByView2 != null) {

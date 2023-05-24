@@ -74,13 +74,13 @@ public class k83 extends f83 {
 
         /* renamed from: com.baidu.tieba.k83$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0365a implements View.OnClickListener {
+        public class View$OnClickListenerC0362a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DialogInterface.OnClickListener a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0365a(a aVar, DialogInterface.OnClickListener onClickListener) {
+            public View$OnClickListenerC0362a(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -425,7 +425,7 @@ public class k83 extends f83 {
                     this.a.i.setVisibility(0);
                 }
                 this.a.e.setText(charSequence);
-                this.a.e.setOnClickListener(new View$OnClickListenerC0365a(this, onClickListener));
+                this.a.e.setOnClickListener(new View$OnClickListenerC0362a(this, onClickListener));
                 return this;
             }
             return (a) invokeLL.objValue;

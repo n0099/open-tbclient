@@ -54,9 +54,9 @@ import com.baidu.tbadk.widget.tiejia.TiePlusStat;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ce5;
 import com.baidu.tieba.dx5;
-import com.baidu.tieba.hr6;
+import com.baidu.tieba.ir6;
 import com.baidu.tieba.le5;
-import com.baidu.tieba.nz9;
+import com.baidu.tieba.oz9;
 import com.baidu.tieba.pt5;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.ux5;
@@ -1079,7 +1079,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
             } else {
                 Bundle bundle = new Bundle();
                 bundle.putBoolean("need_scheme_blacklist", true);
-                nz9.b(this.b, str, bundle);
+                oz9.b(this.b, str, bundle);
             }
         }
     }
@@ -1236,14 +1236,14 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
                 }
             }
             if (this.i != null) {
-                hr6 hr6Var = new hr6();
-                hr6Var.a = this.i;
-                hr6Var.b = 2;
+                ir6 ir6Var = new ir6();
+                ir6Var.a = this.i;
+                ir6Var.b = 2;
                 Context context = this.a;
                 if ((context instanceof Activity) && !"DownloadManagerActivity".equals(((Activity) context).getClass().getSimpleName())) {
-                    hr6Var.c = 1;
+                    ir6Var.c = 1;
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921627, hr6Var));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921627, ir6Var));
             }
             T();
             S(activity);

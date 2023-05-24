@@ -41,14 +41,14 @@ public class zc3 extends db3 {
 
         /* renamed from: com.baidu.tieba.zc3$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0518a implements lf2.f {
+        public class C0515a implements lf2.f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ lf2.e a;
             public final /* synthetic */ JSONObject b;
             public final /* synthetic */ a c;
 
-            public C0518a(a aVar, lf2.e eVar, JSONObject jSONObject) {
+            public C0515a(a aVar, lf2.e eVar, JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -136,7 +136,7 @@ public class zc3 extends db3 {
                     str2 = "0";
                 }
                 q.D("preload", str2);
-                lf2.q(f, new C0518a(this, f, c2));
+                lf2.q(f, new C0515a(this, f, c2));
             }
         }
 

@@ -48,12 +48,12 @@ public class gm extends BdAsyncTask<List<PackageInfo>, Integer, Boolean> {
                             BdBaseApplication.getInst().getResHashMap().remove(packageInfo.name);
                             File file = new File(jm.b(packageInfo.name));
                             if (file.exists()) {
-                                yk8 defaultLog = DefaultLog.getInstance();
+                                zk8 defaultLog = DefaultLog.getInstance();
                                 defaultLog.c("PMS delete File", "待删除文件:" + file);
                                 if (!file.delete()) {
                                     z = false;
                                 }
-                                yk8 defaultLog2 = DefaultLog.getInstance();
+                                zk8 defaultLog2 = DefaultLog.getInstance();
                                 defaultLog2.c("PMS delete File", "文件删除状态:" + z);
                             }
                         }

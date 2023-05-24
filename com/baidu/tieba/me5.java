@@ -22,7 +22,7 @@ public class me5 {
 
         /* renamed from: com.baidu.tieba.me5$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0381a implements ne5 {
+        public class C0383a implements ne5 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ze0 a;
@@ -37,7 +37,7 @@ public class me5 {
                 return invokeL.booleanValue;
             }
 
-            public C0381a(a aVar, ze0 ze0Var) {
+            public C0383a(a aVar, ze0 ze0Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -119,7 +119,7 @@ public class me5 {
                 DownloadData downloadData = new DownloadData();
                 downloadData.setPath(str2 + "/" + str3);
                 downloadData.setUrl(str);
-                downloadData.setCallback(new C0381a(this, ze0Var));
+                downloadData.setCallback(new C0383a(this, ze0Var));
                 oe5.k().l(downloadData);
             }
         }

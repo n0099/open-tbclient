@@ -34,17 +34,17 @@ public class ej1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
-        public ArrayList<C0272a> b;
+        public ArrayList<C0270a> b;
 
         /* renamed from: com.baidu.tieba.ej1$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static class C0272a {
+        public static class C0270a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public long a;
             public long b;
 
-            public C0272a(long j, long j2) {
+            public C0270a(long j, long j2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -98,7 +98,7 @@ public class ej1 {
                 for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
                     if (optJSONObject != null) {
-                        this.b.add(new C0272a(optJSONObject.optLong("start", 0L), optJSONObject.optLong("end", 0L)));
+                        this.b.add(new C0270a(optJSONObject.optLong("start", 0L), optJSONObject.optLong("end", 0L)));
                     }
                 }
             }
@@ -158,9 +158,9 @@ public class ej1 {
                 if (o11.l(this.b) == 0) {
                     return false;
                 }
-                Iterator<C0272a> it = this.b.iterator();
+                Iterator<C0270a> it = this.b.iterator();
                 while (it.hasNext()) {
-                    C0272a next = it.next();
+                    C0270a next = it.next();
                     if (next != null && next.a(j)) {
                         return true;
                     }

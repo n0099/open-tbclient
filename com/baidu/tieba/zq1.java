@@ -20,11 +20,11 @@ public class zq1 implements ss1 {
 
         /* renamed from: com.baidu.tieba.zq1$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0519a implements ao3<Bundle> {
+        public class C0517a implements ao3<Bundle> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0519a(a aVar) {
+            public C0517a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,7 +74,7 @@ public class zq1 implements ss1 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-                return (Bundle) xn3.b(new C0519a(this));
+                return (Bundle) xn3.b(new C0517a(this));
             }
             return (Bundle) invokeL.objValue;
         }

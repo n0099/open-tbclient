@@ -2,6 +2,7 @@ package com.baidu.tieba;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,11 +12,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ow9 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final tu9 a;
+    public final MainTabActivity a;
+    public uu9 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ow9(MainTabActivity mainTabActivity) {
-        super(2921725);
+        super(2921736);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -31,22 +33,37 @@ public class ow9 extends CustomMessageListener {
                 return;
             }
         }
-        this.a = mainTabActivity.e;
+        this.a = mainTabActivity;
+        this.b = mainTabActivity.e;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        tu9 tu9Var;
+        uu9 uu9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (tu9Var = this.a) != null && tu9Var.f() != null && (customResponsedMessage.getData() instanceof Boolean)) {
-            if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                Runnable runnable = this.a.f().c;
-                sg.a().removeCallbacks(runnable);
-                sg.a().post(runnable);
-                return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && SpeedStatsUtils.UBC_VALUE_SPLASH.equals(customResponsedMessage.getData())) {
+            MainTabActivity mainTabActivity = this.a;
+            this.b = mainTabActivity.e;
+            mainTabActivity.O1(true);
+            if (MainTabActivity.Y && (uu9Var = this.b) != null && uu9Var.h() != null) {
+                this.b.h().a();
             }
-            sg.a().removeCallbacks(this.a.f().c);
+            uu9 uu9Var2 = this.b;
+            if (uu9Var2 != null && uu9Var2.c() != null) {
+                this.b.c().b();
+            }
+            cz9.c().b();
+            cz9.c().a();
+            if (h55.a().f()) {
+                h55.a().g(this.a.getClass().getName());
+                h55.a().l(false);
+            }
+            if (h55.a().e()) {
+                h55.a().b();
+                h55.a().h(this.a.getClass().getName());
+                h55.a().k(false);
+            }
         }
     }
 }

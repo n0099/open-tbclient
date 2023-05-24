@@ -20,7 +20,7 @@ import com.baidu.tieba.k45;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.se;
 import com.baidu.tieba.sg;
-import com.baidu.tieba.yk8;
+import com.baidu.tieba.zk8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -356,7 +356,7 @@ public class YunDialogDataManager {
             }
             try {
                 JSONArray jSONArray = new JSONArray(str);
-                yk8 yunDialogLog = YunDialogLog.getInstance();
+                zk8 yunDialogLog = YunDialogLog.getInstance();
                 yunDialogLog.c("YunDialogManager", "加载本地云弹窗配置: " + jSONArray);
                 return DataExt.toEntityList(jSONArray.toString(), DialogStrategiesData.class);
             } catch (Exception e2) {
@@ -370,7 +370,7 @@ public class YunDialogDataManager {
     public void o(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONArray) == null) {
-            yk8 yunDialogLog = YunDialogLog.getInstance();
+            zk8 yunDialogLog = YunDialogLog.getInstance();
             yunDialogLog.c("YunDialogManager", "sync更新本地云弹窗配置，配置为：" + jSONArray);
             se<String> g = c25.g("tb.dialog_strategies_data", TbadkCoreApplication.getCurrentAccount(), k());
             if (g == null) {
@@ -380,7 +380,7 @@ public class YunDialogDataManager {
                 try {
                     q(DataExt.toEntityList(jSONArray.toString(), DialogStrategiesData.class));
                 } catch (Exception e2) {
-                    yk8 yunDialogLog2 = YunDialogLog.getInstance();
+                    zk8 yunDialogLog2 = YunDialogLog.getInstance();
                     yunDialogLog2.c("YunDialogManager", "云弹窗配置解析失败，更新失败！下发配置：" + jSONArray);
                     BdLog.e(e2);
                 }
@@ -432,7 +432,7 @@ public class YunDialogDataManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
             try {
-                yk8 yunDialogLog = YunDialogLog.getInstance();
+                zk8 yunDialogLog = YunDialogLog.getInstance();
                 yunDialogLog.c("YunDialogManager", "updateManagerConfig:" + jSONObject);
                 this.b = ((ConfigData) DataExt.toEntity(jSONObject.toString(), ConfigData.class)).getMaxSize();
             } catch (Exception e2) {

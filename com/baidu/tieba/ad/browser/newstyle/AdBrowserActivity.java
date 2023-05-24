@@ -52,10 +52,10 @@ import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.bz5;
 import com.baidu.tieba.c26;
 import com.baidu.tieba.e21;
-import com.baidu.tieba.es9;
 import com.baidu.tieba.fs9;
 import com.baidu.tieba.gs9;
 import com.baidu.tieba.hk0;
+import com.baidu.tieba.hs9;
 import com.baidu.tieba.jx4;
 import com.baidu.tieba.ly4;
 import com.baidu.tieba.n55;
@@ -105,8 +105,8 @@ public class AdBrowserActivity extends AdBaseWebViewActivity implements w16 {
     public z16 A;
     public qk0 B;
     public TbWebView t;
-    public es9 u;
-    public final gs9 v;
+    public fs9 u;
+    public final hs9 v;
     public s55 w;
     public boolean x;
     public boolean y;
@@ -413,7 +413,7 @@ public class AdBrowserActivity extends AdBaseWebViewActivity implements w16 {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements gs9 {
+    public class b implements hs9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdBrowserActivity a;
@@ -436,7 +436,7 @@ public class AdBrowserActivity extends AdBaseWebViewActivity implements w16 {
             this.a = adBrowserActivity;
         }
 
-        @Override // com.baidu.tieba.gs9
+        @Override // com.baidu.tieba.hs9
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -848,9 +848,9 @@ public class AdBrowserActivity extends AdBaseWebViewActivity implements w16 {
     public void webViewDestory() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            es9 es9Var = this.u;
-            if (es9Var != null) {
-                es9Var.h();
+            fs9 fs9Var = this.u;
+            if (fs9Var != null) {
+                fs9Var.h();
             }
             TbWebView tbWebView = this.t;
             if (tbWebView != null) {
@@ -1142,9 +1142,9 @@ public class AdBrowserActivity extends AdBaseWebViewActivity implements w16 {
         if (interceptable == null || interceptable.invokeL(1048598, this, bundle) == null) {
             super.onCreate(bundle);
             MessageManager.getInstance().runTask(2001308, (Class) null);
-            es9 es9Var = new es9();
-            this.u = es9Var;
-            es9Var.a(new XiubaTbJsBridge(getPageContext()));
+            fs9 fs9Var = new fs9();
+            this.u = fs9Var;
+            fs9Var.a(new XiubaTbJsBridge(getPageContext()));
             this.u.a(new CommonTbJsBridge(getPageContext()));
             this.u.a(buildGameDownloadJSPrompt());
             if (this.e) {
@@ -1229,17 +1229,17 @@ public class AdBrowserActivity extends AdBaseWebViewActivity implements w16 {
         }
     }
 
-    public final fs9 buildGameDownloadJSPrompt() {
+    public final gs9 buildGameDownloadJSPrompt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, fs9.class, getPageContext());
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, gs9.class, getPageContext());
             if (runTask != null && runTask.getData() != null) {
-                return (fs9) runTask.getData();
+                return (gs9) runTask.getData();
             }
             return null;
         }
-        return (fs9) invokeV.objValue;
+        return (gs9) invokeV.objValue;
     }
 
     public final void handleUploadResult(Intent intent, int i2) {

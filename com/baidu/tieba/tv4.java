@@ -24,18 +24,18 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class tv4 implements jh6 {
+public class tv4 implements kh6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.jh6
+    @Override // com.baidu.tieba.kh6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        ih6.a(this, webView, str, jSONObject);
+        jh6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.jh6
+    @Override // com.baidu.tieba.kh6
     public /* synthetic */ void onDestroy() {
-        ih6.b(this);
+        jh6.b(this);
     }
 
     public tv4() {
@@ -52,7 +52,7 @@ public class tv4 implements jh6 {
         }
     }
 
-    @Override // com.baidu.tieba.jh6
+    @Override // com.baidu.tieba.kh6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -93,19 +93,19 @@ public class tv4 implements jh6 {
         return invokeLLLLL.booleanValue;
     }
 
-    public js9 c(WebView webView, String str, String str2) {
+    public ks9 c(WebView webView, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2)) == null) {
-            js9 js9Var = new js9();
-            Context a = yg6.a(webView.getContext());
+            ks9 ks9Var = new ks9();
+            Context a = zg6.a(webView.getContext());
             if (a == null) {
                 a = webView.getContext();
             }
             UtilHelper.smsTo(a, str, str2);
-            return js9Var;
+            return ks9Var;
         }
-        return (js9) invokeLLL.objValue;
+        return (ks9) invokeLLL.objValue;
     }
 
     public final String d(WebView webView) {
@@ -130,20 +130,20 @@ public class tv4 implements jh6 {
         return (String) invokeL.objValue;
     }
 
-    public js9 e(WebView webView, boolean z) {
+    public ks9 e(WebView webView, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, webView, z)) == null) {
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             if (z) {
                 en5.d();
             }
-            return js9Var;
+            return ks9Var;
         }
-        return (js9) invokeLZ.objValue;
+        return (ks9) invokeLZ.objValue;
     }
 
-    public js9 f(WebView webView, ArrayList<String> arrayList) {
+    public ks9 f(WebView webView, ArrayList<String> arrayList) {
         InterceptResult invokeLL;
         char c;
         Interceptable interceptable = $ic;
@@ -164,38 +164,38 @@ public class tv4 implements jh6 {
             } else {
                 c = 65535;
             }
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             if (c == 65535) {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("resultCode", 0);
-                    js9Var.o(jSONObject.toString());
-                    return js9Var;
+                    ks9Var.o(jSONObject.toString());
+                    return ks9Var;
                 } catch (JSONException e) {
                     BdLog.e(e);
                 }
             } else if (c == 1) {
-                js9Var.r("url不支持预热");
+                ks9Var.r("url不支持预热");
             } else if (c == 2) {
-                js9Var.r("预热池已存在该url");
+                ks9Var.r("预热池已存在该url");
             } else {
-                js9Var.r("其它错误");
+                ks9Var.r("其它错误");
             }
-            return js9Var;
+            return ks9Var;
         }
-        return (js9) invokeLL.objValue;
+        return (ks9) invokeLL.objValue;
     }
 
-    public js9 g(WebView webView, String str, String str2, String str3, String str4, String str5) {
+    public ks9 g(WebView webView, String str, String str2, String str3, String str4, String str5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{webView, str, str2, str3, str4, str5})) == null) {
-            js9 js9Var = new js9();
+            ks9 ks9Var = new ks9();
             ReadRecordsData readRecordsData = new ReadRecordsData(str, str2, str3, str4, str5);
             readRecordsData.W(true);
             en5.e(str2, readRecordsData);
-            return js9Var;
+            return ks9Var;
         }
-        return (js9) invokeCommon.objValue;
+        return (ks9) invokeCommon.objValue;
     }
 }

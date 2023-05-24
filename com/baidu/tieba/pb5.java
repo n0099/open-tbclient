@@ -134,7 +134,7 @@ public class pb5 {
     public void I() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            qs9.r();
+            rs9.r();
         }
     }
 
@@ -272,7 +272,7 @@ public class pb5 {
     public void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048623, this) == null) {
-            qs9.n();
+            rs9.n();
         }
     }
 

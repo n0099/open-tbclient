@@ -1,13 +1,7 @@
 package com.baidu.tieba;
-
-import com.baidu.tieba.lego.card.model.ICardInfo;
 /* loaded from: classes8.dex */
 public interface wh8 {
-    void a(ICardInfo iCardInfo);
+    void a(int i, long j, String str, String str2);
 
-    wh8 b(String str, int i);
-
-    wh8 c(String str, long j);
-
-    wh8 d(String str, String str2);
+    void b(long j, String str);
 }
