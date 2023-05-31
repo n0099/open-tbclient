@@ -89,7 +89,7 @@ public class Base32 extends BaseNCodec {
 
     /* JADX WARN: Type inference failed for: r2v1 */
     /* JADX WARN: Type inference failed for: r2v11 */
-    /* JADX WARN: Type inference failed for: r2v2, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r2v2, types: [boolean, int] */
     @Override // org.apache.commons.codec.binary.BaseNCodec
     public void decode(byte[] bArr, int i, int i2) {
         byte b;

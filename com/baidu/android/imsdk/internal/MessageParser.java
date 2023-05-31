@@ -1012,7 +1012,7 @@ public class MessageParser {
     /* JADX WARN: Removed duplicated region for block: B:143:0x0393 A[Catch: Exception -> 0x048c, TryCatch #1 {Exception -> 0x048c, blocks: (B:5:0x001b, B:150:0x03b3, B:152:0x03b9, B:154:0x03d3, B:156:0x03e5, B:157:0x03ec, B:159:0x03f4, B:160:0x03fb, B:162:0x0403, B:166:0x0410, B:167:0x0413, B:169:0x0419, B:171:0x041f, B:173:0x0425, B:174:0x0428, B:176:0x042e, B:178:0x0433, B:180:0x043f, B:182:0x044e, B:184:0x045b, B:185:0x0462, B:187:0x046a, B:188:0x0473, B:181:0x0443, B:82:0x0262, B:103:0x0289, B:106:0x0295, B:108:0x02a5, B:110:0x02cb, B:134:0x0355, B:136:0x036a, B:138:0x0377, B:139:0x0380, B:141:0x0388, B:143:0x0393, B:144:0x0396, B:124:0x0329, B:126:0x0332, B:130:0x0347, B:81:0x025e, B:113:0x02d5, B:115:0x02ea, B:117:0x02fa, B:118:0x02ff, B:120:0x030c, B:121:0x030f), top: B:199:0x001b, inners: #4 }] */
     /* JADX WARN: Removed duplicated region for block: B:94:0x027a A[ADDED_TO_REGION] */
     /* JADX WARN: Type inference failed for: r1v12 */
-    /* JADX WARN: Type inference failed for: r1v13, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r1v13, types: [boolean, int] */
     /* JADX WARN: Type inference failed for: r1v23 */
     /* JADX WARN: Type inference failed for: r7v1, types: [T, java.lang.Long] */
     /*

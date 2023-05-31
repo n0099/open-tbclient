@@ -138,7 +138,7 @@ public class PbGodGuideController implements LifecycleObserver {
                 return false;
             }
             this.a = new a(context, view2, str, str2);
-            sg.a().postDelayed(this.a, 3000L);
+            sg.a().postDelayed(this.a, 1000L);
             return true;
         }
         return invokeLLLLL.booleanValue;
