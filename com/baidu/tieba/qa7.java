@@ -774,9 +774,8 @@ public class qa7 {
     }
 
     public final void t() {
-        Activity activity;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (activity = this.c) != null && !activity.isFinishing()) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             Dialog dialog = new Dialog(this.c, R.style.obfuscated_res_0x7f1001c0);
             this.m = dialog;
             dialog.requestWindowFeature(1);

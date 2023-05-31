@@ -1086,7 +1086,7 @@ public class ImageListFragment extends BaseFragment implements y7a.d, AbsListVie
         }
     }
 
-    /* JADX WARN: Type inference failed for: r0v9, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r0v9, types: [int, boolean] */
     public final void s2() {
         x7a x7aVar;
         String string;

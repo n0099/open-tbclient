@@ -25,13 +25,14 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.ThirdStatisticHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ev4;
 import com.baidu.tieba.lh9;
 import com.baidu.tieba.n95;
 import com.baidu.tieba.o65;
+import com.baidu.tieba.oz9;
 import com.baidu.tieba.qi;
 import com.baidu.tieba.ti8;
 import com.baidu.tieba.yf9;
@@ -510,6 +511,21 @@ public class RightFloatLayerView extends RelativeLayout {
         }
     }
 
+    public final void f(n95 n95Var) {
+        TbPageContext<?> tbPageContext;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, n95Var) == null) {
+            String str = n95Var.a;
+            String str2 = n95Var.j;
+            String str3 = n95Var.k;
+            String str4 = n95Var.i;
+            if (!UtilHelper.isMatchScheme(getContext(), str2, str3) && !StringUtils.isNull(str) && (tbPageContext = this.t) != null) {
+                oz9.a(tbPageContext, ev4.a + qi.getUrlEncode(str));
+            }
+            ThirdStatisticHelper.sendReq(str4);
+        }
+    }
+
     public void j(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
@@ -630,20 +646,6 @@ public class RightFloatLayerView extends RelativeLayout {
             str = TbadkCoreStatisticKey.KEY_FLOAT_LAYER_SHOW;
         }
         TiebaStatic.log(new StatisticItem(str).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", i3));
-    }
-
-    public final void f(n95 n95Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, n95Var) == null) {
-            String str = n95Var.a;
-            String str2 = n95Var.j;
-            String str3 = n95Var.k;
-            String str4 = n95Var.i;
-            if (!UtilHelper.isMatchScheme(getContext(), str2, str3) && !StringUtils.isNull(str) && this.t != null) {
-                UrlManager.getInstance().dealOneLink(this.t, new String[]{str});
-            }
-            ThirdStatisticHelper.sendReq(str4);
-        }
     }
 
     public void setData(n95 n95Var) {

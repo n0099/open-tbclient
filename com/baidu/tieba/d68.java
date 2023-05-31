@@ -275,7 +275,7 @@ public class d68 {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Type inference failed for: r6v0 */
-        /* JADX WARN: Type inference failed for: r6v26, types: [boolean, int] */
+        /* JADX WARN: Type inference failed for: r6v26, types: [int, boolean] */
         /* JADX WARN: Type inference failed for: r6v56 */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: e */

@@ -51,8 +51,8 @@ public class gh6 {
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            BridgeConfig_tbadkcore.register();
             JsInterfaces_tbadkcore.register();
+            BridgeConfig_tbadkcore.register();
         }
     }
 

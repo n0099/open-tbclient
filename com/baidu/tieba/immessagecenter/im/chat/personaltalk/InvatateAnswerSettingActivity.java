@@ -41,7 +41,7 @@ public class InvatateAnswerSettingActivity extends BaseActivity<InvatateAnswerSe
     /* JADX DEBUG: Multi-variable search result rejected for r6v2, resolved type: com.baidu.tieba.kc8 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r5v2 */
-    /* JADX WARN: Type inference failed for: r5v3, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r5v3, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r5v6 */
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
     public void d0(View view2, BdSwitchView.SwitchState switchState) {

@@ -238,7 +238,7 @@ public class b1a extends Thread {
     /* JADX WARN: Type inference failed for: r11v10 */
     /* JADX WARN: Type inference failed for: r11v11 */
     /* JADX WARN: Type inference failed for: r11v2 */
-    /* JADX WARN: Type inference failed for: r11v3, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r11v3, types: [int, boolean] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
